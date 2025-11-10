@@ -1,0 +1,199 @@
+/*
+ * (c) Copyright Ascensio System SIA 2025
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+package org.openapitools.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.client.model.SortedByType;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
+
+/**
+ * The sorting parameters.
+ */
+@JsonPropertyOrder({
+  OrderBy.JSON_PROPERTY_IS_ASC,
+  OrderBy.JSON_PROPERTY_PROPERTY
+})
+@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+public class OrderBy {
+  public static final String JSON_PROPERTY_IS_ASC = "is_asc";
+  @javax.annotation.Nullable
+  private Boolean isAsc;
+
+  public static final String JSON_PROPERTY_PROPERTY = "property";
+  @javax.annotation.Nullable
+  private SortedByType property;
+
+  public OrderBy() {
+  }
+
+  public OrderBy isAsc(@javax.annotation.Nullable Boolean isAsc) {
+    
+    this.isAsc = isAsc;
+    return this;
+  }
+
+  /**
+   * Specifies if the order is ascending.
+   * @return isAsc
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_ASC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsAsc() {
+    return isAsc;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_ASC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsAsc(@javax.annotation.Nullable Boolean isAsc) {
+    this.isAsc = isAsc;
+  }
+
+  public OrderBy property(@javax.annotation.Nullable SortedByType property) {
+    
+    this.property = property;
+    return this;
+  }
+
+  /**
+   * Get property
+   * @return property
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROPERTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SortedByType getProperty() {
+    return property;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PROPERTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setProperty(@javax.annotation.Nullable SortedByType property) {
+    this.property = property;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    OrderBy orderBy = (OrderBy) o;
+    return Objects.equals(this.isAsc, orderBy.isAsc) &&
+        Objects.equals(this.property, orderBy.property);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(isAsc, property);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OrderBy {\n");
+    sb.append("    isAsc: ").append(toIndentedString(isAsc)).append("\n");
+    sb.append("    property: ").append(toIndentedString(property)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `is_asc` to the URL query string
+    if (getIsAsc() != null) {
+      try {
+        joiner.add(String.format("%sis_asc%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsAsc()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `property` to the URL query string
+    if (getProperty() != null) {
+      try {
+        joiner.add(String.format("%sproperty%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getProperty()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
+  }
+
+}
+
