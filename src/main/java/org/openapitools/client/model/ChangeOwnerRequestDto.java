@@ -28,7 +28,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import org.openapitools.client.model.BatchRequestDtoAllOfFileIds;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -47,15 +46,15 @@ import java.util.StringJoiner;
   ChangeOwnerRequestDto.JSON_PROPERTY_FILE_IDS,
   ChangeOwnerRequestDto.JSON_PROPERTY_USER_ID
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class ChangeOwnerRequestDto {
   public static final String JSON_PROPERTY_FOLDER_IDS = "folderIds";
   @javax.annotation.Nullable
-  private JsonNullable<List<BatchRequestDtoAllOfFileIds>> folderIds = JsonNullable.<List<BatchRequestDtoAllOfFileIds>>undefined();
+  private JsonNullable<List<Integer>> folderIds = JsonNullable.<List<Integer>>undefined();
 
   public static final String JSON_PROPERTY_FILE_IDS = "fileIds";
   @javax.annotation.Nullable
-  private JsonNullable<List<BatchRequestDtoAllOfFileIds>> fileIds = JsonNullable.<List<BatchRequestDtoAllOfFileIds>>undefined();
+  private JsonNullable<List<Integer>> fileIds = JsonNullable.<List<Integer>>undefined();
 
   public static final String JSON_PROPERTY_USER_ID = "userId";
   @javax.annotation.Nonnull
@@ -64,15 +63,15 @@ public class ChangeOwnerRequestDto {
   public ChangeOwnerRequestDto() {
   }
 
-  public ChangeOwnerRequestDto folderIds(@javax.annotation.Nullable List<BatchRequestDtoAllOfFileIds> folderIds) {
-    this.folderIds = JsonNullable.<List<BatchRequestDtoAllOfFileIds>>of(folderIds);
+  public ChangeOwnerRequestDto folderIds(@javax.annotation.Nullable List<Integer> folderIds) {
+    this.folderIds = JsonNullable.<List<Integer>>of(folderIds);
     
     return this;
   }
 
-  public ChangeOwnerRequestDto addFolderIdsItem(BatchRequestDtoAllOfFileIds folderIdsItem) {
+  public ChangeOwnerRequestDto addFolderIdsItem(Integer folderIdsItem) {
     if (this.folderIds == null || !this.folderIds.isPresent()) {
-      this.folderIds = JsonNullable.<List<BatchRequestDtoAllOfFileIds>>of(new ArrayList<>());
+      this.folderIds = JsonNullable.<List<Integer>>of(new ArrayList<>());
     }
     try {
       this.folderIds.get().add(folderIdsItem);
@@ -89,35 +88,35 @@ public class ChangeOwnerRequestDto {
   @javax.annotation.Nullable
   @JsonIgnore
 
-  public List<BatchRequestDtoAllOfFileIds> getFolderIds() {
+  public List<Integer> getFolderIds() {
         return folderIds.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_FOLDER_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<BatchRequestDtoAllOfFileIds>> getFolderIds_JsonNullable() {
+  public JsonNullable<List<Integer>> getFolderIds_JsonNullable() {
     return folderIds;
   }
   
   @JsonProperty(JSON_PROPERTY_FOLDER_IDS)
-  public void setFolderIds_JsonNullable(JsonNullable<List<BatchRequestDtoAllOfFileIds>> folderIds) {
+  public void setFolderIds_JsonNullable(JsonNullable<List<Integer>> folderIds) {
     this.folderIds = folderIds;
   }
 
-  public void setFolderIds(@javax.annotation.Nullable List<BatchRequestDtoAllOfFileIds> folderIds) {
-    this.folderIds = JsonNullable.<List<BatchRequestDtoAllOfFileIds>>of(folderIds);
+  public void setFolderIds(@javax.annotation.Nullable List<Integer> folderIds) {
+    this.folderIds = JsonNullable.<List<Integer>>of(folderIds);
   }
 
-  public ChangeOwnerRequestDto fileIds(@javax.annotation.Nullable List<BatchRequestDtoAllOfFileIds> fileIds) {
-    this.fileIds = JsonNullable.<List<BatchRequestDtoAllOfFileIds>>of(fileIds);
+  public ChangeOwnerRequestDto fileIds(@javax.annotation.Nullable List<Integer> fileIds) {
+    this.fileIds = JsonNullable.<List<Integer>>of(fileIds);
     
     return this;
   }
 
-  public ChangeOwnerRequestDto addFileIdsItem(BatchRequestDtoAllOfFileIds fileIdsItem) {
+  public ChangeOwnerRequestDto addFileIdsItem(Integer fileIdsItem) {
     if (this.fileIds == null || !this.fileIds.isPresent()) {
-      this.fileIds = JsonNullable.<List<BatchRequestDtoAllOfFileIds>>of(new ArrayList<>());
+      this.fileIds = JsonNullable.<List<Integer>>of(new ArrayList<>());
     }
     try {
       this.fileIds.get().add(fileIdsItem);
@@ -134,24 +133,24 @@ public class ChangeOwnerRequestDto {
   @javax.annotation.Nullable
   @JsonIgnore
 
-  public List<BatchRequestDtoAllOfFileIds> getFileIds() {
+  public List<Integer> getFileIds() {
         return fileIds.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_FILE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<BatchRequestDtoAllOfFileIds>> getFileIds_JsonNullable() {
+  public JsonNullable<List<Integer>> getFileIds_JsonNullable() {
     return fileIds;
   }
   
   @JsonProperty(JSON_PROPERTY_FILE_IDS)
-  public void setFileIds_JsonNullable(JsonNullable<List<BatchRequestDtoAllOfFileIds>> fileIds) {
+  public void setFileIds_JsonNullable(JsonNullable<List<Integer>> fileIds) {
     this.fileIds = fileIds;
   }
 
-  public void setFileIds(@javax.annotation.Nullable List<BatchRequestDtoAllOfFileIds> fileIds) {
-    this.fileIds = JsonNullable.<List<BatchRequestDtoAllOfFileIds>>of(fileIds);
+  public void setFileIds(@javax.annotation.Nullable List<Integer> fileIds) {
+    this.fileIds = JsonNullable.<List<Integer>>of(fileIds);
   }
 
   public ChangeOwnerRequestDto userId(@javax.annotation.Nonnull UUID userId) {
@@ -266,9 +265,13 @@ public class ChangeOwnerRequestDto {
     // add `folderIds` to the URL query string
     if (getFolderIds() != null) {
       for (int i = 0; i < getFolderIds().size(); i++) {
-        if (getFolderIds().get(i) != null) {
-          joiner.add(getFolderIds().get(i).toUrlQueryString(String.format("%sfolderIds%s%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        try {
+          joiner.add(String.format("%sfolderIds%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getFolderIds().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
         }
       }
     }
@@ -276,9 +279,13 @@ public class ChangeOwnerRequestDto {
     // add `fileIds` to the URL query string
     if (getFileIds() != null) {
       for (int i = 0; i < getFileIds().size(); i++) {
-        if (getFileIds().get(i) != null) {
-          joiner.add(getFileIds().get(i).toUrlQueryString(String.format("%sfileIds%s%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        try {
+          joiner.add(String.format("%sfileIds%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getFileIds().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
         }
       }
     }

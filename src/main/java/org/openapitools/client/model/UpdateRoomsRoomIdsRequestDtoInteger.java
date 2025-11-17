@@ -27,7 +27,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.DuplicateRequestDtoAllOfFileIds;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -44,24 +43,24 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   UpdateRoomsRoomIdsRequestDtoInteger.JSON_PROPERTY_ROOM_IDS
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class UpdateRoomsRoomIdsRequestDtoInteger {
   public static final String JSON_PROPERTY_ROOM_IDS = "roomIds";
   @javax.annotation.Nullable
-  private JsonNullable<List<DuplicateRequestDtoAllOfFileIds>> roomIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>undefined();
+  private JsonNullable<List<Integer>> roomIds = JsonNullable.<List<Integer>>undefined();
 
   public UpdateRoomsRoomIdsRequestDtoInteger() {
   }
 
-  public UpdateRoomsRoomIdsRequestDtoInteger roomIds(@javax.annotation.Nullable List<DuplicateRequestDtoAllOfFileIds> roomIds) {
-    this.roomIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>of(roomIds);
+  public UpdateRoomsRoomIdsRequestDtoInteger roomIds(@javax.annotation.Nullable List<Integer> roomIds) {
+    this.roomIds = JsonNullable.<List<Integer>>of(roomIds);
     
     return this;
   }
 
-  public UpdateRoomsRoomIdsRequestDtoInteger addRoomIdsItem(DuplicateRequestDtoAllOfFileIds roomIdsItem) {
+  public UpdateRoomsRoomIdsRequestDtoInteger addRoomIdsItem(Integer roomIdsItem) {
     if (this.roomIds == null || !this.roomIds.isPresent()) {
-      this.roomIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>of(new ArrayList<>());
+      this.roomIds = JsonNullable.<List<Integer>>of(new ArrayList<>());
     }
     try {
       this.roomIds.get().add(roomIdsItem);
@@ -78,24 +77,24 @@ public class UpdateRoomsRoomIdsRequestDtoInteger {
   @javax.annotation.Nullable
   @JsonIgnore
 
-  public List<DuplicateRequestDtoAllOfFileIds> getRoomIds() {
+  public List<Integer> getRoomIds() {
         return roomIds.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_ROOM_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<DuplicateRequestDtoAllOfFileIds>> getRoomIds_JsonNullable() {
+  public JsonNullable<List<Integer>> getRoomIds_JsonNullable() {
     return roomIds;
   }
   
   @JsonProperty(JSON_PROPERTY_ROOM_IDS)
-  public void setRoomIds_JsonNullable(JsonNullable<List<DuplicateRequestDtoAllOfFileIds>> roomIds) {
+  public void setRoomIds_JsonNullable(JsonNullable<List<Integer>> roomIds) {
     this.roomIds = roomIds;
   }
 
-  public void setRoomIds(@javax.annotation.Nullable List<DuplicateRequestDtoAllOfFileIds> roomIds) {
-    this.roomIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>of(roomIds);
+  public void setRoomIds(@javax.annotation.Nullable List<Integer> roomIds) {
+    this.roomIds = JsonNullable.<List<Integer>>of(roomIds);
   }
 
   @Override
@@ -181,9 +180,13 @@ public class UpdateRoomsRoomIdsRequestDtoInteger {
     // add `roomIds` to the URL query string
     if (getRoomIds() != null) {
       for (int i = 0; i < getRoomIds().size(); i++) {
-        if (getRoomIds().get(i) != null) {
-          joiner.add(getRoomIds().get(i).toUrlQueryString(String.format("%sroomIds%s%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        try {
+          joiner.add(String.format("%sroomIds%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getRoomIds().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
         }
       }
     }

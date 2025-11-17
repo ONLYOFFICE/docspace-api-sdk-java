@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * [1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room, 9 - Virtual data room]
+ * [1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room, 9 - AI Room]
  */
 public enum RoomType {
   
@@ -59,7 +59,7 @@ public enum RoomType {
   VirtualDataRoom(8),
   
   /**
-   * Virtual data room
+   * AI Room
    */
   AiRoom(9);
 

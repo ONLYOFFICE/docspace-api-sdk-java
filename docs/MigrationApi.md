@@ -1,4 +1,4 @@
-# onlyoffice.docspace.api.sdk.org.openapitools.client.api.MigrationApi
+# docspace-api-sdk.org.openapitools.client.api.MigrationApi
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
 

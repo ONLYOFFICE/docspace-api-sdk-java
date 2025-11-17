@@ -39,7 +39,7 @@ import java.util.StringJoiner;
   AccountInfoDto.JSON_PROPERTY_URL,
   AccountInfoDto.JSON_PROPERTY_LINKED
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class AccountInfoDto {
   public static final String JSON_PROPERTY_PROVIDER = "provider";
   @javax.annotation.Nullable

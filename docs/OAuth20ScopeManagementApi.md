@@ -1,4 +1,4 @@
-# onlyoffice.docspace.api.sdk.org.openapitools.client.api.ScopeManagementApi
+# docspace-api-sdk.org.openapitools.client.api.ScopeManagementApi
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
 

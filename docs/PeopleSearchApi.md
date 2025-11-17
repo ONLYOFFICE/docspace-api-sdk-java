@@ -1,4 +1,4 @@
-# onlyoffice.docspace.api.sdk.org.openapitools.client.api.SearchApi
+# docspace-api-sdk.org.openapitools.client.api.SearchApi
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
 
@@ -490,7 +490,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **employeeStatus** | [**EmployeeStatus**](.md)| The user status. | [optional] [enum: 1, 2, 4, 5, 7] |
 | **groupId** | **UUID**| The group ID. | [optional] |
 | **activationStatus** | [**EmployeeActivationStatus**](.md)| The user activation status. | [optional] [enum: 0, 1, 2, 4] |
-| **employeeType** | [**EmployeeType**](.md)| The user type. | [optional] [enum: 0, 1, 2, 3, 4] |
+| **employeeType** | [**EmployeeType**](.md)| The user type. | [optional] [enum: All, RoomAdmin, Guest, DocSpaceAdmin, User] |
 | **employeeTypes** | [**List&lt;Integer&gt;**](Integer.md)| The list of user types. | [optional] [enum: 0, 1, 2, 3, 4] |
 | **isAdministrator** | **Boolean**| Specifies if the user is an administrator or not. | [optional] |
 | **payments** | [**Payments**](.md)| The user payment status. | [optional] [enum: 0, 1] |
@@ -562,7 +562,7 @@ public class Example {
         EmployeeStatus employeeStatus = EmployeeStatus.fromValue("1"); // EmployeeStatus | The user status.
         UUID groupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The group ID.
         EmployeeActivationStatus activationStatus = EmployeeActivationStatus.fromValue("0"); // EmployeeActivationStatus | The user activation status.
-        EmployeeType employeeType = EmployeeType.fromValue("0"); // EmployeeType | The user type.
+        EmployeeType employeeType = EmployeeType.fromValue("All"); // EmployeeType | The user type.
         List<Integer> employeeTypes = Arrays.asList(new ArrayList<>()); // List<Integer> | The list of user types.
         Boolean isAdministrator = true; // Boolean | Specifies if the user is an administrator or not.
         Payments payments = Payments.fromValue("0"); // Payments | The user payment status.
@@ -980,7 +980,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **employeeStatus** | [**EmployeeStatus**](.md)| The user status. | [optional] [enum: 1, 2, 4, 5, 7] |
 | **groupId** | **UUID**| The group ID. | [optional] |
 | **activationStatus** | [**EmployeeActivationStatus**](.md)| The user activation status. | [optional] [enum: 0, 1, 2, 4] |
-| **employeeType** | [**EmployeeType**](.md)| The user type. | [optional] [enum: 0, 1, 2, 3, 4] |
+| **employeeType** | [**EmployeeType**](.md)| The user type. | [optional] [enum: All, RoomAdmin, Guest, DocSpaceAdmin, User] |
 | **employeeTypes** | [**List&lt;Integer&gt;**](Integer.md)| The list of user types. | [optional] [enum: 0, 1, 2, 3, 4] |
 | **isAdministrator** | **Boolean**| Specifies if the user is an administrator or not. | [optional] |
 | **payments** | [**Payments**](.md)| The user payment status. | [optional] [enum: 0, 1] |
@@ -1052,7 +1052,7 @@ public class Example {
         EmployeeStatus employeeStatus = EmployeeStatus.fromValue("1"); // EmployeeStatus | The user status.
         UUID groupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The group ID.
         EmployeeActivationStatus activationStatus = EmployeeActivationStatus.fromValue("0"); // EmployeeActivationStatus | The user activation status.
-        EmployeeType employeeType = EmployeeType.fromValue("0"); // EmployeeType | The user type.
+        EmployeeType employeeType = EmployeeType.fromValue("All"); // EmployeeType | The user type.
         List<Integer> employeeTypes = Arrays.asList(new ArrayList<>()); // List<Integer> | The list of user types.
         Boolean isAdministrator = true; // Boolean | Specifies if the user is an administrator or not.
         Payments payments = Payments.fromValue("0"); // Payments | The user payment status.

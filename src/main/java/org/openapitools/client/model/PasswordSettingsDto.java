@@ -43,7 +43,7 @@ import java.util.StringJoiner;
   PasswordSettingsDto.JSON_PROPERTY_UPPER_CASE_REGEX_STR,
   PasswordSettingsDto.JSON_PROPERTY_SPEC_SYMBOLS_REGEX_STR
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class PasswordSettingsDto {
   public static final String JSON_PROPERTY_MIN_LENGTH = "minLength";
   @javax.annotation.Nonnull

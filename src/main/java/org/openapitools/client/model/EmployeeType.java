@@ -29,43 +29,28 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * [0 - All, 1 - Room admin, 2 - Guest, 3 - DocSpace admin, 4 - User]
+ * [All - All, RoomAdmin - Room admin, Guest - Guest, DocSpaceAdmin - DocSpace admin, User - User]
  */
 public enum EmployeeType {
   
-  /**
-   * All
-   */
-  All(0),
+  ALL("All"),
   
-  /**
-   * Room admin
-   */
-  RoomAdmin(1),
+  ROOM_ADMIN("RoomAdmin"),
   
-  /**
-   * Guest
-   */
-  Guest(2),
+  GUEST("Guest"),
   
-  /**
-   * DocSpace admin
-   */
-  DocSpaceAdmin(3),
+  DOC_SPACE_ADMIN("DocSpaceAdmin"),
   
-  /**
-   * User
-   */
-  User(4);
+  USER("User");
 
-  private Integer value;
+  private String value;
 
-  EmployeeType(Integer value) {
+  EmployeeType(String value) {
     this.value = value;
   }
 
   @JsonValue
-  public Integer getValue() {
+  public String getValue() {
     return value;
   }
 
@@ -75,7 +60,7 @@ public enum EmployeeType {
   }
 
   @JsonCreator
-  public static EmployeeType fromValue(Integer value) {
+  public static EmployeeType fromValue(String value) {
     for (EmployeeType b : EmployeeType.values()) {
       if (b.value.equals(value)) {
         return b;

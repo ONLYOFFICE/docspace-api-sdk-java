@@ -42,7 +42,7 @@ import java.util.StringJoiner;
   PriceDto.JSON_PROPERTY_CURRENCY_SYMBOL,
   PriceDto.JSON_PROPERTY_ISO_CURRENCY_SYMBOL
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class PriceDto {
   public static final String JSON_PROPERTY_VALUE = "value";
   @javax.annotation.Nullable

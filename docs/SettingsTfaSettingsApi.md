@@ -1,4 +1,4 @@
-# onlyoffice.docspace.api.sdk.org.openapitools.client.api.TFASettingsApi
+# docspace-api-sdk.org.openapitools.client.api.TFASettingsApi
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
 

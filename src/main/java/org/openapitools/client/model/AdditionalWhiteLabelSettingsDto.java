@@ -42,7 +42,7 @@ import java.util.StringJoiner;
   AdditionalWhiteLabelSettingsDto.JSON_PROPERTY_LICENSE_AGREEMENTS_ENABLED,
   AdditionalWhiteLabelSettingsDto.JSON_PROPERTY_IS_DEFAULT
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class AdditionalWhiteLabelSettingsDto {
   public static final String JSON_PROPERTY_START_DOCS_ENABLED = "startDocsEnabled";
   @javax.annotation.Nonnull

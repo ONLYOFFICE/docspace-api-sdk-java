@@ -5,15 +5,15 @@
 ## Enum
 
 
-* `All` (value: `0`)
+* `ALL` (value: `"All"`)
 
-* `RoomAdmin` (value: `1`)
+* `ROOM_ADMIN` (value: `"RoomAdmin"`)
 
-* `Guest` (value: `2`)
+* `GUEST` (value: `"Guest"`)
 
-* `DocSpaceAdmin` (value: `3`)
+* `DOC_SPACE_ADMIN` (value: `"DocSpaceAdmin"`)
 
-* `User` (value: `4`)
+* `USER` (value: `"User"`)
 
 
 

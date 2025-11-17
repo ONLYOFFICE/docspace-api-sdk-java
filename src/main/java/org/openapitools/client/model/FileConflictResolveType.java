@@ -29,33 +29,24 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * [0 - Skip, 1 - Overwrite, 2 - Duplicate]
+ * [Skip - Skip, Overwrite - Overwrite, Duplicate - Duplicate]
  */
 public enum FileConflictResolveType {
   
-  /**
-   * Skip
-   */
-  Skip(0),
+  SKIP("Skip"),
   
-  /**
-   * Overwrite
-   */
-  Overwrite(1),
+  OVERWRITE("Overwrite"),
   
-  /**
-   * Duplicate
-   */
-  Duplicate(2);
+  DUPLICATE("Duplicate");
 
-  private Integer value;
+  private String value;
 
-  FileConflictResolveType(Integer value) {
+  FileConflictResolveType(String value) {
     this.value = value;
   }
 
   @JsonValue
-  public Integer getValue() {
+  public String getValue() {
     return value;
   }
 
@@ -65,7 +56,7 @@ public enum FileConflictResolveType {
   }
 
   @JsonCreator
-  public static FileConflictResolveType fromValue(Integer value) {
+  public static FileConflictResolveType fromValue(String value) {
     for (FileConflictResolveType b : FileConflictResolveType.values()) {
       if (b.value.equals(value)) {
         return b;

@@ -46,7 +46,7 @@ import java.util.StringJoiner;
   GroupRequestDto.JSON_PROPERTY_GROUP_MANAGER,
   GroupRequestDto.JSON_PROPERTY_GROUP_NAME
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class GroupRequestDto {
   public static final String JSON_PROPERTY_MEMBERS = "members";
   @javax.annotation.Nullable

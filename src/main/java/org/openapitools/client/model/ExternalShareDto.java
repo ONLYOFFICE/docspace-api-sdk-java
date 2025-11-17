@@ -55,7 +55,7 @@ import java.util.StringJoiner;
   ExternalShareDto.JSON_PROPERTY_IS_AUTHENTICATED,
   ExternalShareDto.JSON_PROPERTY_IS_ROOM_MEMBER
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class ExternalShareDto {
   public static final String JSON_PROPERTY_STATUS = "status";
   @javax.annotation.Nonnull

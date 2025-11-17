@@ -42,7 +42,7 @@ import java.util.StringJoiner;
   CreateTextOrHtmlFile.JSON_PROPERTY_CONTENT,
   CreateTextOrHtmlFile.JSON_PROPERTY_CREATE_NEW_IF_EXIST
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class CreateTextOrHtmlFile {
   public static final String JSON_PROPERTY_TITLE = "title";
   @javax.annotation.Nullable

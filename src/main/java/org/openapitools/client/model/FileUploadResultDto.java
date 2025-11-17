@@ -42,7 +42,7 @@ import java.util.StringJoiner;
   FileUploadResultDto.JSON_PROPERTY_DATA,
   FileUploadResultDto.JSON_PROPERTY_MESSAGE
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class FileUploadResultDto {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable

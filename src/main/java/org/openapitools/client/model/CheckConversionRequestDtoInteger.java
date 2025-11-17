@@ -46,7 +46,7 @@ import java.util.StringJoiner;
   CheckConversionRequestDtoInteger.JSON_PROPERTY_OUTPUT_TYPE,
   CheckConversionRequestDtoInteger.JSON_PROPERTY_CREATE_NEW_IF_EXIST
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class CheckConversionRequestDtoInteger {
   public static final String JSON_PROPERTY_FILE_ID = "fileId";
   @javax.annotation.Nullable

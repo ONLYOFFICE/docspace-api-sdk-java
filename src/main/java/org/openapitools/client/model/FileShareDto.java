@@ -57,7 +57,7 @@ import java.util.StringJoiner;
   FileShareDto.JSON_PROPERTY_CAN_REVOKE,
   FileShareDto.JSON_PROPERTY_SUBJECT_TYPE
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class FileShareDto {
   public static final String JSON_PROPERTY_ACCESS = "access";
   @javax.annotation.Nullable

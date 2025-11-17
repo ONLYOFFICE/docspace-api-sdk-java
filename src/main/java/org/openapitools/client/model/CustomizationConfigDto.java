@@ -58,7 +58,7 @@ import java.util.StringJoiner;
   CustomizationConfigDto.JSON_PROPERTY_SUBMIT_FORM,
   CustomizationConfigDto.JSON_PROPERTY_START_FILLING_FORM
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class CustomizationConfigDto {
   public static final String JSON_PROPERTY_ABOUT = "about";
   @javax.annotation.Nullable

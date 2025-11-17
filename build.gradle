@@ -1,8 +1,8 @@
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 
-group = 'org.openapitools'
-version = '4.0.0'
+group = 'com.onlyoffice'
+version = '3.5.0-preview.1'
 
 buildscript {
     repositories {
@@ -84,7 +84,7 @@ if(hasProperty('target') && target == 'android') {
     publishing {
         publications {
             maven(MavenPublication) {
-               artifactId = 'openapi-java-client'
+               artifactId = 'docspace-api-sdk'
 
                from components.java
             }

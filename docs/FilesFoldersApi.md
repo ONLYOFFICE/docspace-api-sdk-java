@@ -1,38 +1,38 @@
-# onlyoffice.docspace.api.sdk.org.openapitools.client.api.FoldersApi
+# docspace-api-sdk.org.openapitools.client.api.FoldersApi
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**checkUpload**](FilesFoldersApi.md#checkUpload) | **POST** /api/2.0/files/{folderId}/upload/check |  |
-| [**createFolder**](FilesFoldersApi.md#createFolder) | **POST** /api/2.0/files/folder/{folderId} |  |
-| [**createFolderPrimaryExternalLink**](FilesFoldersApi.md#createFolderPrimaryExternalLink) | **POST** /api/2.0/files/folder/{id}/link |  |
-| [**createReportFolderHistory**](FilesFoldersApi.md#createReportFolderHistory) | **POST** /api/2.0/files/folder/{folderId}/log/report |  |
-| [**deleteFolder**](FilesFoldersApi.md#deleteFolder) | **DELETE** /api/2.0/files/folder/{folderId} |  |
-| [**getFavoritesFolder**](FilesFoldersApi.md#getFavoritesFolder) | **GET** /api/2.0/files/@favorites |  |
-| [**getFilesUsedSpace**](FilesFoldersApi.md#getFilesUsedSpace) | **GET** /api/2.0/files/filesusedspace |  |
-| [**getFolder**](FilesFoldersApi.md#getFolder) | **GET** /api/2.0/files/{folderId}/formfilter |  |
-| [**getFolderByFolderId**](FilesFoldersApi.md#getFolderByFolderId) | **GET** /api/2.0/files/{folderId} |  |
-| [**getFolderHistory**](FilesFoldersApi.md#getFolderHistory) | **GET** /api/2.0/files/folder/{folderId}/log |  |
-| [**getFolderInfo**](FilesFoldersApi.md#getFolderInfo) | **GET** /api/2.0/files/folder/{folderId} |  |
-| [**getFolderLinks**](FilesFoldersApi.md#getFolderLinks) | **GET** /api/2.0/files/folder/{id}/links |  |
-| [**getFolderPath**](FilesFoldersApi.md#getFolderPath) | **GET** /api/2.0/files/folder/{folderId}/path |  |
-| [**getFolderPrimaryExternalLink**](FilesFoldersApi.md#getFolderPrimaryExternalLink) | **GET** /api/2.0/files/folder/{id}/link |  |
-| [**getFolderRecent**](FilesFoldersApi.md#getFolderRecent) | **GET** /api/2.0/files/recent |  |
-| [**getFolders**](FilesFoldersApi.md#getFolders) | **GET** /api/2.0/files/{folderId}/subfolders |  |
-| [**getMyFolder**](FilesFoldersApi.md#getMyFolder) | **GET** /api/2.0/files/@my |  |
-| [**getNewFolderItems**](FilesFoldersApi.md#getNewFolderItems) | **GET** /api/2.0/files/{folderId}/news |  |
-| [**getPrivacyFolder**](FilesFoldersApi.md#getPrivacyFolder) | **GET** /api/2.0/files/@privacy |  |
-| [**getRecentFolder**](FilesFoldersApi.md#getRecentFolder) | **GET** /api/2.0/files/@recent |  |
-| [**getRootFolders**](FilesFoldersApi.md#getRootFolders) | **GET** /api/2.0/files/@root |  |
-| [**getTrashFolder**](FilesFoldersApi.md#getTrashFolder) | **GET** /api/2.0/files/@trash |  |
-| [**insertFile**](FilesFoldersApi.md#insertFile) | **POST** /api/2.0/files/{folderId}/insert |  |
-| [**insertFileToMyFromBody**](FilesFoldersApi.md#insertFileToMyFromBody) | **POST** /api/2.0/files/@my/insert |  |
-| [**renameFolder**](FilesFoldersApi.md#renameFolder) | **PUT** /api/2.0/files/folder/{folderId} |  |
-| [**setFolderOrder**](FilesFoldersApi.md#setFolderOrder) | **PUT** /api/2.0/files/folder/{folderId}/order |  |
-| [**setFolderPrimaryExternalLink**](FilesFoldersApi.md#setFolderPrimaryExternalLink) | **PUT** /api/2.0/files/folder/{id}/links |  |
-| [**uploadFile**](FilesFoldersApi.md#uploadFile) | **POST** /api/2.0/files/{folderId}/upload |  |
-| [**uploadFileToMy**](FilesFoldersApi.md#uploadFileToMy) | **POST** /api/2.0/files/@my/upload |  |
+| [**checkUpload**](FilesFoldersApi.md#checkUpload) | **POST** /api/2.0/files/{folderId}/upload/check | Check file uploads |
+| [**createFolder**](FilesFoldersApi.md#createFolder) | **POST** /api/2.0/files/folder/{folderId} | Create a folder |
+| [**createFolderPrimaryExternalLink**](FilesFoldersApi.md#createFolderPrimaryExternalLink) | **POST** /api/2.0/files/folder/{id}/link | Create primary external link |
+| [**createReportFolderHistory**](FilesFoldersApi.md#createReportFolderHistory) | **POST** /api/2.0/files/folder/{folderId}/log/report | Generates folder history |
+| [**deleteFolder**](FilesFoldersApi.md#deleteFolder) | **DELETE** /api/2.0/files/folder/{folderId} | Delete a folder |
+| [**getFavoritesFolder**](FilesFoldersApi.md#getFavoritesFolder) | **GET** /api/2.0/files/@favorites | Get the Favorites section |
+| [**getFilesUsedSpace**](FilesFoldersApi.md#getFilesUsedSpace) | **GET** /api/2.0/files/filesusedspace | Get used space of files |
+| [**getFolder**](FilesFoldersApi.md#getFolder) | **GET** /api/2.0/files/{folderId}/formfilter | Get folder form filter |
+| [**getFolderByFolderId**](FilesFoldersApi.md#getFolderByFolderId) | **GET** /api/2.0/files/{folderId} | Get a folder by ID |
+| [**getFolderHistory**](FilesFoldersApi.md#getFolderHistory) | **GET** /api/2.0/files/folder/{folderId}/log | Get folder history |
+| [**getFolderInfo**](FilesFoldersApi.md#getFolderInfo) | **GET** /api/2.0/files/folder/{folderId} | Get folder information |
+| [**getFolderLinks**](FilesFoldersApi.md#getFolderLinks) | **GET** /api/2.0/files/folder/{id}/links | Get the folder links |
+| [**getFolderPath**](FilesFoldersApi.md#getFolderPath) | **GET** /api/2.0/files/folder/{folderId}/path | Get the folder path |
+| [**getFolderPrimaryExternalLink**](FilesFoldersApi.md#getFolderPrimaryExternalLink) | **GET** /api/2.0/files/folder/{id}/link | Get primary external link |
+| [**getFolderRecent**](FilesFoldersApi.md#getFolderRecent) | **GET** /api/2.0/files/recent | Get the Recent section |
+| [**getFolders**](FilesFoldersApi.md#getFolders) | **GET** /api/2.0/files/{folderId}/subfolders | Get subfolders |
+| [**getMyFolder**](FilesFoldersApi.md#getMyFolder) | **GET** /api/2.0/files/@my | Get the My documents section |
+| [**getNewFolderItems**](FilesFoldersApi.md#getNewFolderItems) | **GET** /api/2.0/files/{folderId}/news | Get new folder items |
+| [**getPrivacyFolder**](FilesFoldersApi.md#getPrivacyFolder) | **GET** /api/2.0/files/@privacy | Get the Private Room section |
+| [**getRecentFolder**](FilesFoldersApi.md#getRecentFolder) | **GET** /api/2.0/files/@recent | Get the Recent section |
+| [**getRootFolders**](FilesFoldersApi.md#getRootFolders) | **GET** /api/2.0/files/@root | Get filtered sections |
+| [**getTrashFolder**](FilesFoldersApi.md#getTrashFolder) | **GET** /api/2.0/files/@trash | Get the Trash section |
+| [**insertFile**](FilesFoldersApi.md#insertFile) | **POST** /api/2.0/files/{folderId}/insert | Insert a file |
+| [**insertFileToMyFromBody**](FilesFoldersApi.md#insertFileToMyFromBody) | **POST** /api/2.0/files/@my/insert | Insert a file to the My documents section |
+| [**renameFolder**](FilesFoldersApi.md#renameFolder) | **PUT** /api/2.0/files/folder/{folderId} | Rename a folder |
+| [**setFolderOrder**](FilesFoldersApi.md#setFolderOrder) | **PUT** /api/2.0/files/folder/{folderId}/order | Set folder order |
+| [**setFolderPrimaryExternalLink**](FilesFoldersApi.md#setFolderPrimaryExternalLink) | **PUT** /api/2.0/files/folder/{id}/links | Set the folder external link |
+| [**uploadFile**](FilesFoldersApi.md#uploadFile) | **POST** /api/2.0/files/{folderId}/upload | Upload a file |
+| [**uploadFileToMy**](FilesFoldersApi.md#uploadFileToMy) | **POST** /api/2.0/files/@my/upload | Upload a file to the My documents section |
 
 
 
@@ -40,7 +40,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > STRINGArrayWrapper checkUpload(folderId, checkUploadRequest)
 
-
+Check file uploadsChecks the file uploads to the folder with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/).
 
@@ -58,7 +58,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -67,6 +67,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -74,6 +75,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         Integer folderId = 9846; // Integer | The folder ID.
@@ -102,13 +129,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Inserted file |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## createFolder
 
 > FolderIntegerWrapper createFolder(folderId, createFolder)
 
-
+Create a folderCreates a new folder with the title specified in the request. The parent folder ID can be also specified.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/).
 
@@ -126,7 +154,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -135,6 +163,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -142,6 +171,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         Integer folderId = 9846; // Integer | The folder ID for the folder creation.
@@ -170,13 +225,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | New folder parameters |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## createFolderPrimaryExternalLink
 
 > FileShareWrapper createFolderPrimaryExternalLink(id, folderLinkRequest)
 
-
+Create primary external linkCreates a primary external link by the identifier specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder-primary-external-link/).
 
@@ -194,7 +250,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -203,6 +259,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -210,6 +267,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         Integer id = 9846; // Integer | The folder ID.
@@ -238,6 +321,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Folders security information |  -  |
+| **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
 
 
@@ -245,7 +329,7 @@ public class Example {
 
 > StringWrapper createReportFolderHistory(folderId)
 
-
+Generates folder historyGenerates the activity history of a folder.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-report-folder-history/).
 
@@ -262,7 +346,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -271,6 +355,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -278,6 +363,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         Integer folderId = 56; // Integer | 
@@ -305,6 +416,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | URL to the report file |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to perform the operation |  -  |
 | **404** | The required folder was not found |  -  |
 
@@ -313,7 +425,7 @@ public class Example {
 
 > FileOperationArrayWrapper deleteFolder(folderId, deleteFolder)
 
-
+Delete a folderDeletes a folder with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/).
 
@@ -331,7 +443,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -340,6 +452,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -347,6 +460,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         Integer folderId = 9846; // Integer | The folder ID to delete.
@@ -375,13 +514,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file operations |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getFavoritesFolder
 
 > FolderContentIntegerWrapper getFavoritesFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue)
 
-
+Get the Favorites sectionReturns the detailed list of files and folders located in the Favorites section.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-favorites-folder/).
 
@@ -404,7 +544,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -413,6 +553,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -420,6 +561,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
@@ -453,6 +620,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Favorites section contents |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
 
@@ -461,7 +629,7 @@ public class Example {
 
 > FilesStatisticsResultWrapper getFilesUsedSpace()
 
-
+Get used space of filesReturns the used space of files in the root folders.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-used-space/).
 
@@ -475,7 +643,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -484,6 +652,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -491,6 +660,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         try {
@@ -517,13 +712,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Used space of files in the root folders |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getFolder
 
 > FormsItemArrayWrapper getFolder(folderId)
 
-
+Get folder form filterReturns the form filter of a folder with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/).
 
@@ -589,7 +785,7 @@ public class Example {
 
 > FolderContentIntegerWrapper getFolderByFolderId(folderId, userIdOrGroupId, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location)
 
-
+Get a folder by IDReturns the detailed list of files and folders located in the folder with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/).
 
@@ -687,7 +883,7 @@ public class Example {
 
 > HistoryArrayWrapper getFolderHistory(folderId, fromDate, toDate, count, startIndex)
 
-
+Get folder historyReturns the activity history of a folder with a specified identifier.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-history/).
 
@@ -708,7 +904,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -717,6 +913,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -724,6 +921,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         Integer folderId = 9846; // Integer | The folder ID of the history request.
@@ -755,6 +978,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of actions in the folder |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to perform the operation |  -  |
 | **404** | The required folder was not found |  -  |
 
@@ -763,7 +987,7 @@ public class Example {
 
 > FolderIntegerWrapper getFolderInfo(folderId)
 
-
+Get folder informationReturns the detailed information about a folder with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/).
 
@@ -829,7 +1053,7 @@ public class Example {
 
 > FileShareArrayWrapper getFolderLinks(id)
 
-
+Get the folder linksReturns the links of the folder with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-links/).
 
@@ -846,7 +1070,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -855,6 +1079,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -862,6 +1087,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         Integer id = 9846; // Integer | The folder ID.
@@ -889,13 +1140,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Folder security information |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getFolderPath
 
 > FileEntryBaseArrayWrapper getFolderPath(folderId)
 
-
+Get the folder pathReturns a path to the folder with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/).
 
@@ -912,7 +1164,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -921,6 +1173,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -928,6 +1181,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         Integer folderId = 9846; // Integer | The folder unique identifier.
@@ -955,6 +1234,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file entry information |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 
 
@@ -962,7 +1242,7 @@ public class Example {
 
 > FileShareWrapper getFolderPrimaryExternalLink(id, count, startIndex)
 
-
+Get primary external linkReturns the primary external link by the identifier specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/).
 
@@ -1033,7 +1313,7 @@ public class Example {
 
 > FolderContentIntegerWrapper getFolderRecent(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue)
 
-
+Get the Recent sectionReturns the detailed list of files located in the Recent section.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/).
 
@@ -1060,7 +1340,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1069,6 +1349,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -1076,6 +1357,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
@@ -1113,6 +1420,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Recent section contents |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
 
@@ -1121,7 +1429,7 @@ public class Example {
 
 > FileEntryBaseArrayWrapper getFolders(folderId)
 
-
+Get subfoldersReturns a list of all the subfolders from a folder with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/).
 
@@ -1138,7 +1446,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1147,6 +1455,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -1154,6 +1463,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         Integer folderId = 9846; // Integer | The folder unique identifier.
@@ -1181,6 +1516,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file entry information |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 
 
@@ -1188,7 +1524,7 @@ public class Example {
 
 > FolderContentIntegerWrapper getMyFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue)
 
-
+Get the My documents sectionReturns the detailed list of files and folders located in the My documents section.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/).
 
@@ -1212,7 +1548,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1221,6 +1557,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -1228,6 +1565,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
@@ -1262,6 +1625,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The My documents section contents |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
 
@@ -1270,7 +1634,7 @@ public class Example {
 
 > FileEntryBaseArrayWrapper getNewFolderItems(folderId)
 
-
+Get new folder itemsReturns a list of all the new items from a folder with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/).
 
@@ -1287,7 +1651,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1296,6 +1660,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -1303,6 +1668,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         Integer folderId = 9846; // Integer | The folder unique identifier.
@@ -1330,6 +1721,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file entry information |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 
 
@@ -1337,7 +1729,7 @@ public class Example {
 
 > FolderContentIntegerWrapper getPrivacyFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue)
 
-
+Get the Private Room sectionReturns the detailed list of files and folders located in the Private Room section.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/).
 
@@ -1360,7 +1752,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1369,6 +1761,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -1376,6 +1769,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
@@ -1409,6 +1828,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Private Room section contents |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
 
@@ -1417,7 +1837,7 @@ public class Example {
 
 > FolderContentIntegerWrapper getRecentFolder(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue)
 
-
+Get the Recent sectionReturns the detailed list of files located in the Recent section.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/).
 
@@ -1444,7 +1864,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1453,6 +1873,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -1460,6 +1881,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
@@ -1497,6 +1944,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Recent section contents |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
 
@@ -1505,7 +1953,7 @@ public class Example {
 
 > FolderContentIntegerArrayWrapper getRootFolders(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue)
 
-
+Get filtered sectionsReturns all the sections matching the parameters specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/).
 
@@ -1529,7 +1977,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1538,6 +1986,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -1545,6 +1994,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
@@ -1579,6 +2054,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of section contents with the following parameters |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
 
@@ -1587,7 +2063,7 @@ public class Example {
 
 > FolderContentIntegerWrapper getTrashFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue)
 
-
+Get the Trash sectionReturns the detailed list of files and folders located in the Trash section.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/).
 
@@ -1611,7 +2087,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1620,6 +2096,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -1627,6 +2104,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
@@ -1661,6 +2164,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Trash section contents |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
 
@@ -1669,7 +2173,7 @@ public class Example {
 
 > FileIntegerWrapper insertFile(folderId, insertFileFile, insertFileTitle, insertFileCreateNewIfExist, insertFileKeepConvertStatus, insertFileStreamCanRead, insertFileStreamCanWrite, insertFileStreamCanSeek, insertFileStreamCanTimeout, insertFileStreamLength, insertFileStreamPosition, insertFileStreamReadTimeout, insertFileStreamWriteTimeout)
 
-
+Insert a fileInserts a file specified in the request to the selected folder by single file uploading.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/insert-file/).
 
@@ -1698,7 +2202,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1707,6 +2211,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -1714,6 +2219,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         Integer folderId = 9846; // Integer | The folder ID for inserting a file.
@@ -1753,6 +2284,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Inserted file |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to create |  -  |
 | **404** | Folder not found |  -  |
 
@@ -1761,7 +2293,7 @@ public class Example {
 
 > FileIntegerWrapper insertFileToMyFromBody(_file, title, createNewIfExist, keepConvertStatus, streamCanRead, streamCanWrite, streamCanSeek, streamCanTimeout, streamLength, streamPosition, streamReadTimeout, streamWriteTimeout)
 
-
+Insert a file to the My documents sectionInserts a file specified in the request to the My documents section by single file uploading.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/insert-file-to-my-from-body/).
 
@@ -1789,7 +2321,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1798,6 +2330,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -1805,6 +2338,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         File _file = new File("/path/to/file"); // File | The file to be inserted.
@@ -1843,6 +2402,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Inserted file |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to create |  -  |
 | **404** | Folder not found |  -  |
 
@@ -1851,7 +2411,7 @@ public class Example {
 
 > FolderIntegerWrapper renameFolder(folderId, createFolder)
 
-
+Rename a folderRenames the selected folder with a new title specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/).
 
@@ -1869,7 +2429,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1878,6 +2438,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -1885,6 +2446,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         Integer folderId = 9846; // Integer | The folder ID for the folder creation.
@@ -1913,6 +2500,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Folder parameters |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to rename the folder |  -  |
 
 
@@ -1920,7 +2508,7 @@ public class Example {
 
 > FolderIntegerWrapper setFolderOrder(folderId, orderRequestDto)
 
-
+Set folder orderSets the order of a folder with ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-order/).
 
@@ -1938,7 +2526,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1947,6 +2535,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -1954,6 +2543,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         Integer folderId = 9846; // Integer | The folder unique identifier.
@@ -1982,13 +2597,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file operations |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## setFolderPrimaryExternalLink
 
 > FileShareWrapper setFolderPrimaryExternalLink(id, folderLinkRequest)
 
-
+Set the folder external linkSets the folder external link with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-primary-external-link/).
 
@@ -2006,7 +2622,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -2015,6 +2631,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -2022,6 +2639,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         Integer id = 9846; // Integer | The folder ID.
@@ -2050,13 +2693,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Folder information |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## uploadFile
 
 > ObjectWrapper uploadFile(folderId, uploadRequestDto)
 
-
+Upload a fileUploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   <ol>  <li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>  <li>Using standart multipart/form-data method.</li>  </ol>
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/).
 
@@ -2074,7 +2718,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -2083,6 +2727,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -2090,6 +2735,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         Integer folderId = 9846; // Integer | The folder ID to upload a file.
@@ -2118,6 +2789,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Inserted file |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to create |  -  |
 | **404** | Folder not found |  -  |
 
@@ -2126,7 +2798,7 @@ public class Example {
 
 > ObjectWrapper uploadFileToMy(inDto)
 
-
+Upload a file to the My documents sectionUploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   <ol>  <li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>  <li>Using standart multipart/form-data method.</li>  </ol>
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/).
 
@@ -2143,7 +2815,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -2152,6 +2824,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FoldersApi;
 
@@ -2159,6 +2832,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         UploadRequestDto inDto = new UploadRequestDto(); // UploadRequestDto | The request parameters for uploading a file.
@@ -2186,6 +2885,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Uploaded file(s) |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to create |  -  |
 | **404** | File not found |  -  |
 

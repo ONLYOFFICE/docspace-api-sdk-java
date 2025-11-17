@@ -5,11 +5,11 @@
 ## Enum
 
 
-* `Base` (value: `0`)
+* `BASE` (value: `"Base"`)
 
-* `Dark` (value: `1`)
+* `DARK` (value: `"Dark"`)
 
-* `System` (value: `2`)
+* `SYSTEM` (value: `"System"`)
 
 
 

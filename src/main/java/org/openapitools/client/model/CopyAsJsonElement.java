@@ -24,7 +24,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.client.model.CopyAsJsonElementDestFolderId;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -45,7 +44,7 @@ import java.util.StringJoiner;
   CopyAsJsonElement.JSON_PROPERTY_PASSWORD,
   CopyAsJsonElement.JSON_PROPERTY_TO_FORM
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class CopyAsJsonElement {
   public static final String JSON_PROPERTY_DEST_TITLE = "destTitle";
   @javax.annotation.Nullable
@@ -53,7 +52,7 @@ public class CopyAsJsonElement {
 
   public static final String JSON_PROPERTY_DEST_FOLDER_ID = "destFolderId";
   @javax.annotation.Nonnull
-  private CopyAsJsonElementDestFolderId destFolderId;
+  private Integer destFolderId;
 
   public static final String JSON_PROPERTY_ENABLE_EXTERNAL_EXT = "enableExternalExt";
   @javax.annotation.Nullable
@@ -95,7 +94,7 @@ public class CopyAsJsonElement {
     this.destTitle = destTitle;
   }
 
-  public CopyAsJsonElement destFolderId(@javax.annotation.Nonnull CopyAsJsonElementDestFolderId destFolderId) {
+  public CopyAsJsonElement destFolderId(@javax.annotation.Nonnull Integer destFolderId) {
     
     this.destFolderId = destFolderId;
     return this;
@@ -109,14 +108,14 @@ public class CopyAsJsonElement {
   @JsonProperty(JSON_PROPERTY_DEST_FOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public CopyAsJsonElementDestFolderId getDestFolderId() {
+  public Integer getDestFolderId() {
     return destFolderId;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DEST_FOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDestFolderId(@javax.annotation.Nonnull CopyAsJsonElementDestFolderId destFolderId) {
+  public void setDestFolderId(@javax.annotation.Nonnull Integer destFolderId) {
     this.destFolderId = destFolderId;
   }
 
@@ -303,7 +302,12 @@ public class CopyAsJsonElement {
 
     // add `destFolderId` to the URL query string
     if (getDestFolderId() != null) {
-      joiner.add(getDestFolderId().toUrlQueryString(prefix + "destFolderId" + suffix));
+      try {
+        joiner.add(String.format("%sdestFolderId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDestFolderId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `enableExternalExt` to the URL query string

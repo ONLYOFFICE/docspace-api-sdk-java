@@ -39,7 +39,7 @@ import java.util.StringJoiner;
   ProductAdministratorDto.JSON_PROPERTY_USER_ID,
   ProductAdministratorDto.JSON_PROPERTY_ADMINISTRATOR
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class ProductAdministratorDto {
   public static final String JSON_PROPERTY_PRODUCT_ID = "productId";
   @javax.annotation.Nonnull

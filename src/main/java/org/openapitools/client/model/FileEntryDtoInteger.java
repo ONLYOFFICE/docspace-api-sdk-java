@@ -81,7 +81,7 @@ import java.util.StringJoiner;
   FileEntryDtoInteger.JSON_PROPERTY_EXPIRATION_DATE,
   FileEntryDtoInteger.JSON_PROPERTY_IS_LINK_EXPIRED
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class FileEntryDtoInteger {
   public static final String JSON_PROPERTY_TITLE = "title";
   @javax.annotation.Nullable

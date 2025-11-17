@@ -41,7 +41,7 @@ import java.util.StringJoiner;
   FilesStatisticsResultDto.JSON_PROPERTY_ROOMS_USED_SPACE,
   FilesStatisticsResultDto.JSON_PROPERTY_AI_AGENTS_USED_SPACE
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class FilesStatisticsResultDto {
   public static final String JSON_PROPERTY_MY_DOCUMENTS_USED_SPACE = "myDocumentsUsedSpace";
   @javax.annotation.Nullable

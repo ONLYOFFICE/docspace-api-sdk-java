@@ -53,7 +53,7 @@ import java.util.StringJoiner;
   ClientInfoResponse.JSON_PROPERTY_MODIFIED_ON,
   ClientInfoResponse.JSON_PROPERTY_MODIFIED_BY
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class ClientInfoResponse {
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nullable

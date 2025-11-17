@@ -47,7 +47,7 @@ import java.util.StringJoiner;
   UpdateGroupRequest.JSON_PROPERTY_GROUP_MANAGER,
   UpdateGroupRequest.JSON_PROPERTY_GROUP_NAME
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class UpdateGroupRequest {
   public static final String JSON_PROPERTY_MEMBERS_TO_ADD = "membersToAdd";
   @javax.annotation.Nullable

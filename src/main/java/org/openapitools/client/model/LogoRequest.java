@@ -44,7 +44,7 @@ import java.util.StringJoiner;
   LogoRequest.JSON_PROPERTY_WIDTH,
   LogoRequest.JSON_PROPERTY_HEIGHT
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class LogoRequest {
   public static final String JSON_PROPERTY_TMP_FILE = "tmpFile";
   @javax.annotation.Nullable

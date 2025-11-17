@@ -61,7 +61,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
 public class FoldersApi extends BaseApi {
 
   public FoldersApi() {
@@ -85,8 +84,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Check file uploads
+   * Checks the file uploads to the folder with the ID specified in the request.
    *
    * REST API Reference for checkUpload Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/
@@ -102,8 +101,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Check file uploads
+   * Checks the file uploads to the folder with the ID specified in the request.
    *
    * REST API Reference for checkUpload Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/
@@ -155,7 +154,7 @@ public class FoldersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<STRINGArrayWrapper> localVarReturnType = new TypeReference<STRINGArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -176,8 +175,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Create a folder
+   * Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
    *
    * REST API Reference for createFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/
@@ -193,8 +192,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Create a folder
+   * Creates a new folder with the title specified in the request. The parent folder ID can be also specified.
    *
    * REST API Reference for createFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/
@@ -246,7 +245,7 @@ public class FoldersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderIntegerWrapper> localVarReturnType = new TypeReference<FolderIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -267,8 +266,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Create primary external link
+   * Creates a primary external link by the identifier specified in the request.
    *
    * REST API Reference for createFolderPrimaryExternalLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder-primary-external-link/
@@ -284,8 +283,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Create primary external link
+   * Creates a primary external link by the identifier specified in the request.
    *
    * REST API Reference for createFolderPrimaryExternalLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder-primary-external-link/
@@ -337,7 +336,7 @@ public class FoldersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileShareWrapper> localVarReturnType = new TypeReference<FileShareWrapper>() {};
     return apiClient.invokeAPI(
@@ -358,8 +357,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Generates folder history
+   * Generates the activity history of a folder.
    *
    * REST API Reference for createReportFolderHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-report-folder-history/
@@ -374,8 +373,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Generates folder history
+   * Generates the activity history of a folder.
    *
    * REST API Reference for createReportFolderHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-report-folder-history/
@@ -421,7 +420,7 @@ public class FoldersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<StringWrapper> localVarReturnType = new TypeReference<StringWrapper>() {};
     return apiClient.invokeAPI(
@@ -442,8 +441,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Delete a folder
+   * Deletes a folder with the ID specified in the request.
    *
    * REST API Reference for deleteFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/
@@ -459,8 +458,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Delete a folder
+   * Deletes a folder with the ID specified in the request.
    *
    * REST API Reference for deleteFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/
@@ -512,7 +511,7 @@ public class FoldersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileOperationArrayWrapper> localVarReturnType = new TypeReference<FileOperationArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -533,8 +532,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the Favorites section
+   * Returns the detailed list of files and folders located in the Favorites section.
    *
    * REST API Reference for getFavoritesFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-favorites-folder/
@@ -555,8 +554,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the Favorites section
+   * Returns the detailed list of files and folders located in the Favorites section.
    *
    * REST API Reference for getFavoritesFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-favorites-folder/
@@ -611,7 +610,7 @@ public class FoldersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderContentIntegerWrapper> localVarReturnType = new TypeReference<FolderContentIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -632,8 +631,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get used space of files
+   * Returns the used space of files in the root folders.
    *
    * REST API Reference for getFilesUsedSpace Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-used-space/
@@ -647,8 +646,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get used space of files
+   * Returns the used space of files in the root folders.
    *
    * REST API Reference for getFilesUsedSpace Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-used-space/
@@ -687,7 +686,7 @@ public class FoldersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FilesStatisticsResultWrapper> localVarReturnType = new TypeReference<FilesStatisticsResultWrapper>() {};
     return apiClient.invokeAPI(
@@ -708,8 +707,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get folder form filter
+   * Returns the form filter of a folder with the ID specified in the request.
    *
    * REST API Reference for getFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/
@@ -724,8 +723,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get folder form filter
+   * Returns the form filter of a folder with the ID specified in the request.
    *
    * REST API Reference for getFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/
@@ -792,8 +791,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get a folder by ID
+   * Returns the detailed list of files and folders located in the folder with the ID specified in the request.
    *
    * REST API Reference for getFolderByFolderId Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/
@@ -823,8 +822,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get a folder by ID
+   * Returns the detailed list of files and folders located in the folder with the ID specified in the request.
    *
    * REST API Reference for getFolderByFolderId Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/
@@ -921,8 +920,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get folder history
+   * Returns the activity history of a folder with a specified identifier.
    *
    * REST API Reference for getFolderHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-history/
@@ -941,8 +940,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get folder history
+   * Returns the activity history of a folder with a specified identifier.
    *
    * REST API Reference for getFolderHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-history/
@@ -998,7 +997,7 @@ public class FoldersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<HistoryArrayWrapper> localVarReturnType = new TypeReference<HistoryArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1019,8 +1018,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get folder information
+   * Returns the detailed information about a folder with the ID specified in the request.
    *
    * REST API Reference for getFolderInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/
@@ -1035,8 +1034,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get folder information
+   * Returns the detailed information about a folder with the ID specified in the request.
    *
    * REST API Reference for getFolderInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/
@@ -1103,8 +1102,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the folder links
+   * Returns the links of the folder with the ID specified in the request.
    *
    * REST API Reference for getFolderLinks Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-links/
@@ -1119,8 +1118,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the folder links
+   * Returns the links of the folder with the ID specified in the request.
    *
    * REST API Reference for getFolderLinks Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-links/
@@ -1166,7 +1165,7 @@ public class FoldersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileShareArrayWrapper> localVarReturnType = new TypeReference<FileShareArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1187,8 +1186,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the folder path
+   * Returns a path to the folder with the ID specified in the request.
    *
    * REST API Reference for getFolderPath Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/
@@ -1203,8 +1202,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the folder path
+   * Returns a path to the folder with the ID specified in the request.
    *
    * REST API Reference for getFolderPath Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/
@@ -1250,7 +1249,7 @@ public class FoldersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileEntryBaseArrayWrapper> localVarReturnType = new TypeReference<FileEntryBaseArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1271,8 +1270,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get primary external link
+   * Returns the primary external link by the identifier specified in the request.
    *
    * REST API Reference for getFolderPrimaryExternalLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/
@@ -1289,8 +1288,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get primary external link
+   * Returns the primary external link by the identifier specified in the request.
    *
    * REST API Reference for getFolderPrimaryExternalLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/
@@ -1361,8 +1360,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the Recent section
+   * Returns the detailed list of files located in the Recent section.
    *
    * REST API Reference for getFolderRecent Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/
@@ -1387,8 +1386,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the Recent section
+   * Returns the detailed list of files located in the Recent section.
    *
    * REST API Reference for getFolderRecent Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/
@@ -1454,7 +1453,7 @@ public class FoldersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderContentIntegerWrapper> localVarReturnType = new TypeReference<FolderContentIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -1475,8 +1474,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get subfolders
+   * Returns a list of all the subfolders from a folder with the ID specified in the request.
    *
    * REST API Reference for getFolders Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/
@@ -1491,8 +1490,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get subfolders
+   * Returns a list of all the subfolders from a folder with the ID specified in the request.
    *
    * REST API Reference for getFolders Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/
@@ -1538,7 +1537,7 @@ public class FoldersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileEntryBaseArrayWrapper> localVarReturnType = new TypeReference<FileEntryBaseArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1559,8 +1558,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the My documents section
+   * Returns the detailed list of files and folders located in the My documents section.
    *
    * REST API Reference for getMyFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/
@@ -1582,8 +1581,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the My documents section
+   * Returns the detailed list of files and folders located in the My documents section.
    *
    * REST API Reference for getMyFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/
@@ -1640,7 +1639,7 @@ public class FoldersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderContentIntegerWrapper> localVarReturnType = new TypeReference<FolderContentIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -1661,8 +1660,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get new folder items
+   * Returns a list of all the new items from a folder with the ID specified in the request.
    *
    * REST API Reference for getNewFolderItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/
@@ -1677,8 +1676,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get new folder items
+   * Returns a list of all the new items from a folder with the ID specified in the request.
    *
    * REST API Reference for getNewFolderItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/
@@ -1724,7 +1723,7 @@ public class FoldersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileEntryBaseArrayWrapper> localVarReturnType = new TypeReference<FileEntryBaseArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1745,8 +1744,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the Private Room section
+   * Returns the detailed list of files and folders located in the Private Room section.
    *
    * REST API Reference for getPrivacyFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/
@@ -1767,8 +1766,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the Private Room section
+   * Returns the detailed list of files and folders located in the Private Room section.
    *
    * REST API Reference for getPrivacyFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/
@@ -1823,7 +1822,7 @@ public class FoldersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderContentIntegerWrapper> localVarReturnType = new TypeReference<FolderContentIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -1844,8 +1843,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the Recent section
+   * Returns the detailed list of files located in the Recent section.
    *
    * REST API Reference for getRecentFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/
@@ -1870,8 +1869,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the Recent section
+   * Returns the detailed list of files located in the Recent section.
    *
    * REST API Reference for getRecentFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/
@@ -1937,7 +1936,7 @@ public class FoldersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderContentIntegerWrapper> localVarReturnType = new TypeReference<FolderContentIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -1958,8 +1957,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get filtered sections
+   * Returns all the sections matching the parameters specified in the request.
    *
    * REST API Reference for getRootFolders Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/
@@ -1981,8 +1980,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get filtered sections
+   * Returns all the sections matching the parameters specified in the request.
    *
    * REST API Reference for getRootFolders Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/
@@ -2039,7 +2038,7 @@ public class FoldersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderContentIntegerArrayWrapper> localVarReturnType = new TypeReference<FolderContentIntegerArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -2060,8 +2059,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the Trash section
+   * Returns the detailed list of files and folders located in the Trash section.
    *
    * REST API Reference for getTrashFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/
@@ -2083,8 +2082,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the Trash section
+   * Returns the detailed list of files and folders located in the Trash section.
    *
    * REST API Reference for getTrashFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/
@@ -2141,7 +2140,7 @@ public class FoldersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderContentIntegerWrapper> localVarReturnType = new TypeReference<FolderContentIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -2162,8 +2161,8 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Insert a file
+   * Inserts a file specified in the request to the selected folder by single file uploading.
    *
    * REST API Reference for insertFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/insert-file/
@@ -2190,8 +2189,8 @@ public class FoldersApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Insert a file
+   * Inserts a file specified in the request to the selected folder by single file uploading.
    *
    * REST API Reference for insertFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/insert-file/
@@ -2273,7 +2272,7 @@ if (insertFileStreamWriteTimeout != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileIntegerWrapper> localVarReturnType = new TypeReference<FileIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -2294,8 +2293,8 @@ if (insertFileStreamWriteTimeout != null)
   }
 
   /**
-   * 
-   * 
+   * Insert a file to the My documents section
+   * Inserts a file specified in the request to the My documents section by single file uploading.
    *
    * REST API Reference for insertFileToMyFromBody Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/insert-file-to-my-from-body/
@@ -2321,8 +2320,8 @@ if (insertFileStreamWriteTimeout != null)
 
 
   /**
-   * 
-   * 
+   * Insert a file to the My documents section
+   * Inserts a file specified in the request to the My documents section by single file uploading.
    *
    * REST API Reference for insertFileToMyFromBody Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/insert-file-to-my-from-body/
@@ -2397,7 +2396,7 @@ if (streamWriteTimeout != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileIntegerWrapper> localVarReturnType = new TypeReference<FileIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -2418,8 +2417,8 @@ if (streamWriteTimeout != null)
   }
 
   /**
-   * 
-   * 
+   * Rename a folder
+   * Renames the selected folder with a new title specified in the request.
    *
    * REST API Reference for renameFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/
@@ -2435,8 +2434,8 @@ if (streamWriteTimeout != null)
 
 
   /**
-   * 
-   * 
+   * Rename a folder
+   * Renames the selected folder with a new title specified in the request.
    *
    * REST API Reference for renameFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/
@@ -2488,7 +2487,7 @@ if (streamWriteTimeout != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderIntegerWrapper> localVarReturnType = new TypeReference<FolderIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -2509,8 +2508,8 @@ if (streamWriteTimeout != null)
   }
 
   /**
-   * 
-   * 
+   * Set folder order
+   * Sets the order of a folder with ID specified in the request.
    *
    * REST API Reference for setFolderOrder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-order/
@@ -2526,8 +2525,8 @@ if (streamWriteTimeout != null)
 
 
   /**
-   * 
-   * 
+   * Set folder order
+   * Sets the order of a folder with ID specified in the request.
    *
    * REST API Reference for setFolderOrder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-order/
@@ -2574,7 +2573,7 @@ if (streamWriteTimeout != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderIntegerWrapper> localVarReturnType = new TypeReference<FolderIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -2595,8 +2594,8 @@ if (streamWriteTimeout != null)
   }
 
   /**
-   * 
-   * 
+   * Set the folder external link
+   * Sets the folder external link with the ID specified in the request.
    *
    * REST API Reference for setFolderPrimaryExternalLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-primary-external-link/
@@ -2612,8 +2611,8 @@ if (streamWriteTimeout != null)
 
 
   /**
-   * 
-   * 
+   * Set the folder external link
+   * Sets the folder external link with the ID specified in the request.
    *
    * REST API Reference for setFolderPrimaryExternalLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-primary-external-link/
@@ -2665,7 +2664,7 @@ if (streamWriteTimeout != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileShareWrapper> localVarReturnType = new TypeReference<FileShareWrapper>() {};
     return apiClient.invokeAPI(
@@ -2686,8 +2685,8 @@ if (streamWriteTimeout != null)
   }
 
   /**
-   * 
-   * 
+   * Upload a file
+   * Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
    *
    * REST API Reference for uploadFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/
@@ -2703,8 +2702,8 @@ if (streamWriteTimeout != null)
 
 
   /**
-   * 
-   * 
+   * Upload a file
+   * Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
    *
    * REST API Reference for uploadFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/
@@ -2751,7 +2750,7 @@ if (streamWriteTimeout != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<ObjectWrapper> localVarReturnType = new TypeReference<ObjectWrapper>() {};
     return apiClient.invokeAPI(
@@ -2772,8 +2771,8 @@ if (streamWriteTimeout != null)
   }
 
   /**
-   * 
-   * 
+   * Upload a file to the My documents section
+   * Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
    *
    * REST API Reference for uploadFileToMy Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/
@@ -2788,8 +2787,8 @@ if (streamWriteTimeout != null)
 
 
   /**
-   * 
-   * 
+   * Upload a file to the My documents section
+   * Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
    *
    * REST API Reference for uploadFileToMy Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/
@@ -2837,7 +2836,7 @@ if (streamWriteTimeout != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<ObjectWrapper> localVarReturnType = new TypeReference<ObjectWrapper>() {};
     return apiClient.invokeAPI(
@@ -2879,7 +2878,7 @@ if (streamWriteTimeout != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     return apiClient.invokeAPI(
       localVarPath,

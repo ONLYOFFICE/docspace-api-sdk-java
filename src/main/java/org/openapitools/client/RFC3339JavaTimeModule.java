@@ -22,7 +22,6 @@ import java.time.ZonedDateTime;
 
 import com.fasterxml.jackson.databind.module.SimpleModule;
 
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
 public class RFC3339JavaTimeModule extends SimpleModule {
     private static final long serialVersionUID = 1L;
 

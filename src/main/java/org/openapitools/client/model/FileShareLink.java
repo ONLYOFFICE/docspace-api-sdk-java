@@ -53,7 +53,7 @@ import java.util.StringJoiner;
   FileShareLink.JSON_PROPERTY_INTERNAL,
   FileShareLink.JSON_PROPERTY_REQUEST_TOKEN
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class FileShareLink {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable

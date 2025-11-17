@@ -42,7 +42,7 @@ import java.util.StringJoiner;
   CustomColorThemesSettingsRequestsDto.JSON_PROPERTY_THEME,
   CustomColorThemesSettingsRequestsDto.JSON_PROPERTY_SELECTED
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class CustomColorThemesSettingsRequestsDto {
   public static final String JSON_PROPERTY_THEME = "theme";
   @javax.annotation.Nullable

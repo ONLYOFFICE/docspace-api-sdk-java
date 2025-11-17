@@ -21,7 +21,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import java.util.Collections;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
 public abstract class BaseApi {
 
   protected ApiClient apiClient;

@@ -87,7 +87,6 @@ import org.openapitools.client.auth.HttpBearerAuth;
 import org.openapitools.client.auth.ApiKeyAuth;
 import org.openapitools.client.auth.OAuth;
 
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
 public class ApiClient extends JavaTimeFormatter {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected Map<String, String> defaultCookieMap = new HashMap<String, String>();
@@ -141,7 +140,7 @@ public class ApiClient extends JavaTimeFormatter {
     dateFormat = ApiClient.buildDefaultDateFormat();
 
     // Set default User-Agent.
-    setUserAgent("OpenAPI-Generator/4.0.0/java");
+    setUserAgent("OpenAPI-Generator/3.5.0-preview.1/java");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();

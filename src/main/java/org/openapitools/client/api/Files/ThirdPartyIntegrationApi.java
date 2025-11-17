@@ -41,7 +41,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
 public class ThirdPartyIntegrationApi extends BaseApi {
 
   public ThirdPartyIntegrationApi() {
@@ -54,8 +53,8 @@ public class ThirdPartyIntegrationApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Remove a third-party account
+   * Removes the third-party storage service account with the ID specified in the request.
    *
    * REST API Reference for deleteThirdParty Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-third-party/
@@ -70,8 +69,8 @@ public class ThirdPartyIntegrationApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Remove a third-party account
+   * Removes the third-party storage service account with the ID specified in the request.
    *
    * REST API Reference for deleteThirdParty Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-third-party/
@@ -117,7 +116,7 @@ public class ThirdPartyIntegrationApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<StringWrapper> localVarReturnType = new TypeReference<StringWrapper>() {};
     return apiClient.invokeAPI(
@@ -138,8 +137,8 @@ public class ThirdPartyIntegrationApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get all providers
+   * Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
    *
    * REST API Reference for getAllProviders Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/
@@ -153,8 +152,8 @@ public class ThirdPartyIntegrationApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get all providers
+   * Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
    *
    * REST API Reference for getAllProviders Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/
@@ -193,7 +192,7 @@ public class ThirdPartyIntegrationApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<ProviderArrayWrapper> localVarReturnType = new TypeReference<ProviderArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -214,8 +213,8 @@ public class ThirdPartyIntegrationApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get a third-party account backup
+   * Returns a backup of the connected third-party account.
    *
    * REST API Reference for getBackupThirdPartyAccount Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/
@@ -229,8 +228,8 @@ public class ThirdPartyIntegrationApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get a third-party account backup
+   * Returns a backup of the connected third-party account.
    *
    * REST API Reference for getBackupThirdPartyAccount Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/
@@ -269,7 +268,7 @@ public class ThirdPartyIntegrationApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderStringWrapper> localVarReturnType = new TypeReference<FolderStringWrapper>() {};
     return apiClient.invokeAPI(
@@ -290,8 +289,8 @@ public class ThirdPartyIntegrationApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get providers
+   * Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
    *
    * REST API Reference for getCapabilities Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/
@@ -305,8 +304,8 @@ public class ThirdPartyIntegrationApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get providers
+   * Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
    *
    * REST API Reference for getCapabilities Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/
@@ -345,7 +344,7 @@ public class ThirdPartyIntegrationApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<ArrayArrayWrapper> localVarReturnType = new TypeReference<ArrayArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -366,8 +365,8 @@ public class ThirdPartyIntegrationApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the common third-party services
+   * Returns a list of the third-party services connected to the Common section.
    *
    * REST API Reference for getCommonThirdPartyFolders Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/
@@ -381,8 +380,8 @@ public class ThirdPartyIntegrationApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the common third-party services
+   * Returns a list of the third-party services connected to the Common section.
    *
    * REST API Reference for getCommonThirdPartyFolders Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/
@@ -421,7 +420,7 @@ public class ThirdPartyIntegrationApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderStringArrayWrapper> localVarReturnType = new TypeReference<FolderStringArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -442,8 +441,8 @@ public class ThirdPartyIntegrationApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the third-party accounts
+   * Returns a list of all the connected third-party accounts.
    *
    * REST API Reference for getThirdPartyAccounts Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/
@@ -457,8 +456,8 @@ public class ThirdPartyIntegrationApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the third-party accounts
+   * Returns a list of all the connected third-party accounts.
    *
    * REST API Reference for getThirdPartyAccounts Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/
@@ -497,7 +496,7 @@ public class ThirdPartyIntegrationApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<ThirdPartyParamsArrayWrapper> localVarReturnType = new TypeReference<ThirdPartyParamsArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -518,8 +517,8 @@ public class ThirdPartyIntegrationApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Save a third-party account
+   * Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
    *
    * REST API Reference for saveThirdParty Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/
@@ -534,8 +533,8 @@ public class ThirdPartyIntegrationApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Save a third-party account
+   * Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
    *
    * REST API Reference for saveThirdParty Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/
@@ -575,7 +574,7 @@ public class ThirdPartyIntegrationApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderStringWrapper> localVarReturnType = new TypeReference<FolderStringWrapper>() {};
     return apiClient.invokeAPI(
@@ -596,8 +595,8 @@ public class ThirdPartyIntegrationApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Save a third-party account backup
+   * Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
    *
    * REST API Reference for saveThirdPartyBackup Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/
@@ -612,8 +611,8 @@ public class ThirdPartyIntegrationApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Save a third-party account backup
+   * Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
    *
    * REST API Reference for saveThirdPartyBackup Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/
@@ -653,7 +652,7 @@ public class ThirdPartyIntegrationApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderStringWrapper> localVarReturnType = new TypeReference<FolderStringWrapper>() {};
     return apiClient.invokeAPI(
@@ -695,7 +694,7 @@ public class ThirdPartyIntegrationApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     return apiClient.invokeAPI(
       localVarPath,

@@ -107,7 +107,7 @@ import java.util.StringJoiner;
   FilesSettingsDto.JSON_PROPERTY_EXTS_FILES_VECTORIZED,
   FilesSettingsDto.JSON_PROPERTY_MAX_VECTORIZATION_FILE_SIZE
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class FilesSettingsDto {
   public static final String JSON_PROPERTY_EXTS_IMAGE_PREVIEWED = "extsImagePreviewed";
   @javax.annotation.Nullable

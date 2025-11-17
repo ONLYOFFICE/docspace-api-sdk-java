@@ -51,7 +51,7 @@ import java.util.StringJoiner;
   HistoryDto.JSON_PROPERTY_DATA,
   HistoryDto.JSON_PROPERTY_RELATED
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class HistoryDto {
   public static final String JSON_PROPERTY_ACTION = "action";
   @javax.annotation.Nonnull

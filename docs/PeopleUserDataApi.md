@@ -1,4 +1,4 @@
-# onlyoffice.docspace.api.sdk.org.openapitools.client.api.UserDataApi
+# docspace-api-sdk.org.openapitools.client.api.UserDataApi
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
 
@@ -309,7 +309,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **userId** | **UUID**| The user ID. | [optional] |
-| **type** | [**EmployeeType**](.md)| The expected user type. | [optional] [enum: 0, 1, 2, 3, 4] |
+| **type** | [**EmployeeType**](.md)| The expected user type. | [optional] [enum: All, RoomAdmin, Guest, DocSpaceAdmin, User] |
 
 ### Return type
 
@@ -363,7 +363,7 @@ public class Example {
 
         UserDataApi apiInstance = new UserDataApi(defaultClient);
         UUID userId = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The user ID.
-        EmployeeType type = EmployeeType.fromValue("0"); // EmployeeType | The expected user type.
+        EmployeeType type = EmployeeType.fromValue("All"); // EmployeeType | The expected user type.
         try {
             BooleanWrapper result = apiInstance.necessaryReassign(userId, type);
             System.out.println(result);

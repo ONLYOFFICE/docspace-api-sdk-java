@@ -38,7 +38,7 @@ import java.util.StringJoiner;
   AutoCleanUpData.JSON_PROPERTY_IS_AUTO_CLEAN_UP,
   AutoCleanUpData.JSON_PROPERTY_GAP
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class AutoCleanUpData {
   public static final String JSON_PROPERTY_IS_AUTO_CLEAN_UP = "isAutoCleanUp";
   @javax.annotation.Nullable

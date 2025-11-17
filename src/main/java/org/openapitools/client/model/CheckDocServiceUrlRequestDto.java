@@ -45,7 +45,7 @@ import java.util.StringJoiner;
   CheckDocServiceUrlRequestDto.JSON_PROPERTY_DOC_SERVICE_SIGNATURE_HEADER,
   CheckDocServiceUrlRequestDto.JSON_PROPERTY_DOC_SERVICE_SSL_VERIFICATION
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class CheckDocServiceUrlRequestDto {
   public static final String JSON_PROPERTY_DOC_SERVICE_URL = "docServiceUrl";
   @javax.annotation.Nullable

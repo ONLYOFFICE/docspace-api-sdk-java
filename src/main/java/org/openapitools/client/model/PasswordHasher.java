@@ -42,7 +42,7 @@ import java.util.StringJoiner;
   PasswordHasher.JSON_PROPERTY_ITERATIONS,
   PasswordHasher.JSON_PROPERTY_SALT
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class PasswordHasher {
   public static final String JSON_PROPERTY_SIZE = "size";
   @javax.annotation.Nullable

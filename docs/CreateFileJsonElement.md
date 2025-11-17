@@ -9,7 +9,7 @@ The parameters for creating a file.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**title** | **String** | The file title for creation. |  |
-|**templateId** | [**CreateFileJsonElementTemplateId**](CreateFileJsonElementTemplateId.md) |  |  [optional] |
+|**templateId** | **Integer** |  |  [optional] |
 |**enableExternalExt** | **Boolean** | Specifies whether to allow creating a file of an external extension or not. |  [optional] |
 |**formId** | **Integer** | The form ID for creation. |  [optional] |
 

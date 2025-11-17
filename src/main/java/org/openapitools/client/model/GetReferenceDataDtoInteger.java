@@ -44,7 +44,7 @@ import java.util.StringJoiner;
   GetReferenceDataDtoInteger.JSON_PROPERTY_PATH,
   GetReferenceDataDtoInteger.JSON_PROPERTY_LINK
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class GetReferenceDataDtoInteger {
   public static final String JSON_PROPERTY_FILE_KEY = "fileKey";
   @javax.annotation.Nullable

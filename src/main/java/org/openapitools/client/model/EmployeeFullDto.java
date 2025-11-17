@@ -99,7 +99,7 @@ import java.util.StringJoiner;
   EmployeeFullDto.JSON_PROPERTY_HAS_PERSONAL_FOLDER,
   EmployeeFullDto.JSON_PROPERTY_TFA_APP_ENABLED
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class EmployeeFullDto {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable

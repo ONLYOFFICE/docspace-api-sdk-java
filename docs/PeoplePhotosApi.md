@@ -1,4 +1,4 @@
-# onlyoffice.docspace.api.sdk.org.openapitools.client.api.PhotosApi
+# docspace-api-sdk.org.openapitools.client.api.PhotosApi
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
 

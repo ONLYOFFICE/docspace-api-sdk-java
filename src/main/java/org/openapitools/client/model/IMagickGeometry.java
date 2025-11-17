@@ -46,7 +46,7 @@ import java.util.StringJoiner;
   IMagickGeometry.JSON_PROPERTY_X,
   IMagickGeometry.JSON_PROPERTY_Y
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class IMagickGeometry {
   public static final String JSON_PROPERTY_ASPECT_RATIO = "aspectRatio";
   @javax.annotation.Nullable

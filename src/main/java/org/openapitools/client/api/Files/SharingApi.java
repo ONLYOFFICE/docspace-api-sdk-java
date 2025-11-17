@@ -47,7 +47,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
 public class SharingApi extends BaseApi {
 
   public SharingApi() {
@@ -60,8 +59,8 @@ public class SharingApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Apply external data password
+   * Applies a password specified in the request to get the external data.
    *
    * REST API Reference for applyExternalSharePassword Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/apply-external-share-password/
@@ -77,8 +76,8 @@ public class SharingApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Apply external data password
+   * Applies a password specified in the request to get the external data.
    *
    * REST API Reference for applyExternalSharePassword Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/apply-external-share-password/
@@ -151,8 +150,8 @@ public class SharingApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Change the file owner
+   * Changes the owner of the file with the ID specified in the request.
    *
    * REST API Reference for changeFileOwner Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-file-owner/
@@ -167,8 +166,8 @@ public class SharingApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Change the file owner
+   * Changes the owner of the file with the ID specified in the request.
    *
    * REST API Reference for changeFileOwner Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-file-owner/
@@ -208,7 +207,7 @@ public class SharingApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileEntryBaseArrayWrapper> localVarReturnType = new TypeReference<FileEntryBaseArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -229,8 +228,8 @@ public class SharingApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the external data
+   * Returns the external data by the key specified in the request.
    *
    * REST API Reference for getExternalShareData Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-share-data/
@@ -247,8 +246,8 @@ public class SharingApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the external data
+   * Returns the external data by the key specified in the request.
    *
    * REST API Reference for getExternalShareData Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-share-data/
@@ -319,8 +318,8 @@ public class SharingApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the shared file information
+   * Returns the detailed information about the shared file with the ID specified in the request.
    *
    * REST API Reference for getFileSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-security-info/
@@ -337,8 +336,8 @@ public class SharingApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the shared file information
+   * Returns the detailed information about the shared file with the ID specified in the request.
    *
    * REST API Reference for getFileSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-security-info/
@@ -388,7 +387,7 @@ public class SharingApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileShareArrayWrapper> localVarReturnType = new TypeReference<FileShareArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -409,8 +408,8 @@ public class SharingApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the shared folder information
+   * Returns the detailed information about the shared folder with the ID specified in the request.
    *
    * REST API Reference for getFolderSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/
@@ -427,8 +426,8 @@ public class SharingApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the shared folder information
+   * Returns the detailed information about the shared folder with the ID specified in the request.
    *
    * REST API Reference for getFolderSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/
@@ -478,7 +477,7 @@ public class SharingApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileShareArrayWrapper> localVarReturnType = new TypeReference<FileShareArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -499,8 +498,8 @@ public class SharingApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get group members with security information
+   * Returns the group members with their file security information.
    *
    * REST API Reference for getGroupsMembersWithFileSecurity Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/
@@ -519,8 +518,8 @@ public class SharingApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get group members with security information
+   * Returns the group members with their file security information.
    *
    * REST API Reference for getGroupsMembersWithFileSecurity Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/
@@ -579,7 +578,7 @@ public class SharingApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<GroupMemberSecurityRequestArrayWrapper> localVarReturnType = new TypeReference<GroupMemberSecurityRequestArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -600,8 +599,8 @@ public class SharingApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get group members with security information
+   * Returns the group members with their folder security information.
    *
    * REST API Reference for getGroupsMembersWithFolderSecurity Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/
@@ -620,8 +619,8 @@ public class SharingApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get group members with security information
+   * Returns the group members with their folder security information.
    *
    * REST API Reference for getGroupsMembersWithFolderSecurity Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/
@@ -680,7 +679,7 @@ public class SharingApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<GroupMemberSecurityRequestArrayWrapper> localVarReturnType = new TypeReference<GroupMemberSecurityRequestArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -701,8 +700,8 @@ public class SharingApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the sharing rights
+   * Returns the sharing rights for all the files and folders specified in the request.
    *
    * REST API Reference for getSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-security-info/
@@ -717,8 +716,8 @@ public class SharingApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the sharing rights
+   * Returns the sharing rights for all the files and folders specified in the request.
    *
    * REST API Reference for getSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-security-info/
@@ -758,7 +757,7 @@ public class SharingApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileShareArrayWrapper> localVarReturnType = new TypeReference<FileShareArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -779,8 +778,8 @@ public class SharingApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get user access rights by file ID
+   * Returns a list of users with their access rights to the file with the ID specified in the request.
    *
    * REST API Reference for getSharedUsers Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/
@@ -795,8 +794,8 @@ public class SharingApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get user access rights by file ID
+   * Returns a list of users with their access rights to the file with the ID specified in the request.
    *
    * REST API Reference for getSharedUsers Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/
@@ -842,7 +841,7 @@ public class SharingApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<MentionWrapperArrayWrapper> localVarReturnType = new TypeReference<MentionWrapperArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -863,8 +862,8 @@ public class SharingApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Remove the sharing rights
+   * Removes the sharing rights from all the files and folders specified in the request.
    *
    * REST API Reference for removeSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-security-info/
@@ -879,8 +878,8 @@ public class SharingApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Remove the sharing rights
+   * Removes the sharing rights from all the files and folders specified in the request.
    *
    * REST API Reference for removeSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-security-info/
@@ -920,7 +919,7 @@ public class SharingApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -941,8 +940,8 @@ public class SharingApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Send the mention message
+   * Sends a message to the users who are mentioned in the file with the ID specified in the request.
    *
    * REST API Reference for sendEditorNotify Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/
@@ -958,8 +957,8 @@ public class SharingApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Send the mention message
+   * Sends a message to the users who are mentioned in the file with the ID specified in the request.
    *
    * REST API Reference for sendEditorNotify Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/
@@ -1006,7 +1005,7 @@ public class SharingApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<AceShortWrapperArrayWrapper> localVarReturnType = new TypeReference<AceShortWrapperArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1027,8 +1026,8 @@ public class SharingApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Share a file
+   * Sets the sharing settings to a file with the ID specified in the request.
    *
    * REST API Reference for setFileSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/
@@ -1044,8 +1043,8 @@ public class SharingApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Share a file
+   * Sets the sharing settings to a file with the ID specified in the request.
    *
    * REST API Reference for setFileSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/
@@ -1097,7 +1096,7 @@ public class SharingApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileShareArrayWrapper> localVarReturnType = new TypeReference<FileShareArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1118,8 +1117,8 @@ public class SharingApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Share a folder
+   * Sets the sharing settings to a folder with the ID specified in the request.
    *
    * REST API Reference for setFolderSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/
@@ -1135,8 +1134,8 @@ public class SharingApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Share a folder
+   * Sets the sharing settings to a folder with the ID specified in the request.
    *
    * REST API Reference for setFolderSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/
@@ -1188,7 +1187,7 @@ public class SharingApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileShareArrayWrapper> localVarReturnType = new TypeReference<FileShareArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1209,8 +1208,8 @@ public class SharingApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Set the sharing rights
+   * Sets the sharing rights to all the files and folders specified in the request.
    *
    * REST API Reference for setSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-security-info/
@@ -1225,8 +1224,8 @@ public class SharingApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Set the sharing rights
+   * Sets the sharing rights to all the files and folders specified in the request.
    *
    * REST API Reference for setSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-security-info/
@@ -1266,7 +1265,7 @@ public class SharingApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileShareArrayWrapper> localVarReturnType = new TypeReference<FileShareArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1308,7 +1307,7 @@ public class SharingApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     return apiClient.invokeAPI(
       localVarPath,

@@ -42,7 +42,7 @@ import java.util.StringJoiner;
   TenantDomainValidator.JSON_PROPERTY_MIN_LENGTH,
   TenantDomainValidator.JSON_PROPERTY_MAX_LENGTH
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class TenantDomainValidator {
   public static final String JSON_PROPERTY_REGEX = "regex";
   @javax.annotation.Nullable

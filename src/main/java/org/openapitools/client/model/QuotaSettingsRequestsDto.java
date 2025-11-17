@@ -24,7 +24,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.client.model.QuotaSettingsRequestsDtoDefaultQuota;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -38,7 +37,7 @@ import java.util.StringJoiner;
   QuotaSettingsRequestsDto.JSON_PROPERTY_ENABLE_QUOTA,
   QuotaSettingsRequestsDto.JSON_PROPERTY_DEFAULT_QUOTA
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class QuotaSettingsRequestsDto {
   public static final String JSON_PROPERTY_ENABLE_QUOTA = "enableQuota";
   @javax.annotation.Nullable
@@ -46,7 +45,7 @@ public class QuotaSettingsRequestsDto {
 
   public static final String JSON_PROPERTY_DEFAULT_QUOTA = "defaultQuota";
   @javax.annotation.Nonnull
-  private QuotaSettingsRequestsDtoDefaultQuota defaultQuota;
+  private Integer defaultQuota;
 
   public QuotaSettingsRequestsDto() {
   }
@@ -76,7 +75,7 @@ public class QuotaSettingsRequestsDto {
     this.enableQuota = enableQuota;
   }
 
-  public QuotaSettingsRequestsDto defaultQuota(@javax.annotation.Nonnull QuotaSettingsRequestsDtoDefaultQuota defaultQuota) {
+  public QuotaSettingsRequestsDto defaultQuota(@javax.annotation.Nonnull Integer defaultQuota) {
     
     this.defaultQuota = defaultQuota;
     return this;
@@ -90,14 +89,14 @@ public class QuotaSettingsRequestsDto {
   @JsonProperty(JSON_PROPERTY_DEFAULT_QUOTA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public QuotaSettingsRequestsDtoDefaultQuota getDefaultQuota() {
+  public Integer getDefaultQuota() {
     return defaultQuota;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DEFAULT_QUOTA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDefaultQuota(@javax.annotation.Nonnull QuotaSettingsRequestsDtoDefaultQuota defaultQuota) {
+  public void setDefaultQuota(@javax.annotation.Nonnull Integer defaultQuota) {
     this.defaultQuota = defaultQuota;
   }
 
@@ -184,7 +183,12 @@ public class QuotaSettingsRequestsDto {
 
     // add `defaultQuota` to the URL query string
     if (getDefaultQuota() != null) {
-      joiner.add(getDefaultQuota().toUrlQueryString(prefix + "defaultQuota" + suffix));
+      try {
+        joiner.add(String.format("%sdefaultQuota%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDefaultQuota()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     return joiner.toString();

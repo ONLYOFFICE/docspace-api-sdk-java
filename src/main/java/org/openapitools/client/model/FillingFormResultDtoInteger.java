@@ -43,7 +43,7 @@ import java.util.StringJoiner;
   FillingFormResultDtoInteger.JSON_PROPERTY_ROOM_ID,
   FillingFormResultDtoInteger.JSON_PROPERTY_IS_ROOM_MEMBER
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class FillingFormResultDtoInteger {
   public static final String JSON_PROPERTY_FORM_NUMBER = "formNumber";
   @javax.annotation.Nonnull

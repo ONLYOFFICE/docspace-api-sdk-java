@@ -45,7 +45,7 @@ import java.util.StringJoiner;
   CustomerOperationsReportRequestDto.JSON_PROPERTY_CREDIT,
   CustomerOperationsReportRequestDto.JSON_PROPERTY_DEBIT
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class CustomerOperationsReportRequestDto {
   public static final String JSON_PROPERTY_START_DATE = "startDate";
   @javax.annotation.Nullable

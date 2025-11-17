@@ -1,33 +1,33 @@
-# onlyoffice.docspace.api.sdk.org.openapitools.client.api.SettingsApi
+# docspace-api-sdk.org.openapitools.client.api.SettingsApi
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**changeAccessToThirdparty**](FilesSettingsApi.md#changeAccessToThirdparty) | **PUT** /api/2.0/files/thirdparty |  |
-| [**changeAutomaticallyCleanUp**](FilesSettingsApi.md#changeAutomaticallyCleanUp) | **PUT** /api/2.0/files/settings/autocleanup |  |
-| [**changeDefaultAccessRights**](FilesSettingsApi.md#changeDefaultAccessRights) | **PUT** /api/2.0/files/settings/dafaultaccessrights |  |
-| [**changeDeleteConfirm**](FilesSettingsApi.md#changeDeleteConfirm) | **PUT** /api/2.0/files/changedeleteconfrim |  |
-| [**changeDownloadZipFromBody**](FilesSettingsApi.md#changeDownloadZipFromBody) | **PUT** /api/2.0/files/settings/downloadtargz |  |
-| [**checkDocServiceUrl**](FilesSettingsApi.md#checkDocServiceUrl) | **PUT** /api/2.0/files/docservice |  |
-| [**displayFileExtension**](FilesSettingsApi.md#displayFileExtension) | **PUT** /api/2.0/files/displayfileextension |  |
-| [**displayRecent**](FilesSettingsApi.md#displayRecent) | **PUT** /api/2.0/files/displayrecent |  |
-| [**externalShare**](FilesSettingsApi.md#externalShare) | **PUT** /api/2.0/files/settings/external |  |
-| [**externalShareSocialMedia**](FilesSettingsApi.md#externalShareSocialMedia) | **PUT** /api/2.0/files/settings/externalsocialmedia |  |
-| [**forcesave**](FilesSettingsApi.md#forcesave) | **PUT** /api/2.0/files/forcesave |  |
-| [**getAutomaticallyCleanUp**](FilesSettingsApi.md#getAutomaticallyCleanUp) | **GET** /api/2.0/files/settings/autocleanup |  |
-| [**getDocServiceUrl**](FilesSettingsApi.md#getDocServiceUrl) | **GET** /api/2.0/files/docservice |  |
-| [**getFilesModule**](FilesSettingsApi.md#getFilesModule) | **GET** /api/2.0/files/info |  |
-| [**getFilesSettings**](FilesSettingsApi.md#getFilesSettings) | **GET** /api/2.0/files/settings |  |
-| [**hideConfirmCancelOperation**](FilesSettingsApi.md#hideConfirmCancelOperation) | **PUT** /api/2.0/files/hideconfirmcanceloperation |  |
-| [**hideConfirmConvert**](FilesSettingsApi.md#hideConfirmConvert) | **PUT** /api/2.0/files/hideconfirmconvert |  |
-| [**hideConfirmRoomLifetime**](FilesSettingsApi.md#hideConfirmRoomLifetime) | **PUT** /api/2.0/files/hideconfirmroomlifetime |  |
-| [**isAvailablePrivacyRoomSettings**](FilesSettingsApi.md#isAvailablePrivacyRoomSettings) | **GET** /api/2.0/files/@privacy/available |  |
-| [**keepNewFileName**](FilesSettingsApi.md#keepNewFileName) | **PUT** /api/2.0/files/keepnewfilename |  |
-| [**setOpenEditorInSameTab**](FilesSettingsApi.md#setOpenEditorInSameTab) | **PUT** /api/2.0/files/settings/openeditorinsametab |  |
-| [**storeForcesave**](FilesSettingsApi.md#storeForcesave) | **PUT** /api/2.0/files/storeforcesave |  |
-| [**storeOriginal**](FilesSettingsApi.md#storeOriginal) | **PUT** /api/2.0/files/storeoriginal |  |
-| [**updateFileIfExist**](FilesSettingsApi.md#updateFileIfExist) | **PUT** /api/2.0/files/updateifexist |  |
+| [**changeAccessToThirdparty**](FilesSettingsApi.md#changeAccessToThirdparty) | **PUT** /api/2.0/files/thirdparty | Change the third-party settings access |
+| [**changeAutomaticallyCleanUp**](FilesSettingsApi.md#changeAutomaticallyCleanUp) | **PUT** /api/2.0/files/settings/autocleanup | Update the trash bin auto-clearing setting |
+| [**changeDefaultAccessRights**](FilesSettingsApi.md#changeDefaultAccessRights) | **PUT** /api/2.0/files/settings/dafaultaccessrights | Change the default access rights |
+| [**changeDeleteConfirm**](FilesSettingsApi.md#changeDeleteConfirm) | **PUT** /api/2.0/files/changedeleteconfrim | Confirm the file deletion |
+| [**changeDownloadZipFromBody**](FilesSettingsApi.md#changeDownloadZipFromBody) | **PUT** /api/2.0/files/settings/downloadtargz | Change the archive format (using body parameters) |
+| [**checkDocServiceUrl**](FilesSettingsApi.md#checkDocServiceUrl) | **PUT** /api/2.0/files/docservice | Check the document service URL |
+| [**displayFileExtension**](FilesSettingsApi.md#displayFileExtension) | **PUT** /api/2.0/files/displayfileextension | Display a file extension |
+| [**displayRecent**](FilesSettingsApi.md#displayRecent) | **PUT** /api/2.0/files/displayrecent | Display the Recent folder |
+| [**externalShare**](FilesSettingsApi.md#externalShare) | **PUT** /api/2.0/files/settings/external | Change the external sharing ability |
+| [**externalShareSocialMedia**](FilesSettingsApi.md#externalShareSocialMedia) | **PUT** /api/2.0/files/settings/externalsocialmedia | Change the external sharing ability on social networks |
+| [**forcesave**](FilesSettingsApi.md#forcesave) | **PUT** /api/2.0/files/forcesave | Change the forcesaving ability |
+| [**getAutomaticallyCleanUp**](FilesSettingsApi.md#getAutomaticallyCleanUp) | **GET** /api/2.0/files/settings/autocleanup | Get the trash bin auto-clearing setting |
+| [**getDocServiceUrl**](FilesSettingsApi.md#getDocServiceUrl) | **GET** /api/2.0/files/docservice | Get the document service URL |
+| [**getFilesModule**](FilesSettingsApi.md#getFilesModule) | **GET** /api/2.0/files/info | Get the Documents information |
+| [**getFilesSettings**](FilesSettingsApi.md#getFilesSettings) | **GET** /api/2.0/files/settings | Get file settings |
+| [**hideConfirmCancelOperation**](FilesSettingsApi.md#hideConfirmCancelOperation) | **PUT** /api/2.0/files/hideconfirmcanceloperation | Hide confirmation dialog when canceling operations |
+| [**hideConfirmConvert**](FilesSettingsApi.md#hideConfirmConvert) | **PUT** /api/2.0/files/hideconfirmconvert | Hide the confirmation dialog when converting |
+| [**hideConfirmRoomLifetime**](FilesSettingsApi.md#hideConfirmRoomLifetime) | **PUT** /api/2.0/files/hideconfirmroomlifetime | Hide confirmation dialog when changing room lifetime settings |
+| [**isAvailablePrivacyRoomSettings**](FilesSettingsApi.md#isAvailablePrivacyRoomSettings) | **GET** /api/2.0/files/@privacy/available | Check the Private Room availability |
+| [**keepNewFileName**](FilesSettingsApi.md#keepNewFileName) | **PUT** /api/2.0/files/keepnewfilename | Ask a new file name |
+| [**setOpenEditorInSameTab**](FilesSettingsApi.md#setOpenEditorInSameTab) | **PUT** /api/2.0/files/settings/openeditorinsametab | Open document in the same browser tab |
+| [**storeForcesave**](FilesSettingsApi.md#storeForcesave) | **PUT** /api/2.0/files/storeforcesave | Change the ability to store the forcesaved files |
+| [**storeOriginal**](FilesSettingsApi.md#storeOriginal) | **PUT** /api/2.0/files/storeoriginal | Change the ability to upload original formats |
+| [**updateFileIfExist**](FilesSettingsApi.md#updateFileIfExist) | **PUT** /api/2.0/files/updateifexist | Update a file version if it exists |
 
 
 
@@ -35,7 +35,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > BooleanWrapper changeAccessToThirdparty(settingsRequestDto)
 
-
+Change the third-party settings accessChanges the access to the third-party settings.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-access-to-thirdparty/).
 
@@ -52,7 +52,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -61,6 +61,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -68,6 +69,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         SettingsRequestDto settingsRequestDto = new SettingsRequestDto(); // SettingsRequestDto | 
@@ -95,13 +122,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## changeAutomaticallyCleanUp
 
 > AutoCleanUpDataWrapper changeAutomaticallyCleanUp(autoCleanupRequestDto)
 
-
+Update the trash bin auto-clearing settingUpdates the trash bin auto-clearing setting.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/).
 
@@ -118,7 +146,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -127,6 +155,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -134,6 +163,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         AutoCleanupRequestDto autoCleanupRequestDto = new AutoCleanupRequestDto(); // AutoCleanupRequestDto | 
@@ -161,13 +216,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The auto-clearing setting properties: auto-clearing or not, a time interval when the auto-clearing will be performed |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## changeDefaultAccessRights
 
 > FileShareArrayWrapper changeDefaultAccessRights(requestBody)
 
-
+Change the default access rightsChanges the default access rights in the sharing settings.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/).
 
@@ -184,7 +240,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -193,6 +249,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -200,6 +257,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         List<Integer> requestBody = Arrays.asList(); // List<Integer> | Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator).
@@ -227,13 +310,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Updated sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator) |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## changeDeleteConfirm
 
 > BooleanWrapper changeDeleteConfirm(settingsRequestDto)
 
-
+Confirm the file deletionSpecifies whether to confirm the file deletion or not.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-delete-confirm/).
 
@@ -250,7 +334,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -259,6 +343,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -266,6 +351,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         SettingsRequestDto settingsRequestDto = new SettingsRequestDto(); // SettingsRequestDto | 
@@ -293,13 +404,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## changeDownloadZipFromBody
 
 > ICompressWrapper changeDownloadZipFromBody(displayRequestDto)
 
-
+Change the archive format (using body parameters)Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip-from-body/).
 
@@ -316,7 +428,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -325,6 +437,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -332,6 +445,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         DisplayRequestDto displayRequestDto = new DisplayRequestDto(); // DisplayRequestDto | 
@@ -359,13 +498,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Archive |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## checkDocServiceUrl
 
 > DocServiceUrlWrapper checkDocServiceUrl(checkDocServiceUrlRequestDto)
 
-
+Check the document service URLChecks the document service location URL.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/check-doc-service-url/).
 
@@ -382,7 +522,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -391,6 +531,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -398,6 +539,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         CheckDocServiceUrlRequestDto checkDocServiceUrlRequestDto = new CheckDocServiceUrlRequestDto(); // CheckDocServiceUrlRequestDto | 
@@ -426,13 +593,14 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Document service information: the Document Server address, the Document Server address in the local private network, the Community Server address |  -  |
 | **400** | Invalid input urls/Mixed Active Content is not allowed. HTTPS address for Document Server is required |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## displayFileExtension
 
 > BooleanWrapper displayFileExtension(settingsRequestDto)
 
-
+Display a file extensionSpecifies whether to display a file extension or not.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/display-file-extension/).
 
@@ -449,7 +617,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -458,6 +626,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -465,6 +634,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         SettingsRequestDto settingsRequestDto = new SettingsRequestDto(); // SettingsRequestDto | 
@@ -492,13 +687,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the parameter is enabled |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## displayRecent
 
 > BooleanWrapper displayRecent(displayRequestDto)
 
-
+Display the Recent folderDisplays the Recent folder.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/display-recent/).
 
@@ -515,7 +711,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -524,6 +720,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -531,6 +728,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         DisplayRequestDto displayRequestDto = new DisplayRequestDto(); // DisplayRequestDto | 
@@ -558,6 +781,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the parameter is enabled |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to perform the operation |  -  |
 
 
@@ -565,7 +789,7 @@ public class Example {
 
 > BooleanWrapper externalShare(displayRequestDto)
 
-
+Change the external sharing abilityChanges the ability to share a file externally.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share/).
 
@@ -582,7 +806,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -591,6 +815,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -598,6 +823,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         DisplayRequestDto displayRequestDto = new DisplayRequestDto(); // DisplayRequestDto | 
@@ -625,13 +876,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the parameter is enabled |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## externalShareSocialMedia
 
 > BooleanWrapper externalShareSocialMedia(displayRequestDto)
 
-
+Change the external sharing ability on social networksChanges the ability to share a file externally on social networks.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share-social-media/).
 
@@ -648,7 +900,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -657,6 +909,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -664,6 +917,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         DisplayRequestDto displayRequestDto = new DisplayRequestDto(); // DisplayRequestDto | 
@@ -691,13 +970,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the parameter is enabled |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## forcesave
 
 > BooleanWrapper forcesave()
 
-
+Change the forcesaving abilitySpecifies if the file forcesaving is enabled or not.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/forcesave/).
 
@@ -711,7 +991,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -720,6 +1000,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -727,6 +1008,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         try {
@@ -753,13 +1060,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the parameter is enabled |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getAutomaticallyCleanUp
 
 > AutoCleanUpDataWrapper getAutomaticallyCleanUp()
 
-
+Get the trash bin auto-clearing settingReturns the trash bin auto-clearing setting.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-automatically-clean-up/).
 
@@ -773,7 +1081,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -782,6 +1090,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -789,6 +1098,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         try {
@@ -815,13 +1150,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The auto-clearing setting properties: auto-clearing or not, a time interval when the auto-clearing will be performed |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getDocServiceUrl
 
 > DocServiceUrlWrapper getDocServiceUrl(version)
 
-
+Get the document service URLReturns the URL address of the connected editors.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-doc-service-url/).
 
@@ -887,7 +1223,7 @@ public class Example {
 
 > ModuleWrapper getFilesModule()
 
-
+Get the Documents informationReturns the information about the Documents module.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/).
 
@@ -901,7 +1237,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -910,6 +1246,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -917,6 +1254,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         try {
@@ -943,13 +1306,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Module information: ID, product class name, title, description, icon URL, large icon URL, start URL, primary or nor, help URL |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getFilesSettings
 
 > FilesSettingsWrapper getFilesSettings()
 
-
+Get file settingsReturns all the file settings.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-settings/).
 
@@ -1011,7 +1375,7 @@ public class Example {
 
 > BooleanWrapper hideConfirmCancelOperation(settingsRequestDto)
 
-
+Hide confirmation dialog when canceling operationsHides the confirmation dialog when canceling operations.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-cancel-operation/).
 
@@ -1028,7 +1392,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1037,6 +1401,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -1044,6 +1409,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         SettingsRequestDto settingsRequestDto = new SettingsRequestDto(); // SettingsRequestDto | 
@@ -1071,13 +1462,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the parameter is enabled |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## hideConfirmConvert
 
 > ModuleWrapper hideConfirmConvert(hideConfirmConvertRequestDto)
 
-
+Hide the confirmation dialog when convertingHides the confirmation dialog for saving the file copy in the original format when converting a file.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/).
 
@@ -1094,7 +1486,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1103,6 +1495,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -1110,6 +1503,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         HideConfirmConvertRequestDto hideConfirmConvertRequestDto = new HideConfirmConvertRequestDto(); // HideConfirmConvertRequestDto | 
@@ -1137,13 +1556,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## hideConfirmRoomLifetime
 
 > BooleanWrapper hideConfirmRoomLifetime(settingsRequestDto)
 
-
+Hide confirmation dialog when changing room lifetime settingsHides the confirmation dialog when changing the room lifetime settings.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-room-lifetime/).
 
@@ -1160,7 +1580,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1169,6 +1589,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -1176,6 +1597,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         SettingsRequestDto settingsRequestDto = new SettingsRequestDto(); // SettingsRequestDto | 
@@ -1203,13 +1650,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the parameter is enabled |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## isAvailablePrivacyRoomSettings
 
 > BooleanWrapper isAvailablePrivacyRoomSettings()
 
-
+Check the Private Room availabilityChecks if the Private Room settings are available or not.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/).
 
@@ -1223,7 +1671,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1232,6 +1680,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -1239,6 +1688,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         try {
@@ -1265,13 +1740,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the Private Room settings are available |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## keepNewFileName
 
 > BooleanWrapper keepNewFileName(settingsRequestDto)
 
-
+Ask a new file nameSpecifies whether to ask a user for a file name on creation or not.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/keep-new-file-name/).
 
@@ -1288,7 +1764,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1297,6 +1773,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -1304,6 +1781,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         SettingsRequestDto settingsRequestDto = new SettingsRequestDto(); // SettingsRequestDto | 
@@ -1331,13 +1834,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## setOpenEditorInSameTab
 
 > BooleanWrapper setOpenEditorInSameTab(settingsRequestDto)
 
-
+Open document in the same browser tabChanges the ability to open the document in the same browser tab.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-open-editor-in-same-tab/).
 
@@ -1354,7 +1858,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1363,6 +1867,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -1370,6 +1875,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         SettingsRequestDto settingsRequestDto = new SettingsRequestDto(); // SettingsRequestDto | 
@@ -1397,13 +1928,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the parameter is enabled |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## storeForcesave
 
 > BooleanWrapper storeForcesave()
 
-
+Change the ability to store the forcesaved filesChanges the ability to store the forcesaved file versions.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/store-forcesave/).
 
@@ -1417,7 +1949,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1426,6 +1958,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -1433,6 +1966,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         try {
@@ -1459,13 +2018,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## storeOriginal
 
 > BooleanWrapper storeOriginal(settingsRequestDto)
 
-
+Change the ability to upload original formatsChanges the ability to upload documents in the original formats as well.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/store-original/).
 
@@ -1482,7 +2042,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1491,6 +2051,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -1498,6 +2059,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         SettingsRequestDto settingsRequestDto = new SettingsRequestDto(); // SettingsRequestDto | 
@@ -1525,13 +2112,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## updateFileIfExist
 
 > BooleanWrapper updateFileIfExist(settingsRequestDto)
 
-
+Update a file version if it existsUpdates a file version if a file with such a name already exists.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-if-exist/).
 
@@ -1548,7 +2136,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1557,6 +2145,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SettingsApi;
 
@@ -1564,6 +2153,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         SettingsRequestDto settingsRequestDto = new SettingsRequestDto(); // SettingsRequestDto | 
@@ -1591,4 +2206,5 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
+| **401** | Unauthorized |  -  |
 

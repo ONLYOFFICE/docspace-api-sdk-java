@@ -1,4 +1,4 @@
-# onlyoffice.docspace.api.sdk.org.openapitools.client.api.UsersApi
+# docspace-api-sdk.org.openapitools.client.api.UsersApi
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
 
@@ -25,7 +25,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **employeeType** | [**EmployeeType**](.md)| The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User). | [enum: 0, 1, 2, 3, 4] |
+| **employeeType** | [**EmployeeType**](.md)| The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User). | [enum: All, RoomAdmin, Guest, DocSpaceAdmin, User] |
 
 ### Return type
 
@@ -78,7 +78,7 @@ public class Example {
 
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        EmployeeType employeeType = EmployeeType.fromValue("0"); // EmployeeType | The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).
+        EmployeeType employeeType = EmployeeType.fromValue("All"); // EmployeeType | The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).
         try {
             StringWrapper result = apiInstance.getInvitationLink(employeeType);
             System.out.println(result);

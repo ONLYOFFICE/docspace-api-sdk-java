@@ -40,7 +40,7 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   MobileRequestsDto.JSON_PROPERTY_MOBILE_PHONE
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class MobileRequestsDto {
   public static final String JSON_PROPERTY_MOBILE_PHONE = "mobilePhone";
   @javax.annotation.Nullable

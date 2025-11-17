@@ -5,43 +5,43 @@
 ## Enum
 
 
-* `EmpInvite` (value: `0`)
+* `EMP_INVITE` (value: `"EmpInvite"`)
 
-* `LinkInvite` (value: `1`)
+* `LINK_INVITE` (value: `"LinkInvite"`)
 
-* `PortalSuspend` (value: `2`)
+* `PORTAL_SUSPEND` (value: `"PortalSuspend"`)
 
-* `PortalContinue` (value: `3`)
+* `PORTAL_CONTINUE` (value: `"PortalContinue"`)
 
-* `PortalRemove` (value: `4`)
+* `PORTAL_REMOVE` (value: `"PortalRemove"`)
 
-* `DnsChange` (value: `5`)
+* `DNS_CHANGE` (value: `"DnsChange"`)
 
-* `PortalOwnerChange` (value: `6`)
+* `PORTAL_OWNER_CHANGE` (value: `"PortalOwnerChange"`)
 
-* `Activation` (value: `7`)
+* `ACTIVATION` (value: `"Activation"`)
 
-* `EmailChange` (value: `8`)
+* `EMAIL_CHANGE` (value: `"EmailChange"`)
 
-* `EmailActivation` (value: `9`)
+* `EMAIL_ACTIVATION` (value: `"EmailActivation"`)
 
-* `PasswordChange` (value: `10`)
+* `PASSWORD_CHANGE` (value: `"PasswordChange"`)
 
-* `ProfileRemove` (value: `11`)
+* `PROFILE_REMOVE` (value: `"ProfileRemove"`)
 
-* `PhoneActivation` (value: `12`)
+* `PHONE_ACTIVATION` (value: `"PhoneActivation"`)
 
-* `PhoneAuth` (value: `13`)
+* `PHONE_AUTH` (value: `"PhoneAuth"`)
 
-* `Auth` (value: `14`)
+* `AUTH` (value: `"Auth"`)
 
-* `TfaActivation` (value: `15`)
+* `TFA_ACTIVATION` (value: `"TfaActivation"`)
 
-* `TfaAuth` (value: `16`)
+* `TFA_AUTH` (value: `"TfaAuth"`)
 
-* `Wizard` (value: `17`)
+* `WIZARD` (value: `"Wizard"`)
 
-* `GuestShareLink` (value: `18`)
+* `GUEST_SHARE_LINK` (value: `"GuestShareLink"`)
 
 
 

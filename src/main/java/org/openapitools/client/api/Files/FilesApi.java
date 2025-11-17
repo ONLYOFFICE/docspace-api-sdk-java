@@ -78,7 +78,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
 public class FilesApi extends BaseApi {
 
   public FilesApi() {
@@ -91,8 +90,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Add a file to the Recent section
+   * Adds a file with the ID specified in the request to the Recent section.
    *
    * REST API Reference for addFileToRecent Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/add-file-to-recent/
@@ -107,8 +106,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Add a file to the Recent section
+   * Adds a file with the ID specified in the request to the Recent section.
    *
    * REST API Reference for addFileToRecent Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/add-file-to-recent/
@@ -154,7 +153,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileIntegerWrapper> localVarReturnType = new TypeReference<FileIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -175,8 +174,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Add template files
+   * Adds files with the IDs specified in the request to the template list.
    *
    * REST API Reference for addTemplates Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/add-templates/
@@ -191,8 +190,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Add template files
+   * Adds files with the IDs specified in the request to the template list.
    *
    * REST API Reference for addTemplates Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/add-templates/
@@ -232,7 +231,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -253,8 +252,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Change version history
+   * Changes the version history of a file with the ID specified in the request.
    *
    * REST API Reference for changeVersionHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/
@@ -270,8 +269,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Change version history
+   * Changes the version history of a file with the ID specified in the request.
    *
    * REST API Reference for changeVersionHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/
@@ -323,7 +322,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileIntegerArrayWrapper> localVarReturnType = new TypeReference<FileIntegerArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -344,8 +343,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Check the form draft filling
+   * Checks if the current file is a form draft which can be filled out.
    *
    * REST API Reference for checkFillFormDraft Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/
@@ -361,8 +360,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Check the form draft filling
+   * Checks if the current file is a form draft which can be filled out.
    *
    * REST API Reference for checkFillFormDraft Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/
@@ -435,8 +434,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Copy a file
+   * Copies (and converts if possible) an existing file to the specified folder.
    *
    * REST API Reference for copyFileAs Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/
@@ -452,8 +451,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Copy a file
+   * Copies (and converts if possible) an existing file to the specified folder.
    *
    * REST API Reference for copyFileAs Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/
@@ -505,7 +504,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileEntryBaseWrapper> localVarReturnType = new TypeReference<FileEntryBaseWrapper>() {};
     return apiClient.invokeAPI(
@@ -526,8 +525,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Create the editing session
+   * Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
    *
    * REST API Reference for createEditSession Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/
@@ -543,8 +542,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Create the editing session
+   * Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
    *
    * REST API Reference for createEditSession Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/
@@ -592,7 +591,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<ObjectWrapper> localVarReturnType = new TypeReference<ObjectWrapper>() {};
     return apiClient.invokeAPI(
@@ -613,8 +612,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Create a file
+   * Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
    *
    * REST API Reference for createFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/
@@ -630,8 +629,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Create a file
+   * Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
    *
    * REST API Reference for createFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/
@@ -683,7 +682,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileIntegerWrapper> localVarReturnType = new TypeReference<FileIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -704,8 +703,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Create a file in the My documents section
+   * Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
    *
    * REST API Reference for createFileInMyDocuments Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/
@@ -720,8 +719,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Create a file in the My documents section
+   * Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
    *
    * REST API Reference for createFileInMyDocuments Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/
@@ -761,7 +760,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileIntegerWrapper> localVarReturnType = new TypeReference<FileIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -782,8 +781,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Create primary external link
+   * Creates a primary external link by the identifier specified in the request.
    *
    * REST API Reference for createFilePrimaryExternalLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/
@@ -799,8 +798,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Create primary external link
+   * Creates a primary external link by the identifier specified in the request.
    *
    * REST API Reference for createFilePrimaryExternalLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/
@@ -852,7 +851,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileShareWrapper> localVarReturnType = new TypeReference<FileShareWrapper>() {};
     return apiClient.invokeAPI(
@@ -873,8 +872,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Create an HTML file
+   * Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
    *
    * REST API Reference for createHtmlFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/
@@ -890,8 +889,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Create an HTML file
+   * Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
    *
    * REST API Reference for createHtmlFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/
@@ -943,7 +942,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileIntegerWrapper> localVarReturnType = new TypeReference<FileIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -964,8 +963,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Create an HTML file in the My documents section
+   * Creates an HTML (.html) file in the My documents section with the title and contents specified in the request.
    *
    * REST API Reference for createHtmlFileInMyDocuments Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file-in-my-documents/
@@ -980,8 +979,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Create an HTML file in the My documents section
+   * Creates an HTML (.html) file in the My documents section with the title and contents specified in the request.
    *
    * REST API Reference for createHtmlFileInMyDocuments Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file-in-my-documents/
@@ -1021,7 +1020,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileIntegerWrapper> localVarReturnType = new TypeReference<FileIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -1042,8 +1041,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Create a text file
+   * Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
    *
    * REST API Reference for createTextFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/
@@ -1059,8 +1058,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Create a text file
+   * Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
    *
    * REST API Reference for createTextFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/
@@ -1112,7 +1111,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileIntegerWrapper> localVarReturnType = new TypeReference<FileIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -1133,8 +1132,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Create a text file in the My documents section
+   * Creates a text (.txt) file in the My documents section with the title and contents specified in the request.
    *
    * REST API Reference for createTextFileInMyDocuments Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file-in-my-documents/
@@ -1149,8 +1148,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Create a text file in the My documents section
+   * Creates a text (.txt) file in the My documents section with the title and contents specified in the request.
    *
    * REST API Reference for createTextFileInMyDocuments Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file-in-my-documents/
@@ -1190,7 +1189,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileIntegerWrapper> localVarReturnType = new TypeReference<FileIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -1211,8 +1210,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Create file thumbnails
+   * Creates thumbnails for the files with the IDs specified in the request.
    *
    * REST API Reference for createThumbnails Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-thumbnails/
@@ -1227,8 +1226,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Create file thumbnails
+   * Creates thumbnails for the files with the IDs specified in the request.
    *
    * REST API Reference for createThumbnails Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-thumbnails/
@@ -1289,8 +1288,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Delete a file
+   * Deletes a file with the ID specified in the request.
    *
    * REST API Reference for deleteFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/
@@ -1306,8 +1305,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Delete a file
+   * Deletes a file with the ID specified in the request.
    *
    * REST API Reference for deleteFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/
@@ -1359,7 +1358,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileOperationArrayWrapper> localVarReturnType = new TypeReference<FileOperationArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1380,8 +1379,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Delete recent files
+   * Removes files with the IDs specified in the request from the Recent section.
    *
    * REST API Reference for deleteRecent Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/
@@ -1396,8 +1395,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Delete recent files
+   * Removes files with the IDs specified in the request from the Recent section.
    *
    * REST API Reference for deleteRecent Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/
@@ -1437,7 +1436,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<NoContentResultWrapper> localVarReturnType = new TypeReference<NoContentResultWrapper>() {};
     return apiClient.invokeAPI(
@@ -1458,8 +1457,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Delete template files
+   * Removes files with the IDs specified in the request from the template list.
    *
    * REST API Reference for deleteTemplates Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-templates/
@@ -1474,8 +1473,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Delete template files
+   * Removes files with the IDs specified in the request from the template list.
    *
    * REST API Reference for deleteTemplates Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-templates/
@@ -1515,7 +1514,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -1536,8 +1535,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get form roles
+   * Returns all roles for the specified form.
    *
    * REST API Reference for getAllFormRoles Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/
@@ -1552,8 +1551,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get form roles
+   * Returns all roles for the specified form.
    *
    * REST API Reference for getAllFormRoles Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/
@@ -1599,7 +1598,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FormRoleArrayWrapper> localVarReturnType = new TypeReference<FormRoleArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1620,8 +1619,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get changes URL
+   * Returns a URL to the changes of a file version specified in the request.
    *
    * REST API Reference for getEditDiffUrl Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-diff-url/
@@ -1637,8 +1636,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get changes URL
+   * Returns a URL to the changes of a file version specified in the request.
    *
    * REST API Reference for getEditDiffUrl Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-diff-url/
@@ -1707,8 +1706,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get version history
+   * Returns the version history of a file with the ID specified in the request.
    *
    * REST API Reference for getEditHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/
@@ -1723,8 +1722,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get version history
+   * Returns the version history of a file with the ID specified in the request.
    *
    * REST API Reference for getEditHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/
@@ -1791,8 +1790,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get file history
+   * Returns the list of actions performed on the file with the specified identifier.
    *
    * REST API Reference for getFileHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-history/
@@ -1811,8 +1810,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get file history
+   * Returns the list of actions performed on the file with the specified identifier.
    *
    * REST API Reference for getFileHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-history/
@@ -1868,7 +1867,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<HistoryArrayWrapper> localVarReturnType = new TypeReference<HistoryArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1889,8 +1888,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get file information
+   * Returns the detailed information about a file with the ID specified in the request.
    *
    * REST API Reference for getFileInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-info/
@@ -1906,8 +1905,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get file information
+   * Returns the detailed information about a file with the ID specified in the request.
    *
    * REST API Reference for getFileInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-info/
@@ -1976,8 +1975,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get file external links
+   * Returns the external links of a file with the ID specified in the request.
    *
    * REST API Reference for getFileLinks Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-links/
@@ -1994,8 +1993,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get file external links
+   * Returns the external links of a file with the ID specified in the request.
    *
    * REST API Reference for getFileLinks Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-links/
@@ -2045,7 +2044,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileShareArrayWrapper> localVarReturnType = new TypeReference<FileShareArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -2066,8 +2065,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get primary external link
+   * Returns the primary external link by the identifier specified in the request.
    *
    * REST API Reference for getFilePrimaryExternalLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-primary-external-link/
@@ -2084,8 +2083,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get primary external link
+   * Returns the primary external link by the identifier specified in the request.
    *
    * REST API Reference for getFilePrimaryExternalLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-primary-external-link/
@@ -2156,8 +2155,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get file versions
+   * Returns the detailed information about all the available file versions with the ID specified in the request.
    *
    * REST API Reference for getFileVersionInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/
@@ -2172,8 +2171,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get file versions
+   * Returns the detailed information about all the available file versions with the ID specified in the request.
    *
    * REST API Reference for getFileVersionInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/
@@ -2240,8 +2239,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get form-filling result
+   * Retrieves the result of a form-filling session.
    *
    * REST API Reference for getFillResult Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-fill-result/
@@ -2256,8 +2255,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get form-filling result
+   * Retrieves the result of a form-filling session.
    *
    * REST API Reference for getFillResult Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-fill-result/
@@ -2319,8 +2318,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get file download link asynchronously
+   * Returns a link to download a file with the ID specified in the request asynchronously.
    *
    * REST API Reference for getPresignedFileUri Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/
@@ -2335,8 +2334,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get file download link asynchronously
+   * Returns a link to download a file with the ID specified in the request asynchronously.
    *
    * REST API Reference for getPresignedFileUri Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/
@@ -2382,7 +2381,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileLinkWrapper> localVarReturnType = new TypeReference<FileLinkWrapper>() {};
     return apiClient.invokeAPI(
@@ -2403,8 +2402,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get file download link
+   * Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
    *
    * REST API Reference for getPresignedUri Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/
@@ -2419,8 +2418,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get file download link
+   * Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
    *
    * REST API Reference for getPresignedUri Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/
@@ -2466,7 +2465,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<StringWrapper> localVarReturnType = new TypeReference<StringWrapper>() {};
     return apiClient.invokeAPI(
@@ -2487,8 +2486,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get users access rights to the protected file
+   * Returns a list of users with their access rights to the protected file with the ID specified in the request.
    *
    * REST API Reference for getProtectedFileUsers Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/
@@ -2503,8 +2502,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get users access rights to the protected file
+   * Returns a list of users with their access rights to the protected file with the ID specified in the request.
    *
    * REST API Reference for getProtectedFileUsers Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/
@@ -2550,7 +2549,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<MentionWrapperArrayWrapper> localVarReturnType = new TypeReference<MentionWrapperArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -2571,8 +2570,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get reference data
+   * Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
    *
    * REST API Reference for getReferenceData Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reference-data/
@@ -2587,8 +2586,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get reference data
+   * Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
    *
    * REST API Reference for getReferenceData Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reference-data/
@@ -2628,7 +2627,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileReferenceWrapper> localVarReturnType = new TypeReference<FileReferenceWrapper>() {};
     return apiClient.invokeAPI(
@@ -2649,8 +2648,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Check the PDF file
+   * Checks if the PDF file is a form or not.
    *
    * REST API Reference for isFormPDF Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/
@@ -2665,8 +2664,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Check the PDF file
+   * Checks if the PDF file is a form or not.
    *
    * REST API Reference for isFormPDF Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/
@@ -2712,7 +2711,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -2733,8 +2732,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Lock a file
+   * Locks a file with the ID specified in the request.
    *
    * REST API Reference for lockFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/
@@ -2750,8 +2749,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Lock a file
+   * Locks a file with the ID specified in the request.
    *
    * REST API Reference for lockFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/
@@ -2803,7 +2802,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileIntegerWrapper> localVarReturnType = new TypeReference<FileIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -2824,8 +2823,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Perform form filling action
+   * Performs the specified form filling action.
    *
    * REST API Reference for manageFormFilling Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/
@@ -2840,8 +2839,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Perform form filling action
+   * Performs the specified form filling action.
    *
    * REST API Reference for manageFormFilling Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/
@@ -2887,7 +2886,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -2907,8 +2906,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Open a file configuration
+   * Returns the initialization configuration of a file to open it in the editor.
    *
    * REST API Reference for openEditFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/open-edit-file/
@@ -2928,8 +2927,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Open a file configuration
+   * Returns the initialization configuration of a file to open it in the editor.
    *
    * REST API Reference for openEditFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/open-edit-file/
@@ -3006,8 +3005,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Restore a file version
+   * Restores a file version specified in the request.
    *
    * REST API Reference for restoreFileVersion Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-file-version/
@@ -3024,8 +3023,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Restore a file version
+   * Restores a file version specified in the request.
    *
    * REST API Reference for restoreFileVersion Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-file-version/
@@ -3096,8 +3095,8 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Save file edits
+   * Saves edits to a file with the ID specified in the request.
    *
    * REST API Reference for saveEditingFileFromForm Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/
@@ -3116,8 +3115,8 @@ public class FilesApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Save file edits
+   * Saves edits to a file with the ID specified in the request.
    *
    * REST API Reference for saveEditingFileFromForm Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/
@@ -3175,7 +3174,7 @@ if (forcesave != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileIntegerWrapper> localVarReturnType = new TypeReference<FileIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -3196,8 +3195,8 @@ if (forcesave != null)
   }
 
   /**
-   * 
-   * 
+   * Save a file as PDF
+   * Saves a file with the identifier specified in the request as a PDF document.
    *
    * REST API Reference for saveFileAsPdf Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/
@@ -3213,8 +3212,8 @@ if (forcesave != null)
 
 
   /**
-   * 
-   * 
+   * Save a file as PDF
+   * Saves a file with the identifier specified in the request as a PDF document.
    *
    * REST API Reference for saveFileAsPdf Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/
@@ -3266,7 +3265,7 @@ if (forcesave != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileIntegerWrapper> localVarReturnType = new TypeReference<FileIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -3287,8 +3286,8 @@ if (forcesave != null)
   }
 
   /**
-   * 
-   * 
+   * Save form role mapping
+   * Saves the form role mapping.
    *
    * REST API Reference for saveFormRoleMapping Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/
@@ -3303,8 +3302,8 @@ if (forcesave != null)
 
 
   /**
-   * 
-   * 
+   * Save form role mapping
+   * Saves the form role mapping.
    *
    * REST API Reference for saveFormRoleMapping Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/
@@ -3350,7 +3349,7 @@ if (forcesave != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -3370,8 +3369,8 @@ if (forcesave != null)
   }
 
   /**
-   * 
-   * 
+   * Set the Custom Filter editing mode
+   * Sets the Custom Filter editing mode to a file with the ID specified in the request.
    *
    * REST API Reference for setCustomFilterTag Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/
@@ -3387,8 +3386,8 @@ if (forcesave != null)
 
 
   /**
-   * 
-   * 
+   * Set the Custom Filter editing mode
+   * Sets the Custom Filter editing mode to a file with the ID specified in the request.
    *
    * REST API Reference for setCustomFilterTag Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/
@@ -3440,7 +3439,7 @@ if (forcesave != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileIntegerWrapper> localVarReturnType = new TypeReference<FileIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -3461,8 +3460,8 @@ if (forcesave != null)
   }
 
   /**
-   * 
-   * 
+   * Set an external link
+   * Sets an external link to a file with the ID specified in the request.
    *
    * REST API Reference for setFileExternalLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-external-link/
@@ -3478,8 +3477,8 @@ if (forcesave != null)
 
 
   /**
-   * 
-   * 
+   * Set an external link
+   * Sets an external link to a file with the ID specified in the request.
    *
    * REST API Reference for setFileExternalLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-external-link/
@@ -3531,7 +3530,7 @@ if (forcesave != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileShareWrapper> localVarReturnType = new TypeReference<FileShareWrapper>() {};
     return apiClient.invokeAPI(
@@ -3552,8 +3551,8 @@ if (forcesave != null)
   }
 
   /**
-   * 
-   * 
+   * Set file order
+   * Sets the order of the file with the ID specified in the request.
    *
    * REST API Reference for setFileOrder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-order/
@@ -3569,8 +3568,8 @@ if (forcesave != null)
 
 
   /**
-   * 
-   * 
+   * Set file order
+   * Sets the order of the file with the ID specified in the request.
    *
    * REST API Reference for setFileOrder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-order/
@@ -3617,7 +3616,7 @@ if (forcesave != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileIntegerWrapper> localVarReturnType = new TypeReference<FileIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -3638,8 +3637,8 @@ if (forcesave != null)
   }
 
   /**
-   * 
-   * 
+   * Set order of files
+   * Sets the order of the files specified in the request.
    *
    * REST API Reference for setFilesOrder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/
@@ -3654,8 +3653,8 @@ if (forcesave != null)
 
 
   /**
-   * 
-   * 
+   * Set order of files
+   * Sets the order of the files specified in the request.
    *
    * REST API Reference for setFilesOrder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/
@@ -3695,7 +3694,7 @@ if (forcesave != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileEntryIntegerArrayWrapper> localVarReturnType = new TypeReference<FileEntryIntegerArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -3716,8 +3715,8 @@ if (forcesave != null)
   }
 
   /**
-   * 
-   * 
+   * Start file editing
+   * Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
    *
    * REST API Reference for startEditFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/
@@ -3733,8 +3732,8 @@ if (forcesave != null)
 
 
   /**
-   * 
-   * 
+   * Start file editing
+   * Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
    *
    * REST API Reference for startEditFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/
@@ -3807,8 +3806,8 @@ if (forcesave != null)
   }
 
   /**
-   * 
-   * 
+   * Start file filling
+   * Starts filling a file with the ID specified in the request.
    *
    * REST API Reference for startFillingFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-filling-file/
@@ -3823,8 +3822,8 @@ if (forcesave != null)
 
 
   /**
-   * 
-   * 
+   * Start file filling
+   * Starts filling a file with the ID specified in the request.
    *
    * REST API Reference for startFillingFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-filling-file/
@@ -3870,7 +3869,7 @@ if (forcesave != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileIntegerWrapper> localVarReturnType = new TypeReference<FileIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -3891,8 +3890,8 @@ if (forcesave != null)
   }
 
   /**
-   * 
-   * 
+   * Change the file favorite status
+   * Changes the favorite status of the file with the ID specified in the request.
    *
    * REST API Reference for toggleFileFavorite Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/toggle-file-favorite/
@@ -3908,8 +3907,8 @@ if (forcesave != null)
 
 
   /**
-   * 
-   * 
+   * Change the file favorite status
+   * Changes the favorite status of the file with the ID specified in the request.
    *
    * REST API Reference for toggleFileFavorite Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/toggle-file-favorite/
@@ -3957,7 +3956,7 @@ if (forcesave != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -3978,8 +3977,8 @@ if (forcesave != null)
   }
 
   /**
-   * 
-   * 
+   * Track file editing
+   * Tracks file changes when editing.
    *
    * REST API Reference for trackEditFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/track-edit-file/
@@ -3997,8 +3996,8 @@ if (forcesave != null)
 
 
   /**
-   * 
-   * 
+   * Track file editing
+   * Tracks file changes when editing.
    *
    * REST API Reference for trackEditFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/track-edit-file/
@@ -4071,8 +4070,8 @@ if (forcesave != null)
   }
 
   /**
-   * 
-   * 
+   * Update a file
+   * Updates the information of the selected file with the parameters specified in the request.
    *
    * REST API Reference for updateFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/
@@ -4088,8 +4087,8 @@ if (forcesave != null)
 
 
   /**
-   * 
-   * 
+   * Update a file
+   * Updates the information of the selected file with the parameters specified in the request.
    *
    * REST API Reference for updateFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/

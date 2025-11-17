@@ -21,9 +21,8 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Supplier;
 
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
 public class Configuration {
-  public static final String VERSION = "4.0.0";
+  public static final String VERSION = "3.5.0-preview.1";
 
   private static final AtomicReference<ApiClient> defaultApiClient = new AtomicReference<>();
   private static volatile Supplier<ApiClient> apiClientFactory = ApiClient::new;

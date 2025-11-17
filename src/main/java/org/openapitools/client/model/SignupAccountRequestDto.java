@@ -48,7 +48,7 @@ import java.util.StringJoiner;
   SignupAccountRequestDto.JSON_PROPERTY_CULTURE,
   SignupAccountRequestDto.JSON_PROPERTY_SERIALIZED_PROFILE
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class SignupAccountRequestDto {
   public static final String JSON_PROPERTY_EMPLOYEE_TYPE = "employeeType";
   @javax.annotation.Nullable

@@ -37,7 +37,7 @@ import java.util.StringJoiner;
   ChangeHistory.JSON_PROPERTY_VERSION,
   ChangeHistory.JSON_PROPERTY_CONTINUE_VERSION
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class ChangeHistory {
   public static final String JSON_PROPERTY_VERSION = "version";
   @javax.annotation.Nonnull

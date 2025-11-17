@@ -42,7 +42,7 @@ import java.util.StringJoiner;
   SetupCode.JSON_PROPERTY_MANUAL_ENTRY_KEY,
   SetupCode.JSON_PROPERTY_QR_CODE_SETUP_IMAGE_URL
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class SetupCode {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   @javax.annotation.Nullable

@@ -555,6 +555,12 @@
 
 * `CustomQuotaPerAiAgentDisabled` (value: `6072`)
 
+* `AIProviderCreated` (value: `6073`)
+
+* `AIProviderUpdated` (value: `6074`)
+
+* `AIProviderDeleted` (value: `6075`)
+
 * `ContactAdminMailSent` (value: `7000`)
 
 * `RoomInviteLinkUsed` (value: `7001`)

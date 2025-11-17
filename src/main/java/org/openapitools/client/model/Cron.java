@@ -43,7 +43,7 @@ import java.util.StringJoiner;
   Cron.JSON_PROPERTY_HOUR,
   Cron.JSON_PROPERTY_DAY
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class Cron {
   public static final String JSON_PROPERTY_PERIOD = "period";
   @javax.annotation.Nullable

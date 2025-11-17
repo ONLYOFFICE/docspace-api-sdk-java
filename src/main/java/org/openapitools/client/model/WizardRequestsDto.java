@@ -45,7 +45,7 @@ import java.util.StringJoiner;
   WizardRequestsDto.JSON_PROPERTY_AMI_ID,
   WizardRequestsDto.JSON_PROPERTY_SUBSCRIBE_FROM_SITE
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class WizardRequestsDto {
   public static final String JSON_PROPERTY_EMAIL = "email";
   @javax.annotation.Nullable

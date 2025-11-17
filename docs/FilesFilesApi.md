@@ -1,56 +1,56 @@
-# onlyoffice.docspace.api.sdk.org.openapitools.client.api.FilesApi
+# docspace-api-sdk.org.openapitools.client.api.FilesApi
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**addFileToRecent**](FilesFilesApi.md#addFileToRecent) | **POST** /api/2.0/files/file/{fileId}/recent |  |
-| [**addTemplates**](FilesFilesApi.md#addTemplates) | **POST** /api/2.0/files/templates |  |
-| [**changeVersionHistory**](FilesFilesApi.md#changeVersionHistory) | **PUT** /api/2.0/files/file/{fileId}/history |  |
-| [**checkFillFormDraft**](FilesFilesApi.md#checkFillFormDraft) | **POST** /api/2.0/files/masterform/{fileId}/checkfillformdraft |  |
-| [**copyFileAs**](FilesFilesApi.md#copyFileAs) | **POST** /api/2.0/files/file/{fileId}/copyas |  |
-| [**createEditSession**](FilesFilesApi.md#createEditSession) | **POST** /api/2.0/files/file/{fileId}/edit_session |  |
-| [**createFile**](FilesFilesApi.md#createFile) | **POST** /api/2.0/files/{folderId}/file |  |
-| [**createFileInMyDocuments**](FilesFilesApi.md#createFileInMyDocuments) | **POST** /api/2.0/files/@my/file |  |
-| [**createFilePrimaryExternalLink**](FilesFilesApi.md#createFilePrimaryExternalLink) | **POST** /api/2.0/files/file/{id}/link |  |
-| [**createHtmlFile**](FilesFilesApi.md#createHtmlFile) | **POST** /api/2.0/files/{folderId}/html |  |
-| [**createHtmlFileInMyDocuments**](FilesFilesApi.md#createHtmlFileInMyDocuments) | **POST** /api/2.0/files/@my/html |  |
-| [**createTextFile**](FilesFilesApi.md#createTextFile) | **POST** /api/2.0/files/{folderId}/text |  |
-| [**createTextFileInMyDocuments**](FilesFilesApi.md#createTextFileInMyDocuments) | **POST** /api/2.0/files/@my/text |  |
-| [**createThumbnails**](FilesFilesApi.md#createThumbnails) | **POST** /api/2.0/files/thumbnails |  |
-| [**deleteFile**](FilesFilesApi.md#deleteFile) | **DELETE** /api/2.0/files/file/{fileId} |  |
-| [**deleteRecent**](FilesFilesApi.md#deleteRecent) | **DELETE** /api/2.0/files/recent |  |
-| [**deleteTemplates**](FilesFilesApi.md#deleteTemplates) | **DELETE** /api/2.0/files/templates |  |
-| [**getAllFormRoles**](FilesFilesApi.md#getAllFormRoles) | **GET** /api/2.0/files/file/{fileId}/formroles |  |
-| [**getEditDiffUrl**](FilesFilesApi.md#getEditDiffUrl) | **GET** /api/2.0/files/file/{fileId}/edit/diff |  |
-| [**getEditHistory**](FilesFilesApi.md#getEditHistory) | **GET** /api/2.0/files/file/{fileId}/edit/history |  |
-| [**getFileHistory**](FilesFilesApi.md#getFileHistory) | **GET** /api/2.0/files/file/{fileId}/log |  |
-| [**getFileInfo**](FilesFilesApi.md#getFileInfo) | **GET** /api/2.0/files/file/{fileId} |  |
-| [**getFileLinks**](FilesFilesApi.md#getFileLinks) | **GET** /api/2.0/files/file/{id}/links |  |
-| [**getFilePrimaryExternalLink**](FilesFilesApi.md#getFilePrimaryExternalLink) | **GET** /api/2.0/files/file/{id}/link |  |
-| [**getFileVersionInfo**](FilesFilesApi.md#getFileVersionInfo) | **GET** /api/2.0/files/file/{fileId}/history |  |
-| [**getFillResult**](FilesFilesApi.md#getFillResult) | **GET** /api/2.0/files/file/fillresult |  |
-| [**getPresignedFileUri**](FilesFilesApi.md#getPresignedFileUri) | **GET** /api/2.0/files/file/{fileId}/presigned |  |
-| [**getPresignedUri**](FilesFilesApi.md#getPresignedUri) | **GET** /api/2.0/files/file/{fileId}/presigneduri |  |
-| [**getProtectedFileUsers**](FilesFilesApi.md#getProtectedFileUsers) | **GET** /api/2.0/files/file/{fileId}/protectusers |  |
-| [**getReferenceData**](FilesFilesApi.md#getReferenceData) | **POST** /api/2.0/files/file/referencedata |  |
-| [**isFormPDF**](FilesFilesApi.md#isFormPDF) | **GET** /api/2.0/files/file/{fileId}/isformpdf |  |
-| [**lockFile**](FilesFilesApi.md#lockFile) | **PUT** /api/2.0/files/file/{fileId}/lock |  |
-| [**manageFormFilling**](FilesFilesApi.md#manageFormFilling) | **PUT** /api/2.0/files/file/{fileId}/manageformfilling |  |
-| [**openEditFile**](FilesFilesApi.md#openEditFile) | **GET** /api/2.0/files/file/{fileId}/openedit |  |
-| [**restoreFileVersion**](FilesFilesApi.md#restoreFileVersion) | **GET** /api/2.0/files/file/{fileId}/restoreversion |  |
-| [**saveEditingFileFromForm**](FilesFilesApi.md#saveEditingFileFromForm) | **PUT** /api/2.0/files/file/{fileId}/saveediting |  |
-| [**saveFileAsPdf**](FilesFilesApi.md#saveFileAsPdf) | **POST** /api/2.0/files/file/{id}/saveaspdf |  |
-| [**saveFormRoleMapping**](FilesFilesApi.md#saveFormRoleMapping) | **POST** /api/2.0/files/file/{fileId}/formrolemapping |  |
-| [**setCustomFilterTag**](FilesFilesApi.md#setCustomFilterTag) | **PUT** /api/2.0/files/file/{fileId}/customfilter |  |
-| [**setFileExternalLink**](FilesFilesApi.md#setFileExternalLink) | **PUT** /api/2.0/files/file/{id}/links |  |
-| [**setFileOrder**](FilesFilesApi.md#setFileOrder) | **PUT** /api/2.0/files/{fileId}/order |  |
-| [**setFilesOrder**](FilesFilesApi.md#setFilesOrder) | **PUT** /api/2.0/files/order |  |
-| [**startEditFile**](FilesFilesApi.md#startEditFile) | **POST** /api/2.0/files/file/{fileId}/startedit |  |
-| [**startFillingFile**](FilesFilesApi.md#startFillingFile) | **PUT** /api/2.0/files/file/{fileId}/startfilling |  |
-| [**toggleFileFavorite**](FilesFilesApi.md#toggleFileFavorite) | **GET** /api/2.0/files/favorites/{fileId} |  |
-| [**trackEditFile**](FilesFilesApi.md#trackEditFile) | **GET** /api/2.0/files/file/{fileId}/trackeditfile |  |
-| [**updateFile**](FilesFilesApi.md#updateFile) | **PUT** /api/2.0/files/file/{fileId} |  |
+| [**addFileToRecent**](FilesFilesApi.md#addFileToRecent) | **POST** /api/2.0/files/file/{fileId}/recent | Add a file to the Recent section |
+| [**addTemplates**](FilesFilesApi.md#addTemplates) | **POST** /api/2.0/files/templates | Add template files |
+| [**changeVersionHistory**](FilesFilesApi.md#changeVersionHistory) | **PUT** /api/2.0/files/file/{fileId}/history | Change version history |
+| [**checkFillFormDraft**](FilesFilesApi.md#checkFillFormDraft) | **POST** /api/2.0/files/masterform/{fileId}/checkfillformdraft | Check the form draft filling |
+| [**copyFileAs**](FilesFilesApi.md#copyFileAs) | **POST** /api/2.0/files/file/{fileId}/copyas | Copy a file |
+| [**createEditSession**](FilesFilesApi.md#createEditSession) | **POST** /api/2.0/files/file/{fileId}/edit_session | Create the editing session |
+| [**createFile**](FilesFilesApi.md#createFile) | **POST** /api/2.0/files/{folderId}/file | Create a file |
+| [**createFileInMyDocuments**](FilesFilesApi.md#createFileInMyDocuments) | **POST** /api/2.0/files/@my/file | Create a file in the My documents section |
+| [**createFilePrimaryExternalLink**](FilesFilesApi.md#createFilePrimaryExternalLink) | **POST** /api/2.0/files/file/{id}/link | Create primary external link |
+| [**createHtmlFile**](FilesFilesApi.md#createHtmlFile) | **POST** /api/2.0/files/{folderId}/html | Create an HTML file |
+| [**createHtmlFileInMyDocuments**](FilesFilesApi.md#createHtmlFileInMyDocuments) | **POST** /api/2.0/files/@my/html | Create an HTML file in the My documents section |
+| [**createTextFile**](FilesFilesApi.md#createTextFile) | **POST** /api/2.0/files/{folderId}/text | Create a text file |
+| [**createTextFileInMyDocuments**](FilesFilesApi.md#createTextFileInMyDocuments) | **POST** /api/2.0/files/@my/text | Create a text file in the My documents section |
+| [**createThumbnails**](FilesFilesApi.md#createThumbnails) | **POST** /api/2.0/files/thumbnails | Create file thumbnails |
+| [**deleteFile**](FilesFilesApi.md#deleteFile) | **DELETE** /api/2.0/files/file/{fileId} | Delete a file |
+| [**deleteRecent**](FilesFilesApi.md#deleteRecent) | **DELETE** /api/2.0/files/recent | Delete recent files |
+| [**deleteTemplates**](FilesFilesApi.md#deleteTemplates) | **DELETE** /api/2.0/files/templates | Delete template files |
+| [**getAllFormRoles**](FilesFilesApi.md#getAllFormRoles) | **GET** /api/2.0/files/file/{fileId}/formroles | Get form roles |
+| [**getEditDiffUrl**](FilesFilesApi.md#getEditDiffUrl) | **GET** /api/2.0/files/file/{fileId}/edit/diff | Get changes URL |
+| [**getEditHistory**](FilesFilesApi.md#getEditHistory) | **GET** /api/2.0/files/file/{fileId}/edit/history | Get version history |
+| [**getFileHistory**](FilesFilesApi.md#getFileHistory) | **GET** /api/2.0/files/file/{fileId}/log | Get file history |
+| [**getFileInfo**](FilesFilesApi.md#getFileInfo) | **GET** /api/2.0/files/file/{fileId} | Get file information |
+| [**getFileLinks**](FilesFilesApi.md#getFileLinks) | **GET** /api/2.0/files/file/{id}/links | Get file external links |
+| [**getFilePrimaryExternalLink**](FilesFilesApi.md#getFilePrimaryExternalLink) | **GET** /api/2.0/files/file/{id}/link | Get primary external link |
+| [**getFileVersionInfo**](FilesFilesApi.md#getFileVersionInfo) | **GET** /api/2.0/files/file/{fileId}/history | Get file versions |
+| [**getFillResult**](FilesFilesApi.md#getFillResult) | **GET** /api/2.0/files/file/fillresult | Get form-filling result |
+| [**getPresignedFileUri**](FilesFilesApi.md#getPresignedFileUri) | **GET** /api/2.0/files/file/{fileId}/presigned | Get file download link asynchronously |
+| [**getPresignedUri**](FilesFilesApi.md#getPresignedUri) | **GET** /api/2.0/files/file/{fileId}/presigneduri | Get file download link |
+| [**getProtectedFileUsers**](FilesFilesApi.md#getProtectedFileUsers) | **GET** /api/2.0/files/file/{fileId}/protectusers | Get users access rights to the protected file |
+| [**getReferenceData**](FilesFilesApi.md#getReferenceData) | **POST** /api/2.0/files/file/referencedata | Get reference data |
+| [**isFormPDF**](FilesFilesApi.md#isFormPDF) | **GET** /api/2.0/files/file/{fileId}/isformpdf | Check the PDF file |
+| [**lockFile**](FilesFilesApi.md#lockFile) | **PUT** /api/2.0/files/file/{fileId}/lock | Lock a file |
+| [**manageFormFilling**](FilesFilesApi.md#manageFormFilling) | **PUT** /api/2.0/files/file/{fileId}/manageformfilling | Perform form filling action |
+| [**openEditFile**](FilesFilesApi.md#openEditFile) | **GET** /api/2.0/files/file/{fileId}/openedit | Open a file configuration |
+| [**restoreFileVersion**](FilesFilesApi.md#restoreFileVersion) | **GET** /api/2.0/files/file/{fileId}/restoreversion | Restore a file version |
+| [**saveEditingFileFromForm**](FilesFilesApi.md#saveEditingFileFromForm) | **PUT** /api/2.0/files/file/{fileId}/saveediting | Save file edits |
+| [**saveFileAsPdf**](FilesFilesApi.md#saveFileAsPdf) | **POST** /api/2.0/files/file/{id}/saveaspdf | Save a file as PDF |
+| [**saveFormRoleMapping**](FilesFilesApi.md#saveFormRoleMapping) | **POST** /api/2.0/files/file/{fileId}/formrolemapping | Save form role mapping |
+| [**setCustomFilterTag**](FilesFilesApi.md#setCustomFilterTag) | **PUT** /api/2.0/files/file/{fileId}/customfilter | Set the Custom Filter editing mode |
+| [**setFileExternalLink**](FilesFilesApi.md#setFileExternalLink) | **PUT** /api/2.0/files/file/{id}/links | Set an external link |
+| [**setFileOrder**](FilesFilesApi.md#setFileOrder) | **PUT** /api/2.0/files/{fileId}/order | Set file order |
+| [**setFilesOrder**](FilesFilesApi.md#setFilesOrder) | **PUT** /api/2.0/files/order | Set order of files |
+| [**startEditFile**](FilesFilesApi.md#startEditFile) | **POST** /api/2.0/files/file/{fileId}/startedit | Start file editing |
+| [**startFillingFile**](FilesFilesApi.md#startFillingFile) | **PUT** /api/2.0/files/file/{fileId}/startfilling | Start file filling |
+| [**toggleFileFavorite**](FilesFilesApi.md#toggleFileFavorite) | **GET** /api/2.0/files/favorites/{fileId} | Change the file favorite status |
+| [**trackEditFile**](FilesFilesApi.md#trackEditFile) | **GET** /api/2.0/files/file/{fileId}/trackeditfile | Track file editing |
+| [**updateFile**](FilesFilesApi.md#updateFile) | **PUT** /api/2.0/files/file/{fileId} | Update a file |
 
 
 
@@ -58,7 +58,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > FileIntegerWrapper addFileToRecent(fileId)
 
-
+Add a file to the Recent sectionAdds a file with the ID specified in the request to the Recent section.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/add-file-to-recent/).
 
@@ -75,7 +75,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -84,6 +84,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -91,6 +92,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer fileId = 9846; // Integer | The file unique identifier.
@@ -118,13 +145,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | New file information |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## addTemplates
 
 > BooleanWrapper addTemplates(templatesRequestDto)
 
-
+Add template filesAdds files with the IDs specified in the request to the template list.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/add-templates/).
 
@@ -141,7 +169,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -150,6 +178,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -157,6 +186,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         TemplatesRequestDto templatesRequestDto = new TemplatesRequestDto(); // TemplatesRequestDto | 
@@ -184,13 +239,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## changeVersionHistory
 
 > FileIntegerArrayWrapper changeVersionHistory(fileId, changeHistory)
 
-
+Change version historyChanges the version history of a file with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/).
 
@@ -208,7 +264,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -217,6 +273,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -224,6 +281,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer fileId = 9846; // Integer | The file Id to change its version history.
@@ -252,6 +335,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Updated information about file versions |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You do not have enough permissions to edit the file |  -  |
 
 
@@ -259,7 +343,7 @@ public class Example {
 
 > StringWrapper checkFillFormDraft(fileId, checkFillFormDraft)
 
-
+Check the form draft fillingChecks if the current file is a form draft which can be filled out.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/).
 
@@ -328,7 +412,7 @@ public class Example {
 
 > FileEntryBaseWrapper copyFileAs(fileId, copyAsJsonElement)
 
-
+Copy a fileCopies (and converts if possible) an existing file to the specified folder.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/).
 
@@ -346,7 +430,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -355,6 +439,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -362,6 +447,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer fileId = 9846; // Integer | The file ID to copy.
@@ -391,6 +502,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Copied file entry information |  -  |
 | **400** | No file id or folder id toFolderId determine provider |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to create |  -  |
 | **404** | File not found |  -  |
 
@@ -399,7 +511,7 @@ public class Example {
 
 > ObjectWrapper createEditSession(fileId, fileSize)
 
-
+Create the editing sessionCreates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  <ul>  <li><b>id:</b> unique ID of this upload session,</li>  <li><b>created:</b> UTC time when the session was created,</li>  <li><b>expired:</b> UTC time when the session will expire if no chunks are sent before that time,</li>  <li><b>location:</b> URL where you should send your next chunk,</li>  <li><b>bytes_uploaded:</b> number of bytes uploaded for the specific upload ID,</li>  <li><b>bytes_total:</b> total number of bytes which will be uploaded.</li>  </ul>
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/).
 
@@ -417,7 +529,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -426,6 +538,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -433,6 +546,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer fileId = 9846; // Integer | The file ID.
@@ -461,6 +600,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Information about created session |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to edit the file |  -  |
 
 
@@ -468,7 +608,7 @@ public class Example {
 
 > FileIntegerWrapper createFile(folderId, createFileJsonElement)
 
-
+Create a fileCreates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/).
 
@@ -486,7 +626,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -495,6 +635,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -502,6 +643,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer folderId = 9846; // Integer | The folder ID for the file creation.
@@ -530,13 +697,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | New file information |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## createFileInMyDocuments
 
 > FileIntegerWrapper createFileInMyDocuments(createFileJsonElement)
 
-
+Create a file in the My documents sectionCreates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/).
 
@@ -553,7 +721,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -562,6 +730,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -569,6 +738,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         CreateFileJsonElement createFileJsonElement = new CreateFileJsonElement(); // CreateFileJsonElement | 
@@ -596,13 +791,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | New file information |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## createFilePrimaryExternalLink
 
 > FileShareWrapper createFilePrimaryExternalLink(id, fileLinkRequest)
 
-
+Create primary external linkCreates a primary external link by the identifier specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/).
 
@@ -620,7 +816,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -629,6 +825,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -636,6 +833,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer id = 9846; // Integer | The file ID.
@@ -664,6 +887,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | File security information |  -  |
+| **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
 
 
@@ -671,7 +895,7 @@ public class Example {
 
 > FileIntegerWrapper createHtmlFile(folderId, createTextOrHtmlFile)
 
-
+Create an HTML fileCreates an HTML (.html) file in the selected folder with the title and contents specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/).
 
@@ -689,7 +913,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -698,6 +922,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -705,6 +930,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer folderId = 9846; // Integer | The folder ID to create the text or HTML file.
@@ -733,6 +984,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | New file information |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to create |  -  |
 
 
@@ -740,7 +992,7 @@ public class Example {
 
 > FileIntegerWrapper createHtmlFileInMyDocuments(createTextOrHtmlFile)
 
-
+Create an HTML file in the My documents sectionCreates an HTML (.html) file in the My documents section with the title and contents specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file-in-my-documents/).
 
@@ -757,7 +1009,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -766,6 +1018,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -773,6 +1026,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         CreateTextOrHtmlFile createTextOrHtmlFile = new CreateTextOrHtmlFile(); // CreateTextOrHtmlFile | 
@@ -800,6 +1079,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | New file information |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to create |  -  |
 
 
@@ -807,7 +1087,7 @@ public class Example {
 
 > FileIntegerWrapper createTextFile(folderId, createTextOrHtmlFile)
 
-
+Create a text fileCreates a text (.txt) file in the selected folder with the title and contents specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/).
 
@@ -825,7 +1105,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -834,6 +1114,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -841,6 +1122,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer folderId = 9846; // Integer | The folder ID to create the text or HTML file.
@@ -869,13 +1176,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | New file information |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## createTextFileInMyDocuments
 
 > FileIntegerWrapper createTextFileInMyDocuments(createTextOrHtmlFile)
 
-
+Create a text file in the My documents sectionCreates a text (.txt) file in the My documents section with the title and contents specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file-in-my-documents/).
 
@@ -892,7 +1200,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -901,6 +1209,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -908,6 +1217,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         CreateTextOrHtmlFile createTextOrHtmlFile = new CreateTextOrHtmlFile(); // CreateTextOrHtmlFile | 
@@ -935,13 +1270,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | New file information |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## createThumbnails
 
 > ObjectArrayWrapper createThumbnails(baseBatchRequestDto)
 
-
+Create file thumbnailsCreates thumbnails for the files with the IDs specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-thumbnails/).
 
@@ -1007,7 +1343,7 @@ public class Example {
 
 > FileOperationArrayWrapper deleteFile(fileId, delete)
 
-
+Delete a fileDeletes a file with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/).
 
@@ -1025,7 +1361,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1034,6 +1370,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -1041,6 +1378,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer fileId = 9846; // Integer | The file ID to delete.
@@ -1069,13 +1432,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file operations |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## deleteRecent
 
 > NoContentResultWrapper deleteRecent(baseBatchRequestDto)
 
-
+Delete recent filesRemoves files with the IDs specified in the request from the Recent section.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/).
 
@@ -1092,7 +1456,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1101,6 +1465,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -1108,6 +1473,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         BaseBatchRequestDto baseBatchRequestDto = new BaseBatchRequestDto(); // BaseBatchRequestDto | 
@@ -1135,13 +1526,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | No content |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## deleteTemplates
 
 > BooleanWrapper deleteTemplates(requestBody)
 
-
+Delete template filesRemoves files with the IDs specified in the request from the template list.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-templates/).
 
@@ -1158,7 +1550,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1167,6 +1559,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -1174,6 +1567,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         List<Integer> requestBody = Arrays.asList(); // List<Integer> | The file IDs.
@@ -1201,13 +1620,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getAllFormRoles
 
 > FormRoleArrayWrapper getAllFormRoles(fileId)
 
-
+Get form rolesReturns all roles for the specified form.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/).
 
@@ -1224,7 +1644,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1233,6 +1653,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -1240,6 +1661,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer fileId = 9846; // Integer | The file unique identifier.
@@ -1267,6 +1714,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved all roles for the form |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You do not have enough permissions to view the form roles |  -  |
 
 
@@ -1274,7 +1722,7 @@ public class Example {
 
 > EditHistoryDataWrapper getEditDiffUrl(fileId, version)
 
-
+Get changes URLReturns a URL to the changes of a file version specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-diff-url/).
 
@@ -1342,7 +1790,7 @@ public class Example {
 
 > EditHistoryArrayWrapper getEditHistory(fileId)
 
-
+Get version historyReturns the version history of a file with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/).
 
@@ -1408,7 +1856,7 @@ public class Example {
 
 > HistoryArrayWrapper getFileHistory(fileId, fromDate, toDate, count, startIndex)
 
-
+Get file historyReturns the list of actions performed on the file with the specified identifier.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-history/).
 
@@ -1429,7 +1877,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1438,6 +1886,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -1445,6 +1894,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer fileId = 9846; // Integer | The file ID of the history request.
@@ -1476,6 +1951,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of actions performed on the file |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to perform the operation |  -  |
 | **404** | The required file was not found |  -  |
 
@@ -1484,7 +1960,7 @@ public class Example {
 
 > FileIntegerWrapper getFileInfo(fileId, version)
 
-
+Get file informationReturns the detailed information about a file with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-info/).
 
@@ -1552,7 +2028,7 @@ public class Example {
 
 > FileShareArrayWrapper getFileLinks(id, count, startIndex)
 
-
+Get file external linksReturns the external links of a file with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-links/).
 
@@ -1571,7 +2047,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1580,6 +2056,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -1587,6 +2064,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer id = 9846; // Integer | The file unique identifier.
@@ -1616,13 +2119,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | File security information |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getFilePrimaryExternalLink
 
 > FileShareWrapper getFilePrimaryExternalLink(id, count, startIndex)
 
-
+Get primary external linkReturns the primary external link by the identifier specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-primary-external-link/).
 
@@ -1693,7 +2197,7 @@ public class Example {
 
 > FileIntegerArrayWrapper getFileVersionInfo(fileId)
 
-
+Get file versionsReturns the detailed information about all the available file versions with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/).
 
@@ -1759,7 +2263,7 @@ public class Example {
 
 > FillingFormResultIntegerWrapper getFillResult(fillingSessionId)
 
-
+Get form-filling resultRetrieves the result of a form-filling session.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-fill-result/).
 
@@ -1825,7 +2329,7 @@ public class Example {
 
 > FileLinkWrapper getPresignedFileUri(fileId)
 
-
+Get file download link asynchronouslyReturns a link to download a file with the ID specified in the request asynchronously.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/).
 
@@ -1842,7 +2346,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1851,6 +2355,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -1858,6 +2363,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer fileId = 9846; // Integer | The file unique identifier.
@@ -1885,13 +2416,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | File download link |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getPresignedUri
 
 > StringWrapper getPresignedUri(fileId)
 
-
+Get file download linkReturns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/).
 
@@ -1908,7 +2440,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1917,6 +2449,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -1924,6 +2457,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer fileId = 9846; // Integer | The file unique identifier.
@@ -1951,13 +2510,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | File download link |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getProtectedFileUsers
 
 > MentionWrapperArrayWrapper getProtectedFileUsers(fileId)
 
-
+Get users access rights to the protected fileReturns a list of users with their access rights to the protected file with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/).
 
@@ -1974,7 +2534,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -1983,6 +2543,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -1990,6 +2551,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer fileId = 9846; // Integer | The file unique identifier.
@@ -2017,13 +2604,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of users with their access rights to the protected file |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getReferenceData
 
 > FileReferenceWrapper getReferenceData(getReferenceDataDtoInteger)
 
-
+Get reference dataReturns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reference-data/).
 
@@ -2040,7 +2628,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -2049,6 +2637,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -2056,6 +2645,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         GetReferenceDataDtoInteger getReferenceDataDtoInteger = new GetReferenceDataDtoInteger(); // GetReferenceDataDtoInteger | 
@@ -2083,13 +2698,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | File reference data |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## isFormPDF
 
 > BooleanWrapper isFormPDF(fileId)
 
-
+Check the PDF fileChecks if the PDF file is a form or not.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/).
 
@@ -2106,7 +2722,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -2115,6 +2731,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -2122,6 +2739,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer fileId = 9846; // Integer | The file unique identifier.
@@ -2149,13 +2792,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true - the PDF file is form, false - the PDF file is not a form |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## lockFile
 
 > FileIntegerWrapper lockFile(fileId, lockFileParameters)
 
-
+Lock a fileLocks a file with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/).
 
@@ -2173,7 +2817,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -2182,6 +2826,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -2189,6 +2834,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer fileId = 9846; // Integer | The file ID for locking.
@@ -2217,13 +2888,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Locked file information |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## manageFormFilling
 
 > manageFormFilling(fileId, manageFormFillingDtoInteger)
 
-
+Perform form filling actionPerforms the specified form filling action.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/).
 
@@ -2241,7 +2913,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -2250,6 +2922,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -2257,6 +2930,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         String fileId = "fileId_example"; // String | 
@@ -2284,6 +2983,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully processed the form filling action |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You do not have enough permissions to perform this action |  -  |
 
 
@@ -2291,7 +2991,7 @@ public class Example {
 
 > ConfigurationIntegerWrapper openEditFile(fileId, version, view, editorType, edit, fill)
 
-
+Open a file configurationReturns the initialization configuration of a file to open it in the editor.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/open-edit-file/).
 
@@ -2368,7 +3068,7 @@ public class Example {
 
 > EditHistoryArrayWrapper restoreFileVersion(fileId, version, url)
 
-
+Restore a file versionRestores a file version specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-file-version/).
 
@@ -2440,7 +3140,7 @@ public class Example {
 
 > FileIntegerWrapper saveEditingFileFromForm(fileId, fileExtension, downloadUri, _file, forcesave)
 
-
+Save file editsSaves edits to a file with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/).
 
@@ -2461,7 +3161,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -2470,6 +3170,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -2477,6 +3178,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer fileId = 9846; // Integer | The editing file ID from the request.
@@ -2509,6 +3236,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Saved file parameters |  -  |
 | **400** | No file id or folder id toFolderId determine provider |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You do not have enough permissions to edit the file |  -  |
 
 
@@ -2516,7 +3244,7 @@ public class Example {
 
 > FileIntegerWrapper saveFileAsPdf(id, saveAsPdfInteger)
 
-
+Save a file as PDFSaves a file with the identifier specified in the request as a PDF document.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/).
 
@@ -2534,7 +3262,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -2543,6 +3271,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -2550,6 +3279,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer id = 9846; // Integer | The file ID to save as PDF.
@@ -2578,6 +3333,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | New file information |  -  |
+| **401** | Unauthorized |  -  |
 | **404** | File not found |  -  |
 
 
@@ -2585,7 +3341,7 @@ public class Example {
 
 > saveFormRoleMapping(fileId, saveFormRoleMappingDtoInteger)
 
-
+Save form role mappingSaves the form role mapping.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/).
 
@@ -2603,7 +3359,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -2612,6 +3368,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -2619,6 +3376,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         String fileId = "fileId_example"; // String | 
@@ -2646,6 +3429,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Updated information about form role mappings |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You do not have enough permissions to edit the file |  -  |
 
 
@@ -2653,7 +3437,7 @@ public class Example {
 
 > FileIntegerWrapper setCustomFilterTag(fileId, customFilterParameters)
 
-
+Set the Custom Filter editing modeSets the Custom Filter editing mode to a file with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/).
 
@@ -2671,7 +3455,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -2680,6 +3464,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -2687,6 +3472,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer fileId = 9846; // Integer | The file ID.
@@ -2715,13 +3526,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | File information |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## setFileExternalLink
 
 > FileShareWrapper setFileExternalLink(id, fileLinkRequest)
 
-
+Set an external linkSets an external link to a file with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-external-link/).
 
@@ -2739,7 +3551,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -2748,6 +3560,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -2755,6 +3568,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer id = 9846; // Integer | The file ID.
@@ -2783,13 +3622,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | File security information |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## setFileOrder
 
 > FileIntegerWrapper setFileOrder(fileId, orderRequestDto)
 
-
+Set file orderSets the order of the file with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-order/).
 
@@ -2807,7 +3647,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -2816,6 +3656,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -2823,6 +3664,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer fileId = 9846; // Integer | The file unique identifier.
@@ -2851,6 +3718,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Updated file information |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to perform the operation |  -  |
 | **404** | Not Found |  -  |
 
@@ -2859,7 +3727,7 @@ public class Example {
 
 > FileEntryIntegerArrayWrapper setFilesOrder(ordersRequestDtoInteger)
 
-
+Set order of filesSets the order of the files specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/).
 
@@ -2876,7 +3744,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -2885,6 +3753,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -2892,6 +3761,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         OrdersRequestDtoInteger ordersRequestDtoInteger = new OrdersRequestDtoInteger(); // OrdersRequestDtoInteger | 
@@ -2919,13 +3814,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Updated file entries information |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## startEditFile
 
 > StringWrapper startEditFile(fileId, startEdit)
 
-
+Start file editingInforms about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/).
 
@@ -2994,7 +3890,7 @@ public class Example {
 
 > FileIntegerWrapper startFillingFile(fileId)
 
-
+Start file fillingStarts filling a file with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/start-filling-file/).
 
@@ -3011,7 +3907,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -3020,6 +3916,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -3027,6 +3924,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer fileId = 9846; // Integer | The file ID to start filling.
@@ -3054,6 +3977,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | File information |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You do not have enough permissions to edit the file |  -  |
 
 
@@ -3061,7 +3985,7 @@ public class Example {
 
 > BooleanWrapper toggleFileFavorite(fileId, favorite)
 
-
+Change the file favorite statusChanges the favorite status of the file with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/toggle-file-favorite/).
 
@@ -3079,7 +4003,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -3088,6 +4012,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.FilesApi;
 
@@ -3095,6 +4020,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer fileId = 9846; // Integer | The file ID.
@@ -3123,6 +4074,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true - the file is favorite, false - the file is not favorite |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to perform the operation |  -  |
 
 
@@ -3130,7 +4082,7 @@ public class Example {
 
 > KeyValuePairBooleanStringWrapper trackEditFile(fileId, tabId, docKeyForTrack, isFinish)
 
-
+Track file editingTracks file changes when editing.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/track-edit-file/).
 
@@ -3203,7 +4155,7 @@ public class Example {
 
 > FileIntegerWrapper updateFile(fileId, updateFile)
 
-
+Update a fileUpdates the information of the selected file with the parameters specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/).
 

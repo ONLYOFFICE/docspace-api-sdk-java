@@ -38,7 +38,7 @@ import java.util.StringJoiner;
   NotificationSettingsRequestsDto.JSON_PROPERTY_TYPE,
   NotificationSettingsRequestsDto.JSON_PROPERTY_IS_ENABLED
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class NotificationSettingsRequestsDto {
   public static final String JSON_PROPERTY_TYPE = "type";
   @javax.annotation.Nonnull

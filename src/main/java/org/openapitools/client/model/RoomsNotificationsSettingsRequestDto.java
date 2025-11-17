@@ -41,7 +41,7 @@ import java.util.StringJoiner;
   RoomsNotificationsSettingsRequestDto.JSON_PROPERTY_ROOMS_ID,
   RoomsNotificationsSettingsRequestDto.JSON_PROPERTY_MUTE
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class RoomsNotificationsSettingsRequestDto {
   public static final String JSON_PROPERTY_ROOMS_ID = "roomsId";
   @javax.annotation.Nullable

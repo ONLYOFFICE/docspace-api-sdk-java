@@ -46,7 +46,7 @@ import java.util.StringJoiner;
   SessionRequest.JSON_PROPERTY_ENCRYPTED,
   SessionRequest.JSON_PROPERTY_CREATE_NEW_IF_EXIST
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class SessionRequest {
   public static final String JSON_PROPERTY_FILE_NAME = "fileName";
   @javax.annotation.Nullable

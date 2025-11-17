@@ -45,7 +45,7 @@ import java.util.StringJoiner;
   WhiteLabelRequestsDto.JSON_PROPERTY_LOGO_TEXT,
   WhiteLabelRequestsDto.JSON_PROPERTY_LOGO
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class WhiteLabelRequestsDto {
   public static final String JSON_PROPERTY_LOGO_TEXT = "logoText";
   @javax.annotation.Nullable

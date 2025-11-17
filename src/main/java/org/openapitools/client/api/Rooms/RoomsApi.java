@@ -75,7 +75,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
 public class RoomsApi extends BaseApi {
 
   public RoomsApi() {
@@ -99,8 +98,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Add the room tags
+   * Adds the tags to a room with the ID specified in the request.
    *
    * REST API Reference for addRoomTags Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-tags/
@@ -116,8 +115,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Add the room tags
+   * Adds the tags to a room with the ID specified in the request.
    *
    * REST API Reference for addRoomTags Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-tags/
@@ -164,7 +163,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderIntegerWrapper> localVarReturnType = new TypeReference<FolderIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -185,8 +184,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Archive a room
+   * Moves a room with the ID specified in the request to the Archive section.
    *
    * REST API Reference for archiveRoom Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/archive-room/
@@ -202,8 +201,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Archive a room
+   * Moves a room with the ID specified in the request to the Archive section.
    *
    * REST API Reference for archiveRoom Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/archive-room/
@@ -250,7 +249,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileOperationWrapper> localVarReturnType = new TypeReference<FileOperationWrapper>() {};
     return apiClient.invokeAPI(
@@ -271,8 +270,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Change the room cover
+   * Changes a cover of a room with the ID specified in the request.
    *
    * REST API Reference for changeRoomCover Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-room-cover/
@@ -288,8 +287,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Change the room cover
+   * Changes a cover of a room with the ID specified in the request.
    *
    * REST API Reference for changeRoomCover Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-room-cover/
@@ -341,7 +340,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderIntegerWrapper> localVarReturnType = new TypeReference<FolderIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -362,8 +361,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Create a room
+   * Creates a room in the Rooms section.
    *
    * REST API Reference for createRoom Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room/
@@ -378,8 +377,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Create a room
+   * Creates a room in the Rooms section.
    *
    * REST API Reference for createRoom Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room/
@@ -419,7 +418,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderIntegerWrapper> localVarReturnType = new TypeReference<FolderIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -440,8 +439,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Create a room from the template
+   * Creates a room in the Rooms section based on the template.
    *
    * REST API Reference for createRoomFromTemplate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-from-template/
@@ -456,8 +455,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Create a room from the template
+   * Creates a room in the Rooms section based on the template.
    *
    * REST API Reference for createRoomFromTemplate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-from-template/
@@ -497,7 +496,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<RoomFromTemplateStatusWrapper> localVarReturnType = new TypeReference<RoomFromTemplateStatusWrapper>() {};
     return apiClient.invokeAPI(
@@ -518,8 +517,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Create a room logo
+   * Creates a logo for a room with the ID specified in the request.
    *
    * REST API Reference for createRoomLogo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-logo/
@@ -535,8 +534,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Create a room logo
+   * Creates a logo for a room with the ID specified in the request.
    *
    * REST API Reference for createRoomLogo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-logo/
@@ -588,7 +587,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderIntegerWrapper> localVarReturnType = new TypeReference<FolderIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -609,8 +608,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Create a room tag
+   * Creates a custom room tag with the parameters specified in the request.
    *
    * REST API Reference for createRoomTag Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-tag/
@@ -625,8 +624,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Create a room tag
+   * Creates a custom room tag with the parameters specified in the request.
    *
    * REST API Reference for createRoomTag Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-tag/
@@ -666,7 +665,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<ObjectWrapper> localVarReturnType = new TypeReference<ObjectWrapper>() {};
     return apiClient.invokeAPI(
@@ -687,8 +686,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Start creating room template
+   * Starts creating the room template.
    *
    * REST API Reference for createRoomTemplate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-template/
@@ -703,8 +702,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Start creating room template
+   * Starts creating the room template.
    *
    * REST API Reference for createRoomTemplate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-template/
@@ -744,7 +743,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<RoomTemplateStatusWrapper> localVarReturnType = new TypeReference<RoomTemplateStatusWrapper>() {};
     return apiClient.invokeAPI(
@@ -765,8 +764,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Create a third-party room
+   * Creates a room in the Rooms section stored in a third-party storage.
    *
    * REST API Reference for createRoomThirdParty Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/
@@ -782,8 +781,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Create a third-party room
+   * Creates a room in the Rooms section stored in a third-party storage.
    *
    * REST API Reference for createRoomThirdParty Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/
@@ -835,7 +834,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderStringWrapper> localVarReturnType = new TypeReference<FolderStringWrapper>() {};
     return apiClient.invokeAPI(
@@ -856,8 +855,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Delete the custom room tags
+   * Deletes a bunch of custom room tags specified in the request.
    *
    * REST API Reference for deleteCustomTags Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-tags/
@@ -871,8 +870,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Delete the custom room tags
+   * Deletes a bunch of custom room tags specified in the request.
    *
    * REST API Reference for deleteCustomTags Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-tags/
@@ -911,7 +910,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -931,8 +930,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Remove a room
+   * Removes a room with the ID specified in the request.
    *
    * REST API Reference for deleteRoom Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room/
@@ -948,8 +947,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Remove a room
+   * Removes a room with the ID specified in the request.
    *
    * REST API Reference for deleteRoom Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room/
@@ -1001,7 +1000,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileOperationWrapper> localVarReturnType = new TypeReference<FileOperationWrapper>() {};
     return apiClient.invokeAPI(
@@ -1022,8 +1021,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Remove a room logo
+   * Removes a logo from a room with the ID specified in the request.
    *
    * REST API Reference for deleteRoomLogo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-logo/
@@ -1038,8 +1037,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Remove a room logo
+   * Removes a logo from a room with the ID specified in the request.
    *
    * REST API Reference for deleteRoomLogo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-logo/
@@ -1085,7 +1084,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderIntegerWrapper> localVarReturnType = new TypeReference<FolderIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -1106,8 +1105,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Remove the room tags
+   * Removes the tags from a room with the ID specified in the request.
    *
    * REST API Reference for deleteRoomTags Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-tags/
@@ -1123,8 +1122,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Remove the room tags
+   * Removes the tags from a room with the ID specified in the request.
    *
    * REST API Reference for deleteRoomTags Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-tags/
@@ -1171,7 +1170,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderIntegerWrapper> localVarReturnType = new TypeReference<FolderIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -1192,8 +1191,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the new room items
+   * Returns a list of all the new items from a room with the ID specified in the request.
    *
    * REST API Reference for getNewRoomItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-room-items/
@@ -1208,8 +1207,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the new room items
+   * Returns a list of all the new items from a room with the ID specified in the request.
    *
    * REST API Reference for getNewRoomItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-room-items/
@@ -1255,7 +1254,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<NewItemsFileEntryBaseArrayWrapper> localVarReturnType = new TypeReference<NewItemsFileEntryBaseArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1276,8 +1275,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get public settings
+   * Returns the public settings of the room template with the ID specified in the request.
    *
    * REST API Reference for getPublicSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-settings/
@@ -1292,8 +1291,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get public settings
+   * Returns the public settings of the room template with the ID specified in the request.
    *
    * REST API Reference for getPublicSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-settings/
@@ -1339,7 +1338,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -1360,8 +1359,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get covers
+   * Returns a list of all covers.
    *
    * REST API Reference for getRoomCovers Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-covers/
@@ -1375,8 +1374,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get covers
+   * Returns a list of all covers.
    *
    * REST API Reference for getRoomCovers Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-covers/
@@ -1415,7 +1414,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<CoversResultArrayWrapper> localVarReturnType = new TypeReference<CoversResultArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1436,8 +1435,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the room creation progress
+   * Returns the progress of creating a room from the template.
    *
    * REST API Reference for getRoomCreatingStatus Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-creating-status/
@@ -1451,8 +1450,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the room creation progress
+   * Returns the progress of creating a room from the template.
    *
    * REST API Reference for getRoomCreatingStatus Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-creating-status/
@@ -1491,7 +1490,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<RoomFromTemplateStatusWrapper> localVarReturnType = new TypeReference<RoomFromTemplateStatusWrapper>() {};
     return apiClient.invokeAPI(
@@ -1512,8 +1511,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the room index export
+   * Returns the room index export.
    *
    * REST API Reference for getRoomIndexExport Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-index-export/
@@ -1527,8 +1526,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the room index export
+   * Returns the room index export.
    *
    * REST API Reference for getRoomIndexExport Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-index-export/
@@ -1567,7 +1566,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<DocumentBuilderTaskWrapper> localVarReturnType = new TypeReference<DocumentBuilderTaskWrapper>() {};
     return apiClient.invokeAPI(
@@ -1588,8 +1587,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get room information
+   * Returns the room information.
    *
    * REST API Reference for getRoomInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-info/
@@ -1604,8 +1603,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get room information
+   * Returns the room information.
    *
    * REST API Reference for getRoomInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-info/
@@ -1672,8 +1671,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the room links
+   * Returns the links of the room with the ID specified in the request.
    *
    * REST API Reference for getRoomLinks Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-links/
@@ -1689,8 +1688,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the room links
+   * Returns the links of the room with the ID specified in the request.
    *
    * REST API Reference for getRoomLinks Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-links/
@@ -1738,7 +1737,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileShareArrayWrapper> localVarReturnType = new TypeReference<FileShareArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1759,8 +1758,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the room access rights
+   * Returns the access rights of a room with the ID specified in the request.
    *
    * REST API Reference for getRoomSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-security-info/
@@ -1779,8 +1778,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the room access rights
+   * Returns the access rights of a room with the ID specified in the request.
    *
    * REST API Reference for getRoomSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-security-info/
@@ -1834,7 +1833,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileShareArrayWrapper> localVarReturnType = new TypeReference<FileShareArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1855,8 +1854,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the room tags
+   * Returns a list of custom room tags.
    *
    * REST API Reference for getRoomTagsInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/
@@ -1873,8 +1872,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the room tags
+   * Returns a list of custom room tags.
    *
    * REST API Reference for getRoomTagsInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/
@@ -1921,7 +1920,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<ObjectArrayWrapper> localVarReturnType = new TypeReference<ObjectArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1942,8 +1941,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get status of room template creation
+   * Returns the progress status of the room template creation process.
    *
    * REST API Reference for getRoomTemplateCreatingStatus Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-template-creating-status/
@@ -1957,8 +1956,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get status of room template creation
+   * Returns the progress status of the room template creation process.
    *
    * REST API Reference for getRoomTemplateCreatingStatus Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-template-creating-status/
@@ -1997,7 +1996,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<RoomTemplateStatusWrapper> localVarReturnType = new TypeReference<RoomTemplateStatusWrapper>() {};
     return apiClient.invokeAPI(
@@ -2018,8 +2017,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get rooms
+   * Returns the contents of the Rooms section by the parameters specified in the request.
    *
    * REST API Reference for getRoomsFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/
@@ -2048,8 +2047,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get rooms
+   * Returns the contents of the Rooms section by the parameters specified in the request.
    *
    * REST API Reference for getRoomsFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/
@@ -2123,7 +2122,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderContentIntegerWrapper> localVarReturnType = new TypeReference<FolderContentIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -2144,8 +2143,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the room new items
+   * Returns the room new items.
    *
    * REST API Reference for getRoomsNewItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-new-items/
@@ -2159,8 +2158,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the room new items
+   * Returns the room new items.
    *
    * REST API Reference for getRoomsNewItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-new-items/
@@ -2199,7 +2198,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<NewItemsRoomNewItemsArrayWrapper> localVarReturnType = new TypeReference<NewItemsRoomNewItemsArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -2220,8 +2219,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the room primary external link
+   * Returns the primary external link of the room with the ID specified in the request.
    *
    * REST API Reference for getRoomsPrimaryExternalLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-primary-external-link/
@@ -2236,8 +2235,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the room primary external link
+   * Returns the primary external link of the room with the ID specified in the request.
    *
    * REST API Reference for getRoomsPrimaryExternalLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-primary-external-link/
@@ -2283,7 +2282,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileShareWrapper> localVarReturnType = new TypeReference<FileShareWrapper>() {};
     return apiClient.invokeAPI(
@@ -2304,8 +2303,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Pin a room
+   * Pins a room with the ID specified in the request to the top of the list.
    *
    * REST API Reference for pinRoom Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/pin-room/
@@ -2320,8 +2319,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Pin a room
+   * Pins a room with the ID specified in the request to the top of the list.
    *
    * REST API Reference for pinRoom Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/pin-room/
@@ -2367,7 +2366,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderIntegerWrapper> localVarReturnType = new TypeReference<FolderIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -2388,8 +2387,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Reorder the room
+   * Reorders the room with ID specified in the request.
    *
    * REST API Reference for reorderRoom Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/reorder-room/
@@ -2404,8 +2403,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Reorder the room
+   * Reorders the room with ID specified in the request.
    *
    * REST API Reference for reorderRoom Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/reorder-room/
@@ -2451,7 +2450,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderIntegerWrapper> localVarReturnType = new TypeReference<FolderIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -2472,8 +2471,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Resend the room invitations
+   * Resends the email invitations to a room with the ID specified in the request to the selected users.
    *
    * REST API Reference for resendEmailInvitations Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-email-invitations/
@@ -2488,8 +2487,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Resend the room invitations
+   * Resends the email invitations to a room with the ID specified in the request to the selected users.
    *
    * REST API Reference for resendEmailInvitations Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-email-invitations/
@@ -2540,7 +2539,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -2560,8 +2559,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Set public settings
+   * Sets the public settings for the room template with the ID specified in the request.
    *
    * REST API Reference for setPublicSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-public-settings/
@@ -2575,8 +2574,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Set public settings
+   * Sets the public settings for the room template with the ID specified in the request.
    *
    * REST API Reference for setPublicSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-public-settings/
@@ -2615,7 +2614,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -2635,8 +2634,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Set the room external or invitation link
+   * Sets the room external or invitation link with the ID specified in the request.
    *
    * REST API Reference for setRoomLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-link/
@@ -2652,8 +2651,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Set the room external or invitation link
+   * Sets the room external or invitation link with the ID specified in the request.
    *
    * REST API Reference for setRoomLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-link/
@@ -2705,7 +2704,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileShareWrapper> localVarReturnType = new TypeReference<FileShareWrapper>() {};
     return apiClient.invokeAPI(
@@ -2726,8 +2725,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Set the room access rights
+   * Sets the access rights to the room with the ID specified in the request.
    *
    * REST API Reference for setRoomSecurity Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-security/
@@ -2743,8 +2742,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Set the room access rights
+   * Sets the access rights to the room with the ID specified in the request.
    *
    * REST API Reference for setRoomSecurity Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-security/
@@ -2796,7 +2795,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<RoomSecurityWrapper> localVarReturnType = new TypeReference<RoomSecurityWrapper>() {};
     return apiClient.invokeAPI(
@@ -2817,8 +2816,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Start the room index export
+   * Starts the index export of a room with the ID specified in the request.
    *
    * REST API Reference for startRoomIndexExport Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-room-index-export/
@@ -2833,8 +2832,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Start the room index export
+   * Starts the index export of a room with the ID specified in the request.
    *
    * REST API Reference for startRoomIndexExport Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-room-index-export/
@@ -2880,7 +2879,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<DocumentBuilderTaskWrapper> localVarReturnType = new TypeReference<DocumentBuilderTaskWrapper>() {};
     return apiClient.invokeAPI(
@@ -2901,8 +2900,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Terminate the room index export
+   * Terminates the room index export.
    *
    * REST API Reference for terminateRoomIndexExport Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-room-index-export/
@@ -2915,8 +2914,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Terminate the room index export
+   * Terminates the room index export.
    *
    * REST API Reference for terminateRoomIndexExport Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-room-index-export/
@@ -2954,7 +2953,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -2974,8 +2973,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Unarchive a room
+   * Moves a room with the ID specified in the request from the Archive section to the Rooms section.
    *
    * REST API Reference for unarchiveRoom Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/unarchive-room/
@@ -2991,8 +2990,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Unarchive a room
+   * Moves a room with the ID specified in the request from the Archive section to the Rooms section.
    *
    * REST API Reference for unarchiveRoom Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/unarchive-room/
@@ -3039,7 +3038,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileOperationWrapper> localVarReturnType = new TypeReference<FileOperationWrapper>() {};
     return apiClient.invokeAPI(
@@ -3060,8 +3059,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Unpin a room
+   * Unpins a room with the ID specified in the request from the top of the list.
    *
    * REST API Reference for unpinRoom Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/unpin-room/
@@ -3076,8 +3075,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Unpin a room
+   * Unpins a room with the ID specified in the request from the top of the list.
    *
    * REST API Reference for unpinRoom Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/unpin-room/
@@ -3123,7 +3122,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderIntegerWrapper> localVarReturnType = new TypeReference<FolderIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -3144,8 +3143,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Update a room
+   * Updates a room with the ID specified in the request.
    *
    * REST API Reference for updateRoom Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room/
@@ -3161,8 +3160,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Update a room
+   * Updates a room with the ID specified in the request.
    *
    * REST API Reference for updateRoom Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room/
@@ -3214,7 +3213,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderIntegerWrapper> localVarReturnType = new TypeReference<FolderIntegerWrapper>() {};
     return apiClient.invokeAPI(
@@ -3235,8 +3234,8 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Upload a room logo image
+   * Uploads a temporary image to create a room logo.
    *
    * REST API Reference for uploadRoomLogo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-room-logo/
@@ -3251,8 +3250,8 @@ public class RoomsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Upload a room logo image
+   * Uploads a temporary image to create a room logo.
    *
    * REST API Reference for uploadRoomLogo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-room-logo/
@@ -3294,7 +3293,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<UploadResultWrapper> localVarReturnType = new TypeReference<UploadResultWrapper>() {};
     return apiClient.invokeAPI(
@@ -3336,7 +3335,7 @@ public class RoomsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     return apiClient.invokeAPI(
       localVarPath,

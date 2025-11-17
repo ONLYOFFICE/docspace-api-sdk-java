@@ -45,7 +45,7 @@ import java.util.StringJoiner;
   TenantWalletServiceSettings.JSON_PROPERTY_ENABLED_SERVICES,
   TenantWalletServiceSettings.JSON_PROPERTY_LAST_MODIFIED
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class TenantWalletServiceSettings {
   /**
    * The list of the enabled wallet services.

@@ -1,11 +1,11 @@
-# onlyoffice.docspace.api.sdk.org.openapitools.client.api.QuotaApi
+# docspace-api-sdk.org.openapitools.client.api.QuotaApi
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**resetRoomQuota**](FilesQuotaApi.md#resetRoomQuota) | **PUT** /api/2.0/files/rooms/resetquota |  |
-| [**updateRoomsQuota**](FilesQuotaApi.md#updateRoomsQuota) | **PUT** /api/2.0/files/rooms/roomquota |  |
+| [**resetRoomQuota**](FilesQuotaApi.md#resetRoomQuota) | **PUT** /api/2.0/files/rooms/resetquota | Reset the room quota limit |
+| [**updateRoomsQuota**](FilesQuotaApi.md#updateRoomsQuota) | **PUT** /api/2.0/files/rooms/roomquota | Change the room quota limit |
 
 
 
@@ -13,7 +13,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > FolderIntegerArrayWrapper resetRoomQuota(updateRoomsRoomIdsRequestDtoInteger)
 
-
+Reset the room quota limitResets the quota limit for the rooms with the IDs specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/).
 
@@ -30,7 +30,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -39,6 +39,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.QuotaApi;
 
@@ -46,6 +47,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         QuotaApi apiInstance = new QuotaApi(defaultClient);
         UpdateRoomsRoomIdsRequestDtoInteger updateRoomsRoomIdsRequestDtoInteger = new UpdateRoomsRoomIdsRequestDtoInteger(); // UpdateRoomsRoomIdsRequestDtoInteger | 
@@ -73,13 +100,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of rooms with the detailed information |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## updateRoomsQuota
 
 > FolderIntegerArrayWrapper updateRoomsQuota(updateRoomsQuotaRequestDtoInteger)
 
-
+Change the room quota limitChanges the quota limit for the rooms with the IDs specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/).
 
@@ -96,7 +124,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -105,6 +133,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.QuotaApi;
 
@@ -112,6 +141,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         QuotaApi apiInstance = new QuotaApi(defaultClient);
         UpdateRoomsQuotaRequestDtoInteger updateRoomsQuotaRequestDtoInteger = new UpdateRoomsQuotaRequestDtoInteger(); // UpdateRoomsQuotaRequestDtoInteger | 
@@ -139,4 +194,5 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of rooms with the detailed information |  -  |
+| **401** | Unauthorized |  -  |
 

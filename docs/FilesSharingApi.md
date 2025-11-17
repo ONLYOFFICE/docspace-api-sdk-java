@@ -1,23 +1,23 @@
-# onlyoffice.docspace.api.sdk.org.openapitools.client.api.SharingApi
+# docspace-api-sdk.org.openapitools.client.api.SharingApi
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**applyExternalSharePassword**](FilesSharingApi.md#applyExternalSharePassword) | **POST** /api/2.0/files/share/{key}/password |  |
-| [**changeFileOwner**](FilesSharingApi.md#changeFileOwner) | **POST** /api/2.0/files/owner |  |
-| [**getExternalShareData**](FilesSharingApi.md#getExternalShareData) | **GET** /api/2.0/files/share/{key} |  |
-| [**getFileSecurityInfo**](FilesSharingApi.md#getFileSecurityInfo) | **GET** /api/2.0/files/file/{id}/share |  |
-| [**getFolderSecurityInfo**](FilesSharingApi.md#getFolderSecurityInfo) | **GET** /api/2.0/files/folder/{id}/share |  |
-| [**getGroupsMembersWithFileSecurity**](FilesSharingApi.md#getGroupsMembersWithFileSecurity) | **GET** /api/2.0/files/file/{fileId}/group/{groupId}/share |  |
-| [**getGroupsMembersWithFolderSecurity**](FilesSharingApi.md#getGroupsMembersWithFolderSecurity) | **GET** /api/2.0/files/folder/{folderId}/group/{groupId}/share |  |
-| [**getSecurityInfo**](FilesSharingApi.md#getSecurityInfo) | **POST** /api/2.0/files/share |  |
-| [**getSharedUsers**](FilesSharingApi.md#getSharedUsers) | **GET** /api/2.0/files/file/{fileId}/sharedusers |  |
-| [**removeSecurityInfo**](FilesSharingApi.md#removeSecurityInfo) | **DELETE** /api/2.0/files/share |  |
-| [**sendEditorNotify**](FilesSharingApi.md#sendEditorNotify) | **POST** /api/2.0/files/file/{fileId}/sendeditornotify |  |
-| [**setFileSecurityInfo**](FilesSharingApi.md#setFileSecurityInfo) | **PUT** /api/2.0/files/file/{fileId}/share |  |
-| [**setFolderSecurityInfo**](FilesSharingApi.md#setFolderSecurityInfo) | **PUT** /api/2.0/files/folder/{folderId}/share |  |
-| [**setSecurityInfo**](FilesSharingApi.md#setSecurityInfo) | **PUT** /api/2.0/files/share |  |
+| [**applyExternalSharePassword**](FilesSharingApi.md#applyExternalSharePassword) | **POST** /api/2.0/files/share/{key}/password | Apply external data password |
+| [**changeFileOwner**](FilesSharingApi.md#changeFileOwner) | **POST** /api/2.0/files/owner | Change the file owner |
+| [**getExternalShareData**](FilesSharingApi.md#getExternalShareData) | **GET** /api/2.0/files/share/{key} | Get the external data |
+| [**getFileSecurityInfo**](FilesSharingApi.md#getFileSecurityInfo) | **GET** /api/2.0/files/file/{id}/share | Get the shared file information |
+| [**getFolderSecurityInfo**](FilesSharingApi.md#getFolderSecurityInfo) | **GET** /api/2.0/files/folder/{id}/share | Get the shared folder information |
+| [**getGroupsMembersWithFileSecurity**](FilesSharingApi.md#getGroupsMembersWithFileSecurity) | **GET** /api/2.0/files/file/{fileId}/group/{groupId}/share | Get group members with security information |
+| [**getGroupsMembersWithFolderSecurity**](FilesSharingApi.md#getGroupsMembersWithFolderSecurity) | **GET** /api/2.0/files/folder/{folderId}/group/{groupId}/share | Get group members with security information |
+| [**getSecurityInfo**](FilesSharingApi.md#getSecurityInfo) | **POST** /api/2.0/files/share | Get the sharing rights |
+| [**getSharedUsers**](FilesSharingApi.md#getSharedUsers) | **GET** /api/2.0/files/file/{fileId}/sharedusers | Get user access rights by file ID |
+| [**removeSecurityInfo**](FilesSharingApi.md#removeSecurityInfo) | **DELETE** /api/2.0/files/share | Remove the sharing rights |
+| [**sendEditorNotify**](FilesSharingApi.md#sendEditorNotify) | **POST** /api/2.0/files/file/{fileId}/sendeditornotify | Send the mention message |
+| [**setFileSecurityInfo**](FilesSharingApi.md#setFileSecurityInfo) | **PUT** /api/2.0/files/file/{fileId}/share | Share a file |
+| [**setFolderSecurityInfo**](FilesSharingApi.md#setFolderSecurityInfo) | **PUT** /api/2.0/files/folder/{folderId}/share | Share a folder |
+| [**setSecurityInfo**](FilesSharingApi.md#setSecurityInfo) | **PUT** /api/2.0/files/share | Set the sharing rights |
 
 
 
@@ -25,7 +25,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > ExternalShareWrapper applyExternalSharePassword(key, externalShareRequestParam)
 
-
+Apply external data passwordApplies a password specified in the request to get the external data.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/apply-external-share-password/).
 
@@ -94,7 +94,7 @@ public class Example {
 
 > FileEntryBaseArrayWrapper changeFileOwner(changeOwnerRequestDto)
 
-
+Change the file ownerChanges the owner of the file with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-file-owner/).
 
@@ -111,7 +111,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -120,6 +120,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SharingApi;
 
@@ -127,6 +128,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SharingApi apiInstance = new SharingApi(defaultClient);
         ChangeOwnerRequestDto changeOwnerRequestDto = new ChangeOwnerRequestDto(); // ChangeOwnerRequestDto | 
@@ -154,13 +181,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | File entry information |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getExternalShareData
 
 > ExternalShareWrapper getExternalShareData(key, fileId, folderId)
 
-
+Get the external dataReturns the external data by the key specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-share-data/).
 
@@ -230,7 +258,7 @@ public class Example {
 
 > FileShareArrayWrapper getFileSecurityInfo(id, count, startIndex)
 
-
+Get the shared file informationReturns the detailed information about the shared file with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-security-info/).
 
@@ -249,7 +277,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -258,6 +286,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SharingApi;
 
@@ -265,6 +294,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SharingApi apiInstance = new SharingApi(defaultClient);
         Integer id = 9846; // Integer | The file unique identifier.
@@ -294,13 +349,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of shared file information |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getFolderSecurityInfo
 
 > FileShareArrayWrapper getFolderSecurityInfo(id, count, startIndex)
 
-
+Get the shared folder informationReturns the detailed information about the shared folder with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/).
 
@@ -319,7 +375,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -328,6 +384,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SharingApi;
 
@@ -335,6 +392,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SharingApi apiInstance = new SharingApi(defaultClient);
         Integer id = 9846; // Integer | The folder unique identifier.
@@ -364,13 +447,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of shared file information |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getGroupsMembersWithFileSecurity
 
 > GroupMemberSecurityRequestArrayWrapper getGroupsMembersWithFileSecurity(fileId, groupId, count, startIndex, filterValue)
 
-
+Get group members with security informationReturns the group members with their file security information.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/).
 
@@ -391,7 +475,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -400,6 +484,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SharingApi;
 
@@ -407,6 +492,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SharingApi apiInstance = new SharingApi(defaultClient);
         Integer fileId = 9846; // Integer | The file ID.
@@ -438,13 +549,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getGroupsMembersWithFolderSecurity
 
 > GroupMemberSecurityRequestArrayWrapper getGroupsMembersWithFolderSecurity(folderId, groupId, count, startIndex, filterValue)
 
-
+Get group members with security informationReturns the group members with their folder security information.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/).
 
@@ -465,7 +577,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -474,6 +586,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SharingApi;
 
@@ -481,6 +594,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SharingApi apiInstance = new SharingApi(defaultClient);
         Integer folderId = 9846; // Integer | The folder ID.
@@ -512,13 +651,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getSecurityInfo
 
 > FileShareArrayWrapper getSecurityInfo(baseBatchRequestDto)
 
-
+Get the sharing rightsReturns the sharing rights for all the files and folders specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-security-info/).
 
@@ -535,7 +675,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -544,6 +684,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SharingApi;
 
@@ -551,6 +692,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SharingApi apiInstance = new SharingApi(defaultClient);
         BaseBatchRequestDto baseBatchRequestDto = new BaseBatchRequestDto(); // BaseBatchRequestDto | 
@@ -578,13 +745,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of shared files and folders information |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getSharedUsers
 
 > MentionWrapperArrayWrapper getSharedUsers(fileId)
 
-
+Get user access rights by file IDReturns a list of users with their access rights to the file with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/).
 
@@ -601,7 +769,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -610,6 +778,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SharingApi;
 
@@ -617,6 +786,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SharingApi apiInstance = new SharingApi(defaultClient);
         Integer fileId = 9846; // Integer | The file unique identifier.
@@ -644,13 +839,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of users with their access rights to the file |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## removeSecurityInfo
 
 > BooleanWrapper removeSecurityInfo(baseBatchRequestDto)
 
-
+Remove the sharing rightsRemoves the sharing rights from all the files and folders specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-security-info/).
 
@@ -667,7 +863,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -676,6 +872,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SharingApi;
 
@@ -683,6 +880,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SharingApi apiInstance = new SharingApi(defaultClient);
         BaseBatchRequestDto baseBatchRequestDto = new BaseBatchRequestDto(); // BaseBatchRequestDto | 
@@ -710,13 +933,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## sendEditorNotify
 
 > AceShortWrapperArrayWrapper sendEditorNotify(fileId, mentionMessageWrapper)
 
-
+Send the mention messageSends a message to the users who are mentioned in the file with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/).
 
@@ -734,7 +958,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -743,6 +967,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SharingApi;
 
@@ -750,6 +975,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SharingApi apiInstance = new SharingApi(defaultClient);
         Integer fileId = 9846; // Integer | The file ID with the mention message.
@@ -778,13 +1029,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of access rights information |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## setFileSecurityInfo
 
 > FileShareArrayWrapper setFileSecurityInfo(fileId, securityInfoSimpleRequestDto)
 
-
+Share a fileSets the sharing settings to a file with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/).
 
@@ -802,7 +1054,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -811,6 +1063,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SharingApi;
 
@@ -818,6 +1071,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SharingApi apiInstance = new SharingApi(defaultClient);
         Integer fileId = 9846; // Integer | The file ID.
@@ -846,13 +1125,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of shared file information: sharing rights, a user who has the access to the specified file, the file is locked by this user or not, this user is an owner of the specified file or not, this user can edit the access to the specified file or not |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## setFolderSecurityInfo
 
 > FileShareArrayWrapper setFolderSecurityInfo(folderId, securityInfoSimpleRequestDto)
 
-
+Share a folderSets the sharing settings to a folder with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/).
 
@@ -870,7 +1150,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -879,6 +1159,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SharingApi;
 
@@ -886,6 +1167,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SharingApi apiInstance = new SharingApi(defaultClient);
         Integer folderId = 9846; // Integer | The folder ID.
@@ -914,13 +1221,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of shared folder information: sharing rights, a user who has the access to the specified folder, the folder is locked by this user or not, this user is an owner of the specified folder or not, this user can edit the access to the specified folder or not |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## setSecurityInfo
 
 > FileShareArrayWrapper setSecurityInfo(securityInfoRequestDto)
 
-
+Set the sharing rightsSets the sharing rights to all the files and folders specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-security-info/).
 
@@ -937,7 +1245,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 
@@ -946,6 +1254,7 @@ No authorization required
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SharingApi;
 
@@ -953,6 +1262,32 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
 
         SharingApi apiInstance = new SharingApi(defaultClient);
         SecurityInfoRequestDto securityInfoRequestDto = new SecurityInfoRequestDto(); // SecurityInfoRequestDto | 
@@ -980,4 +1315,5 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of shared files and folders information: sharing rights, a user who has the access to the specified folder, the folder is locked by this user or not, this user is an owner of the specified folder or not, this user can edit the access to the specified folder or not |  -  |
+| **401** | Unauthorized |  -  |
 

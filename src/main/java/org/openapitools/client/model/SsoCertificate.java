@@ -47,7 +47,7 @@ import java.util.StringJoiner;
   SsoCertificate.JSON_PROPERTY_START_DATE,
   SsoCertificate.JSON_PROPERTY_EXPIRED_DATE
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class SsoCertificate {
   public static final String JSON_PROPERTY_SELF_SIGNED = "selfSigned";
   @javax.annotation.Nullable

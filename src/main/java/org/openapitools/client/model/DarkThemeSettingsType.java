@@ -29,33 +29,24 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * [0 - Base, 1 - Dark, 2 - System]
+ * [Base - Base, Dark - Dark, System - System]
  */
 public enum DarkThemeSettingsType {
   
-  /**
-   * Base
-   */
-  Base(0),
+  BASE("Base"),
   
-  /**
-   * Dark
-   */
-  Dark(1),
+  DARK("Dark"),
   
-  /**
-   * System
-   */
-  System(2);
+  SYSTEM("System");
 
-  private Integer value;
+  private String value;
 
-  DarkThemeSettingsType(Integer value) {
+  DarkThemeSettingsType(String value) {
     this.value = value;
   }
 
   @JsonValue
-  public Integer getValue() {
+  public String getValue() {
     return value;
   }
 
@@ -65,7 +56,7 @@ public enum DarkThemeSettingsType {
   }
 
   @JsonCreator
-  public static DarkThemeSettingsType fromValue(Integer value) {
+  public static DarkThemeSettingsType fromValue(String value) {
     for (DarkThemeSettingsType b : DarkThemeSettingsType.values()) {
       if (b.value.equals(value)) {
         return b;

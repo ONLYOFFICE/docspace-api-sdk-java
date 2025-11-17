@@ -48,7 +48,7 @@ import java.util.StringJoiner;
   RoomInvitationRequest.JSON_PROPERTY_CULTURE,
   RoomInvitationRequest.JSON_PROPERTY_FORCE
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class RoomInvitationRequest {
   public static final String JSON_PROPERTY_INVITATIONS = "invitations";
   @javax.annotation.Nullable

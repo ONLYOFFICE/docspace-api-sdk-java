@@ -42,7 +42,7 @@ import java.util.StringJoiner;
   EncryptionKeysConfig.JSON_PROPERTY_PRIVATE_KEY_ENC,
   EncryptionKeysConfig.JSON_PROPERTY_PUBLIC_KEY
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class EncryptionKeysConfig {
   public static final String JSON_PROPERTY_CRYPTO_ENGINE_ID = "cryptoEngineId";
   @javax.annotation.Nullable

@@ -45,7 +45,7 @@ import java.util.StringJoiner;
   CustomerInfoDto.JSON_PROPERTY_EMAIL,
   CustomerInfoDto.JSON_PROPERTY_PAYER
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class CustomerInfoDto {
   public static final String JSON_PROPERTY_PORTAL_ID = "portalId";
   @javax.annotation.Nullable

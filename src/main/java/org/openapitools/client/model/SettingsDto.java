@@ -95,7 +95,7 @@ import java.util.StringJoiner;
   SettingsDto.JSON_PROPERTY_LOGO_TEXT,
   SettingsDto.JSON_PROPERTY_EXTERNAL_RESOURCES
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class SettingsDto {
   public static final String JSON_PROPERTY_TIMEZONE = "timezone";
   @javax.annotation.Nullable

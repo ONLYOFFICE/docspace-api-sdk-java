@@ -50,7 +50,7 @@ import java.util.StringJoiner;
   EmailValidationKeyModel.JSON_PROPERTY_FIRST,
   EmailValidationKeyModel.JSON_PROPERTY_ROOM_ID
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class EmailValidationKeyModel {
   public static final String JSON_PROPERTY_KEY = "key";
   @javax.annotation.Nullable

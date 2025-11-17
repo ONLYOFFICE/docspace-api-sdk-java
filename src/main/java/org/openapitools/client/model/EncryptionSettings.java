@@ -43,7 +43,7 @@ import java.util.StringJoiner;
   EncryptionSettings.JSON_PROPERTY_STATUS,
   EncryptionSettings.JSON_PROPERTY_NOTIFY_USERS
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class EncryptionSettings {
   public static final String JSON_PROPERTY_PASSWORD = "password";
   @javax.annotation.Nullable

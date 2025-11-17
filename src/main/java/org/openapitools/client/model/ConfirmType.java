@@ -29,113 +29,56 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * [0 - Emp invite, 1 - Link invite, 2 - Portal suspend, 3 - Portal continue, 4 - Portal remove, 5 - Dns change, 6 - Portal owner change, 7 - Activation, 8 - Email change, 9 - Email activation, 10 - Password change, 11 - Profile remove, 12 - Phone activation, 13 - Phone auth, 14 - Auth, 15 - Tfa activation, 16 - Tfa auth, 17 - Wizard, 18 - Guest share link]
+ * [EmpInvite - Emp invite, LinkInvite - Link invite, PortalSuspend - Portal suspend, PortalContinue - Portal continue, PortalRemove - Portal remove, DnsChange - Dns change, PortalOwnerChange - Portal owner change, Activation - Activation, EmailChange - Email change, EmailActivation - Email activation, PasswordChange - Password change, ProfileRemove - Profile remove, PhoneActivation - Phone activation, PhoneAuth - Phone auth, Auth - Auth, TfaActivation - Tfa activation, TfaAuth - Tfa auth, Wizard - Wizard, GuestShareLink - Guest share link]
  */
 public enum ConfirmType {
   
-  /**
-   * Emp invite
-   */
-  EmpInvite(0),
+  EMP_INVITE("EmpInvite"),
   
-  /**
-   * Link invite
-   */
-  LinkInvite(1),
+  LINK_INVITE("LinkInvite"),
   
-  /**
-   * Portal suspend
-   */
-  PortalSuspend(2),
+  PORTAL_SUSPEND("PortalSuspend"),
   
-  /**
-   * Portal continue
-   */
-  PortalContinue(3),
+  PORTAL_CONTINUE("PortalContinue"),
   
-  /**
-   * Portal remove
-   */
-  PortalRemove(4),
+  PORTAL_REMOVE("PortalRemove"),
   
-  /**
-   * Dns change
-   */
-  DnsChange(5),
+  DNS_CHANGE("DnsChange"),
   
-  /**
-   * Portal owner change
-   */
-  PortalOwnerChange(6),
+  PORTAL_OWNER_CHANGE("PortalOwnerChange"),
   
-  /**
-   * Activation
-   */
-  Activation(7),
+  ACTIVATION("Activation"),
   
-  /**
-   * Email change
-   */
-  EmailChange(8),
+  EMAIL_CHANGE("EmailChange"),
   
-  /**
-   * Email activation
-   */
-  EmailActivation(9),
+  EMAIL_ACTIVATION("EmailActivation"),
   
-  /**
-   * Password change
-   */
-  PasswordChange(10),
+  PASSWORD_CHANGE("PasswordChange"),
   
-  /**
-   * Profile remove
-   */
-  ProfileRemove(11),
+  PROFILE_REMOVE("ProfileRemove"),
   
-  /**
-   * Phone activation
-   */
-  PhoneActivation(12),
+  PHONE_ACTIVATION("PhoneActivation"),
   
-  /**
-   * Phone auth
-   */
-  PhoneAuth(13),
+  PHONE_AUTH("PhoneAuth"),
   
-  /**
-   * Auth
-   */
-  Auth(14),
+  AUTH("Auth"),
   
-  /**
-   * Tfa activation
-   */
-  TfaActivation(15),
+  TFA_ACTIVATION("TfaActivation"),
   
-  /**
-   * Tfa auth
-   */
-  TfaAuth(16),
+  TFA_AUTH("TfaAuth"),
   
-  /**
-   * Wizard
-   */
-  Wizard(17),
+  WIZARD("Wizard"),
   
-  /**
-   * Guest share link
-   */
-  GuestShareLink(18);
+  GUEST_SHARE_LINK("GuestShareLink");
 
-  private Integer value;
+  private String value;
 
-  ConfirmType(Integer value) {
+  ConfirmType(String value) {
     this.value = value;
   }
 
   @JsonValue
-  public Integer getValue() {
+  public String getValue() {
     return value;
   }
 
@@ -145,7 +88,7 @@ public enum ConfirmType {
   }
 
   @JsonCreator
-  public static ConfirmType fromValue(Integer value) {
+  public static ConfirmType fromValue(String value) {
     for (ConfirmType b : ConfirmType.values()) {
       if (b.value.equals(value)) {
         return b;

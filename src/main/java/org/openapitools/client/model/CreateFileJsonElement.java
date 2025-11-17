@@ -24,7 +24,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.client.model.CreateFileJsonElementTemplateId;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -40,7 +39,7 @@ import java.util.StringJoiner;
   CreateFileJsonElement.JSON_PROPERTY_ENABLE_EXTERNAL_EXT,
   CreateFileJsonElement.JSON_PROPERTY_FORM_ID
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class CreateFileJsonElement {
   public static final String JSON_PROPERTY_TITLE = "title";
   @javax.annotation.Nullable
@@ -48,7 +47,7 @@ public class CreateFileJsonElement {
 
   public static final String JSON_PROPERTY_TEMPLATE_ID = "templateId";
   @javax.annotation.Nullable
-  private CreateFileJsonElementTemplateId templateId;
+  private Integer templateId;
 
   public static final String JSON_PROPERTY_ENABLE_EXTERNAL_EXT = "enableExternalExt";
   @javax.annotation.Nullable
@@ -86,7 +85,7 @@ public class CreateFileJsonElement {
     this.title = title;
   }
 
-  public CreateFileJsonElement templateId(@javax.annotation.Nullable CreateFileJsonElementTemplateId templateId) {
+  public CreateFileJsonElement templateId(@javax.annotation.Nullable Integer templateId) {
     
     this.templateId = templateId;
     return this;
@@ -100,14 +99,14 @@ public class CreateFileJsonElement {
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public CreateFileJsonElementTemplateId getTemplateId() {
+  public Integer getTemplateId() {
     return templateId;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTemplateId(@javax.annotation.Nullable CreateFileJsonElementTemplateId templateId) {
+  public void setTemplateId(@javax.annotation.Nullable Integer templateId) {
     this.templateId = templateId;
   }
 
@@ -248,7 +247,12 @@ public class CreateFileJsonElement {
 
     // add `templateId` to the URL query string
     if (getTemplateId() != null) {
-      joiner.add(getTemplateId().toUrlQueryString(prefix + "templateId" + suffix));
+      try {
+        joiner.add(String.format("%stemplateId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTemplateId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `enableExternalExt` to the URL query string

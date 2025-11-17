@@ -49,7 +49,7 @@ import java.util.StringJoiner;
   BackupRestoreDto.JSON_PROPERTY_NOTIFY,
   BackupRestoreDto.JSON_PROPERTY_DUMP
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class BackupRestoreDto {
   public static final String JSON_PROPERTY_BACKUP_ID = "backupId";
   @javax.annotation.Nullable

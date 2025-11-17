@@ -46,7 +46,7 @@ import java.util.StringJoiner;
   ThirdPartyRequestDto.JSON_PROPERTY_PROVIDER_KEY,
   ThirdPartyRequestDto.JSON_PROPERTY_PROVIDER_ID
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class ThirdPartyRequestDto {
   public static final String JSON_PROPERTY_URL = "url";
   @javax.annotation.Nullable

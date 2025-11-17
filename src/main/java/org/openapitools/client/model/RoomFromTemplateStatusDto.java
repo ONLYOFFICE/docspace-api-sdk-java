@@ -39,7 +39,7 @@ import java.util.StringJoiner;
   RoomFromTemplateStatusDto.JSON_PROPERTY_ERROR,
   RoomFromTemplateStatusDto.JSON_PROPERTY_IS_COMPLETED
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class RoomFromTemplateStatusDto {
   public static final String JSON_PROPERTY_ROOM_ID = "roomId";
   @javax.annotation.Nonnull

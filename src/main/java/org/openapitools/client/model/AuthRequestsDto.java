@@ -54,7 +54,7 @@ import java.util.StringJoiner;
   AuthRequestsDto.JSON_PROPERTY_RECAPTCHA_RESPONSE,
   AuthRequestsDto.JSON_PROPERTY_CULTURE
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class AuthRequestsDto {
   public static final String JSON_PROPERTY_USER_NAME = "userName";
   @javax.annotation.Nullable

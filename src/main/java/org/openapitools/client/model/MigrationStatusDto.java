@@ -44,7 +44,7 @@ import java.util.StringJoiner;
   MigrationStatusDto.JSON_PROPERTY_PARSE_RESULT,
   MigrationStatusDto.JSON_PROPERTY_IS_COMPLETED
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class MigrationStatusDto {
   public static final String JSON_PROPERTY_PROGRESS = "progress";
   @javax.annotation.Nullable

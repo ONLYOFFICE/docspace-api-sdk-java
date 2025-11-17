@@ -45,7 +45,7 @@ import java.util.StringJoiner;
   RoomNewItemsDto.JSON_PROPERTY_ROOM,
   RoomNewItemsDto.JSON_PROPERTY_ITEMS
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class RoomNewItemsDto {
   public static final String JSON_PROPERTY_ROOM = "room";
   @javax.annotation.Nullable

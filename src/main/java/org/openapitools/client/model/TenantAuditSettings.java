@@ -39,7 +39,7 @@ import java.util.StringJoiner;
   TenantAuditSettings.JSON_PROPERTY_AUDIT_TRAIL_LIFE_TIME,
   TenantAuditSettings.JSON_PROPERTY_LAST_MODIFIED
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class TenantAuditSettings {
   public static final String JSON_PROPERTY_LOGIN_HISTORY_LIFE_TIME = "loginHistoryLifeTime";
   @javax.annotation.Nullable

@@ -1,4 +1,4 @@
-# onlyoffice.docspace.api.sdk.org.openapitools.client.api.WebpluginsApi
+# docspace-api-sdk.org.openapitools.client.api.WebpluginsApi
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
 

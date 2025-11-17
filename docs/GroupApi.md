@@ -1,4 +1,4 @@
-# onlyoffice.docspace.api.sdk.org.openapitools.client.api.GroupApi
+# docspace-api-sdk.org.openapitools.client.api.GroupApi
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
 

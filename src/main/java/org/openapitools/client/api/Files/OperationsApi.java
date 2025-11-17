@@ -51,7 +51,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
 public class OperationsApi extends BaseApi {
 
   public OperationsApi() {
@@ -64,8 +63,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Add favorite files and folders
+   * Adds files and folders with the IDs specified in the request to the favorite list.
    *
    * REST API Reference for addFavorites Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/add-favorites/
@@ -80,8 +79,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Add favorite files and folders
+   * Adds files and folders with the IDs specified in the request to the favorite list.
    *
    * REST API Reference for addFavorites Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/add-favorites/
@@ -121,7 +120,7 @@ public class OperationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -142,8 +141,8 @@ public class OperationsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Bulk download
+   * Starts the download process of files and folders with the IDs specified in the request.
    *
    * REST API Reference for bulkDownload Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/bulk-download/
@@ -158,8 +157,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Bulk download
+   * Starts the download process of files and folders with the IDs specified in the request.
    *
    * REST API Reference for bulkDownload Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/bulk-download/
@@ -220,8 +219,8 @@ public class OperationsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get conversion status
+   * Checks the conversion status of a file with the ID specified in the request.
    *
    * REST API Reference for checkConversionStatus Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-conversion-status/
@@ -237,8 +236,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get conversion status
+   * Checks the conversion status of a file with the ID specified in the request.
    *
    * REST API Reference for checkConversionStatus Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-conversion-status/
@@ -286,7 +285,7 @@ public class OperationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<ConversationResultArrayWrapper> localVarReturnType = new TypeReference<ConversationResultArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -307,8 +306,8 @@ public class OperationsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Move or copy files to a folder
+   * Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
    *
    * REST API Reference for checkMoveOrCopyBatchItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/
@@ -323,8 +322,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Move or copy files to a folder
+   * Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
    *
    * REST API Reference for checkMoveOrCopyBatchItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/
@@ -365,7 +364,7 @@ public class OperationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileEntryBaseArrayWrapper> localVarReturnType = new TypeReference<FileEntryBaseArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -386,8 +385,8 @@ public class OperationsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Check for moving or copying files to a folder
+   * Checks if files can be moved or copied to the specified folder.
    *
    * REST API Reference for checkMoveOrCopyDestFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/
@@ -402,8 +401,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Check for moving or copying files to a folder
+   * Checks if files can be moved or copied to the specified folder.
    *
    * REST API Reference for checkMoveOrCopyDestFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/
@@ -444,7 +443,7 @@ public class OperationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<CheckDestFolderWrapper> localVarReturnType = new TypeReference<CheckDestFolderWrapper>() {};
     return apiClient.invokeAPI(
@@ -465,8 +464,8 @@ public class OperationsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Copy to the folder
+   * Copies all the selected files and folders to the folder with the ID specified in the request.
    *
    * REST API Reference for copyBatchItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-batch-items/
@@ -481,8 +480,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Copy to the folder
+   * Copies all the selected files and folders to the folder with the ID specified in the request.
    *
    * REST API Reference for copyBatchItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-batch-items/
@@ -522,7 +521,7 @@ public class OperationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileOperationArrayWrapper> localVarReturnType = new TypeReference<FileOperationArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -543,8 +542,8 @@ public class OperationsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Chunked upload
+   * Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
    *
    * REST API Reference for createUploadSession Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/
@@ -560,8 +559,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Chunked upload
+   * Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
    *
    * REST API Reference for createUploadSession Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/
@@ -613,7 +612,7 @@ public class OperationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<ObjectWrapper> localVarReturnType = new TypeReference<ObjectWrapper>() {};
     return apiClient.invokeAPI(
@@ -634,8 +633,8 @@ public class OperationsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Delete files and folders
+   * Deletes the files and folders with the IDs specified in the request.
    *
    * REST API Reference for deleteBatchItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-batch-items/
@@ -650,8 +649,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Delete files and folders
+   * Deletes the files and folders with the IDs specified in the request.
    *
    * REST API Reference for deleteBatchItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-batch-items/
@@ -691,7 +690,7 @@ public class OperationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileOperationArrayWrapper> localVarReturnType = new TypeReference<FileOperationArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -712,8 +711,8 @@ public class OperationsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Delete favorite files and folders (using body parameters)
+   * Removes files and folders with the IDs specified in the request from the favorite list. This method uses the body parameters.
    *
    * REST API Reference for deleteFavoritesFromBody Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-favorites-from-body/
@@ -728,8 +727,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Delete favorite files and folders (using body parameters)
+   * Removes files and folders with the IDs specified in the request from the favorite list. This method uses the body parameters.
    *
    * REST API Reference for deleteFavoritesFromBody Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-favorites-from-body/
@@ -769,7 +768,7 @@ public class OperationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -790,8 +789,8 @@ public class OperationsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Delete file versions
+   * Deletes the file versions with the IDs specified in the request.
    *
    * REST API Reference for deleteFileVersions Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file-versions/
@@ -806,8 +805,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Delete file versions
+   * Deletes the file versions with the IDs specified in the request.
    *
    * REST API Reference for deleteFileVersions Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file-versions/
@@ -847,7 +846,7 @@ public class OperationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileOperationWrapper> localVarReturnType = new TypeReference<FileOperationWrapper>() {};
     return apiClient.invokeAPI(
@@ -868,8 +867,8 @@ public class OperationsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Duplicate files and folders
+   * Duplicates all the selected files and folders.
    *
    * REST API Reference for duplicateBatchItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/duplicate-batch-items/
@@ -884,8 +883,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Duplicate files and folders
+   * Duplicates all the selected files and folders.
    *
    * REST API Reference for duplicateBatchItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/duplicate-batch-items/
@@ -925,7 +924,7 @@ public class OperationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileOperationArrayWrapper> localVarReturnType = new TypeReference<FileOperationArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -946,8 +945,8 @@ public class OperationsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Empty the Trash folder
+   * Deletes all the files and folders from the Trash folder.
    *
    * REST API Reference for emptyTrash Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/
@@ -962,8 +961,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Empty the Trash folder
+   * Deletes all the files and folders from the Trash folder.
    *
    * REST API Reference for emptyTrash Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/
@@ -1004,7 +1003,7 @@ public class OperationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileOperationArrayWrapper> localVarReturnType = new TypeReference<FileOperationArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1025,8 +1024,8 @@ public class OperationsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get active file operations
+   * Returns a list of all the active file operations.
    *
    * REST API Reference for getOperationStatuses Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses/
@@ -1041,8 +1040,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get active file operations
+   * Returns a list of all the active file operations.
    *
    * REST API Reference for getOperationStatuses Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses/
@@ -1104,8 +1103,8 @@ public class OperationsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get file operation statuses
+   * Retrieves the statuses of operations filtered by the specified operation type.
    *
    * REST API Reference for getOperationStatusesByType Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses-by-type/
@@ -1121,8 +1120,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get file operation statuses
+   * Retrieves the statuses of operations filtered by the specified operation type.
    *
    * REST API Reference for getOperationStatusesByType Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses-by-type/
@@ -1191,8 +1190,8 @@ public class OperationsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Mark as read
+   * Marks the files and folders with the IDs specified in the request as read.
    *
    * REST API Reference for markAsRead Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-as-read/
@@ -1207,8 +1206,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Mark as read
+   * Marks the files and folders with the IDs specified in the request as read.
    *
    * REST API Reference for markAsRead Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-as-read/
@@ -1248,7 +1247,7 @@ public class OperationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileOperationArrayWrapper> localVarReturnType = new TypeReference<FileOperationArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1269,8 +1268,8 @@ public class OperationsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Move or copy to a folder
+   * Moves or copies all the selected files and folders to the folder with the ID specified in the request.
    *
    * REST API Reference for moveBatchItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/move-batch-items/
@@ -1285,8 +1284,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Move or copy to a folder
+   * Moves or copies all the selected files and folders to the folder with the ID specified in the request.
    *
    * REST API Reference for moveBatchItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/move-batch-items/
@@ -1326,7 +1325,7 @@ public class OperationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileOperationArrayWrapper> localVarReturnType = new TypeReference<FileOperationArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1347,8 +1346,8 @@ public class OperationsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Start file conversion
+   * Starts a conversion operation of a file with the ID specified in the request.
    *
    * REST API Reference for startFileConversion Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-file-conversion/
@@ -1364,8 +1363,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Start file conversion
+   * Starts a conversion operation of a file with the ID specified in the request.
    *
    * REST API Reference for startFileConversion Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-file-conversion/
@@ -1412,7 +1411,7 @@ public class OperationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<ConversationResultArrayWrapper> localVarReturnType = new TypeReference<ConversationResultArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -1433,8 +1432,8 @@ public class OperationsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Finish active operations
+   * Finishes an operation with the ID specified in the request or all the active operations.
    *
    * REST API Reference for terminateTasks Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-tasks/
@@ -1449,8 +1448,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Finish active operations
+   * Finishes an operation with the ID specified in the request or all the active operations.
    *
    * REST API Reference for terminateTasks Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-tasks/
@@ -1517,8 +1516,8 @@ public class OperationsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Update a comment
+   * Updates a comment in a file with the ID specified in the request.
    *
    * REST API Reference for updateFileComment Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/
@@ -1534,8 +1533,8 @@ public class OperationsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Update a comment
+   * Updates a comment in a file with the ID specified in the request.
    *
    * REST API Reference for updateFileComment Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/
@@ -1587,7 +1586,7 @@ public class OperationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<StringWrapper> localVarReturnType = new TypeReference<StringWrapper>() {};
     return apiClient.invokeAPI(
@@ -1629,7 +1628,7 @@ public class OperationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     return apiClient.invokeAPI(
       localVarPath,

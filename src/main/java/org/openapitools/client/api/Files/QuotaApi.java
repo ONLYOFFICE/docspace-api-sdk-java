@@ -36,7 +36,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
 public class QuotaApi extends BaseApi {
 
   public QuotaApi() {
@@ -49,8 +48,8 @@ public class QuotaApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Reset the room quota limit
+   * Resets the quota limit for the rooms with the IDs specified in the request.
    *
    * REST API Reference for resetRoomQuota Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/
@@ -65,8 +64,8 @@ public class QuotaApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Reset the room quota limit
+   * Resets the quota limit for the rooms with the IDs specified in the request.
    *
    * REST API Reference for resetRoomQuota Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/
@@ -106,7 +105,7 @@ public class QuotaApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderIntegerArrayWrapper> localVarReturnType = new TypeReference<FolderIntegerArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -127,8 +126,8 @@ public class QuotaApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Change the room quota limit
+   * Changes the quota limit for the rooms with the IDs specified in the request.
    *
    * REST API Reference for updateRoomsQuota Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/
@@ -143,8 +142,8 @@ public class QuotaApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Change the room quota limit
+   * Changes the quota limit for the rooms with the IDs specified in the request.
    *
    * REST API Reference for updateRoomsQuota Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/
@@ -184,7 +183,7 @@ public class QuotaApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderIntegerArrayWrapper> localVarReturnType = new TypeReference<FolderIntegerArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -226,7 +225,7 @@ public class QuotaApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     return apiClient.invokeAPI(
       localVarPath,

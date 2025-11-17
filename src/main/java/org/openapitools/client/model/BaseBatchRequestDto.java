@@ -27,8 +27,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.BaseBatchRequestDtoAllOfFileIds;
-import org.openapitools.client.model.BaseBatchRequestDtoAllOfFolderIds;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -47,7 +45,7 @@ import java.util.StringJoiner;
   BaseBatchRequestDto.JSON_PROPERTY_FOLDER_IDS,
   BaseBatchRequestDto.JSON_PROPERTY_FILE_IDS
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class BaseBatchRequestDto {
   public static final String JSON_PROPERTY_RETURN_SINGLE_OPERATION = "returnSingleOperation";
   @javax.annotation.Nullable
@@ -55,11 +53,11 @@ public class BaseBatchRequestDto {
 
   public static final String JSON_PROPERTY_FOLDER_IDS = "folderIds";
   @javax.annotation.Nullable
-  private JsonNullable<List<BaseBatchRequestDtoAllOfFolderIds>> folderIds = JsonNullable.<List<BaseBatchRequestDtoAllOfFolderIds>>undefined();
+  private JsonNullable<List<Integer>> folderIds = JsonNullable.<List<Integer>>undefined();
 
   public static final String JSON_PROPERTY_FILE_IDS = "fileIds";
   @javax.annotation.Nullable
-  private JsonNullable<List<BaseBatchRequestDtoAllOfFileIds>> fileIds = JsonNullable.<List<BaseBatchRequestDtoAllOfFileIds>>undefined();
+  private JsonNullable<List<Integer>> fileIds = JsonNullable.<List<Integer>>undefined();
 
   public BaseBatchRequestDto() {
   }
@@ -89,15 +87,15 @@ public class BaseBatchRequestDto {
     this.returnSingleOperation = returnSingleOperation;
   }
 
-  public BaseBatchRequestDto folderIds(@javax.annotation.Nullable List<BaseBatchRequestDtoAllOfFolderIds> folderIds) {
-    this.folderIds = JsonNullable.<List<BaseBatchRequestDtoAllOfFolderIds>>of(folderIds);
+  public BaseBatchRequestDto folderIds(@javax.annotation.Nullable List<Integer> folderIds) {
+    this.folderIds = JsonNullable.<List<Integer>>of(folderIds);
     
     return this;
   }
 
-  public BaseBatchRequestDto addFolderIdsItem(BaseBatchRequestDtoAllOfFolderIds folderIdsItem) {
+  public BaseBatchRequestDto addFolderIdsItem(Integer folderIdsItem) {
     if (this.folderIds == null || !this.folderIds.isPresent()) {
-      this.folderIds = JsonNullable.<List<BaseBatchRequestDtoAllOfFolderIds>>of(new ArrayList<>());
+      this.folderIds = JsonNullable.<List<Integer>>of(new ArrayList<>());
     }
     try {
       this.folderIds.get().add(folderIdsItem);
@@ -114,35 +112,35 @@ public class BaseBatchRequestDto {
   @javax.annotation.Nullable
   @JsonIgnore
 
-  public List<BaseBatchRequestDtoAllOfFolderIds> getFolderIds() {
+  public List<Integer> getFolderIds() {
         return folderIds.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_FOLDER_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<BaseBatchRequestDtoAllOfFolderIds>> getFolderIds_JsonNullable() {
+  public JsonNullable<List<Integer>> getFolderIds_JsonNullable() {
     return folderIds;
   }
   
   @JsonProperty(JSON_PROPERTY_FOLDER_IDS)
-  public void setFolderIds_JsonNullable(JsonNullable<List<BaseBatchRequestDtoAllOfFolderIds>> folderIds) {
+  public void setFolderIds_JsonNullable(JsonNullable<List<Integer>> folderIds) {
     this.folderIds = folderIds;
   }
 
-  public void setFolderIds(@javax.annotation.Nullable List<BaseBatchRequestDtoAllOfFolderIds> folderIds) {
-    this.folderIds = JsonNullable.<List<BaseBatchRequestDtoAllOfFolderIds>>of(folderIds);
+  public void setFolderIds(@javax.annotation.Nullable List<Integer> folderIds) {
+    this.folderIds = JsonNullable.<List<Integer>>of(folderIds);
   }
 
-  public BaseBatchRequestDto fileIds(@javax.annotation.Nullable List<BaseBatchRequestDtoAllOfFileIds> fileIds) {
-    this.fileIds = JsonNullable.<List<BaseBatchRequestDtoAllOfFileIds>>of(fileIds);
+  public BaseBatchRequestDto fileIds(@javax.annotation.Nullable List<Integer> fileIds) {
+    this.fileIds = JsonNullable.<List<Integer>>of(fileIds);
     
     return this;
   }
 
-  public BaseBatchRequestDto addFileIdsItem(BaseBatchRequestDtoAllOfFileIds fileIdsItem) {
+  public BaseBatchRequestDto addFileIdsItem(Integer fileIdsItem) {
     if (this.fileIds == null || !this.fileIds.isPresent()) {
-      this.fileIds = JsonNullable.<List<BaseBatchRequestDtoAllOfFileIds>>of(new ArrayList<>());
+      this.fileIds = JsonNullable.<List<Integer>>of(new ArrayList<>());
     }
     try {
       this.fileIds.get().add(fileIdsItem);
@@ -159,24 +157,24 @@ public class BaseBatchRequestDto {
   @javax.annotation.Nullable
   @JsonIgnore
 
-  public List<BaseBatchRequestDtoAllOfFileIds> getFileIds() {
+  public List<Integer> getFileIds() {
         return fileIds.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_FILE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<BaseBatchRequestDtoAllOfFileIds>> getFileIds_JsonNullable() {
+  public JsonNullable<List<Integer>> getFileIds_JsonNullable() {
     return fileIds;
   }
   
   @JsonProperty(JSON_PROPERTY_FILE_IDS)
-  public void setFileIds_JsonNullable(JsonNullable<List<BaseBatchRequestDtoAllOfFileIds>> fileIds) {
+  public void setFileIds_JsonNullable(JsonNullable<List<Integer>> fileIds) {
     this.fileIds = fileIds;
   }
 
-  public void setFileIds(@javax.annotation.Nullable List<BaseBatchRequestDtoAllOfFileIds> fileIds) {
-    this.fileIds = JsonNullable.<List<BaseBatchRequestDtoAllOfFileIds>>of(fileIds);
+  public void setFileIds(@javax.annotation.Nullable List<Integer> fileIds) {
+    this.fileIds = JsonNullable.<List<Integer>>of(fileIds);
   }
 
   @Override
@@ -276,9 +274,13 @@ public class BaseBatchRequestDto {
     // add `folderIds` to the URL query string
     if (getFolderIds() != null) {
       for (int i = 0; i < getFolderIds().size(); i++) {
-        if (getFolderIds().get(i) != null) {
-          joiner.add(getFolderIds().get(i).toUrlQueryString(String.format("%sfolderIds%s%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        try {
+          joiner.add(String.format("%sfolderIds%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getFolderIds().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
         }
       }
     }
@@ -286,9 +288,13 @@ public class BaseBatchRequestDto {
     // add `fileIds` to the URL query string
     if (getFileIds() != null) {
       for (int i = 0; i < getFileIds().size(); i++) {
-        if (getFileIds().get(i) != null) {
-          joiner.add(getFileIds().get(i).toUrlQueryString(String.format("%sfileIds%s%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        try {
+          joiner.add(String.format("%sfileIds%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getFileIds().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
         }
       }
     }

@@ -1,4 +1,4 @@
-# onlyoffice.docspace.api.sdk.org.openapitools.client.api.UserTypeApi
+# docspace-api-sdk.org.openapitools.client.api.UserTypeApi
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
 
@@ -307,7 +307,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **type** | [**EmployeeType**](.md)| The new user type. | [enum: 0, 1, 2, 3, 4] |
+| **type** | [**EmployeeType**](.md)| The new user type. | [enum: All, RoomAdmin, Guest, DocSpaceAdmin, User] |
 | **updateMembersRequestDto** | [**UpdateMembersRequestDto**](UpdateMembersRequestDto.md)| The request parameters for updating the user information. | |
 
 ### Return type
@@ -361,7 +361,7 @@ public class Example {
 
 
         UserTypeApi apiInstance = new UserTypeApi(defaultClient);
-        EmployeeType type = EmployeeType.fromValue("0"); // EmployeeType | The new user type.
+        EmployeeType type = EmployeeType.fromValue("All"); // EmployeeType | The new user type.
         UpdateMembersRequestDto updateMembersRequestDto = new UpdateMembersRequestDto(); // UpdateMembersRequestDto | The request parameters for updating the user information.
         try {
             EmployeeFullArrayWrapper result = apiInstance.updateUserType(type, updateMembersRequestDto);

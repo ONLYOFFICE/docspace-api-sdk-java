@@ -46,7 +46,7 @@ import java.util.StringJoiner;
   ProviderDto.JSON_PROPERTY_REQUIRED_CONNECTION_URL,
   ProviderDto.JSON_PROPERTY_CLIENT_ID
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class ProviderDto {
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nullable

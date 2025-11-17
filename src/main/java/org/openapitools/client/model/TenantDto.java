@@ -71,7 +71,7 @@ import java.util.StringJoiner;
   TenantDto.JSON_PROPERTY_VERSION_CHANGED,
   TenantDto.JSON_PROPERTY_REGION
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class TenantDto {
   public static final String JSON_PROPERTY_AFFILIATE_ID = "affiliateId";
   @javax.annotation.Nullable

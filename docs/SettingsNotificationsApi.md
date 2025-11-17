@@ -1,4 +1,4 @@
-# onlyoffice.docspace.api.sdk.org.openapitools.client.api.NotificationsApi
+# docspace-api-sdk.org.openapitools.client.api.NotificationsApi
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
 

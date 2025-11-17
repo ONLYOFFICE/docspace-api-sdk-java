@@ -58,7 +58,7 @@ import java.util.StringJoiner;
   ConfigurationDtoInteger.JSON_PROPERTY_START_FILLING_MODE,
   ConfigurationDtoInteger.JSON_PROPERTY_FILLING_SESSION_ID
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class ConfigurationDtoInteger {
   public static final String JSON_PROPERTY_DOCUMENT = "document";
   @javax.annotation.Nonnull

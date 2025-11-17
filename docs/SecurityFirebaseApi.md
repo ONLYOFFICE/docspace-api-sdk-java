@@ -1,4 +1,4 @@
-# onlyoffice.docspace.api.sdk.org.openapitools.client.api.FirebaseApi
+# docspace-api-sdk.org.openapitools.client.api.FirebaseApi
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
 

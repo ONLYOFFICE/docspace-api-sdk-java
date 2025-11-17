@@ -38,7 +38,7 @@ import java.util.StringJoiner;
   EmailActivationSettings.JSON_PROPERTY_SHOW,
   EmailActivationSettings.JSON_PROPERTY_LAST_MODIFIED
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class EmailActivationSettings {
   public static final String JSON_PROPERTY_SHOW = "show";
   @javax.annotation.Nullable

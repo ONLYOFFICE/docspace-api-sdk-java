@@ -45,7 +45,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
 public class SettingsApi extends BaseApi {
 
   public SettingsApi() {
@@ -58,8 +57,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Change the third-party settings access
+   * Changes the access to the third-party settings.
    *
    * REST API Reference for changeAccessToThirdparty Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-access-to-thirdparty/
@@ -74,8 +73,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Change the third-party settings access
+   * Changes the access to the third-party settings.
    *
    * REST API Reference for changeAccessToThirdparty Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-access-to-thirdparty/
@@ -115,7 +114,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -136,8 +135,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Update the trash bin auto-clearing setting
+   * Updates the trash bin auto-clearing setting.
    *
    * REST API Reference for changeAutomaticallyCleanUp Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/
@@ -152,8 +151,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Update the trash bin auto-clearing setting
+   * Updates the trash bin auto-clearing setting.
    *
    * REST API Reference for changeAutomaticallyCleanUp Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/
@@ -193,7 +192,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<AutoCleanUpDataWrapper> localVarReturnType = new TypeReference<AutoCleanUpDataWrapper>() {};
     return apiClient.invokeAPI(
@@ -214,8 +213,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Change the default access rights
+   * Changes the default access rights in the sharing settings.
    *
    * REST API Reference for changeDefaultAccessRights Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/
@@ -230,8 +229,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Change the default access rights
+   * Changes the default access rights in the sharing settings.
    *
    * REST API Reference for changeDefaultAccessRights Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/
@@ -271,7 +270,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileShareArrayWrapper> localVarReturnType = new TypeReference<FileShareArrayWrapper>() {};
     return apiClient.invokeAPI(
@@ -292,8 +291,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Confirm the file deletion
+   * Specifies whether to confirm the file deletion or not.
    *
    * REST API Reference for changeDeleteConfirm Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-delete-confirm/
@@ -308,8 +307,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Confirm the file deletion
+   * Specifies whether to confirm the file deletion or not.
    *
    * REST API Reference for changeDeleteConfirm Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-delete-confirm/
@@ -349,7 +348,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -370,8 +369,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Change the archive format (using body parameters)
+   * Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
    *
    * REST API Reference for changeDownloadZipFromBody Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip-from-body/
@@ -386,8 +385,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Change the archive format (using body parameters)
+   * Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
    *
    * REST API Reference for changeDownloadZipFromBody Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip-from-body/
@@ -427,7 +426,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<ICompressWrapper> localVarReturnType = new TypeReference<ICompressWrapper>() {};
     return apiClient.invokeAPI(
@@ -448,8 +447,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Check the document service URL
+   * Checks the document service location URL.
    *
    * REST API Reference for checkDocServiceUrl Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-doc-service-url/
@@ -464,8 +463,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Check the document service URL
+   * Checks the document service location URL.
    *
    * REST API Reference for checkDocServiceUrl Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-doc-service-url/
@@ -505,7 +504,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<DocServiceUrlWrapper> localVarReturnType = new TypeReference<DocServiceUrlWrapper>() {};
     return apiClient.invokeAPI(
@@ -526,8 +525,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Display a file extension
+   * Specifies whether to display a file extension or not.
    *
    * REST API Reference for displayFileExtension Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/display-file-extension/
@@ -542,8 +541,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Display a file extension
+   * Specifies whether to display a file extension or not.
    *
    * REST API Reference for displayFileExtension Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/display-file-extension/
@@ -583,7 +582,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -604,8 +603,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Display the Recent folder
+   * Displays the Recent folder.
    *
    * REST API Reference for displayRecent Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/display-recent/
@@ -620,8 +619,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Display the Recent folder
+   * Displays the Recent folder.
    *
    * REST API Reference for displayRecent Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/display-recent/
@@ -661,7 +660,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -682,8 +681,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Change the external sharing ability
+   * Changes the ability to share a file externally.
    *
    * REST API Reference for externalShare Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share/
@@ -698,8 +697,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Change the external sharing ability
+   * Changes the ability to share a file externally.
    *
    * REST API Reference for externalShare Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share/
@@ -739,7 +738,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -760,8 +759,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Change the external sharing ability on social networks
+   * Changes the ability to share a file externally on social networks.
    *
    * REST API Reference for externalShareSocialMedia Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share-social-media/
@@ -776,8 +775,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Change the external sharing ability on social networks
+   * Changes the ability to share a file externally on social networks.
    *
    * REST API Reference for externalShareSocialMedia Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share-social-media/
@@ -817,7 +816,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -838,8 +837,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Change the forcesaving ability
+   * Specifies if the file forcesaving is enabled or not.
    *
    * REST API Reference for forcesave Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/forcesave/
@@ -853,8 +852,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Change the forcesaving ability
+   * Specifies if the file forcesaving is enabled or not.
    *
    * REST API Reference for forcesave Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/forcesave/
@@ -893,7 +892,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -914,8 +913,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the trash bin auto-clearing setting
+   * Returns the trash bin auto-clearing setting.
    *
    * REST API Reference for getAutomaticallyCleanUp Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-automatically-clean-up/
@@ -929,8 +928,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the trash bin auto-clearing setting
+   * Returns the trash bin auto-clearing setting.
    *
    * REST API Reference for getAutomaticallyCleanUp Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-automatically-clean-up/
@@ -969,7 +968,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<AutoCleanUpDataWrapper> localVarReturnType = new TypeReference<AutoCleanUpDataWrapper>() {};
     return apiClient.invokeAPI(
@@ -990,8 +989,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the document service URL
+   * Returns the URL address of the connected editors.
    *
    * REST API Reference for getDocServiceUrl Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-doc-service-url/
@@ -1006,8 +1005,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the document service URL
+   * Returns the URL address of the connected editors.
    *
    * REST API Reference for getDocServiceUrl Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-doc-service-url/
@@ -1069,8 +1068,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get the Documents information
+   * Returns the information about the Documents module.
    *
    * REST API Reference for getFilesModule Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/
@@ -1084,8 +1083,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get the Documents information
+   * Returns the information about the Documents module.
    *
    * REST API Reference for getFilesModule Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/
@@ -1124,7 +1123,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<ModuleWrapper> localVarReturnType = new TypeReference<ModuleWrapper>() {};
     return apiClient.invokeAPI(
@@ -1145,8 +1144,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Get file settings
+   * Returns all the file settings.
    *
    * REST API Reference for getFilesSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-settings/
@@ -1160,8 +1159,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Get file settings
+   * Returns all the file settings.
    *
    * REST API Reference for getFilesSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-settings/
@@ -1221,8 +1220,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Hide confirmation dialog when canceling operations
+   * Hides the confirmation dialog when canceling operations.
    *
    * REST API Reference for hideConfirmCancelOperation Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-cancel-operation/
@@ -1237,8 +1236,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Hide confirmation dialog when canceling operations
+   * Hides the confirmation dialog when canceling operations.
    *
    * REST API Reference for hideConfirmCancelOperation Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-cancel-operation/
@@ -1278,7 +1277,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -1299,8 +1298,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Hide the confirmation dialog when converting
+   * Hides the confirmation dialog for saving the file copy in the original format when converting a file.
    *
    * REST API Reference for hideConfirmConvert Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/
@@ -1315,8 +1314,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Hide the confirmation dialog when converting
+   * Hides the confirmation dialog for saving the file copy in the original format when converting a file.
    *
    * REST API Reference for hideConfirmConvert Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/
@@ -1356,7 +1355,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<ModuleWrapper> localVarReturnType = new TypeReference<ModuleWrapper>() {};
     return apiClient.invokeAPI(
@@ -1377,8 +1376,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Hide confirmation dialog when changing room lifetime settings
+   * Hides the confirmation dialog when changing the room lifetime settings.
    *
    * REST API Reference for hideConfirmRoomLifetime Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-room-lifetime/
@@ -1393,8 +1392,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Hide confirmation dialog when changing room lifetime settings
+   * Hides the confirmation dialog when changing the room lifetime settings.
    *
    * REST API Reference for hideConfirmRoomLifetime Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-room-lifetime/
@@ -1434,7 +1433,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -1455,8 +1454,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Check the Private Room availability
+   * Checks if the Private Room settings are available or not.
    *
    * REST API Reference for isAvailablePrivacyRoomSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/
@@ -1470,8 +1469,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Check the Private Room availability
+   * Checks if the Private Room settings are available or not.
    *
    * REST API Reference for isAvailablePrivacyRoomSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/
@@ -1510,7 +1509,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -1531,8 +1530,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Ask a new file name
+   * Specifies whether to ask a user for a file name on creation or not.
    *
    * REST API Reference for keepNewFileName Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/keep-new-file-name/
@@ -1547,8 +1546,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Ask a new file name
+   * Specifies whether to ask a user for a file name on creation or not.
    *
    * REST API Reference for keepNewFileName Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/keep-new-file-name/
@@ -1588,7 +1587,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -1609,8 +1608,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Open document in the same browser tab
+   * Changes the ability to open the document in the same browser tab.
    *
    * REST API Reference for setOpenEditorInSameTab Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-open-editor-in-same-tab/
@@ -1625,8 +1624,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Open document in the same browser tab
+   * Changes the ability to open the document in the same browser tab.
    *
    * REST API Reference for setOpenEditorInSameTab Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-open-editor-in-same-tab/
@@ -1666,7 +1665,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -1687,8 +1686,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Change the ability to store the forcesaved files
+   * Changes the ability to store the forcesaved file versions.
    *
    * REST API Reference for storeForcesave Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/store-forcesave/
@@ -1702,8 +1701,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Change the ability to store the forcesaved files
+   * Changes the ability to store the forcesaved file versions.
    *
    * REST API Reference for storeForcesave Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/store-forcesave/
@@ -1742,7 +1741,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -1763,8 +1762,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Change the ability to upload original formats
+   * Changes the ability to upload documents in the original formats as well.
    *
    * REST API Reference for storeOriginal Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/store-original/
@@ -1779,8 +1778,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Change the ability to upload original formats
+   * Changes the ability to upload documents in the original formats as well.
    *
    * REST API Reference for storeOriginal Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/store-original/
@@ -1820,7 +1819,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -1841,8 +1840,8 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * 
-   * 
+   * Update a file version if it exists
+   * Updates a file version if a file with such a name already exists.
    *
    * REST API Reference for updateFileIfExist Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-if-exist/
@@ -1857,8 +1856,8 @@ public class SettingsApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Update a file version if it exists
+   * Updates a file version if a file with such a name already exists.
    *
    * REST API Reference for updateFileIfExist Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-if-exist/
@@ -1898,7 +1897,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
@@ -1940,7 +1939,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     return apiClient.invokeAPI(
       localVarPath,

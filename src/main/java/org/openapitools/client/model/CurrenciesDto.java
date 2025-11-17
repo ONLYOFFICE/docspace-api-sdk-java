@@ -42,7 +42,7 @@ import java.util.StringJoiner;
   CurrenciesDto.JSON_PROPERTY_ISO_CURRENCY_SYMBOL,
   CurrenciesDto.JSON_PROPERTY_CURRENCY_NATIVE_NAME
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class CurrenciesDto {
   public static final String JSON_PROPERTY_ISO_COUNTRY_CODE = "isoCountryCode";
   @javax.annotation.Nullable

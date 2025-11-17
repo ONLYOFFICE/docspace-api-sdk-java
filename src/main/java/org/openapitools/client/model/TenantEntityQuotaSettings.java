@@ -43,7 +43,7 @@ import java.util.StringJoiner;
   TenantEntityQuotaSettings.JSON_PROPERTY_DEFAULT_QUOTA,
   TenantEntityQuotaSettings.JSON_PROPERTY_LAST_RECALCULATE_DATE
 })
-@javax.annotation.Generated(value = "com.example.codegen.MyJavaClientCodegen", date = "2025-11-10T06:17:22.719994700+03:00[Europe/Moscow]", comments = "Generator version: 7.14.0")
+
 public class TenantEntityQuotaSettings {
   public static final String JSON_PROPERTY_ENABLE_QUOTA = "enableQuota";
   @javax.annotation.Nullable
