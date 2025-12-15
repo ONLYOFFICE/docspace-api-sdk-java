@@ -75,7 +75,8 @@ import java.util.StringJoiner;
   TenantQuota.JSON_PROPERTY_THIRD_PARTY,
   TenantQuota.JSON_PROPERTY_YEAR,
   TenantQuota.JSON_PROPERTY_COUNT_FREE_BACKUP,
-  TenantQuota.JSON_PROPERTY_BACKUP
+  TenantQuota.JSON_PROPERTY_BACKUP,
+  TenantQuota.JSON_PROPERTY_COUNT_A_I_AGENT
 })
 
 public class TenantQuota {
@@ -226,6 +227,10 @@ public class TenantQuota {
   public static final String JSON_PROPERTY_BACKUP = "backup";
   @javax.annotation.Nullable
   private Boolean backup;
+
+  public static final String JSON_PROPERTY_COUNT_A_I_AGENT = "countAIAgent";
+  @javax.annotation.Nullable
+  private Integer countAIAgent;
 
   public TenantQuota() {
   }
@@ -1211,6 +1216,31 @@ public class TenantQuota {
     this.backup = backup;
   }
 
+  public TenantQuota countAIAgent(@javax.annotation.Nullable Integer countAIAgent) {
+    
+    this.countAIAgent = countAIAgent;
+    return this;
+  }
+
+  /**
+   * The number of AI agents.
+   * @return countAIAgent
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COUNT_A_I_AGENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getCountAIAgent() {
+    return countAIAgent;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_COUNT_A_I_AGENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCountAIAgent(@javax.annotation.Nullable Integer countAIAgent) {
+    this.countAIAgent = countAIAgent;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -1256,7 +1286,8 @@ public class TenantQuota {
         Objects.equals(this.thirdParty, tenantQuota.thirdParty) &&
         Objects.equals(this.year, tenantQuota.year) &&
         Objects.equals(this.countFreeBackup, tenantQuota.countFreeBackup) &&
-        Objects.equals(this.backup, tenantQuota.backup);
+        Objects.equals(this.backup, tenantQuota.backup) &&
+        Objects.equals(this.countAIAgent, tenantQuota.countAIAgent);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1265,7 +1296,7 @@ public class TenantQuota {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tenantId, hashCodeNullable(name), price, hashCodeNullable(priceCurrencySymbol), hashCodeNullable(priceISOCurrencySymbol), hashCodeNullable(productId), hashCodeNullable(serviceName), visible, wallet, hashCodeNullable(dueDate), hashCodeNullable(features), maxFileSize, maxTotalSize, countUser, countRoomAdmin, usersInRoom, countRoom, nonProfit, trial, free, update, audit, docsEdition, ldap, sso, statistic, branding, customization, lifetime, custom, restore, oauth, contentSearch, thirdParty, year, countFreeBackup, backup);
+    return Objects.hash(tenantId, hashCodeNullable(name), price, hashCodeNullable(priceCurrencySymbol), hashCodeNullable(priceISOCurrencySymbol), hashCodeNullable(productId), hashCodeNullable(serviceName), visible, wallet, hashCodeNullable(dueDate), hashCodeNullable(features), maxFileSize, maxTotalSize, countUser, countRoomAdmin, usersInRoom, countRoom, nonProfit, trial, free, update, audit, docsEdition, ldap, sso, statistic, branding, customization, lifetime, custom, restore, oauth, contentSearch, thirdParty, year, countFreeBackup, backup, countAIAgent);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1316,6 +1347,7 @@ public class TenantQuota {
     sb.append("    year: ").append(toIndentedString(year)).append("\n");
     sb.append("    countFreeBackup: ").append(toIndentedString(countFreeBackup)).append("\n");
     sb.append("    backup: ").append(toIndentedString(backup)).append("\n");
+    sb.append("    countAIAgent: ").append(toIndentedString(countAIAgent)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1727,6 +1759,16 @@ public class TenantQuota {
     if (getBackup() != null) {
       try {
         joiner.add(String.format("%sbackup%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBackup()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `countAIAgent` to the URL query string
+    if (getCountAIAgent() != null) {
+      try {
+        joiner.add(String.format("%scountAIAgent%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCountAIAgent()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.client.model.CreateFileJsonElementTemplateId;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -47,7 +48,7 @@ public class CreateFileJsonElement {
 
   public static final String JSON_PROPERTY_TEMPLATE_ID = "templateId";
   @javax.annotation.Nullable
-  private Integer templateId;
+  private CreateFileJsonElementTemplateId templateId;
 
   public static final String JSON_PROPERTY_ENABLE_EXTERNAL_EXT = "enableExternalExt";
   @javax.annotation.Nullable
@@ -85,7 +86,7 @@ public class CreateFileJsonElement {
     this.title = title;
   }
 
-  public CreateFileJsonElement templateId(@javax.annotation.Nullable Integer templateId) {
+  public CreateFileJsonElement templateId(@javax.annotation.Nullable CreateFileJsonElementTemplateId templateId) {
     
     this.templateId = templateId;
     return this;
@@ -99,14 +100,14 @@ public class CreateFileJsonElement {
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getTemplateId() {
+  public CreateFileJsonElementTemplateId getTemplateId() {
     return templateId;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTemplateId(@javax.annotation.Nullable Integer templateId) {
+  public void setTemplateId(@javax.annotation.Nullable CreateFileJsonElementTemplateId templateId) {
     this.templateId = templateId;
   }
 
@@ -247,12 +248,7 @@ public class CreateFileJsonElement {
 
     // add `templateId` to the URL query string
     if (getTemplateId() != null) {
-      try {
-        joiner.add(String.format("%stemplateId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTemplateId()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getTemplateId().toUrlQueryString(prefix + "templateId" + suffix));
     }
 
     // add `enableExternalExt` to the URL query string

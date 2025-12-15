@@ -27,6 +27,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.client.model.BatchRequestDtoAllOfDestFolderId;
+import org.openapitools.client.model.BatchRequestDtoAllOfFileIds;
+import org.openapitools.client.model.BatchRequestDtoAllOfFolderIds;
 import org.openapitools.client.model.FileConflictResolveType;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -59,15 +62,15 @@ public class BatchRequestDto {
 
   public static final String JSON_PROPERTY_FOLDER_IDS = "folderIds";
   @javax.annotation.Nullable
-  private JsonNullable<List<Integer>> folderIds = JsonNullable.<List<Integer>>undefined();
+  private JsonNullable<List<BatchRequestDtoAllOfFolderIds>> folderIds = JsonNullable.<List<BatchRequestDtoAllOfFolderIds>>undefined();
 
   public static final String JSON_PROPERTY_FILE_IDS = "fileIds";
   @javax.annotation.Nullable
-  private JsonNullable<List<Integer>> fileIds = JsonNullable.<List<Integer>>undefined();
+  private JsonNullable<List<BatchRequestDtoAllOfFileIds>> fileIds = JsonNullable.<List<BatchRequestDtoAllOfFileIds>>undefined();
 
   public static final String JSON_PROPERTY_DEST_FOLDER_ID = "destFolderId";
   @javax.annotation.Nullable
-  private Integer destFolderId;
+  private BatchRequestDtoAllOfDestFolderId destFolderId;
 
   public static final String JSON_PROPERTY_CONFLICT_RESOLVE_TYPE = "conflictResolveType";
   @javax.annotation.Nullable
@@ -113,15 +116,15 @@ public class BatchRequestDto {
     this.returnSingleOperation = returnSingleOperation;
   }
 
-  public BatchRequestDto folderIds(@javax.annotation.Nullable List<Integer> folderIds) {
-    this.folderIds = JsonNullable.<List<Integer>>of(folderIds);
+  public BatchRequestDto folderIds(@javax.annotation.Nullable List<BatchRequestDtoAllOfFolderIds> folderIds) {
+    this.folderIds = JsonNullable.<List<BatchRequestDtoAllOfFolderIds>>of(folderIds);
     
     return this;
   }
 
-  public BatchRequestDto addFolderIdsItem(Integer folderIdsItem) {
+  public BatchRequestDto addFolderIdsItem(BatchRequestDtoAllOfFolderIds folderIdsItem) {
     if (this.folderIds == null || !this.folderIds.isPresent()) {
-      this.folderIds = JsonNullable.<List<Integer>>of(new ArrayList<>());
+      this.folderIds = JsonNullable.<List<BatchRequestDtoAllOfFolderIds>>of(new ArrayList<>());
     }
     try {
       this.folderIds.get().add(folderIdsItem);
@@ -138,35 +141,35 @@ public class BatchRequestDto {
   @javax.annotation.Nullable
   @JsonIgnore
 
-  public List<Integer> getFolderIds() {
+  public List<BatchRequestDtoAllOfFolderIds> getFolderIds() {
         return folderIds.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_FOLDER_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<Integer>> getFolderIds_JsonNullable() {
+  public JsonNullable<List<BatchRequestDtoAllOfFolderIds>> getFolderIds_JsonNullable() {
     return folderIds;
   }
   
   @JsonProperty(JSON_PROPERTY_FOLDER_IDS)
-  public void setFolderIds_JsonNullable(JsonNullable<List<Integer>> folderIds) {
+  public void setFolderIds_JsonNullable(JsonNullable<List<BatchRequestDtoAllOfFolderIds>> folderIds) {
     this.folderIds = folderIds;
   }
 
-  public void setFolderIds(@javax.annotation.Nullable List<Integer> folderIds) {
-    this.folderIds = JsonNullable.<List<Integer>>of(folderIds);
+  public void setFolderIds(@javax.annotation.Nullable List<BatchRequestDtoAllOfFolderIds> folderIds) {
+    this.folderIds = JsonNullable.<List<BatchRequestDtoAllOfFolderIds>>of(folderIds);
   }
 
-  public BatchRequestDto fileIds(@javax.annotation.Nullable List<Integer> fileIds) {
-    this.fileIds = JsonNullable.<List<Integer>>of(fileIds);
+  public BatchRequestDto fileIds(@javax.annotation.Nullable List<BatchRequestDtoAllOfFileIds> fileIds) {
+    this.fileIds = JsonNullable.<List<BatchRequestDtoAllOfFileIds>>of(fileIds);
     
     return this;
   }
 
-  public BatchRequestDto addFileIdsItem(Integer fileIdsItem) {
+  public BatchRequestDto addFileIdsItem(BatchRequestDtoAllOfFileIds fileIdsItem) {
     if (this.fileIds == null || !this.fileIds.isPresent()) {
-      this.fileIds = JsonNullable.<List<Integer>>of(new ArrayList<>());
+      this.fileIds = JsonNullable.<List<BatchRequestDtoAllOfFileIds>>of(new ArrayList<>());
     }
     try {
       this.fileIds.get().add(fileIdsItem);
@@ -183,27 +186,27 @@ public class BatchRequestDto {
   @javax.annotation.Nullable
   @JsonIgnore
 
-  public List<Integer> getFileIds() {
+  public List<BatchRequestDtoAllOfFileIds> getFileIds() {
         return fileIds.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_FILE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<Integer>> getFileIds_JsonNullable() {
+  public JsonNullable<List<BatchRequestDtoAllOfFileIds>> getFileIds_JsonNullable() {
     return fileIds;
   }
   
   @JsonProperty(JSON_PROPERTY_FILE_IDS)
-  public void setFileIds_JsonNullable(JsonNullable<List<Integer>> fileIds) {
+  public void setFileIds_JsonNullable(JsonNullable<List<BatchRequestDtoAllOfFileIds>> fileIds) {
     this.fileIds = fileIds;
   }
 
-  public void setFileIds(@javax.annotation.Nullable List<Integer> fileIds) {
-    this.fileIds = JsonNullable.<List<Integer>>of(fileIds);
+  public void setFileIds(@javax.annotation.Nullable List<BatchRequestDtoAllOfFileIds> fileIds) {
+    this.fileIds = JsonNullable.<List<BatchRequestDtoAllOfFileIds>>of(fileIds);
   }
 
-  public BatchRequestDto destFolderId(@javax.annotation.Nullable Integer destFolderId) {
+  public BatchRequestDto destFolderId(@javax.annotation.Nullable BatchRequestDtoAllOfDestFolderId destFolderId) {
     
     this.destFolderId = destFolderId;
     return this;
@@ -217,14 +220,14 @@ public class BatchRequestDto {
   @JsonProperty(JSON_PROPERTY_DEST_FOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getDestFolderId() {
+  public BatchRequestDtoAllOfDestFolderId getDestFolderId() {
     return destFolderId;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DEST_FOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDestFolderId(@javax.annotation.Nullable Integer destFolderId) {
+  public void setDestFolderId(@javax.annotation.Nullable BatchRequestDtoAllOfDestFolderId destFolderId) {
     this.destFolderId = destFolderId;
   }
 
@@ -435,13 +438,9 @@ public class BatchRequestDto {
     // add `folderIds` to the URL query string
     if (getFolderIds() != null) {
       for (int i = 0; i < getFolderIds().size(); i++) {
-        try {
-          joiner.add(String.format("%sfolderIds%s%s=%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-              URLEncoder.encode(String.valueOf(getFolderIds().get(i)), "UTF-8").replaceAll("\\+", "%20")));
-        } catch (UnsupportedEncodingException e) {
-          // Should never happen, UTF-8 is always supported
-          throw new RuntimeException(e);
+        if (getFolderIds().get(i) != null) {
+          joiner.add(getFolderIds().get(i).toUrlQueryString(String.format("%sfolderIds%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }
@@ -449,25 +448,16 @@ public class BatchRequestDto {
     // add `fileIds` to the URL query string
     if (getFileIds() != null) {
       for (int i = 0; i < getFileIds().size(); i++) {
-        try {
-          joiner.add(String.format("%sfileIds%s%s=%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-              URLEncoder.encode(String.valueOf(getFileIds().get(i)), "UTF-8").replaceAll("\\+", "%20")));
-        } catch (UnsupportedEncodingException e) {
-          // Should never happen, UTF-8 is always supported
-          throw new RuntimeException(e);
+        if (getFileIds().get(i) != null) {
+          joiner.add(getFileIds().get(i).toUrlQueryString(String.format("%sfileIds%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }
 
     // add `destFolderId` to the URL query string
     if (getDestFolderId() != null) {
-      try {
-        joiner.add(String.format("%sdestFolderId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDestFolderId()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getDestFolderId().toUrlQueryString(prefix + "destFolderId" + suffix));
     }
 
     // add `conflictResolveType` to the URL query string

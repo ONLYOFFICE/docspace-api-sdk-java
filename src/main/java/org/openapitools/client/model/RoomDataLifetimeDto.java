@@ -47,11 +47,11 @@ import java.util.StringJoiner;
 
 public class RoomDataLifetimeDto {
   public static final String JSON_PROPERTY_DELETE_PERMANENTLY = "deletePermanently";
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean deletePermanently;
 
   public static final String JSON_PROPERTY_PERIOD = "period";
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private RoomDataLifetimePeriod period;
 
   public static final String JSON_PROPERTY_VALUE = "value";
@@ -65,7 +65,7 @@ public class RoomDataLifetimeDto {
   public RoomDataLifetimeDto() {
   }
 
-  public RoomDataLifetimeDto deletePermanently(@javax.annotation.Nonnull Boolean deletePermanently) {
+  public RoomDataLifetimeDto deletePermanently(@javax.annotation.Nullable Boolean deletePermanently) {
     
     this.deletePermanently = deletePermanently;
     return this;
@@ -75,9 +75,9 @@ public class RoomDataLifetimeDto {
    * Specifies whether to permanently delete the room data or not.
    * @return deletePermanently
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DELETE_PERMANENTLY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDeletePermanently() {
     return deletePermanently;
@@ -85,12 +85,12 @@ public class RoomDataLifetimeDto {
 
 
   @JsonProperty(JSON_PROPERTY_DELETE_PERMANENTLY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDeletePermanently(@javax.annotation.Nonnull Boolean deletePermanently) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDeletePermanently(@javax.annotation.Nullable Boolean deletePermanently) {
     this.deletePermanently = deletePermanently;
   }
 
-  public RoomDataLifetimeDto period(@javax.annotation.Nonnull RoomDataLifetimePeriod period) {
+  public RoomDataLifetimeDto period(@javax.annotation.Nullable RoomDataLifetimePeriod period) {
     
     this.period = period;
     return this;
@@ -100,9 +100,9 @@ public class RoomDataLifetimeDto {
    * Get period
    * @return period
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PERIOD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public RoomDataLifetimePeriod getPeriod() {
     return period;
@@ -110,8 +110,8 @@ public class RoomDataLifetimeDto {
 
 
   @JsonProperty(JSON_PROPERTY_PERIOD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPeriod(@javax.annotation.Nonnull RoomDataLifetimePeriod period) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPeriod(@javax.annotation.Nullable RoomDataLifetimePeriod period) {
     this.period = period;
   }
 

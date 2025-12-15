@@ -223,7 +223,7 @@
 
 * `StartTransferSetting` (value: `5040`)
 
-* `StartBackupSetting` (value: `5041`)
+* `BackupStarted` (value: `5041`)
 
 * `LicenseKeyUploaded` (value: `5042`)
 
@@ -389,6 +389,16 @@
 
 * `FolderExternalLinkDeleted` (value: `5124`)
 
+* `BackupCompleted` (value: `5125`)
+
+* `BackupFailed` (value: `5126`)
+
+* `ScheduledBackupStarted` (value: `5127`)
+
+* `ScheduledBackupCompleted` (value: `5128`)
+
+* `ScheduledBackupFailed` (value: `5129`)
+
 * `FormStartedToFill` (value: `5150`)
 
 * `FormPartiallyFilled` (value: `5151`)
@@ -402,6 +412,12 @@
 * `AgentRenamed` (value: `5155`)
 
 * `AgentDeleted` (value: `5156`)
+
+* `AddedServerToAgent` (value: `5157`)
+
+* `DeletedServerFromAgent` (value: `5158`)
+
+* `RoomChangeOwner` (value: `5159`)
 
 * `LdapEnabled` (value: `5501`)
 
@@ -560,6 +576,30 @@
 * `AIProviderUpdated` (value: `6074`)
 
 * `AIProviderDeleted` (value: `6075`)
+
+* `ServerCreated` (value: `6076`)
+
+* `ServerUpdated` (value: `6077`)
+
+* `ServerEnabled` (value: `6078`)
+
+* `ServerDisabled` (value: `6079`)
+
+* `ServerDeleted` (value: `6080`)
+
+* `SetWebSearchSettings` (value: `6081`)
+
+* `ResetWebSearchSettings` (value: `6082`)
+
+* `SetVectorizationSettings` (value: `6083`)
+
+* `ResetVectorizationSettings` (value: `6084`)
+
+* `WebpluginUploaded` (value: `6085`)
+
+* `WebpluginUpdated` (value: `6086`)
+
+* `WebpluginDeleted` (value: `6087`)
 
 * `ContactAdminMailSent` (value: `7000`)
 

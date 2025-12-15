@@ -75,7 +75,7 @@ import java.util.StringJoiner;
   FileEntryDtoIntegerAllOfSecurity.JSON_PROPERTY_EDIT_INTERNAL,
   FileEntryDtoIntegerAllOfSecurity.JSON_PROPERTY_EDIT_EXPIRATION,
   FileEntryDtoIntegerAllOfSecurity.JSON_PROPERTY_VECTORIZATION,
-  FileEntryDtoIntegerAllOfSecurity.JSON_PROPERTY_ASC_AI,
+  FileEntryDtoIntegerAllOfSecurity.JSON_PROPERTY_ASK_AI,
   FileEntryDtoIntegerAllOfSecurity.JSON_PROPERTY_USE_CHAT
 })
 @JsonTypeName("FileEntryDtoInteger_allOf_security")
@@ -245,9 +245,9 @@ public class FileEntryDtoIntegerAllOfSecurity {
   @javax.annotation.Nullable
   private Boolean vectorization;
 
-  public static final String JSON_PROPERTY_ASC_AI = "AscAi";
+  public static final String JSON_PROPERTY_ASK_AI = "AskAi";
   @javax.annotation.Nullable
-  private Boolean ascAi;
+  private Boolean askAi;
 
   public static final String JSON_PROPERTY_USE_CHAT = "UseChat";
   @javax.annotation.Nullable
@@ -1281,29 +1281,29 @@ public class FileEntryDtoIntegerAllOfSecurity {
     this.vectorization = vectorization;
   }
 
-  public FileEntryDtoIntegerAllOfSecurity ascAi(@javax.annotation.Nullable Boolean ascAi) {
+  public FileEntryDtoIntegerAllOfSecurity askAi(@javax.annotation.Nullable Boolean askAi) {
     
-    this.ascAi = ascAi;
+    this.askAi = askAi;
     return this;
   }
 
   /**
-   * Get ascAi
-   * @return ascAi
+   * Get askAi
+   * @return askAi
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ASC_AI)
+  @JsonProperty(JSON_PROPERTY_ASK_AI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Boolean getAscAi() {
-    return ascAi;
+  public Boolean getAskAi() {
+    return askAi;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ASC_AI)
+  @JsonProperty(JSON_PROPERTY_ASK_AI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAscAi(@javax.annotation.Nullable Boolean ascAi) {
-    this.ascAi = ascAi;
+  public void setAskAi(@javax.annotation.Nullable Boolean askAi) {
+    this.askAi = askAi;
   }
 
   public FileEntryDtoIntegerAllOfSecurity useChat(@javax.annotation.Nullable Boolean useChat) {
@@ -1381,13 +1381,13 @@ public class FileEntryDtoIntegerAllOfSecurity {
         Objects.equals(this.editInternal, fileEntryDtoIntegerAllOfSecurity.editInternal) &&
         Objects.equals(this.editExpiration, fileEntryDtoIntegerAllOfSecurity.editExpiration) &&
         Objects.equals(this.vectorization, fileEntryDtoIntegerAllOfSecurity.vectorization) &&
-        Objects.equals(this.ascAi, fileEntryDtoIntegerAllOfSecurity.ascAi) &&
+        Objects.equals(this.askAi, fileEntryDtoIntegerAllOfSecurity.askAi) &&
         Objects.equals(this.useChat, fileEntryDtoIntegerAllOfSecurity.useChat);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(read, comment, fillForms, review, create, createFrom, edit, delete, customFilter, editRoom, rename, readHistory, lock, editHistory, copyTo, copy, moveTo, move, pin, mute, editAccess, duplicate, submitToFormGallery, download, convert, copySharedLink, readLinks, reconnect, createRoomFrom, copyLink, embed, changeOwner, indexExport, startFilling, fillingStatus, resetFilling, stopFilling, openForm, editInternal, editExpiration, vectorization, ascAi, useChat);
+    return Objects.hash(read, comment, fillForms, review, create, createFrom, edit, delete, customFilter, editRoom, rename, readHistory, lock, editHistory, copyTo, copy, moveTo, move, pin, mute, editAccess, duplicate, submitToFormGallery, download, convert, copySharedLink, readLinks, reconnect, createRoomFrom, copyLink, embed, changeOwner, indexExport, startFilling, fillingStatus, resetFilling, stopFilling, openForm, editInternal, editExpiration, vectorization, askAi, useChat);
   }
 
   @Override
@@ -1435,7 +1435,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
     sb.append("    editInternal: ").append(toIndentedString(editInternal)).append("\n");
     sb.append("    editExpiration: ").append(toIndentedString(editExpiration)).append("\n");
     sb.append("    vectorization: ").append(toIndentedString(vectorization)).append("\n");
-    sb.append("    ascAi: ").append(toIndentedString(ascAi)).append("\n");
+    sb.append("    askAi: ").append(toIndentedString(askAi)).append("\n");
     sb.append("    useChat: ").append(toIndentedString(useChat)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1894,10 +1894,10 @@ public class FileEntryDtoIntegerAllOfSecurity {
       }
     }
 
-    // add `AscAi` to the URL query string
-    if (getAscAi() != null) {
+    // add `AskAi` to the URL query string
+    if (getAskAi() != null) {
       try {
-        joiner.add(String.format("%sAscAi%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAscAi()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%sAskAi%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAskAi()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

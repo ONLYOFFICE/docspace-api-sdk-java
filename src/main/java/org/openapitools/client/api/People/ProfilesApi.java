@@ -487,12 +487,13 @@ public class ProfilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-email/
    *
    * @param email The user email address. (optional)
+   * @param encemail The user encrypted email address. (optional)
    * @param culture Culture (optional)
    * @return EmployeeFullWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullWrapper getProfileByEmail(@javax.annotation.Nullable String email, @javax.annotation.Nullable String culture) throws ApiException {
-    return this.getProfileByEmail(email, culture, Collections.emptyMap());
+  public EmployeeFullWrapper getProfileByEmail(@javax.annotation.Nullable String email, @javax.annotation.Nullable String encemail, @javax.annotation.Nullable String culture) throws ApiException {
+    return this.getProfileByEmail(email, encemail, culture, Collections.emptyMap());
   }
 
 
@@ -504,12 +505,13 @@ public class ProfilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-email/
    *
    * @param email The user email address. (optional)
+   * @param encemail The user encrypted email address. (optional)
    * @param culture Culture (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return EmployeeFullWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullWrapper getProfileByEmail(@javax.annotation.Nullable String email, @javax.annotation.Nullable String culture, Map<String, String> additionalHeaders) throws ApiException {
+  public EmployeeFullWrapper getProfileByEmail(@javax.annotation.Nullable String email, @javax.annotation.Nullable String encemail, @javax.annotation.Nullable String culture, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -524,6 +526,7 @@ public class ProfilesApi extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPair("email", email));
+    localVarQueryParams.addAll(apiClient.parameterToPair("encemail", encemail));
     localVarQueryParams.addAll(apiClient.parameterToPair("culture", culture));
       
     

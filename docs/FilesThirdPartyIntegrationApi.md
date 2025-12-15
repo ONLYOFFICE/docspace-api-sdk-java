@@ -111,7 +111,7 @@ public class Example {
 
 ## getAllProviders
 
-> ProviderArrayWrapper getAllProviders()
+> ProviderArrayWrapper getAllProviders(excludewebdav)
 
 Get all providersReturns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
 
@@ -119,7 +119,10 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **excludewebdav** | **Boolean**| Specifies whether WebDAV resources should be excluded from the result.. | [optional] |
 
 ### Return type
 
@@ -172,8 +175,9 @@ public class Example {
 
 
         ThirdPartyIntegrationApi apiInstance = new ThirdPartyIntegrationApi(defaultClient);
+        Boolean excludewebdav = true; // Boolean | Specifies whether WebDAV resources should be excluded from the result..
         try {
-            ProviderArrayWrapper result = apiInstance.getAllProviders();
+            ProviderArrayWrapper result = apiInstance.getAllProviders(excludewebdav);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ThirdPartyIntegrationApi#getAllProviders");

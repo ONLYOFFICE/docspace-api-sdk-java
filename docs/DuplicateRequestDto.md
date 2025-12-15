@@ -9,8 +9,8 @@ The request parameters for duplicating files and fodlers.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**returnSingleOperation** | **Boolean** | Specifies whether to return only the current operation |  [optional] |
-|**folderIds** | **List&lt;Integer&gt;** | The list of folder IDs. |  [optional] |
-|**fileIds** | **List&lt;Integer&gt;** | The list of file IDs. |  [optional] |
+|**folderIds** | [**List&lt;DuplicateRequestDtoAllOfFolderIds&gt;**](DuplicateRequestDtoAllOfFolderIds.md) | The list of folder IDs. |  [optional] |
+|**fileIds** | [**List&lt;DuplicateRequestDtoAllOfFileIds&gt;**](DuplicateRequestDtoAllOfFileIds.md) | The list of file IDs. |  [optional] |
 
 
 

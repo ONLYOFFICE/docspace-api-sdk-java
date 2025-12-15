@@ -143,11 +143,12 @@ public class ThirdPartyIntegrationApi extends BaseApi {
    * REST API Reference for getAllProviders Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/
    *
+   * @param excludewebdav Specifies whether WebDAV resources should be excluded from the result.. (optional)
    * @return ProviderArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public ProviderArrayWrapper getAllProviders() throws ApiException {
-    return this.getAllProviders(Collections.emptyMap());
+  public ProviderArrayWrapper getAllProviders(@javax.annotation.Nullable Boolean excludewebdav) throws ApiException {
+    return this.getAllProviders(excludewebdav, Collections.emptyMap());
   }
 
 
@@ -158,11 +159,12 @@ public class ThirdPartyIntegrationApi extends BaseApi {
    * REST API Reference for getAllProviders Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/
    *
+   * @param excludewebdav Specifies whether WebDAV resources should be excluded from the result.. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return ProviderArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public ProviderArrayWrapper getAllProviders(Map<String, String> additionalHeaders) throws ApiException {
+  public ProviderArrayWrapper getAllProviders(@javax.annotation.Nullable Boolean excludewebdav, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -176,6 +178,7 @@ public class ThirdPartyIntegrationApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPair("excludewebdav", excludewebdav));
       
     
     localVarHeaderParams.putAll(additionalHeaders);

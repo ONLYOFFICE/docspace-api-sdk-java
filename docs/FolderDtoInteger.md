@@ -10,6 +10,8 @@ The folder parameters.
 |------------ | ------------- | ------------- | -------------|
 |**title** | **String** | The file entry title. |  [optional] |
 |**access** | **FileShare** |  |  [optional] |
+|**sharedBy** | [**EmployeeDto**](EmployeeDto.md) |  |  [optional] |
+|**ownedBy** | [**EmployeeDto**](EmployeeDto.md) |  |  [optional] |
 |**shared** | **Boolean** | Specifies if the file entry is shared via link or not. |  [optional] |
 |**sharedForUser** | **Boolean** | Specifies if the file entry is shared for user or not. |  [optional] |
 |**parentShared** | **Boolean** | Indicates whether the parent entity is shared. |  [optional] |

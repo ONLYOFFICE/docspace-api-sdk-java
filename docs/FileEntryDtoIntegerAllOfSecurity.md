@@ -49,7 +49,7 @@ The actions that can be performed with the file entry.
 |**editInternal** | **Boolean** |  |  [optional] |
 |**editExpiration** | **Boolean** |  |  [optional] |
 |**vectorization** | **Boolean** |  |  [optional] |
-|**ascAi** | **Boolean** |  |  [optional] |
+|**askAi** | **Boolean** |  |  [optional] |
 |**useChat** | **Boolean** |  |  [optional] |
 
 

@@ -9,7 +9,7 @@ The request parameters for managing the user storage quota configurations.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**enableQuota** | **Boolean** | Specifies whether the storage quota restrictions are enabled. |  [optional] |
-|**defaultQuota** | **Integer** |  |  |
+|**defaultQuota** | [**QuotaSettingsRequestsDtoDefaultQuota**](QuotaSettingsRequestsDtoDefaultQuota.md) |  |  |
 
 
 

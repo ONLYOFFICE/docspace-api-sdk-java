@@ -8,6 +8,7 @@ The file history information.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**id** | **Integer** | The unique identifier for the file history entry. |  |
 |**action** | [**HistoryAction**](HistoryAction.md) |  |  |
 |**initiator** | [**EmployeeDto**](EmployeeDto.md) |  |  |
 |**date** | [**ApiDateTime**](ApiDateTime.md) |  |  |

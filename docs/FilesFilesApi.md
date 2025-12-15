@@ -38,7 +38,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**lockFile**](FilesFilesApi.md#lockFile) | **PUT** /api/2.0/files/file/{fileId}/lock | Lock a file |
 | [**manageFormFilling**](FilesFilesApi.md#manageFormFilling) | **PUT** /api/2.0/files/file/{fileId}/manageformfilling | Perform form filling action |
 | [**openEditFile**](FilesFilesApi.md#openEditFile) | **GET** /api/2.0/files/file/{fileId}/openedit | Open a file configuration |
-| [**restoreFileVersion**](FilesFilesApi.md#restoreFileVersion) | **GET** /api/2.0/files/file/{fileId}/restoreversion | Restore a file version |
+| [**restoreFileVersion**](FilesFilesApi.md#restoreFileVersion) | **POST** /api/2.0/files/file/{fileId}/restoreversion | Restore a file version |
 | [**saveEditingFileFromForm**](FilesFilesApi.md#saveEditingFileFromForm) | **PUT** /api/2.0/files/file/{fileId}/saveediting | Save file edits |
 | [**saveFileAsPdf**](FilesFilesApi.md#saveFileAsPdf) | **POST** /api/2.0/files/file/{id}/saveaspdf | Save a file as PDF |
 | [**saveFormRoleMapping**](FilesFilesApi.md#saveFormRoleMapping) | **POST** /api/2.0/files/file/{fileId}/formrolemapping | Save form role mapping |
@@ -4048,7 +4048,7 @@ public class Example {
 
 
         FilesApi apiInstance = new FilesApi(defaultClient);
-        Integer fileId = 9846; // Integer | The file ID.
+        Integer fileId = 9079; // Integer | The file ID.
         Boolean favorite = true; // Boolean | Specifies if the file is marked as favorite or not.
         try {
             BooleanWrapper result = apiInstance.toggleFileFavorite(fileId, favorite);

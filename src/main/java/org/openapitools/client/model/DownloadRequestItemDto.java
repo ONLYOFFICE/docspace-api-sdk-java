@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.client.model.DownloadRequestItemDtoKey;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -46,7 +47,7 @@ import java.util.StringJoiner;
 public class DownloadRequestItemDto {
   public static final String JSON_PROPERTY_KEY = "key";
   @javax.annotation.Nonnull
-  private Integer key;
+  private DownloadRequestItemDtoKey key;
 
   public static final String JSON_PROPERTY_VALUE = "value";
   @javax.annotation.Nullable
@@ -59,7 +60,7 @@ public class DownloadRequestItemDto {
   public DownloadRequestItemDto() {
   }
 
-  public DownloadRequestItemDto key(@javax.annotation.Nonnull Integer key) {
+  public DownloadRequestItemDto key(@javax.annotation.Nonnull DownloadRequestItemDtoKey key) {
     
     this.key = key;
     return this;
@@ -73,14 +74,14 @@ public class DownloadRequestItemDto {
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Integer getKey() {
+  public DownloadRequestItemDtoKey getKey() {
     return key;
   }
 
 
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setKey(@javax.annotation.Nonnull Integer key) {
+  public void setKey(@javax.annotation.Nonnull DownloadRequestItemDtoKey key) {
     this.key = key;
   }
 
@@ -228,12 +229,7 @@ public class DownloadRequestItemDto {
 
     // add `key` to the URL query string
     if (getKey() != null) {
-      try {
-        joiner.add(String.format("%skey%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKey()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getKey().toUrlQueryString(prefix + "key" + suffix));
     }
 
     // add `value` to the URL query string

@@ -45,6 +45,7 @@ import java.util.StringJoiner;
  * The file history information.
  */
 @JsonPropertyOrder({
+  HistoryDto.JSON_PROPERTY_ID,
   HistoryDto.JSON_PROPERTY_ACTION,
   HistoryDto.JSON_PROPERTY_INITIATOR,
   HistoryDto.JSON_PROPERTY_DATE,
@@ -53,6 +54,10 @@ import java.util.StringJoiner;
 })
 
 public class HistoryDto {
+  public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nonnull
+  private Integer id;
+
   public static final String JSON_PROPERTY_ACTION = "action";
   @javax.annotation.Nonnull
   private HistoryAction action;
@@ -74,6 +79,31 @@ public class HistoryDto {
   private JsonNullable<List<HistoryDto>> related = JsonNullable.<List<HistoryDto>>undefined();
 
   public HistoryDto() {
+  }
+
+  public HistoryDto id(@javax.annotation.Nonnull Integer id) {
+    
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The unique identifier for the file history entry.
+   * @return id
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Integer getId() {
+    return id;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setId(@javax.annotation.Nonnull Integer id) {
+    this.id = id;
   }
 
   public HistoryDto action(@javax.annotation.Nonnull HistoryAction action) {
@@ -230,7 +260,8 @@ public class HistoryDto {
       return false;
     }
     HistoryDto historyDto = (HistoryDto) o;
-    return Objects.equals(this.action, historyDto.action) &&
+    return Objects.equals(this.id, historyDto.id) &&
+        Objects.equals(this.action, historyDto.action) &&
         Objects.equals(this.initiator, historyDto.initiator) &&
         Objects.equals(this.date, historyDto.date) &&
         Objects.equals(this.data, historyDto.data) &&
@@ -243,7 +274,7 @@ public class HistoryDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, initiator, date, data, hashCodeNullable(related));
+    return Objects.hash(id, action, initiator, date, data, hashCodeNullable(related));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -257,6 +288,7 @@ public class HistoryDto {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoryDto {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    initiator: ").append(toIndentedString(initiator)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
@@ -308,6 +340,16 @@ public class HistoryDto {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `id` to the URL query string
+    if (getId() != null) {
+      try {
+        joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
 
     // add `action` to the URL query string
     if (getAction() != null) {

@@ -5,7 +5,7 @@ info:
     name: API Support
     url: https://helpdesk.onlyoffice.com/hc/en-us
   title: Api
-  version: 4.0.0
+  version: 3.6.0
 servers:
 - description: Server configuration
   url: "{baseUrl}"
@@ -9715,7 +9715,7 @@ paths:
         name: userid
         required: true
         schema:
-          example: "9846"
+          example: "9079"
           type: string
         style: simple
       requestBody:
@@ -9840,6 +9840,15 @@ paths:
           format: email
           maxLength: 255
           minLength: 0
+          type: string
+        style: form
+      - description: The user encrypted email address.
+        explode: true
+        in: query
+        name: encemail
+        required: false
+        schema:
+          example: some text
           type: string
         style: form
       - description: Culture
@@ -13928,7 +13937,7 @@ paths:
       x-accepts:
       - application/json
   /api/2.0/files/file/{fileId}/restoreversion:
-    get:
+    post:
       description: Restores a file version specified in the request.
       operationId: restoreFileVersion
       parameters:
@@ -14704,7 +14713,7 @@ paths:
         name: fileId
         required: true
         schema:
-          example: 9846
+          example: 9079
           format: int32
           type: integer
         style: simple
@@ -15473,6 +15482,16 @@ paths:
         explode: true
         in: query
         name: userIdOrGroupId
+        required: false
+        schema:
+          example: 75a5f745-f697-4418-b38d-0fe0d277e258
+          format: uuid
+          type: string
+        style: form
+      - description: The identifier of the user who shared the folder or file.
+        explode: true
+        in: query
+        name: sharedBy
         required: false
         schema:
           example: 75a5f745-f697-4418-b38d-0fe0d277e258
@@ -19698,6 +19717,17 @@ paths:
 
          **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
       operationId: getAllProviders
+      parameters:
+      - description: Specifies whether WebDAV resources should be excluded from the
+          result..
+        explode: true
+        in: query
+        name: excludewebdav
+        required: false
+        schema:
+          example: true
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -20231,7 +20261,7 @@ paths:
         name: id
         required: true
         schema:
-          example: 9846
+          example: 9079
           format: int32
           type: integer
         style: simple
@@ -21390,7 +21420,7 @@ paths:
         name: id
         required: true
         schema:
-          example: 9846
+          example: 9079
           format: int32
           type: integer
         style: simple
@@ -23783,6 +23813,7 @@ components:
         response:
         - instruction: some text
           name: Winfield Upton
+          paid: true
           description: some text
           canSet: true
           title: legacy_1080p_small_wooden_mouse
@@ -23795,6 +23826,7 @@ components:
             value: some text
         - instruction: some text
           name: Winfield Upton
+          paid: true
           description: some text
           canSet: true
           title: legacy_1080p_small_wooden_mouse
@@ -23838,6 +23870,7 @@ components:
       example:
         instruction: some text
         name: Winfield Upton
+        paid: true
         description: some text
         canSet: true
         title: legacy_1080p_small_wooden_mouse
@@ -23873,6 +23906,10 @@ components:
         canSet:
           description: Specifies whether the authorization service can be configured
             by the user.
+          example: true
+          type: boolean
+        paid:
+          description: Specifies whether the authorization service is paid or not.
           example: true
           type: boolean
         props:
@@ -24038,11 +24075,6 @@ components:
             value: some text
           nullable: true
           type: object
-        id:
-          example: 75a5f745-f697-4418-b38d-0fe0d277e258
-          format: uuid
-          readOnly: true
-          type: string
         lastModified:
           example: 2008-04-10T06:30:00+04:00
           format: date-time
@@ -24064,11 +24096,6 @@ components:
             value: some text
           nullable: true
           type: object
-        id:
-          example: 75a5f745-f697-4418-b38d-0fe0d277e258
-          format: uuid
-          readOnly: true
-          type: string
         lastModified:
           example: 2008-04-10T06:30:00+04:00
           format: date-time
@@ -24203,7 +24230,6 @@ components:
       - type: object
       example:
         module: some text
-        id: 75a5f745-f697-4418-b38d-0fe0d277e258
         lastModified: 2008-04-10T06:30:00+04:00
         props:
         - key: some text
@@ -24212,7 +24238,6 @@ components:
       example:
         response:
           module: some text
-          id: 75a5f745-f697-4418-b38d-0fe0d277e258
           lastModified: 2008-04-10T06:30:00+04:00
           props:
           - key: some text
@@ -25654,7 +25679,7 @@ components:
         emplType: All
         type: EmpInvite
         key: some text
-        email: Sydney_Roberts4@hotmail.com
+        email: Nat14@hotmail.com
         first: some text
         roomId: "9846"
       properties:
@@ -25667,7 +25692,7 @@ components:
           $ref: "#/components/schemas/EmployeeType"
         email:
           description: The email address.
-          example: Sydney_Roberts4@hotmail.com
+          example: Nat14@hotmail.com
           format: email
           nullable: true
           type: string
@@ -26600,9 +26625,9 @@ components:
       example:
         response:
         - default: true
-          name: Winfield Upton
+          name: Winfield Roberts
         - default: true
-          name: Winfield Upton
+          name: Winfield Roberts
         count: 0
         links:
         - action: action
@@ -26635,11 +26660,11 @@ components:
       description: The default white label logo parameters.
       example:
         default: true
-        name: Winfield Upton
+        name: Winfield Roberts
       properties:
         name:
           description: The white label logo name.
-          example: Winfield Upton
+          example: Winfield Roberts
           nullable: true
           type: string
         default:
@@ -26654,7 +26679,7 @@ components:
       example:
         response:
           default: true
-          name: Winfield Upton
+          name: Winfield Roberts
         count: 0
         links:
         - action: action
@@ -27145,12 +27170,12 @@ components:
         \ Documents uploading formats settings updated, 5034 - User file updated,\
         \ 5035 - File converted, 5036 - File send access link, 5037 - Document service\
         \ location setting, 5038 - Authorization keys setting, 5039 - Full text search\
-        \ setting, 5040 - Start transfer setting, 5041 - Start backup setting, 5042\
-        \ - License key uploaded, 5043 - File change owner, 5044 - File restore version,\
-        \ 5045 - Document send to sign, 5046 - Document sign complete, 5047 - User\
-        \ updated email, 5048 - Documents store forcesave, 5049 - Documents forcesave,\
-        \ 5050 - Start storage encryption, 5051 - Privacy room enable, 5052 - Privacy\
-        \ room disable, 5053 - Start storage decryption, 5054 - File opened for change,\
+        \ setting, 5040 - Start transfer setting, 5041 - Backup started, 5042 - License\
+        \ key uploaded, 5043 - File change owner, 5044 - File restore version, 5045\
+        \ - Document send to sign, 5046 - Document sign complete, 5047 - User updated\
+        \ email, 5048 - Documents store forcesave, 5049 - Documents forcesave, 5050\
+        \ - Start storage encryption, 5051 - Privacy room enable, 5052 - Privacy room\
+        \ disable, 5053 - Start storage decryption, 5054 - File opened for change,\
         \ 5055 - File marked as favorite, 5056 - File removed from favorite, 5057\
         \ - Folder downloaded, 5058 - File removed from list, 5059 - Folder removed\
         \ from list, 5060 - File external link access updated, 5061 - Trash emptied,\
@@ -27180,52 +27205,60 @@ components:
         \ - Room invite resend, 5119 - File version deleted, 5120 - File custom filter\
         \ enabled, 5121 - File custom filter disabled, 5122 - Folder external link\
         \ created, 5123 - Folder external link updated, 5124 - Folder external link\
-        \ deleted, 5150 - Form started to fill, 5151 - Form partially filled, 5152\
+        \ deleted, 5125 - Backup completed, 5126 - Backup failed, 5127 - Scheduled\
+        \ backup started, 5128 - Scheduled backup completed, 5129 - Scheduled backup\
+        \ failed, 5150 - Form started to fill, 5151 - Form partially filled, 5152\
         \ - Form completely filled, 5153 - Form stopped, 5154 - Agent created, 5155\
-        \ - Agent renamed, 5156 - Agent deleted, 5501 - Ldap enabled, 5502 - Ldap\
-        \ disabled, 5503 - LDAP synchronization completed, 6000 - Language settings\
-        \ updated, 6001 - Time zone settings updated, 6002 - Dns settings updated,\
-        \ 6003 - Trusted mail domain settings updated, 6004 - Password strength settings\
-        \ updated, 6005 - Two factor authentication settings updated, 6006 - Administrator\
-        \ message settings updated, 6007 - Default start page settings updated, 6008\
-        \ - Products list updated, 6009 - Administrator added, 6010 - Administrator\
-        \ opened full access, 6011 - Administrator deleted, 6012 - Users opened product\
-        \ access, 6013 - Groups opened product access, 6014 - Product access opened,\
-        \ 6015 - Product access restricted, 6016 - Product added administrator, 6017\
-        \ - Product deleted administrator, 6018 - Greeting settings updated, 6019\
-        \ - Team template changed, 6020 - Color theme changed, 6021 - Owner sent change\
-        \ owner instructions, 6022 - Owner updated, 6023 - Owner sent portal deactivation\
-        \ instructions, 6024 - Owner sent portal delete instructions, 6025 - Portal\
-        \ deactivated, 6026 - Portal deleted, 6027 - Login history report downloaded,\
-        \ 6028 - Audit trail report downloaded, 6029 - SSO enabled, 6030 - SSO disabled,\
-        \ 6031 - Portal access settings updated, 6032 - Cookie settings updated, 6033\
-        \ - Mail service settings updated, 6034 - Custom navigation settings updated,\
-        \ 6035 - Audit settings updated, 6036 - Two factor authentication disabled,\
-        \ 6037 - Two factor authentication enabled by sms, 6038 - Two factor authentication\
-        \ enabled by tfa app, 6039 - Portal renamed, 6040 - Quota per room changed,\
-        \ 6041 - Quota per room disabled, 6042 - Quota per user changed, 6043 - Quota\
-        \ per user disabled, 6044 - Quota per portal changed, 6045 - Quota per portal\
-        \ disabled, 6046 - Form submit, 6047 - Form opened for filling, 6048 - Custom\
-        \ quota per room default, 6049 - Custom quota per room changed, 6050 - Custom\
-        \ quota per room disabled, 6051 - Custom quota per user default, 6052 - Custom\
-        \ quota per user changed, 6053 - Custom quota per user disabled, 6054 - DevTools\
-        \ access settings changed, 6055 - Webhook created, 6056 - Webhook updated,\
-        \ 6057 - Webhook deleted, 6058 - Created api key, 6059 - Update api key, 6060\
-        \ - Deleted User api key, 6061 - Customer wallet topped up, 6062 - Customer\
-        \ operation performed, 6063 - Customer operations report downloaded, 6064\
-        \ - Customer wallet top up settings updated, 6065 - Customer subscription\
-        \ updated, 6066 - Promotional banners visibility settings changed, 6067 -\
-        \ Customer wallet services settings updated, 6068 - Quota per AI agent changed,\
-        \ 6069 - Quota per AI agent disabled, 6070 - Custom quota per AI agent default,\
-        \ 6071 - Custom quota per AI agent changed, 6072 - Custom quota per AI agent\
-        \ disabled, 6073 - AI provider created, 6074 - AI provider updated, 6075 -\
-        \ AI provider deleted, 7000 - Contact admin mail sent, 7001 - Room invite\
-        \ link used, 7002 - User created and added to room, 7003 - Guest created and\
-        \ added to room, 7004 - Contact sales mail sent, 9901 - Create client, 9902\
-        \ - Update client, 9903 - Regenerate secret, 9904 - Delete client, 9905 -\
-        \ Change client activation, 9906 - Change client visibility, 9907 - Revoke\
-        \ user client, 9908 - Generate authorization code token, 9909 - Generate personal\
-        \ access token, -1 - None]"
+        \ - Agent renamed, 5156 - Agent deleted, 5157 - MCP server added to agent,\
+        \ 5158 - MCP server deleted from agent, 5159 - Room change owner, 5501 - Ldap\
+        \ enabled, 5502 - Ldap disabled, 5503 - LDAP synchronization completed, 6000\
+        \ - Language settings updated, 6001 - Time zone settings updated, 6002 - Dns\
+        \ settings updated, 6003 - Trusted mail domain settings updated, 6004 - Password\
+        \ strength settings updated, 6005 - Two factor authentication settings updated,\
+        \ 6006 - Administrator message settings updated, 6007 - Default start page\
+        \ settings updated, 6008 - Products list updated, 6009 - Administrator added,\
+        \ 6010 - Administrator opened full access, 6011 - Administrator deleted, 6012\
+        \ - Users opened product access, 6013 - Groups opened product access, 6014\
+        \ - Product access opened, 6015 - Product access restricted, 6016 - Product\
+        \ added administrator, 6017 - Product deleted administrator, 6018 - Greeting\
+        \ settings updated, 6019 - Team template changed, 6020 - Color theme changed,\
+        \ 6021 - Owner sent change owner instructions, 6022 - Owner updated, 6023\
+        \ - Owner sent portal deactivation instructions, 6024 - Owner sent portal\
+        \ delete instructions, 6025 - Portal deactivated, 6026 - Portal deleted, 6027\
+        \ - Login history report downloaded, 6028 - Audit trail report downloaded,\
+        \ 6029 - SSO enabled, 6030 - SSO disabled, 6031 - Portal access settings updated,\
+        \ 6032 - Cookie settings updated, 6033 - Mail service settings updated, 6034\
+        \ - Custom navigation settings updated, 6035 - Audit settings updated, 6036\
+        \ - Two factor authentication disabled, 6037 - Two factor authentication enabled\
+        \ by sms, 6038 - Two factor authentication enabled by tfa app, 6039 - Portal\
+        \ renamed, 6040 - Quota per room changed, 6041 - Quota per room disabled,\
+        \ 6042 - Quota per user changed, 6043 - Quota per user disabled, 6044 - Quota\
+        \ per portal changed, 6045 - Quota per portal disabled, 6046 - Form submit,\
+        \ 6047 - Form opened for filling, 6048 - Custom quota per room default, 6049\
+        \ - Custom quota per room changed, 6050 - Custom quota per room disabled,\
+        \ 6051 - Custom quota per user default, 6052 - Custom quota per user changed,\
+        \ 6053 - Custom quota per user disabled, 6054 - DevTools access settings changed,\
+        \ 6055 - Webhook created, 6056 - Webhook updated, 6057 - Webhook deleted,\
+        \ 6058 - Created api key, 6059 - Update api key, 6060 - Deleted User api key,\
+        \ 6061 - Customer wallet topped up, 6062 - Customer operation performed, 6063\
+        \ - Customer operations report downloaded, 6064 - Customer wallet top up settings\
+        \ updated, 6065 - Customer subscription updated, 6066 - Promotional banners\
+        \ visibility settings changed, 6067 - Customer wallet services settings updated,\
+        \ 6068 - Quota per AI agent changed, 6069 - Quota per AI agent disabled, 6070\
+        \ - Custom quota per AI agent default, 6071 - Custom quota per AI agent changed,\
+        \ 6072 - Custom quota per AI agent disabled, 6073 - AI provider created, 6074\
+        \ - AI provider updated, 6075 - AI provider deleted, 6076 - MCP server created,\
+        \ 6077 - MCP server updated, 6078 - MCP server enabled, 6079 - MCP server\
+        \ disabled, 6080 - MCP server deleted, 6081 - WebSearch settings configured,\
+        \ 6082 - WebSearch settings reset, 6083 - Vectorization settings configured,\
+        \ 6084 - Vectorization settings reset, 6085 - Webplugin uploaded, 6086 - Webplugin\
+        \ updated, 6087 - Webplugin deleted, 7000 - Contact admin mail sent, 7001\
+        \ - Room invite link used, 7002 - User created and added to room, 7003 - Guest\
+        \ created and added to room, 7004 - Contact sales mail sent, 9901 - Create\
+        \ client, 9902 - Update client, 9903 - Regenerate secret, 9904 - Delete client,\
+        \ 9905 - Change client activation, 9906 - Change client visibility, 9907 -\
+        \ Revoke user client, 9908 - Generate authorization code token, 9909 - Generate\
+        \ personal access token, -1 - None]"
       enum:
       - 1000
       - 1001
@@ -27419,6 +27452,11 @@ components:
       - 5122
       - 5123
       - 5124
+      - 5125
+      - 5126
+      - 5127
+      - 5128
+      - 5129
       - 5150
       - 5151
       - 5152
@@ -27426,6 +27464,9 @@ components:
       - 5154
       - 5155
       - 5156
+      - 5157
+      - 5158
+      - 5159
       - 5501
       - 5502
       - 5503
@@ -27505,6 +27546,18 @@ components:
       - 6073
       - 6074
       - 6075
+      - 6076
+      - 6077
+      - 6078
+      - 6079
+      - 6080
+      - 6081
+      - 6082
+      - 6083
+      - 6084
+      - 6085
+      - 6086
+      - 6087
       - 7000
       - 7001
       - 7002
@@ -27633,7 +27686,7 @@ components:
       - AuthorizationKeysSetting
       - FullTextSearchSetting
       - StartTransferSetting
-      - StartBackupSetting
+      - BackupStarted
       - LicenseKeyUploaded
       - FileChangeOwner
       - FileRestoreVersion
@@ -27716,6 +27769,11 @@ components:
       - FolderExternalLinkCreated
       - FolderExternalLinkUpdated
       - FolderExternalLinkDeleted
+      - BackupCompleted
+      - BackupFailed
+      - ScheduledBackupStarted
+      - ScheduledBackupCompleted
+      - ScheduledBackupFailed
       - FormStartedToFill
       - FormPartiallyFilled
       - FormCompletelyFilled
@@ -27723,6 +27781,9 @@ components:
       - AgentCreated
       - AgentRenamed
       - AgentDeleted
+      - AddedServerToAgent
+      - DeletedServerFromAgent
+      - RoomChangeOwner
       - LdapEnabled
       - LdapDisabled
       - LdapSync
@@ -27802,6 +27863,18 @@ components:
       - AIProviderCreated
       - AIProviderUpdated
       - AIProviderDeleted
+      - ServerCreated
+      - ServerUpdated
+      - ServerEnabled
+      - ServerDisabled
+      - ServerDeleted
+      - SetWebSearchSettings
+      - ResetWebSearchSettings
+      - SetVectorizationSettings
+      - ResetVectorizationSettings
+      - WebpluginUploaded
+      - WebpluginUpdated
+      - WebpluginDeleted
       - ContactAdminMailSent
       - RoomInviteLinkUsed
       - UserCreatedAndAddedToRoom
@@ -27927,7 +28000,7 @@ components:
       - Authorization keys setting
       - Full text search setting
       - Start transfer setting
-      - Start backup setting
+      - Backup started
       - License key uploaded
       - File change owner
       - File restore version
@@ -28010,6 +28083,11 @@ components:
       - Folder external link created
       - Folder external link updated
       - Folder external link deleted
+      - Backup completed
+      - Backup failed
+      - Scheduled backup started
+      - Scheduled backup completed
+      - Scheduled backup failed
       - Form started to fill
       - Form partially filled
       - Form completely filled
@@ -28017,6 +28095,9 @@ components:
       - Agent created
       - Agent renamed
       - Agent deleted
+      - MCP server added to agent
+      - MCP server deleted from agent
+      - Room change owner
       - Ldap enabled
       - Ldap disabled
       - LDAP synchronization completed
@@ -28096,6 +28177,18 @@ components:
       - AI provider created
       - AI provider updated
       - AI provider deleted
+      - MCP server created
+      - MCP server updated
+      - MCP server enabled
+      - MCP server disabled
+      - MCP server deleted
+      - WebSearch settings configured
+      - WebSearch settings reset
+      - Vectorization settings configured
+      - Vectorization settings reset
+      - Webplugin uploaded
+      - Webplugin updated
+      - Webplugin deleted
       - Contact admin mail sent
       - Room invite link used
       - User created and added to room
@@ -29816,8 +29909,7 @@ components:
           example: true
           type: boolean
         defaultQuota:
-          example: 1234
-          type: integer
+          $ref: "#/components/schemas/QuotaSettingsRequestsDto_defaultQuota"
       required:
       - defaultQuota
       type: object
@@ -31678,7 +31770,6 @@ components:
       - type: object
       example:
         module: some text
-        id: 75a5f745-f697-4418-b38d-0fe0d277e258
         lastModified: 2008-04-10T06:30:00+04:00
         props:
         - key: some text
@@ -31687,7 +31778,6 @@ components:
       example:
         response:
           module: some text
-          id: 75a5f745-f697-4418-b38d-0fe0d277e258
           lastModified: 2008-04-10T06:30:00+04:00
           props:
           - key: some text
@@ -32502,6 +32592,7 @@ components:
         wallet: true
         productId: "9846"
         restore: true
+        countAIAgent: 1234
         custom: true
         countUser: 1234
         maxFileSize: 26214400
@@ -32680,6 +32771,11 @@ components:
           description: Specifies if the backup anabled as a wallet service or not.
           example: true
           type: boolean
+        countAIAgent:
+          description: The number of AI agents.
+          example: 1234
+          format: int32
+          type: integer
       type: object
     TenantQuotaFeatureDto:
       additionalProperties: false
@@ -32847,6 +32943,7 @@ components:
           wallet: true
           productId: "9846"
           restore: true
+          countAIAgent: 1234
           custom: true
           countUser: 1234
           maxFileSize: 26214400
@@ -37602,13 +37699,13 @@ components:
       description: The request parameters for the user generic information.
       example:
         encEmail: some text
-        password: vfmf2vO1Kp
+        password: fmf2vO1KpU
         passwordHash: some text
         email: Sydney_Roberts4@hotmail.com
       properties:
         password:
           description: The user password.
-          example: vfmf2vO1Kp
+          example: fmf2vO1KpU
           nullable: true
           type: string
         passwordHash:
@@ -38414,8 +38511,7 @@ components:
           nullable: true
           type: array
         quota:
-          example: 1234
-          type: integer
+          $ref: "#/components/schemas/UpdateMembersQuotaRequestDto_quota"
       type: object
     UpdateMembersRequestDto:
       additionalProperties: false
@@ -38754,17 +38850,13 @@ components:
           folderIds:
             description: The list of folder IDs of the base batch request.
             items:
-              description: The list of folder IDs of the base batch request.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/BaseBatchRequestDto_allOf_folderIds"
             nullable: true
             type: array
           fileIds:
             description: The list of file IDs of the base batch request.
             items:
-              description: The list of file IDs of the base batch request.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/BaseBatchRequestDto_allOf_fileIds"
             nullable: true
             type: array
         type: object
@@ -38785,22 +38877,17 @@ components:
           folderIds:
             description: The list of folder IDs to be copied/moved.
             items:
-              description: The list of folder IDs to be copied/moved.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/BatchRequestDto_allOf_folderIds"
             nullable: true
             type: array
           fileIds:
             description: The list of file IDs to be copied/moved.
             items:
-              description: The list of file IDs to be copied/moved.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/BatchRequestDto_allOf_fileIds"
             nullable: true
             type: array
           destFolderId:
-            example: 1234
-            type: integer
+            $ref: "#/components/schemas/BatchRequestDto_allOf_destFolderId"
           conflictResolveType:
             $ref: "#/components/schemas/FileConflictResolveType"
           deleteAfter:
@@ -38872,8 +38959,8 @@ components:
       description: The request parameters for changing the file owner.
       example:
         fileIds:
-        - 1234
-        - 1234
+        - null
+        - null
         folderIds:
         - 1234
         - 1234
@@ -38882,17 +38969,13 @@ components:
         folderIds:
           description: The list of folder IDs to change the owner.
           items:
-            description: The list of folder IDs to change the owner.
-            example: 1234
-            type: integer
+            $ref: "#/components/schemas/BatchRequestDto_allOf_fileIds"
           nullable: true
           type: array
         fileIds:
           description: The list of file IDs to change the owner.
           items:
-            description: The list of file IDs to change the owner.
-            example: 1234
-            type: integer
+            $ref: "#/components/schemas/BatchRequestDto_allOf_fileIds"
           nullable: true
           type: array
         userId:
@@ -39010,10 +39093,34 @@ components:
             isAnonim: true
           providerId: 1234
           fileEntryType: 1
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -39057,10 +39164,34 @@ components:
             isAnonim: true
           providerId: 1234
           fileEntryType: 1
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -39136,10 +39267,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -39183,10 +39338,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -39476,6 +39655,18 @@ components:
           customFilterEnabled: true
           startFilling: false
           webUrl: some text
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           requestToken: some text
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
@@ -39526,6 +39717,18 @@ components:
           rootFolderType: 0
           contentLength: "12345"
           comment: some text
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           fileType: 0
           dimensions:
             width: 1
@@ -39798,6 +40001,18 @@ components:
             customFilterEnabled: true
             startFilling: false
             webUrl: some text
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             requestToken: some text
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
@@ -39848,6 +40063,18 @@ components:
             rootFolderType: 0
             contentLength: "12345"
             comment: some text
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             fileType: 0
             dimensions:
               width: 1
@@ -40157,8 +40384,7 @@ components:
           nullable: true
           type: string
         destFolderId:
-          example: 1234
-          type: integer
+          $ref: "#/components/schemas/CopyAsJsonElement_destFolderId"
         enableExternalExt:
           description: Specifies whether to allow creating the copied file of an external
             extension or not.
@@ -40267,8 +40493,7 @@ components:
           nullable: true
           type: string
         templateId:
-          example: 1234
-          type: integer
+          $ref: "#/components/schemas/CreateFileJsonElement_templateId"
         enableExternalExt:
           description: Specifies whether to allow creating a file of an external extension
             or not.
@@ -40803,17 +41028,13 @@ components:
           folderIds:
             description: The list of folder IDs to be deleted.
             items:
-              description: The list of folder IDs to be deleted.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/DeleteBatchRequestDto_allOf_folderIds"
             nullable: true
             type: array
           fileIds:
             description: The list of file IDs to be deleted.
             items:
-              description: The list of file IDs to be deleted.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/DeleteBatchRequestDto_allOf_fileIds"
             nullable: true
             type: array
           deleteAfter:
@@ -41147,17 +41368,13 @@ components:
           folderIds:
             description: The list of folder IDs to be downloaded.
             items:
-              description: The list of folder IDs to be downloaded.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/DownloadRequestDto_allOf_folderIds"
             nullable: true
             type: array
           fileIds:
             description: The list of file IDs to be downloaded.
             items:
-              description: The list of file IDs to be downloaded.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/DownloadRequestDto_allOf_fileIds"
             nullable: true
             type: array
           fileConvertIds:
@@ -41193,8 +41410,7 @@ components:
         key: 1234
       properties:
         key:
-          example: 1234
-          type: integer
+          $ref: "#/components/schemas/DownloadRequestItemDto_key"
         value:
           description: The target format or conversion type for the file download.
           example: some text
@@ -41247,17 +41463,13 @@ components:
           folderIds:
             description: The list of folder IDs.
             items:
-              description: The list of folder IDs.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/DuplicateRequestDto_allOf_folderIds"
             nullable: true
             type: array
           fileIds:
             description: The list of file IDs.
             items:
-              description: The list of file IDs.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/DuplicateRequestDto_allOf_fileIds"
             nullable: true
             type: array
         type: object
@@ -42169,6 +42381,18 @@ components:
         customFilterEnabled: true
         startFilling: false
         webUrl: some text
+        sharedBy:
+          profileUrl: some text
+          hasAvatar: true
+          avatarMedium: some text
+          avatarOriginal: some text
+          displayName: Mike Zanyatski
+          avatarMax: some text
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          avatar: some text
+          title: Manager
+          avatarSmall: url to small avatar
+          isAnonim: true
         requestToken: some text
         updated:
           utcTime: 2008-04-10T06:30:00+04:00
@@ -42219,6 +42443,18 @@ components:
         rootFolderType: 0
         contentLength: "12345"
         comment: some text
+        ownedBy:
+          profileUrl: some text
+          hasAvatar: true
+          avatarMedium: some text
+          avatarOriginal: some text
+          displayName: Mike Zanyatski
+          avatarMax: some text
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          avatar: some text
+          title: Manager
+          avatarSmall: url to small avatar
+          isAnonim: true
         fileType: 0
         dimensions:
           width: 1
@@ -42261,10 +42497,34 @@ components:
             isAnonim: true
           providerId: 1234
           fileEntryType: 1
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -42308,10 +42568,34 @@ components:
             isAnonim: true
           providerId: 1234
           fileEntryType: 1
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -42386,10 +42670,34 @@ components:
           isAnonim: true
         providerId: 1234
         fileEntryType: 1
+        sharedBy:
+          profileUrl: some text
+          hasAvatar: true
+          avatarMedium: some text
+          avatarOriginal: some text
+          displayName: Mike Zanyatski
+          avatarMax: some text
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          avatar: some text
+          title: Manager
+          avatarSmall: url to small avatar
+          isAnonim: true
         autoDelete:
           utcTime: 2008-04-10T06:30:00+04:00
           timeZoneOffset: 00:00:00
         rootFolderType: 0
+        ownedBy:
+          profileUrl: some text
+          hasAvatar: true
+          avatarMedium: some text
+          avatarOriginal: some text
+          displayName: Mike Zanyatski
+          avatarMax: some text
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          avatar: some text
+          title: Manager
+          avatarSmall: url to small avatar
+          isAnonim: true
         updated:
           utcTime: 2008-04-10T06:30:00+04:00
           timeZoneOffset: 00:00:00
@@ -42406,6 +42714,10 @@ components:
           type: string
         access:
           $ref: "#/components/schemas/FileShare"
+        sharedBy:
+          $ref: "#/components/schemas/EmployeeDto"
+        ownedBy:
+          $ref: "#/components/schemas/EmployeeDto"
         shared:
           description: Specifies if the file entry is shared via link or not.
           example: false
@@ -42511,10 +42823,34 @@ components:
             isAnonim: true
           providerId: 1234
           fileEntryType: 1
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -42668,11 +43004,35 @@ components:
           title: Manager
           avatarSmall: url to small avatar
           isAnonim: true
+        sharedBy:
+          profileUrl: some text
+          hasAvatar: true
+          avatarMedium: some text
+          avatarOriginal: some text
+          displayName: Mike Zanyatski
+          avatarMax: some text
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          avatar: some text
+          title: Manager
+          avatarSmall: url to small avatar
+          isAnonim: true
         autoDelete:
           utcTime: 2008-04-10T06:30:00+04:00
           timeZoneOffset: 00:00:00
         rootFolderType: 0
         requestToken: some text
+        ownedBy:
+          profileUrl: some text
+          hasAvatar: true
+          avatarMedium: some text
+          avatarOriginal: some text
+          displayName: Mike Zanyatski
+          avatarMax: some text
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          avatar: some text
+          title: Manager
+          avatarSmall: url to small avatar
+          isAnonim: true
         updated:
           utcTime: 2008-04-10T06:30:00+04:00
           timeZoneOffset: 00:00:00
@@ -42800,11 +43160,35 @@ components:
             title: Manager
             avatarSmall: url to small avatar
             isAnonim: true
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
           requestToken: some text
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -42863,11 +43247,35 @@ components:
             title: Manager
             avatarSmall: url to small avatar
             isAnonim: true
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
           requestToken: some text
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -42967,6 +43375,18 @@ components:
           customFilterEnabled: true
           startFilling: false
           webUrl: some text
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           requestToken: some text
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
@@ -43017,6 +43437,18 @@ components:
           rootFolderType: 0
           contentLength: "12345"
           comment: some text
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           fileType: 0
           dimensions:
             width: 1
@@ -43071,6 +43503,18 @@ components:
           customFilterEnabled: true
           startFilling: false
           webUrl: some text
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           requestToken: some text
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
@@ -43121,6 +43565,18 @@ components:
           rootFolderType: 0
           contentLength: "12345"
           comment: some text
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           fileType: 0
           dimensions:
             width: 1
@@ -43205,6 +43661,18 @@ components:
           customFilterEnabled: true
           startFilling: false
           webUrl: some text
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           requestToken: some text
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
@@ -43255,6 +43723,18 @@ components:
           rootFolderType: 0
           contentLength: "12345"
           comment: some text
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           fileType: 0
           dimensions:
             width: 1
@@ -43436,10 +43916,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -43483,10 +43987,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -43532,10 +44060,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -43579,10 +44131,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -43596,6 +44172,7 @@ components:
           Operation: 0
           error: ""
           url: some text
+          status: 0
         - processed: "1"
           folders:
           - shared: false
@@ -43633,10 +44210,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -43680,10 +44281,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -43729,10 +44354,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -43776,10 +44425,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -43793,6 +44466,7 @@ components:
           Operation: 0
           error: ""
           url: some text
+          status: 0
         count: 0
         links:
         - action: action
@@ -43861,10 +44535,34 @@ components:
             isAnonim: true
           providerId: 1234
           fileEntryType: 1
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -43908,10 +44606,34 @@ components:
             isAnonim: true
           providerId: 1234
           fileEntryType: 1
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -43957,10 +44679,34 @@ components:
             isAnonim: true
           providerId: 1234
           fileEntryType: 1
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -44004,10 +44750,34 @@ components:
             isAnonim: true
           providerId: 1234
           fileEntryType: 1
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -44021,6 +44791,7 @@ components:
         Operation: 0
         error: ""
         url: some text
+        status: 0
       properties:
         id:
           description: The file operation ID.
@@ -44066,6 +44837,8 @@ components:
             $ref: "#/components/schemas/FileEntryBaseDto"
           nullable: true
           type: array
+        status:
+          $ref: "#/components/schemas/DistributedTaskStatus"
       required:
       - Operation
       - error
@@ -44156,10 +44929,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -44203,10 +45000,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -44252,10 +45073,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -44299,10 +45144,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -44316,6 +45185,7 @@ components:
           Operation: 0
           error: ""
           url: some text
+          status: 0
         count: 0
         links:
         - action: action
@@ -46092,6 +46962,18 @@ components:
           customFilterEnabled: true
           startFilling: false
           webUrl: some text
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           requestToken: some text
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
@@ -46142,6 +47024,18 @@ components:
           rootFolderType: 0
           contentLength: "12345"
           comment: some text
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           fileType: 0
           dimensions:
             width: 1
@@ -46197,6 +47091,18 @@ components:
           customFilterEnabled: true
           startFilling: false
           webUrl: some text
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           requestToken: some text
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
@@ -46247,6 +47153,18 @@ components:
           rootFolderType: 0
           contentLength: "12345"
           comment: some text
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           fileType: 0
           dimensions:
             width: 1
@@ -46414,6 +47332,18 @@ components:
             customFilterEnabled: true
             startFilling: false
             webUrl: some text
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             requestToken: some text
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
@@ -46464,6 +47394,18 @@ components:
             rootFolderType: 0
             contentLength: "12345"
             comment: some text
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             fileType: 0
             dimensions:
               width: 1
@@ -46519,6 +47461,18 @@ components:
             customFilterEnabled: true
             startFilling: false
             webUrl: some text
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             requestToken: some text
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
@@ -46569,6 +47523,18 @@ components:
             rootFolderType: 0
             contentLength: "12345"
             comment: some text
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             fileType: 0
             dimensions:
               width: 1
@@ -46741,6 +47707,18 @@ components:
           tags:
           - some text
           external: true
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           passwordProtected: true
           requestToken: some text
           updated:
@@ -46791,6 +47769,18 @@ components:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
         startIndex: 0
         total: 4
         folders:
@@ -46829,10 +47819,34 @@ components:
             isAnonim: true
           providerId: 1234
           fileEntryType: 1
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -46876,10 +47890,34 @@ components:
             isAnonim: true
           providerId: 1234
           fileEntryType: 1
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -46925,10 +47963,34 @@ components:
             isAnonim: true
           providerId: 1234
           fileEntryType: 1
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -46972,10 +48034,34 @@ components:
             isAnonim: true
           providerId: 1234
           fileEntryType: 1
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -47093,6 +48179,18 @@ components:
             tags:
             - some text
             external: true
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             passwordProtected: true
             requestToken: some text
             updated:
@@ -47143,6 +48241,18 @@ components:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
           startIndex: 0
           total: 4
           folders:
@@ -47181,10 +48291,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -47228,10 +48362,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -47277,10 +48435,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -47324,10 +48506,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -47399,6 +48605,18 @@ components:
             tags:
             - some text
             external: true
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             passwordProtected: true
             requestToken: some text
             updated:
@@ -47449,6 +48667,18 @@ components:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
           startIndex: 0
           total: 4
           folders:
@@ -47487,10 +48717,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -47534,10 +48788,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -47583,10 +48861,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -47630,10 +48932,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -47735,6 +49061,18 @@ components:
             tags:
             - some text
             external: true
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             passwordProtected: true
             requestToken: some text
             updated:
@@ -47785,6 +49123,18 @@ components:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
           startIndex: 0
           total: 4
           folders:
@@ -47823,10 +49173,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -47870,10 +49244,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -47919,10 +49317,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -47966,10 +49388,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -48173,6 +49619,18 @@ components:
         tags:
         - some text
         external: true
+        sharedBy:
+          profileUrl: some text
+          hasAvatar: true
+          avatarMedium: some text
+          avatarOriginal: some text
+          displayName: Mike Zanyatski
+          avatarMax: some text
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          avatar: some text
+          title: Manager
+          avatarSmall: url to small avatar
+          isAnonim: true
         passwordProtected: true
         requestToken: some text
         updated:
@@ -48223,6 +49681,18 @@ components:
           utcTime: 2008-04-10T06:30:00+04:00
           timeZoneOffset: 00:00:00
         rootFolderType: 0
+        ownedBy:
+          profileUrl: some text
+          hasAvatar: true
+          avatarMedium: some text
+          avatarOriginal: some text
+          displayName: Mike Zanyatski
+          avatarMax: some text
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          avatar: some text
+          title: Manager
+          avatarSmall: url to small avatar
+          isAnonim: true
     FolderDtoString:
       additionalProperties: false
       allOf:
@@ -48392,6 +49862,18 @@ components:
         tags:
         - some text
         external: true
+        sharedBy:
+          profileUrl: some text
+          hasAvatar: true
+          avatarMedium: some text
+          avatarOriginal: some text
+          displayName: Mike Zanyatski
+          avatarMax: some text
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          avatar: some text
+          title: Manager
+          avatarSmall: url to small avatar
+          isAnonim: true
         passwordProtected: true
         requestToken: some text
         updated:
@@ -48442,6 +49924,18 @@ components:
           utcTime: 2008-04-10T06:30:00+04:00
           timeZoneOffset: 00:00:00
         rootFolderType: 0
+        ownedBy:
+          profileUrl: some text
+          hasAvatar: true
+          avatarMedium: some text
+          avatarOriginal: some text
+          displayName: Mike Zanyatski
+          avatarMax: some text
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          avatar: some text
+          title: Manager
+          avatarSmall: url to small avatar
+          isAnonim: true
     FolderIntegerArrayWrapper:
       example:
         response:
@@ -48505,6 +49999,18 @@ components:
           tags:
           - some text
           external: true
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           passwordProtected: true
           requestToken: some text
           updated:
@@ -48555,6 +50061,18 @@ components:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
         - isLinkExpired: true
           lifetime:
             period: 0
@@ -48615,6 +50133,18 @@ components:
           tags:
           - some text
           external: true
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           passwordProtected: true
           requestToken: some text
           updated:
@@ -48665,6 +50195,18 @@ components:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
         count: 0
         links:
         - action: action
@@ -48755,6 +50297,18 @@ components:
           tags:
           - some text
           external: true
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           passwordProtected: true
           requestToken: some text
           updated:
@@ -48805,6 +50359,18 @@ components:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
         count: 0
         links:
         - action: action
@@ -48945,6 +50511,18 @@ components:
           tags:
           - some text
           external: true
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           passwordProtected: true
           requestToken: some text
           updated:
@@ -48995,6 +50573,18 @@ components:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
         - isLinkExpired: true
           lifetime:
             period: 0
@@ -49055,6 +50645,18 @@ components:
           tags:
           - some text
           external: true
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           passwordProtected: true
           requestToken: some text
           updated:
@@ -49105,6 +50707,18 @@ components:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
         count: 0
         links:
         - action: action
@@ -49195,6 +50809,18 @@ components:
           tags:
           - some text
           external: true
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           passwordProtected: true
           requestToken: some text
           updated:
@@ -49245,6 +50871,18 @@ components:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
         count: 0
         links:
         - action: action
@@ -50514,6 +52152,7 @@ components:
           action:
             id: 1000
             key: some text
+          id: 9846
         - date:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -50537,6 +52176,7 @@ components:
           action:
             id: 1000
             key: some text
+          id: 9846
         count: 0
         links:
         - action: action
@@ -50586,6 +52226,7 @@ components:
       - RenameEntryData
       - TagData
       - UserHistoryData
+      - ChangeRoomOwnerHistoryData
       - UserFileUpdateData
       - FileData
       - FileOperationData
@@ -50621,7 +52262,13 @@ components:
         action:
           id: 1000
           key: some text
+        id: 9846
       properties:
+        id:
+          description: The unique identifier for the file history entry.
+          example: 9846
+          format: int32
+          type: integer
         action:
           $ref: "#/components/schemas/HistoryAction"
         initiator:
@@ -50640,6 +52287,7 @@ components:
       - action
       - data
       - date
+      - id
       - initiator
       type: object
     ICompress:
@@ -50983,6 +52631,8 @@ components:
         message:
           description: The mention message.
           example: some text
+          maxLength: 255
+          minLength: 0
           nullable: true
           type: string
       type: object
@@ -51308,10 +52958,34 @@ components:
             isAnonim: true
           providerId: 1234
           fileEntryType: 1
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -51355,10 +53029,34 @@ components:
             isAnonim: true
           providerId: 1234
           fileEntryType: 1
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -51424,10 +53122,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -51471,10 +53193,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -51519,10 +53265,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -51567,10 +53337,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -51614,10 +53408,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -51662,10 +53480,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -51729,10 +53571,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -51776,10 +53642,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -51827,10 +53717,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -51874,10 +53788,34 @@ components:
               isAnonim: true
             providerId: 1234
             fileEntryType: 1
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             autoDelete:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             rootFolderType: 0
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
             updated:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
@@ -51956,10 +53894,34 @@ components:
                 isAnonim: true
               providerId: 1234
               fileEntryType: 1
+              sharedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               autoDelete:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
               rootFolderType: 0
+              ownedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               updated:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
@@ -52003,10 +53965,34 @@ components:
                 isAnonim: true
               providerId: 1234
               fileEntryType: 1
+              sharedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               autoDelete:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
               rootFolderType: 0
+              ownedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               updated:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
@@ -52051,10 +54037,34 @@ components:
                 isAnonim: true
               providerId: 1234
               fileEntryType: 1
+              sharedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               autoDelete:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
               rootFolderType: 0
+              ownedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               updated:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
@@ -52099,10 +54109,34 @@ components:
                 isAnonim: true
               providerId: 1234
               fileEntryType: 1
+              sharedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               autoDelete:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
               rootFolderType: 0
+              ownedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               updated:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
@@ -52146,10 +54180,34 @@ components:
                 isAnonim: true
               providerId: 1234
               fileEntryType: 1
+              sharedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               autoDelete:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
               rootFolderType: 0
+              ownedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               updated:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
@@ -52194,10 +54252,34 @@ components:
                 isAnonim: true
               providerId: 1234
               fileEntryType: 1
+              sharedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               autoDelete:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
               rootFolderType: 0
+              ownedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               updated:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
@@ -52246,10 +54328,34 @@ components:
                 isAnonim: true
               providerId: 1234
               fileEntryType: 1
+              sharedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               autoDelete:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
               rootFolderType: 0
+              ownedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               updated:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
@@ -52293,10 +54399,34 @@ components:
                 isAnonim: true
               providerId: 1234
               fileEntryType: 1
+              sharedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               autoDelete:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
               rootFolderType: 0
+              ownedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               updated:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
@@ -52341,10 +54471,34 @@ components:
                 isAnonim: true
               providerId: 1234
               fileEntryType: 1
+              sharedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               autoDelete:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
               rootFolderType: 0
+              ownedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               updated:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
@@ -52389,10 +54543,34 @@ components:
                 isAnonim: true
               providerId: 1234
               fileEntryType: 1
+              sharedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               autoDelete:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
               rootFolderType: 0
+              ownedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               updated:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
@@ -52436,10 +54614,34 @@ components:
                 isAnonim: true
               providerId: 1234
               fileEntryType: 1
+              sharedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               autoDelete:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
               rootFolderType: 0
+              ownedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               updated:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
@@ -52484,10 +54686,34 @@ components:
                 isAnonim: true
               providerId: 1234
               fileEntryType: 1
+              sharedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               autoDelete:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
               rootFolderType: 0
+              ownedBy:
+                profileUrl: some text
+                hasAvatar: true
+                avatarMedium: some text
+                avatarOriginal: some text
+                displayName: Mike Zanyatski
+                avatarMax: some text
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                avatar: some text
+                title: Manager
+                avatarSmall: url to small avatar
+                isAnonim: true
               updated:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
@@ -52982,9 +55208,6 @@ components:
           example: true
           nullable: true
           type: boolean
-      required:
-      - deletePermanently
-      - period
       type: object
     RoomDataLifetimePeriod:
       description: "[0 - Day, 1 - Month, 2 - Year]"
@@ -53222,10 +55445,34 @@ components:
             isAnonim: true
           providerId: 1234
           fileEntryType: 1
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -53269,10 +55516,34 @@ components:
             isAnonim: true
           providerId: 1234
           fileEntryType: 1
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -53317,10 +55588,34 @@ components:
             isAnonim: true
           providerId: 1234
           fileEntryType: 1
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           autoDelete:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           rootFolderType: 0
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
           updated:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -54167,8 +56462,8 @@ components:
       description: The security information request parameters.
       example:
         fileIds:
-        - 1234
-        - 1234
+        - null
+        - null
         folderIds:
         - 1234
         - 1234
@@ -54185,17 +56480,13 @@ components:
         folderIds:
           description: The list of the shared folder IDs.
           items:
-            description: The list of the shared folder IDs.
-            example: 1234
-            type: integer
+            $ref: "#/components/schemas/DuplicateRequestDto_allOf_fileIds"
           nullable: true
           type: array
         fileIds:
           description: The list of the shared file IDs.
           items:
-            description: The list of the shared file IDs.
-            example: 1234
-            type: integer
+            $ref: "#/components/schemas/DuplicateRequestDto_allOf_fileIds"
           nullable: true
           type: array
         share:
@@ -54977,9 +57268,7 @@ components:
         roomIds:
           description: The list of room IDs.
           items:
-            description: The list of room IDs.
-            example: 1234
-            type: integer
+            $ref: "#/components/schemas/DuplicateRequestDto_allOf_fileIds"
           nullable: true
           type: array
         quota:
@@ -54999,9 +57288,7 @@ components:
         roomIds:
           description: The list of room IDs.
           items:
-            description: The list of room IDs.
-            example: 1234
-            type: integer
+            $ref: "#/components/schemas/DuplicateRequestDto_allOf_fileIds"
           nullable: true
           type: array
       type: object
@@ -56654,6 +58941,108 @@ components:
         action:
           type: string
       type: object
+    QuotaSettingsRequestsDto_defaultQuota:
+      description: The default storage quota value applied to new users.
+      oneOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    UpdateMembersQuotaRequestDto_quota:
+      description: The quota in JSON format.
+      oneOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    BaseBatchRequestDto_allOf_folderIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    BaseBatchRequestDto_allOf_fileIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    BatchRequestDto_allOf_folderIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    BatchRequestDto_allOf_fileIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    BatchRequestDto_allOf_destFolderId:
+      description: The destination folder ID.
+      oneOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    CopyAsJsonElement_destFolderId:
+      description: The destination folder ID of the copied file.
+      oneOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    CreateFileJsonElement_templateId:
+      description: The template file ID for creation.
+      oneOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    DeleteBatchRequestDto_allOf_folderIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    DeleteBatchRequestDto_allOf_fileIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    DownloadRequestDto_allOf_folderIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    DownloadRequestDto_allOf_fileIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    DownloadRequestItemDto_key:
+      description: The unique identifier or reference key for the file to be downloaded.
+      oneOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    DuplicateRequestDto_allOf_folderIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    DuplicateRequestDto_allOf_fileIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
     FileDtoInteger_allOf_viewAccessibility:
       description: The file accessibility.
       example: "[{\"value\":true}]"
@@ -56788,7 +59177,7 @@ components:
           type: boolean
         Vectorization:
           type: boolean
-        AscAi:
+        AskAi:
           type: boolean
         UseChat:
           type: boolean

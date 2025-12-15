@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.client.model.DuplicateRequestDtoAllOfFileIds;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -47,20 +48,20 @@ import java.util.StringJoiner;
 public class UpdateRoomsRoomIdsRequestDtoInteger {
   public static final String JSON_PROPERTY_ROOM_IDS = "roomIds";
   @javax.annotation.Nullable
-  private JsonNullable<List<Integer>> roomIds = JsonNullable.<List<Integer>>undefined();
+  private JsonNullable<List<DuplicateRequestDtoAllOfFileIds>> roomIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>undefined();
 
   public UpdateRoomsRoomIdsRequestDtoInteger() {
   }
 
-  public UpdateRoomsRoomIdsRequestDtoInteger roomIds(@javax.annotation.Nullable List<Integer> roomIds) {
-    this.roomIds = JsonNullable.<List<Integer>>of(roomIds);
+  public UpdateRoomsRoomIdsRequestDtoInteger roomIds(@javax.annotation.Nullable List<DuplicateRequestDtoAllOfFileIds> roomIds) {
+    this.roomIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>of(roomIds);
     
     return this;
   }
 
-  public UpdateRoomsRoomIdsRequestDtoInteger addRoomIdsItem(Integer roomIdsItem) {
+  public UpdateRoomsRoomIdsRequestDtoInteger addRoomIdsItem(DuplicateRequestDtoAllOfFileIds roomIdsItem) {
     if (this.roomIds == null || !this.roomIds.isPresent()) {
-      this.roomIds = JsonNullable.<List<Integer>>of(new ArrayList<>());
+      this.roomIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>of(new ArrayList<>());
     }
     try {
       this.roomIds.get().add(roomIdsItem);
@@ -77,24 +78,24 @@ public class UpdateRoomsRoomIdsRequestDtoInteger {
   @javax.annotation.Nullable
   @JsonIgnore
 
-  public List<Integer> getRoomIds() {
+  public List<DuplicateRequestDtoAllOfFileIds> getRoomIds() {
         return roomIds.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_ROOM_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<Integer>> getRoomIds_JsonNullable() {
+  public JsonNullable<List<DuplicateRequestDtoAllOfFileIds>> getRoomIds_JsonNullable() {
     return roomIds;
   }
   
   @JsonProperty(JSON_PROPERTY_ROOM_IDS)
-  public void setRoomIds_JsonNullable(JsonNullable<List<Integer>> roomIds) {
+  public void setRoomIds_JsonNullable(JsonNullable<List<DuplicateRequestDtoAllOfFileIds>> roomIds) {
     this.roomIds = roomIds;
   }
 
-  public void setRoomIds(@javax.annotation.Nullable List<Integer> roomIds) {
-    this.roomIds = JsonNullable.<List<Integer>>of(roomIds);
+  public void setRoomIds(@javax.annotation.Nullable List<DuplicateRequestDtoAllOfFileIds> roomIds) {
+    this.roomIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>of(roomIds);
   }
 
   @Override
@@ -180,13 +181,9 @@ public class UpdateRoomsRoomIdsRequestDtoInteger {
     // add `roomIds` to the URL query string
     if (getRoomIds() != null) {
       for (int i = 0; i < getRoomIds().size(); i++) {
-        try {
-          joiner.add(String.format("%sroomIds%s%s=%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-              URLEncoder.encode(String.valueOf(getRoomIds().get(i)), "UTF-8").replaceAll("\\+", "%20")));
-        } catch (UnsupportedEncodingException e) {
-          // Should never happen, UTF-8 is always supported
-          throw new RuntimeException(e);
+        if (getRoomIds().get(i) != null) {
+          joiner.add(getRoomIds().get(i).toUrlQueryString(String.format("%sroomIds%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }

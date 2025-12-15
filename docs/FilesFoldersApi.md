@@ -783,7 +783,7 @@ public class Example {
 
 ## getFolderByFolderId
 
-> FolderContentIntegerWrapper getFolderByFolderId(folderId, userIdOrGroupId, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location)
+> FolderContentIntegerWrapper getFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location)
 
 Get a folder by IDReturns the detailed list of files and folders located in the folder with the ID specified in the request.
 
@@ -796,6 +796,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 |------------- | ------------- | ------------- | -------------|
 | **folderId** | **Integer**| The folder ID. | |
 | **userIdOrGroupId** | **UUID**| The user or group ID. | [optional] |
+| **sharedBy** | **UUID**| The identifier of the user who shared the folder or file. | [optional] |
 | **filterType** | [**FilterType**](.md)| The filter type. | [optional] [enum: 0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 17, 20, 22, 23, 24, 25, 26] |
 | **roomId** | **Integer**| The room ID. | [optional] |
 | **excludeSubject** | **Boolean**| Specifies whether to exclude search by user or group ID. | [optional] |
@@ -837,6 +838,7 @@ public class Example {
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         Integer folderId = 9846; // Integer | The folder ID.
         UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
+        UUID sharedBy = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The identifier of the user who shared the folder or file.
         FilterType filterType = FilterType.fromValue("0"); // FilterType | The filter type.
         Integer roomId = 9846; // Integer | The room ID.
         Boolean excludeSubject = true; // Boolean | Specifies whether to exclude search by user or group ID.
@@ -852,7 +854,7 @@ public class Example {
         String filterValue = "some text"; // String | The text value used as a filter parameter for folder content queries.
         Location location = Location.fromValue("1"); // Location | The location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link.
         try {
-            FolderContentIntegerWrapper result = apiInstance.getFolderByFolderId(folderId, userIdOrGroupId, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location);
+            FolderContentIntegerWrapper result = apiInstance.getFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling FoldersApi#getFolderByFolderId");

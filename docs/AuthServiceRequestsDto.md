@@ -13,6 +13,7 @@ The request parameters for handling the authorization service.
 |**description** | **String** | The brief description of the authorization service. |  [optional] |
 |**instruction** | **String** | The detailed instructions for configuring or using the authorization service. |  [optional] |
 |**canSet** | **Boolean** | Specifies whether the authorization service can be configured by the user. |  [optional] |
+|**paid** | **Boolean** | Specifies whether the authorization service is paid or not. |  [optional] |
 |**props** | [**List&lt;AuthKey&gt;**](AuthKey.md) | The collection of authorization keys associated with the authorization service. |  [optional] |
 
 

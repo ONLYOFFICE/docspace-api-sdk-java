@@ -47,6 +47,7 @@ import java.util.StringJoiner;
   AuthServiceRequestsDto.JSON_PROPERTY_DESCRIPTION,
   AuthServiceRequestsDto.JSON_PROPERTY_INSTRUCTION,
   AuthServiceRequestsDto.JSON_PROPERTY_CAN_SET,
+  AuthServiceRequestsDto.JSON_PROPERTY_PAID,
   AuthServiceRequestsDto.JSON_PROPERTY_PROPS
 })
 
@@ -70,6 +71,10 @@ public class AuthServiceRequestsDto {
   public static final String JSON_PROPERTY_CAN_SET = "canSet";
   @javax.annotation.Nullable
   private Boolean canSet;
+
+  public static final String JSON_PROPERTY_PAID = "paid";
+  @javax.annotation.Nullable
+  private Boolean paid;
 
   public static final String JSON_PROPERTY_PROPS = "props";
   @javax.annotation.Nullable
@@ -235,6 +240,31 @@ public class AuthServiceRequestsDto {
     this.canSet = canSet;
   }
 
+  public AuthServiceRequestsDto paid(@javax.annotation.Nullable Boolean paid) {
+    
+    this.paid = paid;
+    return this;
+  }
+
+  /**
+   * Specifies whether the authorization service is paid or not.
+   * @return paid
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PAID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getPaid() {
+    return paid;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PAID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPaid(@javax.annotation.Nullable Boolean paid) {
+    this.paid = paid;
+  }
+
   public AuthServiceRequestsDto props(@javax.annotation.Nullable List<AuthKey> props) {
     this.props = JsonNullable.<List<AuthKey>>of(props);
     
@@ -294,6 +324,7 @@ public class AuthServiceRequestsDto {
         equalsNullable(this.description, authServiceRequestsDto.description) &&
         equalsNullable(this.instruction, authServiceRequestsDto.instruction) &&
         Objects.equals(this.canSet, authServiceRequestsDto.canSet) &&
+        Objects.equals(this.paid, authServiceRequestsDto.paid) &&
         equalsNullable(this.props, authServiceRequestsDto.props);
   }
 
@@ -303,7 +334,7 @@ public class AuthServiceRequestsDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(name), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(instruction), canSet, hashCodeNullable(props));
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(instruction), canSet, paid, hashCodeNullable(props));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -322,6 +353,7 @@ public class AuthServiceRequestsDto {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    instruction: ").append(toIndentedString(instruction)).append("\n");
     sb.append("    canSet: ").append(toIndentedString(canSet)).append("\n");
+    sb.append("    paid: ").append(toIndentedString(paid)).append("\n");
     sb.append("    props: ").append(toIndentedString(props)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -414,6 +446,16 @@ public class AuthServiceRequestsDto {
     if (getCanSet() != null) {
       try {
         joiner.add(String.format("%scanSet%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCanSet()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `paid` to the URL query string
+    if (getPaid() != null) {
+      try {
+        joiner.add(String.format("%spaid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPaid()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

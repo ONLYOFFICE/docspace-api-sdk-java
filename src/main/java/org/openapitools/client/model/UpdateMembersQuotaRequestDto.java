@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import org.openapitools.client.model.UpdateMembersQuotaRequestDtoQuota;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -53,7 +54,7 @@ public class UpdateMembersQuotaRequestDto {
 
   public static final String JSON_PROPERTY_QUOTA = "quota";
   @javax.annotation.Nullable
-  private Integer quota;
+  private UpdateMembersQuotaRequestDtoQuota quota;
 
   public UpdateMembersQuotaRequestDto() {
   }
@@ -103,7 +104,7 @@ public class UpdateMembersQuotaRequestDto {
     this.userIds = JsonNullable.<List<UUID>>of(userIds);
   }
 
-  public UpdateMembersQuotaRequestDto quota(@javax.annotation.Nullable Integer quota) {
+  public UpdateMembersQuotaRequestDto quota(@javax.annotation.Nullable UpdateMembersQuotaRequestDtoQuota quota) {
     
     this.quota = quota;
     return this;
@@ -117,14 +118,14 @@ public class UpdateMembersQuotaRequestDto {
   @JsonProperty(JSON_PROPERTY_QUOTA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getQuota() {
+  public UpdateMembersQuotaRequestDtoQuota getQuota() {
     return quota;
   }
 
 
   @JsonProperty(JSON_PROPERTY_QUOTA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setQuota(@javax.annotation.Nullable Integer quota) {
+  public void setQuota(@javax.annotation.Nullable UpdateMembersQuotaRequestDtoQuota quota) {
     this.quota = quota;
   }
 
@@ -228,12 +229,7 @@ public class UpdateMembersQuotaRequestDto {
 
     // add `quota` to the URL query string
     if (getQuota() != null) {
-      try {
-        joiner.add(String.format("%squota%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getQuota()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getQuota().toUrlQueryString(prefix + "quota" + suffix));
     }
 
     return joiner.toString();

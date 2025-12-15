@@ -8,7 +8,7 @@ The request parameters for updating the rooms.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**roomIds** | **List&lt;Integer&gt;** | The list of room IDs. |  [optional] |
+|**roomIds** | [**List&lt;DuplicateRequestDtoAllOfFileIds&gt;**](DuplicateRequestDtoAllOfFileIds.md) | The list of room IDs. |  [optional] |
 
 
 

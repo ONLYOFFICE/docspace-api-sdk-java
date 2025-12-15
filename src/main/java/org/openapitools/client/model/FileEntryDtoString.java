@@ -49,6 +49,8 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   FileEntryDtoString.JSON_PROPERTY_TITLE,
   FileEntryDtoString.JSON_PROPERTY_ACCESS,
+  FileEntryDtoString.JSON_PROPERTY_SHARED_BY,
+  FileEntryDtoString.JSON_PROPERTY_OWNED_BY,
   FileEntryDtoString.JSON_PROPERTY_SHARED,
   FileEntryDtoString.JSON_PROPERTY_SHARED_FOR_USER,
   FileEntryDtoString.JSON_PROPERTY_PARENT_SHARED,
@@ -90,6 +92,14 @@ public class FileEntryDtoString {
   public static final String JSON_PROPERTY_ACCESS = "access";
   @javax.annotation.Nullable
   private FileShare access;
+
+  public static final String JSON_PROPERTY_SHARED_BY = "sharedBy";
+  @javax.annotation.Nullable
+  private EmployeeDto sharedBy;
+
+  public static final String JSON_PROPERTY_OWNED_BY = "ownedBy";
+  @javax.annotation.Nullable
+  private EmployeeDto ownedBy;
 
   public static final String JSON_PROPERTY_SHARED = "shared";
   @javax.annotation.Nullable
@@ -274,6 +284,56 @@ public class FileEntryDtoString {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccess(@javax.annotation.Nullable FileShare access) {
     this.access = access;
+  }
+
+  public FileEntryDtoString sharedBy(@javax.annotation.Nullable EmployeeDto sharedBy) {
+    
+    this.sharedBy = sharedBy;
+    return this;
+  }
+
+  /**
+   * Get sharedBy
+   * @return sharedBy
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHARED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public EmployeeDto getSharedBy() {
+    return sharedBy;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SHARED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSharedBy(@javax.annotation.Nullable EmployeeDto sharedBy) {
+    this.sharedBy = sharedBy;
+  }
+
+  public FileEntryDtoString ownedBy(@javax.annotation.Nullable EmployeeDto ownedBy) {
+    
+    this.ownedBy = ownedBy;
+    return this;
+  }
+
+  /**
+   * Get ownedBy
+   * @return ownedBy
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OWNED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public EmployeeDto getOwnedBy() {
+    return ownedBy;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OWNED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOwnedBy(@javax.annotation.Nullable EmployeeDto ownedBy) {
+    this.ownedBy = ownedBy;
   }
 
   public FileEntryDtoString shared(@javax.annotation.Nullable Boolean shared) {
@@ -1206,6 +1266,8 @@ public class FileEntryDtoString {
     FileEntryDtoString fileEntryDtoString = (FileEntryDtoString) o;
     return equalsNullable(this.title, fileEntryDtoString.title) &&
         Objects.equals(this.access, fileEntryDtoString.access) &&
+        Objects.equals(this.sharedBy, fileEntryDtoString.sharedBy) &&
+        Objects.equals(this.ownedBy, fileEntryDtoString.ownedBy) &&
         Objects.equals(this.shared, fileEntryDtoString.shared) &&
         Objects.equals(this.sharedForUser, fileEntryDtoString.sharedForUser) &&
         Objects.equals(this.parentShared, fileEntryDtoString.parentShared) &&
@@ -1245,7 +1307,7 @@ public class FileEntryDtoString {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(title), access, shared, sharedForUser, parentShared, hashCodeNullable(shortWebUrl), created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), fileEntryType, hashCodeNullable(id), hashCodeNullable(rootFolderId), hashCodeNullable(originId), hashCodeNullable(originRoomId), hashCodeNullable(originTitle), hashCodeNullable(originRoomTitle), canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), hashCodeNullable(requestToken), hashCodeNullable(external), expirationDate, hashCodeNullable(isLinkExpired));
+    return Objects.hash(hashCodeNullable(title), access, sharedBy, ownedBy, shared, sharedForUser, parentShared, hashCodeNullable(shortWebUrl), created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), fileEntryType, hashCodeNullable(id), hashCodeNullable(rootFolderId), hashCodeNullable(originId), hashCodeNullable(originRoomId), hashCodeNullable(originTitle), hashCodeNullable(originRoomTitle), canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), hashCodeNullable(requestToken), hashCodeNullable(external), expirationDate, hashCodeNullable(isLinkExpired));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1261,6 +1323,8 @@ public class FileEntryDtoString {
     sb.append("class FileEntryDtoString {\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    access: ").append(toIndentedString(access)).append("\n");
+    sb.append("    sharedBy: ").append(toIndentedString(sharedBy)).append("\n");
+    sb.append("    ownedBy: ").append(toIndentedString(ownedBy)).append("\n");
     sb.append("    shared: ").append(toIndentedString(shared)).append("\n");
     sb.append("    sharedForUser: ").append(toIndentedString(sharedForUser)).append("\n");
     sb.append("    parentShared: ").append(toIndentedString(parentShared)).append("\n");
@@ -1357,6 +1421,16 @@ public class FileEntryDtoString {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
+    }
+
+    // add `sharedBy` to the URL query string
+    if (getSharedBy() != null) {
+      joiner.add(getSharedBy().toUrlQueryString(prefix + "sharedBy" + suffix));
+    }
+
+    // add `ownedBy` to the URL query string
+    if (getOwnedBy() != null) {
+      joiner.add(getOwnedBy().toUrlQueryString(prefix + "ownedBy" + suffix));
     }
 
     // add `shared` to the URL query string

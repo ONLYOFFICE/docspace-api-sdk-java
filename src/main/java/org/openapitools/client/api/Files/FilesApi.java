@@ -3079,7 +3079,7 @@ public class FilesApi extends BaseApi {
     TypeReference<EditHistoryArrayWrapper> localVarReturnType = new TypeReference<EditHistoryArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
-        "GET",
+        "POST",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),

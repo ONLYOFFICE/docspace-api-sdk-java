@@ -45,6 +45,7 @@ The current tenant quota.
 |**year** | **Boolean** | Specifies if the tenant quota is yearly subscription or not. |  [optional] |
 |**countFreeBackup** | **Integer** | The number of free backups within a month. |  [optional] |
 |**backup** | **Boolean** | Specifies if the backup anabled as a wallet service or not. |  [optional] |
+|**countAIAgent** | **Integer** | The number of AI agents. |  [optional] |
 
 
 

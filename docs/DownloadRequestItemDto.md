@@ -8,7 +8,7 @@ The download request item with conversion parameters and security settings.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**key** | **Integer** |  |  |
+|**key** | [**DownloadRequestItemDtoKey**](DownloadRequestItemDtoKey.md) |  |  |
 |**value** | **String** | The target format or conversion type for the file download. |  |
 |**password** | **String** | The optional password for accessing protected files. |  [optional] |
 

@@ -503,7 +503,7 @@ public class Example {
 
 ## getProfileByEmail
 
-> EmployeeFullWrapper getProfileByEmail(email, culture)
+> EmployeeFullWrapper getProfileByEmail(email, encemail, culture)
 
 Get a profile by user emailReturns the detailed information about a profile of the user with the email specified in the request.
 
@@ -515,6 +515,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **email** | **String**| The user email address. | [optional] |
+| **encemail** | **String**| The user encrypted email address. | [optional] |
 | **culture** | **String**| Culture | [optional] |
 
 ### Return type
@@ -569,9 +570,10 @@ public class Example {
 
         ProfilesApi apiInstance = new ProfilesApi(defaultClient);
         String email = "Sydney_Roberts4@hotmail.com"; // String | The user email address.
+        String encemail = "some text"; // String | The user encrypted email address.
         String culture = "some text"; // String | Culture
         try {
-            EmployeeFullWrapper result = apiInstance.getProfileByEmail(email, culture);
+            EmployeeFullWrapper result = apiInstance.getProfileByEmail(email, encemail, culture);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProfilesApi#getProfileByEmail");
@@ -1233,7 +1235,7 @@ public class Example {
 
 
         ProfilesApi apiInstance = new ProfilesApi(defaultClient);
-        String userid = "9846"; // String | The user ID.
+        String userid = "9079"; // String | The user ID.
         UpdateMemberRequestDto updateMemberRequestDto = new UpdateMemberRequestDto(); // UpdateMemberRequestDto | The request parameters for updating the user information.
         try {
             EmployeeFullWrapper result = apiInstance.updateMember(userid, updateMemberRequestDto);

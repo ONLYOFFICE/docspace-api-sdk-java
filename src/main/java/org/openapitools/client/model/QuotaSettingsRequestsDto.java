@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.client.model.QuotaSettingsRequestsDtoDefaultQuota;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -45,7 +46,7 @@ public class QuotaSettingsRequestsDto {
 
   public static final String JSON_PROPERTY_DEFAULT_QUOTA = "defaultQuota";
   @javax.annotation.Nonnull
-  private Integer defaultQuota;
+  private QuotaSettingsRequestsDtoDefaultQuota defaultQuota;
 
   public QuotaSettingsRequestsDto() {
   }
@@ -75,7 +76,7 @@ public class QuotaSettingsRequestsDto {
     this.enableQuota = enableQuota;
   }
 
-  public QuotaSettingsRequestsDto defaultQuota(@javax.annotation.Nonnull Integer defaultQuota) {
+  public QuotaSettingsRequestsDto defaultQuota(@javax.annotation.Nonnull QuotaSettingsRequestsDtoDefaultQuota defaultQuota) {
     
     this.defaultQuota = defaultQuota;
     return this;
@@ -89,14 +90,14 @@ public class QuotaSettingsRequestsDto {
   @JsonProperty(JSON_PROPERTY_DEFAULT_QUOTA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Integer getDefaultQuota() {
+  public QuotaSettingsRequestsDtoDefaultQuota getDefaultQuota() {
     return defaultQuota;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DEFAULT_QUOTA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDefaultQuota(@javax.annotation.Nonnull Integer defaultQuota) {
+  public void setDefaultQuota(@javax.annotation.Nonnull QuotaSettingsRequestsDtoDefaultQuota defaultQuota) {
     this.defaultQuota = defaultQuota;
   }
 
@@ -183,12 +184,7 @@ public class QuotaSettingsRequestsDto {
 
     // add `defaultQuota` to the URL query string
     if (getDefaultQuota() != null) {
-      try {
-        joiner.add(String.format("%sdefaultQuota%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDefaultQuota()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getDefaultQuota().toUrlQueryString(prefix + "defaultQuota" + suffix));
     }
 
     return joiner.toString();

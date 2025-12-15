@@ -512,7 +512,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       </tr>
       <tr>
         <td><a href="docs/FilesFilesApi.md#restorefileversion"><strong>restoreFileVersion</strong></a></td>
-        <td><strong>GET</strong> /api/2.0/files/file/{fileId}/restoreversion</td>
+        <td><strong>POST</strong> /api/2.0/files/file/{fileId}/restoreversion</td>
         <td>Restore a file version</td>
       </tr>
       <tr>
@@ -3077,9 +3077,14 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.Balance](docs/Balance.md)
  - [org.openapitools.client.model.BalanceWrapper](docs/BalanceWrapper.md)
  - [org.openapitools.client.model.BaseBatchRequestDto](docs/BaseBatchRequestDto.md)
+ - [org.openapitools.client.model.BaseBatchRequestDtoAllOfFileIds](docs/BaseBatchRequestDtoAllOfFileIds.md)
+ - [org.openapitools.client.model.BaseBatchRequestDtoAllOfFolderIds](docs/BaseBatchRequestDtoAllOfFolderIds.md)
  - [org.openapitools.client.model.BaseStorageSettingsCdnStorageSettings](docs/BaseStorageSettingsCdnStorageSettings.md)
  - [org.openapitools.client.model.BaseStorageSettingsStorageSettings](docs/BaseStorageSettingsStorageSettings.md)
  - [org.openapitools.client.model.BatchRequestDto](docs/BatchRequestDto.md)
+ - [org.openapitools.client.model.BatchRequestDtoAllOfDestFolderId](docs/BatchRequestDtoAllOfDestFolderId.md)
+ - [org.openapitools.client.model.BatchRequestDtoAllOfFileIds](docs/BatchRequestDtoAllOfFileIds.md)
+ - [org.openapitools.client.model.BatchRequestDtoAllOfFolderIds](docs/BatchRequestDtoAllOfFolderIds.md)
  - [org.openapitools.client.model.BatchTagsRequestDto](docs/BatchTagsRequestDto.md)
  - [org.openapitools.client.model.BooleanWrapper](docs/BooleanWrapper.md)
  - [org.openapitools.client.model.CapabilitiesDto](docs/CapabilitiesDto.md)
@@ -3122,12 +3127,14 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.CookieSettingsRequestsDto](docs/CookieSettingsRequestsDto.md)
  - [org.openapitools.client.model.CookieSettingsWrapper](docs/CookieSettingsWrapper.md)
  - [org.openapitools.client.model.CopyAsJsonElement](docs/CopyAsJsonElement.md)
+ - [org.openapitools.client.model.CopyAsJsonElementDestFolderId](docs/CopyAsJsonElementDestFolderId.md)
  - [org.openapitools.client.model.CoverRequestDto](docs/CoverRequestDto.md)
  - [org.openapitools.client.model.CoversResultArrayWrapper](docs/CoversResultArrayWrapper.md)
  - [org.openapitools.client.model.CoversResultDto](docs/CoversResultDto.md)
  - [org.openapitools.client.model.CreateApiKeyRequestDto](docs/CreateApiKeyRequestDto.md)
  - [org.openapitools.client.model.CreateClientRequest](docs/CreateClientRequest.md)
  - [org.openapitools.client.model.CreateFileJsonElement](docs/CreateFileJsonElement.md)
+ - [org.openapitools.client.model.CreateFileJsonElementTemplateId](docs/CreateFileJsonElementTemplateId.md)
  - [org.openapitools.client.model.CreateFolder](docs/CreateFolder.md)
  - [org.openapitools.client.model.CreateRoomFromTemplateDto](docs/CreateRoomFromTemplateDto.md)
  - [org.openapitools.client.model.CreateRoomRequestDto](docs/CreateRoomRequestDto.md)
@@ -3169,6 +3176,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.DeepLinkHandlingMode](docs/DeepLinkHandlingMode.md)
  - [org.openapitools.client.model.Delete](docs/Delete.md)
  - [org.openapitools.client.model.DeleteBatchRequestDto](docs/DeleteBatchRequestDto.md)
+ - [org.openapitools.client.model.DeleteBatchRequestDtoAllOfFileIds](docs/DeleteBatchRequestDtoAllOfFileIds.md)
+ - [org.openapitools.client.model.DeleteBatchRequestDtoAllOfFolderIds](docs/DeleteBatchRequestDtoAllOfFolderIds.md)
  - [org.openapitools.client.model.DeleteFolder](docs/DeleteFolder.md)
  - [org.openapitools.client.model.DeleteRoomRequest](docs/DeleteRoomRequest.md)
  - [org.openapitools.client.model.DeleteVersionBatchRequestDto](docs/DeleteVersionBatchRequestDto.md)
@@ -3182,9 +3191,14 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.DocumentConfigDto](docs/DocumentConfigDto.md)
  - [org.openapitools.client.model.DoubleWrapper](docs/DoubleWrapper.md)
  - [org.openapitools.client.model.DownloadRequestDto](docs/DownloadRequestDto.md)
+ - [org.openapitools.client.model.DownloadRequestDtoAllOfFileIds](docs/DownloadRequestDtoAllOfFileIds.md)
+ - [org.openapitools.client.model.DownloadRequestDtoAllOfFolderIds](docs/DownloadRequestDtoAllOfFolderIds.md)
  - [org.openapitools.client.model.DownloadRequestItemDto](docs/DownloadRequestItemDto.md)
+ - [org.openapitools.client.model.DownloadRequestItemDtoKey](docs/DownloadRequestItemDtoKey.md)
  - [org.openapitools.client.model.DraftLocationInteger](docs/DraftLocationInteger.md)
  - [org.openapitools.client.model.DuplicateRequestDto](docs/DuplicateRequestDto.md)
+ - [org.openapitools.client.model.DuplicateRequestDtoAllOfFileIds](docs/DuplicateRequestDtoAllOfFileIds.md)
+ - [org.openapitools.client.model.DuplicateRequestDtoAllOfFolderIds](docs/DuplicateRequestDtoAllOfFolderIds.md)
  - [org.openapitools.client.model.EditHistoryArrayWrapper](docs/EditHistoryArrayWrapper.md)
  - [org.openapitools.client.model.EditHistoryAuthor](docs/EditHistoryAuthor.md)
  - [org.openapitools.client.model.EditHistoryChangesWrapper](docs/EditHistoryChangesWrapper.md)
@@ -3422,6 +3436,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.QuotaDto](docs/QuotaDto.md)
  - [org.openapitools.client.model.QuotaFilter](docs/QuotaFilter.md)
  - [org.openapitools.client.model.QuotaSettingsRequestsDto](docs/QuotaSettingsRequestsDto.md)
+ - [org.openapitools.client.model.QuotaSettingsRequestsDtoDefaultQuota](docs/QuotaSettingsRequestsDtoDefaultQuota.md)
  - [org.openapitools.client.model.QuotaState](docs/QuotaState.md)
  - [org.openapitools.client.model.QuotaWrapper](docs/QuotaWrapper.md)
  - [org.openapitools.client.model.RecaptchaType](docs/RecaptchaType.md)
@@ -3579,6 +3594,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.UpdateGroupRequest](docs/UpdateGroupRequest.md)
  - [org.openapitools.client.model.UpdateMemberRequestDto](docs/UpdateMemberRequestDto.md)
  - [org.openapitools.client.model.UpdateMembersQuotaRequestDto](docs/UpdateMembersQuotaRequestDto.md)
+ - [org.openapitools.client.model.UpdateMembersQuotaRequestDtoQuota](docs/UpdateMembersQuotaRequestDtoQuota.md)
  - [org.openapitools.client.model.UpdateMembersRequestDto](docs/UpdateMembersRequestDto.md)
  - [org.openapitools.client.model.UpdatePhotoMemberRequest](docs/UpdatePhotoMemberRequest.md)
  - [org.openapitools.client.model.UpdateRoomRequest](docs/UpdateRoomRequest.md)

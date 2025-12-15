@@ -27,7 +27,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -44,7 +43,6 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   BaseStorageSettingsStorageSettings.JSON_PROPERTY_MODULE,
   BaseStorageSettingsStorageSettings.JSON_PROPERTY_PROPS,
-  BaseStorageSettingsStorageSettings.JSON_PROPERTY_ID,
   BaseStorageSettingsStorageSettings.JSON_PROPERTY_LAST_MODIFIED
 })
 
@@ -57,25 +55,11 @@ public class BaseStorageSettingsStorageSettings {
   @javax.annotation.Nullable
   private JsonNullable<Map<String, String>> props = JsonNullable.<Map<String, String>>undefined();
 
-  public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private UUID id;
-
   public static final String JSON_PROPERTY_LAST_MODIFIED = "lastModified";
   @javax.annotation.Nullable
   private OffsetDateTime lastModified;
 
   public BaseStorageSettingsStorageSettings() {
-  }
-  /**
-   * Constructor with only readonly parameters
-   */
-  @JsonCreator
-  public BaseStorageSettingsStorageSettings(
-    @JsonProperty(JSON_PROPERTY_ID) UUID id
-  ) {
-    this();
-    this.id = id;
   }
 
   public BaseStorageSettingsStorageSettings module(@javax.annotation.Nullable String module) {
@@ -156,20 +140,6 @@ public class BaseStorageSettingsStorageSettings {
     this.props = JsonNullable.<Map<String, String>>of(props);
   }
 
-  /**
-   * Get id
-   * @return id
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public UUID getId() {
-    return id;
-  }
-
-
-
   public BaseStorageSettingsStorageSettings lastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
     
     this.lastModified = lastModified;
@@ -206,7 +176,6 @@ public class BaseStorageSettingsStorageSettings {
     BaseStorageSettingsStorageSettings baseStorageSettingsStorageSettings = (BaseStorageSettingsStorageSettings) o;
     return equalsNullable(this.module, baseStorageSettingsStorageSettings.module) &&
         equalsNullable(this.props, baseStorageSettingsStorageSettings.props) &&
-        Objects.equals(this.id, baseStorageSettingsStorageSettings.id) &&
         Objects.equals(this.lastModified, baseStorageSettingsStorageSettings.lastModified);
   }
 
@@ -216,7 +185,7 @@ public class BaseStorageSettingsStorageSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(module), hashCodeNullable(props), id, lastModified);
+    return Objects.hash(hashCodeNullable(module), hashCodeNullable(props), lastModified);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -232,7 +201,6 @@ public class BaseStorageSettingsStorageSettings {
     sb.append("class BaseStorageSettingsStorageSettings {\n");
     sb.append("    module: ").append(toIndentedString(module)).append("\n");
     sb.append("    props: ").append(toIndentedString(props)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    lastModified: ").append(toIndentedString(lastModified)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -302,16 +270,6 @@ public class BaseStorageSettingsStorageSettings {
           // Should never happen, UTF-8 is always supported
           throw new RuntimeException(e);
         }
-      }
-    }
-
-    // add `id` to the URL query string
-    if (getId() != null) {
-      try {
-        joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
       }
     }
 

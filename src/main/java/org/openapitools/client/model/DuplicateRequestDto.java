@@ -27,6 +27,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.client.model.DuplicateRequestDtoAllOfFileIds;
+import org.openapitools.client.model.DuplicateRequestDtoAllOfFolderIds;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -53,11 +55,11 @@ public class DuplicateRequestDto {
 
   public static final String JSON_PROPERTY_FOLDER_IDS = "folderIds";
   @javax.annotation.Nullable
-  private JsonNullable<List<Integer>> folderIds = JsonNullable.<List<Integer>>undefined();
+  private JsonNullable<List<DuplicateRequestDtoAllOfFolderIds>> folderIds = JsonNullable.<List<DuplicateRequestDtoAllOfFolderIds>>undefined();
 
   public static final String JSON_PROPERTY_FILE_IDS = "fileIds";
   @javax.annotation.Nullable
-  private JsonNullable<List<Integer>> fileIds = JsonNullable.<List<Integer>>undefined();
+  private JsonNullable<List<DuplicateRequestDtoAllOfFileIds>> fileIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>undefined();
 
   public DuplicateRequestDto() {
   }
@@ -87,15 +89,15 @@ public class DuplicateRequestDto {
     this.returnSingleOperation = returnSingleOperation;
   }
 
-  public DuplicateRequestDto folderIds(@javax.annotation.Nullable List<Integer> folderIds) {
-    this.folderIds = JsonNullable.<List<Integer>>of(folderIds);
+  public DuplicateRequestDto folderIds(@javax.annotation.Nullable List<DuplicateRequestDtoAllOfFolderIds> folderIds) {
+    this.folderIds = JsonNullable.<List<DuplicateRequestDtoAllOfFolderIds>>of(folderIds);
     
     return this;
   }
 
-  public DuplicateRequestDto addFolderIdsItem(Integer folderIdsItem) {
+  public DuplicateRequestDto addFolderIdsItem(DuplicateRequestDtoAllOfFolderIds folderIdsItem) {
     if (this.folderIds == null || !this.folderIds.isPresent()) {
-      this.folderIds = JsonNullable.<List<Integer>>of(new ArrayList<>());
+      this.folderIds = JsonNullable.<List<DuplicateRequestDtoAllOfFolderIds>>of(new ArrayList<>());
     }
     try {
       this.folderIds.get().add(folderIdsItem);
@@ -112,35 +114,35 @@ public class DuplicateRequestDto {
   @javax.annotation.Nullable
   @JsonIgnore
 
-  public List<Integer> getFolderIds() {
+  public List<DuplicateRequestDtoAllOfFolderIds> getFolderIds() {
         return folderIds.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_FOLDER_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<Integer>> getFolderIds_JsonNullable() {
+  public JsonNullable<List<DuplicateRequestDtoAllOfFolderIds>> getFolderIds_JsonNullable() {
     return folderIds;
   }
   
   @JsonProperty(JSON_PROPERTY_FOLDER_IDS)
-  public void setFolderIds_JsonNullable(JsonNullable<List<Integer>> folderIds) {
+  public void setFolderIds_JsonNullable(JsonNullable<List<DuplicateRequestDtoAllOfFolderIds>> folderIds) {
     this.folderIds = folderIds;
   }
 
-  public void setFolderIds(@javax.annotation.Nullable List<Integer> folderIds) {
-    this.folderIds = JsonNullable.<List<Integer>>of(folderIds);
+  public void setFolderIds(@javax.annotation.Nullable List<DuplicateRequestDtoAllOfFolderIds> folderIds) {
+    this.folderIds = JsonNullable.<List<DuplicateRequestDtoAllOfFolderIds>>of(folderIds);
   }
 
-  public DuplicateRequestDto fileIds(@javax.annotation.Nullable List<Integer> fileIds) {
-    this.fileIds = JsonNullable.<List<Integer>>of(fileIds);
+  public DuplicateRequestDto fileIds(@javax.annotation.Nullable List<DuplicateRequestDtoAllOfFileIds> fileIds) {
+    this.fileIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>of(fileIds);
     
     return this;
   }
 
-  public DuplicateRequestDto addFileIdsItem(Integer fileIdsItem) {
+  public DuplicateRequestDto addFileIdsItem(DuplicateRequestDtoAllOfFileIds fileIdsItem) {
     if (this.fileIds == null || !this.fileIds.isPresent()) {
-      this.fileIds = JsonNullable.<List<Integer>>of(new ArrayList<>());
+      this.fileIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>of(new ArrayList<>());
     }
     try {
       this.fileIds.get().add(fileIdsItem);
@@ -157,24 +159,24 @@ public class DuplicateRequestDto {
   @javax.annotation.Nullable
   @JsonIgnore
 
-  public List<Integer> getFileIds() {
+  public List<DuplicateRequestDtoAllOfFileIds> getFileIds() {
         return fileIds.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_FILE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<Integer>> getFileIds_JsonNullable() {
+  public JsonNullable<List<DuplicateRequestDtoAllOfFileIds>> getFileIds_JsonNullable() {
     return fileIds;
   }
   
   @JsonProperty(JSON_PROPERTY_FILE_IDS)
-  public void setFileIds_JsonNullable(JsonNullable<List<Integer>> fileIds) {
+  public void setFileIds_JsonNullable(JsonNullable<List<DuplicateRequestDtoAllOfFileIds>> fileIds) {
     this.fileIds = fileIds;
   }
 
-  public void setFileIds(@javax.annotation.Nullable List<Integer> fileIds) {
-    this.fileIds = JsonNullable.<List<Integer>>of(fileIds);
+  public void setFileIds(@javax.annotation.Nullable List<DuplicateRequestDtoAllOfFileIds> fileIds) {
+    this.fileIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>of(fileIds);
   }
 
   @Override
@@ -274,13 +276,9 @@ public class DuplicateRequestDto {
     // add `folderIds` to the URL query string
     if (getFolderIds() != null) {
       for (int i = 0; i < getFolderIds().size(); i++) {
-        try {
-          joiner.add(String.format("%sfolderIds%s%s=%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-              URLEncoder.encode(String.valueOf(getFolderIds().get(i)), "UTF-8").replaceAll("\\+", "%20")));
-        } catch (UnsupportedEncodingException e) {
-          // Should never happen, UTF-8 is always supported
-          throw new RuntimeException(e);
+        if (getFolderIds().get(i) != null) {
+          joiner.add(getFolderIds().get(i).toUrlQueryString(String.format("%sfolderIds%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }
@@ -288,13 +286,9 @@ public class DuplicateRequestDto {
     // add `fileIds` to the URL query string
     if (getFileIds() != null) {
       for (int i = 0; i < getFileIds().size(); i++) {
-        try {
-          joiner.add(String.format("%sfileIds%s%s=%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-              URLEncoder.encode(String.valueOf(getFileIds().get(i)), "UTF-8").replaceAll("\\+", "%20")));
-        } catch (UnsupportedEncodingException e) {
-          // Should never happen, UTF-8 is always supported
-          throw new RuntimeException(e);
+        if (getFileIds().get(i) != null) {
+          joiner.add(getFileIds().get(i).toUrlQueryString(String.format("%sfileIds%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }
