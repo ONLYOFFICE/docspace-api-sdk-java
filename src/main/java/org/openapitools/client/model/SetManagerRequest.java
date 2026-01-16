@@ -46,6 +46,7 @@ public class SetManagerRequest {
   public SetManagerRequest() {
   }
 
+
   public SetManagerRequest userId(@javax.annotation.Nonnull UUID userId) {
     
     this.userId = userId;

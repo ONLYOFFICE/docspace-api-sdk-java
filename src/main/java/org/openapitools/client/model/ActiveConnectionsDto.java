@@ -58,6 +58,7 @@ public class ActiveConnectionsDto {
   public ActiveConnectionsDto() {
   }
 
+
   public ActiveConnectionsDto loginEvent(@javax.annotation.Nonnull Integer loginEvent) {
     
     this.loginEvent = loginEvent;

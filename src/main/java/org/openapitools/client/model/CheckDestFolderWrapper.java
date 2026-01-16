@@ -70,6 +70,7 @@ public class CheckDestFolderWrapper {
   public CheckDestFolderWrapper() {
   }
 
+
   public CheckDestFolderWrapper response(@javax.annotation.Nullable CheckDestFolderDto response) {
     
     this.response = response;

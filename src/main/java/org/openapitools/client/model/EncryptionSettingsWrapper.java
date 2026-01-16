@@ -70,6 +70,7 @@ public class EncryptionSettingsWrapper {
   public EncryptionSettingsWrapper() {
   }
 
+
   public EncryptionSettingsWrapper response(@javax.annotation.Nullable EncryptionSettings response) {
     
     this.response = response;

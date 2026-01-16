@@ -70,6 +70,7 @@ public class WhiteLabelItemArrayWrapper {
   public WhiteLabelItemArrayWrapper() {
   }
 
+
   public WhiteLabelItemArrayWrapper response(@javax.annotation.Nullable List<WhiteLabelItemDto> response) {
     
     this.response = response;

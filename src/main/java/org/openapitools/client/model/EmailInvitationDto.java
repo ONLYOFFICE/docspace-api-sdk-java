@@ -49,6 +49,7 @@ public class EmailInvitationDto {
   public EmailInvitationDto() {
   }
 
+
   public EmailInvitationDto email(@javax.annotation.Nullable String email) {
     this.email = JsonNullable.<String>of(email);
     

@@ -66,6 +66,7 @@ public class FileEntryDtoIntegerAllOfShareSettings {
   public FileEntryDtoIntegerAllOfShareSettings() {
   }
 
+
   public FileEntryDtoIntegerAllOfShareSettings user(@javax.annotation.Nullable Integer user) {
     
     this.user = user;

@@ -70,6 +70,7 @@ public class TaskProgressResponseDto {
   public TaskProgressResponseDto() {
   }
 
+
   public TaskProgressResponseDto id(@javax.annotation.Nullable String id) {
     
     this.id = id;

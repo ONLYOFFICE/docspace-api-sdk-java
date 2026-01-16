@@ -50,6 +50,7 @@ public class CookieSettingsRequestsDto {
   public CookieSettingsRequestsDto() {
   }
 
+
   public CookieSettingsRequestsDto lifeTime(@javax.annotation.Nullable Integer lifeTime) {
     
     this.lifeTime = lifeTime;

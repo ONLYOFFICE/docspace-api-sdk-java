@@ -70,6 +70,7 @@ public class RoomsNotificationSettingsWrapper {
   public RoomsNotificationSettingsWrapper() {
   }
 
+
   public RoomsNotificationSettingsWrapper response(@javax.annotation.Nullable RoomsNotificationSettingsDto response) {
     
     this.response = response;

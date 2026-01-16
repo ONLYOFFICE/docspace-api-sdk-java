@@ -62,6 +62,7 @@ public class CreateApiKeyRequestDto {
   public CreateApiKeyRequestDto() {
   }
 
+
   public CreateApiKeyRequestDto name(@javax.annotation.Nonnull String name) {
     
     this.name = name;

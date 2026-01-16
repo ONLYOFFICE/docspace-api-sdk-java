@@ -70,6 +70,7 @@ public class FileEntryBaseWrapper {
   public FileEntryBaseWrapper() {
   }
 
+
   public FileEntryBaseWrapper response(@javax.annotation.Nullable FileEntryBaseDto response) {
     
     this.response = response;

@@ -63,6 +63,7 @@ public class GroupRequestDto {
   public GroupRequestDto() {
   }
 
+
   public GroupRequestDto members(@javax.annotation.Nullable List<UUID> members) {
     this.members = JsonNullable.<List<UUID>>of(members);
     

@@ -81,6 +81,7 @@ public class DocumentBuilderTaskDto {
   public DocumentBuilderTaskDto() {
   }
 
+
   public DocumentBuilderTaskDto id(@javax.annotation.Nullable String id) {
     
     this.id = id;

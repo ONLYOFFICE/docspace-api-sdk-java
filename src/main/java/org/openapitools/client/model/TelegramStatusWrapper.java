@@ -70,6 +70,7 @@ public class TelegramStatusWrapper {
   public TelegramStatusWrapper() {
   }
 
+
   public TelegramStatusWrapper response(@javax.annotation.Nullable TelegramStatusDto response) {
     
     this.response = response;

@@ -51,6 +51,7 @@ public class AutoCleanUpData {
   public AutoCleanUpData() {
   }
 
+
   public AutoCleanUpData isAutoCleanUp(@javax.annotation.Nullable Boolean isAutoCleanUp) {
     
     this.isAutoCleanUp = isAutoCleanUp;

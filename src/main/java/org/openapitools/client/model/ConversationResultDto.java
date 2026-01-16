@@ -80,6 +80,7 @@ public class ConversationResultDto {
   public ConversationResultDto() {
   }
 
+
   public ConversationResultDto id(@javax.annotation.Nullable String id) {
     
     this.id = id;

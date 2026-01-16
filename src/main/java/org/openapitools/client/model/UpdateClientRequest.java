@@ -73,6 +73,7 @@ public class UpdateClientRequest {
   public UpdateClientRequest() {
   }
 
+
   public UpdateClientRequest name(@javax.annotation.Nullable String name) {
     
     this.name = name;

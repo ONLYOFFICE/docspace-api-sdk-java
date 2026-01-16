@@ -70,6 +70,7 @@ public class SetupCodeWrapper {
   public SetupCodeWrapper() {
   }
 
+
   public SetupCodeWrapper response(@javax.annotation.Nullable SetupCode response) {
     
     this.response = response;

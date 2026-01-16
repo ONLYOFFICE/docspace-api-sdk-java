@@ -54,6 +54,7 @@ public class WhiteLabelItemPathDto {
   public WhiteLabelItemPathDto() {
   }
 
+
   public WhiteLabelItemPathDto light(@javax.annotation.Nullable String light) {
     this.light = JsonNullable.<String>of(light);
     

@@ -61,6 +61,7 @@ public class RoomInvitation {
   public RoomInvitation() {
   }
 
+
   public RoomInvitation email(@javax.annotation.Nullable String email) {
     this.email = JsonNullable.<String>of(email);
     

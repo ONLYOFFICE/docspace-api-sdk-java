@@ -75,6 +75,7 @@ public class Logo {
   public Logo() {
   }
 
+
   public Logo original(@javax.annotation.Nullable String original) {
     
     this.original = original;

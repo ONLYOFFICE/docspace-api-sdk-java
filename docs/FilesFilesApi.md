@@ -3206,7 +3206,7 @@ public class Example {
 
 
         FilesApi apiInstance = new FilesApi(defaultClient);
-        Integer fileId = 9846; // Integer | The editing file ID from the request.
+        Integer fileId = 9079; // Integer | The editing file ID from the request.
         String fileExtension = "fileExtension_example"; // String | The editing file extension from the request.
         String downloadUri = "downloadUri_example"; // String | The URI to download the editing file.
         File _file = new File("/path/to/file"); // File | The request file stream.
@@ -4048,7 +4048,7 @@ public class Example {
 
 
         FilesApi apiInstance = new FilesApi(defaultClient);
-        Integer fileId = 9079; // Integer | The file ID.
+        Integer fileId = 9846; // Integer | The file ID.
         Boolean favorite = true; // Boolean | Specifies if the file is marked as favorite or not.
         try {
             BooleanWrapper result = apiInstance.toggleFileFavorite(fileId, favorite);

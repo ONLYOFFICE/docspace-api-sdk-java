@@ -85,6 +85,7 @@ public class BackupProgress {
   public BackupProgress() {
   }
 
+
   public BackupProgress isCompleted(@javax.annotation.Nullable Boolean isCompleted) {
     
     this.isCompleted = isCompleted;

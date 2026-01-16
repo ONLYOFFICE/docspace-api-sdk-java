@@ -79,6 +79,7 @@ public class CheckConversionRequestDtoInteger {
   public CheckConversionRequestDtoInteger() {
   }
 
+
   public CheckConversionRequestDtoInteger fileId(@javax.annotation.Nullable Integer fileId) {
     
     this.fileId = fileId;

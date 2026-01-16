@@ -70,6 +70,7 @@ public class EmployeeFullWrapper {
   public EmployeeFullWrapper() {
   }
 
+
   public EmployeeFullWrapper response(@javax.annotation.Nullable EmployeeFullDto response) {
     
     this.response = response;

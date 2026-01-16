@@ -37,6 +37,7 @@ public class DownloadRequestItemDtoKey {
   public DownloadRequestItemDtoKey() {
   }
 
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {

@@ -55,6 +55,7 @@ public class PluginsDto {
   public PluginsDto() {
   }
 
+
   public PluginsDto enabled(@javax.annotation.Nullable Boolean enabled) {
     
     this.enabled = enabled;

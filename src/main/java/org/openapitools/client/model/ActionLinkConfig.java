@@ -46,6 +46,7 @@ public class ActionLinkConfig {
   public ActionLinkConfig() {
   }
 
+
   public ActionLinkConfig action(@javax.annotation.Nullable ActionConfig action) {
     
     this.action = action;

@@ -123,6 +123,7 @@ public class CreateRoomRequestDto {
   public CreateRoomRequestDto() {
   }
 
+
   public CreateRoomRequestDto title(@javax.annotation.Nullable String title) {
     
     this.title = title;

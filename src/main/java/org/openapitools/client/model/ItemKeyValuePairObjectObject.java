@@ -54,6 +54,7 @@ public class ItemKeyValuePairObjectObject {
   public ItemKeyValuePairObjectObject() {
   }
 
+
   public ItemKeyValuePairObjectObject key(@javax.annotation.Nullable Object key) {
     this.key = JsonNullable.<Object>of(key);
     

@@ -70,6 +70,7 @@ public class KeyValuePairBooleanStringWrapper {
   public KeyValuePairBooleanStringWrapper() {
   }
 
+
   public KeyValuePairBooleanStringWrapper response(@javax.annotation.Nullable KeyValuePairBooleanString response) {
     
     this.response = response;

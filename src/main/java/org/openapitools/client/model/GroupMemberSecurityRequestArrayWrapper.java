@@ -70,6 +70,7 @@ public class GroupMemberSecurityRequestArrayWrapper {
   public GroupMemberSecurityRequestArrayWrapper() {
   }
 
+
   public GroupMemberSecurityRequestArrayWrapper response(@javax.annotation.Nullable List<GroupMemberSecurityRequestDto> response) {
     
     this.response = response;

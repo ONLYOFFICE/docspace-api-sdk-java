@@ -99,6 +99,7 @@ public class CreateThirdPartyRoom {
   public CreateThirdPartyRoom() {
   }
 
+
   public CreateThirdPartyRoom createAsNewFolder(@javax.annotation.Nullable Boolean createAsNewFolder) {
     
     this.createAsNewFolder = createAsNewFolder;

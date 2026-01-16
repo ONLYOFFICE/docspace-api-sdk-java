@@ -70,6 +70,7 @@ public class DoubleWrapper {
   public DoubleWrapper() {
   }
 
+
   public DoubleWrapper response(@javax.annotation.Nullable BigDecimal response) {
     
     this.response = response;

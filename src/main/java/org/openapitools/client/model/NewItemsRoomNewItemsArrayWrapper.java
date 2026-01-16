@@ -70,6 +70,7 @@ public class NewItemsRoomNewItemsArrayWrapper {
   public NewItemsRoomNewItemsArrayWrapper() {
   }
 
+
   public NewItemsRoomNewItemsArrayWrapper response(@javax.annotation.Nullable List<NewItemsDtoRoomNewItemsDto> response) {
     
     this.response = response;

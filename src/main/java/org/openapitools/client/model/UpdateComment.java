@@ -54,6 +54,7 @@ public class UpdateComment {
   public UpdateComment() {
   }
 
+
   public UpdateComment version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;

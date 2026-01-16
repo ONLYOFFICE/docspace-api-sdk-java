@@ -83,6 +83,7 @@ public class WatermarkOnDraw {
   public WatermarkOnDraw() {
   }
 
+
   public WatermarkOnDraw width(@javax.annotation.Nullable Double width) {
     
     this.width = width;

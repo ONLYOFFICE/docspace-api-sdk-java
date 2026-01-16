@@ -70,6 +70,7 @@ public class CompanyWhiteLabelSettingsArrayWrapper {
   public CompanyWhiteLabelSettingsArrayWrapper() {
   }
 
+
   public CompanyWhiteLabelSettingsArrayWrapper response(@javax.annotation.Nullable List<CompanyWhiteLabelSettings> response) {
     
     this.response = response;

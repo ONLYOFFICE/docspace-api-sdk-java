@@ -17,7 +17,6 @@ The file operation information.
 |**url** | **URI** | The file operation URL. |  [optional] |
 |**files** | [**List&lt;FileEntryBaseDto&gt;**](FileEntryBaseDto.md) | The list of files of the file operation. |  [optional] |
 |**folders** | [**List&lt;FileEntryBaseDto&gt;**](FileEntryBaseDto.md) | The list of folders of the file operation. |  [optional] |
-|**status** | **DistributedTaskStatus** |  |  [optional] |
 
 
 

@@ -100,6 +100,7 @@ public class ApiKeyResponseDto {
   public ApiKeyResponseDto() {
   }
 
+
   public ApiKeyResponseDto id(@javax.annotation.Nonnull UUID id) {
     
     this.id = id;

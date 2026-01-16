@@ -70,6 +70,7 @@ public class WebhooksConfigWrapper {
   public WebhooksConfigWrapper() {
   }
 
+
   public WebhooksConfigWrapper response(@javax.annotation.Nullable WebhooksConfigDto response) {
     
     this.response = response;

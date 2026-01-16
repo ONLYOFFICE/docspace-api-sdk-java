@@ -74,6 +74,7 @@ public class SsoIdpCertificateAdvanced {
   public SsoIdpCertificateAdvanced() {
   }
 
+
   public SsoIdpCertificateAdvanced verifyAlgorithm(@javax.annotation.Nullable String verifyAlgorithm) {
     this.verifyAlgorithm = JsonNullable.<String>of(verifyAlgorithm);
     

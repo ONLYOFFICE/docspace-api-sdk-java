@@ -72,6 +72,7 @@ public class GroupMemberSecurityRequestDto {
   public GroupMemberSecurityRequestDto() {
   }
 
+
   public GroupMemberSecurityRequestDto user(@javax.annotation.Nonnull EmployeeFullDto user) {
     
     this.user = user;

@@ -54,6 +54,7 @@ public class AdminMessageBaseSettingsRequestsDto {
   public AdminMessageBaseSettingsRequestsDto() {
   }
 
+
   public AdminMessageBaseSettingsRequestsDto email(@javax.annotation.Nullable String email) {
     
     this.email = email;

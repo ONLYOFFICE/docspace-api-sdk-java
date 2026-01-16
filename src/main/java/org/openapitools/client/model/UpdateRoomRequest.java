@@ -106,6 +106,7 @@ public class UpdateRoomRequest {
   public UpdateRoomRequest() {
   }
 
+
   public UpdateRoomRequest title(@javax.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
     

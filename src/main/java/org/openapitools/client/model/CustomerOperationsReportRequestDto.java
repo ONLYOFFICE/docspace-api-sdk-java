@@ -70,6 +70,7 @@ public class CustomerOperationsReportRequestDto {
   public CustomerOperationsReportRequestDto() {
   }
 
+
   public CustomerOperationsReportRequestDto startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = JsonNullable.<OffsetDateTime>of(startDate);
     

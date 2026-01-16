@@ -76,6 +76,7 @@ public class AuthData {
   public AuthData() {
   }
 
+
   public AuthData login(@javax.annotation.Nullable String login) {
     this.login = JsonNullable.<String>of(login);
     

@@ -70,6 +70,7 @@ public class TfaSettingsArrayWrapper {
   public TfaSettingsArrayWrapper() {
   }
 
+
   public TfaSettingsArrayWrapper response(@javax.annotation.Nullable List<TfaSettingsDto> response) {
     
     this.response = response;

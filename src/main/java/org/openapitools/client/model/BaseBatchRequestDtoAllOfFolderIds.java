@@ -37,6 +37,7 @@ public class BaseBatchRequestDtoAllOfFolderIds {
   public BaseBatchRequestDtoAllOfFolderIds() {
   }
 
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {

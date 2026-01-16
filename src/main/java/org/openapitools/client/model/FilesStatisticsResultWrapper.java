@@ -70,6 +70,7 @@ public class FilesStatisticsResultWrapper {
   public FilesStatisticsResultWrapper() {
   }
 
+
   public FilesStatisticsResultWrapper response(@javax.annotation.Nullable FilesStatisticsResultDto response) {
     
     this.response = response;

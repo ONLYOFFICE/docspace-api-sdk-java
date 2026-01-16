@@ -70,6 +70,7 @@ public class MigrationStatusWrapper {
   public MigrationStatusWrapper() {
   }
 
+
   public MigrationStatusWrapper response(@javax.annotation.Nullable MigrationStatusDto response) {
     
     this.response = response;

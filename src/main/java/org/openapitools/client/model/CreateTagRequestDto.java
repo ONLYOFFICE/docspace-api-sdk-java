@@ -45,6 +45,7 @@ public class CreateTagRequestDto {
   public CreateTagRequestDto() {
   }
 
+
   public CreateTagRequestDto name(@javax.annotation.Nullable String name) {
     
     this.name = name;

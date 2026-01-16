@@ -53,6 +53,7 @@ public class CspDto {
   public CspDto() {
   }
 
+
   public CspDto domains(@javax.annotation.Nullable List<String> domains) {
     
     this.domains = domains;

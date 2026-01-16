@@ -45,6 +45,7 @@ public class DeleteRoomRequest {
   public DeleteRoomRequest() {
   }
 
+
   public DeleteRoomRequest deleteAfter(@javax.annotation.Nullable Boolean deleteAfter) {
     
     this.deleteAfter = deleteAfter;

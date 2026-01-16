@@ -73,6 +73,7 @@ public class TenantDomainValidator {
     this.maxLength = maxLength;
   }
 
+
   /**
    * The regex string to validate a domain.
    * @return regex

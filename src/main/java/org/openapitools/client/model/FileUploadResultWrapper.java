@@ -70,6 +70,7 @@ public class FileUploadResultWrapper {
   public FileUploadResultWrapper() {
   }
 
+
   public FileUploadResultWrapper response(@javax.annotation.Nullable FileUploadResultDto response) {
     
     this.response = response;

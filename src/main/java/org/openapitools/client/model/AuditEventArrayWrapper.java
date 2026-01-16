@@ -70,6 +70,7 @@ public class AuditEventArrayWrapper {
   public AuditEventArrayWrapper() {
   }
 
+
   public AuditEventArrayWrapper response(@javax.annotation.Nullable List<AuditEventDto> response) {
     
     this.response = response;

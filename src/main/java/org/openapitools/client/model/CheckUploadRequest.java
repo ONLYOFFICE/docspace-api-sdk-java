@@ -52,6 +52,7 @@ public class CheckUploadRequest {
   public CheckUploadRequest() {
   }
 
+
   public CheckUploadRequest filesTitle(@javax.annotation.Nullable List<String> filesTitle) {
     this.filesTitle = JsonNullable.<List<String>>of(filesTitle);
     

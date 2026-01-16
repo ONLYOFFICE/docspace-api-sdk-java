@@ -70,6 +70,7 @@ public class CoversResultArrayWrapper {
   public CoversResultArrayWrapper() {
   }
 
+
   public CoversResultArrayWrapper response(@javax.annotation.Nullable List<CoversResultDto> response) {
     
     this.response = response;

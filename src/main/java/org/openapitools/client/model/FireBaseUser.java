@@ -81,6 +81,7 @@ public class FireBaseUser {
   public FireBaseUser() {
   }
 
+
   public FireBaseUser id(@javax.annotation.Nullable Integer id) {
     
     this.id = id;

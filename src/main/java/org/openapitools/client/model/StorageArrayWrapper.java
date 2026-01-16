@@ -70,6 +70,7 @@ public class StorageArrayWrapper {
   public StorageArrayWrapper() {
   }
 
+
   public StorageArrayWrapper response(@javax.annotation.Nullable List<StorageDto> response) {
     
     this.response = response;

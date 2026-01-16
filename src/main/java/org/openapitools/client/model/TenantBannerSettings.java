@@ -51,6 +51,7 @@ public class TenantBannerSettings {
   public TenantBannerSettings() {
   }
 
+
   public TenantBannerSettings hidden(@javax.annotation.Nullable Boolean hidden) {
     
     this.hidden = hidden;

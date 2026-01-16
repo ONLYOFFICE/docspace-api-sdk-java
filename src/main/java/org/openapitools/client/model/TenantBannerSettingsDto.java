@@ -45,6 +45,7 @@ public class TenantBannerSettingsDto {
   public TenantBannerSettingsDto() {
   }
 
+
   public TenantBannerSettingsDto hidden(@javax.annotation.Nullable Boolean hidden) {
     
     this.hidden = hidden;

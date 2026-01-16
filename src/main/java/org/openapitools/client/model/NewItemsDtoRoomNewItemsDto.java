@@ -55,6 +55,7 @@ public class NewItemsDtoRoomNewItemsDto {
   public NewItemsDtoRoomNewItemsDto() {
   }
 
+
   public NewItemsDtoRoomNewItemsDto date(@javax.annotation.Nonnull ApiDateTime date) {
     
     this.date = date;

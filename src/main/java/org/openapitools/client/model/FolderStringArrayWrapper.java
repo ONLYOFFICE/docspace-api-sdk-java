@@ -70,6 +70,7 @@ public class FolderStringArrayWrapper {
   public FolderStringArrayWrapper() {
   }
 
+
   public FolderStringArrayWrapper response(@javax.annotation.Nullable List<FolderDtoString> response) {
     
     this.response = response;

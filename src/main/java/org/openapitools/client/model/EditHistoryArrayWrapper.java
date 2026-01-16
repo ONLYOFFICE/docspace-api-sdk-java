@@ -70,6 +70,7 @@ public class EditHistoryArrayWrapper {
   public EditHistoryArrayWrapper() {
   }
 
+
   public EditHistoryArrayWrapper response(@javax.annotation.Nullable List<EditHistoryDto> response) {
     
     this.response = response;

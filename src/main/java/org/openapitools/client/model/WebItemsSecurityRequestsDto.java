@@ -53,6 +53,7 @@ public class WebItemsSecurityRequestsDto {
   public WebItemsSecurityRequestsDto() {
   }
 
+
   public WebItemsSecurityRequestsDto items(@javax.annotation.Nullable List<ItemKeyValuePairStringBoolean> items) {
     this.items = JsonNullable.<List<ItemKeyValuePairStringBoolean>>of(items);
     

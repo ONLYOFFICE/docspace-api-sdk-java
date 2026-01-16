@@ -73,6 +73,7 @@ public class RoomInvitationRequest {
   public RoomInvitationRequest() {
   }
 
+
   public RoomInvitationRequest invitations(@javax.annotation.Nullable List<RoomInvitation> invitations) {
     this.invitations = JsonNullable.<List<RoomInvitation>>of(invitations);
     

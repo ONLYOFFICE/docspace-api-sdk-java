@@ -70,6 +70,7 @@ public class SsoSettingsV2Wrapper {
   public SsoSettingsV2Wrapper() {
   }
 
+
   public SsoSettingsV2Wrapper response(@javax.annotation.Nullable SsoSettingsV2 response) {
     
     this.response = response;

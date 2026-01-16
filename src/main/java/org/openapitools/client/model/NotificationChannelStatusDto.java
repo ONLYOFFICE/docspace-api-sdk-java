@@ -53,6 +53,7 @@ public class NotificationChannelStatusDto {
   public NotificationChannelStatusDto() {
   }
 
+
   public NotificationChannelStatusDto channels(@javax.annotation.Nullable List<NotificationChannelDto> channels) {
     this.channels = JsonNullable.<List<NotificationChannelDto>>of(channels);
     

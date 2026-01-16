@@ -70,6 +70,7 @@ public class TenantWrapper {
   public TenantWrapper() {
   }
 
+
   public TenantWrapper response(@javax.annotation.Nullable TenantDto response) {
     
     this.response = response;

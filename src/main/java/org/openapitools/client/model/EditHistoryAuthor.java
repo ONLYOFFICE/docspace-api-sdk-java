@@ -54,6 +54,7 @@ public class EditHistoryAuthor {
   public EditHistoryAuthor() {
   }
 
+
   public EditHistoryAuthor id(@javax.annotation.Nullable String id) {
     
     this.id = id;

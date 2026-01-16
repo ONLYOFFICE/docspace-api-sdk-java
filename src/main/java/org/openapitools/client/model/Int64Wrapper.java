@@ -69,6 +69,7 @@ public class Int64Wrapper {
   public Int64Wrapper() {
   }
 
+
   public Int64Wrapper response(@javax.annotation.Nullable Integer response) {
     
     this.response = response;

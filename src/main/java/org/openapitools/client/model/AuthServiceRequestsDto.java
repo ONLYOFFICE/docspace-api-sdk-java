@@ -83,6 +83,7 @@ public class AuthServiceRequestsDto {
   public AuthServiceRequestsDto() {
   }
 
+
   public AuthServiceRequestsDto name(@javax.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     

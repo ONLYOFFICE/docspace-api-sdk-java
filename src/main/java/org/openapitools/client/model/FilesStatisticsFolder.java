@@ -54,6 +54,7 @@ public class FilesStatisticsFolder {
   public FilesStatisticsFolder() {
   }
 
+
   public FilesStatisticsFolder title(@javax.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
     

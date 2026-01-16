@@ -70,6 +70,7 @@ public class TaskProgressResponseWrapper {
   public TaskProgressResponseWrapper() {
   }
 
+
   public TaskProgressResponseWrapper response(@javax.annotation.Nullable TaskProgressResponseDto response) {
     
     this.response = response;

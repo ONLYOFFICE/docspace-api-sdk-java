@@ -59,6 +59,7 @@ public class FileUploadResultDto {
   public FileUploadResultDto() {
   }
 
+
   public FileUploadResultDto success(@javax.annotation.Nullable Boolean success) {
     
     this.success = success;

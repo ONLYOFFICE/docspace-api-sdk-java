@@ -74,6 +74,7 @@ public class SecurityInfoRequestDto {
   public SecurityInfoRequestDto() {
   }
 
+
   public SecurityInfoRequestDto folderIds(@javax.annotation.Nullable List<DuplicateRequestDtoAllOfFileIds> folderIds) {
     this.folderIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>of(folderIds);
     

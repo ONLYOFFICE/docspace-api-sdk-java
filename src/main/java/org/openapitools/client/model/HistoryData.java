@@ -59,6 +59,7 @@ public class HistoryData {
     this.initiatorName = initiatorName == null ? JsonNullable.<String>undefined() : JsonNullable.of(initiatorName);
   }
 
+
   /**
    * The name of the action initiator.
    * @return initiatorName

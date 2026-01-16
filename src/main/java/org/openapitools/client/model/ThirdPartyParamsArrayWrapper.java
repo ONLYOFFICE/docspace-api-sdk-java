@@ -70,6 +70,7 @@ public class ThirdPartyParamsArrayWrapper {
   public ThirdPartyParamsArrayWrapper() {
   }
 
+
   public ThirdPartyParamsArrayWrapper response(@javax.annotation.Nullable List<ThirdPartyParams> response) {
     
     this.response = response;

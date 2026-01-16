@@ -54,6 +54,7 @@ public class OwnerChangeInstructionsDto {
   public OwnerChangeInstructionsDto() {
   }
 
+
   public OwnerChangeInstructionsDto status(@javax.annotation.Nullable Integer status) {
     
     this.status = status;

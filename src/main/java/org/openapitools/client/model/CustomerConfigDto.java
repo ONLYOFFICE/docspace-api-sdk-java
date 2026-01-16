@@ -74,6 +74,7 @@ public class CustomerConfigDto {
   public CustomerConfigDto() {
   }
 
+
   public CustomerConfigDto address(@javax.annotation.Nullable String address) {
     this.address = JsonNullable.<String>of(address);
     

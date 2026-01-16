@@ -45,6 +45,7 @@ public class FileOperationRequestBaseDto {
   public FileOperationRequestBaseDto() {
   }
 
+
   public FileOperationRequestBaseDto returnSingleOperation(@javax.annotation.Nullable Boolean returnSingleOperation) {
     
     this.returnSingleOperation = returnSingleOperation;

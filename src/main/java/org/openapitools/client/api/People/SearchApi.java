@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapitools.client.api;
+package org.openapitools.client.api.People;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -148,7 +148,7 @@ public class SearchApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("area", area));
     localVarQueryParameterBaseName = "employeeTypes";
     for (int i=0; i < employeeTypes.size(); i++) {
-      localVarQueryStringJoiner.add(employeeTypes.get(i).toUrlQueryString(String.format("employeeTypes[%d]", i)));
+      localVarQueryStringJoiner.add(String.format(java.util.Locale.ROOT, "employeeTypes[%d]=%s", i, apiClient.parameterToString(employeeTypes.get(i))));
     }
     localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
     localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
@@ -271,7 +271,7 @@ public class SearchApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("area", area));
     localVarQueryParameterBaseName = "employeeTypes";
     for (int i=0; i < employeeTypes.size(); i++) {
-      localVarQueryStringJoiner.add(employeeTypes.get(i).toUrlQueryString(String.format("employeeTypes[%d]", i)));
+      localVarQueryStringJoiner.add(String.format(java.util.Locale.ROOT, "employeeTypes[%d]=%s", i, apiClient.parameterToString(employeeTypes.get(i))));
     }
     localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
     localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
@@ -394,7 +394,7 @@ public class SearchApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("area", area));
     localVarQueryParameterBaseName = "employeeTypes";
     for (int i=0; i < employeeTypes.size(); i++) {
-      localVarQueryStringJoiner.add(employeeTypes.get(i).toUrlQueryString(String.format("employeeTypes[%d]", i)));
+      localVarQueryStringJoiner.add(String.format(java.util.Locale.ROOT, "employeeTypes[%d]=%s", i, apiClient.parameterToString(employeeTypes.get(i))));
     }
     localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
     localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
@@ -612,7 +612,7 @@ public class SearchApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("employeeType", employeeType));
     localVarQueryParameterBaseName = "employeeTypes";
     for (int i=0; i < employeeTypes.size(); i++) {
-      localVarQueryStringJoiner.add(employeeTypes.get(i).toUrlQueryString(String.format("employeeTypes[%d]", i)));
+      localVarQueryStringJoiner.add(String.format(java.util.Locale.ROOT, "employeeTypes[%d]=%s", i, apiClient.parameterToString(employeeTypes.get(i))));
     }
     localVarQueryParams.addAll(apiClient.parameterToPair("isAdministrator", isAdministrator));
     localVarQueryParams.addAll(apiClient.parameterToPair("payments", payments));
@@ -631,7 +631,7 @@ public class SearchApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
       
     if (this.fields != null)
-      localVarHeaderParams.put.Add("fields", this.fields);
+      localVarHeaderParams.put("fields", this.fields);
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -748,7 +748,7 @@ public class SearchApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("area", area));
     localVarQueryParameterBaseName = "employeeTypes";
     for (int i=0; i < employeeTypes.size(); i++) {
-      localVarQueryStringJoiner.add(employeeTypes.get(i).toUrlQueryString(String.format("employeeTypes[%d]", i)));
+      localVarQueryStringJoiner.add(String.format(java.util.Locale.ROOT, "employeeTypes[%d]=%s", i, apiClient.parameterToString(employeeTypes.get(i))));
     }
     localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
     localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
@@ -871,7 +871,7 @@ public class SearchApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("area", area));
     localVarQueryParameterBaseName = "employeeTypes";
     for (int i=0; i < employeeTypes.size(); i++) {
-      localVarQueryStringJoiner.add(employeeTypes.get(i).toUrlQueryString(String.format("employeeTypes[%d]", i)));
+      localVarQueryStringJoiner.add(String.format(java.util.Locale.ROOT, "employeeTypes[%d]=%s", i, apiClient.parameterToString(employeeTypes.get(i))));
     }
     localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
     localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
@@ -994,7 +994,7 @@ public class SearchApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("area", area));
     localVarQueryParameterBaseName = "employeeTypes";
     for (int i=0; i < employeeTypes.size(); i++) {
-      localVarQueryStringJoiner.add(employeeTypes.get(i).toUrlQueryString(String.format("employeeTypes[%d]", i)));
+      localVarQueryStringJoiner.add(String.format(java.util.Locale.ROOT, "employeeTypes[%d]=%s", i, apiClient.parameterToString(employeeTypes.get(i))));
     }
     localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
     localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
@@ -1122,7 +1122,7 @@ public class SearchApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("employeeType", employeeType));
     localVarQueryParameterBaseName = "employeeTypes";
     for (int i=0; i < employeeTypes.size(); i++) {
-      localVarQueryStringJoiner.add(employeeTypes.get(i).toUrlQueryString(String.format("employeeTypes[%d]", i)));
+      localVarQueryStringJoiner.add(String.format(java.util.Locale.ROOT, "employeeTypes[%d]=%s", i, apiClient.parameterToString(employeeTypes.get(i))));
     }
     localVarQueryParams.addAll(apiClient.parameterToPair("isAdministrator", isAdministrator));
     localVarQueryParams.addAll(apiClient.parameterToPair("payments", payments));
@@ -1141,7 +1141,7 @@ public class SearchApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
       
     if (this.fields != null)
-      localVarHeaderParams.put.Add("fields", this.fields);
+      localVarHeaderParams.put("fields", this.fields);
 
     localVarHeaderParams.putAll(additionalHeaders);
 

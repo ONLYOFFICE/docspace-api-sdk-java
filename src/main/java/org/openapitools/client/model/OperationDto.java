@@ -100,6 +100,7 @@ public class OperationDto {
   public OperationDto() {
   }
 
+
   public OperationDto date(@javax.annotation.Nullable ApiDateTime date) {
     
     this.date = date;

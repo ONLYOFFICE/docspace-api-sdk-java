@@ -70,6 +70,7 @@ public class FormsItemArrayWrapper {
   public FormsItemArrayWrapper() {
   }
 
+
   public FormsItemArrayWrapper response(@javax.annotation.Nullable List<FormsItemDto> response) {
     
     this.response = response;

@@ -79,6 +79,7 @@ public class InfoConfigDto {
   public InfoConfigDto() {
   }
 
+
   public InfoConfigDto favorite(@javax.annotation.Nullable Boolean favorite) {
     this.favorite = JsonNullable.<Boolean>of(favorite);
     

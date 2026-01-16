@@ -86,6 +86,7 @@ public class CultureSpecificExternalResources {
   public CultureSpecificExternalResources() {
   }
 
+
   public CultureSpecificExternalResources api(@javax.annotation.Nullable CultureSpecificExternalResource api) {
     
     this.api = api;

@@ -70,6 +70,7 @@ public class FileIntegerArrayWrapper {
   public FileIntegerArrayWrapper() {
   }
 
+
   public FileIntegerArrayWrapper response(@javax.annotation.Nullable List<FileDtoInteger> response) {
     
     this.response = response;

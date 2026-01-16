@@ -70,6 +70,7 @@ public class LoginEventArrayWrapper {
   public LoginEventArrayWrapper() {
   }
 
+
   public LoginEventArrayWrapper response(@javax.annotation.Nullable List<LoginEventDto> response) {
     
     this.response = response;

@@ -70,6 +70,7 @@ public class TenantBannerSettingsWrapper {
   public TenantBannerSettingsWrapper() {
   }
 
+
   public TenantBannerSettingsWrapper response(@javax.annotation.Nullable TenantBannerSettings response) {
     
     this.response = response;

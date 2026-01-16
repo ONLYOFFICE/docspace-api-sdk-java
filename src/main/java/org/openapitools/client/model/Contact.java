@@ -54,6 +54,7 @@ public class Contact {
   public Contact() {
   }
 
+
   public Contact type(@javax.annotation.Nullable String type) {
     this.type = JsonNullable.<String>of(type);
     

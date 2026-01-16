@@ -81,6 +81,7 @@ public class EmbeddedConfig {
     this.toolbarDocked = toolbarDocked == null ? JsonNullable.<String>undefined() : JsonNullable.of(toolbarDocked);
   }
 
+
   public EmbeddedConfig embedUrl(@javax.annotation.Nullable String embedUrl) {
     this.embedUrl = JsonNullable.<String>of(embedUrl);
     

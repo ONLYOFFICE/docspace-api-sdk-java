@@ -80,6 +80,7 @@ public class CompanyWhiteLabelSettingsDto {
   public CompanyWhiteLabelSettingsDto() {
   }
 
+
   public CompanyWhiteLabelSettingsDto companyName(@javax.annotation.Nullable String companyName) {
     
     this.companyName = companyName;

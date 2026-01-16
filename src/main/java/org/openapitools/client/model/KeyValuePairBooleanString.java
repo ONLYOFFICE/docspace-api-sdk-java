@@ -54,6 +54,7 @@ public class KeyValuePairBooleanString {
   public KeyValuePairBooleanString() {
   }
 
+
   public KeyValuePairBooleanString key(@javax.annotation.Nullable Boolean key) {
     
     this.key = key;

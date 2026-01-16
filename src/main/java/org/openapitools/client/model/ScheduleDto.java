@@ -79,6 +79,7 @@ public class ScheduleDto {
   public ScheduleDto() {
   }
 
+
   public ScheduleDto storageType(@javax.annotation.Nonnull BackupStorageType storageType) {
     
     this.storageType = storageType;

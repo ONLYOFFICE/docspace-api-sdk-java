@@ -70,6 +70,7 @@ public class FilesSettingsWrapper {
   public FilesSettingsWrapper() {
   }
 
+
   public FilesSettingsWrapper response(@javax.annotation.Nullable FilesSettingsDto response) {
     
     this.response = response;

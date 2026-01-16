@@ -59,6 +59,7 @@ public class ReviewConfig {
     this.reviewDisplay = reviewDisplay == null ? JsonNullable.<String>undefined() : JsonNullable.of(reviewDisplay);
   }
 
+
   /**
    * Get reviewDisplay
    * @return reviewDisplay

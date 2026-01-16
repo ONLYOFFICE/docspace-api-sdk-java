@@ -228,6 +228,7 @@ public class FileEntryDtoString {
   public FileEntryDtoString() {
   }
 
+
   public FileEntryDtoString title(@javax.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
     

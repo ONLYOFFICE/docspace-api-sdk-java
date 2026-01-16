@@ -186,6 +186,7 @@ public class TenantDto {
     this.statusChangeDate = statusChangeDate;
   }
 
+
   public TenantDto affiliateId(@javax.annotation.Nullable String affiliateId) {
     this.affiliateId = JsonNullable.<String>of(affiliateId);
     

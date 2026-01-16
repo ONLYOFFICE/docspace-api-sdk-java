@@ -69,6 +69,7 @@ public class StringWrapper {
   public StringWrapper() {
   }
 
+
   public StringWrapper response(@javax.annotation.Nullable String response) {
     
     this.response = response;

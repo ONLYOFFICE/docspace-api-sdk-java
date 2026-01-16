@@ -55,6 +55,7 @@ public class MigratingApiFiles {
   public MigratingApiFiles() {
   }
 
+
   public MigratingApiFiles foldersCount(@javax.annotation.Nullable Integer foldersCount) {
     
     this.foldersCount = foldersCount;

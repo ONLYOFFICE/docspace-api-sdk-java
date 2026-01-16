@@ -109,6 +109,7 @@ public class TenantWalletServiceSettings {
   public TenantWalletServiceSettings() {
   }
 
+
   public TenantWalletServiceSettings enabledServices(@javax.annotation.Nullable List<EnabledServicesEnum> enabledServices) {
     this.enabledServices = JsonNullable.<List<EnabledServicesEnum>>of(enabledServices);
     

@@ -3139,7 +3139,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9079; // Integer | The room ID.
+        Integer id = 9846; // Integer | The room ID.
         try {
             DocumentBuilderTaskWrapper result = apiInstance.startRoomIndexExport(id);
             System.out.println(result);
@@ -3514,7 +3514,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9079; // Integer | The room ID.
+        Integer id = 9846; // Integer | The room ID.
         UpdateRoomRequest updateRoomRequest = new UpdateRoomRequest(); // UpdateRoomRequest | The request parameters for updating a room.
         try {
             FolderIntegerWrapper result = apiInstance.updateRoom(id, updateRoomRequest);

@@ -82,6 +82,7 @@ public class ContentType {
     this.parameters = parameters == null ? JsonNullable.<List<Object>>undefined() : JsonNullable.of(parameters);
   }
 
+
   public ContentType boundary(@javax.annotation.Nullable String boundary) {
     this.boundary = JsonNullable.<String>of(boundary);
     

@@ -268,6 +268,7 @@ public class SettingsDto {
   public SettingsDto() {
   }
 
+
   public SettingsDto timezone(@javax.annotation.Nullable String timezone) {
     this.timezone = JsonNullable.<String>of(timezone);
     

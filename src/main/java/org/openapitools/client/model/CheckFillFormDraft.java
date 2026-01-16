@@ -76,6 +76,7 @@ public class CheckFillFormDraft {
     this.requestEmbedded = requestEmbedded;
   }
 
+
   public CheckFillFormDraft version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;

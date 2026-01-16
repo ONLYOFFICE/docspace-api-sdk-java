@@ -56,6 +56,7 @@ public class PageableModificationResponse {
   public PageableModificationResponse() {
   }
 
+
   public PageableModificationResponse data(@javax.annotation.Nullable Object data) {
     
     this.data = data;

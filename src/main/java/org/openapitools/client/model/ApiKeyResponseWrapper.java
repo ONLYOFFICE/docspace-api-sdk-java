@@ -70,6 +70,7 @@ public class ApiKeyResponseWrapper {
   public ApiKeyResponseWrapper() {
   }
 
+
   public ApiKeyResponseWrapper response(@javax.annotation.Nullable ApiKeyResponseDto response) {
     
     this.response = response;

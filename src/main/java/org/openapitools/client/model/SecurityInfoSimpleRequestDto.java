@@ -63,6 +63,7 @@ public class SecurityInfoSimpleRequestDto {
   public SecurityInfoSimpleRequestDto() {
   }
 
+
   public SecurityInfoSimpleRequestDto share(@javax.annotation.Nullable List<FileShareParams> share) {
     this.share = JsonNullable.<List<FileShareParams>>of(share);
     

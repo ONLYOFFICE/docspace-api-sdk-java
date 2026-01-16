@@ -68,6 +68,7 @@ public class BackupHistoryRecord {
   public BackupHistoryRecord() {
   }
 
+
   public BackupHistoryRecord id(@javax.annotation.Nonnull UUID id) {
     
     this.id = id;

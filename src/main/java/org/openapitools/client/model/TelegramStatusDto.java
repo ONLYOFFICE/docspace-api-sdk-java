@@ -55,6 +55,7 @@ public class TelegramStatusDto {
   public TelegramStatusDto() {
   }
 
+
   public TelegramStatusDto status(@javax.annotation.Nonnull RegStatus status) {
     
     this.status = status;

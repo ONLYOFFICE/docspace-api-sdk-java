@@ -70,6 +70,7 @@ public class RoomSecurityWrapper {
   public RoomSecurityWrapper() {
   }
 
+
   public RoomSecurityWrapper response(@javax.annotation.Nullable RoomSecurityDto response) {
     
     this.response = response;

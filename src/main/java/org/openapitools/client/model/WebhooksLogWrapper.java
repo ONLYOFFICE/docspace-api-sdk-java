@@ -70,6 +70,7 @@ public class WebhooksLogWrapper {
   public WebhooksLogWrapper() {
   }
 
+
   public WebhooksLogWrapper response(@javax.annotation.Nullable WebhooksLogDto response) {
     
     this.response = response;

@@ -45,6 +45,7 @@ public class ChangeClientActivationRequest {
   public ChangeClientActivationRequest() {
   }
 
+
   public ChangeClientActivationRequest status(@javax.annotation.Nonnull Boolean status) {
     
     this.status = status;

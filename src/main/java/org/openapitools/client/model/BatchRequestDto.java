@@ -91,6 +91,7 @@ public class BatchRequestDto {
   public BatchRequestDto() {
   }
 
+
   public BatchRequestDto returnSingleOperation(@javax.annotation.Nullable Boolean returnSingleOperation) {
     
     this.returnSingleOperation = returnSingleOperation;

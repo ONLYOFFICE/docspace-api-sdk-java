@@ -70,6 +70,7 @@ public class AuthServiceRequestsArrayWrapper {
   public AuthServiceRequestsArrayWrapper() {
   }
 
+
   public AuthServiceRequestsArrayWrapper response(@javax.annotation.Nullable List<AuthServiceRequestsDto> response) {
     
     this.response = response;

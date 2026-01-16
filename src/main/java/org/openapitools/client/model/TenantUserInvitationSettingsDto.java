@@ -50,6 +50,7 @@ public class TenantUserInvitationSettingsDto {
   public TenantUserInvitationSettingsDto() {
   }
 
+
   public TenantUserInvitationSettingsDto allowInvitingMembers(@javax.annotation.Nonnull Boolean allowInvitingMembers) {
     
     this.allowInvitingMembers = allowInvitingMembers;

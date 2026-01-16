@@ -56,6 +56,7 @@ public class OrdersItemRequestDtoInteger {
   public OrdersItemRequestDtoInteger() {
   }
 
+
   public OrdersItemRequestDtoInteger entryId(@javax.annotation.Nonnull Integer entryId) {
     
     this.entryId = entryId;

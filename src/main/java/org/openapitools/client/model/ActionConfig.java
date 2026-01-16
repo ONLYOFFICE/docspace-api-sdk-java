@@ -54,6 +54,7 @@ public class ActionConfig {
   public ActionConfig() {
   }
 
+
   public ActionConfig data(@javax.annotation.Nullable String data) {
     this.data = JsonNullable.<String>of(data);
     

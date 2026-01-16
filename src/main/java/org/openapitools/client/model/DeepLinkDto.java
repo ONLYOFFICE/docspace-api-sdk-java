@@ -55,6 +55,7 @@ public class DeepLinkDto {
   public DeepLinkDto() {
   }
 
+
   public DeepLinkDto androidPackageName(@javax.annotation.Nullable String androidPackageName) {
     
     this.androidPackageName = androidPackageName;

@@ -51,6 +51,7 @@ public class NotificationSettingsRequestsDto {
   public NotificationSettingsRequestsDto() {
   }
 
+
   public NotificationSettingsRequestsDto type(@javax.annotation.Nonnull NotificationType type) {
     
     this.type = type;

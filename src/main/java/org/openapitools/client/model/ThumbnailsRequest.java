@@ -69,6 +69,7 @@ public class ThumbnailsRequest {
   public ThumbnailsRequest() {
   }
 
+
   public ThumbnailsRequest tmpFile(@javax.annotation.Nullable String tmpFile) {
     this.tmpFile = JsonNullable.<String>of(tmpFile);
     

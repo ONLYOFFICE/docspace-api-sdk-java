@@ -46,6 +46,7 @@ public class OwnerIdSettingsRequestDto {
   public OwnerIdSettingsRequestDto() {
   }
 
+
   public OwnerIdSettingsRequestDto ownerId(@javax.annotation.Nonnull UUID ownerId) {
     
     this.ownerId = ownerId;

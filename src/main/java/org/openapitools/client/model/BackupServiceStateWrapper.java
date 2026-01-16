@@ -70,6 +70,7 @@ public class BackupServiceStateWrapper {
   public BackupServiceStateWrapper() {
   }
 
+
   public BackupServiceStateWrapper response(@javax.annotation.Nullable BackupServiceStateDto response) {
     
     this.response = response;

@@ -51,6 +51,7 @@ public class CurrentLicenseInfo {
   public CurrentLicenseInfo() {
   }
 
+
   public CurrentLicenseInfo trial(@javax.annotation.Nonnull Boolean trial) {
     
     this.trial = trial;

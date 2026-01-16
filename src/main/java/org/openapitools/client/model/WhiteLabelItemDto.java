@@ -67,6 +67,7 @@ public class WhiteLabelItemDto {
   public WhiteLabelItemDto() {
   }
 
+
   public WhiteLabelItemDto type(@javax.annotation.Nullable WhiteLabelLogoType type) {
     
     this.type = type;

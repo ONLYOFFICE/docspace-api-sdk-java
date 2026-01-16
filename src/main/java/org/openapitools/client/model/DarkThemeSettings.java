@@ -52,6 +52,7 @@ public class DarkThemeSettings {
   public DarkThemeSettings() {
   }
 
+
   public DarkThemeSettings theme(@javax.annotation.Nullable DarkThemeSettingsType theme) {
     
     this.theme = theme;

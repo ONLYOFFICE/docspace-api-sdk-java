@@ -70,6 +70,7 @@ public class AuthenticationTokenWrapper {
   public AuthenticationTokenWrapper() {
   }
 
+
   public AuthenticationTokenWrapper response(@javax.annotation.Nullable AuthenticationTokenDto response) {
     
     this.response = response;

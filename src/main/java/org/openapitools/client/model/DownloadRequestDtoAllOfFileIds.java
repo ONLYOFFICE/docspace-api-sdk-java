@@ -37,6 +37,7 @@ public class DownloadRequestDtoAllOfFileIds {
   public DownloadRequestDtoAllOfFileIds() {
   }
 
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {

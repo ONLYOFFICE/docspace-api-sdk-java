@@ -64,6 +64,7 @@ public class BaseBatchRequestDto {
   public BaseBatchRequestDto() {
   }
 
+
   public BaseBatchRequestDto returnSingleOperation(@javax.annotation.Nullable Boolean returnSingleOperation) {
     
     this.returnSingleOperation = returnSingleOperation;

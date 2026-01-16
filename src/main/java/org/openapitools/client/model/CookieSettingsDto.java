@@ -50,6 +50,7 @@ public class CookieSettingsDto {
   public CookieSettingsDto() {
   }
 
+
   public CookieSettingsDto lifeTime(@javax.annotation.Nonnull Integer lifeTime) {
     
     this.lifeTime = lifeTime;

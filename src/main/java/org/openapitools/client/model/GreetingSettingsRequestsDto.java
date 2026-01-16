@@ -45,6 +45,7 @@ public class GreetingSettingsRequestsDto {
   public GreetingSettingsRequestsDto() {
   }
 
+
   public GreetingSettingsRequestsDto title(@javax.annotation.Nullable String title) {
     
     this.title = title;

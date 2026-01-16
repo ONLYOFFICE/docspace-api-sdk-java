@@ -93,6 +93,7 @@ public class MentionWrapper {
     this.name = name == null ? JsonNullable.<String>undefined() : JsonNullable.of(name);
   }
 
+
   public MentionWrapper user(@javax.annotation.Nullable UserInfo user) {
     
     this.user = user;

@@ -64,6 +64,7 @@ public class RoomSecurityDto {
   public RoomSecurityDto() {
   }
 
+
   public RoomSecurityDto members(@javax.annotation.Nullable List<FileShareDto> members) {
     this.members = JsonNullable.<List<FileShareDto>>of(members);
     

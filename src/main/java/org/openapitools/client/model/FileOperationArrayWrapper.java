@@ -70,6 +70,7 @@ public class FileOperationArrayWrapper {
   public FileOperationArrayWrapper() {
   }
 
+
   public FileOperationArrayWrapper response(@javax.annotation.Nullable List<FileOperationDto> response) {
     
     this.response = response;

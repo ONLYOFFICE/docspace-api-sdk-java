@@ -65,6 +65,7 @@ public class RoomDataLifetimeDto {
   public RoomDataLifetimeDto() {
   }
 
+
   public RoomDataLifetimeDto deletePermanently(@javax.annotation.Nullable Boolean deletePermanently) {
     
     this.deletePermanently = deletePermanently;

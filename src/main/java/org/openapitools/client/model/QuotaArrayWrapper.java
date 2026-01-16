@@ -70,6 +70,7 @@ public class QuotaArrayWrapper {
   public QuotaArrayWrapper() {
   }
 
+
   public QuotaArrayWrapper response(@javax.annotation.Nullable List<QuotaDto> response) {
     
     this.response = response;

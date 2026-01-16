@@ -134,6 +134,7 @@ public class MigrationApiInfo {
   public MigrationApiInfo() {
   }
 
+
   public MigrationApiInfo migratorName(@javax.annotation.Nullable String migratorName) {
     this.migratorName = JsonNullable.<String>of(migratorName);
     

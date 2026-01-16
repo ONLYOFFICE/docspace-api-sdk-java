@@ -45,6 +45,7 @@ public class BackupServiceStateDto {
   public BackupServiceStateDto() {
   }
 
+
   public BackupServiceStateDto enabled(@javax.annotation.Nullable Boolean enabled) {
     
     this.enabled = enabled;

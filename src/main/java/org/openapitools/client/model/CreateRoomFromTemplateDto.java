@@ -115,6 +115,7 @@ public class CreateRoomFromTemplateDto {
   public CreateRoomFromTemplateDto() {
   }
 
+
   public CreateRoomFromTemplateDto templateId(@javax.annotation.Nonnull Integer templateId) {
     
     this.templateId = templateId;

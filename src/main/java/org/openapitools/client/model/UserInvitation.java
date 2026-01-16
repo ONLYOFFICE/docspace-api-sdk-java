@@ -58,6 +58,7 @@ public class UserInvitation {
   public UserInvitation() {
   }
 
+
   public UserInvitation usersIds(@javax.annotation.Nullable List<UUID> usersIds) {
     this.usersIds = JsonNullable.<List<UUID>>of(usersIds);
     

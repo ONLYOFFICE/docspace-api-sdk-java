@@ -70,6 +70,7 @@ public class TenantQuotaSettingsWrapper {
   public TenantQuotaSettingsWrapper() {
   }
 
+
   public TenantQuotaSettingsWrapper response(@javax.annotation.Nullable TenantQuotaSettings response) {
     
     this.response = response;

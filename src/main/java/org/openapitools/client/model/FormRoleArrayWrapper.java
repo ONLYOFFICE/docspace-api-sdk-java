@@ -70,6 +70,7 @@ public class FormRoleArrayWrapper {
   public FormRoleArrayWrapper() {
   }
 
+
   public FormRoleArrayWrapper response(@javax.annotation.Nullable List<FormRoleDto> response) {
     
     this.response = response;

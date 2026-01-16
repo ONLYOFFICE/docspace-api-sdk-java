@@ -59,6 +59,7 @@ public class UploadResultDto {
   public UploadResultDto() {
   }
 
+
   public UploadResultDto success(@javax.annotation.Nullable Boolean success) {
     
     this.success = success;

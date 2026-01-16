@@ -90,6 +90,7 @@ public class UploadRequestDto {
   public UploadRequestDto() {
   }
 
+
   public UploadRequestDto _file(@javax.annotation.Nullable File _file) {
     this._file = JsonNullable.<File>of(_file);
     

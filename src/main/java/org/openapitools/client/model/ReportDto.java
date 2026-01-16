@@ -78,6 +78,7 @@ public class ReportDto {
   public ReportDto() {
   }
 
+
   public ReportDto collection(@javax.annotation.Nullable List<OperationDto> collection) {
     this.collection = JsonNullable.<List<OperationDto>>of(collection);
     

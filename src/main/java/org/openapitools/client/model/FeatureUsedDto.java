@@ -54,6 +54,7 @@ public class FeatureUsedDto {
   public FeatureUsedDto() {
   }
 
+
   public FeatureUsedDto value(@javax.annotation.Nullable Object value) {
     
     this.value = value;

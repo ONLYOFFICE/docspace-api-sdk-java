@@ -70,6 +70,7 @@ public class WebhooksConfigWithStatusArrayWrapper {
   public WebhooksConfigWithStatusArrayWrapper() {
   }
 
+
   public WebhooksConfigWithStatusArrayWrapper response(@javax.annotation.Nullable List<WebhooksConfigWithStatusDto> response) {
     
     this.response = response;

@@ -70,6 +70,7 @@ public class ThumbnailsDataWrapper {
   public ThumbnailsDataWrapper() {
   }
 
+
   public ThumbnailsDataWrapper response(@javax.annotation.Nullable ThumbnailsDataDto response) {
     
     this.response = response;

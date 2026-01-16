@@ -70,6 +70,7 @@ public class FileLinkWrapper {
   public FileLinkWrapper() {
   }
 
+
   public FileLinkWrapper response(@javax.annotation.Nullable FileLink response) {
     
     this.response = response;

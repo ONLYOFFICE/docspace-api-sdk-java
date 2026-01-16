@@ -49,6 +49,7 @@ public class UpdatePhotoMemberRequest {
   public UpdatePhotoMemberRequest() {
   }
 
+
   public UpdatePhotoMemberRequest files(@javax.annotation.Nullable String files) {
     this.files = JsonNullable.<String>of(files);
     

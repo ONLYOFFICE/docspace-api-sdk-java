@@ -81,6 +81,7 @@ public class EditHistoryDataDto {
   public EditHistoryDataDto() {
   }
 
+
   public EditHistoryDataDto changesUrl(@javax.annotation.Nullable URI changesUrl) {
     this.changesUrl = JsonNullable.<URI>of(changesUrl);
     

@@ -28,7 +28,6 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.DistributedTaskStatus;
 import org.openapitools.client.model.FileEntryBaseDto;
 import org.openapitools.client.model.FileOperationType;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -53,8 +52,7 @@ import java.util.StringJoiner;
   FileOperationDto.JSON_PROPERTY_FINISHED,
   FileOperationDto.JSON_PROPERTY_URL,
   FileOperationDto.JSON_PROPERTY_FILES,
-  FileOperationDto.JSON_PROPERTY_FOLDERS,
-  FileOperationDto.JSON_PROPERTY_STATUS
+  FileOperationDto.JSON_PROPERTY_FOLDERS
 })
 
 public class FileOperationDto {
@@ -94,12 +92,9 @@ public class FileOperationDto {
   @javax.annotation.Nullable
   private JsonNullable<List<FileEntryBaseDto>> folders = JsonNullable.<List<FileEntryBaseDto>>undefined();
 
-  public static final String JSON_PROPERTY_STATUS = "status";
-  @javax.annotation.Nullable
-  private DistributedTaskStatus status;
-
   public FileOperationDto() {
   }
+
 
   public FileOperationDto id(@javax.annotation.Nullable String id) {
     
@@ -374,31 +369,6 @@ public class FileOperationDto {
     this.folders = JsonNullable.<List<FileEntryBaseDto>>of(folders);
   }
 
-  public FileOperationDto status(@javax.annotation.Nullable DistributedTaskStatus status) {
-    
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * Get status
-   * @return status
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public DistributedTaskStatus getStatus() {
-    return status;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(@javax.annotation.Nullable DistributedTaskStatus status) {
-    this.status = status;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -416,8 +386,7 @@ public class FileOperationDto {
         Objects.equals(this.finished, fileOperationDto.finished) &&
         equalsNullable(this.url, fileOperationDto.url) &&
         equalsNullable(this.files, fileOperationDto.files) &&
-        equalsNullable(this.folders, fileOperationDto.folders) &&
-        Objects.equals(this.status, fileOperationDto.status);
+        equalsNullable(this.folders, fileOperationDto.folders);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -426,7 +395,7 @@ public class FileOperationDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, operation, progress, error, processed, finished, hashCodeNullable(url), hashCodeNullable(files), hashCodeNullable(folders), status);
+    return Objects.hash(id, operation, progress, error, processed, finished, hashCodeNullable(url), hashCodeNullable(files), hashCodeNullable(folders));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -449,7 +418,6 @@ public class FileOperationDto {
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    folders: ").append(toIndentedString(folders)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -584,16 +552,6 @@ public class FileOperationDto {
           joiner.add(getFolders().get(i).toUrlQueryString(String.format("%sfolders%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
-      }
-    }
-
-    // add `status` to the URL query string
-    if (getStatus() != null) {
-      try {
-        joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
       }
     }
 

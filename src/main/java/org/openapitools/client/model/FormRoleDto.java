@@ -89,6 +89,7 @@ public class FormRoleDto {
   public FormRoleDto() {
   }
 
+
   public FormRoleDto roleName(@javax.annotation.Nullable String roleName) {
     
     this.roleName = roleName;

@@ -70,6 +70,7 @@ public class DocServiceUrlWrapper {
   public DocServiceUrlWrapper() {
   }
 
+
   public DocServiceUrlWrapper response(@javax.annotation.Nullable DocServiceUrlDto response) {
     
     this.response = response;

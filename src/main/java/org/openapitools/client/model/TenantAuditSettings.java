@@ -56,6 +56,7 @@ public class TenantAuditSettings {
   public TenantAuditSettings() {
   }
 
+
   public TenantAuditSettings loginHistoryLifeTime(@javax.annotation.Nullable Integer loginHistoryLifeTime) {
     
     this.loginHistoryLifeTime = loginHistoryLifeTime;

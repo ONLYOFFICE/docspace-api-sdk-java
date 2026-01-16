@@ -56,6 +56,7 @@ public class CultureSpecificExternalResource {
   public CultureSpecificExternalResource() {
   }
 
+
   public CultureSpecificExternalResource domain(@javax.annotation.Nullable String domain) {
     this.domain = JsonNullable.<String>of(domain);
     

@@ -51,6 +51,7 @@ public class EmailActivationSettings {
   public EmailActivationSettings() {
   }
 
+
   public EmailActivationSettings show(@javax.annotation.Nullable Boolean show) {
     
     this.show = show;

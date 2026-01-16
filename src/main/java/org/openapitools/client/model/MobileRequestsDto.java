@@ -49,6 +49,7 @@ public class MobileRequestsDto {
   public MobileRequestsDto() {
   }
 
+
   public MobileRequestsDto mobilePhone(@javax.annotation.Nullable String mobilePhone) {
     this.mobilePhone = JsonNullable.<String>of(mobilePhone);
     

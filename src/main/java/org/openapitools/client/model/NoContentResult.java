@@ -45,6 +45,7 @@ public class NoContentResult {
   public NoContentResult() {
   }
 
+
   public NoContentResult statusCode(@javax.annotation.Nullable Integer statusCode) {
     
     this.statusCode = statusCode;

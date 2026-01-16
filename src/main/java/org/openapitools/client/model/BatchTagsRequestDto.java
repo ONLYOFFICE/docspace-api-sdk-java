@@ -52,6 +52,7 @@ public class BatchTagsRequestDto {
   public BatchTagsRequestDto() {
   }
 
+
   public BatchTagsRequestDto names(@javax.annotation.Nullable List<String> names) {
     this.names = JsonNullable.<List<String>>of(names);
     

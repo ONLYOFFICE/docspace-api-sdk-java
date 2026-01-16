@@ -52,6 +52,7 @@ public class TemplatesRequestDto {
   public TemplatesRequestDto() {
   }
 
+
   public TemplatesRequestDto fileIds(@javax.annotation.Nullable List<Integer> fileIds) {
     this.fileIds = JsonNullable.<List<Integer>>of(fileIds);
     

@@ -52,6 +52,7 @@ public class RoomsNotificationSettingsDto {
   public RoomsNotificationSettingsDto() {
   }
 
+
   public RoomsNotificationSettingsDto disabledRooms(@javax.annotation.Nullable List<Object> disabledRooms) {
     this.disabledRooms = JsonNullable.<List<Object>>of(disabledRooms);
     

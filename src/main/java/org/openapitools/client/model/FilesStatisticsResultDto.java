@@ -66,6 +66,7 @@ public class FilesStatisticsResultDto {
   public FilesStatisticsResultDto() {
   }
 
+
   public FilesStatisticsResultDto myDocumentsUsedSpace(@javax.annotation.Nullable FilesStatisticsFolder myDocumentsUsedSpace) {
     
     this.myDocumentsUsedSpace = myDocumentsUsedSpace;

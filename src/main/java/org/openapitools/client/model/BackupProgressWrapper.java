@@ -70,6 +70,7 @@ public class BackupProgressWrapper {
   public BackupProgressWrapper() {
   }
 
+
   public BackupProgressWrapper response(@javax.annotation.Nullable BackupProgress response) {
     
     this.response = response;

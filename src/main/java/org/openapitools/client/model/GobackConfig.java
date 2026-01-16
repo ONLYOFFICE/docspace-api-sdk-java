@@ -49,6 +49,7 @@ public class GobackConfig {
   public GobackConfig() {
   }
 
+
   public GobackConfig url(@javax.annotation.Nullable String url) {
     this.url = JsonNullable.<String>of(url);
     

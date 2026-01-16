@@ -126,6 +126,7 @@ public class WebPluginDto {
   public WebPluginDto() {
   }
 
+
   public WebPluginDto name(@javax.annotation.Nullable String name) {
     
     this.name = name;

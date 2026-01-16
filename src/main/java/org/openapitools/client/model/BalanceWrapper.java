@@ -70,6 +70,7 @@ public class BalanceWrapper {
   public BalanceWrapper() {
   }
 
+
   public BalanceWrapper response(@javax.annotation.Nullable Balance response) {
     
     this.response = response;

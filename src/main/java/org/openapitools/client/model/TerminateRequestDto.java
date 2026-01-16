@@ -46,6 +46,7 @@ public class TerminateRequestDto {
   public TerminateRequestDto() {
   }
 
+
   public TerminateRequestDto userId(@javax.annotation.Nonnull UUID userId) {
     
     this.userId = userId;

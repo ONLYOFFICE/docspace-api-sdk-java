@@ -70,6 +70,7 @@ public class CustomerInfoWrapper {
   public CustomerInfoWrapper() {
   }
 
+
   public CustomerInfoWrapper response(@javax.annotation.Nullable CustomerInfoDto response) {
     
     this.response = response;

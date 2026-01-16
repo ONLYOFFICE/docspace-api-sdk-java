@@ -101,6 +101,7 @@ public class ActiveConnectionsItemDto {
   public ActiveConnectionsItemDto() {
   }
 
+
   public ActiveConnectionsItemDto id(@javax.annotation.Nonnull Integer id) {
     
     this.id = id;

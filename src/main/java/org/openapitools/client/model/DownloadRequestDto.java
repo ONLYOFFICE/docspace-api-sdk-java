@@ -70,6 +70,7 @@ public class DownloadRequestDto {
   public DownloadRequestDto() {
   }
 
+
   public DownloadRequestDto returnSingleOperation(@javax.annotation.Nullable Boolean returnSingleOperation) {
     
     this.returnSingleOperation = returnSingleOperation;

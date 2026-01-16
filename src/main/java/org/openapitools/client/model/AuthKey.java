@@ -59,6 +59,7 @@ public class AuthKey {
   public AuthKey() {
   }
 
+
   public AuthKey name(@javax.annotation.Nullable String name) {
     
     this.name = name;

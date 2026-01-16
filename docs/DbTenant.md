@@ -13,7 +13,7 @@ The database tenant parameters.
 |**alias** | **String** | The tenant alias. |  [optional] |
 |**mappedDomain** | **String** | Mapped domain |  [optional] |
 |**version** | **Integer** | The tenant version. |  [optional] |
-|**versionChanged** | **OffsetDateTime** | The Version_changed field. |  [optional] |
+|**VersionChangedField** | **OffsetDateTime** | The Version_changed field. |  [optional] |
 |**versionChanged** | **OffsetDateTime** | The date and time when the version was changed. |  [optional] |
 |**language** | **String** | The tenant language. |  [optional] |
 |**timeZone** | **String** | The tenant time zone. |  [optional] |

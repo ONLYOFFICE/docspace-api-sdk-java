@@ -70,6 +70,7 @@ public class CurrenciesArrayWrapper {
   public CurrenciesArrayWrapper() {
   }
 
+
   public CurrenciesArrayWrapper response(@javax.annotation.Nullable List<CurrenciesDto> response) {
     
     this.response = response;

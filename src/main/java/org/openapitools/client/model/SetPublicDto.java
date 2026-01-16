@@ -50,6 +50,7 @@ public class SetPublicDto {
   public SetPublicDto() {
   }
 
+
   public SetPublicDto id(@javax.annotation.Nonnull Integer id) {
     
     this.id = id;

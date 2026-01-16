@@ -70,6 +70,7 @@ public class DocumentBuilderTaskWrapper {
   public DocumentBuilderTaskWrapper() {
   }
 
+
   public DocumentBuilderTaskWrapper response(@javax.annotation.Nullable DocumentBuilderTaskDto response) {
     
     this.response = response;

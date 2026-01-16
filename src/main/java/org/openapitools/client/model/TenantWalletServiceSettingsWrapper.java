@@ -70,6 +70,7 @@ public class TenantWalletServiceSettingsWrapper {
   public TenantWalletServiceSettingsWrapper() {
   }
 
+
   public TenantWalletServiceSettingsWrapper response(@javax.annotation.Nullable TenantWalletServiceSettings response) {
     
     this.response = response;

@@ -70,6 +70,7 @@ public class OwnerChangeInstructionsWrapper {
   public OwnerChangeInstructionsWrapper() {
   }
 
+
   public OwnerChangeInstructionsWrapper response(@javax.annotation.Nullable OwnerChangeInstructionsDto response) {
     
     this.response = response;

@@ -70,6 +70,7 @@ public class LoginSettingsWrapper {
   public LoginSettingsWrapper() {
   }
 
+
   public LoginSettingsWrapper response(@javax.annotation.Nullable LoginSettingsDto response) {
     
     this.response = response;

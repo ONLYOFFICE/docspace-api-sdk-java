@@ -79,6 +79,7 @@ public class ProviderDto {
   public ProviderDto() {
   }
 
+
   public ProviderDto name(@javax.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     

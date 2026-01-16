@@ -70,6 +70,7 @@ public class NoContentResultWrapper {
   public NoContentResultWrapper() {
   }
 
+
   public NoContentResultWrapper response(@javax.annotation.Nullable NoContentResult response) {
     
     this.response = response;

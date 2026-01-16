@@ -61,6 +61,7 @@ public class PageableResponse {
   public PageableResponse() {
   }
 
+
   public PageableResponse data(@javax.annotation.Nullable Object data) {
     
     this.data = data;

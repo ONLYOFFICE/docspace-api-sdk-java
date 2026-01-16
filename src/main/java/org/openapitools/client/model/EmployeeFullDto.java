@@ -296,6 +296,7 @@ public class EmployeeFullDto {
   public EmployeeFullDto() {
   }
 
+
   public EmployeeFullDto id(@javax.annotation.Nullable UUID id) {
     
     this.id = id;

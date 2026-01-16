@@ -80,6 +80,7 @@ public class CreateWebhooksConfigRequestsDto {
   public CreateWebhooksConfigRequestsDto() {
   }
 
+
   public CreateWebhooksConfigRequestsDto name(@javax.annotation.Nonnull String name) {
     
     this.name = name;

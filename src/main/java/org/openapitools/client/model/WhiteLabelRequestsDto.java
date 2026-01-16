@@ -58,6 +58,7 @@ public class WhiteLabelRequestsDto {
   public WhiteLabelRequestsDto() {
   }
 
+
   public WhiteLabelRequestsDto logoText(@javax.annotation.Nullable String logoText) {
     this.logoText = JsonNullable.<String>of(logoText);
     

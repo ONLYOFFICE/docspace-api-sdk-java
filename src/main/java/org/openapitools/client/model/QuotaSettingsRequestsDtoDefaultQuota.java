@@ -37,6 +37,7 @@ public class QuotaSettingsRequestsDtoDefaultQuota {
   public QuotaSettingsRequestsDtoDefaultQuota() {
   }
 
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {

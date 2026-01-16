@@ -70,6 +70,7 @@ public class EmployeeArrayWrapper {
   public EmployeeArrayWrapper() {
   }
 
+
   public EmployeeArrayWrapper response(@javax.annotation.Nullable List<EmployeeDto> response) {
     
     this.response = response;

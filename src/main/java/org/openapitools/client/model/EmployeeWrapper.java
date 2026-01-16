@@ -70,6 +70,7 @@ public class EmployeeWrapper {
   public EmployeeWrapper() {
   }
 
+
   public EmployeeWrapper response(@javax.annotation.Nullable EmployeeDto response) {
     
     this.response = response;

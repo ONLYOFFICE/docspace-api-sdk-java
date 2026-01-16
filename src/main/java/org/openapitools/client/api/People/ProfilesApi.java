@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapitools.client.api;
+package org.openapitools.client.api.People;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -367,7 +367,7 @@ public class ProfilesApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
       
     if (this.fields != null)
-      localVarHeaderParams.put.Add("fields", this.fields);
+      localVarHeaderParams.put("fields", this.fields);
 
     localVarHeaderParams.putAll(additionalHeaders);
 

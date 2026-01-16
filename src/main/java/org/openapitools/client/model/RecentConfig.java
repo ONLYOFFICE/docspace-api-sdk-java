@@ -60,6 +60,7 @@ public class RecentConfig {
   public RecentConfig() {
   }
 
+
   public RecentConfig folder(@javax.annotation.Nullable String folder) {
     this.folder = JsonNullable.<String>of(folder);
     

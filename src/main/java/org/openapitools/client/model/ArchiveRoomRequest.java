@@ -45,6 +45,7 @@ public class ArchiveRoomRequest {
   public ArchiveRoomRequest() {
   }
 
+
   public ArchiveRoomRequest deleteAfter(@javax.annotation.Nullable Boolean deleteAfter) {
     
     this.deleteAfter = deleteAfter;

@@ -50,6 +50,7 @@ public class DeleteFolder {
   public DeleteFolder() {
   }
 
+
   public DeleteFolder deleteAfter(@javax.annotation.Nullable Boolean deleteAfter) {
     
     this.deleteAfter = deleteAfter;

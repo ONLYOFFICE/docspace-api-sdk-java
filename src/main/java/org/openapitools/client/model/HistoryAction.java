@@ -55,6 +55,7 @@ public class HistoryAction {
   public HistoryAction() {
   }
 
+
   public HistoryAction id(@javax.annotation.Nullable MessageAction id) {
     
     this.id = id;

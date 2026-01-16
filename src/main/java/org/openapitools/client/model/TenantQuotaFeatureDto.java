@@ -80,6 +80,7 @@ public class TenantQuotaFeatureDto {
   public TenantQuotaFeatureDto() {
   }
 
+
   public TenantQuotaFeatureDto id(@javax.annotation.Nullable String id) {
     this.id = JsonNullable.<String>of(id);
     

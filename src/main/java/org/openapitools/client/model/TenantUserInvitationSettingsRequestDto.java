@@ -50,6 +50,7 @@ public class TenantUserInvitationSettingsRequestDto {
   public TenantUserInvitationSettingsRequestDto() {
   }
 
+
   public TenantUserInvitationSettingsRequestDto allowInvitingMembers(@javax.annotation.Nullable Boolean allowInvitingMembers) {
     
     this.allowInvitingMembers = allowInvitingMembers;

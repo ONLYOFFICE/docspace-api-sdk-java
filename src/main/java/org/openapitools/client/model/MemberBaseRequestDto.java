@@ -64,6 +64,7 @@ public class MemberBaseRequestDto {
   public MemberBaseRequestDto() {
   }
 
+
   public MemberBaseRequestDto password(@javax.annotation.Nullable String password) {
     this.password = JsonNullable.<String>of(password);
     

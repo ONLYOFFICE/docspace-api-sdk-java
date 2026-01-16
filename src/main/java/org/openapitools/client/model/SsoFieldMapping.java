@@ -74,6 +74,7 @@ public class SsoFieldMapping {
   public SsoFieldMapping() {
   }
 
+
   public SsoFieldMapping firstName(@javax.annotation.Nullable String firstName) {
     this.firstName = JsonNullable.<String>of(firstName);
     

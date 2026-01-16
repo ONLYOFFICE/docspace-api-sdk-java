@@ -70,6 +70,7 @@ public class FillingFormResultIntegerWrapper {
   public FillingFormResultIntegerWrapper() {
   }
 
+
   public FillingFormResultIntegerWrapper response(@javax.annotation.Nullable FillingFormResultDtoInteger response) {
     
     this.response = response;

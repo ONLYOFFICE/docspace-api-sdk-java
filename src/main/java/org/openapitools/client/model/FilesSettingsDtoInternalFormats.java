@@ -91,6 +91,7 @@ public class FilesSettingsDtoInternalFormats {
   public FilesSettingsDtoInternalFormats() {
   }
 
+
   public FilesSettingsDtoInternalFormats unknown(@javax.annotation.Nullable String unknown) {
     
     this.unknown = unknown;

@@ -109,6 +109,7 @@ public class DocumentConfigDto {
   public DocumentConfigDto() {
   }
 
+
   public DocumentConfigDto fileType(@javax.annotation.Nullable String fileType) {
     this.fileType = JsonNullable.<String>of(fileType);
     

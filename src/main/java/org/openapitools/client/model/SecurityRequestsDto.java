@@ -56,6 +56,7 @@ public class SecurityRequestsDto {
   public SecurityRequestsDto() {
   }
 
+
   public SecurityRequestsDto productId(@javax.annotation.Nonnull UUID productId) {
     
     this.productId = productId;

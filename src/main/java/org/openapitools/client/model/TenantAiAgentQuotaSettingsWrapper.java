@@ -70,6 +70,7 @@ public class TenantAiAgentQuotaSettingsWrapper {
   public TenantAiAgentQuotaSettingsWrapper() {
   }
 
+
   public TenantAiAgentQuotaSettingsWrapper response(@javax.annotation.Nullable TenantAiAgentQuotaSettings response) {
     
     this.response = response;

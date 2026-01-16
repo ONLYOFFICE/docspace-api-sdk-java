@@ -60,6 +60,7 @@ public class DownloadRequestItemDto {
   public DownloadRequestItemDto() {
   }
 
+
   public DownloadRequestItemDto key(@javax.annotation.Nonnull DownloadRequestItemDtoKey key) {
     
     this.key = key;

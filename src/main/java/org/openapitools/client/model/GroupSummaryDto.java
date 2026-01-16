@@ -65,6 +65,7 @@ public class GroupSummaryDto {
   public GroupSummaryDto() {
   }
 
+
   public GroupSummaryDto id(@javax.annotation.Nonnull UUID id) {
     
     this.id = id;

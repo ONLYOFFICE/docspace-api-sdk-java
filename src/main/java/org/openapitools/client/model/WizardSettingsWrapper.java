@@ -70,6 +70,7 @@ public class WizardSettingsWrapper {
   public WizardSettingsWrapper() {
   }
 
+
   public WizardSettingsWrapper response(@javax.annotation.Nullable WizardSettings response) {
     
     this.response = response;

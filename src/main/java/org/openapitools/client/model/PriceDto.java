@@ -59,6 +59,7 @@ public class PriceDto {
   public PriceDto() {
   }
 
+
   public PriceDto value(@javax.annotation.Nullable Double value) {
     this.value = JsonNullable.<Double>of(value);
     

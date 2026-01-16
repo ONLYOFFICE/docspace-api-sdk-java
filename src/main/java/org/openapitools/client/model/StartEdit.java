@@ -45,6 +45,7 @@ public class StartEdit {
   public StartEdit() {
   }
 
+
   public StartEdit editingAlone(@javax.annotation.Nullable Boolean editingAlone) {
     
     this.editingAlone = editingAlone;

@@ -70,6 +70,7 @@ public class IPRestrictionArrayWrapper {
   public IPRestrictionArrayWrapper() {
   }
 
+
   public IPRestrictionArrayWrapper response(@javax.annotation.Nullable List<IPRestriction> response) {
     
     this.response = response;

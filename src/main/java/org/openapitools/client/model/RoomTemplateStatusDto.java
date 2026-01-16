@@ -64,6 +64,7 @@ public class RoomTemplateStatusDto {
   public RoomTemplateStatusDto() {
   }
 
+
   public RoomTemplateStatusDto templateId(@javax.annotation.Nonnull Integer templateId) {
     
     this.templateId = templateId;

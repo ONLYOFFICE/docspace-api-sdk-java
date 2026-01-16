@@ -50,6 +50,7 @@ public class LogoCover {
   public LogoCover() {
   }
 
+
   public LogoCover id(@javax.annotation.Nullable String id) {
     
     this.id = id;

@@ -46,6 +46,7 @@ public class DeepLinkConfigurationRequestsDto {
   public DeepLinkConfigurationRequestsDto() {
   }
 
+
   public DeepLinkConfigurationRequestsDto deepLinkSettings(@javax.annotation.Nullable TenantDeepLinkSettings deepLinkSettings) {
     
     this.deepLinkSettings = deepLinkSettings;

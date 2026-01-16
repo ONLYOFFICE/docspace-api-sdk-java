@@ -69,6 +69,7 @@ public class ICompressWrapper {
   public ICompressWrapper() {
   }
 
+
   public ICompressWrapper response(@javax.annotation.Nullable Object response) {
     
     this.response = response;

@@ -65,6 +65,7 @@ public class TenantRoomQuotaSettings {
   public TenantRoomQuotaSettings() {
   }
 
+
   public TenantRoomQuotaSettings enableQuota(@javax.annotation.Nullable Boolean enableQuota) {
     
     this.enableQuota = enableQuota;

@@ -80,6 +80,7 @@ public class SsoCertificate {
   public SsoCertificate() {
   }
 
+
   public SsoCertificate selfSigned(@javax.annotation.Nullable Boolean selfSigned) {
     
     this.selfSigned = selfSigned;

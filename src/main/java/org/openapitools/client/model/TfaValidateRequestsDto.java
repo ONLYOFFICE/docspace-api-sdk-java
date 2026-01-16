@@ -45,6 +45,7 @@ public class TfaValidateRequestsDto {
   public TfaValidateRequestsDto() {
   }
 
+
   public TfaValidateRequestsDto code(@javax.annotation.Nullable String code) {
     
     this.code = code;

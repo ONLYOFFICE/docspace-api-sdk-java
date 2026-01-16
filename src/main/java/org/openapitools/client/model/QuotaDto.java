@@ -112,6 +112,7 @@ public class QuotaDto {
   public QuotaDto() {
   }
 
+
   public QuotaDto id(@javax.annotation.Nonnull Integer id) {
     
     this.id = id;

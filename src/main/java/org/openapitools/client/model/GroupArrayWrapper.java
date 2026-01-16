@@ -70,6 +70,7 @@ public class GroupArrayWrapper {
   public GroupArrayWrapper() {
   }
 
+
   public GroupArrayWrapper response(@javax.annotation.Nullable List<GroupDto> response) {
     
     this.response = response;

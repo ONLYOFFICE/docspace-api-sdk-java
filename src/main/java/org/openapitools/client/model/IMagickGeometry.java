@@ -105,6 +105,7 @@ public class IMagickGeometry {
     this.aspectRatio = aspectRatio;
   }
 
+
   /**
    * Get aspectRatio
    * @return aspectRatio

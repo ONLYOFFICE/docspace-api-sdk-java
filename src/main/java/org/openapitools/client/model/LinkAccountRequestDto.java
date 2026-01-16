@@ -49,6 +49,7 @@ public class LinkAccountRequestDto {
   public LinkAccountRequestDto() {
   }
 
+
   public LinkAccountRequestDto serializedProfile(@javax.annotation.Nullable String serializedProfile) {
     this.serializedProfile = JsonNullable.<String>of(serializedProfile);
     

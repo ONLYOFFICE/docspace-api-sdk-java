@@ -37,6 +37,7 @@ public class BaseBatchRequestDtoAllOfFileIds {
   public BaseBatchRequestDtoAllOfFileIds() {
   }
 
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {

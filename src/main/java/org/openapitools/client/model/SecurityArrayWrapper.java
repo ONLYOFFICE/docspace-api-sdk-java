@@ -70,6 +70,7 @@ public class SecurityArrayWrapper {
   public SecurityArrayWrapper() {
   }
 
+
   public SecurityArrayWrapper response(@javax.annotation.Nullable List<SecurityDto> response) {
     
     this.response = response;

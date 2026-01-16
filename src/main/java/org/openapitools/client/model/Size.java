@@ -50,6 +50,7 @@ public class Size {
   public Size() {
   }
 
+
   public Size height(@javax.annotation.Nullable Integer height) {
     
     this.height = height;

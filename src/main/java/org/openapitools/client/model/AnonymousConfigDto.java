@@ -45,6 +45,7 @@ public class AnonymousConfigDto {
   public AnonymousConfigDto() {
   }
 
+
   public AnonymousConfigDto request(@javax.annotation.Nonnull Boolean request) {
     
     this.request = request;

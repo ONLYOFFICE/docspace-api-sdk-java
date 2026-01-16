@@ -70,6 +70,7 @@ public class NotificationSettingsWrapper {
   public NotificationSettingsWrapper() {
   }
 
+
   public NotificationSettingsWrapper response(@javax.annotation.Nullable NotificationSettingsDto response) {
     
     this.response = response;

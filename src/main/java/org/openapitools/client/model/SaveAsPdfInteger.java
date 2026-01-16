@@ -50,6 +50,7 @@ public class SaveAsPdfInteger {
   public SaveAsPdfInteger() {
   }
 
+
   public SaveAsPdfInteger folderId(@javax.annotation.Nonnull Integer folderId) {
     
     this.folderId = folderId;

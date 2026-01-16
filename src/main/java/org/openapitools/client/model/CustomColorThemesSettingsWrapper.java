@@ -70,6 +70,7 @@ public class CustomColorThemesSettingsWrapper {
   public CustomColorThemesSettingsWrapper() {
   }
 
+
   public CustomColorThemesSettingsWrapper response(@javax.annotation.Nullable CustomColorThemesSettingsDto response) {
     
     this.response = response;

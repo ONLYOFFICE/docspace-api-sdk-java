@@ -45,6 +45,7 @@ public class SsoSettingsRequestsDto {
   public SsoSettingsRequestsDto() {
   }
 
+
   public SsoSettingsRequestsDto serializeSettings(@javax.annotation.Nullable String serializeSettings) {
     
     this.serializeSettings = serializeSettings;

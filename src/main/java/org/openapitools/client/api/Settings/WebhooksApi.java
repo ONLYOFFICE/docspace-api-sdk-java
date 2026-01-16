@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapitools.client.api;
+package org.openapitools.client.api.Settings;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -447,7 +447,7 @@ public class WebhooksApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
       
     if (this.fields != null)
-      localVarHeaderParams.put.Add("fields", this.fields);
+      localVarHeaderParams.put("fields", this.fields);
 
     localVarHeaderParams.putAll(additionalHeaders);
 

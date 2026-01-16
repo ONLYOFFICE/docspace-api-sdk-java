@@ -62,6 +62,7 @@ public class PluginsConfig {
     this.pluginsData = pluginsData == null ? JsonNullable.<List<String>>undefined() : JsonNullable.of(pluginsData);
   }
 
+
   /**
    * The array of absolute URLs to the plugin configuration files.
    * @return pluginsData

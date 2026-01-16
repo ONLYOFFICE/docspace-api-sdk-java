@@ -37,6 +37,7 @@ public class DuplicateRequestDtoAllOfFolderIds {
   public DuplicateRequestDtoAllOfFolderIds() {
   }
 
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {

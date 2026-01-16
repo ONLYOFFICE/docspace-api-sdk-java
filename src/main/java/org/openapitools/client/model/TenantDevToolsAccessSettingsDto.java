@@ -45,6 +45,7 @@ public class TenantDevToolsAccessSettingsDto {
   public TenantDevToolsAccessSettingsDto() {
   }
 
+
   public TenantDevToolsAccessSettingsDto limitedAccessForUsers(@javax.annotation.Nullable Boolean limitedAccessForUsers) {
     
     this.limitedAccessForUsers = limitedAccessForUsers;

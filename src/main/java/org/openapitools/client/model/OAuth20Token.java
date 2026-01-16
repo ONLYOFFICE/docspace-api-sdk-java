@@ -96,6 +96,7 @@ public class OAuth20Token {
     this.isExpired = isExpired;
   }
 
+
   public OAuth20Token accessToken(@javax.annotation.Nullable String accessToken) {
     this.accessToken = JsonNullable.<String>of(accessToken);
     

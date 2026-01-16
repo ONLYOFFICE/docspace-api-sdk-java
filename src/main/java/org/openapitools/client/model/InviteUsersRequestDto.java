@@ -58,6 +58,7 @@ public class InviteUsersRequestDto {
   public InviteUsersRequestDto() {
   }
 
+
   public InviteUsersRequestDto invitations(@javax.annotation.Nonnull List<UserInvitationRequestDto> invitations) {
     
     this.invitations = invitations;

@@ -70,6 +70,7 @@ public class ProductAdministratorWrapper {
   public ProductAdministratorWrapper() {
   }
 
+
   public ProductAdministratorWrapper response(@javax.annotation.Nullable ProductAdministratorDto response) {
     
     this.response = response;

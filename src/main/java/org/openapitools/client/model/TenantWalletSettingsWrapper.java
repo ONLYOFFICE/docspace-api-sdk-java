@@ -46,6 +46,7 @@ public class TenantWalletSettingsWrapper {
   public TenantWalletSettingsWrapper() {
   }
 
+
   public TenantWalletSettingsWrapper settings(@javax.annotation.Nullable TenantWalletSettings settings) {
     
     this.settings = settings;

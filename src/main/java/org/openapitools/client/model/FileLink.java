@@ -60,6 +60,7 @@ public class FileLink {
   public FileLink() {
   }
 
+
   public FileLink filetype(@javax.annotation.Nullable String filetype) {
     
     this.filetype = filetype;

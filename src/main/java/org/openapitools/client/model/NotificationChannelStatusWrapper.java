@@ -70,6 +70,7 @@ public class NotificationChannelStatusWrapper {
   public NotificationChannelStatusWrapper() {
   }
 
+
   public NotificationChannelStatusWrapper response(@javax.annotation.Nullable NotificationChannelStatusDto response) {
     
     this.response = response;

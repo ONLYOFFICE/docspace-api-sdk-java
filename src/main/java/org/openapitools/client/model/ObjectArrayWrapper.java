@@ -69,6 +69,7 @@ public class ObjectArrayWrapper {
   public ObjectArrayWrapper() {
   }
 
+
   public ObjectArrayWrapper response(@javax.annotation.Nullable List<Object> response) {
     
     this.response = response;

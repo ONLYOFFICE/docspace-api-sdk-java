@@ -70,6 +70,7 @@ public class CookieSettingsWrapper {
   public CookieSettingsWrapper() {
   }
 
+
   public CookieSettingsWrapper response(@javax.annotation.Nullable CookieSettingsDto response) {
     
     this.response = response;

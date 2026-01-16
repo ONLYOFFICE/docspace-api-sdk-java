@@ -56,6 +56,7 @@ public class StartReassignRequestDto {
   public StartReassignRequestDto() {
   }
 
+
   public StartReassignRequestDto fromUserId(@javax.annotation.Nonnull UUID fromUserId) {
     
     this.fromUserId = fromUserId;

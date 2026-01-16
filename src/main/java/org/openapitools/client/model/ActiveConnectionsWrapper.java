@@ -70,6 +70,7 @@ public class ActiveConnectionsWrapper {
   public ActiveConnectionsWrapper() {
   }
 
+
   public ActiveConnectionsWrapper response(@javax.annotation.Nullable ActiveConnectionsDto response) {
     
     this.response = response;

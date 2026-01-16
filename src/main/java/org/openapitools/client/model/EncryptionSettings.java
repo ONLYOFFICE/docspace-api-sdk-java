@@ -60,6 +60,7 @@ public class EncryptionSettings {
   public EncryptionSettings() {
   }
 
+
   public EncryptionSettings password(@javax.annotation.Nullable String password) {
     this.password = JsonNullable.<String>of(password);
     

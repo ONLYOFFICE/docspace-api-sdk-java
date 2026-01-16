@@ -114,6 +114,7 @@ public class ClientInfoResponse {
   public ClientInfoResponse() {
   }
 
+
   public ClientInfoResponse name(@javax.annotation.Nullable String name) {
     
     this.name = name;

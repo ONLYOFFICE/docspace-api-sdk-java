@@ -61,6 +61,7 @@ public class ExchangeToken200Response {
   public ExchangeToken200Response() {
   }
 
+
   public ExchangeToken200Response accessToken(@javax.annotation.Nullable String accessToken) {
     
     this.accessToken = accessToken;

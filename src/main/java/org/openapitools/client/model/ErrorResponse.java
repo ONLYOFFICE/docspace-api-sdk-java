@@ -45,6 +45,7 @@ public class ErrorResponse {
   public ErrorResponse() {
   }
 
+
   public ErrorResponse reason(@javax.annotation.Nullable String reason) {
     
     this.reason = reason;

@@ -46,6 +46,7 @@ public class Options {
   public Options() {
   }
 
+
   public Options watermarkOnDraw(@javax.annotation.Nullable WatermarkOnDraw watermarkOnDraw) {
     
     this.watermarkOnDraw = watermarkOnDraw;

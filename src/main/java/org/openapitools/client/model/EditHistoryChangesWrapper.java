@@ -61,6 +61,7 @@ public class EditHistoryChangesWrapper {
   public EditHistoryChangesWrapper() {
   }
 
+
   public EditHistoryChangesWrapper user(@javax.annotation.Nullable EditHistoryAuthor user) {
     
     this.user = user;

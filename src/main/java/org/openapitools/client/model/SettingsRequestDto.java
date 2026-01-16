@@ -45,6 +45,7 @@ public class SettingsRequestDto {
   public SettingsRequestDto() {
   }
 
+
   public SettingsRequestDto set(@javax.annotation.Nullable Boolean set) {
     
     this.set = set;

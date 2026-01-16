@@ -81,6 +81,7 @@ public class HistoryDto {
   public HistoryDto() {
   }
 
+
   public HistoryDto id(@javax.annotation.Nonnull Integer id) {
     
     this.id = id;

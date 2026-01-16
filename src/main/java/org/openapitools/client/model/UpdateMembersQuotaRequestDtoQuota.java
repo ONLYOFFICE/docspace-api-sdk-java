@@ -37,6 +37,7 @@ public class UpdateMembersQuotaRequestDtoQuota {
   public UpdateMembersQuotaRequestDtoQuota() {
   }
 
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {

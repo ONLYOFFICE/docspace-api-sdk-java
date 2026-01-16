@@ -54,6 +54,7 @@ public class SubAccount {
   public SubAccount() {
   }
 
+
   public SubAccount currency(@javax.annotation.Nullable String currency) {
     this.currency = JsonNullable.<String>of(currency);
     

@@ -61,6 +61,7 @@ public class StartUpdateUserTypeDto {
   public StartUpdateUserTypeDto() {
   }
 
+
   public StartUpdateUserTypeDto type(@javax.annotation.Nullable EmployeeType type) {
     
     this.type = type;

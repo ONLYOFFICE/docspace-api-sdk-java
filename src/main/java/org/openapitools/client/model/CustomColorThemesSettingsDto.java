@@ -63,6 +63,7 @@ public class CustomColorThemesSettingsDto {
   public CustomColorThemesSettingsDto() {
   }
 
+
   public CustomColorThemesSettingsDto themes(@javax.annotation.Nullable List<CustomColorThemesSettingsItem> themes) {
     this.themes = JsonNullable.<List<CustomColorThemesSettingsItem>>of(themes);
     

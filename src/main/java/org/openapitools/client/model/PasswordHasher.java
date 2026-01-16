@@ -73,6 +73,7 @@ public class PasswordHasher {
     this.salt = salt == null ? JsonNullable.<String>undefined() : JsonNullable.of(salt);
   }
 
+
   /**
    * Get size
    * @return size

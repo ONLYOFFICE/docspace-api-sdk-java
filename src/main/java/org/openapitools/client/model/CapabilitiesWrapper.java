@@ -70,6 +70,7 @@ public class CapabilitiesWrapper {
   public CapabilitiesWrapper() {
   }
 
+
   public CapabilitiesWrapper response(@javax.annotation.Nullable CapabilitiesDto response) {
     
     this.response = response;

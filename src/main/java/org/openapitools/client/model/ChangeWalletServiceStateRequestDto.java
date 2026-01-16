@@ -51,6 +51,7 @@ public class ChangeWalletServiceStateRequestDto {
   public ChangeWalletServiceStateRequestDto() {
   }
 
+
   public ChangeWalletServiceStateRequestDto service(@javax.annotation.Nullable TenantWalletService service) {
     
     this.service = service;

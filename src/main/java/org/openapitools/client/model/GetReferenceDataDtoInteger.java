@@ -69,6 +69,7 @@ public class GetReferenceDataDtoInteger {
   public GetReferenceDataDtoInteger() {
   }
 
+
   public GetReferenceDataDtoInteger fileKey(@javax.annotation.Nullable String fileKey) {
     
     this.fileKey = fileKey;

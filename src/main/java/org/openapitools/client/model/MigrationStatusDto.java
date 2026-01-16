@@ -65,6 +65,7 @@ public class MigrationStatusDto {
   public MigrationStatusDto() {
   }
 
+
   public MigrationStatusDto progress(@javax.annotation.Nullable Double progress) {
     
     this.progress = progress;

@@ -91,6 +91,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
   public FileDtoIntegerAllOfViewAccessibility() {
   }
 
+
   public FileDtoIntegerAllOfViewAccessibility imageView(@javax.annotation.Nullable Boolean imageView) {
     
     this.imageView = imageView;

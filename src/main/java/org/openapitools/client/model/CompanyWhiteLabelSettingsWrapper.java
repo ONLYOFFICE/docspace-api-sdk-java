@@ -46,6 +46,7 @@ public class CompanyWhiteLabelSettingsWrapper {
   public CompanyWhiteLabelSettingsWrapper() {
   }
 
+
   public CompanyWhiteLabelSettingsWrapper settings(@javax.annotation.Nullable CompanyWhiteLabelSettings settings) {
     
     this.settings = settings;

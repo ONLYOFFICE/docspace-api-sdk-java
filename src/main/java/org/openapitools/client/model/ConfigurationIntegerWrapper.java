@@ -70,6 +70,7 @@ public class ConfigurationIntegerWrapper {
   public ConfigurationIntegerWrapper() {
   }
 
+
   public ConfigurationIntegerWrapper response(@javax.annotation.Nullable ConfigurationDtoInteger response) {
     
     this.response = response;

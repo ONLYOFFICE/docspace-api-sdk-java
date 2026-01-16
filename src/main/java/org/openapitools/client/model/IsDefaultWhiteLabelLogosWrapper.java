@@ -70,6 +70,7 @@ public class IsDefaultWhiteLabelLogosWrapper {
   public IsDefaultWhiteLabelLogosWrapper() {
   }
 
+
   public IsDefaultWhiteLabelLogosWrapper response(@javax.annotation.Nullable IsDefaultWhiteLabelLogosDto response) {
     
     this.response = response;

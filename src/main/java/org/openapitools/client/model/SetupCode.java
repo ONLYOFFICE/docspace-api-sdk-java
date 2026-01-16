@@ -73,6 +73,7 @@ public class SetupCode {
     this.qrCodeSetupImageUrl = qrCodeSetupImageUrl == null ? JsonNullable.<String>undefined() : JsonNullable.of(qrCodeSetupImageUrl);
   }
 
+
   /**
    * Get account
    * @return account

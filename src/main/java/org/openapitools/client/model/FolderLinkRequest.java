@@ -87,6 +87,7 @@ public class FolderLinkRequest {
   public FolderLinkRequest() {
   }
 
+
   public FolderLinkRequest linkId(@javax.annotation.Nullable UUID linkId) {
     
     this.linkId = linkId;

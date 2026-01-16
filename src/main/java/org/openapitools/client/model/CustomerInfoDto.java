@@ -78,6 +78,7 @@ public class CustomerInfoDto {
     this.email = email == null ? JsonNullable.<String>undefined() : JsonNullable.of(email);
   }
 
+
   /**
    * The portal ID.
    * @return portalId

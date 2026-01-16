@@ -64,6 +64,7 @@ public class FileReferenceData {
   public FileReferenceData() {
   }
 
+
   public FileReferenceData fileKey(@javax.annotation.Nullable String fileKey) {
     this.fileKey = JsonNullable.<String>of(fileKey);
     

@@ -107,6 +107,7 @@ public class CustomizationConfigDto {
   public CustomizationConfigDto() {
   }
 
+
   public CustomizationConfigDto about(@javax.annotation.Nullable Boolean about) {
     
     this.about = about;

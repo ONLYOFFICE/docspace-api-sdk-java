@@ -59,6 +59,7 @@ public class AceShortWrapper {
   public AceShortWrapper() {
   }
 
+
   public AceShortWrapper user(@javax.annotation.Nullable String user) {
     this.user = JsonNullable.<String>of(user);
     

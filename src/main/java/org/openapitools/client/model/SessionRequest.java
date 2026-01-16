@@ -75,6 +75,7 @@ public class SessionRequest {
   public SessionRequest() {
   }
 
+
   public SessionRequest fileName(@javax.annotation.Nullable String fileName) {
     
     this.fileName = fileName;

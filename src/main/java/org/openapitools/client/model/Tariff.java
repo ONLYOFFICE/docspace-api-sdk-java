@@ -90,6 +90,7 @@ public class Tariff {
   public Tariff() {
   }
 
+
   public Tariff id(@javax.annotation.Nullable Integer id) {
     
     this.id = id;

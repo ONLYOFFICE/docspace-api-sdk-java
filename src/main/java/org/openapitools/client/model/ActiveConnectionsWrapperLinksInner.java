@@ -51,6 +51,7 @@ public class ActiveConnectionsWrapperLinksInner {
   public ActiveConnectionsWrapperLinksInner() {
   }
 
+
   public ActiveConnectionsWrapperLinksInner href(@javax.annotation.Nullable String href) {
     
     this.href = href;

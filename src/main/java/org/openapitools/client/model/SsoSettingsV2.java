@@ -113,6 +113,7 @@ public class SsoSettingsV2 {
   public SsoSettingsV2() {
   }
 
+
   public SsoSettingsV2 lastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
     
     this.lastModified = lastModified;

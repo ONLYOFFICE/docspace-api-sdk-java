@@ -51,6 +51,7 @@ public class OrderBy {
   public OrderBy() {
   }
 
+
   public OrderBy isAsc(@javax.annotation.Nullable Boolean isAsc) {
     
     this.isAsc = isAsc;

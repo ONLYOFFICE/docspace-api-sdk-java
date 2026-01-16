@@ -70,6 +70,7 @@ public class EditHistoryDataWrapper {
   public EditHistoryDataWrapper() {
   }
 
+
   public EditHistoryDataWrapper response(@javax.annotation.Nullable EditHistoryDataDto response) {
     
     this.response = response;

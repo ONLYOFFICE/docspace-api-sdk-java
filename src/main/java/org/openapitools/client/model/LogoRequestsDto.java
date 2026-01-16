@@ -54,6 +54,7 @@ public class LogoRequestsDto {
   public LogoRequestsDto() {
   }
 
+
   public LogoRequestsDto light(@javax.annotation.Nullable String light) {
     this.light = JsonNullable.<String>of(light);
     

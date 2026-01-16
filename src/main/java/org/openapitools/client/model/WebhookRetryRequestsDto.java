@@ -52,6 +52,7 @@ public class WebhookRetryRequestsDto {
   public WebhookRetryRequestsDto() {
   }
 
+
   public WebhookRetryRequestsDto ids(@javax.annotation.Nullable List<Integer> ids) {
     this.ids = JsonNullable.<List<Integer>>of(ids);
     

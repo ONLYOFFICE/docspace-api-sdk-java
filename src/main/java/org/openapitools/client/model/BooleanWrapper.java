@@ -69,6 +69,7 @@ public class BooleanWrapper {
   public BooleanWrapper() {
   }
 
+
   public BooleanWrapper response(@javax.annotation.Nullable Boolean response) {
     
     this.response = response;

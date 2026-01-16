@@ -86,6 +86,7 @@ public class FileReference {
   public FileReference() {
   }
 
+
   public FileReference referenceData(@javax.annotation.Nullable FileReferenceData referenceData) {
     
     this.referenceData = referenceData;

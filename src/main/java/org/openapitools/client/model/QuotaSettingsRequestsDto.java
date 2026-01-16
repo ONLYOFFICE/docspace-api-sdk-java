@@ -51,6 +51,7 @@ public class QuotaSettingsRequestsDto {
   public QuotaSettingsRequestsDto() {
   }
 
+
   public QuotaSettingsRequestsDto enableQuota(@javax.annotation.Nullable Boolean enableQuota) {
     
     this.enableQuota = enableQuota;

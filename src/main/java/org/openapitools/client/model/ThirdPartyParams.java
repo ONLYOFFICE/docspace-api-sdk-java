@@ -75,6 +75,7 @@ public class ThirdPartyParams {
   public ThirdPartyParams() {
   }
 
+
   public ThirdPartyParams authData(@javax.annotation.Nullable AuthData authData) {
     
     this.authData = authData;

@@ -55,6 +55,7 @@ public class ScopeResponse {
   public ScopeResponse() {
   }
 
+
   public ScopeResponse name(@javax.annotation.Nullable String name) {
     
     this.name = name;

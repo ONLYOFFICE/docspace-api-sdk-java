@@ -79,6 +79,7 @@ public class SsoSpCertificateAdvanced {
   public SsoSpCertificateAdvanced() {
   }
 
+
   public SsoSpCertificateAdvanced signingAlgorithm(@javax.annotation.Nullable String signingAlgorithm) {
     this.signingAlgorithm = JsonNullable.<String>of(signingAlgorithm);
     

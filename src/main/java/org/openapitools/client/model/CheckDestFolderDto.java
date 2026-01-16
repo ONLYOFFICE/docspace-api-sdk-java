@@ -59,6 +59,7 @@ public class CheckDestFolderDto {
   public CheckDestFolderDto() {
   }
 
+
   public CheckDestFolderDto result(@javax.annotation.Nullable CheckDestFolderResult result) {
     
     this.result = result;

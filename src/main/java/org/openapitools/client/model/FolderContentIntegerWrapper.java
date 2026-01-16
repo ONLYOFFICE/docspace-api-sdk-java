@@ -70,6 +70,7 @@ public class FolderContentIntegerWrapper {
   public FolderContentIntegerWrapper() {
   }
 
+
   public FolderContentIntegerWrapper response(@javax.annotation.Nullable FolderContentDtoInteger response) {
     
     this.response = response;

@@ -75,6 +75,7 @@ public class BackupScheduleDto {
   public BackupScheduleDto() {
   }
 
+
   public BackupScheduleDto storageType(@javax.annotation.Nullable BackupStorageType storageType) {
     
     this.storageType = storageType;

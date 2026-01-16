@@ -70,6 +70,7 @@ public class FileReferenceWrapper {
   public FileReferenceWrapper() {
   }
 
+
   public FileReferenceWrapper response(@javax.annotation.Nullable FileReference response) {
     
     this.response = response;

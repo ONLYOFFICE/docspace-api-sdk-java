@@ -121,6 +121,7 @@ public class EditorConfigurationDto {
   public EditorConfigurationDto() {
   }
 
+
   public EditorConfigurationDto callbackUrl(@javax.annotation.Nullable URI callbackUrl) {
     this.callbackUrl = JsonNullable.<URI>of(callbackUrl);
     

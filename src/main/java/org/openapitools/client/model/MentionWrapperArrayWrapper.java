@@ -70,6 +70,7 @@ public class MentionWrapperArrayWrapper {
   public MentionWrapperArrayWrapper() {
   }
 
+
   public MentionWrapperArrayWrapper response(@javax.annotation.Nullable List<MentionWrapper> response) {
     
     this.response = response;

@@ -45,6 +45,7 @@ public class TurnOnAdminMessageSettingsRequestDto {
   public TurnOnAdminMessageSettingsRequestDto() {
   }
 
+
   public TurnOnAdminMessageSettingsRequestDto turnOn(@javax.annotation.Nullable Boolean turnOn) {
     
     this.turnOn = turnOn;

@@ -70,6 +70,7 @@ public class ScheduleWrapper {
   public ScheduleWrapper() {
   }
 
+
   public ScheduleWrapper response(@javax.annotation.Nullable ScheduleDto response) {
     
     this.response = response;

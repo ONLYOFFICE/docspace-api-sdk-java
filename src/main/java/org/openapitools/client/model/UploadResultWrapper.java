@@ -70,6 +70,7 @@ public class UploadResultWrapper {
   public UploadResultWrapper() {
   }
 
+
   public UploadResultWrapper response(@javax.annotation.Nullable UploadResultDto response) {
     
     this.response = response;

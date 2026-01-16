@@ -64,6 +64,7 @@ public class ChangeOwnerRequestDto {
   public ChangeOwnerRequestDto() {
   }
 
+
   public ChangeOwnerRequestDto folderIds(@javax.annotation.Nullable List<BatchRequestDtoAllOfFileIds> folderIds) {
     this.folderIds = JsonNullable.<List<BatchRequestDtoAllOfFileIds>>of(folderIds);
     

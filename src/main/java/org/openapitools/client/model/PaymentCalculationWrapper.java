@@ -70,6 +70,7 @@ public class PaymentCalculationWrapper {
   public PaymentCalculationWrapper() {
   }
 
+
   public PaymentCalculationWrapper response(@javax.annotation.Nullable PaymentCalculation response) {
     
     this.response = response;

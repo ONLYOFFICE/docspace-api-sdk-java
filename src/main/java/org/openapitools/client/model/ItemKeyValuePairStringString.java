@@ -54,6 +54,7 @@ public class ItemKeyValuePairStringString {
   public ItemKeyValuePairStringString() {
   }
 
+
   public ItemKeyValuePairStringString key(@javax.annotation.Nullable String key) {
     this.key = JsonNullable.<String>of(key);
     

@@ -56,6 +56,7 @@ public class AccountInfoDto {
   public AccountInfoDto() {
   }
 
+
   public AccountInfoDto provider(@javax.annotation.Nullable String provider) {
     
     this.provider = provider;

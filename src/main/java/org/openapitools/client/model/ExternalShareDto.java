@@ -112,6 +112,7 @@ public class ExternalShareDto {
   public ExternalShareDto() {
   }
 
+
   public ExternalShareDto status(@javax.annotation.Nonnull Status status) {
     
     this.status = status;

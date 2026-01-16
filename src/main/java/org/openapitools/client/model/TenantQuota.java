@@ -235,6 +235,7 @@ public class TenantQuota {
   public TenantQuota() {
   }
 
+
   public TenantQuota tenantId(@javax.annotation.Nullable Integer tenantId) {
     
     this.tenantId = tenantId;

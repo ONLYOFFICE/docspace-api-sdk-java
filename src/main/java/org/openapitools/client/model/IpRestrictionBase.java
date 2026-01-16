@@ -50,6 +50,7 @@ public class IpRestrictionBase {
   public IpRestrictionBase() {
   }
 
+
   public IpRestrictionBase ip(@javax.annotation.Nullable String ip) {
     
     this.ip = ip;

@@ -19,6 +19,7 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.time.ZoneOffset;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -63,6 +64,28 @@ public class ApiDateTime {
     this.timeZoneOffset = timeZoneOffset;
   }
 
+
+  @JsonCreator
+  public static ApiDateTime fromString(String value) {
+      if (value == null || value.isEmpty()) {
+          return null;
+      }
+
+      OffsetDateTime odt = OffsetDateTime.parse(value);
+
+      ApiDateTime dt = new ApiDateTime();
+      dt.utcTime = odt.withOffsetSameInstant(ZoneOffset.UTC);
+      dt.timeZoneOffset = odt.getOffset().toString();
+
+      return dt;
+  }
+
+  public ApiDateTime utcTime(@javax.annotation.Nullable OffsetDateTime utcTime) {
+    
+    this.utcTime = utcTime;
+    return this;
+  }
+
   /**
    * The time in UTC format.
    * @return utcTime
@@ -76,6 +99,17 @@ public class ApiDateTime {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_UTC_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUtcTime(@javax.annotation.Nullable OffsetDateTime utcTime) {
+    this.utcTime = utcTime;
+  }
+
+  public ApiDateTime timeZoneOffset(@javax.annotation.Nullable String timeZoneOffset) {
+    
+    this.timeZoneOffset = timeZoneOffset;
+    return this;
+  }
 
   /**
    * The time zone offset.
@@ -90,6 +124,11 @@ public class ApiDateTime {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TIME_ZONE_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTimeZoneOffset(@javax.annotation.Nullable String timeZoneOffset) {
+    this.timeZoneOffset = timeZoneOffset;
+  }
 
   @Override
   public boolean equals(Object o) {

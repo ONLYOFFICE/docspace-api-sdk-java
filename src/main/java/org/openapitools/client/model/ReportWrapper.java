@@ -70,6 +70,7 @@ public class ReportWrapper {
   public ReportWrapper() {
   }
 
+
   public ReportWrapper response(@javax.annotation.Nullable ReportDto response) {
     
     this.response = response;

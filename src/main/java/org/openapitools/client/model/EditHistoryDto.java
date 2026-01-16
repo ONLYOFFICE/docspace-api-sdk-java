@@ -95,6 +95,7 @@ public class EditHistoryDto {
   public EditHistoryDto() {
   }
 
+
   public EditHistoryDto id(@javax.annotation.Nullable Integer id) {
     
     this.id = id;

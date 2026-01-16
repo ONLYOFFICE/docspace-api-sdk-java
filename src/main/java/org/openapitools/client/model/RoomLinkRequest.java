@@ -88,6 +88,7 @@ public class RoomLinkRequest {
   public RoomLinkRequest() {
   }
 
+
   public RoomLinkRequest linkId(@javax.annotation.Nullable UUID linkId) {
     
     this.linkId = linkId;

@@ -54,6 +54,7 @@ public class DnsSettingsRequestsDto {
   public DnsSettingsRequestsDto() {
   }
 
+
   public DnsSettingsRequestsDto dnsName(@javax.annotation.Nullable String dnsName) {
     this.dnsName = JsonNullable.<String>of(dnsName);
     

@@ -256,6 +256,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   public FileEntryDtoIntegerAllOfSecurity() {
   }
 
+
   public FileEntryDtoIntegerAllOfSecurity read(@javax.annotation.Nullable Boolean read) {
     
     this.read = read;

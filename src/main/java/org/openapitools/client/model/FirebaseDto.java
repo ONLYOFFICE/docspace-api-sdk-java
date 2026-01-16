@@ -80,6 +80,7 @@ public class FirebaseDto {
   public FirebaseDto() {
   }
 
+
   public FirebaseDto apiKey(@javax.annotation.Nullable String apiKey) {
     
     this.apiKey = apiKey;

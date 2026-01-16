@@ -144,6 +144,7 @@ public class AuditEventDto {
   public AuditEventDto() {
   }
 
+
   public AuditEventDto id(@javax.annotation.Nullable Integer id) {
     
     this.id = id;

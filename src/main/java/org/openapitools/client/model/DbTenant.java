@@ -49,7 +49,7 @@ import java.util.StringJoiner;
   DbTenant.JSON_PROPERTY_ALIAS,
   DbTenant.JSON_PROPERTY_MAPPED_DOMAIN,
   DbTenant.JSON_PROPERTY_VERSION,
-  DbTenant.JSON_PROPERTY_VERSION_CHANGED,
+  DbTenant.JSON_PROPERTY_VERSION_CHANGED_FIELD,
   DbTenant.JSON_PROPERTY_VERSION_CHANGED,
   DbTenant.JSON_PROPERTY_LANGUAGE,
   DbTenant.JSON_PROPERTY_TIME_ZONE,
@@ -88,9 +88,9 @@ public class DbTenant {
   @javax.annotation.Nullable
   private Integer version;
 
-  public static final String JSON_PROPERTY_VERSION_CHANGED = "version_Changed";
+  public static final String JSON_PROPERTY_VERSION_CHANGED_FIELD = "versionChangedField";
   @javax.annotation.Nullable
-  private JsonNullable<OffsetDateTime> versionChanged = JsonNullable.<OffsetDateTime>undefined();
+  private JsonNullable<OffsetDateTime> VersionChangedField = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_VERSION_CHANGED = "versionChanged";
   @javax.annotation.Nullable
@@ -154,6 +154,7 @@ public class DbTenant {
 
   public DbTenant() {
   }
+
 
   public DbTenant id(@javax.annotation.Nullable Integer id) {
     
@@ -304,37 +305,37 @@ public class DbTenant {
     this.version = version;
   }
 
-  public DbTenant versionChanged(@javax.annotation.Nullable OffsetDateTime versionChanged) {
-    this.versionChanged = JsonNullable.<OffsetDateTime>of(versionChanged);
+  public DbTenant VersionChangedField(@javax.annotation.Nullable OffsetDateTime VersionChangedField) {
+    this.VersionChangedField = JsonNullable.<OffsetDateTime>of(VersionChangedField);
     
     return this;
   }
 
   /**
    * The Version_changed field.
-   * @return versionChanged
+   * @return VersionChangedField
    */
   @javax.annotation.Nullable
   @JsonIgnore
 
-  public OffsetDateTime getVersionChanged() {
-        return versionChanged.orElse(null);
+  public OffsetDateTime getVersionChangedField() {
+        return VersionChangedField.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_VERSION_CHANGED)
+  @JsonProperty(JSON_PROPERTY_VERSION_CHANGED_FIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<OffsetDateTime> getVersionChanged_JsonNullable() {
-    return versionChanged;
+  public JsonNullable<OffsetDateTime> getVersionChangedField_JsonNullable() {
+    return VersionChangedField;
   }
   
-  @JsonProperty(JSON_PROPERTY_VERSION_CHANGED)
-  public void setVersionChanged_JsonNullable(JsonNullable<OffsetDateTime> versionChanged) {
-    this.versionChanged = versionChanged;
+  @JsonProperty(JSON_PROPERTY_VERSION_CHANGED_FIELD)
+  public void setVersionChangedField_JsonNullable(JsonNullable<OffsetDateTime> VersionChangedField) {
+    this.VersionChangedField = VersionChangedField;
   }
 
-  public void setVersionChanged(@javax.annotation.Nullable OffsetDateTime versionChanged) {
-    this.versionChanged = JsonNullable.<OffsetDateTime>of(versionChanged);
+  public void setVersionChangedField(@javax.annotation.Nullable OffsetDateTime VersionChangedField) {
+    this.VersionChangedField = JsonNullable.<OffsetDateTime>of(VersionChangedField);
   }
 
   public DbTenant versionChanged(@javax.annotation.Nullable OffsetDateTime versionChanged) {
@@ -774,7 +775,7 @@ public class DbTenant {
         equalsNullable(this.alias, dbTenant.alias) &&
         equalsNullable(this.mappedDomain, dbTenant.mappedDomain) &&
         Objects.equals(this.version, dbTenant.version) &&
-        equalsNullable(this.versionChanged, dbTenant.versionChanged) &&
+        equalsNullable(this.VersionChangedField, dbTenant.VersionChangedField) &&
         Objects.equals(this.versionChanged, dbTenant.versionChanged) &&
         equalsNullable(this.language, dbTenant.language) &&
         equalsNullable(this.timeZone, dbTenant.timeZone) &&
@@ -798,7 +799,7 @@ public class DbTenant {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(name), hashCodeNullable(alias), hashCodeNullable(mappedDomain), version, hashCodeNullable(versionChanged), versionChanged, hashCodeNullable(language), hashCodeNullable(timeZone), hashCodeNullable(trustedDomainsRaw), trustedDomainsEnabled, status, hashCodeNullable(statusChanged), statusChangedHack, creationDateTime, hashCodeNullable(ownerId), hashCodeNullable(paymentId), industry, lastModified, calls, partner);
+    return Objects.hash(id, hashCodeNullable(name), hashCodeNullable(alias), hashCodeNullable(mappedDomain), version, hashCodeNullable(VersionChangedField), versionChanged, hashCodeNullable(language), hashCodeNullable(timeZone), hashCodeNullable(trustedDomainsRaw), trustedDomainsEnabled, status, hashCodeNullable(statusChanged), statusChangedHack, creationDateTime, hashCodeNullable(ownerId), hashCodeNullable(paymentId), industry, lastModified, calls, partner);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -817,7 +818,7 @@ public class DbTenant {
     sb.append("    alias: ").append(toIndentedString(alias)).append("\n");
     sb.append("    mappedDomain: ").append(toIndentedString(mappedDomain)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    versionChanged: ").append(toIndentedString(versionChanged)).append("\n");
+    sb.append("    VersionChangedField: ").append(toIndentedString(VersionChangedField)).append("\n");
     sb.append("    versionChanged: ").append(toIndentedString(versionChanged)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");

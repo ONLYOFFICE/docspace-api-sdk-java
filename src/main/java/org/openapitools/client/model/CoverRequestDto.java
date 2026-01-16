@@ -54,6 +54,7 @@ public class CoverRequestDto {
   public CoverRequestDto() {
   }
 
+
   public CoverRequestDto color(@javax.annotation.Nullable String color) {
     this.color = JsonNullable.<String>of(color);
     

@@ -70,6 +70,7 @@ public class TenantDeepLinkSettingsWrapper {
   public TenantDeepLinkSettingsWrapper() {
   }
 
+
   public TenantDeepLinkSettingsWrapper response(@javax.annotation.Nullable TenantDeepLinkSettings response) {
     
     this.response = response;

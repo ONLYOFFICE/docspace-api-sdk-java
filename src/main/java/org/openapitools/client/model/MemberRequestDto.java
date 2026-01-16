@@ -157,6 +157,7 @@ public class MemberRequestDto {
   public MemberRequestDto() {
   }
 
+
   public MemberRequestDto password(@javax.annotation.Nullable String password) {
     this.password = JsonNullable.<String>of(password);
     

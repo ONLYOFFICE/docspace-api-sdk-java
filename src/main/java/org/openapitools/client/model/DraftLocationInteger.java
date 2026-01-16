@@ -64,6 +64,7 @@ public class DraftLocationInteger {
   public DraftLocationInteger() {
   }
 
+
   public DraftLocationInteger folderId(@javax.annotation.Nullable Integer folderId) {
     
     this.folderId = folderId;

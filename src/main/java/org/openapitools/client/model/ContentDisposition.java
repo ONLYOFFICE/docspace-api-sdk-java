@@ -98,6 +98,7 @@ public class ContentDisposition {
     this.parameters = parameters == null ? JsonNullable.<List<Object>>undefined() : JsonNullable.of(parameters);
   }
 
+
   public ContentDisposition dispositionType(@javax.annotation.Nullable String dispositionType) {
     this.dispositionType = JsonNullable.<String>of(dispositionType);
     

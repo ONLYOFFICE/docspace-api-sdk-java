@@ -54,6 +54,7 @@ public class RoomsNotificationsSettingsRequestDto {
   public RoomsNotificationsSettingsRequestDto() {
   }
 
+
   public RoomsNotificationsSettingsRequestDto roomsId(@javax.annotation.Nullable Object roomsId) {
     this.roomsId = JsonNullable.<Object>of(roomsId);
     

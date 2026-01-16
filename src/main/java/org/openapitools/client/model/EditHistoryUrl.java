@@ -60,6 +60,7 @@ public class EditHistoryUrl {
   public EditHistoryUrl() {
   }
 
+
   public EditHistoryUrl key(@javax.annotation.Nullable String key) {
     this.key = JsonNullable.<String>of(key);
     

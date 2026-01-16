@@ -72,6 +72,7 @@ public class UserConfig {
   public UserConfig() {
   }
 
+
   public UserConfig id(@javax.annotation.Nullable String id) {
     this.id = JsonNullable.<String>of(id);
     

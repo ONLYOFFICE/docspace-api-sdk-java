@@ -60,6 +60,7 @@ public class IPRestriction {
   public IPRestriction() {
   }
 
+
   public IPRestriction ip(@javax.annotation.Nullable String ip) {
     
     this.ip = ip;

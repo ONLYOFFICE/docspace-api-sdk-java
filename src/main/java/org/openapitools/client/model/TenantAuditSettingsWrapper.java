@@ -46,6 +46,7 @@ public class TenantAuditSettingsWrapper {
   public TenantAuditSettingsWrapper() {
   }
 
+
   public TenantAuditSettingsWrapper settings(@javax.annotation.Nullable TenantAuditSettings settings) {
     
     this.settings = settings;

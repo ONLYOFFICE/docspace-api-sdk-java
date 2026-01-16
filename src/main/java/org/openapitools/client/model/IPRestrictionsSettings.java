@@ -51,6 +51,7 @@ public class IPRestrictionsSettings {
   public IPRestrictionsSettings() {
   }
 
+
   public IPRestrictionsSettings enable(@javax.annotation.Nullable Boolean enable) {
     
     this.enable = enable;

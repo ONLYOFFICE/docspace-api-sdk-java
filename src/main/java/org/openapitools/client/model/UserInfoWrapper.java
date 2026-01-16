@@ -70,6 +70,7 @@ public class UserInfoWrapper {
   public UserInfoWrapper() {
   }
 
+
   public UserInfoWrapper response(@javax.annotation.Nullable UserInfo response) {
     
     this.response = response;

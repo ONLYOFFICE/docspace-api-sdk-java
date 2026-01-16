@@ -70,6 +70,7 @@ public class FileShareArrayWrapper {
   public FileShareArrayWrapper() {
   }
 
+
   public FileShareArrayWrapper response(@javax.annotation.Nullable List<FileShareDto> response) {
     
     this.response = response;

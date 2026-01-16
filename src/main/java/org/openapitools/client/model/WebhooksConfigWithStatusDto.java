@@ -51,6 +51,7 @@ public class WebhooksConfigWithStatusDto {
   public WebhooksConfigWithStatusDto() {
   }
 
+
   public WebhooksConfigWithStatusDto configs(@javax.annotation.Nullable WebhooksConfigDto configs) {
     
     this.configs = configs;

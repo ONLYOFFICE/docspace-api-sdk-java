@@ -37,6 +37,7 @@ public class BatchRequestDtoAllOfDestFolderId {
   public BatchRequestDtoAllOfDestFolderId() {
   }
 
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {

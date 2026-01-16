@@ -70,6 +70,7 @@ public class EmailActivationSettingsWrapper {
   public EmailActivationSettingsWrapper() {
   }
 
+
   public EmailActivationSettingsWrapper response(@javax.annotation.Nullable EmailActivationSettings response) {
     
     this.response = response;

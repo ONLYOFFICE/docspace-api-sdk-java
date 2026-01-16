@@ -51,6 +51,7 @@ public class QuantityRequestDto {
   public QuantityRequestDto() {
   }
 
+
   public QuantityRequestDto quantity(@javax.annotation.Nullable Map<String, Integer> quantity) {
     this.quantity = JsonNullable.<Map<String, Integer>>of(quantity);
     

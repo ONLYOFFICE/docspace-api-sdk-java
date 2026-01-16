@@ -74,6 +74,7 @@ public class ThumbnailsDataDto {
   public ThumbnailsDataDto() {
   }
 
+
   public ThumbnailsDataDto original(@javax.annotation.Nullable String original) {
     this.original = JsonNullable.<String>of(original);
     

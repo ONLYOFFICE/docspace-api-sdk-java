@@ -56,6 +56,7 @@ public class PaymentUrlRequestsDto {
   public PaymentUrlRequestsDto() {
   }
 
+
   public PaymentUrlRequestsDto backUrl(@javax.annotation.Nullable String backUrl) {
     this.backUrl = JsonNullable.<String>of(backUrl);
     

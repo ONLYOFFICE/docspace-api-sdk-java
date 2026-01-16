@@ -70,6 +70,7 @@ public class SmtpOperationStatusRequestsWrapper {
   public SmtpOperationStatusRequestsWrapper() {
   }
 
+
   public SmtpOperationStatusRequestsWrapper response(@javax.annotation.Nullable SmtpOperationStatusRequestsDto response) {
     
     this.response = response;

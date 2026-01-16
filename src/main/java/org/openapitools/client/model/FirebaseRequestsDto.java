@@ -54,6 +54,7 @@ public class FirebaseRequestsDto {
   public FirebaseRequestsDto() {
   }
 
+
   public FirebaseRequestsDto firebaseDeviceToken(@javax.annotation.Nullable String firebaseDeviceToken) {
     this.firebaseDeviceToken = JsonNullable.<String>of(firebaseDeviceToken);
     

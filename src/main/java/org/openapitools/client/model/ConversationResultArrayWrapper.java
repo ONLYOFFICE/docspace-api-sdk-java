@@ -70,6 +70,7 @@ public class ConversationResultArrayWrapper {
   public ConversationResultArrayWrapper() {
   }
 
+
   public ConversationResultArrayWrapper response(@javax.annotation.Nullable List<ConversationResultDto> response) {
     
     this.response = response;

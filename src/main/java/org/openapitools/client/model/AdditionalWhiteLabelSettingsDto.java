@@ -75,6 +75,7 @@ public class AdditionalWhiteLabelSettingsDto {
   public AdditionalWhiteLabelSettingsDto() {
   }
 
+
   public AdditionalWhiteLabelSettingsDto startDocsEnabled(@javax.annotation.Nonnull Boolean startDocsEnabled) {
     
     this.startDocsEnabled = startDocsEnabled;

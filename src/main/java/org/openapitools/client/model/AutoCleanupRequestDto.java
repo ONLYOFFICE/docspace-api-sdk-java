@@ -51,6 +51,7 @@ public class AutoCleanupRequestDto {
   public AutoCleanupRequestDto() {
   }
 
+
   public AutoCleanupRequestDto set(@javax.annotation.Nullable Boolean set) {
     
     this.set = set;

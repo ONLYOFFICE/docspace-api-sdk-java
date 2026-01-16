@@ -76,6 +76,7 @@ public class AdditionalWhiteLabelSettings {
   public AdditionalWhiteLabelSettings() {
   }
 
+
   public AdditionalWhiteLabelSettings startDocsEnabled(@javax.annotation.Nullable Boolean startDocsEnabled) {
     
     this.startDocsEnabled = startDocsEnabled;

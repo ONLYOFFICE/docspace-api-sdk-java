@@ -8,8 +8,8 @@ The API date and time parameters.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**utcTime** | **OffsetDateTime** | The time in UTC format. |  [optional] [readonly] |
-|**timeZoneOffset** | **String** | The time zone offset. |  [optional] [readonly] |
+|**utcTime** | **OffsetDateTime** | The time in UTC format. |  [optional] |
+|**timeZoneOffset** | **String** | The time zone offset. |  [optional] |
 
 
 

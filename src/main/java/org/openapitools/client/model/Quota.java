@@ -76,6 +76,7 @@ public class Quota {
   public Quota() {
   }
 
+
   public Quota id(@javax.annotation.Nullable Integer id) {
     
     this.id = id;

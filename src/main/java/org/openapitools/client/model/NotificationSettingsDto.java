@@ -51,6 +51,7 @@ public class NotificationSettingsDto {
   public NotificationSettingsDto() {
   }
 
+
   public NotificationSettingsDto type(@javax.annotation.Nullable NotificationType type) {
     
     this.type = type;

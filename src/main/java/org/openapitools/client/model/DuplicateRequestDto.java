@@ -64,6 +64,7 @@ public class DuplicateRequestDto {
   public DuplicateRequestDto() {
   }
 
+
   public DuplicateRequestDto returnSingleOperation(@javax.annotation.Nullable Boolean returnSingleOperation) {
     
     this.returnSingleOperation = returnSingleOperation;

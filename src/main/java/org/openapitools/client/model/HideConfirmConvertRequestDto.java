@@ -45,6 +45,7 @@ public class HideConfirmConvertRequestDto {
   public HideConfirmConvertRequestDto() {
   }
 
+
   public HideConfirmConvertRequestDto save(@javax.annotation.Nullable Boolean save) {
     
     this.save = save;

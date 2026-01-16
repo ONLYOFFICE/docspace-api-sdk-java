@@ -59,6 +59,7 @@ public class ConfirmData {
   public ConfirmData() {
   }
 
+
   public ConfirmData email(@javax.annotation.Nullable String email) {
     this.email = JsonNullable.<String>of(email);
     

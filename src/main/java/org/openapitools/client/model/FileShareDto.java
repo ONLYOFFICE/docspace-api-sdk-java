@@ -114,6 +114,7 @@ public class FileShareDto {
   public FileShareDto() {
   }
 
+
   public FileShareDto access(@javax.annotation.Nullable FileShare access) {
     
     this.access = access;

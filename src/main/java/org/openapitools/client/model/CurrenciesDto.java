@@ -59,6 +59,7 @@ public class CurrenciesDto {
   public CurrenciesDto() {
   }
 
+
   public CurrenciesDto isoCountryCode(@javax.annotation.Nullable String isoCountryCode) {
     this.isoCountryCode = JsonNullable.<String>of(isoCountryCode);
     

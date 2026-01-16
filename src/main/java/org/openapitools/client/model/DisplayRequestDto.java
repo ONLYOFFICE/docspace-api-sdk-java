@@ -45,6 +45,7 @@ public class DisplayRequestDto {
   public DisplayRequestDto() {
   }
 
+
   public DisplayRequestDto set(@javax.annotation.Nullable Boolean set) {
     
     this.set = set;

@@ -59,6 +59,7 @@ public class SalesRequestsDto {
   public SalesRequestsDto() {
   }
 
+
   public SalesRequestsDto userName(@javax.annotation.Nullable String userName) {
     this.userName = JsonNullable.<String>of(userName);
     

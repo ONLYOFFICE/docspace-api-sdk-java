@@ -83,6 +83,7 @@ public class TfaSettingsDto {
   public TfaSettingsDto() {
   }
 
+
   public TfaSettingsDto id(@javax.annotation.Nullable String id) {
     
     this.id = id;

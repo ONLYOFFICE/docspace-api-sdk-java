@@ -70,6 +70,7 @@ public class TenantWalletSettings {
   public TenantWalletSettings() {
   }
 
+
   public TenantWalletSettings enabled(@javax.annotation.Nullable Boolean enabled) {
     
     this.enabled = enabled;

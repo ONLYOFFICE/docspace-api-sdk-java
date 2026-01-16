@@ -45,6 +45,7 @@ public class CustomFilterParameters {
   public CustomFilterParameters() {
   }
 
+
   public CustomFilterParameters enabled(@javax.annotation.Nullable Boolean enabled) {
     
     this.enabled = enabled;

@@ -70,6 +70,7 @@ public class DarkThemeSettingsWrapper {
   public DarkThemeSettingsWrapper() {
   }
 
+
   public DarkThemeSettingsWrapper response(@javax.annotation.Nullable DarkThemeSettings response) {
     
     this.response = response;

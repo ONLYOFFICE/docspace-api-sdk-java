@@ -70,6 +70,7 @@ public class ExternalShareWrapper {
   public ExternalShareWrapper() {
   }
 
+
   public ExternalShareWrapper response(@javax.annotation.Nullable ExternalShareDto response) {
     
     this.response = response;

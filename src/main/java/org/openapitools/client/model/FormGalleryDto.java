@@ -75,6 +75,7 @@ public class FormGalleryDto {
   public FormGalleryDto() {
   }
 
+
   public FormGalleryDto path(@javax.annotation.Nullable String path) {
     
     this.path = path;

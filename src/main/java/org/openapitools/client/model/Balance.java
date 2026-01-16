@@ -58,6 +58,7 @@ public class Balance {
   public Balance() {
   }
 
+
   public Balance accountNumber(@javax.annotation.Nullable Integer accountNumber) {
     
     this.accountNumber = accountNumber;

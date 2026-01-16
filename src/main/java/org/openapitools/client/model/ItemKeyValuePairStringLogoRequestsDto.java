@@ -55,6 +55,7 @@ public class ItemKeyValuePairStringLogoRequestsDto {
   public ItemKeyValuePairStringLogoRequestsDto() {
   }
 
+
   public ItemKeyValuePairStringLogoRequestsDto key(@javax.annotation.Nullable String key) {
     this.key = JsonNullable.<String>of(key);
     

@@ -70,6 +70,7 @@ public class TenantUserInvitationSettingsWrapper {
   public TenantUserInvitationSettingsWrapper() {
   }
 
+
   public TenantUserInvitationSettingsWrapper response(@javax.annotation.Nullable TenantUserInvitationSettingsDto response) {
     
     this.response = response;

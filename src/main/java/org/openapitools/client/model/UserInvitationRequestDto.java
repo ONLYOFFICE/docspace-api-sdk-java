@@ -55,6 +55,7 @@ public class UserInvitationRequestDto {
   public UserInvitationRequestDto() {
   }
 
+
   public UserInvitationRequestDto type(@javax.annotation.Nullable EmployeeType type) {
     
     this.type = type;

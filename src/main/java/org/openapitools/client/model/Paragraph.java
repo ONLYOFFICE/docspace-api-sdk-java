@@ -58,6 +58,7 @@ public class Paragraph {
   public Paragraph() {
   }
 
+
   public Paragraph align(@javax.annotation.Nullable Integer align) {
     
     this.align = align;

@@ -636,7 +636,7 @@ public class Example {
 
 
         OperationsApi apiInstance = new OperationsApi(defaultClient);
-        Integer folderId = 9846; // Integer | The session folder ID.
+        Integer folderId = 9079; // Integer | The session folder ID.
         SessionRequest sessionRequest = new SessionRequest(); // SessionRequest | The session parameters.
         try {
             ObjectWrapper result = apiInstance.createUploadSession(folderId, sessionRequest);
@@ -1245,7 +1245,7 @@ public class Example {
 
         OperationsApi apiInstance = new OperationsApi(defaultClient);
         FileOperationType operationType = FileOperationType.fromValue("0"); // FileOperationType | Specifies the type of file operation to be retrieved.
-        String id = "9846"; // String | The ID of the file operation.
+        String id = "9079"; // String | The ID of the file operation.
         try {
             FileOperationArrayWrapper result = apiInstance.getOperationStatusesByType(operationType, id);
             System.out.println(result);

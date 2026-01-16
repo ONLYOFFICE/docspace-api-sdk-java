@@ -50,6 +50,7 @@ public class CoversResultDto {
   public CoversResultDto() {
   }
 
+
   public CoversResultDto id(@javax.annotation.Nullable String id) {
     
     this.id = id;

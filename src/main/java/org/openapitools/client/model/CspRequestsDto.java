@@ -52,6 +52,7 @@ public class CspRequestsDto {
   public CspRequestsDto() {
   }
 
+
   public CspRequestsDto domains(@javax.annotation.Nullable List<String> domains) {
     this.domains = JsonNullable.<List<String>>of(domains);
     

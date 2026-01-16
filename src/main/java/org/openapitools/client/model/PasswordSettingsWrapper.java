@@ -70,6 +70,7 @@ public class PasswordSettingsWrapper {
   public PasswordSettingsWrapper() {
   }
 
+
   public PasswordSettingsWrapper response(@javax.annotation.Nullable PasswordSettingsDto response) {
     
     this.response = response;

@@ -46,6 +46,7 @@ public class AdditionalWhiteLabelSettingsWrapper {
   public AdditionalWhiteLabelSettingsWrapper() {
   }
 
+
   public AdditionalWhiteLabelSettingsWrapper settings(@javax.annotation.Nullable AdditionalWhiteLabelSettings settings) {
     
     this.settings = settings;

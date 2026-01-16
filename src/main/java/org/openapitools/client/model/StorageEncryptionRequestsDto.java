@@ -45,6 +45,7 @@ public class StorageEncryptionRequestsDto {
   public StorageEncryptionRequestsDto() {
   }
 
+
   public StorageEncryptionRequestsDto notifyUsers(@javax.annotation.Nullable Boolean notifyUsers) {
     
     this.notifyUsers = notifyUsers;

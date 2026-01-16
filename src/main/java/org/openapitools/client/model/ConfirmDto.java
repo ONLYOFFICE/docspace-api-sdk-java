@@ -70,6 +70,7 @@ public class ConfirmDto {
   public ConfirmDto() {
   }
 
+
   public ConfirmDto result(@javax.annotation.Nonnull ValidationResult result) {
     
     this.result = result;

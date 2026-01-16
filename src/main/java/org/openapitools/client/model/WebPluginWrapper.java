@@ -70,6 +70,7 @@ public class WebPluginWrapper {
   public WebPluginWrapper() {
   }
 
+
   public WebPluginWrapper response(@javax.annotation.Nullable WebPluginDto response) {
     
     this.response = response;

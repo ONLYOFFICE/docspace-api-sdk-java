@@ -54,6 +54,7 @@ public class FormsItemDto {
   public FormsItemDto() {
   }
 
+
   public FormsItemDto key(@javax.annotation.Nullable String key) {
     this.key = JsonNullable.<String>of(key);
     

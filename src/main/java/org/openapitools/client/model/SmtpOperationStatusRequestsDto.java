@@ -69,6 +69,7 @@ public class SmtpOperationStatusRequestsDto {
   public SmtpOperationStatusRequestsDto() {
   }
 
+
   public SmtpOperationStatusRequestsDto completed(@javax.annotation.Nullable Boolean completed) {
     
     this.completed = completed;

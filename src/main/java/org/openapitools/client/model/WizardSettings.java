@@ -51,6 +51,7 @@ public class WizardSettings {
   public WizardSettings() {
   }
 
+
   public WizardSettings completed(@javax.annotation.Nullable Boolean completed) {
     
     this.completed = completed;

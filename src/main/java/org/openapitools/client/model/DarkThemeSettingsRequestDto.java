@@ -46,6 +46,7 @@ public class DarkThemeSettingsRequestDto {
   public DarkThemeSettingsRequestDto() {
   }
 
+
   public DarkThemeSettingsRequestDto theme(@javax.annotation.Nonnull DarkThemeSettingsType theme) {
     
     this.theme = theme;

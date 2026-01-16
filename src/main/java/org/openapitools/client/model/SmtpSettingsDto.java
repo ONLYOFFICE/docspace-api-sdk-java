@@ -94,6 +94,7 @@ public class SmtpSettingsDto {
   public SmtpSettingsDto() {
   }
 
+
   public SmtpSettingsDto host(@javax.annotation.Nullable String host) {
     this.host = JsonNullable.<String>of(host);
     

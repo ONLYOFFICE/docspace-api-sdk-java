@@ -70,6 +70,7 @@ public class HistoryArrayWrapper {
   public HistoryArrayWrapper() {
   }
 
+
   public HistoryArrayWrapper response(@javax.annotation.Nullable List<HistoryDto> response) {
     
     this.response = response;

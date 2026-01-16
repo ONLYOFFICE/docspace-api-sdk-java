@@ -67,6 +67,7 @@ public class MigratingApiGroup {
   public MigratingApiGroup() {
   }
 
+
   public MigratingApiGroup shouldImport(@javax.annotation.Nullable Boolean shouldImport) {
     
     this.shouldImport = shouldImport;

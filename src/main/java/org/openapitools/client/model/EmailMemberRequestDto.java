@@ -60,6 +60,7 @@ public class EmailMemberRequestDto {
   public EmailMemberRequestDto() {
   }
 
+
   public EmailMemberRequestDto email(@javax.annotation.Nonnull String email) {
     
     this.email = email;

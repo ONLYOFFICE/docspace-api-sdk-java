@@ -59,6 +59,7 @@ public class MailDomainSettingsRequestsDto {
   public MailDomainSettingsRequestsDto() {
   }
 
+
   public MailDomainSettingsRequestsDto type(@javax.annotation.Nonnull TenantTrustedDomainsType type) {
     
     this.type = type;

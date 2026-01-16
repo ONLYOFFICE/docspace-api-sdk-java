@@ -85,6 +85,7 @@ public class DocServiceUrlDto {
   public DocServiceUrlDto() {
   }
 
+
   public DocServiceUrlDto version(@javax.annotation.Nullable String version) {
     
     this.version = version;

@@ -52,6 +52,7 @@ public class TenantDeepLinkSettings {
   public TenantDeepLinkSettings() {
   }
 
+
   public TenantDeepLinkSettings handlingMode(@javax.annotation.Nullable DeepLinkHandlingMode handlingMode) {
     
     this.handlingMode = handlingMode;

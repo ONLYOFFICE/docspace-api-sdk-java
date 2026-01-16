@@ -99,6 +99,7 @@ public class GroupDto {
   public GroupDto() {
   }
 
+
   public GroupDto name(@javax.annotation.Nullable String name) {
     
     this.name = name;

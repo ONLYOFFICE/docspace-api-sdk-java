@@ -70,6 +70,7 @@ public class RoomFromTemplateStatusWrapper {
   public RoomFromTemplateStatusWrapper() {
   }
 
+
   public RoomFromTemplateStatusWrapper response(@javax.annotation.Nullable RoomFromTemplateStatusDto response) {
     
     this.response = response;

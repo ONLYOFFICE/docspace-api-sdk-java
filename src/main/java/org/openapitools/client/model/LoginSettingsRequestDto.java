@@ -55,6 +55,7 @@ public class LoginSettingsRequestDto {
   public LoginSettingsRequestDto() {
   }
 
+
   public LoginSettingsRequestDto attemptCount(@javax.annotation.Nullable Integer attemptCount) {
     
     this.attemptCount = attemptCount;

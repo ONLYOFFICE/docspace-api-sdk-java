@@ -60,6 +60,7 @@ public class TemplatesConfig {
   public TemplatesConfig() {
   }
 
+
   public TemplatesConfig image(@javax.annotation.Nullable String image) {
     this.image = JsonNullable.<String>of(image);
     

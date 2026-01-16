@@ -86,6 +86,7 @@ public class FormRole {
   public FormRole() {
   }
 
+
   public FormRole roomId(@javax.annotation.Nullable Integer roomId) {
     
     this.roomId = roomId;

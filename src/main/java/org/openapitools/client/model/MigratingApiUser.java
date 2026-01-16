@@ -86,6 +86,7 @@ public class MigratingApiUser {
   public MigratingApiUser() {
   }
 
+
   public MigratingApiUser shouldImport(@javax.annotation.Nullable Boolean shouldImport) {
     
     this.shouldImport = shouldImport;

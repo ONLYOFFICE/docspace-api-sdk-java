@@ -50,6 +50,7 @@ public class NotificationChannelDto {
   public NotificationChannelDto() {
   }
 
+
   public NotificationChannelDto name(@javax.annotation.Nullable String name) {
     
     this.name = name;

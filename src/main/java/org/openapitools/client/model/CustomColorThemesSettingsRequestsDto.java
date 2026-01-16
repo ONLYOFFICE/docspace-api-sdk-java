@@ -55,6 +55,7 @@ public class CustomColorThemesSettingsRequestsDto {
   public CustomColorThemesSettingsRequestsDto() {
   }
 
+
   public CustomColorThemesSettingsRequestsDto theme(@javax.annotation.Nullable CustomColorThemesSettingsItem theme) {
     
     this.theme = theme;

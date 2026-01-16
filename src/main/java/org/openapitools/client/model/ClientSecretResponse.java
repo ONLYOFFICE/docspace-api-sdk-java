@@ -45,6 +45,7 @@ public class ClientSecretResponse {
   public ClientSecretResponse() {
   }
 
+
   public ClientSecretResponse clientSecret(@javax.annotation.Nullable String clientSecret) {
     
     this.clientSecret = clientSecret;

@@ -70,6 +70,7 @@ public class SmtpSettingsWrapper {
   public SmtpSettingsWrapper() {
   }
 
+
   public SmtpSettingsWrapper response(@javax.annotation.Nullable SmtpSettingsDto response) {
     
     this.response = response;

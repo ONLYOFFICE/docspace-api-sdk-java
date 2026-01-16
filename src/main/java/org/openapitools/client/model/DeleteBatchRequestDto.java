@@ -74,6 +74,7 @@ public class DeleteBatchRequestDto {
   public DeleteBatchRequestDto() {
   }
 
+
   public DeleteBatchRequestDto returnSingleOperation(@javax.annotation.Nullable Boolean returnSingleOperation) {
     
     this.returnSingleOperation = returnSingleOperation;

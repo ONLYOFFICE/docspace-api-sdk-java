@@ -68,6 +68,7 @@ public class UpdateGroupRequest {
   public UpdateGroupRequest() {
   }
 
+
   public UpdateGroupRequest membersToAdd(@javax.annotation.Nullable List<UUID> membersToAdd) {
     this.membersToAdd = JsonNullable.<List<UUID>>of(membersToAdd);
     

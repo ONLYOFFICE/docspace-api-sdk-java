@@ -55,6 +55,7 @@ public class NewItemsDtoFileEntryBaseDto {
   public NewItemsDtoFileEntryBaseDto() {
   }
 
+
   public NewItemsDtoFileEntryBaseDto date(@javax.annotation.Nonnull ApiDateTime date) {
     
     this.date = date;

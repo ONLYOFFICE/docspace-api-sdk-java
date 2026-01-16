@@ -74,6 +74,7 @@ public class TfaRequestsDto {
   public TfaRequestsDto() {
   }
 
+
   public TfaRequestsDto type(@javax.annotation.Nullable TfaRequestsDtoType type) {
     
     this.type = type;

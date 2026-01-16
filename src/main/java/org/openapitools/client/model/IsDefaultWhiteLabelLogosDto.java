@@ -50,6 +50,7 @@ public class IsDefaultWhiteLabelLogosDto {
   public IsDefaultWhiteLabelLogosDto() {
   }
 
+
   public IsDefaultWhiteLabelLogosDto name(@javax.annotation.Nullable String name) {
     
     this.name = name;

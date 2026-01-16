@@ -73,6 +73,7 @@ public class StorageDto {
   public StorageDto() {
   }
 
+
   public StorageDto id(@javax.annotation.Nullable String id) {
     
     this.id = id;

@@ -85,6 +85,7 @@ public class WatermarkRequestDto {
   public WatermarkRequestDto() {
   }
 
+
   public WatermarkRequestDto enabled(@javax.annotation.Nullable Boolean enabled) {
     this.enabled = JsonNullable.<Boolean>of(enabled);
     

@@ -75,6 +75,7 @@ public class PaymentSettingsDto {
   public PaymentSettingsDto() {
   }
 
+
   public PaymentSettingsDto salesEmail(@javax.annotation.Nullable String salesEmail) {
     
     this.salesEmail = salesEmail;

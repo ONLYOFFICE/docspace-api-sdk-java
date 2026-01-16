@@ -62,6 +62,7 @@ public class UpdateApiKeyRequest {
   public UpdateApiKeyRequest() {
   }
 
+
   public UpdateApiKeyRequest name(@javax.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     

@@ -112,6 +112,7 @@ public class LoginEventDto {
   public LoginEventDto() {
   }
 
+
   public LoginEventDto id(@javax.annotation.Nullable Integer id) {
     
     this.id = id;

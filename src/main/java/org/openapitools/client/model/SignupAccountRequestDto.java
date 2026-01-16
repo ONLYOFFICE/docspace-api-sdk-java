@@ -85,6 +85,7 @@ public class SignupAccountRequestDto {
   public SignupAccountRequestDto() {
   }
 
+
   public SignupAccountRequestDto employeeType(@javax.annotation.Nullable EmployeeType employeeType) {
     
     this.employeeType = employeeType;

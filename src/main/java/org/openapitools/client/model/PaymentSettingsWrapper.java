@@ -70,6 +70,7 @@ public class PaymentSettingsWrapper {
   public PaymentSettingsWrapper() {
   }
 
+
   public PaymentSettingsWrapper response(@javax.annotation.Nullable PaymentSettingsDto response) {
     
     this.response = response;

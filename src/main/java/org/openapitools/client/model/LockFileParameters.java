@@ -45,6 +45,7 @@ public class LockFileParameters {
   public LockFileParameters() {
   }
 
+
   public LockFileParameters lockFile(@javax.annotation.Nullable Boolean lockFile) {
     
     this.lockFile = lockFile;

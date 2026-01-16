@@ -45,6 +45,7 @@ public class OrderRequestDto {
   public OrderRequestDto() {
   }
 
+
   public OrderRequestDto order(@javax.annotation.Nullable Integer order) {
     
     this.order = order;

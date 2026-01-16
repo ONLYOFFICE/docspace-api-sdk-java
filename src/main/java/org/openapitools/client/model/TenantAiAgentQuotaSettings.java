@@ -65,6 +65,7 @@ public class TenantAiAgentQuotaSettings {
   public TenantAiAgentQuotaSettings() {
   }
 
+
   public TenantAiAgentQuotaSettings enableQuota(@javax.annotation.Nullable Boolean enableQuota) {
     
     this.enableQuota = enableQuota;

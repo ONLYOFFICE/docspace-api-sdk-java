@@ -58,6 +58,7 @@ public class RoomNewItemsDto {
   public RoomNewItemsDto() {
   }
 
+
   public RoomNewItemsDto room(@javax.annotation.Nullable FileEntryBaseDto room) {
     
     this.room = room;

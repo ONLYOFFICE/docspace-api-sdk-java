@@ -70,6 +70,7 @@ public class TimezonesRequestsArrayWrapper {
   public TimezonesRequestsArrayWrapper() {
   }
 
+
   public TimezonesRequestsArrayWrapper response(@javax.annotation.Nullable List<TimezonesRequestsDto> response) {
     
     this.response = response;

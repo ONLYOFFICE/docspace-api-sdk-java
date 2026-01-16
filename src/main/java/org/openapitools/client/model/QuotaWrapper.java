@@ -70,6 +70,7 @@ public class QuotaWrapper {
   public QuotaWrapper() {
   }
 
+
   public QuotaWrapper response(@javax.annotation.Nullable QuotaDto response) {
     
     this.response = response;

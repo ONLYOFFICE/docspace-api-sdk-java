@@ -50,6 +50,7 @@ public class WebPluginRequests {
   public WebPluginRequests() {
   }
 
+
   public WebPluginRequests enabled(@javax.annotation.Nullable Boolean enabled) {
     
     this.enabled = enabled;

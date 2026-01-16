@@ -104,6 +104,7 @@ public class RoomTemplateDto {
   public RoomTemplateDto() {
   }
 
+
   public RoomTemplateDto roomId(@javax.annotation.Nonnull Integer roomId) {
     
     this.roomId = roomId;

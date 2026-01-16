@@ -64,6 +64,7 @@ public class DbTenantPartner {
   public DbTenantPartner() {
   }
 
+
   public DbTenantPartner tenantId(@javax.annotation.Nullable Integer tenantId) {
     
     this.tenantId = tenantId;

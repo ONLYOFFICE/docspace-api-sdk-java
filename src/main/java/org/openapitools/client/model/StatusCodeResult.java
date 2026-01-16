@@ -45,6 +45,7 @@ public class StatusCodeResult {
   public StatusCodeResult() {
   }
 
+
   public StatusCodeResult statusCode(@javax.annotation.Nullable Integer statusCode) {
     
     this.statusCode = statusCode;

@@ -58,6 +58,7 @@ public class UpdateRoomsQuotaRequestDtoInteger {
   public UpdateRoomsQuotaRequestDtoInteger() {
   }
 
+
   public UpdateRoomsQuotaRequestDtoInteger roomIds(@javax.annotation.Nullable List<DuplicateRequestDtoAllOfFileIds> roomIds) {
     this.roomIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>of(roomIds);
     

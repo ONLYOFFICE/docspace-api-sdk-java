@@ -69,6 +69,7 @@ public class FileEntryDtoIntegerAllOfAvailableShareRights {
   public FileEntryDtoIntegerAllOfAvailableShareRights() {
   }
 
+
   public FileEntryDtoIntegerAllOfAvailableShareRights user(@javax.annotation.Nullable List<String> user) {
     
     this.user = user;

@@ -391,6 +391,7 @@ public class FileDtoInteger {
   public FileDtoInteger() {
   }
 
+
   public FileDtoInteger title(@javax.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
     

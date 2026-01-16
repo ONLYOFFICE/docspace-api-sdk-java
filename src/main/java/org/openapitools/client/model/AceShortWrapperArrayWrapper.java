@@ -70,6 +70,7 @@ public class AceShortWrapperArrayWrapper {
   public AceShortWrapperArrayWrapper() {
   }
 
+
   public AceShortWrapperArrayWrapper response(@javax.annotation.Nullable List<AceShortWrapper> response) {
     
     this.response = response;

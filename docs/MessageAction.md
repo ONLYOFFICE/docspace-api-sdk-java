@@ -417,8 +417,6 @@
 
 * `DeletedServerFromAgent` (value: `5158`)
 
-* `RoomChangeOwner` (value: `5159`)
-
 * `LdapEnabled` (value: `5501`)
 
 * `LdapDisabled` (value: `5502`)

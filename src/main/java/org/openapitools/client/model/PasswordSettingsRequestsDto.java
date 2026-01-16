@@ -60,6 +60,7 @@ public class PasswordSettingsRequestsDto {
   public PasswordSettingsRequestsDto() {
   }
 
+
   public PasswordSettingsRequestsDto minLength(@javax.annotation.Nonnull Integer minLength) {
     
     this.minLength = minLength;

@@ -56,6 +56,7 @@ public class ProductAdministratorDto {
   public ProductAdministratorDto() {
   }
 
+
   public ProductAdministratorDto productId(@javax.annotation.Nonnull UUID productId) {
     
     this.productId = productId;

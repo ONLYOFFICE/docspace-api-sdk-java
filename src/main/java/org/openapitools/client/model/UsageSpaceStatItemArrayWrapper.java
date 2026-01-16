@@ -70,6 +70,7 @@ public class UsageSpaceStatItemArrayWrapper {
   public UsageSpaceStatItemArrayWrapper() {
   }
 
+
   public UsageSpaceStatItemArrayWrapper response(@javax.annotation.Nullable List<UsageSpaceStatItemDto> response) {
     
     this.response = response;

@@ -439,6 +439,7 @@ public class FilesSettingsDto {
   public FilesSettingsDto() {
   }
 
+
   public FilesSettingsDto extsImagePreviewed(@javax.annotation.Nullable List<String> extsImagePreviewed) {
     this.extsImagePreviewed = JsonNullable.<List<String>>of(extsImagePreviewed);
     

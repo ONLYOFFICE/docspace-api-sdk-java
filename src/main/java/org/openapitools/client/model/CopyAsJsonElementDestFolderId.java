@@ -37,6 +37,7 @@ public class CopyAsJsonElementDestFolderId {
   public CopyAsJsonElementDestFolderId() {
   }
 
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {

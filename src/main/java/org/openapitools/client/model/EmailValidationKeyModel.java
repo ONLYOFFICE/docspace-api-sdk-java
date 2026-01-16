@@ -87,6 +87,7 @@ public class EmailValidationKeyModel {
   public EmailValidationKeyModel() {
   }
 
+
   public EmailValidationKeyModel key(@javax.annotation.Nullable String key) {
     this.key = JsonNullable.<String>of(key);
     

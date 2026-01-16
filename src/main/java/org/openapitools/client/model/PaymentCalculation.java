@@ -64,6 +64,7 @@ public class PaymentCalculation {
   public PaymentCalculation() {
   }
 
+
   public PaymentCalculation operationId(@javax.annotation.Nullable Long operationId) {
     
     this.operationId = operationId;

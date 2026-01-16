@@ -54,6 +54,7 @@ public class CustomColorThemesSettingsColorItem {
   public CustomColorThemesSettingsColorItem() {
   }
 
+
   public CustomColorThemesSettingsColorItem accent(@javax.annotation.Nullable String accent) {
     this.accent = JsonNullable.<String>of(accent);
     

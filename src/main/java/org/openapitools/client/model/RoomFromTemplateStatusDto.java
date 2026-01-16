@@ -60,6 +60,7 @@ public class RoomFromTemplateStatusDto {
   public RoomFromTemplateStatusDto() {
   }
 
+
   public RoomFromTemplateStatusDto roomId(@javax.annotation.Nonnull Integer roomId) {
     
     this.roomId = roomId;

@@ -59,6 +59,7 @@ public class UpdateMembersQuotaRequestDto {
   public UpdateMembersQuotaRequestDto() {
   }
 
+
   public UpdateMembersQuotaRequestDto userIds(@javax.annotation.Nullable List<UUID> userIds) {
     this.userIds = JsonNullable.<List<UUID>>of(userIds);
     

@@ -50,6 +50,7 @@ public class ChangeHistory {
   public ChangeHistory() {
   }
 
+
   public ChangeHistory version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;

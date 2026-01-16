@@ -50,6 +50,7 @@ public class Delete {
   public Delete() {
   }
 
+
   public Delete deleteAfter(@javax.annotation.Nullable Boolean deleteAfter) {
     
     this.deleteAfter = deleteAfter;

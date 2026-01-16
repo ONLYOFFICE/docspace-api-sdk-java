@@ -74,6 +74,7 @@ public class LogoConfigDto {
   public LogoConfigDto() {
   }
 
+
   public LogoConfigDto image(@javax.annotation.Nullable String image) {
     this.image = JsonNullable.<String>of(image);
     

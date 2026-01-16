@@ -131,6 +131,7 @@ public class UpdateMemberRequestDto {
   public UpdateMemberRequestDto() {
   }
 
+
   public UpdateMemberRequestDto userId(@javax.annotation.Nullable String userId) {
     this.userId = JsonNullable.<String>of(userId);
     

@@ -70,6 +70,7 @@ public class NewItemsFileEntryBaseArrayWrapper {
   public NewItemsFileEntryBaseArrayWrapper() {
   }
 
+
   public NewItemsFileEntryBaseArrayWrapper response(@javax.annotation.Nullable List<NewItemsDtoFileEntryBaseDto> response) {
     
     this.response = response;

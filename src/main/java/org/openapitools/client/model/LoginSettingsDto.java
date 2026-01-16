@@ -60,6 +60,7 @@ public class LoginSettingsDto {
   public LoginSettingsDto() {
   }
 
+
   public LoginSettingsDto attemptCount(@javax.annotation.Nonnull Integer attemptCount) {
     
     this.attemptCount = attemptCount;

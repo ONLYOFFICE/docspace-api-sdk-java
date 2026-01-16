@@ -49,6 +49,7 @@ public class Culture {
   public Culture() {
   }
 
+
   public Culture cultureName(@javax.annotation.Nullable String cultureName) {
     this.cultureName = JsonNullable.<String>of(cultureName);
     

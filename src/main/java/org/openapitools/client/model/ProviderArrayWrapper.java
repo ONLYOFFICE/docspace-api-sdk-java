@@ -70,6 +70,7 @@ public class ProviderArrayWrapper {
   public ProviderArrayWrapper() {
   }
 
+
   public ProviderArrayWrapper response(@javax.annotation.Nullable List<ProviderDto> response) {
     
     this.response = response;

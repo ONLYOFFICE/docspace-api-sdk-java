@@ -70,6 +70,7 @@ public class AccountInfoArrayWrapper {
   public AccountInfoArrayWrapper() {
   }
 
+
   public AccountInfoArrayWrapper response(@javax.annotation.Nullable List<AccountInfoDto> response) {
     
     this.response = response;

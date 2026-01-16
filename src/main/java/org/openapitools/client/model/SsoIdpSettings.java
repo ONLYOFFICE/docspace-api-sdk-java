@@ -74,6 +74,7 @@ public class SsoIdpSettings {
   public SsoIdpSettings() {
   }
 
+
   public SsoIdpSettings entityId(@javax.annotation.Nullable String entityId) {
     this.entityId = JsonNullable.<String>of(entityId);
     

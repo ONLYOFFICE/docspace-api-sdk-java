@@ -70,6 +70,7 @@ public class BackupHistoryRecordArrayWrapper {
   public BackupHistoryRecordArrayWrapper() {
   }
 
+
   public BackupHistoryRecordArrayWrapper response(@javax.annotation.Nullable List<BackupHistoryRecord> response) {
     
     this.response = response;

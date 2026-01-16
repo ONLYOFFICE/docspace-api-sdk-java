@@ -63,6 +63,7 @@ public class DeleteVersionBatchRequestDto {
   public DeleteVersionBatchRequestDto() {
   }
 
+
   public DeleteVersionBatchRequestDto returnSingleOperation(@javax.annotation.Nullable Boolean returnSingleOperation) {
     
     this.returnSingleOperation = returnSingleOperation;

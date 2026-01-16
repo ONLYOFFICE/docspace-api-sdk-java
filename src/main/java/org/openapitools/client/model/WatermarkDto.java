@@ -80,6 +80,7 @@ public class WatermarkDto {
   public WatermarkDto() {
   }
 
+
   public WatermarkDto additions(@javax.annotation.Nonnull WatermarkAdditions additions) {
     
     this.additions = additions;

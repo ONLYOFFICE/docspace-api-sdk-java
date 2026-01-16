@@ -85,6 +85,7 @@ public class UpdateWebhooksConfigRequestsDto {
   public UpdateWebhooksConfigRequestsDto() {
   }
 
+
   public UpdateWebhooksConfigRequestsDto name(@javax.annotation.Nonnull String name) {
     
     this.name = name;

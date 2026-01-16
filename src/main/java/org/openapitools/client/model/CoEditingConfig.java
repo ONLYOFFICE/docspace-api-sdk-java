@@ -56,6 +56,7 @@ public class CoEditingConfig {
   public CoEditingConfig() {
   }
 
+
   public CoEditingConfig change(@javax.annotation.Nullable Boolean change) {
     
     this.change = change;

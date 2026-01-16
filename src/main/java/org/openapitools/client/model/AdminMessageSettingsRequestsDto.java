@@ -70,6 +70,7 @@ public class AdminMessageSettingsRequestsDto {
   public AdminMessageSettingsRequestsDto() {
   }
 
+
   public AdminMessageSettingsRequestsDto message(@javax.annotation.Nullable String message) {
     
     this.message = message;

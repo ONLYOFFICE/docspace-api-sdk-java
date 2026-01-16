@@ -70,6 +70,7 @@ public class CspWrapper {
   public CspWrapper() {
   }
 
+
   public CspWrapper response(@javax.annotation.Nullable CspDto response) {
     
     this.response = response;

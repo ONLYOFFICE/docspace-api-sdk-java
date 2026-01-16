@@ -79,6 +79,7 @@ public class ThirdPartyRequestDto {
   public ThirdPartyRequestDto() {
   }
 
+
   public ThirdPartyRequestDto url(@javax.annotation.Nullable String url) {
     this.url = JsonNullable.<String>of(url);
     

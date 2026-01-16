@@ -219,6 +219,7 @@ public class UserInfo {
     this.checkActivation = checkActivation;
   }
 
+
   public UserInfo id(@javax.annotation.Nullable UUID id) {
     
     this.id = id;

@@ -45,6 +45,7 @@ public class FinishDto {
   public FinishDto() {
   }
 
+
   public FinishDto isSendWelcomeEmail(@javax.annotation.Nonnull Boolean isSendWelcomeEmail) {
     
     this.isSendWelcomeEmail = isSendWelcomeEmail;

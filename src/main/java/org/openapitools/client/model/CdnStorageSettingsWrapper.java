@@ -70,6 +70,7 @@ public class CdnStorageSettingsWrapper {
   public CdnStorageSettingsWrapper() {
   }
 
+
   public CdnStorageSettingsWrapper response(@javax.annotation.Nullable CdnStorageSettings response) {
     
     this.response = response;

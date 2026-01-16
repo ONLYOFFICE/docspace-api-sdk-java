@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapitools.client.api;
+package org.openapitools.client.api.OAuth20;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 

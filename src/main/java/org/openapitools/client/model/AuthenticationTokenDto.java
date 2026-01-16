@@ -81,6 +81,7 @@ public class AuthenticationTokenDto {
   public AuthenticationTokenDto() {
   }
 
+
   public AuthenticationTokenDto token(@javax.annotation.Nullable String token) {
     this.token = JsonNullable.<String>of(token);
     

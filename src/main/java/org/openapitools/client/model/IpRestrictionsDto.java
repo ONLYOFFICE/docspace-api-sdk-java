@@ -58,6 +58,7 @@ public class IpRestrictionsDto {
   public IpRestrictionsDto() {
   }
 
+
   public IpRestrictionsDto ipRestrictions(@javax.annotation.Nullable List<IpRestrictionBase> ipRestrictions) {
     
     this.ipRestrictions = ipRestrictions;

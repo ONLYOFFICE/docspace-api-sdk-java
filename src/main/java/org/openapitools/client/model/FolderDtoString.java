@@ -356,6 +356,7 @@ public class FolderDtoString {
   public FolderDtoString() {
   }
 
+
   public FolderDtoString title(@javax.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
     

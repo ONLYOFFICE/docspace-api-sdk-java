@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapitools.client.api;
+package org.openapitools.client.api.Files;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -498,7 +498,7 @@ public class SharingApi extends BaseApi {
   }
 
   /**
-   * Get group members with security information
+   * Get file group members with security information
    * Returns the group members with their file security information.
    *
    * REST API Reference for getGroupsMembersWithFileSecurity Operation
@@ -518,7 +518,7 @@ public class SharingApi extends BaseApi {
 
 
   /**
-   * Get group members with security information
+   * Get file group members with security information
    * Returns the group members with their file security information.
    *
    * REST API Reference for getGroupsMembersWithFileSecurity Operation
@@ -599,7 +599,7 @@ public class SharingApi extends BaseApi {
   }
 
   /**
-   * Get group members with security information
+   * Get folder group members with security information
    * Returns the group members with their folder security information.
    *
    * REST API Reference for getGroupsMembersWithFolderSecurity Operation
@@ -619,7 +619,7 @@ public class SharingApi extends BaseApi {
 
 
   /**
-   * Get group members with security information
+   * Get folder group members with security information
    * Returns the group members with their folder security information.
    *
    * REST API Reference for getGroupsMembersWithFolderSecurity Operation

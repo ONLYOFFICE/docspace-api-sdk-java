@@ -49,6 +49,7 @@ public class OrdersRequestDtoInteger {
   public OrdersRequestDtoInteger() {
   }
 
+
   public OrdersRequestDtoInteger items(@javax.annotation.Nullable List<OrdersItemRequestDtoInteger> items) {
     
     this.items = items;

@@ -89,6 +89,7 @@ public class FolderContentDtoInteger {
   public FolderContentDtoInteger() {
   }
 
+
   public FolderContentDtoInteger files(@javax.annotation.Nullable List<FileEntryBaseDto> files) {
     this.files = JsonNullable.<List<FileEntryBaseDto>>of(files);
     

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapitools.client.api;
+package org.openapitools.client.api.Rooms;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -1904,7 +1904,7 @@ public class RoomsApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
       
     if (this.fields != null)
-      localVarHeaderParams.put.Add("fields", this.fields);
+      localVarHeaderParams.put("fields", this.fields);
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -2088,7 +2088,7 @@ public class RoomsApi extends BaseApi {
 
     localVarQueryParameterBaseName = "type";
     for (int i=0; i < type.size(); i++) {
-      localVarQueryStringJoiner.add(type.get(i).toUrlQueryString(String.format("type[%d]", i)));
+      localVarQueryStringJoiner.add(String.format(java.util.Locale.ROOT, "type[%d]=%s", i, apiClient.parameterToString(type.get(i))));
     }
     localVarQueryParams.addAll(apiClient.parameterToPair("subjectId", subjectId));
     localVarQueryParams.addAll(apiClient.parameterToPair("searchArea", searchArea));
@@ -2106,7 +2106,7 @@ public class RoomsApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
       
     if (this.fields != null)
-      localVarHeaderParams.put.Add("fields", this.fields);
+      localVarHeaderParams.put("fields", this.fields);
 
     localVarHeaderParams.putAll(additionalHeaders);
 

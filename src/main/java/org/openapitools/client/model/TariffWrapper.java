@@ -70,6 +70,7 @@ public class TariffWrapper {
   public TariffWrapper() {
   }
 
+
   public TariffWrapper response(@javax.annotation.Nullable Tariff response) {
     
     this.response = response;

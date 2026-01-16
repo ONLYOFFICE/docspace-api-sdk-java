@@ -83,6 +83,7 @@ public class CapabilitiesDto {
   public CapabilitiesDto() {
   }
 
+
   public CapabilitiesDto ldapEnabled(@javax.annotation.Nonnull Boolean ldapEnabled) {
     
     this.ldapEnabled = ldapEnabled;

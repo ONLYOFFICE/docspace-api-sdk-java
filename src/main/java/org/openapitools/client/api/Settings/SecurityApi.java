@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapitools.client.api;
+package org.openapitools.client.api.Settings;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -511,7 +511,7 @@ public class SecurityApi extends BaseApi {
 
     localVarQueryParameterBaseName = "ids";
     for (int i=0; i < ids.size(); i++) {
-      localVarQueryStringJoiner.add(ids.get(i).toUrlQueryString(String.format("ids[%d]", i)));
+      localVarQueryStringJoiner.add(String.format(java.util.Locale.ROOT, "ids[%d]=%s", i, apiClient.parameterToString(ids.get(i))));
     }
       
     

@@ -106,6 +106,7 @@ public class WebhooksLogDto {
   public WebhooksLogDto() {
   }
 
+
   public WebhooksLogDto id(@javax.annotation.Nonnull Integer id) {
     
     this.id = id;

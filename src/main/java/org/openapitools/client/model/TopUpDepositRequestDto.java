@@ -54,6 +54,7 @@ public class TopUpDepositRequestDto {
   public TopUpDepositRequestDto() {
   }
 
+
   public TopUpDepositRequestDto amount(@javax.annotation.Nullable Integer amount) {
     
     this.amount = amount;

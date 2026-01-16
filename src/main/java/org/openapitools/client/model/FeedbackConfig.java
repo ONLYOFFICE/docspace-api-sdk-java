@@ -64,6 +64,7 @@ public class FeedbackConfig {
     this.visible = visible;
   }
 
+
   public FeedbackConfig url(@javax.annotation.Nullable String url) {
     this.url = JsonNullable.<String>of(url);
     

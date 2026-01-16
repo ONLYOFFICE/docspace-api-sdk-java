@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapitools.client.api;
+package org.openapitools.client.api.Files;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -594,7 +594,7 @@ public class FoldersApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
       
     if (this.fields != null)
-      localVarHeaderParams.put.Add("fields", this.fields);
+      localVarHeaderParams.put("fields", this.fields);
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1363,120 +1363,6 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * Get the Recent section
-   * Returns the detailed list of files located in the Recent section.
-   *
-   * REST API Reference for getFolderRecent Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/
-   *
-   * @param userIdOrGroupId The user or group ID. (optional)
-   * @param filterType The filter type. (optional)
-   * @param excludeSubject Specifies whether to exclude search by user or group ID. (optional)
-   * @param applyFilterOption Specifies whether to return only files, only folders or all elements. (optional)
-   * @param searchArea The search area. (optional)
-   * @param extension Specifies whether to search for a specific file extension in the Recent folder. (optional)
-   * @param count The maximum number of items to return. (optional)
-   * @param startIndex The starting position of the results to be returned in the query response. (optional)
-   * @param sortBy Specifies the sorting criteria for the folder request. (optional)
-   * @param sortOrder The order in which the results are sorted. (optional)
-   * @param filterValue The text used for filtering or searching folder contents. (optional)
-   * @return FolderContentIntegerWrapper
-   * @throws ApiException if fails to make API call
-   */
-  public FolderContentIntegerWrapper getFolderRecent(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable List<String> extension, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue) throws ApiException {
-    return this.getFolderRecent(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get the Recent section
-   * Returns the detailed list of files located in the Recent section.
-   *
-   * REST API Reference for getFolderRecent Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/
-   *
-   * @param userIdOrGroupId The user or group ID. (optional)
-   * @param filterType The filter type. (optional)
-   * @param excludeSubject Specifies whether to exclude search by user or group ID. (optional)
-   * @param applyFilterOption Specifies whether to return only files, only folders or all elements. (optional)
-   * @param searchArea The search area. (optional)
-   * @param extension Specifies whether to search for a specific file extension in the Recent folder. (optional)
-   * @param count The maximum number of items to return. (optional)
-   * @param startIndex The starting position of the results to be returned in the query response. (optional)
-   * @param sortBy Specifies the sorting criteria for the folder request. (optional)
-   * @param sortOrder The order in which the results are sorted. (optional)
-   * @param filterValue The text used for filtering or searching folder contents. (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return FolderContentIntegerWrapper
-   * @throws ApiException if fails to make API call
-   */
-  public FolderContentIntegerWrapper getFolderRecent(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable List<String> extension, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/2.0/files/recent";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("userIdOrGroupId", userIdOrGroupId));
-    localVarQueryParams.addAll(apiClient.parameterToPair("filterType", filterType));
-    localVarQueryParams.addAll(apiClient.parameterToPair("excludeSubject", excludeSubject));
-    localVarQueryParams.addAll(apiClient.parameterToPair("applyFilterOption", applyFilterOption));
-    localVarQueryParams.addAll(apiClient.parameterToPair("searchArea", searchArea));
-    localVarQueryParameterBaseName = "extension";
-    for (int i=0; i < extension.size(); i++) {
-      localVarQueryStringJoiner.add(extension.get(i).toUrlQueryString(String.format("extension[%d]", i)));
-    }
-    localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
-    localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
-    localVarQueryParams.addAll(apiClient.parameterToPair("sortBy", sortBy));
-    localVarQueryParams.addAll(apiClient.parameterToPair("sortOrder", sortOrder));
-    localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
-      
-    if (this.fields != null)
-      localVarHeaderParams.put.Add("fields", this.fields);
-
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
-
-    TypeReference<FolderContentIntegerWrapper> localVarReturnType = new TypeReference<FolderContentIntegerWrapper>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
    * Get subfolders
    * Returns a list of all the subfolders from a folder with the ID specified in the request.
    *
@@ -1626,7 +1512,7 @@ public class FoldersApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
       
     if (this.fields != null)
-      localVarHeaderParams.put.Add("fields", this.fields);
+      localVarHeaderParams.put("fields", this.fields);
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1809,7 +1695,7 @@ public class FoldersApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
       
     if (this.fields != null)
-      localVarHeaderParams.put.Add("fields", this.fields);
+      localVarHeaderParams.put("fields", this.fields);
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1897,7 +1783,7 @@ public class FoldersApi extends BaseApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/api/2.0/files/@recent";
+    String localVarPath = "/api/2.0/files/recent";
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1914,7 +1800,7 @@ public class FoldersApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("searchArea", searchArea));
     localVarQueryParameterBaseName = "extension";
     for (int i=0; i < extension.size(); i++) {
-      localVarQueryStringJoiner.add(extension.get(i).toUrlQueryString(String.format("extension[%d]", i)));
+      localVarQueryStringJoiner.add(String.format(java.util.Locale.ROOT, "extension[%d]=%s", i, apiClient.parameterToString(extension.get(i))));
     }
     localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
     localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
@@ -1923,7 +1809,7 @@ public class FoldersApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
       
     if (this.fields != null)
-      localVarHeaderParams.put.Add("fields", this.fields);
+      localVarHeaderParams.put("fields", this.fields);
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -2025,7 +1911,7 @@ public class FoldersApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
       
     if (this.fields != null)
-      localVarHeaderParams.put.Add("fields", this.fields);
+      localVarHeaderParams.put("fields", this.fields);
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -2127,7 +2013,7 @@ public class FoldersApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
       
     if (this.fields != null)
-      localVarHeaderParams.put.Add("fields", this.fields);
+      localVarHeaderParams.put("fields", this.fields);
 
     localVarHeaderParams.putAll(additionalHeaders);
 

@@ -50,6 +50,7 @@ public class TenantQuotaSettingsRequestsDto {
   public TenantQuotaSettingsRequestsDto() {
   }
 
+
   public TenantQuotaSettingsRequestsDto tenantId(@javax.annotation.Nonnull Integer tenantId) {
     
     this.tenantId = tenantId;

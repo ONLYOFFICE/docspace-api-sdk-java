@@ -60,6 +60,7 @@ public class TenantEntityQuotaSettings {
   public TenantEntityQuotaSettings() {
   }
 
+
   public TenantEntityQuotaSettings enableQuota(@javax.annotation.Nullable Boolean enableQuota) {
     
     this.enableQuota = enableQuota;

@@ -74,6 +74,7 @@ public class CheckDocServiceUrlRequestDto {
   public CheckDocServiceUrlRequestDto() {
   }
 
+
   public CheckDocServiceUrlRequestDto docServiceUrl(@javax.annotation.Nullable String docServiceUrl) {
     
     this.docServiceUrl = docServiceUrl;

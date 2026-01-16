@@ -70,6 +70,7 @@ public class FireBaseUserWrapper {
   public FireBaseUserWrapper() {
   }
 
+
   public FireBaseUserWrapper response(@javax.annotation.Nullable FireBaseUser response) {
     
     this.response = response;

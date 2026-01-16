@@ -65,6 +65,7 @@ public class CustomColorThemesSettingsItem {
   public CustomColorThemesSettingsItem() {
   }
 
+
   public CustomColorThemesSettingsItem id(@javax.annotation.Nullable Integer id) {
     
     this.id = id;

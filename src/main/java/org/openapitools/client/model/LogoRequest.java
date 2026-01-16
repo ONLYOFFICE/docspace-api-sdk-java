@@ -69,6 +69,7 @@ public class LogoRequest {
   public LogoRequest() {
   }
 
+
   public LogoRequest tmpFile(@javax.annotation.Nullable String tmpFile) {
     this.tmpFile = JsonNullable.<String>of(tmpFile);
     

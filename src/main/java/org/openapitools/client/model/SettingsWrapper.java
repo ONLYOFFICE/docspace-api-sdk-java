@@ -70,6 +70,7 @@ public class SettingsWrapper {
   public SettingsWrapper() {
   }
 
+
   public SettingsWrapper response(@javax.annotation.Nullable SettingsDto response) {
     
     this.response = response;

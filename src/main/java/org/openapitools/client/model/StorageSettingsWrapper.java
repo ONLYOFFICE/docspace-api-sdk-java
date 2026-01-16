@@ -70,6 +70,7 @@ public class StorageSettingsWrapper {
   public StorageSettingsWrapper() {
   }
 
+
   public StorageSettingsWrapper response(@javax.annotation.Nullable StorageSettings response) {
     
     this.response = response;

@@ -90,6 +90,7 @@ public class PermissionsConfig {
   public PermissionsConfig() {
   }
 
+
   public PermissionsConfig comment(@javax.annotation.Nullable Boolean comment) {
     
     this.comment = comment;

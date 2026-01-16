@@ -59,6 +59,7 @@ public class ChatSettings {
   public ChatSettings() {
   }
 
+
   public ChatSettings providerId(@javax.annotation.Nullable Integer providerId) {
     
     this.providerId = providerId;

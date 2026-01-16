@@ -54,6 +54,7 @@ public class SubmitForm {
   public SubmitForm() {
   }
 
+
   public SubmitForm visible(@javax.annotation.Nullable Boolean visible) {
     
     this.visible = visible;

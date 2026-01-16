@@ -69,6 +69,7 @@ public class UsageSpaceStatItemDto {
   public UsageSpaceStatItemDto() {
   }
 
+
   public UsageSpaceStatItemDto name(@javax.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     

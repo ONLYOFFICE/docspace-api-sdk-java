@@ -72,6 +72,7 @@ public class FillingFormResultDtoInteger {
   public FillingFormResultDtoInteger() {
   }
 
+
   public FillingFormResultDtoInteger formNumber(@javax.annotation.Nonnull Integer formNumber) {
     
     this.formNumber = formNumber;

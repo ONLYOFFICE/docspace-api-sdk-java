@@ -86,6 +86,7 @@ public class CompanyWhiteLabelSettings {
   public CompanyWhiteLabelSettings() {
   }
 
+
   public CompanyWhiteLabelSettings companyName(@javax.annotation.Nullable String companyName) {
     this.companyName = JsonNullable.<String>of(companyName);
     

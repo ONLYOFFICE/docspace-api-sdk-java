@@ -115,6 +115,7 @@ public class ConfigurationDtoInteger {
   public ConfigurationDtoInteger() {
   }
 
+
   public ConfigurationDtoInteger document(@javax.annotation.Nonnull DocumentConfigDto document) {
     
     this.document = document;

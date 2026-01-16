@@ -70,6 +70,7 @@ public class ConfirmWrapper {
   public ConfirmWrapper() {
   }
 
+
   public ConfirmWrapper response(@javax.annotation.Nullable ConfirmDto response) {
     
     this.response = response;

@@ -29,15 +29,24 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Gets or Sets VectorizationStatus
+ * [0 - In Progress, 1 - Completed, 2 - Failed]
  */
 public enum VectorizationStatus {
   
-  NUMBER_0(0),
+  /**
+   * In Progress
+   */
+  InProgress(0),
   
-  NUMBER_1(1),
+  /**
+   * Completed
+   */
+  Completed(1),
   
-  NUMBER_2(2);
+  /**
+   * Failed
+   */
+  Failed(2);
 
   private Integer value;
 

@@ -63,6 +63,7 @@ public class MentionMessageWrapper {
   public MentionMessageWrapper() {
   }
 
+
   public MentionMessageWrapper actionLink(@javax.annotation.Nullable ActionLinkConfig actionLink) {
     
     this.actionLink = actionLink;

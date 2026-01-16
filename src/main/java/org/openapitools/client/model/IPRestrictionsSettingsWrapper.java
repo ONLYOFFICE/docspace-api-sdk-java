@@ -70,6 +70,7 @@ public class IPRestrictionsSettingsWrapper {
   public IPRestrictionsSettingsWrapper() {
   }
 
+
   public IPRestrictionsSettingsWrapper response(@javax.annotation.Nullable IPRestrictionsSettings response) {
     
     this.response = response;

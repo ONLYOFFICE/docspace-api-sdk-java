@@ -74,6 +74,7 @@ public class WizardRequestsDto {
   public WizardRequestsDto() {
   }
 
+
   public WizardRequestsDto email(@javax.annotation.Nullable String email) {
     
     this.email = email;
