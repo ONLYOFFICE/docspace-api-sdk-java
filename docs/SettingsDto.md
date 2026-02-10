@@ -1,0 +1,55 @@
+
+
+# SettingsDto
+
+The settings information.
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**timezone** | **String** | The time zone. |  [optional] |
+|**trustedDomains** | **List&lt;String&gt;** | The list of the trusted domains. |  [optional] |
+|**trustedDomainsType** | **TenantTrustedDomainsType** |  |  [optional] |
+|**culture** | **String** | The language. |  |
+|**utcOffset** | **String** | The UTC offset in the TimeSpan format. |  [optional] |
+|**utcHoursOffset** | **Double** | The UTC offset in hours. |  [optional] |
+|**greetingSettings** | **String** | The greeting settings. |  [optional] |
+|**ownerId** | **UUID** | The owner ID. |  [optional] |
+|**nameSchemaId** | **String** | The team template ID. |  [optional] |
+|**enabledJoin** | **Boolean** | Specifies if a user can join the portal or not. |  [optional] |
+|**enableAdmMess** | **Boolean** | Specifies if a user can send a message to the administrator when accessing the DocSpace portal or not. |  [optional] |
+|**thirdpartyEnable** | **Boolean** | Specifies if a user can connect third-party providers to the portal or not. |  [optional] |
+|**docSpace** | **Boolean** | Specifies if this portal is a DocSpace portal or not. |  [optional] |
+|**standalone** | **Boolean** | Indicates whether the system is running in standalone mode. |  [optional] |
+|**isAmi** | **Boolean** | Specifies if this portal is the AMI instance or not. |  [optional] |
+|**baseDomain** | **String** | The base domain. |  |
+|**wizardToken** | **String** | The wizard token. |  [optional] |
+|**passwordHash** | [**PasswordHasher**](PasswordHasher.md) |  |  [optional] |
+|**firebase** | [**FirebaseDto**](FirebaseDto.md) |  |  [optional] |
+|**version** | **String** | The portal version. |  [optional] |
+|**recaptchaType** | **RecaptchaType** |  |  [optional] |
+|**recaptchaPublicKey** | **String** | The ReCAPTCHA public key. |  [optional] |
+|**debugInfo** | **Boolean** | Specifies if the debug information will be sent or not. |  [optional] |
+|**socketUrl** | **String** | The socket URL. |  [optional] |
+|**tenantStatus** | **TenantStatus** |  |  [optional] |
+|**tenantAlias** | **String** | The tenant alias. |  [optional] |
+|**displayAbout** | **Boolean** | Specifies whether to display the About portal section. |  [optional] |
+|**domainValidator** | [**TenantDomainValidator**](TenantDomainValidator.md) |  |  [optional] |
+|**zendeskKey** | **String** | The Zendesk key. |  [optional] |
+|**tagManagerId** | **String** | The tag manager ID. |  [optional] |
+|**cookieSettingsEnabled** | **Boolean** | Specifies whether the cookie settings are enabled. |  |
+|**limitedAccessSpace** | **Boolean** | Specifies whether the access to the space management is limited or not. |  [optional] |
+|**limitedAccessDevToolsForUsers** | **Boolean** | Specifies whether the access to the Developer Tools is limited for users or not. |  [optional] |
+|**displayBanners** | **Boolean** | Specifies whether to display the promotional banners. |  [optional] |
+|**userNameRegex** | **String** | The user name validation regex. |  [optional] |
+|**invitationLimit** | **Integer** | The maximum number of invitations to the portal. |  [optional] |
+|**plugins** | [**PluginsDto**](PluginsDto.md) |  |  [optional] |
+|**deepLink** | [**DeepLinkDto**](DeepLinkDto.md) |  |  |
+|**formGallery** | [**FormGalleryDto**](FormGalleryDto.md) |  |  [optional] |
+|**maxImageUploadSize** | **Long** | The maximum image upload size. |  [optional] |
+|**logoText** | **String** | The white label logo text. |  [optional] |
+|**externalResources** | [**CultureSpecificExternalResources**](CultureSpecificExternalResources.md) |  |  [optional] |
+
+
+
