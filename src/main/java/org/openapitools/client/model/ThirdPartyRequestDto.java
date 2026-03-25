@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -49,32 +50,25 @@ import java.util.StringJoiner;
 
 public class ThirdPartyRequestDto {
   public static final String JSON_PROPERTY_URL = "url";
-  @javax.annotation.Nullable
-  private JsonNullable<String> url = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> url = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LOGIN = "login";
-  @javax.annotation.Nullable
-  private JsonNullable<String> login = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> login = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PASSWORD = "password";
-  @javax.annotation.Nullable
-  private JsonNullable<String> password = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> password = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TOKEN = "token";
-  @javax.annotation.Nullable
-  private JsonNullable<String> token = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> token = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CUSTOMER_TITLE = "customerTitle";
-  @javax.annotation.Nullable
-  private String customerTitle;
+  @javax.annotation.Nullable  private String customerTitle;
 
   public static final String JSON_PROPERTY_PROVIDER_KEY = "providerKey";
-  @javax.annotation.Nullable
-  private String providerKey;
+  @javax.annotation.Nullable  private String providerKey;
 
   public static final String JSON_PROPERTY_PROVIDER_ID = "providerId";
-  @javax.annotation.Nullable
-  private JsonNullable<Integer> providerId = JsonNullable.<Integer>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Integer> providerId = JsonNullable.<Integer>undefined();
 
   public ThirdPartyRequestDto() {
   }
@@ -90,16 +84,14 @@ public class ThirdPartyRequestDto {
    * The connection URL for the sharepoint.
    * @return url
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getUrl() {
         return url.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonProperty(value = JSON_PROPERTY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getUrl_JsonNullable() {
     return url;
   }
@@ -123,16 +115,14 @@ public class ThirdPartyRequestDto {
    * The third-party request login.
    * @return login
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLogin() {
         return login.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LOGIN)
+  @JsonProperty(value = JSON_PROPERTY_LOGIN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLogin_JsonNullable() {
     return login;
   }
@@ -156,16 +146,14 @@ public class ThirdPartyRequestDto {
    * The third-party request password.
    * @return password
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPassword() {
         return password.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PASSWORD)
+  @JsonProperty(value = JSON_PROPERTY_PASSWORD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPassword_JsonNullable() {
     return password;
   }
@@ -189,16 +177,14 @@ public class ThirdPartyRequestDto {
    * The authentication token.
    * @return token
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getToken() {
         return token.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TOKEN)
+  @JsonProperty(value = JSON_PROPERTY_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getToken_JsonNullable() {
     return token;
   }
@@ -222,8 +208,7 @@ public class ThirdPartyRequestDto {
    * The customer title.
    * @return customerTitle
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOMER_TITLE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CUSTOMER_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getCustomerTitle() {
@@ -231,7 +216,7 @@ public class ThirdPartyRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CUSTOMER_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOMER_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCustomerTitle(@javax.annotation.Nullable String customerTitle) {
     this.customerTitle = customerTitle;
@@ -247,8 +232,7 @@ public class ThirdPartyRequestDto {
    * The provider key.
    * @return providerKey
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROVIDER_KEY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROVIDER_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getProviderKey() {
@@ -256,7 +240,7 @@ public class ThirdPartyRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROVIDER_KEY)
+  @JsonProperty(value = JSON_PROPERTY_PROVIDER_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProviderKey(@javax.annotation.Nullable String providerKey) {
     this.providerKey = providerKey;
@@ -272,16 +256,14 @@ public class ThirdPartyRequestDto {
    * The provider ID.
    * @return providerId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Integer getProviderId() {
         return providerId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PROVIDER_ID)
+  @JsonProperty(value = JSON_PROPERTY_PROVIDER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Integer> getProviderId_JsonNullable() {
     return providerId;
   }

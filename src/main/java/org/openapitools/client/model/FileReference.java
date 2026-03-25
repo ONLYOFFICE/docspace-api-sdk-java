@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -52,36 +53,28 @@ import java.util.StringJoiner;
 
 public class FileReference {
   public static final String JSON_PROPERTY_REFERENCE_DATA = "referenceData";
-  @javax.annotation.Nullable
-  private FileReferenceData referenceData;
+  @javax.annotation.Nullable  private FileReferenceData referenceData;
 
   public static final String JSON_PROPERTY_ERROR = "error";
-  @javax.annotation.Nullable
-  private JsonNullable<String> error = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> error = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PATH = "path";
-  @javax.annotation.Nullable
-  private JsonNullable<String> path = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> path = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_URL = "url";
-  @javax.annotation.Nullable
-  private JsonNullable<URI> url = JsonNullable.<URI>undefined();
+  @javax.annotation.Nullable  private JsonNullable<URI> url = JsonNullable.<URI>undefined();
 
   public static final String JSON_PROPERTY_FILE_TYPE = "fileType";
-  @javax.annotation.Nullable
-  private JsonNullable<String> fileType = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> fileType = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_KEY = "key";
-  @javax.annotation.Nullable
-  private JsonNullable<String> key = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> key = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LINK = "link";
-  @javax.annotation.Nullable
-  private JsonNullable<String> link = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> link = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TOKEN = "token";
-  @javax.annotation.Nullable
-  private JsonNullable<String> token = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> token = JsonNullable.<String>undefined();
 
   public FileReference() {
   }
@@ -97,8 +90,7 @@ public class FileReference {
    * Get referenceData
    * @return referenceData
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REFERENCE_DATA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REFERENCE_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FileReferenceData getReferenceData() {
@@ -106,7 +98,7 @@ public class FileReference {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REFERENCE_DATA)
+  @JsonProperty(value = JSON_PROPERTY_REFERENCE_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReferenceData(@javax.annotation.Nullable FileReferenceData referenceData) {
     this.referenceData = referenceData;
@@ -122,16 +114,14 @@ public class FileReference {
    * The error message text.
    * @return error
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getError() {
         return error.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getError_JsonNullable() {
     return error;
   }
@@ -155,16 +145,14 @@ public class FileReference {
    * The file name or relative path for the formula editor.
    * @return path
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPath() {
         return path.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PATH)
+  @JsonProperty(value = JSON_PROPERTY_PATH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPath_JsonNullable() {
     return path;
   }
@@ -188,16 +176,14 @@ public class FileReference {
    * The URL address to download the current file.
    * @return url
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public URI getUrl() {
         return url.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonProperty(value = JSON_PROPERTY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<URI> getUrl_JsonNullable() {
     return url;
   }
@@ -221,16 +207,14 @@ public class FileReference {
    * An extension of the document specified with the url parameter.
    * @return fileType
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFileType() {
         return fileType.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_FILE_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFileType_JsonNullable() {
     return fileType;
   }
@@ -254,16 +238,14 @@ public class FileReference {
    * The unique document identifier used by the service to take the data from the co-editing session.
    * @return key
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getKey() {
         return key.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_KEY)
+  @JsonProperty(value = JSON_PROPERTY_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getKey_JsonNullable() {
     return key;
   }
@@ -287,16 +269,14 @@ public class FileReference {
    * The file URL.
    * @return link
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLink() {
         return link.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LINK)
+  @JsonProperty(value = JSON_PROPERTY_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLink_JsonNullable() {
     return link;
   }
@@ -320,16 +300,14 @@ public class FileReference {
    * The encrypted signature added to the parameter in the form of a token.
    * @return token
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getToken() {
         return token.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TOKEN)
+  @JsonProperty(value = JSON_PROPERTY_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getToken_JsonNullable() {
     return token;
   }

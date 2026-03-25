@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,20 +47,16 @@ import java.util.StringJoiner;
 
 public class DbTenantPartner {
   public static final String JSON_PROPERTY_TENANT_ID = "tenantId";
-  @javax.annotation.Nullable
-  private Integer tenantId;
+  @javax.annotation.Nullable  private Integer tenantId;
 
   public static final String JSON_PROPERTY_PARTNER_ID = "partnerId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> partnerId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> partnerId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_AFFILIATE_ID = "affiliateId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> affiliateId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> affiliateId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CAMPAIGN = "campaign";
-  @javax.annotation.Nullable
-  private JsonNullable<String> campaign = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> campaign = JsonNullable.<String>undefined();
 
   public DbTenantPartner() {
   }
@@ -75,8 +72,7 @@ public class DbTenantPartner {
    * The tenant ID.
    * @return tenantId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getTenantId() {
@@ -84,7 +80,7 @@ public class DbTenantPartner {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTenantId(@javax.annotation.Nullable Integer tenantId) {
     this.tenantId = tenantId;
@@ -100,16 +96,14 @@ public class DbTenantPartner {
    * The partner ID.
    * @return partnerId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPartnerId() {
         return partnerId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PARTNER_ID)
+  @JsonProperty(value = JSON_PROPERTY_PARTNER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPartnerId_JsonNullable() {
     return partnerId;
   }
@@ -133,16 +127,14 @@ public class DbTenantPartner {
    * The affiliate ID.
    * @return affiliateId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getAffiliateId() {
         return affiliateId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_AFFILIATE_ID)
+  @JsonProperty(value = JSON_PROPERTY_AFFILIATE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getAffiliateId_JsonNullable() {
     return affiliateId;
   }
@@ -166,16 +158,14 @@ public class DbTenantPartner {
    * The tenant partner campaign.
    * @return campaign
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCampaign() {
         return campaign.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CAMPAIGN)
+  @JsonProperty(value = JSON_PROPERTY_CAMPAIGN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCampaign_JsonNullable() {
     return campaign;
   }

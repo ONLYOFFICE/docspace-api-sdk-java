@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -52,36 +53,28 @@ import java.util.StringJoiner;
 
 public class OAuth20Token {
   public static final String JSON_PROPERTY_ACCESS_TOKEN = "access_token";
-  @javax.annotation.Nullable
-  private JsonNullable<String> accessToken = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> accessToken = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REFRESH_TOKEN = "refresh_token";
-  @javax.annotation.Nullable
-  private JsonNullable<String> refreshToken = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> refreshToken = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EXPIRES_IN = "expires_in";
-  @javax.annotation.Nullable
-  private Long expiresIn;
+  @javax.annotation.Nullable  private Long expiresIn;
 
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
-  @javax.annotation.Nullable
-  private JsonNullable<String> clientId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> clientId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CLIENT_SECRET = "client_secret";
-  @javax.annotation.Nullable
-  private JsonNullable<String> clientSecret = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> clientSecret = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REDIRECT_URI = "redirect_uri";
-  @javax.annotation.Nullable
-  private JsonNullable<URI> redirectUri = JsonNullable.<URI>undefined();
+  @javax.annotation.Nullable  private JsonNullable<URI> redirectUri = JsonNullable.<URI>undefined();
 
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
-  @javax.annotation.Nullable
-  private OffsetDateTime timestamp;
+  @javax.annotation.Nullable  private OffsetDateTime timestamp;
 
   public static final String JSON_PROPERTY_IS_EXPIRED = "isExpired";
-  @javax.annotation.Nullable
-  private Boolean isExpired;
+  @javax.annotation.Nullable  private Boolean isExpired;
 
   public OAuth20Token() {
   }
@@ -107,16 +100,14 @@ public class OAuth20Token {
    * Get accessToken
    * @return accessToken
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getAccessToken() {
         return accessToken.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ACCESS_TOKEN)
+  @JsonProperty(value = JSON_PROPERTY_ACCESS_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getAccessToken_JsonNullable() {
     return accessToken;
   }
@@ -140,16 +131,14 @@ public class OAuth20Token {
    * Get refreshToken
    * @return refreshToken
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRefreshToken() {
         return refreshToken.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_REFRESH_TOKEN)
+  @JsonProperty(value = JSON_PROPERTY_REFRESH_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRefreshToken_JsonNullable() {
     return refreshToken;
   }
@@ -173,8 +162,7 @@ public class OAuth20Token {
    * Get expiresIn
    * @return expiresIn
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXPIRES_IN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRES_IN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getExpiresIn() {
@@ -182,7 +170,7 @@ public class OAuth20Token {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXPIRES_IN)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRES_IN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresIn(@javax.annotation.Nullable Long expiresIn) {
     this.expiresIn = expiresIn;
@@ -198,16 +186,14 @@ public class OAuth20Token {
    * Get clientId
    * @return clientId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getClientId() {
         return clientId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getClientId_JsonNullable() {
     return clientId;
   }
@@ -231,16 +217,14 @@ public class OAuth20Token {
    * Get clientSecret
    * @return clientSecret
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getClientSecret() {
         return clientSecret.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_SECRET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getClientSecret_JsonNullable() {
     return clientSecret;
   }
@@ -264,16 +248,14 @@ public class OAuth20Token {
    * Get redirectUri
    * @return redirectUri
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public URI getRedirectUri() {
         return redirectUri.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_REDIRECT_URI)
+  @JsonProperty(value = JSON_PROPERTY_REDIRECT_URI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<URI> getRedirectUri_JsonNullable() {
     return redirectUri;
   }
@@ -297,8 +279,7 @@ public class OAuth20Token {
    * Get timestamp
    * @return timestamp
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TIMESTAMP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getTimestamp() {
@@ -306,7 +287,7 @@ public class OAuth20Token {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+  @JsonProperty(value = JSON_PROPERTY_TIMESTAMP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimestamp(@javax.annotation.Nullable OffsetDateTime timestamp) {
     this.timestamp = timestamp;
@@ -316,8 +297,7 @@ public class OAuth20Token {
    * Get isExpired
    * @return isExpired
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_EXPIRED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_EXPIRED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsExpired() {

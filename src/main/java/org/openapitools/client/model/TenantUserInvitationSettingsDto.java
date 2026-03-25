@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -40,12 +41,10 @@ import java.util.StringJoiner;
 
 public class TenantUserInvitationSettingsDto {
   public static final String JSON_PROPERTY_ALLOW_INVITING_MEMBERS = "allowInvitingMembers";
-  @javax.annotation.Nonnull
-  private Boolean allowInvitingMembers;
+  @javax.annotation.Nonnull  private Boolean allowInvitingMembers;
 
   public static final String JSON_PROPERTY_ALLOW_INVITING_GUESTS = "allowInvitingGuests";
-  @javax.annotation.Nonnull
-  private Boolean allowInvitingGuests;
+  @javax.annotation.Nonnull  private Boolean allowInvitingGuests;
 
   public TenantUserInvitationSettingsDto() {
   }
@@ -61,8 +60,7 @@ public class TenantUserInvitationSettingsDto {
    * Specifies whether to allow inviting new DocSpace members through the Contacts section.
    * @return allowInvitingMembers
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ALLOW_INVITING_MEMBERS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ALLOW_INVITING_MEMBERS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getAllowInvitingMembers() {
@@ -70,7 +68,7 @@ public class TenantUserInvitationSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ALLOW_INVITING_MEMBERS)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_INVITING_MEMBERS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAllowInvitingMembers(@javax.annotation.Nonnull Boolean allowInvitingMembers) {
     this.allowInvitingMembers = allowInvitingMembers;
@@ -86,8 +84,7 @@ public class TenantUserInvitationSettingsDto {
    * Specifies whether to allow all DocSpace members to invite external guests to the rooms.
    * @return allowInvitingGuests
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ALLOW_INVITING_GUESTS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ALLOW_INVITING_GUESTS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getAllowInvitingGuests() {
@@ -95,7 +92,7 @@ public class TenantUserInvitationSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ALLOW_INVITING_GUESTS)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_INVITING_GUESTS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAllowInvitingGuests(@javax.annotation.Nonnull Boolean allowInvitingGuests) {
     this.allowInvitingGuests = allowInvitingGuests;

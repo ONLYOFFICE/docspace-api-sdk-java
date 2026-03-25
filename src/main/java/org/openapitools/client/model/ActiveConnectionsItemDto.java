@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -55,48 +56,37 @@ import java.util.StringJoiner;
 
 public class ActiveConnectionsItemDto {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nonnull
-  private Integer id;
+  @javax.annotation.Nonnull  private Integer id;
 
   public static final String JSON_PROPERTY_TENANT_ID = "tenantId";
-  @javax.annotation.Nonnull
-  private Integer tenantId;
+  @javax.annotation.Nonnull  private Integer tenantId;
 
   public static final String JSON_PROPERTY_USER_ID = "userId";
-  @javax.annotation.Nonnull
-  private UUID userId;
+  @javax.annotation.Nonnull  private UUID userId;
 
   public static final String JSON_PROPERTY_MOBILE = "mobile";
-  @javax.annotation.Nullable
-  private Boolean mobile;
+  @javax.annotation.Nullable  private Boolean mobile;
 
   public static final String JSON_PROPERTY_IP = "ip";
-  @javax.annotation.Nullable
-  private JsonNullable<String> ip = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> ip = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_COUNTRY = "country";
-  @javax.annotation.Nullable
-  private JsonNullable<String> country = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> country = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CITY = "city";
-  @javax.annotation.Nullable
-  private JsonNullable<String> city = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> city = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_BROWSER = "browser";
-  @javax.annotation.Nullable
-  private JsonNullable<String> browser = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> browser = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PLATFORM = "platform";
-  @javax.annotation.Nullable
-  private JsonNullable<String> platform = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> platform = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DATE = "date";
-  @javax.annotation.Nullable
-  private ApiDateTime date;
+  @javax.annotation.Nullable  private ApiDateTime date;
 
   public static final String JSON_PROPERTY_PAGE = "page";
-  @javax.annotation.Nullable
-  private JsonNullable<String> page = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> page = JsonNullable.<String>undefined();
 
   public ActiveConnectionsItemDto() {
   }
@@ -112,8 +102,7 @@ public class ActiveConnectionsItemDto {
    * The active connection ID.
    * @return id
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getId() {
@@ -121,7 +110,7 @@ public class ActiveConnectionsItemDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@javax.annotation.Nonnull Integer id) {
     this.id = id;
@@ -137,8 +126,7 @@ public class ActiveConnectionsItemDto {
    * The tenant ID.
    * @return tenantId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getTenantId() {
@@ -146,7 +134,7 @@ public class ActiveConnectionsItemDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTenantId(@javax.annotation.Nonnull Integer tenantId) {
     this.tenantId = tenantId;
@@ -162,8 +150,7 @@ public class ActiveConnectionsItemDto {
    * The user ID.
    * @return userId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_USER_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getUserId() {
@@ -171,7 +158,7 @@ public class ActiveConnectionsItemDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USER_ID)
+  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUserId(@javax.annotation.Nonnull UUID userId) {
     this.userId = userId;
@@ -187,8 +174,7 @@ public class ActiveConnectionsItemDto {
    * Specifies if the active connection has a mobile phone or not.
    * @return mobile
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MOBILE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MOBILE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getMobile() {
@@ -196,7 +182,7 @@ public class ActiveConnectionsItemDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MOBILE)
+  @JsonProperty(value = JSON_PROPERTY_MOBILE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMobile(@javax.annotation.Nullable Boolean mobile) {
     this.mobile = mobile;
@@ -212,16 +198,14 @@ public class ActiveConnectionsItemDto {
    * The IP address of the active connection.
    * @return ip
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getIp() {
         return ip.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IP)
+  @JsonProperty(value = JSON_PROPERTY_IP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getIp_JsonNullable() {
     return ip;
   }
@@ -245,16 +229,14 @@ public class ActiveConnectionsItemDto {
    * The active connection country.
    * @return country
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCountry() {
         return country.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_COUNTRY)
+  @JsonProperty(value = JSON_PROPERTY_COUNTRY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCountry_JsonNullable() {
     return country;
   }
@@ -278,16 +260,14 @@ public class ActiveConnectionsItemDto {
    * The active connection city.
    * @return city
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCity() {
         return city.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CITY)
+  @JsonProperty(value = JSON_PROPERTY_CITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCity_JsonNullable() {
     return city;
   }
@@ -311,16 +291,14 @@ public class ActiveConnectionsItemDto {
    * The active connection browser.
    * @return browser
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getBrowser() {
         return browser.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_BROWSER)
+  @JsonProperty(value = JSON_PROPERTY_BROWSER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getBrowser_JsonNullable() {
     return browser;
   }
@@ -344,16 +322,14 @@ public class ActiveConnectionsItemDto {
    * The active connection platform.
    * @return platform
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPlatform() {
         return platform.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PLATFORM)
+  @JsonProperty(value = JSON_PROPERTY_PLATFORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPlatform_JsonNullable() {
     return platform;
   }
@@ -377,8 +353,7 @@ public class ActiveConnectionsItemDto {
    * Get date
    * @return date
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApiDateTime getDate() {
@@ -386,7 +361,7 @@ public class ActiveConnectionsItemDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATE)
+  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDate(@javax.annotation.Nullable ApiDateTime date) {
     this.date = date;
@@ -402,16 +377,14 @@ public class ActiveConnectionsItemDto {
    * The active connection page.
    * @return page
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPage() {
         return page.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonProperty(value = JSON_PROPERTY_PAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPage_JsonNullable() {
     return page;
   }

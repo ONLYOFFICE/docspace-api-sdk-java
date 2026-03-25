@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.AdditionalWhiteLabelSettings;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -40,8 +41,7 @@ import java.util.StringJoiner;
 
 public class AdditionalWhiteLabelSettingsWrapper {
   public static final String JSON_PROPERTY_SETTINGS = "settings";
-  @javax.annotation.Nullable
-  private AdditionalWhiteLabelSettings settings;
+  @javax.annotation.Nullable  private AdditionalWhiteLabelSettings settings;
 
   public AdditionalWhiteLabelSettingsWrapper() {
   }
@@ -57,8 +57,7 @@ public class AdditionalWhiteLabelSettingsWrapper {
    * Get settings
    * @return settings
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AdditionalWhiteLabelSettings getSettings() {
@@ -66,7 +65,7 @@ public class AdditionalWhiteLabelSettingsWrapper {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSettings(@javax.annotation.Nullable AdditionalWhiteLabelSettings settings) {
     this.settings = settings;

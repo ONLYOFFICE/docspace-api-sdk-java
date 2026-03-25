@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.RoomNewItemsDto;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -45,12 +46,10 @@ import java.util.StringJoiner;
 
 public class NewItemsDtoRoomNewItemsDto {
   public static final String JSON_PROPERTY_DATE = "date";
-  @javax.annotation.Nonnull
-  private ApiDateTime date;
+  @javax.annotation.Nonnull  private ApiDateTime date;
 
   public static final String JSON_PROPERTY_ITEMS = "items";
-  @javax.annotation.Nullable
-  private List<RoomNewItemsDto> items;
+  @javax.annotation.Nullable  private List<RoomNewItemsDto> items;
 
   public NewItemsDtoRoomNewItemsDto() {
   }
@@ -66,8 +65,7 @@ public class NewItemsDtoRoomNewItemsDto {
    * Get date
    * @return date
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DATE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public ApiDateTime getDate() {
@@ -75,7 +73,7 @@ public class NewItemsDtoRoomNewItemsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATE)
+  @JsonProperty(value = JSON_PROPERTY_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDate(@javax.annotation.Nonnull ApiDateTime date) {
     this.date = date;
@@ -99,8 +97,7 @@ public class NewItemsDtoRoomNewItemsDto {
    * The list of items.
    * @return items
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ITEMS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ITEMS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<RoomNewItemsDto> getItems() {
@@ -108,7 +105,7 @@ public class NewItemsDtoRoomNewItemsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ITEMS)
+  @JsonProperty(value = JSON_PROPERTY_ITEMS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setItems(@javax.annotation.Nullable List<RoomNewItemsDto> items) {
     this.items = items;

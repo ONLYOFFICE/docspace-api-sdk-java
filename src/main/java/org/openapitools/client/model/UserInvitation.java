@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,12 +49,10 @@ import java.util.StringJoiner;
 
 public class UserInvitation {
   public static final String JSON_PROPERTY_USERS_IDS = "usersIds";
-  @javax.annotation.Nullable
-  private JsonNullable<List<UUID>> usersIds = JsonNullable.<List<UUID>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<UUID>> usersIds = JsonNullable.<List<UUID>>undefined();
 
   public static final String JSON_PROPERTY_RESEND_ALL = "resendAll";
-  @javax.annotation.Nullable
-  private Boolean resendAll;
+  @javax.annotation.Nullable  private Boolean resendAll;
 
   public UserInvitation() {
   }
@@ -81,16 +80,14 @@ public class UserInvitation {
    * The list of user IDs.
    * @return usersIds
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<UUID> getUsersIds() {
         return usersIds.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_USERS_IDS)
+  @JsonProperty(value = JSON_PROPERTY_USERS_IDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<UUID>> getUsersIds_JsonNullable() {
     return usersIds;
   }
@@ -114,8 +111,7 @@ public class UserInvitation {
    * Specifies whether to resend all user invitations or not.
    * @return resendAll
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESEND_ALL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESEND_ALL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getResendAll() {
@@ -123,7 +119,7 @@ public class UserInvitation {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RESEND_ALL)
+  @JsonProperty(value = JSON_PROPERTY_RESEND_ALL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResendAll(@javax.annotation.Nullable Boolean resendAll) {
     this.resendAll = resendAll;

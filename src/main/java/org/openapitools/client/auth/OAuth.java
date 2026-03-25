@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ import org.openapitools.client.Pair;
 
 import java.util.Map;
 import java.util.List;
+
 
 public class OAuth implements Authentication {
   private String accessToken;

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -51,24 +52,10 @@ public class TenantWalletServiceSettings {
    * The list of the enabled wallet services.
    */
   public enum EnabledServicesEnum {
-    /**
-     * WebSearch
-     */
-    WebSearch(Integer.valueOf(-14)),
-    
-    /**
-     * AITools
-     */
     AITools(Integer.valueOf(-13)),
     
-    /**
-     * Backup
-     */
     Backup(Integer.valueOf(-12)),
     
-    /**
-     * Storage
-     */
     Storage(Integer.valueOf(-11));
 
     private Integer value;
@@ -97,14 +84,11 @@ public class TenantWalletServiceSettings {
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
   }
-
   public static final String JSON_PROPERTY_ENABLED_SERVICES = "enabledServices";
-  @javax.annotation.Nullable
-  private JsonNullable<List<EnabledServicesEnum>> enabledServices = JsonNullable.<List<EnabledServicesEnum>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<EnabledServicesEnum>> enabledServices = JsonNullable.<List<EnabledServicesEnum>>undefined();
 
   public static final String JSON_PROPERTY_LAST_MODIFIED = "lastModified";
-  @javax.annotation.Nullable
-  private OffsetDateTime lastModified;
+  @javax.annotation.Nullable  private OffsetDateTime lastModified;
 
   public TenantWalletServiceSettings() {
   }
@@ -132,16 +116,14 @@ public class TenantWalletServiceSettings {
    * The list of the enabled wallet services.
    * @return enabledServices
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<EnabledServicesEnum> getEnabledServices() {
         return enabledServices.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ENABLED_SERVICES)
+  @JsonProperty(value = JSON_PROPERTY_ENABLED_SERVICES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<EnabledServicesEnum>> getEnabledServices_JsonNullable() {
     return enabledServices;
   }
@@ -165,8 +147,7 @@ public class TenantWalletServiceSettings {
    * The date and time when the wallet services settings were last modified.
    * @return lastModified
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLastModified() {
@@ -174,7 +155,7 @@ public class TenantWalletServiceSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
     this.lastModified = lastModified;

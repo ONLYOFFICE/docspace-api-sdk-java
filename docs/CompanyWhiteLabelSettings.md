@@ -15,7 +15,7 @@ The company white label settings.
 |**phone** | **String** | The company phone number. |  [optional] |
 |**isLicensor** | **Boolean** | Specifies if a company is a licensor or not. |  [optional] |
 |**hideAbout** | **Boolean** | Specifies if the About page is visible or not |  [optional] |
-|**lastModified** | **OffsetDateTime** |  |  [optional] |
+|**lastModified** | **OffsetDateTime** | The timestamp indicating when the settings were last modified. |  [optional] |
 
 
 

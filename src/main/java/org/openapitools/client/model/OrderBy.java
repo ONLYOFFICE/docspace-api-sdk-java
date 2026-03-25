@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.SortedByType;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -41,12 +42,10 @@ import java.util.StringJoiner;
 
 public class OrderBy {
   public static final String JSON_PROPERTY_IS_ASC = "is_asc";
-  @javax.annotation.Nullable
-  private Boolean isAsc;
+  @javax.annotation.Nullable  private Boolean isAsc;
 
   public static final String JSON_PROPERTY_PROPERTY = "property";
-  @javax.annotation.Nullable
-  private SortedByType property;
+  @javax.annotation.Nullable  private SortedByType property;
 
   public OrderBy() {
   }
@@ -62,8 +61,7 @@ public class OrderBy {
    * Specifies if the order is ascending.
    * @return isAsc
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_ASC)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_ASC, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsAsc() {
@@ -71,7 +69,7 @@ public class OrderBy {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_ASC)
+  @JsonProperty(value = JSON_PROPERTY_IS_ASC, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsAsc(@javax.annotation.Nullable Boolean isAsc) {
     this.isAsc = isAsc;
@@ -87,8 +85,7 @@ public class OrderBy {
    * Get property
    * @return property
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROPERTY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROPERTY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SortedByType getProperty() {
@@ -96,7 +93,7 @@ public class OrderBy {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROPERTY)
+  @JsonProperty(value = JSON_PROPERTY_PROPERTY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProperty(@javax.annotation.Nullable SortedByType property) {
     this.property = property;

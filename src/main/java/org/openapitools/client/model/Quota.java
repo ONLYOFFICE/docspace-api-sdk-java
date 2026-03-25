@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -37,7 +38,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The quota parameters.
+ * The quota parameters.  &lt;example&gt;  {    id: 1,    quantity: 50,    wallet: false,    dueDate: 2026-03-31T00:00:00Z,    nextQuantity: 100,    state: Active  }  &lt;/example&gt;
  */
 @JsonPropertyOrder({
   Quota.JSON_PROPERTY_ID,
@@ -50,28 +51,22 @@ import java.util.StringJoiner;
 
 public class Quota {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private Integer id;
+  @javax.annotation.Nullable  private Integer id;
 
   public static final String JSON_PROPERTY_QUANTITY = "quantity";
-  @javax.annotation.Nullable
-  private Integer quantity;
+  @javax.annotation.Nullable  private Integer quantity;
 
   public static final String JSON_PROPERTY_WALLET = "wallet";
-  @javax.annotation.Nullable
-  private Boolean wallet;
+  @javax.annotation.Nullable  private Boolean wallet;
 
   public static final String JSON_PROPERTY_DUE_DATE = "dueDate";
-  @javax.annotation.Nullable
-  private JsonNullable<OffsetDateTime> dueDate = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> dueDate = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_NEXT_QUANTITY = "nextQuantity";
-  @javax.annotation.Nullable
-  private JsonNullable<Integer> nextQuantity = JsonNullable.<Integer>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Integer> nextQuantity = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_STATE = "state";
-  @javax.annotation.Nullable
-  private QuotaState state;
+  @javax.annotation.Nullable  private QuotaState state;
 
   public Quota() {
   }
@@ -87,8 +82,7 @@ public class Quota {
    * The quota ID.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getId() {
@@ -96,7 +90,7 @@ public class Quota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(@javax.annotation.Nullable Integer id) {
     this.id = id;
@@ -112,8 +106,7 @@ public class Quota {
    * The quota quantity.
    * @return quantity
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUANTITY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_QUANTITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getQuantity() {
@@ -121,7 +114,7 @@ public class Quota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_QUANTITY)
+  @JsonProperty(value = JSON_PROPERTY_QUANTITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQuantity(@javax.annotation.Nullable Integer quantity) {
     this.quantity = quantity;
@@ -137,8 +130,7 @@ public class Quota {
    * The quota applies to the wallet or not
    * @return wallet
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WALLET)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WALLET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getWallet() {
@@ -146,7 +138,7 @@ public class Quota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WALLET)
+  @JsonProperty(value = JSON_PROPERTY_WALLET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWallet(@javax.annotation.Nullable Boolean wallet) {
     this.wallet = wallet;
@@ -162,16 +154,14 @@ public class Quota {
    * The quota due date.
    * @return dueDate
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public OffsetDateTime getDueDate() {
         return dueDate.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DUE_DATE)
+  @JsonProperty(value = JSON_PROPERTY_DUE_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<OffsetDateTime> getDueDate_JsonNullable() {
     return dueDate;
   }
@@ -195,16 +185,14 @@ public class Quota {
    * The quota next quantity.
    * @return nextQuantity
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Integer getNextQuantity() {
         return nextQuantity.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_NEXT_QUANTITY)
+  @JsonProperty(value = JSON_PROPERTY_NEXT_QUANTITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Integer> getNextQuantity_JsonNullable() {
     return nextQuantity;
   }
@@ -228,8 +216,7 @@ public class Quota {
    * Get state
    * @return state
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public QuotaState getState() {
@@ -237,7 +224,7 @@ public class Quota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonProperty(value = JSON_PROPERTY_STATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setState(@javax.annotation.Nullable QuotaState state) {
     this.state = state;

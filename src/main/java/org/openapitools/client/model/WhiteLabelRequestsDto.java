@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,12 +49,10 @@ import java.util.StringJoiner;
 
 public class WhiteLabelRequestsDto {
   public static final String JSON_PROPERTY_LOGO_TEXT = "logoText";
-  @javax.annotation.Nullable
-  private JsonNullable<String> logoText = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> logoText = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LOGO = "logo";
-  @javax.annotation.Nullable
-  private JsonNullable<List<ItemKeyValuePairStringLogoRequestsDto>> logo = JsonNullable.<List<ItemKeyValuePairStringLogoRequestsDto>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<ItemKeyValuePairStringLogoRequestsDto>> logo = JsonNullable.<List<ItemKeyValuePairStringLogoRequestsDto>>undefined();
 
   public WhiteLabelRequestsDto() {
   }
@@ -69,16 +68,14 @@ public class WhiteLabelRequestsDto {
    * The text to display alongside or in place of the logo.
    * @return logoText
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLogoText() {
         return logoText.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LOGO_TEXT)
+  @JsonProperty(value = JSON_PROPERTY_LOGO_TEXT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLogoText_JsonNullable() {
     return logoText;
   }
@@ -114,16 +111,14 @@ public class WhiteLabelRequestsDto {
    * The white label tenant IDs with their logos (light or dark).
    * @return logo
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<ItemKeyValuePairStringLogoRequestsDto> getLogo() {
         return logo.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LOGO)
+  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<ItemKeyValuePairStringLogoRequestsDto>> getLogo_JsonNullable() {
     return logo;
   }

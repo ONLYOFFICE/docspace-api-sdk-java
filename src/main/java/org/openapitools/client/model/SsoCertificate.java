@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -50,32 +51,25 @@ import java.util.StringJoiner;
 
 public class SsoCertificate {
   public static final String JSON_PROPERTY_SELF_SIGNED = "selfSigned";
-  @javax.annotation.Nullable
-  private Boolean selfSigned;
+  @javax.annotation.Nullable  private Boolean selfSigned;
 
   public static final String JSON_PROPERTY_CRT = "crt";
-  @javax.annotation.Nullable
-  private JsonNullable<String> crt = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> crt = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_KEY = "key";
-  @javax.annotation.Nullable
-  private JsonNullable<String> key = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> key = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ACTION = "action";
-  @javax.annotation.Nullable
-  private JsonNullable<String> action = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> action = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DOMAIN_NAME = "domainName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> domainName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> domainName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_START_DATE = "startDate";
-  @javax.annotation.Nullable
-  private OffsetDateTime startDate;
+  @javax.annotation.Nullable  private OffsetDateTime startDate;
 
   public static final String JSON_PROPERTY_EXPIRED_DATE = "expiredDate";
-  @javax.annotation.Nullable
-  private OffsetDateTime expiredDate;
+  @javax.annotation.Nullable  private OffsetDateTime expiredDate;
 
   public SsoCertificate() {
   }
@@ -91,8 +85,7 @@ public class SsoCertificate {
    * Specifies if a certificate is self-signed or not.
    * @return selfSigned
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SELF_SIGNED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SELF_SIGNED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSelfSigned() {
@@ -100,7 +93,7 @@ public class SsoCertificate {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SELF_SIGNED)
+  @JsonProperty(value = JSON_PROPERTY_SELF_SIGNED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelfSigned(@javax.annotation.Nullable Boolean selfSigned) {
     this.selfSigned = selfSigned;
@@ -116,16 +109,14 @@ public class SsoCertificate {
    * The CRT certificate file.
    * @return crt
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCrt() {
         return crt.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CRT)
+  @JsonProperty(value = JSON_PROPERTY_CRT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCrt_JsonNullable() {
     return crt;
   }
@@ -149,16 +140,14 @@ public class SsoCertificate {
    * The certificate key.
    * @return key
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getKey() {
         return key.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_KEY)
+  @JsonProperty(value = JSON_PROPERTY_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getKey_JsonNullable() {
     return key;
   }
@@ -182,16 +171,14 @@ public class SsoCertificate {
    * The certificate action.
    * @return action
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getAction() {
         return action.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ACTION)
+  @JsonProperty(value = JSON_PROPERTY_ACTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getAction_JsonNullable() {
     return action;
   }
@@ -215,16 +202,14 @@ public class SsoCertificate {
    * The certificate domain name.
    * @return domainName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getDomainName() {
         return domainName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DOMAIN_NAME)
+  @JsonProperty(value = JSON_PROPERTY_DOMAIN_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getDomainName_JsonNullable() {
     return domainName;
   }
@@ -248,8 +233,7 @@ public class SsoCertificate {
    * The certificate start date.
    * @return startDate
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_START_DATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_START_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getStartDate() {
@@ -257,7 +241,7 @@ public class SsoCertificate {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_START_DATE)
+  @JsonProperty(value = JSON_PROPERTY_START_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
@@ -273,8 +257,7 @@ public class SsoCertificate {
    * The certificate expiration date.
    * @return expiredDate
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXPIRED_DATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRED_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getExpiredDate() {
@@ -282,7 +265,7 @@ public class SsoCertificate {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXPIRED_DATE)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRED_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiredDate(@javax.annotation.Nullable OffsetDateTime expiredDate) {
     this.expiredDate = expiredDate;

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.BooleanWrapper;
-import org.openapitools.client.model.DoubleWrapper;
+import org.openapitools.client.model.DoubleNullableWrapper;
 import org.openapitools.client.model.EncryptionSettingsWrapper;
 import org.openapitools.client.model.StorageEncryptionRequestsDto;
 
@@ -55,10 +55,10 @@ public class EncryptionApi extends BaseApi {
    * REST API Reference for getStorageEncryptionProgress Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-progress/
    *
-   * @return DoubleWrapper
+   * @return DoubleNullableWrapper
    * @throws ApiException if fails to make API call
    */
-  public DoubleWrapper getStorageEncryptionProgress() throws ApiException {
+  public DoubleNullableWrapper getStorageEncryptionProgress() throws ApiException {
     return this.getStorageEncryptionProgress(Collections.emptyMap());
   }
 
@@ -71,10 +71,10 @@ public class EncryptionApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-progress/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return DoubleWrapper
+   * @return DoubleNullableWrapper
    * @throws ApiException if fails to make API call
    */
-  public DoubleWrapper getStorageEncryptionProgress(Map<String, String> additionalHeaders) throws ApiException {
+  public DoubleNullableWrapper getStorageEncryptionProgress(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -106,7 +106,7 @@ public class EncryptionApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<DoubleWrapper> localVarReturnType = new TypeReference<DoubleWrapper>() {};
+    TypeReference<DoubleNullableWrapper> localVarReturnType = new TypeReference<DoubleNullableWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",

@@ -19,6 +19,8 @@ The request parameters for updating a room.
 |**color** | **String** | The room color. |  [optional] |
 |**cover** | **String** | The room cover. |  [optional] |
 |**chatSettings** | [**ChatSettings**](ChatSettings.md) |  |  [optional] |
+|**sendFormToExternalDB** | **Boolean** | Specifies whether to send form data to external database. |  [optional] |
+|**saveFormAsXLSX** | **Boolean** | Specifies whether to save form data as XLSX file. |  [optional] |
 
 
 

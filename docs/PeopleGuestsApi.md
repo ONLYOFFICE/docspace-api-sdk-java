@@ -100,9 +100,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Detailed profile information |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | No permissions to perform this action |  -  |
 | **404** | User not found |  -  |
+| **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## deleteGuests
@@ -195,6 +195,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Request parameters for deleting guests |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 

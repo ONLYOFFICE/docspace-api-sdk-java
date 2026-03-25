@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -53,36 +54,28 @@ import java.util.StringJoiner;
 
 public class FolderLinkRequest {
   public static final String JSON_PROPERTY_LINK_ID = "linkId";
-  @javax.annotation.Nullable
-  private UUID linkId;
+  @javax.annotation.Nullable  private UUID linkId;
 
   public static final String JSON_PROPERTY_ACCESS = "access";
-  @javax.annotation.Nullable
-  private FileShare access;
+  @javax.annotation.Nullable  private FileShare access;
 
   public static final String JSON_PROPERTY_EXPIRATION_DATE = "expirationDate";
-  @javax.annotation.Nullable
-  private ApiDateTime expirationDate;
+  @javax.annotation.Nullable  private ApiDateTime expirationDate;
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PASSWORD = "password";
-  @javax.annotation.Nullable
-  private JsonNullable<String> password = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> password = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DENY_DOWNLOAD = "denyDownload";
-  @javax.annotation.Nullable
-  private Boolean denyDownload;
+  @javax.annotation.Nullable  private Boolean denyDownload;
 
   public static final String JSON_PROPERTY_INTERNAL = "internal";
-  @javax.annotation.Nullable
-  private Boolean internal;
+  @javax.annotation.Nullable  private Boolean internal;
 
   public static final String JSON_PROPERTY_PRIMARY = "primary";
-  @javax.annotation.Nullable
-  private Boolean primary;
+  @javax.annotation.Nullable  private Boolean primary;
 
   public FolderLinkRequest() {
   }
@@ -98,8 +91,7 @@ public class FolderLinkRequest {
    * The folder link ID.
    * @return linkId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINK_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LINK_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getLinkId() {
@@ -107,7 +99,7 @@ public class FolderLinkRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LINK_ID)
+  @JsonProperty(value = JSON_PROPERTY_LINK_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinkId(@javax.annotation.Nullable UUID linkId) {
     this.linkId = linkId;
@@ -123,8 +115,7 @@ public class FolderLinkRequest {
    * Get access
    * @return access
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCESS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FileShare getAccess() {
@@ -132,7 +123,7 @@ public class FolderLinkRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACCESS)
+  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccess(@javax.annotation.Nullable FileShare access) {
     this.access = access;
@@ -148,8 +139,7 @@ public class FolderLinkRequest {
    * Get expirationDate
    * @return expirationDate
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApiDateTime getExpirationDate() {
@@ -157,7 +147,7 @@ public class FolderLinkRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpirationDate(@javax.annotation.Nullable ApiDateTime expirationDate) {
     this.expirationDate = expirationDate;
@@ -173,16 +163,14 @@ public class FolderLinkRequest {
    * The link name.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTitle() {
         return title.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
@@ -206,16 +194,14 @@ public class FolderLinkRequest {
    * The link password.
    * @return password
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPassword() {
         return password.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PASSWORD)
+  @JsonProperty(value = JSON_PROPERTY_PASSWORD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPassword_JsonNullable() {
     return password;
   }
@@ -239,8 +225,7 @@ public class FolderLinkRequest {
    * Specifies if downloading the file from the link is disabled or not.
    * @return denyDownload
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DENY_DOWNLOAD)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DENY_DOWNLOAD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDenyDownload() {
@@ -248,7 +233,7 @@ public class FolderLinkRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DENY_DOWNLOAD)
+  @JsonProperty(value = JSON_PROPERTY_DENY_DOWNLOAD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDenyDownload(@javax.annotation.Nullable Boolean denyDownload) {
     this.denyDownload = denyDownload;
@@ -264,8 +249,7 @@ public class FolderLinkRequest {
    * The link scope, whether it is internal or not.
    * @return internal
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INTERNAL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INTERNAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getInternal() {
@@ -273,7 +257,7 @@ public class FolderLinkRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INTERNAL)
+  @JsonProperty(value = JSON_PROPERTY_INTERNAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInternal(@javax.annotation.Nullable Boolean internal) {
     this.internal = internal;
@@ -289,8 +273,7 @@ public class FolderLinkRequest {
    * Specifies whether the folder link is primary or not.
    * @return primary
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRIMARY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRIMARY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getPrimary() {
@@ -298,7 +281,7 @@ public class FolderLinkRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PRIMARY)
+  @JsonProperty(value = JSON_PROPERTY_PRIMARY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrimary(@javax.annotation.Nullable Boolean primary) {
     this.primary = primary;

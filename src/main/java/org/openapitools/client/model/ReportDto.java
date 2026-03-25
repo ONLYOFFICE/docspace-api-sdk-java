@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -52,28 +53,22 @@ import java.util.StringJoiner;
 
 public class ReportDto {
   public static final String JSON_PROPERTY_COLLECTION = "collection";
-  @javax.annotation.Nullable
-  private JsonNullable<List<OperationDto>> collection = JsonNullable.<List<OperationDto>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<OperationDto>> collection = JsonNullable.<List<OperationDto>>undefined();
 
   public static final String JSON_PROPERTY_OFFSET = "offset";
-  @javax.annotation.Nullable
-  private Integer offset;
+  @javax.annotation.Nullable  private Integer offset;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
-  @javax.annotation.Nullable
-  private Integer limit;
+  @javax.annotation.Nullable  private Integer limit;
 
   public static final String JSON_PROPERTY_TOTAL_QUANTITY = "totalQuantity";
-  @javax.annotation.Nullable
-  private Integer totalQuantity;
+  @javax.annotation.Nullable  private Integer totalQuantity;
 
   public static final String JSON_PROPERTY_TOTAL_PAGE = "totalPage";
-  @javax.annotation.Nullable
-  private Integer totalPage;
+  @javax.annotation.Nullable  private Integer totalPage;
 
   public static final String JSON_PROPERTY_CURRENT_PAGE = "currentPage";
-  @javax.annotation.Nullable
-  private Integer currentPage;
+  @javax.annotation.Nullable  private Integer currentPage;
 
   public ReportDto() {
   }
@@ -101,16 +96,14 @@ public class ReportDto {
    * A collection of operations.
    * @return collection
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<OperationDto> getCollection() {
         return collection.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_COLLECTION)
+  @JsonProperty(value = JSON_PROPERTY_COLLECTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<OperationDto>> getCollection_JsonNullable() {
     return collection;
   }
@@ -134,8 +127,7 @@ public class ReportDto {
    * The report data offset.
    * @return offset
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OFFSET)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OFFSET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getOffset() {
@@ -143,7 +135,7 @@ public class ReportDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OFFSET)
+  @JsonProperty(value = JSON_PROPERTY_OFFSET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOffset(@javax.annotation.Nullable Integer offset) {
     this.offset = offset;
@@ -159,8 +151,7 @@ public class ReportDto {
    * The report data limit.
    * @return limit
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIMIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getLimit() {
@@ -168,7 +159,7 @@ public class ReportDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonProperty(value = JSON_PROPERTY_LIMIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLimit(@javax.annotation.Nullable Integer limit) {
     this.limit = limit;
@@ -184,8 +175,7 @@ public class ReportDto {
    * The total quantity of operations in the report.
    * @return totalQuantity
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TOTAL_QUANTITY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOTAL_QUANTITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getTotalQuantity() {
@@ -193,7 +183,7 @@ public class ReportDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TOTAL_QUANTITY)
+  @JsonProperty(value = JSON_PROPERTY_TOTAL_QUANTITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotalQuantity(@javax.annotation.Nullable Integer totalQuantity) {
     this.totalQuantity = totalQuantity;
@@ -209,8 +199,7 @@ public class ReportDto {
    * The total number of pages in the report.
    * @return totalPage
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TOTAL_PAGE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOTAL_PAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getTotalPage() {
@@ -218,7 +207,7 @@ public class ReportDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TOTAL_PAGE)
+  @JsonProperty(value = JSON_PROPERTY_TOTAL_PAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotalPage(@javax.annotation.Nullable Integer totalPage) {
     this.totalPage = totalPage;
@@ -234,8 +223,7 @@ public class ReportDto {
    * The current page number of the report.
    * @return currentPage
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CURRENT_PAGE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CURRENT_PAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getCurrentPage() {
@@ -243,7 +231,7 @@ public class ReportDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CURRENT_PAGE)
+  @JsonProperty(value = JSON_PROPERTY_CURRENT_PAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrentPage(@javax.annotation.Nullable Integer currentPage) {
     this.currentPage = currentPage;

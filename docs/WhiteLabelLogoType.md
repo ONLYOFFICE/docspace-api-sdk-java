@@ -5,37 +5,37 @@
 ## Enum
 
 
-* `NUMBER_1` (value: `1`)
+* `LightSmall` (value: `1`)
 
-* `NUMBER_2` (value: `2`)
+* `LoginPage` (value: `2`)
 
-* `NUMBER_3` (value: `3`)
+* `Favicon` (value: `3`)
 
-* `NUMBER_4` (value: `4`)
+* `DocsEditor` (value: `4`)
 
-* `NUMBER_5` (value: `5`)
+* `DocsEditorEmbed` (value: `5`)
 
-* `NUMBER_6` (value: `6`)
+* `LeftMenu` (value: `6`)
 
-* `NUMBER_7` (value: `7`)
+* `AboutPage` (value: `7`)
 
-* `NUMBER_8` (value: `8`)
+* `Notification` (value: `8`)
 
-* `NUMBER_9` (value: `9`)
+* `SpreadsheetEditor` (value: `9`)
 
-* `NUMBER_10` (value: `10`)
+* `SpreadsheetEditorEmbed` (value: `10`)
 
-* `NUMBER_11` (value: `11`)
+* `PresentationEditor` (value: `11`)
 
-* `NUMBER_12` (value: `12`)
+* `PresentationEditorEmbed` (value: `12`)
 
-* `NUMBER_13` (value: `13`)
+* `PdfEditor` (value: `13`)
 
-* `NUMBER_14` (value: `14`)
+* `PdfEditorEmbed` (value: `14`)
 
-* `NUMBER_15` (value: `15`)
+* `DiagramEditor` (value: `15`)
 
-* `NUMBER_16` (value: `16`)
+* `DiagramEditorEmbed` (value: `16`)
 
 
 

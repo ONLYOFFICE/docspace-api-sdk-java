@@ -8,7 +8,7 @@ The SSO portal settings.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**lastModified** | **OffsetDateTime** |  |  [optional] |
+|**lastModified** | **OffsetDateTime** | The timestamp indicating when the settings were last modified. |  [optional] |
 |**enableSso** | **Boolean** | Specifies if the SSO settings are enabled or not. |  [optional] |
 |**idpSettings** | [**SsoIdpSettings**](SsoIdpSettings.md) |  |  [optional] |
 |**idpCertificates** | [**List&lt;SsoCertificate&gt;**](SsoCertificate.md) | The list of the IdP certificates. |  [optional] |

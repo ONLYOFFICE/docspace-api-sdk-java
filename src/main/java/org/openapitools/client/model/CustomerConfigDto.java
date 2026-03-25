@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,28 +49,22 @@ import java.util.StringJoiner;
 
 public class CustomerConfigDto {
   public static final String JSON_PROPERTY_ADDRESS = "address";
-  @javax.annotation.Nullable
-  private JsonNullable<String> address = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> address = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LOGO = "logo";
-  @javax.annotation.Nullable
-  private JsonNullable<String> logo = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> logo = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LOGO_DARK = "logoDark";
-  @javax.annotation.Nullable
-  private JsonNullable<String> logoDark = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> logoDark = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_MAIL = "mail";
-  @javax.annotation.Nullable
-  private JsonNullable<String> mail = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> mail = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_WWW = "www";
-  @javax.annotation.Nullable
-  private JsonNullable<String> www = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> www = JsonNullable.<String>undefined();
 
   public CustomerConfigDto() {
   }
@@ -85,16 +80,14 @@ public class CustomerConfigDto {
    * The address of the customer configuration.
    * @return address
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getAddress() {
         return address.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getAddress_JsonNullable() {
     return address;
   }
@@ -118,16 +111,14 @@ public class CustomerConfigDto {
    * The logo of the customer configuration.
    * @return logo
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLogo() {
         return logo.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LOGO)
+  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLogo_JsonNullable() {
     return logo;
   }
@@ -151,16 +142,14 @@ public class CustomerConfigDto {
    * The dark logo of the customer configuration.
    * @return logoDark
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLogoDark() {
         return logoDark.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LOGO_DARK)
+  @JsonProperty(value = JSON_PROPERTY_LOGO_DARK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLogoDark_JsonNullable() {
     return logoDark;
   }
@@ -184,16 +173,14 @@ public class CustomerConfigDto {
    * The mail address of the customer configuration.
    * @return mail
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getMail() {
         return mail.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MAIL)
+  @JsonProperty(value = JSON_PROPERTY_MAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getMail_JsonNullable() {
     return mail;
   }
@@ -217,16 +204,14 @@ public class CustomerConfigDto {
    * The name of the customer configuration.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getName() {
         return name.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
@@ -250,16 +235,14 @@ public class CustomerConfigDto {
    * The site web address of the customer configuration.
    * @return www
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getWww() {
         return www.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_WWW)
+  @JsonProperty(value = JSON_PROPERTY_WWW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getWww_JsonNullable() {
     return www;
   }

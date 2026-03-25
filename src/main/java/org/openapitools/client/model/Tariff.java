@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -56,36 +57,28 @@ import java.util.StringJoiner;
 
 public class Tariff {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private Integer id;
+  @javax.annotation.Nullable  private Integer id;
 
   public static final String JSON_PROPERTY_STATE = "state";
-  @javax.annotation.Nullable
-  private TariffState state;
+  @javax.annotation.Nullable  private TariffState state;
 
   public static final String JSON_PROPERTY_DUE_DATE = "dueDate";
-  @javax.annotation.Nonnull
-  private OffsetDateTime dueDate;
+  @javax.annotation.Nonnull  private OffsetDateTime dueDate;
 
   public static final String JSON_PROPERTY_DELAY_DUE_DATE = "delayDueDate";
-  @javax.annotation.Nullable
-  private OffsetDateTime delayDueDate;
+  @javax.annotation.Nullable  private OffsetDateTime delayDueDate;
 
   public static final String JSON_PROPERTY_LICENSE_DATE = "licenseDate";
-  @javax.annotation.Nullable
-  private OffsetDateTime licenseDate;
+  @javax.annotation.Nullable  private OffsetDateTime licenseDate;
 
   public static final String JSON_PROPERTY_CUSTOMER_ID = "customerId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> customerId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> customerId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_QUOTAS = "quotas";
-  @javax.annotation.Nullable
-  private List<Quota> quotas;
+  @javax.annotation.Nullable  private List<Quota> quotas;
 
   public static final String JSON_PROPERTY_OVERDUE_QUOTAS = "overdueQuotas";
-  @javax.annotation.Nullable
-  private JsonNullable<List<Quota>> overdueQuotas = JsonNullable.<List<Quota>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<Quota>> overdueQuotas = JsonNullable.<List<Quota>>undefined();
 
   public Tariff() {
   }
@@ -101,8 +94,7 @@ public class Tariff {
    * The tariff ID.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getId() {
@@ -110,7 +102,7 @@ public class Tariff {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(@javax.annotation.Nullable Integer id) {
     this.id = id;
@@ -126,8 +118,7 @@ public class Tariff {
    * Get state
    * @return state
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TariffState getState() {
@@ -135,7 +126,7 @@ public class Tariff {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonProperty(value = JSON_PROPERTY_STATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setState(@javax.annotation.Nullable TariffState state) {
     this.state = state;
@@ -151,8 +142,7 @@ public class Tariff {
    * The tariff due date.
    * @return dueDate
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DUE_DATE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DUE_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getDueDate() {
@@ -160,7 +150,7 @@ public class Tariff {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DUE_DATE)
+  @JsonProperty(value = JSON_PROPERTY_DUE_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDueDate(@javax.annotation.Nonnull OffsetDateTime dueDate) {
     this.dueDate = dueDate;
@@ -176,8 +166,7 @@ public class Tariff {
    * The tariff delay due date.
    * @return delayDueDate
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DELAY_DUE_DATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DELAY_DUE_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getDelayDueDate() {
@@ -185,7 +174,7 @@ public class Tariff {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DELAY_DUE_DATE)
+  @JsonProperty(value = JSON_PROPERTY_DELAY_DUE_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDelayDueDate(@javax.annotation.Nullable OffsetDateTime delayDueDate) {
     this.delayDueDate = delayDueDate;
@@ -201,8 +190,7 @@ public class Tariff {
    * The tariff license date.
    * @return licenseDate
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LICENSE_DATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LICENSE_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLicenseDate() {
@@ -210,7 +198,7 @@ public class Tariff {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LICENSE_DATE)
+  @JsonProperty(value = JSON_PROPERTY_LICENSE_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLicenseDate(@javax.annotation.Nullable OffsetDateTime licenseDate) {
     this.licenseDate = licenseDate;
@@ -226,16 +214,14 @@ public class Tariff {
    * The tariff customer ID.
    * @return customerId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCustomerId() {
         return customerId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CUSTOMER_ID)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOMER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCustomerId_JsonNullable() {
     return customerId;
   }
@@ -267,8 +253,7 @@ public class Tariff {
    * The list of tariff quotas.
    * @return quotas
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUOTAS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_QUOTAS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<Quota> getQuotas() {
@@ -276,7 +261,7 @@ public class Tariff {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_QUOTAS)
+  @JsonProperty(value = JSON_PROPERTY_QUOTAS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setQuotas(@javax.annotation.Nullable List<Quota> quotas) {
     this.quotas = quotas;
@@ -304,16 +289,14 @@ public class Tariff {
    * The list of overdue tariff quotas.
    * @return overdueQuotas
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<Quota> getOverdueQuotas() {
         return overdueQuotas.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_OVERDUE_QUOTAS)
+  @JsonProperty(value = JSON_PROPERTY_OVERDUE_QUOTAS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<Quota>> getOverdueQuotas_JsonNullable() {
     return overdueQuotas;
   }

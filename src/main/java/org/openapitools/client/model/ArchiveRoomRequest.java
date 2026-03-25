@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -39,8 +40,7 @@ import java.util.StringJoiner;
 
 public class ArchiveRoomRequest {
   public static final String JSON_PROPERTY_DELETE_AFTER = "deleteAfter";
-  @javax.annotation.Nullable
-  private Boolean deleteAfter;
+  @javax.annotation.Nullable  private Boolean deleteAfter;
 
   public ArchiveRoomRequest() {
   }
@@ -56,8 +56,7 @@ public class ArchiveRoomRequest {
    * Specifies whether to archive a room after the editing session is finished or not.
    * @return deleteAfter
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DELETE_AFTER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DELETE_AFTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDeleteAfter() {
@@ -65,7 +64,7 @@ public class ArchiveRoomRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DELETE_AFTER)
+  @JsonProperty(value = JSON_PROPERTY_DELETE_AFTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeleteAfter(@javax.annotation.Nullable Boolean deleteAfter) {
     this.deleteAfter = deleteAfter;

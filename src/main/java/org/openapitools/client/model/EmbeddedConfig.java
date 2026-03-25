@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -47,24 +48,19 @@ import java.util.StringJoiner;
 
 public class EmbeddedConfig {
   public static final String JSON_PROPERTY_EMBED_URL = "embedUrl";
-  @javax.annotation.Nullable
-  private JsonNullable<String> embedUrl = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> embedUrl = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SAVE_URL = "saveUrl";
-  @javax.annotation.Nullable
-  private JsonNullable<String> saveUrl = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> saveUrl = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SHARE_LINK_PARAM = "shareLinkParam";
-  @javax.annotation.Nullable
-  private JsonNullable<String> shareLinkParam = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> shareLinkParam = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SHARE_URL = "shareUrl";
-  @javax.annotation.Nullable
-  private JsonNullable<String> shareUrl = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> shareUrl = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TOOLBAR_DOCKED = "toolbarDocked";
-  @javax.annotation.Nullable
-  private JsonNullable<String> toolbarDocked = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> toolbarDocked = JsonNullable.<String>undefined();
 
   public EmbeddedConfig() {
   }
@@ -92,16 +88,14 @@ public class EmbeddedConfig {
    * The absolute URL to the document serving as a source file for the document embedded into the web page.
    * @return embedUrl
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getEmbedUrl() {
         return embedUrl.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EMBED_URL)
+  @JsonProperty(value = JSON_PROPERTY_EMBED_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getEmbedUrl_JsonNullable() {
     return embedUrl;
   }
@@ -119,8 +113,7 @@ public class EmbeddedConfig {
    * The absolute URL that will allow the document to be saved onto the user personal computer.
    * @return saveUrl
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSaveUrl() {
     
@@ -130,9 +123,8 @@ public class EmbeddedConfig {
     return saveUrl.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SAVE_URL)
+  @JsonProperty(value = JSON_PROPERTY_SAVE_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSaveUrl_JsonNullable() {
     return saveUrl;
   }
@@ -153,16 +145,14 @@ public class EmbeddedConfig {
    * The shared URL parameter.
    * @return shareLinkParam
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getShareLinkParam() {
         return shareLinkParam.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SHARE_LINK_PARAM)
+  @JsonProperty(value = JSON_PROPERTY_SHARE_LINK_PARAM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getShareLinkParam_JsonNullable() {
     return shareLinkParam;
   }
@@ -186,16 +176,14 @@ public class EmbeddedConfig {
    * The absolute URL that will allow other users to share this document.
    * @return shareUrl
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getShareUrl() {
         return shareUrl.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SHARE_URL)
+  @JsonProperty(value = JSON_PROPERTY_SHARE_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getShareUrl_JsonNullable() {
     return shareUrl;
   }
@@ -213,8 +201,7 @@ public class EmbeddedConfig {
    * The place for the embedded viewer toolbar, can be either top or bottom.
    * @return toolbarDocked
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getToolbarDocked() {
     
@@ -224,9 +211,8 @@ public class EmbeddedConfig {
     return toolbarDocked.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TOOLBAR_DOCKED)
+  @JsonProperty(value = JSON_PROPERTY_TOOLBAR_DOCKED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getToolbarDocked_JsonNullable() {
     return toolbarDocked;
   }

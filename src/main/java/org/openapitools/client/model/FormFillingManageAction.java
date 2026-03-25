@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -29,19 +30,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * [0 - Stop, 1 - Resume]
+ * [0 - Stop, 1 - Resume, 2 - Start, 3 - Edit]
  */
 public enum FormFillingManageAction {
   
-  /**
-   * Stop
-   */
   Stop(0),
   
-  /**
-   * Resume
-   */
-  Resume(1);
+  Resume(1),
+  
+  Start(2),
+  
+  Edit(3);
 
   private Integer value;
 
@@ -80,7 +79,7 @@ public enum FormFillingManageAction {
       prefix = "";
     }
 
-    return String.format("%s=%s", prefix, this.toString());
+    return String.format(java.util.Locale.ROOT, "%s=%s", prefix, this.toString());
   }
 }
 

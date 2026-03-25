@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,6 +35,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -57,36 +58,28 @@ import java.util.StringJoiner;
 
 public class BatchRequestDto {
   public static final String JSON_PROPERTY_RETURN_SINGLE_OPERATION = "returnSingleOperation";
-  @javax.annotation.Nullable
-  private Boolean returnSingleOperation;
+  @javax.annotation.Nullable  private Boolean returnSingleOperation;
 
   public static final String JSON_PROPERTY_FOLDER_IDS = "folderIds";
-  @javax.annotation.Nullable
-  private JsonNullable<List<BatchRequestDtoAllOfFolderIds>> folderIds = JsonNullable.<List<BatchRequestDtoAllOfFolderIds>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<BatchRequestDtoAllOfFolderIds>> folderIds = JsonNullable.<List<BatchRequestDtoAllOfFolderIds>>undefined();
 
   public static final String JSON_PROPERTY_FILE_IDS = "fileIds";
-  @javax.annotation.Nullable
-  private JsonNullable<List<BatchRequestDtoAllOfFileIds>> fileIds = JsonNullable.<List<BatchRequestDtoAllOfFileIds>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<BatchRequestDtoAllOfFileIds>> fileIds = JsonNullable.<List<BatchRequestDtoAllOfFileIds>>undefined();
 
   public static final String JSON_PROPERTY_DEST_FOLDER_ID = "destFolderId";
-  @javax.annotation.Nullable
-  private BatchRequestDtoAllOfDestFolderId destFolderId;
+  @javax.annotation.Nullable  private BatchRequestDtoAllOfDestFolderId destFolderId;
 
   public static final String JSON_PROPERTY_CONFLICT_RESOLVE_TYPE = "conflictResolveType";
-  @javax.annotation.Nullable
-  private FileConflictResolveType conflictResolveType;
+  @javax.annotation.Nullable  private FileConflictResolveType conflictResolveType;
 
   public static final String JSON_PROPERTY_DELETE_AFTER = "deleteAfter";
-  @javax.annotation.Nullable
-  private Boolean deleteAfter;
+  @javax.annotation.Nullable  private Boolean deleteAfter;
 
   public static final String JSON_PROPERTY_CONTENT = "content";
-  @javax.annotation.Nullable
-  private Boolean content;
+  @javax.annotation.Nullable  private Boolean content;
 
   public static final String JSON_PROPERTY_TO_FILL_OUT = "toFillOut";
-  @javax.annotation.Nullable
-  private Boolean toFillOut;
+  @javax.annotation.Nullable  private Boolean toFillOut;
 
   public BatchRequestDto() {
   }
@@ -102,8 +95,7 @@ public class BatchRequestDto {
    * Specifies whether to return only the current operation
    * @return returnSingleOperation
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RETURN_SINGLE_OPERATION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RETURN_SINGLE_OPERATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getReturnSingleOperation() {
@@ -111,7 +103,7 @@ public class BatchRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RETURN_SINGLE_OPERATION)
+  @JsonProperty(value = JSON_PROPERTY_RETURN_SINGLE_OPERATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReturnSingleOperation(@javax.annotation.Nullable Boolean returnSingleOperation) {
     this.returnSingleOperation = returnSingleOperation;
@@ -139,16 +131,14 @@ public class BatchRequestDto {
    * The list of folder IDs to be copied/moved.
    * @return folderIds
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<BatchRequestDtoAllOfFolderIds> getFolderIds() {
         return folderIds.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FOLDER_IDS)
+  @JsonProperty(value = JSON_PROPERTY_FOLDER_IDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<BatchRequestDtoAllOfFolderIds>> getFolderIds_JsonNullable() {
     return folderIds;
   }
@@ -184,16 +174,14 @@ public class BatchRequestDto {
    * The list of file IDs to be copied/moved.
    * @return fileIds
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<BatchRequestDtoAllOfFileIds> getFileIds() {
         return fileIds.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE_IDS)
+  @JsonProperty(value = JSON_PROPERTY_FILE_IDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<BatchRequestDtoAllOfFileIds>> getFileIds_JsonNullable() {
     return fileIds;
   }
@@ -217,8 +205,7 @@ public class BatchRequestDto {
    * Get destFolderId
    * @return destFolderId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEST_FOLDER_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEST_FOLDER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public BatchRequestDtoAllOfDestFolderId getDestFolderId() {
@@ -226,7 +213,7 @@ public class BatchRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DEST_FOLDER_ID)
+  @JsonProperty(value = JSON_PROPERTY_DEST_FOLDER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDestFolderId(@javax.annotation.Nullable BatchRequestDtoAllOfDestFolderId destFolderId) {
     this.destFolderId = destFolderId;
@@ -242,8 +229,7 @@ public class BatchRequestDto {
    * Get conflictResolveType
    * @return conflictResolveType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONFLICT_RESOLVE_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONFLICT_RESOLVE_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FileConflictResolveType getConflictResolveType() {
@@ -251,7 +237,7 @@ public class BatchRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CONFLICT_RESOLVE_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_CONFLICT_RESOLVE_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConflictResolveType(@javax.annotation.Nullable FileConflictResolveType conflictResolveType) {
     this.conflictResolveType = conflictResolveType;
@@ -267,8 +253,7 @@ public class BatchRequestDto {
    * Specifies whether to delete the source files/folders after they are moved or copied to the destination folder.
    * @return deleteAfter
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DELETE_AFTER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DELETE_AFTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDeleteAfter() {
@@ -276,7 +261,7 @@ public class BatchRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DELETE_AFTER)
+  @JsonProperty(value = JSON_PROPERTY_DELETE_AFTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeleteAfter(@javax.annotation.Nullable Boolean deleteAfter) {
     this.deleteAfter = deleteAfter;
@@ -292,8 +277,7 @@ public class BatchRequestDto {
    * Specifies whether to copy or move the folder content or not.
    * @return content
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONTENT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONTENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getContent() {
@@ -301,7 +285,7 @@ public class BatchRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CONTENT)
+  @JsonProperty(value = JSON_PROPERTY_CONTENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContent(@javax.annotation.Nullable Boolean content) {
     this.content = content;
@@ -317,8 +301,7 @@ public class BatchRequestDto {
    * Specifies whether the file is copied for filling out
    * @return toFillOut
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TO_FILL_OUT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TO_FILL_OUT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getToFillOut() {
@@ -326,7 +309,7 @@ public class BatchRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TO_FILL_OUT)
+  @JsonProperty(value = JSON_PROPERTY_TO_FILL_OUT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToFillOut(@javax.annotation.Nullable Boolean toFillOut) {
     this.toFillOut = toFillOut;

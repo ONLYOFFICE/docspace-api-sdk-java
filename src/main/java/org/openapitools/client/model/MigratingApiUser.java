@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -52,36 +53,28 @@ import java.util.StringJoiner;
 
 public class MigratingApiUser {
   public static final String JSON_PROPERTY_SHOULD_IMPORT = "shouldImport";
-  @javax.annotation.Nullable
-  private Boolean shouldImport;
+  @javax.annotation.Nullable  private Boolean shouldImport;
 
   public static final String JSON_PROPERTY_KEY = "key";
-  @javax.annotation.Nullable
-  private JsonNullable<String> key = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> key = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nullable
-  private JsonNullable<String> email = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> email = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DISPLAY_NAME = "displayName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> displayName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> displayName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> firstName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> firstName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LAST_NAME = "lastName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> lastName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> lastName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_USER_TYPE = "userType";
-  @javax.annotation.Nullable
-  private EmployeeType userType;
+  @javax.annotation.Nullable  private EmployeeType userType;
 
   public static final String JSON_PROPERTY_MIGRATING_FILES = "migratingFiles";
-  @javax.annotation.Nullable
-  private MigratingApiFiles migratingFiles;
+  @javax.annotation.Nullable  private MigratingApiFiles migratingFiles;
 
   public MigratingApiUser() {
   }
@@ -97,8 +90,7 @@ public class MigratingApiUser {
    * Get shouldImport
    * @return shouldImport
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHOULD_IMPORT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHOULD_IMPORT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getShouldImport() {
@@ -106,7 +98,7 @@ public class MigratingApiUser {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOULD_IMPORT)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_IMPORT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShouldImport(@javax.annotation.Nullable Boolean shouldImport) {
     this.shouldImport = shouldImport;
@@ -122,16 +114,14 @@ public class MigratingApiUser {
    * Get key
    * @return key
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getKey() {
         return key.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_KEY)
+  @JsonProperty(value = JSON_PROPERTY_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getKey_JsonNullable() {
     return key;
   }
@@ -155,16 +145,14 @@ public class MigratingApiUser {
    * Get email
    * @return email
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getEmail() {
         return email.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getEmail_JsonNullable() {
     return email;
   }
@@ -188,16 +176,14 @@ public class MigratingApiUser {
    * Get displayName
    * @return displayName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getDisplayName() {
         return displayName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_DISPLAY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getDisplayName_JsonNullable() {
     return displayName;
   }
@@ -221,16 +207,14 @@ public class MigratingApiUser {
    * Get firstName
    * @return firstName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFirstName() {
         return firstName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FIRST_NAME)
+  @JsonProperty(value = JSON_PROPERTY_FIRST_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFirstName_JsonNullable() {
     return firstName;
   }
@@ -254,16 +238,14 @@ public class MigratingApiUser {
    * Get lastName
    * @return lastName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLastName() {
         return lastName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LAST_NAME)
+  @JsonProperty(value = JSON_PROPERTY_LAST_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLastName_JsonNullable() {
     return lastName;
   }
@@ -287,8 +269,7 @@ public class MigratingApiUser {
    * Get userType
    * @return userType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USER_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EmployeeType getUserType() {
@@ -296,7 +277,7 @@ public class MigratingApiUser {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USER_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_USER_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUserType(@javax.annotation.Nullable EmployeeType userType) {
     this.userType = userType;
@@ -312,8 +293,7 @@ public class MigratingApiUser {
    * Get migratingFiles
    * @return migratingFiles
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MIGRATING_FILES)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MIGRATING_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public MigratingApiFiles getMigratingFiles() {
@@ -321,7 +301,7 @@ public class MigratingApiUser {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MIGRATING_FILES)
+  @JsonProperty(value = JSON_PROPERTY_MIGRATING_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMigratingFiles(@javax.annotation.Nullable MigratingApiFiles migratingFiles) {
     this.migratingFiles = migratingFiles;

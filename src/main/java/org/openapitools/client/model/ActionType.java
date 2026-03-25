@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -33,104 +34,44 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum ActionType {
   
-  /**
-   * None
-   */
   None(0),
   
-  /**
-   * Create
-   */
   Create(1),
   
-  /**
-   * Update
-   */
   Update(2),
   
-  /**
-   * Delete
-   */
   Delete(3),
   
-  /**
-   * Link
-   */
   Link(4),
   
-  /**
-   * Unlink
-   */
   Unlink(5),
   
-  /**
-   * Attach
-   */
   Attach(6),
   
-  /**
-   * Detach
-   */
   Detach(7),
   
-  /**
-   * Send
-   */
   Send(8),
   
-  /**
-   * Import
-   */
   Import(9),
   
-  /**
-   * Export
-   */
   Export(10),
   
-  /**
-   * Update access
-   */
   UpdateAccess(11),
   
-  /**
-   * Download
-   */
   Download(12),
   
-  /**
-   * Upload
-   */
   Upload(13),
   
-  /**
-   * Copy
-   */
   Copy(14),
   
-  /**
-   * Move
-   */
   Move(15),
   
-  /**
-   * Reassigns
-   */
   Reassigns(16),
   
-  /**
-   * Follow
-   */
   Follow(17),
   
-  /**
-   * Unfollow
-   */
   Unfollow(18),
   
-  /**
-   * Logout
-   */
   Logout(19);
 
   private Integer value;
@@ -170,7 +111,7 @@ public enum ActionType {
       prefix = "";
     }
 
-    return String.format("%s=%s", prefix, this.toString());
+    return String.format(java.util.Locale.ROOT, "%s=%s", prefix, this.toString());
   }
 }
 

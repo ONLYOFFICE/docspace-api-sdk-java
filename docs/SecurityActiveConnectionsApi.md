@@ -168,7 +168,7 @@ public class Example {
 
 
         ActiveConnectionsApi apiInstance = new ActiveConnectionsApi(defaultClient);
-        Integer loginEventId = 9846; // Integer | The ID of the specific login event.
+        Integer loginEventId = 12345; // Integer | The ID of the specific login event.
         try {
             BooleanWrapper result = apiInstance.logOutActiveConnection(loginEventId);
             System.out.println(result);
@@ -193,8 +193,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Method not available |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## logOutAllActiveConnectionsChangePassword
@@ -353,7 +353,7 @@ public class Example {
 
 
         ActiveConnectionsApi apiInstance = new ActiveConnectionsApi(defaultClient);
-        UUID userId = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The user ID extracted from the route parameters.
+        UUID userId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user ID extracted from the route parameters.
         try {
             apiInstance.logOutAllActiveConnectionsForUser(userId);
         } catch (ApiException e) {
@@ -377,8 +377,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Method not available |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## logOutAllExceptThisConnection

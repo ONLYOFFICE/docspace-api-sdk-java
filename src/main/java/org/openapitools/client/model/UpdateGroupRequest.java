@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -50,20 +51,16 @@ import java.util.StringJoiner;
 
 public class UpdateGroupRequest {
   public static final String JSON_PROPERTY_MEMBERS_TO_ADD = "membersToAdd";
-  @javax.annotation.Nullable
-  private JsonNullable<List<UUID>> membersToAdd = JsonNullable.<List<UUID>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<UUID>> membersToAdd = JsonNullable.<List<UUID>>undefined();
 
   public static final String JSON_PROPERTY_MEMBERS_TO_REMOVE = "membersToRemove";
-  @javax.annotation.Nullable
-  private JsonNullable<List<UUID>> membersToRemove = JsonNullable.<List<UUID>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<UUID>> membersToRemove = JsonNullable.<List<UUID>>undefined();
 
   public static final String JSON_PROPERTY_GROUP_MANAGER = "groupManager";
-  @javax.annotation.Nullable
-  private UUID groupManager;
+  @javax.annotation.Nullable  private UUID groupManager;
 
   public static final String JSON_PROPERTY_GROUP_NAME = "groupName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> groupName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> groupName = JsonNullable.<String>undefined();
 
   public UpdateGroupRequest() {
   }
@@ -91,16 +88,14 @@ public class UpdateGroupRequest {
    * The list of user IDs to add to the group.
    * @return membersToAdd
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<UUID> getMembersToAdd() {
         return membersToAdd.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MEMBERS_TO_ADD)
+  @JsonProperty(value = JSON_PROPERTY_MEMBERS_TO_ADD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<UUID>> getMembersToAdd_JsonNullable() {
     return membersToAdd;
   }
@@ -136,16 +131,14 @@ public class UpdateGroupRequest {
    * The list of user IDs to remove from the group.
    * @return membersToRemove
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<UUID> getMembersToRemove() {
         return membersToRemove.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MEMBERS_TO_REMOVE)
+  @JsonProperty(value = JSON_PROPERTY_MEMBERS_TO_REMOVE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<UUID>> getMembersToRemove_JsonNullable() {
     return membersToRemove;
   }
@@ -169,8 +162,7 @@ public class UpdateGroupRequest {
    * The group manager ID.
    * @return groupManager
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GROUP_MANAGER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GROUP_MANAGER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getGroupManager() {
@@ -178,7 +170,7 @@ public class UpdateGroupRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GROUP_MANAGER)
+  @JsonProperty(value = JSON_PROPERTY_GROUP_MANAGER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGroupManager(@javax.annotation.Nullable UUID groupManager) {
     this.groupManager = groupManager;
@@ -194,16 +186,14 @@ public class UpdateGroupRequest {
    * The group name.
    * @return groupName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getGroupName() {
         return groupName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_GROUP_NAME)
+  @JsonProperty(value = JSON_PROPERTY_GROUP_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getGroupName_JsonNullable() {
     return groupName;
   }

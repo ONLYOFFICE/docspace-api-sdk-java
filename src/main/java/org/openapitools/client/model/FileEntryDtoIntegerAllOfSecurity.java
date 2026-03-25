@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -82,176 +83,133 @@ import java.util.StringJoiner;
 
 public class FileEntryDtoIntegerAllOfSecurity {
   public static final String JSON_PROPERTY_READ = "Read";
-  @javax.annotation.Nullable
-  private Boolean read;
+  @javax.annotation.Nullable  private Boolean read;
 
   public static final String JSON_PROPERTY_COMMENT = "Comment";
-  @javax.annotation.Nullable
-  private Boolean comment;
+  @javax.annotation.Nullable  private Boolean comment;
 
   public static final String JSON_PROPERTY_FILL_FORMS = "FillForms";
-  @javax.annotation.Nullable
-  private Boolean fillForms;
+  @javax.annotation.Nullable  private Boolean fillForms;
 
   public static final String JSON_PROPERTY_REVIEW = "Review";
-  @javax.annotation.Nullable
-  private Boolean review;
+  @javax.annotation.Nullable  private Boolean review;
 
   public static final String JSON_PROPERTY_CREATE = "Create";
-  @javax.annotation.Nullable
-  private Boolean create;
+  @javax.annotation.Nullable  private Boolean create;
 
   public static final String JSON_PROPERTY_CREATE_FROM = "CreateFrom";
-  @javax.annotation.Nullable
-  private Boolean createFrom;
+  @javax.annotation.Nullable  private Boolean createFrom;
 
   public static final String JSON_PROPERTY_EDIT = "Edit";
-  @javax.annotation.Nullable
-  private Boolean edit;
+  @javax.annotation.Nullable  private Boolean edit;
 
   public static final String JSON_PROPERTY_DELETE = "Delete";
-  @javax.annotation.Nullable
-  private Boolean delete;
+  @javax.annotation.Nullable  private Boolean delete;
 
   public static final String JSON_PROPERTY_CUSTOM_FILTER = "CustomFilter";
-  @javax.annotation.Nullable
-  private Boolean customFilter;
+  @javax.annotation.Nullable  private Boolean customFilter;
 
   public static final String JSON_PROPERTY_EDIT_ROOM = "EditRoom";
-  @javax.annotation.Nullable
-  private Boolean editRoom;
+  @javax.annotation.Nullable  private Boolean editRoom;
 
   public static final String JSON_PROPERTY_RENAME = "Rename";
-  @javax.annotation.Nullable
-  private Boolean rename;
+  @javax.annotation.Nullable  private Boolean rename;
 
   public static final String JSON_PROPERTY_READ_HISTORY = "ReadHistory";
-  @javax.annotation.Nullable
-  private Boolean readHistory;
+  @javax.annotation.Nullable  private Boolean readHistory;
 
   public static final String JSON_PROPERTY_LOCK = "Lock";
-  @javax.annotation.Nullable
-  private Boolean lock;
+  @javax.annotation.Nullable  private Boolean lock;
 
   public static final String JSON_PROPERTY_EDIT_HISTORY = "EditHistory";
-  @javax.annotation.Nullable
-  private Boolean editHistory;
+  @javax.annotation.Nullable  private Boolean editHistory;
 
   public static final String JSON_PROPERTY_COPY_TO = "CopyTo";
-  @javax.annotation.Nullable
-  private Boolean copyTo;
+  @javax.annotation.Nullable  private Boolean copyTo;
 
   public static final String JSON_PROPERTY_COPY = "Copy";
-  @javax.annotation.Nullable
-  private Boolean copy;
+  @javax.annotation.Nullable  private Boolean copy;
 
   public static final String JSON_PROPERTY_MOVE_TO = "MoveTo";
-  @javax.annotation.Nullable
-  private Boolean moveTo;
+  @javax.annotation.Nullable  private Boolean moveTo;
 
   public static final String JSON_PROPERTY_MOVE = "Move";
-  @javax.annotation.Nullable
-  private Boolean move;
+  @javax.annotation.Nullable  private Boolean move;
 
   public static final String JSON_PROPERTY_PIN = "Pin";
-  @javax.annotation.Nullable
-  private Boolean pin;
+  @javax.annotation.Nullable  private Boolean pin;
 
   public static final String JSON_PROPERTY_MUTE = "Mute";
-  @javax.annotation.Nullable
-  private Boolean mute;
+  @javax.annotation.Nullable  private Boolean mute;
 
   public static final String JSON_PROPERTY_EDIT_ACCESS = "EditAccess";
-  @javax.annotation.Nullable
-  private Boolean editAccess;
+  @javax.annotation.Nullable  private Boolean editAccess;
 
   public static final String JSON_PROPERTY_DUPLICATE = "Duplicate";
-  @javax.annotation.Nullable
-  private Boolean duplicate;
+  @javax.annotation.Nullable  private Boolean duplicate;
 
   public static final String JSON_PROPERTY_SUBMIT_TO_FORM_GALLERY = "SubmitToFormGallery";
-  @javax.annotation.Nullable
-  private Boolean submitToFormGallery;
+  @javax.annotation.Nullable  private Boolean submitToFormGallery;
 
   public static final String JSON_PROPERTY_DOWNLOAD = "Download";
-  @javax.annotation.Nullable
-  private Boolean download;
+  @javax.annotation.Nullable  private Boolean download;
 
   public static final String JSON_PROPERTY_CONVERT = "Convert";
-  @javax.annotation.Nullable
-  private Boolean convert;
+  @javax.annotation.Nullable  private Boolean convert;
 
   public static final String JSON_PROPERTY_COPY_SHARED_LINK = "CopySharedLink";
-  @javax.annotation.Nullable
-  private Boolean copySharedLink;
+  @javax.annotation.Nullable  private Boolean copySharedLink;
 
   public static final String JSON_PROPERTY_READ_LINKS = "ReadLinks";
-  @javax.annotation.Nullable
-  private Boolean readLinks;
+  @javax.annotation.Nullable  private Boolean readLinks;
 
   public static final String JSON_PROPERTY_RECONNECT = "Reconnect";
-  @javax.annotation.Nullable
-  private Boolean reconnect;
+  @javax.annotation.Nullable  private Boolean reconnect;
 
   public static final String JSON_PROPERTY_CREATE_ROOM_FROM = "CreateRoomFrom";
-  @javax.annotation.Nullable
-  private Boolean createRoomFrom;
+  @javax.annotation.Nullable  private Boolean createRoomFrom;
 
   public static final String JSON_PROPERTY_COPY_LINK = "CopyLink";
-  @javax.annotation.Nullable
-  private Boolean copyLink;
+  @javax.annotation.Nullable  private Boolean copyLink;
 
   public static final String JSON_PROPERTY_EMBED = "Embed";
-  @javax.annotation.Nullable
-  private Boolean embed;
+  @javax.annotation.Nullable  private Boolean embed;
 
   public static final String JSON_PROPERTY_CHANGE_OWNER = "ChangeOwner";
-  @javax.annotation.Nullable
-  private Boolean changeOwner;
+  @javax.annotation.Nullable  private Boolean changeOwner;
 
   public static final String JSON_PROPERTY_INDEX_EXPORT = "IndexExport";
-  @javax.annotation.Nullable
-  private Boolean indexExport;
+  @javax.annotation.Nullable  private Boolean indexExport;
 
   public static final String JSON_PROPERTY_START_FILLING = "StartFilling";
-  @javax.annotation.Nullable
-  private Boolean startFilling;
+  @javax.annotation.Nullable  private Boolean startFilling;
 
   public static final String JSON_PROPERTY_FILLING_STATUS = "FillingStatus";
-  @javax.annotation.Nullable
-  private Boolean fillingStatus;
+  @javax.annotation.Nullable  private Boolean fillingStatus;
 
   public static final String JSON_PROPERTY_RESET_FILLING = "ResetFilling";
-  @javax.annotation.Nullable
-  private Boolean resetFilling;
+  @javax.annotation.Nullable  private Boolean resetFilling;
 
   public static final String JSON_PROPERTY_STOP_FILLING = "StopFilling";
-  @javax.annotation.Nullable
-  private Boolean stopFilling;
+  @javax.annotation.Nullable  private Boolean stopFilling;
 
   public static final String JSON_PROPERTY_OPEN_FORM = "OpenForm";
-  @javax.annotation.Nullable
-  private Boolean openForm;
+  @javax.annotation.Nullable  private Boolean openForm;
 
   public static final String JSON_PROPERTY_EDIT_INTERNAL = "EditInternal";
-  @javax.annotation.Nullable
-  private Boolean editInternal;
+  @javax.annotation.Nullable  private Boolean editInternal;
 
   public static final String JSON_PROPERTY_EDIT_EXPIRATION = "EditExpiration";
-  @javax.annotation.Nullable
-  private Boolean editExpiration;
+  @javax.annotation.Nullable  private Boolean editExpiration;
 
   public static final String JSON_PROPERTY_VECTORIZATION = "Vectorization";
-  @javax.annotation.Nullable
-  private Boolean vectorization;
+  @javax.annotation.Nullable  private Boolean vectorization;
 
   public static final String JSON_PROPERTY_ASK_AI = "AskAi";
-  @javax.annotation.Nullable
-  private Boolean askAi;
+  @javax.annotation.Nullable  private Boolean askAi;
 
   public static final String JSON_PROPERTY_USE_CHAT = "UseChat";
-  @javax.annotation.Nullable
-  private Boolean useChat;
+  @javax.annotation.Nullable  private Boolean useChat;
 
   public FileEntryDtoIntegerAllOfSecurity() {
   }
@@ -267,8 +225,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get read
    * @return read
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_READ)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_READ, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getRead() {
@@ -276,7 +233,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_READ)
+  @JsonProperty(value = JSON_PROPERTY_READ, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRead(@javax.annotation.Nullable Boolean read) {
     this.read = read;
@@ -292,8 +249,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get comment
    * @return comment
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMMENT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COMMENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getComment() {
@@ -301,7 +257,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COMMENT)
+  @JsonProperty(value = JSON_PROPERTY_COMMENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setComment(@javax.annotation.Nullable Boolean comment) {
     this.comment = comment;
@@ -317,8 +273,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get fillForms
    * @return fillForms
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILL_FORMS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILL_FORMS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getFillForms() {
@@ -326,7 +281,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILL_FORMS)
+  @JsonProperty(value = JSON_PROPERTY_FILL_FORMS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFillForms(@javax.annotation.Nullable Boolean fillForms) {
     this.fillForms = fillForms;
@@ -342,8 +297,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get review
    * @return review
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REVIEW)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REVIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getReview() {
@@ -351,7 +305,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REVIEW)
+  @JsonProperty(value = JSON_PROPERTY_REVIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReview(@javax.annotation.Nullable Boolean review) {
     this.review = review;
@@ -367,8 +321,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get create
    * @return create
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCreate() {
@@ -376,7 +329,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATE)
+  @JsonProperty(value = JSON_PROPERTY_CREATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreate(@javax.annotation.Nullable Boolean create) {
     this.create = create;
@@ -392,8 +345,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get createFrom
    * @return createFrom
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATE_FROM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_FROM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCreateFrom() {
@@ -401,7 +353,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATE_FROM)
+  @JsonProperty(value = JSON_PROPERTY_CREATE_FROM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreateFrom(@javax.annotation.Nullable Boolean createFrom) {
     this.createFrom = createFrom;
@@ -417,8 +369,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get edit
    * @return edit
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EDIT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EDIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEdit() {
@@ -426,7 +377,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EDIT)
+  @JsonProperty(value = JSON_PROPERTY_EDIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEdit(@javax.annotation.Nullable Boolean edit) {
     this.edit = edit;
@@ -442,8 +393,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get delete
    * @return delete
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DELETE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DELETE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDelete() {
@@ -451,7 +401,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DELETE)
+  @JsonProperty(value = JSON_PROPERTY_DELETE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDelete(@javax.annotation.Nullable Boolean delete) {
     this.delete = delete;
@@ -467,8 +417,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get customFilter
    * @return customFilter
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FILTER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CUSTOM_FILTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCustomFilter() {
@@ -476,7 +425,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FILTER)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_FILTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomFilter(@javax.annotation.Nullable Boolean customFilter) {
     this.customFilter = customFilter;
@@ -492,8 +441,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get editRoom
    * @return editRoom
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EDIT_ROOM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EDIT_ROOM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEditRoom() {
@@ -501,7 +449,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EDIT_ROOM)
+  @JsonProperty(value = JSON_PROPERTY_EDIT_ROOM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEditRoom(@javax.annotation.Nullable Boolean editRoom) {
     this.editRoom = editRoom;
@@ -517,8 +465,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get rename
    * @return rename
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RENAME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RENAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getRename() {
@@ -526,7 +473,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RENAME)
+  @JsonProperty(value = JSON_PROPERTY_RENAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRename(@javax.annotation.Nullable Boolean rename) {
     this.rename = rename;
@@ -542,8 +489,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get readHistory
    * @return readHistory
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_READ_HISTORY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_READ_HISTORY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getReadHistory() {
@@ -551,7 +497,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_READ_HISTORY)
+  @JsonProperty(value = JSON_PROPERTY_READ_HISTORY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReadHistory(@javax.annotation.Nullable Boolean readHistory) {
     this.readHistory = readHistory;
@@ -567,8 +513,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get lock
    * @return lock
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOCK)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOCK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getLock() {
@@ -576,7 +521,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOCK)
+  @JsonProperty(value = JSON_PROPERTY_LOCK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLock(@javax.annotation.Nullable Boolean lock) {
     this.lock = lock;
@@ -592,8 +537,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get editHistory
    * @return editHistory
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EDIT_HISTORY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EDIT_HISTORY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEditHistory() {
@@ -601,7 +545,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EDIT_HISTORY)
+  @JsonProperty(value = JSON_PROPERTY_EDIT_HISTORY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEditHistory(@javax.annotation.Nullable Boolean editHistory) {
     this.editHistory = editHistory;
@@ -617,8 +561,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get copyTo
    * @return copyTo
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COPY_TO)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COPY_TO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCopyTo() {
@@ -626,7 +569,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COPY_TO)
+  @JsonProperty(value = JSON_PROPERTY_COPY_TO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCopyTo(@javax.annotation.Nullable Boolean copyTo) {
     this.copyTo = copyTo;
@@ -642,8 +585,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get copy
    * @return copy
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COPY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COPY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCopy() {
@@ -651,7 +593,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COPY)
+  @JsonProperty(value = JSON_PROPERTY_COPY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCopy(@javax.annotation.Nullable Boolean copy) {
     this.copy = copy;
@@ -667,8 +609,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get moveTo
    * @return moveTo
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MOVE_TO)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MOVE_TO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getMoveTo() {
@@ -676,7 +617,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MOVE_TO)
+  @JsonProperty(value = JSON_PROPERTY_MOVE_TO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMoveTo(@javax.annotation.Nullable Boolean moveTo) {
     this.moveTo = moveTo;
@@ -692,8 +633,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get move
    * @return move
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MOVE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MOVE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getMove() {
@@ -701,7 +641,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MOVE)
+  @JsonProperty(value = JSON_PROPERTY_MOVE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMove(@javax.annotation.Nullable Boolean move) {
     this.move = move;
@@ -717,8 +657,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get pin
    * @return pin
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PIN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PIN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getPin() {
@@ -726,7 +665,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PIN)
+  @JsonProperty(value = JSON_PROPERTY_PIN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPin(@javax.annotation.Nullable Boolean pin) {
     this.pin = pin;
@@ -742,8 +681,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get mute
    * @return mute
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MUTE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MUTE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getMute() {
@@ -751,7 +689,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MUTE)
+  @JsonProperty(value = JSON_PROPERTY_MUTE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMute(@javax.annotation.Nullable Boolean mute) {
     this.mute = mute;
@@ -767,8 +705,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get editAccess
    * @return editAccess
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EDIT_ACCESS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EDIT_ACCESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEditAccess() {
@@ -776,7 +713,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EDIT_ACCESS)
+  @JsonProperty(value = JSON_PROPERTY_EDIT_ACCESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEditAccess(@javax.annotation.Nullable Boolean editAccess) {
     this.editAccess = editAccess;
@@ -792,8 +729,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get duplicate
    * @return duplicate
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DUPLICATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DUPLICATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDuplicate() {
@@ -801,7 +737,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DUPLICATE)
+  @JsonProperty(value = JSON_PROPERTY_DUPLICATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDuplicate(@javax.annotation.Nullable Boolean duplicate) {
     this.duplicate = duplicate;
@@ -817,8 +753,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get submitToFormGallery
    * @return submitToFormGallery
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUBMIT_TO_FORM_GALLERY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SUBMIT_TO_FORM_GALLERY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSubmitToFormGallery() {
@@ -826,7 +761,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SUBMIT_TO_FORM_GALLERY)
+  @JsonProperty(value = JSON_PROPERTY_SUBMIT_TO_FORM_GALLERY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubmitToFormGallery(@javax.annotation.Nullable Boolean submitToFormGallery) {
     this.submitToFormGallery = submitToFormGallery;
@@ -842,8 +777,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get download
    * @return download
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOWNLOAD)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOWNLOAD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDownload() {
@@ -851,7 +785,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOWNLOAD)
+  @JsonProperty(value = JSON_PROPERTY_DOWNLOAD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDownload(@javax.annotation.Nullable Boolean download) {
     this.download = download;
@@ -867,8 +801,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get convert
    * @return convert
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONVERT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONVERT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getConvert() {
@@ -876,7 +809,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CONVERT)
+  @JsonProperty(value = JSON_PROPERTY_CONVERT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConvert(@javax.annotation.Nullable Boolean convert) {
     this.convert = convert;
@@ -892,8 +825,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get copySharedLink
    * @return copySharedLink
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COPY_SHARED_LINK)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COPY_SHARED_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCopySharedLink() {
@@ -901,7 +833,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COPY_SHARED_LINK)
+  @JsonProperty(value = JSON_PROPERTY_COPY_SHARED_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCopySharedLink(@javax.annotation.Nullable Boolean copySharedLink) {
     this.copySharedLink = copySharedLink;
@@ -917,8 +849,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get readLinks
    * @return readLinks
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_READ_LINKS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_READ_LINKS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getReadLinks() {
@@ -926,7 +857,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_READ_LINKS)
+  @JsonProperty(value = JSON_PROPERTY_READ_LINKS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReadLinks(@javax.annotation.Nullable Boolean readLinks) {
     this.readLinks = readLinks;
@@ -942,8 +873,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get reconnect
    * @return reconnect
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RECONNECT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RECONNECT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getReconnect() {
@@ -951,7 +881,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RECONNECT)
+  @JsonProperty(value = JSON_PROPERTY_RECONNECT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReconnect(@javax.annotation.Nullable Boolean reconnect) {
     this.reconnect = reconnect;
@@ -967,8 +897,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get createRoomFrom
    * @return createRoomFrom
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATE_ROOM_FROM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_ROOM_FROM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCreateRoomFrom() {
@@ -976,7 +905,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATE_ROOM_FROM)
+  @JsonProperty(value = JSON_PROPERTY_CREATE_ROOM_FROM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreateRoomFrom(@javax.annotation.Nullable Boolean createRoomFrom) {
     this.createRoomFrom = createRoomFrom;
@@ -992,8 +921,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get copyLink
    * @return copyLink
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COPY_LINK)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COPY_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCopyLink() {
@@ -1001,7 +929,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COPY_LINK)
+  @JsonProperty(value = JSON_PROPERTY_COPY_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCopyLink(@javax.annotation.Nullable Boolean copyLink) {
     this.copyLink = copyLink;
@@ -1017,8 +945,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get embed
    * @return embed
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMBED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMBED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEmbed() {
@@ -1026,7 +953,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMBED)
+  @JsonProperty(value = JSON_PROPERTY_EMBED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmbed(@javax.annotation.Nullable Boolean embed) {
     this.embed = embed;
@@ -1042,8 +969,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get changeOwner
    * @return changeOwner
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHANGE_OWNER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CHANGE_OWNER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getChangeOwner() {
@@ -1051,7 +977,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CHANGE_OWNER)
+  @JsonProperty(value = JSON_PROPERTY_CHANGE_OWNER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChangeOwner(@javax.annotation.Nullable Boolean changeOwner) {
     this.changeOwner = changeOwner;
@@ -1067,8 +993,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get indexExport
    * @return indexExport
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDEX_EXPORT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INDEX_EXPORT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIndexExport() {
@@ -1076,7 +1001,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INDEX_EXPORT)
+  @JsonProperty(value = JSON_PROPERTY_INDEX_EXPORT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndexExport(@javax.annotation.Nullable Boolean indexExport) {
     this.indexExport = indexExport;
@@ -1092,8 +1017,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get startFilling
    * @return startFilling
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_START_FILLING)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_START_FILLING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getStartFilling() {
@@ -1101,7 +1025,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_START_FILLING)
+  @JsonProperty(value = JSON_PROPERTY_START_FILLING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartFilling(@javax.annotation.Nullable Boolean startFilling) {
     this.startFilling = startFilling;
@@ -1117,8 +1041,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get fillingStatus
    * @return fillingStatus
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILLING_STATUS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILLING_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getFillingStatus() {
@@ -1126,7 +1049,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILLING_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_FILLING_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFillingStatus(@javax.annotation.Nullable Boolean fillingStatus) {
     this.fillingStatus = fillingStatus;
@@ -1142,8 +1065,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get resetFilling
    * @return resetFilling
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESET_FILLING)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESET_FILLING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getResetFilling() {
@@ -1151,7 +1073,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RESET_FILLING)
+  @JsonProperty(value = JSON_PROPERTY_RESET_FILLING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResetFilling(@javax.annotation.Nullable Boolean resetFilling) {
     this.resetFilling = resetFilling;
@@ -1167,8 +1089,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get stopFilling
    * @return stopFilling
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STOP_FILLING)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STOP_FILLING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getStopFilling() {
@@ -1176,7 +1097,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STOP_FILLING)
+  @JsonProperty(value = JSON_PROPERTY_STOP_FILLING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStopFilling(@javax.annotation.Nullable Boolean stopFilling) {
     this.stopFilling = stopFilling;
@@ -1192,8 +1113,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get openForm
    * @return openForm
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OPEN_FORM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OPEN_FORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getOpenForm() {
@@ -1201,7 +1121,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OPEN_FORM)
+  @JsonProperty(value = JSON_PROPERTY_OPEN_FORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpenForm(@javax.annotation.Nullable Boolean openForm) {
     this.openForm = openForm;
@@ -1217,8 +1137,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get editInternal
    * @return editInternal
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EDIT_INTERNAL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EDIT_INTERNAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEditInternal() {
@@ -1226,7 +1145,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EDIT_INTERNAL)
+  @JsonProperty(value = JSON_PROPERTY_EDIT_INTERNAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEditInternal(@javax.annotation.Nullable Boolean editInternal) {
     this.editInternal = editInternal;
@@ -1242,8 +1161,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get editExpiration
    * @return editExpiration
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EDIT_EXPIRATION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EDIT_EXPIRATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEditExpiration() {
@@ -1251,7 +1169,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EDIT_EXPIRATION)
+  @JsonProperty(value = JSON_PROPERTY_EDIT_EXPIRATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEditExpiration(@javax.annotation.Nullable Boolean editExpiration) {
     this.editExpiration = editExpiration;
@@ -1267,8 +1185,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get vectorization
    * @return vectorization
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VECTORIZATION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VECTORIZATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getVectorization() {
@@ -1276,7 +1193,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VECTORIZATION)
+  @JsonProperty(value = JSON_PROPERTY_VECTORIZATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVectorization(@javax.annotation.Nullable Boolean vectorization) {
     this.vectorization = vectorization;
@@ -1292,8 +1209,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get askAi
    * @return askAi
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ASK_AI)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ASK_AI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAskAi() {
@@ -1301,7 +1217,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ASK_AI)
+  @JsonProperty(value = JSON_PROPERTY_ASK_AI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAskAi(@javax.annotation.Nullable Boolean askAi) {
     this.askAi = askAi;
@@ -1317,8 +1233,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
    * Get useChat
    * @return useChat
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USE_CHAT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USE_CHAT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getUseChat() {
@@ -1326,7 +1241,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USE_CHAT)
+  @JsonProperty(value = JSON_PROPERTY_USE_CHAT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUseChat(@javax.annotation.Nullable Boolean useChat) {
     this.useChat = useChat;

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.EmployeeFullDto;
 import org.openapitools.client.model.FileShare;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,28 +47,22 @@ import java.util.StringJoiner;
 
 public class GroupMemberSecurityRequestDto {
   public static final String JSON_PROPERTY_USER = "user";
-  @javax.annotation.Nonnull
-  private EmployeeFullDto user;
+  @javax.annotation.Nonnull  private EmployeeFullDto user;
 
   public static final String JSON_PROPERTY_GROUP_ACCESS = "groupAccess";
-  @javax.annotation.Nonnull
-  private FileShare groupAccess;
+  @javax.annotation.Nonnull  private FileShare groupAccess;
 
   public static final String JSON_PROPERTY_USER_ACCESS = "userAccess";
-  @javax.annotation.Nullable
-  private FileShare userAccess;
+  @javax.annotation.Nullable  private FileShare userAccess;
 
   public static final String JSON_PROPERTY_OVERRIDDEN = "overridden";
-  @javax.annotation.Nonnull
-  private Boolean overridden;
+  @javax.annotation.Nonnull  private Boolean overridden;
 
   public static final String JSON_PROPERTY_CAN_EDIT_ACCESS = "canEditAccess";
-  @javax.annotation.Nonnull
-  private Boolean canEditAccess;
+  @javax.annotation.Nonnull  private Boolean canEditAccess;
 
   public static final String JSON_PROPERTY_OWNER = "owner";
-  @javax.annotation.Nonnull
-  private Boolean owner;
+  @javax.annotation.Nonnull  private Boolean owner;
 
   public GroupMemberSecurityRequestDto() {
   }
@@ -83,8 +78,7 @@ public class GroupMemberSecurityRequestDto {
    * Get user
    * @return user
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_USER)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_USER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public EmployeeFullDto getUser() {
@@ -92,7 +86,7 @@ public class GroupMemberSecurityRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USER)
+  @JsonProperty(value = JSON_PROPERTY_USER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUser(@javax.annotation.Nonnull EmployeeFullDto user) {
     this.user = user;
@@ -108,8 +102,7 @@ public class GroupMemberSecurityRequestDto {
    * Get groupAccess
    * @return groupAccess
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_GROUP_ACCESS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_GROUP_ACCESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public FileShare getGroupAccess() {
@@ -117,7 +110,7 @@ public class GroupMemberSecurityRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GROUP_ACCESS)
+  @JsonProperty(value = JSON_PROPERTY_GROUP_ACCESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setGroupAccess(@javax.annotation.Nonnull FileShare groupAccess) {
     this.groupAccess = groupAccess;
@@ -133,8 +126,7 @@ public class GroupMemberSecurityRequestDto {
    * Get userAccess
    * @return userAccess
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USER_ACCESS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER_ACCESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FileShare getUserAccess() {
@@ -142,7 +134,7 @@ public class GroupMemberSecurityRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USER_ACCESS)
+  @JsonProperty(value = JSON_PROPERTY_USER_ACCESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUserAccess(@javax.annotation.Nullable FileShare userAccess) {
     this.userAccess = userAccess;
@@ -158,8 +150,7 @@ public class GroupMemberSecurityRequestDto {
    * Specifies if the group access rights are overridden or not.
    * @return overridden
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_OVERRIDDEN)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_OVERRIDDEN, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getOverridden() {
@@ -167,7 +158,7 @@ public class GroupMemberSecurityRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OVERRIDDEN)
+  @JsonProperty(value = JSON_PROPERTY_OVERRIDDEN, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOverridden(@javax.annotation.Nonnull Boolean overridden) {
     this.overridden = overridden;
@@ -183,8 +174,7 @@ public class GroupMemberSecurityRequestDto {
    * Specifies if the group member can edit the group access rights or not.
    * @return canEditAccess
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CAN_EDIT_ACCESS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CAN_EDIT_ACCESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getCanEditAccess() {
@@ -192,7 +182,7 @@ public class GroupMemberSecurityRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CAN_EDIT_ACCESS)
+  @JsonProperty(value = JSON_PROPERTY_CAN_EDIT_ACCESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCanEditAccess(@javax.annotation.Nonnull Boolean canEditAccess) {
     this.canEditAccess = canEditAccess;
@@ -208,8 +198,7 @@ public class GroupMemberSecurityRequestDto {
    * Specifies if the group member is a group owner or not.
    * @return owner
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_OWNER)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_OWNER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getOwner() {
@@ -217,7 +206,7 @@ public class GroupMemberSecurityRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OWNER)
+  @JsonProperty(value = JSON_PROPERTY_OWNER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOwner(@javax.annotation.Nonnull Boolean owner) {
     this.owner = owner;

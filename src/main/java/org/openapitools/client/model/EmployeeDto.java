@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -54,48 +55,37 @@ import java.util.StringJoiner;
 
 public class EmployeeDto {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private UUID id;
+  @javax.annotation.Nullable  private UUID id;
 
   public static final String JSON_PROPERTY_DISPLAY_NAME = "displayName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> displayName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> displayName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_AVATAR = "avatar";
-  @javax.annotation.Nullable
-  private JsonNullable<String> avatar = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> avatar = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_AVATAR_ORIGINAL = "avatarOriginal";
-  @javax.annotation.Nullable
-  private JsonNullable<String> avatarOriginal = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> avatarOriginal = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_AVATAR_MAX = "avatarMax";
-  @javax.annotation.Nullable
-  private JsonNullable<String> avatarMax = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> avatarMax = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_AVATAR_MEDIUM = "avatarMedium";
-  @javax.annotation.Nullable
-  private JsonNullable<String> avatarMedium = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> avatarMedium = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_AVATAR_SMALL = "avatarSmall";
-  @javax.annotation.Nullable
-  private JsonNullable<String> avatarSmall = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> avatarSmall = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PROFILE_URL = "profileUrl";
-  @javax.annotation.Nullable
-  private JsonNullable<String> profileUrl = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> profileUrl = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_HAS_AVATAR = "hasAvatar";
-  @javax.annotation.Nullable
-  private Boolean hasAvatar;
+  @javax.annotation.Nullable  private Boolean hasAvatar;
 
   public static final String JSON_PROPERTY_IS_ANONIM = "isAnonim";
-  @javax.annotation.Nullable
-  private Boolean isAnonim;
+  @javax.annotation.Nullable  private Boolean isAnonim;
 
   public EmployeeDto() {
   }
@@ -111,8 +101,7 @@ public class EmployeeDto {
    * The user ID.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getId() {
@@ -120,7 +109,7 @@ public class EmployeeDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(@javax.annotation.Nullable UUID id) {
     this.id = id;
@@ -133,19 +122,17 @@ public class EmployeeDto {
   }
 
   /**
-   * The user display name.
+   * The HTML-encoded user&#39;s display name formatted according to the default format for the current culture.
    * @return displayName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getDisplayName() {
         return displayName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_DISPLAY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getDisplayName_JsonNullable() {
     return displayName;
   }
@@ -169,16 +156,14 @@ public class EmployeeDto {
    * The user title.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTitle() {
         return title.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
@@ -202,16 +187,14 @@ public class EmployeeDto {
    * The user avatar.
    * @return avatar
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getAvatar() {
         return avatar.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_AVATAR)
+  @JsonProperty(value = JSON_PROPERTY_AVATAR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getAvatar_JsonNullable() {
     return avatar;
   }
@@ -235,16 +218,14 @@ public class EmployeeDto {
    * The user original size avatar.
    * @return avatarOriginal
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getAvatarOriginal() {
         return avatarOriginal.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_AVATAR_ORIGINAL)
+  @JsonProperty(value = JSON_PROPERTY_AVATAR_ORIGINAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getAvatarOriginal_JsonNullable() {
     return avatarOriginal;
   }
@@ -268,16 +249,14 @@ public class EmployeeDto {
    * The user maximum size avatar.
    * @return avatarMax
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getAvatarMax() {
         return avatarMax.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_AVATAR_MAX)
+  @JsonProperty(value = JSON_PROPERTY_AVATAR_MAX, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getAvatarMax_JsonNullable() {
     return avatarMax;
   }
@@ -301,16 +280,14 @@ public class EmployeeDto {
    * The user medium size avatar.
    * @return avatarMedium
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getAvatarMedium() {
         return avatarMedium.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_AVATAR_MEDIUM)
+  @JsonProperty(value = JSON_PROPERTY_AVATAR_MEDIUM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getAvatarMedium_JsonNullable() {
     return avatarMedium;
   }
@@ -334,16 +311,14 @@ public class EmployeeDto {
    * The user small size avatar.
    * @return avatarSmall
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getAvatarSmall() {
         return avatarSmall.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_AVATAR_SMALL)
+  @JsonProperty(value = JSON_PROPERTY_AVATAR_SMALL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getAvatarSmall_JsonNullable() {
     return avatarSmall;
   }
@@ -367,16 +342,14 @@ public class EmployeeDto {
    * The user profile URL.
    * @return profileUrl
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getProfileUrl() {
         return profileUrl.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PROFILE_URL)
+  @JsonProperty(value = JSON_PROPERTY_PROFILE_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getProfileUrl_JsonNullable() {
     return profileUrl;
   }
@@ -400,8 +373,7 @@ public class EmployeeDto {
    * Specifies if the user has an avatar or not.
    * @return hasAvatar
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HAS_AVATAR)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HAS_AVATAR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getHasAvatar() {
@@ -409,7 +381,7 @@ public class EmployeeDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HAS_AVATAR)
+  @JsonProperty(value = JSON_PROPERTY_HAS_AVATAR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasAvatar(@javax.annotation.Nullable Boolean hasAvatar) {
     this.hasAvatar = hasAvatar;
@@ -425,8 +397,7 @@ public class EmployeeDto {
    * Specifies if the user is anonymous or not.
    * @return isAnonim
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_ANONIM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_ANONIM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsAnonim() {
@@ -434,7 +405,7 @@ public class EmployeeDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_ANONIM)
+  @JsonProperty(value = JSON_PROPERTY_IS_ANONIM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsAnonim(@javax.annotation.Nullable Boolean isAnonim) {
     this.isAnonim = isAnonim;

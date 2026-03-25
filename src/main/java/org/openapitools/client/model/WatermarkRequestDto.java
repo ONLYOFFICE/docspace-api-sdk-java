@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -51,36 +52,28 @@ import java.util.StringJoiner;
 
 public class WatermarkRequestDto {
   public static final String JSON_PROPERTY_ENABLED = "enabled";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> enabled = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> enabled = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_ADDITIONS = "additions";
-  @javax.annotation.Nullable
-  private WatermarkAdditions additions;
+  @javax.annotation.Nullable  private WatermarkAdditions additions;
 
   public static final String JSON_PROPERTY_TEXT = "text";
-  @javax.annotation.Nullable
-  private JsonNullable<String> text = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> text = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ROTATE = "rotate";
-  @javax.annotation.Nullable
-  private Integer rotate;
+  @javax.annotation.Nullable  private Integer rotate;
 
   public static final String JSON_PROPERTY_IMAGE_SCALE = "imageScale";
-  @javax.annotation.Nullable
-  private Integer imageScale;
+  @javax.annotation.Nullable  private Integer imageScale;
 
   public static final String JSON_PROPERTY_IMAGE_URL = "imageUrl";
-  @javax.annotation.Nullable
-  private JsonNullable<String> imageUrl = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> imageUrl = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_IMAGE_HEIGHT = "imageHeight";
-  @javax.annotation.Nullable
-  private Double imageHeight;
+  @javax.annotation.Nullable  private Double imageHeight;
 
   public static final String JSON_PROPERTY_IMAGE_WIDTH = "imageWidth";
-  @javax.annotation.Nullable
-  private Double imageWidth;
+  @javax.annotation.Nullable  private Double imageWidth;
 
   public WatermarkRequestDto() {
   }
@@ -96,16 +89,14 @@ public class WatermarkRequestDto {
    * Specifies whether watermarks are on or off.
    * @return enabled
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getEnabled() {
         return enabled.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getEnabled_JsonNullable() {
     return enabled;
   }
@@ -129,8 +120,7 @@ public class WatermarkRequestDto {
    * Get additions
    * @return additions
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ADDITIONS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ADDITIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public WatermarkAdditions getAdditions() {
@@ -138,7 +128,7 @@ public class WatermarkRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ADDITIONS)
+  @JsonProperty(value = JSON_PROPERTY_ADDITIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditions(@javax.annotation.Nullable WatermarkAdditions additions) {
     this.additions = additions;
@@ -154,16 +144,14 @@ public class WatermarkRequestDto {
    * The watermark text.
    * @return text
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getText() {
         return text.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TEXT)
+  @JsonProperty(value = JSON_PROPERTY_TEXT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getText_JsonNullable() {
     return text;
   }
@@ -187,8 +175,7 @@ public class WatermarkRequestDto {
    * The watermark text and image rotate angle.
    * @return rotate
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROTATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROTATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getRotate() {
@@ -196,7 +183,7 @@ public class WatermarkRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROTATE)
+  @JsonProperty(value = JSON_PROPERTY_ROTATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRotate(@javax.annotation.Nullable Integer rotate) {
     this.rotate = rotate;
@@ -212,8 +199,7 @@ public class WatermarkRequestDto {
    * The watermark image scale.
    * @return imageScale
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IMAGE_SCALE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMAGE_SCALE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getImageScale() {
@@ -221,7 +207,7 @@ public class WatermarkRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IMAGE_SCALE)
+  @JsonProperty(value = JSON_PROPERTY_IMAGE_SCALE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImageScale(@javax.annotation.Nullable Integer imageScale) {
     this.imageScale = imageScale;
@@ -237,16 +223,14 @@ public class WatermarkRequestDto {
    * The path to the temporary image file.
    * @return imageUrl
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getImageUrl() {
         return imageUrl.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IMAGE_URL)
+  @JsonProperty(value = JSON_PROPERTY_IMAGE_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getImageUrl_JsonNullable() {
     return imageUrl;
   }
@@ -270,8 +254,7 @@ public class WatermarkRequestDto {
    * The watermark image height.
    * @return imageHeight
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IMAGE_HEIGHT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMAGE_HEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getImageHeight() {
@@ -279,7 +262,7 @@ public class WatermarkRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IMAGE_HEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_IMAGE_HEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImageHeight(@javax.annotation.Nullable Double imageHeight) {
     this.imageHeight = imageHeight;
@@ -295,8 +278,7 @@ public class WatermarkRequestDto {
    * The watermark image width.
    * @return imageWidth
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IMAGE_WIDTH)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMAGE_WIDTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getImageWidth() {
@@ -304,7 +286,7 @@ public class WatermarkRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IMAGE_WIDTH)
+  @JsonProperty(value = JSON_PROPERTY_IMAGE_WIDTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImageWidth(@javax.annotation.Nullable Double imageWidth) {
     this.imageWidth = imageWidth;

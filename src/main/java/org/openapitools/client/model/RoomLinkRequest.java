@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -49,41 +50,41 @@ import java.util.StringJoiner;
   RoomLinkRequest.JSON_PROPERTY_TITLE,
   RoomLinkRequest.JSON_PROPERTY_LINK_TYPE,
   RoomLinkRequest.JSON_PROPERTY_PASSWORD,
-  RoomLinkRequest.JSON_PROPERTY_DENY_DOWNLOAD
+  RoomLinkRequest.JSON_PROPERTY_DENY_DOWNLOAD,
+  RoomLinkRequest.JSON_PROPERTY_MAX_USE_COUNT,
+  RoomLinkRequest.JSON_PROPERTY_CURRENT_USE_COUNT
 })
 
 public class RoomLinkRequest {
   public static final String JSON_PROPERTY_LINK_ID = "linkId";
-  @javax.annotation.Nullable
-  private UUID linkId;
+  @javax.annotation.Nullable  private UUID linkId;
 
   public static final String JSON_PROPERTY_ACCESS = "access";
-  @javax.annotation.Nullable
-  private FileShare access;
+  @javax.annotation.Nullable  private FileShare access;
 
   public static final String JSON_PROPERTY_EXPIRATION_DATE = "expirationDate";
-  @javax.annotation.Nullable
-  private ApiDateTime expirationDate;
+  @javax.annotation.Nullable  private ApiDateTime expirationDate;
 
   public static final String JSON_PROPERTY_INTERNAL = "internal";
-  @javax.annotation.Nullable
-  private Boolean internal;
+  @javax.annotation.Nullable  private Boolean internal;
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LINK_TYPE = "linkType";
-  @javax.annotation.Nullable
-  private LinkType linkType;
+  @javax.annotation.Nullable  private LinkType linkType;
 
   public static final String JSON_PROPERTY_PASSWORD = "password";
-  @javax.annotation.Nullable
-  private JsonNullable<String> password = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> password = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DENY_DOWNLOAD = "denyDownload";
-  @javax.annotation.Nullable
-  private Boolean denyDownload;
+  @javax.annotation.Nullable  private Boolean denyDownload;
+
+  public static final String JSON_PROPERTY_MAX_USE_COUNT = "maxUseCount";
+  @javax.annotation.Nullable  private JsonNullable<Integer> maxUseCount = JsonNullable.<Integer>undefined();
+
+  public static final String JSON_PROPERTY_CURRENT_USE_COUNT = "currentUseCount";
+  @javax.annotation.Nullable  private Integer currentUseCount;
 
   public RoomLinkRequest() {
   }
@@ -99,8 +100,7 @@ public class RoomLinkRequest {
    * The room link ID.
    * @return linkId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINK_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LINK_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getLinkId() {
@@ -108,7 +108,7 @@ public class RoomLinkRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LINK_ID)
+  @JsonProperty(value = JSON_PROPERTY_LINK_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinkId(@javax.annotation.Nullable UUID linkId) {
     this.linkId = linkId;
@@ -124,8 +124,7 @@ public class RoomLinkRequest {
    * Get access
    * @return access
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCESS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FileShare getAccess() {
@@ -133,7 +132,7 @@ public class RoomLinkRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACCESS)
+  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccess(@javax.annotation.Nullable FileShare access) {
     this.access = access;
@@ -149,8 +148,7 @@ public class RoomLinkRequest {
    * Get expirationDate
    * @return expirationDate
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApiDateTime getExpirationDate() {
@@ -158,7 +156,7 @@ public class RoomLinkRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpirationDate(@javax.annotation.Nullable ApiDateTime expirationDate) {
     this.expirationDate = expirationDate;
@@ -174,8 +172,7 @@ public class RoomLinkRequest {
    * The link scope, whether it is internal or not.
    * @return internal
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INTERNAL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INTERNAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getInternal() {
@@ -183,7 +180,7 @@ public class RoomLinkRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INTERNAL)
+  @JsonProperty(value = JSON_PROPERTY_INTERNAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInternal(@javax.annotation.Nullable Boolean internal) {
     this.internal = internal;
@@ -199,16 +196,14 @@ public class RoomLinkRequest {
    * The link name.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTitle() {
         return title.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
@@ -232,8 +227,7 @@ public class RoomLinkRequest {
    * Get linkType
    * @return linkType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINK_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LINK_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public LinkType getLinkType() {
@@ -241,7 +235,7 @@ public class RoomLinkRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LINK_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_LINK_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinkType(@javax.annotation.Nullable LinkType linkType) {
     this.linkType = linkType;
@@ -257,16 +251,14 @@ public class RoomLinkRequest {
    * The link password.
    * @return password
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPassword() {
         return password.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PASSWORD)
+  @JsonProperty(value = JSON_PROPERTY_PASSWORD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPassword_JsonNullable() {
     return password;
   }
@@ -290,8 +282,7 @@ public class RoomLinkRequest {
    * Specifies if downloading the file from the link is disabled or not.
    * @return denyDownload
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DENY_DOWNLOAD)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DENY_DOWNLOAD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDenyDownload() {
@@ -299,10 +290,67 @@ public class RoomLinkRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DENY_DOWNLOAD)
+  @JsonProperty(value = JSON_PROPERTY_DENY_DOWNLOAD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDenyDownload(@javax.annotation.Nullable Boolean denyDownload) {
     this.denyDownload = denyDownload;
+  }
+
+  public RoomLinkRequest maxUseCount(@javax.annotation.Nullable Integer maxUseCount) {
+    this.maxUseCount = JsonNullable.<Integer>of(maxUseCount);
+    
+    return this;
+  }
+
+  /**
+   * The maximum number of times the invitation link can be used.
+   * minimum: 1
+   * maximum: 1000
+   * @return maxUseCount
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Integer getMaxUseCount() {
+        return maxUseCount.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_MAX_USE_COUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Integer> getMaxUseCount_JsonNullable() {
+    return maxUseCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MAX_USE_COUNT)
+  public void setMaxUseCount_JsonNullable(JsonNullable<Integer> maxUseCount) {
+    this.maxUseCount = maxUseCount;
+  }
+
+  public void setMaxUseCount(@javax.annotation.Nullable Integer maxUseCount) {
+    this.maxUseCount = JsonNullable.<Integer>of(maxUseCount);
+  }
+
+  public RoomLinkRequest currentUseCount(@javax.annotation.Nullable Integer currentUseCount) {
+    
+    this.currentUseCount = currentUseCount;
+    return this;
+  }
+
+  /**
+   * The current number of times the invitation link has been used.
+   * @return currentUseCount
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CURRENT_USE_COUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getCurrentUseCount() {
+    return currentUseCount;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CURRENT_USE_COUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCurrentUseCount(@javax.annotation.Nullable Integer currentUseCount) {
+    this.currentUseCount = currentUseCount;
   }
 
   @Override
@@ -321,7 +369,9 @@ public class RoomLinkRequest {
         equalsNullable(this.title, roomLinkRequest.title) &&
         Objects.equals(this.linkType, roomLinkRequest.linkType) &&
         equalsNullable(this.password, roomLinkRequest.password) &&
-        Objects.equals(this.denyDownload, roomLinkRequest.denyDownload);
+        Objects.equals(this.denyDownload, roomLinkRequest.denyDownload) &&
+        equalsNullable(this.maxUseCount, roomLinkRequest.maxUseCount) &&
+        Objects.equals(this.currentUseCount, roomLinkRequest.currentUseCount);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -330,7 +380,7 @@ public class RoomLinkRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(linkId, access, expirationDate, internal, hashCodeNullable(title), linkType, hashCodeNullable(password), denyDownload);
+    return Objects.hash(linkId, access, expirationDate, internal, hashCodeNullable(title), linkType, hashCodeNullable(password), denyDownload, hashCodeNullable(maxUseCount), currentUseCount);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -352,6 +402,8 @@ public class RoomLinkRequest {
     sb.append("    linkType: ").append(toIndentedString(linkType)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    denyDownload: ").append(toIndentedString(denyDownload)).append("\n");
+    sb.append("    maxUseCount: ").append(toIndentedString(maxUseCount)).append("\n");
+    sb.append("    currentUseCount: ").append(toIndentedString(currentUseCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -468,6 +520,26 @@ public class RoomLinkRequest {
     if (getDenyDownload() != null) {
       try {
         joiner.add(String.format("%sdenyDownload%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDenyDownload()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `maxUseCount` to the URL query string
+    if (getMaxUseCount() != null) {
+      try {
+        joiner.add(String.format("%smaxUseCount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaxUseCount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `currentUseCount` to the URL query string
+    if (getCurrentUseCount() != null) {
+      try {
+        joiner.add(String.format("%scurrentUseCount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCurrentUseCount()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

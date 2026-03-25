@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,24 +49,19 @@ import java.util.StringJoiner;
 
 public class ConfirmDto {
   public static final String JSON_PROPERTY_RESULT = "result";
-  @javax.annotation.Nonnull
-  private ValidationResult result;
+  @javax.annotation.Nonnull  private ValidationResult result;
 
   public static final String JSON_PROPERTY_ROOM_ID = "roomId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> roomId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> roomId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nullable
-  private JsonNullable<String> email = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> email = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_IS_AGENT = "isAgent";
-  @javax.annotation.Nullable
-  private Boolean isAgent;
+  @javax.annotation.Nullable  private Boolean isAgent;
 
   public ConfirmDto() {
   }
@@ -81,8 +77,7 @@ public class ConfirmDto {
    * Get result
    * @return result
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_RESULT)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_RESULT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public ValidationResult getResult() {
@@ -90,7 +85,7 @@ public class ConfirmDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonProperty(value = JSON_PROPERTY_RESULT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setResult(@javax.annotation.Nonnull ValidationResult result) {
     this.result = result;
@@ -106,16 +101,14 @@ public class ConfirmDto {
    * The confirmation room ID.
    * @return roomId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRoomId() {
         return roomId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ROOM_ID)
+  @JsonProperty(value = JSON_PROPERTY_ROOM_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRoomId_JsonNullable() {
     return roomId;
   }
@@ -139,16 +132,14 @@ public class ConfirmDto {
    * The confirmation title.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTitle() {
         return title.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
@@ -172,16 +163,14 @@ public class ConfirmDto {
    * The confirmation email.
    * @return email
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getEmail() {
         return email.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getEmail_JsonNullable() {
     return email;
   }
@@ -205,8 +194,7 @@ public class ConfirmDto {
    * The confirmation is agent.
    * @return isAgent
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_AGENT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_AGENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsAgent() {
@@ -214,7 +202,7 @@ public class ConfirmDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_AGENT)
+  @JsonProperty(value = JSON_PROPERTY_IS_AGENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsAgent(@javax.annotation.Nullable Boolean isAgent) {
     this.isAgent = isAgent;

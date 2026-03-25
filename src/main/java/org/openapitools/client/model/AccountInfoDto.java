@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.net.URI;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -42,16 +43,13 @@ import java.util.StringJoiner;
 
 public class AccountInfoDto {
   public static final String JSON_PROPERTY_PROVIDER = "provider";
-  @javax.annotation.Nullable
-  private String provider;
+  @javax.annotation.Nullable  private String provider;
 
   public static final String JSON_PROPERTY_URL = "url";
-  @javax.annotation.Nullable
-  private URI url;
+  @javax.annotation.Nullable  private URI url;
 
   public static final String JSON_PROPERTY_LINKED = "linked";
-  @javax.annotation.Nonnull
-  private Boolean linked;
+  @javax.annotation.Nonnull  private Boolean linked;
 
   public AccountInfoDto() {
   }
@@ -67,8 +65,7 @@ public class AccountInfoDto {
    * The account provider.
    * @return provider
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROVIDER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROVIDER, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getProvider() {
@@ -76,7 +73,7 @@ public class AccountInfoDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROVIDER)
+  @JsonProperty(value = JSON_PROPERTY_PROVIDER, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProvider(@javax.annotation.Nullable String provider) {
     this.provider = provider;
@@ -92,8 +89,7 @@ public class AccountInfoDto {
    * The account URL.
    * @return url
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_URL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public URI getUrl() {
@@ -101,7 +97,7 @@ public class AccountInfoDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonProperty(value = JSON_PROPERTY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUrl(@javax.annotation.Nullable URI url) {
     this.url = url;
@@ -117,8 +113,7 @@ public class AccountInfoDto {
    * Specifies if an account is linked with other profiles or not.
    * @return linked
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LINKED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_LINKED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getLinked() {
@@ -126,7 +121,7 @@ public class AccountInfoDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LINKED)
+  @JsonProperty(value = JSON_PROPERTY_LINKED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLinked(@javax.annotation.Nonnull Boolean linked) {
     this.linked = linked;

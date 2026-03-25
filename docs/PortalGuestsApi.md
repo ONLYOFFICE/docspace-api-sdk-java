@@ -74,7 +74,7 @@ public class Example {
 
 
         GuestsApi apiInstance = new GuestsApi(defaultClient);
-        UUID userid = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The user ID.
+        UUID userid = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user ID.
         try {
             StringWrapper result = apiInstance.getGuestSharingLink(userid);
             System.out.println(result);
@@ -99,7 +99,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | User share link |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | No permissions to perform this action |  -  |
 | **404** | User not found |  -  |
+| **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 

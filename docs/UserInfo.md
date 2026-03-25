@@ -9,8 +9,8 @@ The user information.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** | The user ID. |  [optional] |
-|**firstName** | **String** | The user first name. |  [optional] |
-|**lastName** | **String** | The user last name. |  [optional] |
+|**firstName** | **String** | The user&#39;s first name. |  [optional] |
+|**lastName** | **String** | The user&#39;s last name. |  [optional] |
 |**userName** | **String** | The user username. |  [optional] |
 |**birthDate** | **OffsetDateTime** | The user birthday. |  [optional] |
 |**sex** | **Boolean** | The user sex (male or female). |  [optional] |
@@ -31,14 +31,14 @@ The user information.
 |**cultureName** | **String** | The user culture code. |  [optional] |
 |**mobilePhone** | **String** | The user mobile phone. |  [optional] |
 |**mobilePhoneActivationStatus** | **MobilePhoneActivationStatus** |  |  [optional] |
-|**sid** | **String** | The LDAP user identificator. |  [optional] |
+|**sid** | **String** | The LDAP user identifier. |  [optional] |
 |**ldapQouta** | **Long** | The LDAP user quota attribute. |  [optional] |
-|**ssoNameId** | **String** | The SSO SAML user identificator. |  [optional] |
-|**ssoSessionId** | **String** | The SSO SAML user session identificator. |  [optional] |
+|**ssoNameId** | **String** | The SSO SAML user identifier. |  [optional] |
+|**ssoSessionId** | **String** | The SSO SAML user session identifier. |  [optional] |
 |**createDate** | **OffsetDateTime** | The date and time when the user account was created. |  [optional] |
 |**createdBy** | **UUID** | The ID of the user who created the current user account. |  [optional] |
 |**spam** | **Boolean** | Specifies if tips, updates and offers are allowed to be sent to the user or not. |  [optional] |
-|**checkActivation** | **Boolean** |  |  [optional] [readonly] |
+|**checkActivation** | **Boolean** | Indicates whether the activation status of the employee or recipient is unchecked or inactive.  Depending on the context, this property evaluates the activation or eligibility status accordingly. |  [optional] [readonly] |
 
 
 

@@ -49,6 +49,7 @@ The file parameters.
 |**contentLength** | **String** | The content length of the file. |  [optional] |
 |**pureContentLength** | **Long** | The pure content length of the file. |  [optional] |
 |**fileStatus** | **FileStatus** |  |  [optional] |
+|**editingBy** | **Map&lt;String, String&gt;** | The list of users editing the file. |  [optional] |
 |**mute** | **Boolean** | Specifies if the file is muted or not. |  [optional] |
 |**viewUrl** | **URI** | The URL link to view the file. |  [optional] |
 |**webUrl** | **URI** | The Web URL link to the file. |  [optional] |
@@ -66,6 +67,7 @@ The file parameters.
 |**customFilterEnabled** | **Boolean** | Specifies if the Custom Filter editing mode is enabled for a file or not. |  [optional] |
 |**customFilterEnabledBy** | **String** | The name of the user who enabled a Custom Filter editing mode for a file. |  [optional] |
 |**startFilling** | **Boolean** | Specifies if the filling has started or not. |  [optional] |
+|**isFillingPreparing** | **Boolean** | Specifies if the form filling has started but the file is still being saved by the document editor. Filling and editing are not allowed. |  [optional] |
 |**inProcessFolderId** | **Integer** | The InProcess folder ID of the file. |  [optional] |
 |**inProcessFolderTitle** | **String** | The InProcess folder title of the file. |  [optional] |
 |**draftLocation** | [**DraftLocationInteger**](DraftLocationInteger.md) |  |  [optional] |

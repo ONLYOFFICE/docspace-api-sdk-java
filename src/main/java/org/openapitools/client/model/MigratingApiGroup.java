@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -49,20 +50,16 @@ import java.util.StringJoiner;
 
 public class MigratingApiGroup {
   public static final String JSON_PROPERTY_SHOULD_IMPORT = "shouldImport";
-  @javax.annotation.Nullable
-  private Boolean shouldImport;
+  @javax.annotation.Nullable  private Boolean shouldImport;
 
   public static final String JSON_PROPERTY_GROUP_NAME = "groupName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> groupName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> groupName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_MODULE_NAME = "moduleName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> moduleName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> moduleName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_USER_UID_LIST = "userUidList";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> userUidList = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> userUidList = JsonNullable.<List<String>>undefined();
 
   public MigratingApiGroup() {
   }
@@ -78,8 +75,7 @@ public class MigratingApiGroup {
    * Get shouldImport
    * @return shouldImport
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHOULD_IMPORT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHOULD_IMPORT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getShouldImport() {
@@ -87,7 +83,7 @@ public class MigratingApiGroup {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOULD_IMPORT)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_IMPORT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShouldImport(@javax.annotation.Nullable Boolean shouldImport) {
     this.shouldImport = shouldImport;
@@ -103,16 +99,14 @@ public class MigratingApiGroup {
    * Get groupName
    * @return groupName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getGroupName() {
         return groupName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_GROUP_NAME)
+  @JsonProperty(value = JSON_PROPERTY_GROUP_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getGroupName_JsonNullable() {
     return groupName;
   }
@@ -136,16 +130,14 @@ public class MigratingApiGroup {
    * Get moduleName
    * @return moduleName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getModuleName() {
         return moduleName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MODULE_NAME)
+  @JsonProperty(value = JSON_PROPERTY_MODULE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getModuleName_JsonNullable() {
     return moduleName;
   }
@@ -181,16 +173,14 @@ public class MigratingApiGroup {
    * Get userUidList
    * @return userUidList
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getUserUidList() {
         return userUidList.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_USER_UID_LIST)
+  @JsonProperty(value = JSON_PROPERTY_USER_UID_LIST, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getUserUidList_JsonNullable() {
     return userUidList;
   }

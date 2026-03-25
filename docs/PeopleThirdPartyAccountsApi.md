@@ -53,10 +53,10 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         ThirdPartyAccountsApi apiInstance = new ThirdPartyAccountsApi(defaultClient);
-        Boolean inviteView = true; // Boolean | Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers.
-        Boolean settingsView = true; // Boolean | Specifies whether to display the provider settings in a pop-up window (true) or redirect them to the desktop application (false).
-        String clientCallback = "some text"; // String | The method that is called after authentication.
-        String fromOnly = "some text"; // String | The provider name if a response is required only from this provider.
+        Boolean inviteView = false; // Boolean | Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers.
+        Boolean settingsView = false; // Boolean | Specifies whether to display the provider settings in a pop-up window (true) or redirect them to the desktop application (false).
+        String clientCallback = "onAuthCallback"; // String | The method that is called after authentication.
+        String fromOnly = "Google"; // String | The provider name if a response is required only from this provider.
         try {
             AccountInfoArrayWrapper result = apiInstance.getThirdPartyAuthProviders(inviteView, settingsView, clientCallback, fromOnly);
             System.out.println(result);
@@ -173,8 +173,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **405** | Error not allowed option |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## signupThirdPartyAccount
@@ -311,7 +311,7 @@ public class Example {
 
 
         ThirdPartyAccountsApi apiInstance = new ThirdPartyAccountsApi(defaultClient);
-        String provider = "some text"; // String | The provider name.
+        String provider = "Google"; // String | The provider name.
         try {
             apiInstance.unlinkThirdPartyAccount(provider);
         } catch (ApiException e) {

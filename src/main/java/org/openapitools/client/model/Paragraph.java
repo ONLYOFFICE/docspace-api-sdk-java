@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,12 +49,10 @@ import java.util.StringJoiner;
 
 public class Paragraph {
   public static final String JSON_PROPERTY_ALIGN = "align";
-  @javax.annotation.Nullable
-  private Integer align;
+  @javax.annotation.Nullable  private Integer align;
 
   public static final String JSON_PROPERTY_RUNS = "runs";
-  @javax.annotation.Nullable
-  private JsonNullable<List<Run>> runs = JsonNullable.<List<Run>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<Run>> runs = JsonNullable.<List<Run>>undefined();
 
   public Paragraph() {
   }
@@ -69,8 +68,7 @@ public class Paragraph {
    * The paragraph align.
    * @return align
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALIGN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ALIGN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getAlign() {
@@ -78,7 +76,7 @@ public class Paragraph {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ALIGN)
+  @JsonProperty(value = JSON_PROPERTY_ALIGN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAlign(@javax.annotation.Nullable Integer align) {
     this.align = align;
@@ -106,16 +104,14 @@ public class Paragraph {
    * The list of text runs from the paragraph.
    * @return runs
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<Run> getRuns() {
         return runs.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_RUNS)
+  @JsonProperty(value = JSON_PROPERTY_RUNS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<Run>> getRuns_JsonNullable() {
     return runs;
   }

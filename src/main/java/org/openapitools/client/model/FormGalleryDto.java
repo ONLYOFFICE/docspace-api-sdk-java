@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -45,32 +46,25 @@ import java.util.StringJoiner;
 
 public class FormGalleryDto {
   public static final String JSON_PROPERTY_PATH = "path";
-  @javax.annotation.Nullable
-  private String path;
+  @javax.annotation.Nullable  private String path;
 
   public static final String JSON_PROPERTY_DOMAIN = "domain";
-  @javax.annotation.Nullable
-  private String domain;
+  @javax.annotation.Nullable  private String domain;
 
   public static final String JSON_PROPERTY_EXT = "ext";
-  @javax.annotation.Nullable
-  private String ext;
+  @javax.annotation.Nullable  private String ext;
 
   public static final String JSON_PROPERTY_UPLOAD_PATH = "uploadPath";
-  @javax.annotation.Nullable
-  private String uploadPath;
+  @javax.annotation.Nullable  private String uploadPath;
 
   public static final String JSON_PROPERTY_UPLOAD_DOMAIN = "uploadDomain";
-  @javax.annotation.Nullable
-  private String uploadDomain;
+  @javax.annotation.Nullable  private String uploadDomain;
 
   public static final String JSON_PROPERTY_UPLOAD_EXT = "uploadExt";
-  @javax.annotation.Nullable
-  private String uploadExt;
+  @javax.annotation.Nullable  private String uploadExt;
 
   public static final String JSON_PROPERTY_UPLOAD_DASHBOARD = "uploadDashboard";
-  @javax.annotation.Nullable
-  private String uploadDashboard;
+  @javax.annotation.Nullable  private String uploadDashboard;
 
   public FormGalleryDto() {
   }
@@ -86,8 +80,7 @@ public class FormGalleryDto {
    * The form gallery path.
    * @return path
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PATH)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PATH, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getPath() {
@@ -95,7 +88,7 @@ public class FormGalleryDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PATH)
+  @JsonProperty(value = JSON_PROPERTY_PATH, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPath(@javax.annotation.Nullable String path) {
     this.path = path;
@@ -111,8 +104,7 @@ public class FormGalleryDto {
    * The form gallery domain.
    * @return domain
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOMAIN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOMAIN, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDomain() {
@@ -120,7 +112,7 @@ public class FormGalleryDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOMAIN)
+  @JsonProperty(value = JSON_PROPERTY_DOMAIN, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDomain(@javax.annotation.Nullable String domain) {
     this.domain = domain;
@@ -136,8 +128,7 @@ public class FormGalleryDto {
    * The form gallery extension.
    * @return ext
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXT, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getExt() {
@@ -145,7 +136,7 @@ public class FormGalleryDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXT)
+  @JsonProperty(value = JSON_PROPERTY_EXT, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setExt(@javax.annotation.Nullable String ext) {
     this.ext = ext;
@@ -161,8 +152,7 @@ public class FormGalleryDto {
    * The form gallery upload path.
    * @return uploadPath
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPLOAD_PATH)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPLOAD_PATH, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getUploadPath() {
@@ -170,7 +160,7 @@ public class FormGalleryDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UPLOAD_PATH)
+  @JsonProperty(value = JSON_PROPERTY_UPLOAD_PATH, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUploadPath(@javax.annotation.Nullable String uploadPath) {
     this.uploadPath = uploadPath;
@@ -186,8 +176,7 @@ public class FormGalleryDto {
    * The form gallery upload domain.
    * @return uploadDomain
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPLOAD_DOMAIN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPLOAD_DOMAIN, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getUploadDomain() {
@@ -195,7 +184,7 @@ public class FormGalleryDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UPLOAD_DOMAIN)
+  @JsonProperty(value = JSON_PROPERTY_UPLOAD_DOMAIN, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUploadDomain(@javax.annotation.Nullable String uploadDomain) {
     this.uploadDomain = uploadDomain;
@@ -211,8 +200,7 @@ public class FormGalleryDto {
    * The form gallery upload extension.
    * @return uploadExt
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPLOAD_EXT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPLOAD_EXT, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getUploadExt() {
@@ -220,7 +208,7 @@ public class FormGalleryDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UPLOAD_EXT)
+  @JsonProperty(value = JSON_PROPERTY_UPLOAD_EXT, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUploadExt(@javax.annotation.Nullable String uploadExt) {
     this.uploadExt = uploadExt;
@@ -236,8 +224,7 @@ public class FormGalleryDto {
    * The form gallery upload dashboard.
    * @return uploadDashboard
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPLOAD_DASHBOARD)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPLOAD_DASHBOARD, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getUploadDashboard() {
@@ -245,7 +232,7 @@ public class FormGalleryDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UPLOAD_DASHBOARD)
+  @JsonProperty(value = JSON_PROPERTY_UPLOAD_DASHBOARD, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUploadDashboard(@javax.annotation.Nullable String uploadDashboard) {
     this.uploadDashboard = uploadDashboard;

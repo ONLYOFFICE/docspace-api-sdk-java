@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -50,32 +51,25 @@ import java.util.StringJoiner;
 
 public class ConversationResultDto {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private String id;
+  @javax.annotation.Nullable  private String id;
 
   public static final String JSON_PROPERTY_OPERATION = "Operation";
-  @javax.annotation.Nonnull
-  private FileOperationType operation;
+  @javax.annotation.Nonnull  private FileOperationType operation;
 
   public static final String JSON_PROPERTY_PROGRESS = "progress";
-  @javax.annotation.Nonnull
-  private Integer progress;
+  @javax.annotation.Nonnull  private Integer progress;
 
   public static final String JSON_PROPERTY_SOURCE = "source";
-  @javax.annotation.Nullable
-  private JsonNullable<String> source = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> source = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_RESULT = "result";
-  @javax.annotation.Nullable
-  private JsonNullable<Object> result = JsonNullable.<Object>of(null);
+  @javax.annotation.Nullable  private JsonNullable<Object> result = JsonNullable.<Object>of(null);
 
   public static final String JSON_PROPERTY_ERROR = "error";
-  @javax.annotation.Nullable
-  private JsonNullable<String> error = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> error = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PROCESSED = "processed";
-  @javax.annotation.Nullable
-  private JsonNullable<String> processed = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> processed = JsonNullable.<String>undefined();
 
   public ConversationResultDto() {
   }
@@ -91,8 +85,7 @@ public class ConversationResultDto {
    * The conversion operation ID.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getId() {
@@ -100,7 +93,7 @@ public class ConversationResultDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@javax.annotation.Nullable String id) {
     this.id = id;
@@ -116,8 +109,7 @@ public class ConversationResultDto {
    * Get operation
    * @return operation
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_OPERATION)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_OPERATION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public FileOperationType getOperation() {
@@ -125,7 +117,7 @@ public class ConversationResultDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OPERATION)
+  @JsonProperty(value = JSON_PROPERTY_OPERATION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOperation(@javax.annotation.Nonnull FileOperationType operation) {
     this.operation = operation;
@@ -141,8 +133,7 @@ public class ConversationResultDto {
    * The conversion operation progress.
    * @return progress
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PROGRESS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PROGRESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getProgress() {
@@ -150,7 +141,7 @@ public class ConversationResultDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROGRESS)
+  @JsonProperty(value = JSON_PROPERTY_PROGRESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProgress(@javax.annotation.Nonnull Integer progress) {
     this.progress = progress;
@@ -166,16 +157,14 @@ public class ConversationResultDto {
    * The source file for the conversion.
    * @return source
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSource() {
         return source.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonProperty(value = JSON_PROPERTY_SOURCE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSource_JsonNullable() {
     return source;
   }
@@ -199,16 +188,14 @@ public class ConversationResultDto {
    * The resulting file after the conversion.
    * @return result
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Object getResult() {
         return result.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonProperty(value = JSON_PROPERTY_RESULT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Object> getResult_JsonNullable() {
     return result;
   }
@@ -232,16 +219,14 @@ public class ConversationResultDto {
    * The conversion operation error message.
    * @return error
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getError() {
         return error.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getError_JsonNullable() {
     return error;
   }
@@ -265,16 +250,14 @@ public class ConversationResultDto {
    * Specifies if the conversion operation is processed or not.
    * @return processed
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getProcessed() {
         return processed.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PROCESSED)
+  @JsonProperty(value = JSON_PROPERTY_PROCESSED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getProcessed_JsonNullable() {
     return processed;
   }

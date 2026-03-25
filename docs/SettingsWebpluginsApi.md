@@ -78,7 +78,7 @@ public class Example {
 
 
         WebpluginsApi apiInstance = new WebpluginsApi(defaultClient);
-        Boolean system = true; // Boolean | Specifies whether to load the system plugins or not.
+        Boolean system = false; // Boolean | Specifies whether to load the system plugins or not.
         try {
             WebPluginWrapper result = apiInstance.addWebPluginFromFile(system);
             System.out.println(result);
@@ -104,8 +104,8 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Web plugin |  -  |
 | **400** | bad request |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Plugins disabled |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## deleteWebPlugin
@@ -174,7 +174,7 @@ public class Example {
 
 
         WebpluginsApi apiInstance = new WebpluginsApi(defaultClient);
-        String name = "Winfield Upton"; // String | The web plugin name.
+        String name = "example-plugin"; // String | The web plugin name.
         try {
             apiInstance.deleteWebPlugin(name);
         } catch (ApiException e) {
@@ -198,8 +198,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Plugins disabled |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getWebPlugin
@@ -268,7 +268,7 @@ public class Example {
 
 
         WebpluginsApi apiInstance = new WebpluginsApi(defaultClient);
-        String name = "Winfield Upton"; // String | The web plugin name.
+        String name = "example-plugin"; // String | The web plugin name.
         try {
             WebPluginWrapper result = apiInstance.getWebPlugin(name);
             System.out.println(result);
@@ -293,8 +293,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Web plugin |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Plugins disabled |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getWebPlugins
@@ -388,8 +388,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Web plugin |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Plugins disabled |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## updateWebPlugin
@@ -459,7 +459,7 @@ public class Example {
 
 
         WebpluginsApi apiInstance = new WebpluginsApi(defaultClient);
-        String name = "Winfield Upton"; // String | The web plugin name.
+        String name = "example-plugin"; // String | The web plugin name.
         WebPluginRequests webPluginRequests = new WebPluginRequests(); // WebPluginRequests | The configuration settings for the web plugin instance.
         try {
             apiInstance.updateWebPlugin(name, webPluginRequests);
@@ -484,6 +484,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Plugins disabled |  -  |
+| **401** | Unauthorized |  -  |
 

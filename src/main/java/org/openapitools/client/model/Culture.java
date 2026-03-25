@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,10 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -35,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The culture code parameters.
+ * The culture name parameters.
  */
 @JsonPropertyOrder({
   Culture.JSON_PROPERTY_CULTURE_NAME
@@ -43,44 +40,34 @@ import java.util.StringJoiner;
 
 public class Culture {
   public static final String JSON_PROPERTY_CULTURE_NAME = "cultureName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> cultureName = JsonNullable.<String>undefined();
+  @javax.annotation.Nonnull  private String cultureName;
 
   public Culture() {
   }
 
 
-  public Culture cultureName(@javax.annotation.Nullable String cultureName) {
-    this.cultureName = JsonNullable.<String>of(cultureName);
+  public Culture cultureName(@javax.annotation.Nonnull String cultureName) {
     
+    this.cultureName = cultureName;
     return this;
   }
 
   /**
-   * The user language.
+   * The user culture name (en-US, de, fr, es, ...).
    * @return cultureName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CULTURE_NAME, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getCultureName() {
-        return cultureName.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CULTURE_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getCultureName_JsonNullable() {
     return cultureName;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CULTURE_NAME)
-  public void setCultureName_JsonNullable(JsonNullable<String> cultureName) {
-    this.cultureName = cultureName;
-  }
 
-  public void setCultureName(@javax.annotation.Nullable String cultureName) {
-    this.cultureName = JsonNullable.<String>of(cultureName);
+
+  @JsonProperty(value = JSON_PROPERTY_CULTURE_NAME, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCultureName(@javax.annotation.Nonnull String cultureName) {
+    this.cultureName = cultureName;
   }
 
   @Override
@@ -92,23 +79,12 @@ public class Culture {
       return false;
     }
     Culture culture = (Culture) o;
-    return equalsNullable(this.cultureName, culture.cultureName);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.cultureName, culture.cultureName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(cultureName));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(cultureName);
   }
 
   @Override

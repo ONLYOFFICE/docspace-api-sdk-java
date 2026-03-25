@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,6 +36,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -71,88 +72,67 @@ import java.util.StringJoiner;
 
 public class MemberRequestDto {
   public static final String JSON_PROPERTY_PASSWORD = "password";
-  @javax.annotation.Nullable
-  private JsonNullable<String> password = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> password = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PASSWORD_HASH = "passwordHash";
-  @javax.annotation.Nullable
-  private JsonNullable<String> passwordHash = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> passwordHash = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nullable
-  private JsonNullable<String> email = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> email = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  @javax.annotation.Nullable
-  private EmployeeType type;
+  @javax.annotation.Nullable  private EmployeeType type;
 
   public static final String JSON_PROPERTY_IS_USER = "isUser";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> isUser = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> isUser = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> firstName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> firstName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LAST_NAME = "lastName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> lastName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> lastName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DEPARTMENT = "department";
-  @javax.annotation.Nullable
-  private JsonNullable<List<UUID>> department = JsonNullable.<List<UUID>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<UUID>> department = JsonNullable.<List<UUID>>undefined();
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LOCATION = "location";
-  @javax.annotation.Nullable
-  private JsonNullable<String> location = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> location = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SEX = "sex";
-  @javax.annotation.Nullable
-  private SexEnum sex;
+  @javax.annotation.Nullable  private SexEnum sex;
 
   public static final String JSON_PROPERTY_BIRTHDAY = "birthday";
-  @javax.annotation.Nullable
-  private ApiDateTime birthday;
+  @javax.annotation.Nullable  private ApiDateTime birthday;
 
   public static final String JSON_PROPERTY_WORKSFROM = "worksfrom";
-  @javax.annotation.Nullable
-  private ApiDateTime worksfrom;
+  @javax.annotation.Nullable  private ApiDateTime worksfrom;
 
   public static final String JSON_PROPERTY_COMMENT = "comment";
-  @javax.annotation.Nullable
-  private JsonNullable<String> comment = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> comment = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CONTACTS = "contacts";
-  @javax.annotation.Nullable
-  private JsonNullable<List<Contact>> contacts = JsonNullable.<List<Contact>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<Contact>> contacts = JsonNullable.<List<Contact>>undefined();
 
   public static final String JSON_PROPERTY_FILES = "files";
-  @javax.annotation.Nullable
-  private JsonNullable<String> files = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> files = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FROM_INVITE_LINK = "fromInviteLink";
-  @javax.annotation.Nullable
-  private Boolean fromInviteLink;
+  @javax.annotation.Nullable  private Boolean fromInviteLink;
 
   public static final String JSON_PROPERTY_KEY = "key";
-  @javax.annotation.Nullable
-  private JsonNullable<String> key = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> key = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CULTURE_NAME = "cultureName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> cultureName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> cultureName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TARGET = "target";
-  @javax.annotation.Nullable
-  private UUID target;
+  @javax.annotation.Nullable  private UUID target;
 
   public static final String JSON_PROPERTY_SPAM = "spam";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> spam = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> spam = JsonNullable.<Boolean>undefined();
 
   public MemberRequestDto() {
   }
@@ -168,16 +148,14 @@ public class MemberRequestDto {
    * The user password.
    * @return password
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPassword() {
         return password.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PASSWORD)
+  @JsonProperty(value = JSON_PROPERTY_PASSWORD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPassword_JsonNullable() {
     return password;
   }
@@ -201,16 +179,14 @@ public class MemberRequestDto {
    * The user password hash.
    * @return passwordHash
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPasswordHash() {
         return passwordHash.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PASSWORD_HASH)
+  @JsonProperty(value = JSON_PROPERTY_PASSWORD_HASH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPasswordHash_JsonNullable() {
     return passwordHash;
   }
@@ -234,16 +210,14 @@ public class MemberRequestDto {
    * The user email address.
    * @return email
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getEmail() {
         return email.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getEmail_JsonNullable() {
     return email;
   }
@@ -267,8 +241,7 @@ public class MemberRequestDto {
    * Get type
    * @return type
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EmployeeType getType() {
@@ -276,7 +249,7 @@ public class MemberRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(@javax.annotation.Nullable EmployeeType type) {
     this.type = type;
@@ -292,16 +265,14 @@ public class MemberRequestDto {
    * Specifies if this is a guest or a user.
    * @return isUser
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getIsUser() {
         return isUser.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IS_USER)
+  @JsonProperty(value = JSON_PROPERTY_IS_USER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getIsUser_JsonNullable() {
     return isUser;
   }
@@ -325,16 +296,14 @@ public class MemberRequestDto {
    * The user first name.
    * @return firstName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFirstName() {
         return firstName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FIRST_NAME)
+  @JsonProperty(value = JSON_PROPERTY_FIRST_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFirstName_JsonNullable() {
     return firstName;
   }
@@ -358,16 +327,14 @@ public class MemberRequestDto {
    * The user last name.
    * @return lastName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLastName() {
         return lastName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LAST_NAME)
+  @JsonProperty(value = JSON_PROPERTY_LAST_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLastName_JsonNullable() {
     return lastName;
   }
@@ -403,16 +370,14 @@ public class MemberRequestDto {
    * The list of the user departments IDs.
    * @return department
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<UUID> getDepartment() {
         return department.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DEPARTMENT)
+  @JsonProperty(value = JSON_PROPERTY_DEPARTMENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<UUID>> getDepartment_JsonNullable() {
     return department;
   }
@@ -436,16 +401,14 @@ public class MemberRequestDto {
    * The user title.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTitle() {
         return title.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
@@ -469,16 +432,14 @@ public class MemberRequestDto {
    * The user location.
    * @return location
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLocation() {
         return location.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LOCATION)
+  @JsonProperty(value = JSON_PROPERTY_LOCATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLocation_JsonNullable() {
     return location;
   }
@@ -502,8 +463,7 @@ public class MemberRequestDto {
    * Get sex
    * @return sex
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SEX)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SEX, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SexEnum getSex() {
@@ -511,7 +471,7 @@ public class MemberRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SEX)
+  @JsonProperty(value = JSON_PROPERTY_SEX, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSex(@javax.annotation.Nullable SexEnum sex) {
     this.sex = sex;
@@ -527,8 +487,7 @@ public class MemberRequestDto {
    * Get birthday
    * @return birthday
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BIRTHDAY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_BIRTHDAY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApiDateTime getBirthday() {
@@ -536,7 +495,7 @@ public class MemberRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BIRTHDAY)
+  @JsonProperty(value = JSON_PROPERTY_BIRTHDAY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBirthday(@javax.annotation.Nullable ApiDateTime birthday) {
     this.birthday = birthday;
@@ -552,8 +511,7 @@ public class MemberRequestDto {
    * Get worksfrom
    * @return worksfrom
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WORKSFROM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WORKSFROM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApiDateTime getWorksfrom() {
@@ -561,7 +519,7 @@ public class MemberRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WORKSFROM)
+  @JsonProperty(value = JSON_PROPERTY_WORKSFROM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWorksfrom(@javax.annotation.Nullable ApiDateTime worksfrom) {
     this.worksfrom = worksfrom;
@@ -577,16 +535,14 @@ public class MemberRequestDto {
    * The user comment.
    * @return comment
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getComment() {
         return comment.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_COMMENT)
+  @JsonProperty(value = JSON_PROPERTY_COMMENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getComment_JsonNullable() {
     return comment;
   }
@@ -622,16 +578,14 @@ public class MemberRequestDto {
    * The list of the user contacts.
    * @return contacts
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<Contact> getContacts() {
         return contacts.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CONTACTS)
+  @JsonProperty(value = JSON_PROPERTY_CONTACTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<Contact>> getContacts_JsonNullable() {
     return contacts;
   }
@@ -655,16 +609,14 @@ public class MemberRequestDto {
    * The avatar photo URL.
    * @return files
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFiles() {
         return files.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFiles_JsonNullable() {
     return files;
   }
@@ -688,8 +640,7 @@ public class MemberRequestDto {
    * Specifies if the user is added via the invitation link or not.
    * @return fromInviteLink
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FROM_INVITE_LINK)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FROM_INVITE_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getFromInviteLink() {
@@ -697,7 +648,7 @@ public class MemberRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FROM_INVITE_LINK)
+  @JsonProperty(value = JSON_PROPERTY_FROM_INVITE_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFromInviteLink(@javax.annotation.Nullable Boolean fromInviteLink) {
     this.fromInviteLink = fromInviteLink;
@@ -713,16 +664,14 @@ public class MemberRequestDto {
    * The user key.
    * @return key
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getKey() {
         return key.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_KEY)
+  @JsonProperty(value = JSON_PROPERTY_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getKey_JsonNullable() {
     return key;
   }
@@ -746,16 +695,14 @@ public class MemberRequestDto {
    * The user culture code.
    * @return cultureName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCultureName() {
         return cultureName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CULTURE_NAME)
+  @JsonProperty(value = JSON_PROPERTY_CULTURE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCultureName_JsonNullable() {
     return cultureName;
   }
@@ -779,8 +726,7 @@ public class MemberRequestDto {
    * The user target ID.
    * @return target
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TARGET)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TARGET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getTarget() {
@@ -788,7 +734,7 @@ public class MemberRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TARGET)
+  @JsonProperty(value = JSON_PROPERTY_TARGET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTarget(@javax.annotation.Nullable UUID target) {
     this.target = target;
@@ -804,16 +750,14 @@ public class MemberRequestDto {
    * Specifies if tips, updates and offers are allowed to be sent to the user or not.
    * @return spam
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getSpam() {
         return spam.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SPAM)
+  @JsonProperty(value = JSON_PROPERTY_SPAM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getSpam_JsonNullable() {
     return spam;
   }

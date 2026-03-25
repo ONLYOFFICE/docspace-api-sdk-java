@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ package org.openapitools.client;
 
 import java.util.Map;
 import java.util.List;
+
 
 public class ApiException extends Exception {
     private static final long serialVersionUID = 1L;

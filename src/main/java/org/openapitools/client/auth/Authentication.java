@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,13 +22,14 @@ import org.openapitools.client.Pair;
 import java.util.Map;
 import java.util.List;
 
+
 public interface Authentication {
-    /**
-     * Apply authentication settings to header and query params.
-     *
-     * @param queryParams List of query parameters
-     * @param headerParams Map of header parameters
-     * @param cookieParams Map of cookie parameters
-     */
-    void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams);
+  /**
+   * Apply authentication settings to header and query params.
+   *
+   * @param queryParams List of query parameters
+   * @param headerParams Map of header parameters
+   * @param cookieParams Map of cookie parameters
+   */
+  void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams);
 }

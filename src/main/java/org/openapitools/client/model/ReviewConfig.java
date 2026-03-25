@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -35,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ReviewConfig
+ * Configuration for review display settings.
  */
 @JsonPropertyOrder({
   ReviewConfig.JSON_PROPERTY_REVIEW_DISPLAY
@@ -43,8 +44,7 @@ import java.util.StringJoiner;
 
 public class ReviewConfig {
   public static final String JSON_PROPERTY_REVIEW_DISPLAY = "reviewDisplay";
-  @javax.annotation.Nullable
-  private JsonNullable<String> reviewDisplay = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> reviewDisplay = JsonNullable.<String>undefined();
 
   public ReviewConfig() {
   }
@@ -61,11 +61,10 @@ public class ReviewConfig {
 
 
   /**
-   * Get reviewDisplay
+   * The review display string representation.
    * @return reviewDisplay
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getReviewDisplay() {
     
@@ -75,9 +74,8 @@ public class ReviewConfig {
     return reviewDisplay.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_REVIEW_DISPLAY)
+  @JsonProperty(value = JSON_PROPERTY_REVIEW_DISPLAY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getReviewDisplay_JsonNullable() {
     return reviewDisplay;
   }

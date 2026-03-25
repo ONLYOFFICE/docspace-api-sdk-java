@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,16 +47,13 @@ import java.util.StringJoiner;
 
 public class RecentConfig {
   public static final String JSON_PROPERTY_FOLDER = "folder";
-  @javax.annotation.Nullable
-  private JsonNullable<String> folder = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> folder = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_URL = "url";
-  @javax.annotation.Nullable
-  private JsonNullable<URI> url = JsonNullable.<URI>undefined();
+  @javax.annotation.Nullable  private JsonNullable<URI> url = JsonNullable.<URI>undefined();
 
   public RecentConfig() {
   }
@@ -71,16 +69,14 @@ public class RecentConfig {
    * The folder where the document is stored.
    * @return folder
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFolder() {
         return folder.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FOLDER)
+  @JsonProperty(value = JSON_PROPERTY_FOLDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFolder_JsonNullable() {
     return folder;
   }
@@ -104,16 +100,14 @@ public class RecentConfig {
    * The document title that will be displayed in the Open Recent... menu option.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTitle() {
         return title.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
@@ -137,16 +131,14 @@ public class RecentConfig {
    * The absolute URL to the document where it is stored.
    * @return url
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public URI getUrl() {
         return url.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonProperty(value = JSON_PROPERTY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<URI> getUrl_JsonNullable() {
     return url;
   }

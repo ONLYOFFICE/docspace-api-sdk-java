@@ -81,7 +81,7 @@ public class Example {
 
 
         ThirdPartyIntegrationApi apiInstance = new ThirdPartyIntegrationApi(defaultClient);
-        Integer providerId = 1234; // Integer | The provider ID.
+        Integer providerId = 1; // Integer | The provider ID.
         try {
             StringWrapper result = apiInstance.deleteThirdParty(providerId);
             System.out.println(result);
@@ -113,7 +113,7 @@ public class Example {
 
 > ProviderArrayWrapper getAllProviders(excludewebdav)
 
-Get all providersReturns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
+Get all providersReturns a list of all providers.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/).
 
@@ -175,7 +175,7 @@ public class Example {
 
 
         ThirdPartyIntegrationApi apiInstance = new ThirdPartyIntegrationApi(defaultClient);
-        Boolean excludewebdav = true; // Boolean | Specifies whether WebDAV resources should be excluded from the result..
+        Boolean excludewebdav = false; // Boolean | Specifies whether WebDAV resources should be excluded from the result..
         try {
             ProviderArrayWrapper result = apiInstance.getAllProviders(excludewebdav);
             System.out.println(result);
@@ -297,7 +297,7 @@ public class Example {
 
 > ArrayArrayWrapper getCapabilities()
 
-Get providersReturns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+Get providersReturns the list of the available providers.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/).
 
@@ -567,7 +567,7 @@ public class Example {
 
 > FolderStringWrapper saveThirdParty(thirdPartyRequestDto)
 
-Save a third-party accountSaves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+Save a third-party accountSaves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/).
 
@@ -661,7 +661,7 @@ public class Example {
 
 > FolderStringWrapper saveThirdPartyBackup(thirdPartyBackupRequestDto)
 
-Save a third-party account backupSaves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+Save a third-party account backupSaves a backup of the connected third-party account.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/).
 

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -43,20 +44,16 @@ import java.util.StringJoiner;
 
 public class PageableResponseClientInfoResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  @javax.annotation.Nullable
-  private Object data;
+  @javax.annotation.Nullable  private Object data;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
-  @javax.annotation.Nullable
-  private Integer limit;
+  @javax.annotation.Nullable  private Integer limit;
 
   public static final String JSON_PROPERTY_LAST_CLIENT_ID = "last_client_id";
-  @javax.annotation.Nullable
-  private String lastClientId;
+  @javax.annotation.Nullable  private String lastClientId;
 
   public static final String JSON_PROPERTY_LAST_CREATED_ON = "last_created_on";
-  @javax.annotation.Nullable
-  private OffsetDateTime lastCreatedOn;
+  @javax.annotation.Nullable  private OffsetDateTime lastCreatedOn;
 
   public PageableResponseClientInfoResponse() {
   }
@@ -72,8 +69,7 @@ public class PageableResponseClientInfoResponse {
    * The paginated client data.
    * @return data
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Object getData() {
@@ -81,7 +77,7 @@ public class PageableResponseClientInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(value = JSON_PROPERTY_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(@javax.annotation.Nullable Object data) {
     this.data = data;
@@ -97,8 +93,7 @@ public class PageableResponseClientInfoResponse {
    * The maximum number of results returned per page.
    * @return limit
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIMIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getLimit() {
@@ -106,7 +101,7 @@ public class PageableResponseClientInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonProperty(value = JSON_PROPERTY_LIMIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLimit(@javax.annotation.Nullable Integer limit) {
     this.limit = limit;
@@ -122,8 +117,7 @@ public class PageableResponseClientInfoResponse {
    * The identifier of the last retrieved client.
    * @return lastClientId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_CLIENT_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_CLIENT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLastClientId() {
@@ -131,7 +125,7 @@ public class PageableResponseClientInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LAST_CLIENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_LAST_CLIENT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastClientId(@javax.annotation.Nullable String lastClientId) {
     this.lastClientId = lastClientId;
@@ -147,8 +141,7 @@ public class PageableResponseClientInfoResponse {
    * The creation date of the last retrieved client.
    * @return lastCreatedOn
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_CREATED_ON)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_CREATED_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLastCreatedOn() {
@@ -156,7 +149,7 @@ public class PageableResponseClientInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LAST_CREATED_ON)
+  @JsonProperty(value = JSON_PROPERTY_LAST_CREATED_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastCreatedOn(@javax.annotation.Nullable OffsetDateTime lastCreatedOn) {
     this.lastCreatedOn = lastCreatedOn;

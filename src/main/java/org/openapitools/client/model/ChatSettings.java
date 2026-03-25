@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -35,28 +36,39 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ChatSettings
+ * The chat settings.
  */
 @JsonPropertyOrder({
   ChatSettings.JSON_PROPERTY_PROVIDER_ID,
   ChatSettings.JSON_PROPERTY_MODEL_ID,
-  ChatSettings.JSON_PROPERTY_PROMPT
+  ChatSettings.JSON_PROPERTY_PROMPT,
+  ChatSettings.JSON_PROPERTY_INTERNAL
 })
 
 public class ChatSettings {
   public static final String JSON_PROPERTY_PROVIDER_ID = "providerId";
-  @javax.annotation.Nullable
-  private Integer providerId;
+  @javax.annotation.Nullable  private Integer providerId;
 
   public static final String JSON_PROPERTY_MODEL_ID = "modelId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> modelId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> modelId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PROMPT = "prompt";
-  @javax.annotation.Nullable
-  private JsonNullable<String> prompt = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> prompt = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_INTERNAL = "internal";
+  @javax.annotation.Nullable  private Boolean internal;
 
   public ChatSettings() {
+  }
+  /**
+   * Constructor with only readonly parameters
+   */
+  @JsonCreator
+  public ChatSettings(
+    @JsonProperty(JSON_PROPERTY_INTERNAL) Boolean internal
+  ) {
+    this();
+    this.internal = internal;
   }
 
 
@@ -67,11 +79,10 @@ public class ChatSettings {
   }
 
   /**
-   * Get providerId
+   * The provider ID.
    * @return providerId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROVIDER_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROVIDER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getProviderId() {
@@ -79,7 +90,7 @@ public class ChatSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROVIDER_ID)
+  @JsonProperty(value = JSON_PROPERTY_PROVIDER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProviderId(@javax.annotation.Nullable Integer providerId) {
     this.providerId = providerId;
@@ -92,19 +103,17 @@ public class ChatSettings {
   }
 
   /**
-   * Get modelId
+   * The model ID.
    * @return modelId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getModelId() {
         return modelId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MODEL_ID)
+  @JsonProperty(value = JSON_PROPERTY_MODEL_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getModelId_JsonNullable() {
     return modelId;
   }
@@ -125,19 +134,17 @@ public class ChatSettings {
   }
 
   /**
-   * Get prompt
+   * The prompt.
    * @return prompt
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPrompt() {
         return prompt.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PROMPT)
+  @JsonProperty(value = JSON_PROPERTY_PROMPT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPrompt_JsonNullable() {
     return prompt;
   }
@@ -151,6 +158,19 @@ public class ChatSettings {
     this.prompt = JsonNullable.<String>of(prompt);
   }
 
+  /**
+   * Specifies whether the provider is internal or not.
+   * @return internal
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INTERNAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getInternal() {
+    return internal;
+  }
+
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -162,7 +182,8 @@ public class ChatSettings {
     ChatSettings chatSettings = (ChatSettings) o;
     return Objects.equals(this.providerId, chatSettings.providerId) &&
         equalsNullable(this.modelId, chatSettings.modelId) &&
-        equalsNullable(this.prompt, chatSettings.prompt);
+        equalsNullable(this.prompt, chatSettings.prompt) &&
+        Objects.equals(this.internal, chatSettings.internal);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -171,7 +192,7 @@ public class ChatSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerId, hashCodeNullable(modelId), hashCodeNullable(prompt));
+    return Objects.hash(providerId, hashCodeNullable(modelId), hashCodeNullable(prompt), internal);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -188,6 +209,7 @@ public class ChatSettings {
     sb.append("    providerId: ").append(toIndentedString(providerId)).append("\n");
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    prompt: ").append(toIndentedString(prompt)).append("\n");
+    sb.append("    internal: ").append(toIndentedString(internal)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -259,6 +281,16 @@ public class ChatSettings {
     if (getPrompt() != null) {
       try {
         joiner.add(String.format("%sprompt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPrompt()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `internal` to the URL query string
+    if (getInternal() != null) {
+      try {
+        joiner.add(String.format("%sinternal%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInternal()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

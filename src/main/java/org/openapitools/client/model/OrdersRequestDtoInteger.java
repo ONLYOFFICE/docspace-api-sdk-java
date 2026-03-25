@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.OrdersItemRequestDtoInteger;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -43,8 +44,7 @@ import java.util.StringJoiner;
 
 public class OrdersRequestDtoInteger {
   public static final String JSON_PROPERTY_ITEMS = "items";
-  @javax.annotation.Nullable
-  private List<OrdersItemRequestDtoInteger> items;
+  @javax.annotation.Nullable  private List<OrdersItemRequestDtoInteger> items;
 
   public OrdersRequestDtoInteger() {
   }
@@ -68,8 +68,7 @@ public class OrdersRequestDtoInteger {
    * The list of items with their ordering information.
    * @return items
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ITEMS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ITEMS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<OrdersItemRequestDtoInteger> getItems() {
@@ -77,7 +76,7 @@ public class OrdersRequestDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ITEMS)
+  @JsonProperty(value = JSON_PROPERTY_ITEMS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setItems(@javax.annotation.Nullable List<OrdersItemRequestDtoInteger> items) {
     this.items = items;

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -55,36 +56,28 @@ import java.util.StringJoiner;
 
 public class FormRoleDto {
   public static final String JSON_PROPERTY_ROLE_NAME = "roleName";
-  @javax.annotation.Nullable
-  private String roleName;
+  @javax.annotation.Nullable  private String roleName;
 
   public static final String JSON_PROPERTY_ROLE_COLOR = "roleColor";
-  @javax.annotation.Nullable
-  private JsonNullable<String> roleColor = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> roleColor = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_USER = "user";
-  @javax.annotation.Nullable
-  private EmployeeFullDto user;
+  @javax.annotation.Nullable  private EmployeeFullDto user;
 
   public static final String JSON_PROPERTY_SEQUENCE = "sequence";
-  @javax.annotation.Nonnull
-  private Integer sequence;
+  @javax.annotation.Nonnull  private Integer sequence;
 
   public static final String JSON_PROPERTY_SUBMITTED = "submitted";
-  @javax.annotation.Nonnull
-  private Boolean submitted;
+  @javax.annotation.Nonnull  private Boolean submitted;
 
   public static final String JSON_PROPERTY_STOPED_BY = "stopedBy";
-  @javax.annotation.Nullable
-  private EmployeeFullDto stopedBy;
+  @javax.annotation.Nullable  private EmployeeFullDto stopedBy;
 
   public static final String JSON_PROPERTY_HISTORY = "history";
-  @javax.annotation.Nullable
-  private JsonNullable<Map<String, OffsetDateTime>> history = JsonNullable.<Map<String, OffsetDateTime>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Map<String, OffsetDateTime>> history = JsonNullable.<Map<String, OffsetDateTime>>undefined();
 
   public static final String JSON_PROPERTY_ROLE_STATUS = "roleStatus";
-  @javax.annotation.Nullable
-  private FormFillingStatus roleStatus;
+  @javax.annotation.Nullable  private FormFillingStatus roleStatus;
 
   public FormRoleDto() {
   }
@@ -100,8 +93,7 @@ public class FormRoleDto {
    * The role name.
    * @return roleName
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROLE_NAME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROLE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getRoleName() {
@@ -109,7 +101,7 @@ public class FormRoleDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROLE_NAME)
+  @JsonProperty(value = JSON_PROPERTY_ROLE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRoleName(@javax.annotation.Nullable String roleName) {
     this.roleName = roleName;
@@ -125,16 +117,14 @@ public class FormRoleDto {
    * The role color.
    * @return roleColor
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRoleColor() {
         return roleColor.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ROLE_COLOR)
+  @JsonProperty(value = JSON_PROPERTY_ROLE_COLOR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRoleColor_JsonNullable() {
     return roleColor;
   }
@@ -158,8 +148,7 @@ public class FormRoleDto {
    * Get user
    * @return user
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EmployeeFullDto getUser() {
@@ -167,7 +156,7 @@ public class FormRoleDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USER)
+  @JsonProperty(value = JSON_PROPERTY_USER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUser(@javax.annotation.Nullable EmployeeFullDto user) {
     this.user = user;
@@ -183,8 +172,7 @@ public class FormRoleDto {
    * The role sequence.
    * @return sequence
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SEQUENCE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SEQUENCE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getSequence() {
@@ -192,7 +180,7 @@ public class FormRoleDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SEQUENCE)
+  @JsonProperty(value = JSON_PROPERTY_SEQUENCE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSequence(@javax.annotation.Nonnull Integer sequence) {
     this.sequence = sequence;
@@ -208,8 +196,7 @@ public class FormRoleDto {
    * Specifies if the role is submitted.
    * @return submitted
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SUBMITTED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SUBMITTED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getSubmitted() {
@@ -217,7 +204,7 @@ public class FormRoleDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SUBMITTED)
+  @JsonProperty(value = JSON_PROPERTY_SUBMITTED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSubmitted(@javax.annotation.Nonnull Boolean submitted) {
     this.submitted = submitted;
@@ -233,8 +220,7 @@ public class FormRoleDto {
    * Get stopedBy
    * @return stopedBy
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STOPED_BY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STOPED_BY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EmployeeFullDto getStopedBy() {
@@ -242,7 +228,7 @@ public class FormRoleDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STOPED_BY)
+  @JsonProperty(value = JSON_PROPERTY_STOPED_BY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStopedBy(@javax.annotation.Nullable EmployeeFullDto stopedBy) {
     this.stopedBy = stopedBy;
@@ -270,16 +256,14 @@ public class FormRoleDto {
    * The role history.
    * @return history
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Map<String, OffsetDateTime> getHistory() {
         return history.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_HISTORY)
+  @JsonProperty(value = JSON_PROPERTY_HISTORY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Map<String, OffsetDateTime>> getHistory_JsonNullable() {
     return history;
   }
@@ -303,8 +287,7 @@ public class FormRoleDto {
    * Get roleStatus
    * @return roleStatus
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROLE_STATUS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROLE_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FormFillingStatus getRoleStatus() {
@@ -312,7 +295,7 @@ public class FormRoleDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROLE_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_ROLE_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoleStatus(@javax.annotation.Nullable FormFillingStatus roleStatus) {
     this.roleStatus = roleStatus;

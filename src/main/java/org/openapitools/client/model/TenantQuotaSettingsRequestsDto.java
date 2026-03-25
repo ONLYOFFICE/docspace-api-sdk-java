@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -40,12 +41,10 @@ import java.util.StringJoiner;
 
 public class TenantQuotaSettingsRequestsDto {
   public static final String JSON_PROPERTY_TENANT_ID = "tenantId";
-  @javax.annotation.Nonnull
-  private Integer tenantId;
+  @javax.annotation.Nonnull  private Integer tenantId;
 
   public static final String JSON_PROPERTY_QUOTA = "quota";
-  @javax.annotation.Nullable
-  private Long quota;
+  @javax.annotation.Nullable  private Long quota;
 
   public TenantQuotaSettingsRequestsDto() {
   }
@@ -61,8 +60,7 @@ public class TenantQuotaSettingsRequestsDto {
    * The ID of the tenant whose quota is being configured.
    * @return tenantId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getTenantId() {
@@ -70,7 +68,7 @@ public class TenantQuotaSettingsRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTenantId(@javax.annotation.Nonnull Integer tenantId) {
     this.tenantId = tenantId;
@@ -86,8 +84,7 @@ public class TenantQuotaSettingsRequestsDto {
    * The storage quota limit in bytes allocated to the tenant.
    * @return quota
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUOTA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getQuota() {
@@ -95,7 +92,7 @@ public class TenantQuotaSettingsRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_QUOTA)
+  @JsonProperty(value = JSON_PROPERTY_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQuota(@javax.annotation.Nullable Long quota) {
     this.quota = quota;

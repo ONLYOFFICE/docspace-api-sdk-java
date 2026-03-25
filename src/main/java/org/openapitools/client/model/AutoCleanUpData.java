@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.DateToAutoCleanUp;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -41,12 +42,10 @@ import java.util.StringJoiner;
 
 public class AutoCleanUpData {
   public static final String JSON_PROPERTY_IS_AUTO_CLEAN_UP = "isAutoCleanUp";
-  @javax.annotation.Nullable
-  private Boolean isAutoCleanUp;
+  @javax.annotation.Nullable  private Boolean isAutoCleanUp;
 
   public static final String JSON_PROPERTY_GAP = "gap";
-  @javax.annotation.Nullable
-  private DateToAutoCleanUp gap;
+  @javax.annotation.Nullable  private DateToAutoCleanUp gap;
 
   public AutoCleanUpData() {
   }
@@ -62,8 +61,7 @@ public class AutoCleanUpData {
    * Specifies whether to permanently delete files in the Trash folder.
    * @return isAutoCleanUp
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_AUTO_CLEAN_UP)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_AUTO_CLEAN_UP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsAutoCleanUp() {
@@ -71,7 +69,7 @@ public class AutoCleanUpData {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_AUTO_CLEAN_UP)
+  @JsonProperty(value = JSON_PROPERTY_IS_AUTO_CLEAN_UP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsAutoCleanUp(@javax.annotation.Nullable Boolean isAutoCleanUp) {
     this.isAutoCleanUp = isAutoCleanUp;
@@ -87,8 +85,7 @@ public class AutoCleanUpData {
    * Get gap
    * @return gap
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GAP)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GAP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public DateToAutoCleanUp getGap() {
@@ -96,7 +93,7 @@ public class AutoCleanUpData {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GAP)
+  @JsonProperty(value = JSON_PROPERTY_GAP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGap(@javax.annotation.Nullable DateToAutoCleanUp gap) {
     this.gap = gap;

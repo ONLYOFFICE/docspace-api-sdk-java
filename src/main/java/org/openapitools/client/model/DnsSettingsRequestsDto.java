@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -44,12 +45,10 @@ import java.util.StringJoiner;
 
 public class DnsSettingsRequestsDto {
   public static final String JSON_PROPERTY_DNS_NAME = "dnsName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> dnsName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> dnsName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ENABLE = "enable";
-  @javax.annotation.Nullable
-  private Boolean enable;
+  @javax.annotation.Nullable  private Boolean enable;
 
   public DnsSettingsRequestsDto() {
   }
@@ -65,16 +64,14 @@ public class DnsSettingsRequestsDto {
    * The DNS (Domain Name System) configuration name.
    * @return dnsName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getDnsName() {
         return dnsName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DNS_NAME)
+  @JsonProperty(value = JSON_PROPERTY_DNS_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getDnsName_JsonNullable() {
     return dnsName;
   }
@@ -98,8 +95,7 @@ public class DnsSettingsRequestsDto {
    * Specifies whether the DNS settings are enabled.
    * @return enable
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEnable() {
@@ -107,7 +103,7 @@ public class DnsSettingsRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENABLE)
+  @JsonProperty(value = JSON_PROPERTY_ENABLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnable(@javax.annotation.Nullable Boolean enable) {
     this.enable = enable;

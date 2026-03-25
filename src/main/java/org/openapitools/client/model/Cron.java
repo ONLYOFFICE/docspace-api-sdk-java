@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,16 +47,13 @@ import java.util.StringJoiner;
 
 public class Cron {
   public static final String JSON_PROPERTY_PERIOD = "period";
-  @javax.annotation.Nullable
-  private BackupPeriod period;
+  @javax.annotation.Nullable  private BackupPeriod period;
 
   public static final String JSON_PROPERTY_HOUR = "hour";
-  @javax.annotation.Nullable
-  private Integer hour;
+  @javax.annotation.Nullable  private Integer hour;
 
   public static final String JSON_PROPERTY_DAY = "day";
-  @javax.annotation.Nullable
-  private JsonNullable<Integer> day = JsonNullable.<Integer>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Integer> day = JsonNullable.<Integer>undefined();
 
   public Cron() {
   }
@@ -71,8 +69,7 @@ public class Cron {
    * Get period
    * @return period
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PERIOD)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PERIOD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public BackupPeriod getPeriod() {
@@ -80,7 +77,7 @@ public class Cron {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PERIOD)
+  @JsonProperty(value = JSON_PROPERTY_PERIOD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPeriod(@javax.annotation.Nullable BackupPeriod period) {
     this.period = period;
@@ -96,8 +93,7 @@ public class Cron {
    * The time of the day to start the backup process.
    * @return hour
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HOUR)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HOUR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getHour() {
@@ -105,7 +101,7 @@ public class Cron {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HOUR)
+  @JsonProperty(value = JSON_PROPERTY_HOUR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHour(@javax.annotation.Nullable Integer hour) {
     this.hour = hour;
@@ -121,16 +117,14 @@ public class Cron {
    * The day of the week to start the backup process.
    * @return day
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Integer getDay() {
         return day.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DAY)
+  @JsonProperty(value = JSON_PROPERTY_DAY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Integer> getDay_JsonNullable() {
     return day;
   }

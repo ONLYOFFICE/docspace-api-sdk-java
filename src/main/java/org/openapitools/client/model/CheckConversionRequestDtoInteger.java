@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -49,32 +50,25 @@ import java.util.StringJoiner;
 
 public class CheckConversionRequestDtoInteger {
   public static final String JSON_PROPERTY_FILE_ID = "fileId";
-  @javax.annotation.Nullable
-  private Integer fileId;
+  @javax.annotation.Nullable  private Integer fileId;
 
   public static final String JSON_PROPERTY_SYNC = "sync";
-  @javax.annotation.Nullable
-  private Boolean sync;
+  @javax.annotation.Nullable  private Boolean sync;
 
   public static final String JSON_PROPERTY_START_CONVERT = "startConvert";
-  @javax.annotation.Nullable
-  private Boolean startConvert;
+  @javax.annotation.Nullable  private Boolean startConvert;
 
   public static final String JSON_PROPERTY_VERSION = "version";
-  @javax.annotation.Nullable
-  private Integer version;
+  @javax.annotation.Nullable  private Integer version;
 
   public static final String JSON_PROPERTY_PASSWORD = "password";
-  @javax.annotation.Nullable
-  private JsonNullable<String> password = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> password = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_OUTPUT_TYPE = "outputType";
-  @javax.annotation.Nullable
-  private JsonNullable<String> outputType = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> outputType = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CREATE_NEW_IF_EXIST = "createNewIfExist";
-  @javax.annotation.Nullable
-  private Boolean createNewIfExist;
+  @javax.annotation.Nullable  private Boolean createNewIfExist;
 
   public CheckConversionRequestDtoInteger() {
   }
@@ -90,8 +84,7 @@ public class CheckConversionRequestDtoInteger {
    * The file ID to check conversion proccess.
    * @return fileId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILE_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getFileId() {
@@ -99,7 +92,7 @@ public class CheckConversionRequestDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE_ID)
+  @JsonProperty(value = JSON_PROPERTY_FILE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileId(@javax.annotation.Nullable Integer fileId) {
     this.fileId = fileId;
@@ -115,8 +108,7 @@ public class CheckConversionRequestDtoInteger {
    * Specifies if the conversion process is synchronous or not.
    * @return sync
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SYNC)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SYNC, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSync() {
@@ -124,7 +116,7 @@ public class CheckConversionRequestDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SYNC)
+  @JsonProperty(value = JSON_PROPERTY_SYNC, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSync(@javax.annotation.Nullable Boolean sync) {
     this.sync = sync;
@@ -140,8 +132,7 @@ public class CheckConversionRequestDtoInteger {
    * Specifies whether to start a conversion process or not.
    * @return startConvert
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_START_CONVERT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_START_CONVERT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getStartConvert() {
@@ -149,7 +140,7 @@ public class CheckConversionRequestDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_START_CONVERT)
+  @JsonProperty(value = JSON_PROPERTY_START_CONVERT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartConvert(@javax.annotation.Nullable Boolean startConvert) {
     this.startConvert = startConvert;
@@ -165,8 +156,7 @@ public class CheckConversionRequestDtoInteger {
    * The file version that is converted.
    * @return version
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VERSION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getVersion() {
@@ -174,7 +164,7 @@ public class CheckConversionRequestDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(value = JSON_PROPERTY_VERSION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersion(@javax.annotation.Nullable Integer version) {
     this.version = version;
@@ -190,16 +180,14 @@ public class CheckConversionRequestDtoInteger {
    * The password of the converted file.
    * @return password
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPassword() {
         return password.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PASSWORD)
+  @JsonProperty(value = JSON_PROPERTY_PASSWORD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPassword_JsonNullable() {
     return password;
   }
@@ -223,16 +211,14 @@ public class CheckConversionRequestDtoInteger {
    * The conversion output type.
    * @return outputType
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getOutputType() {
         return outputType.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_OUTPUT_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_OUTPUT_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getOutputType_JsonNullable() {
     return outputType;
   }
@@ -256,8 +242,7 @@ public class CheckConversionRequestDtoInteger {
    * Specifies whether to create a new file if it exists or not.
    * @return createNewIfExist
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATE_NEW_IF_EXIST)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_NEW_IF_EXIST, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCreateNewIfExist() {
@@ -265,7 +250,7 @@ public class CheckConversionRequestDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATE_NEW_IF_EXIST)
+  @JsonProperty(value = JSON_PROPERTY_CREATE_NEW_IF_EXIST, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreateNewIfExist(@javax.annotation.Nullable Boolean createNewIfExist) {
     this.createNewIfExist = createNewIfExist;

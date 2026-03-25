@@ -345,7 +345,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | License |  -  |
 | **400** | The uploaded file could not be found |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Portal Access |  -  |
 | **405** | Your pricing plan does not support this option |  -  |
+| **401** | Unauthorized |  -  |
 

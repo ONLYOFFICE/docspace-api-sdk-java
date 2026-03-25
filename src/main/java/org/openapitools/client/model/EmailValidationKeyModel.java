@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -53,36 +54,28 @@ import java.util.StringJoiner;
 
 public class EmailValidationKeyModel {
   public static final String JSON_PROPERTY_KEY = "key";
-  @javax.annotation.Nullable
-  private JsonNullable<String> key = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> key = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EMPL_TYPE = "emplType";
-  @javax.annotation.Nullable
-  private EmployeeType emplType;
+  @javax.annotation.Nullable  private EmployeeType emplType;
 
   public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nullable
-  private JsonNullable<String> email = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> email = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ENC_EMAIL = "encEmail";
-  @javax.annotation.Nullable
-  private JsonNullable<String> encEmail = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> encEmail = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_UI_D = "uiD";
-  @javax.annotation.Nullable
-  private JsonNullable<UUID> uiD = JsonNullable.<UUID>undefined();
+  @javax.annotation.Nullable  private JsonNullable<UUID> uiD = JsonNullable.<UUID>undefined();
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  @javax.annotation.Nullable
-  private ConfirmType type;
+  @javax.annotation.Nullable  private ConfirmType type;
 
   public static final String JSON_PROPERTY_FIRST = "first";
-  @javax.annotation.Nullable
-  private JsonNullable<String> first = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> first = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ROOM_ID = "roomId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> roomId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> roomId = JsonNullable.<String>undefined();
 
   public EmailValidationKeyModel() {
   }
@@ -98,16 +91,14 @@ public class EmailValidationKeyModel {
    * The email validation key.
    * @return key
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getKey() {
         return key.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_KEY)
+  @JsonProperty(value = JSON_PROPERTY_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getKey_JsonNullable() {
     return key;
   }
@@ -131,8 +122,7 @@ public class EmailValidationKeyModel {
    * Get emplType
    * @return emplType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMPL_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMPL_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EmployeeType getEmplType() {
@@ -140,7 +130,7 @@ public class EmailValidationKeyModel {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMPL_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_EMPL_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmplType(@javax.annotation.Nullable EmployeeType emplType) {
     this.emplType = emplType;
@@ -156,16 +146,14 @@ public class EmailValidationKeyModel {
    * The email address.
    * @return email
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getEmail() {
         return email.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getEmail_JsonNullable() {
     return email;
   }
@@ -189,16 +177,14 @@ public class EmailValidationKeyModel {
    * The encrypted email address.
    * @return encEmail
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getEncEmail() {
         return encEmail.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ENC_EMAIL)
+  @JsonProperty(value = JSON_PROPERTY_ENC_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getEncEmail_JsonNullable() {
     return encEmail;
   }
@@ -222,16 +208,14 @@ public class EmailValidationKeyModel {
    * The user ID.
    * @return uiD
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public UUID getUiD() {
         return uiD.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_UI_D)
+  @JsonProperty(value = JSON_PROPERTY_UI_D, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<UUID> getUiD_JsonNullable() {
     return uiD;
   }
@@ -255,8 +239,7 @@ public class EmailValidationKeyModel {
    * Get type
    * @return type
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ConfirmType getType() {
@@ -264,7 +247,7 @@ public class EmailValidationKeyModel {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(@javax.annotation.Nullable ConfirmType type) {
     this.type = type;
@@ -280,16 +263,14 @@ public class EmailValidationKeyModel {
    * Specifies whether it is the first time account access or not.
    * @return first
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFirst() {
         return first.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FIRST)
+  @JsonProperty(value = JSON_PROPERTY_FIRST, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFirst_JsonNullable() {
     return first;
   }
@@ -313,16 +294,14 @@ public class EmailValidationKeyModel {
    * The room ID.
    * @return roomId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRoomId() {
         return roomId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ROOM_ID)
+  @JsonProperty(value = JSON_PROPERTY_ROOM_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRoomId_JsonNullable() {
     return roomId;
   }

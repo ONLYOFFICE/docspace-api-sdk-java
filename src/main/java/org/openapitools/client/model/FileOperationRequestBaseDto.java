@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -39,8 +40,7 @@ import java.util.StringJoiner;
 
 public class FileOperationRequestBaseDto {
   public static final String JSON_PROPERTY_RETURN_SINGLE_OPERATION = "returnSingleOperation";
-  @javax.annotation.Nullable
-  private Boolean returnSingleOperation;
+  @javax.annotation.Nullable  private Boolean returnSingleOperation;
 
   public FileOperationRequestBaseDto() {
   }
@@ -56,8 +56,7 @@ public class FileOperationRequestBaseDto {
    * Specifies whether to return only the current operation
    * @return returnSingleOperation
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RETURN_SINGLE_OPERATION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RETURN_SINGLE_OPERATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getReturnSingleOperation() {
@@ -65,7 +64,7 @@ public class FileOperationRequestBaseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RETURN_SINGLE_OPERATION)
+  @JsonProperty(value = JSON_PROPERTY_RETURN_SINGLE_OPERATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReturnSingleOperation(@javax.annotation.Nullable Boolean returnSingleOperation) {
     this.returnSingleOperation = returnSingleOperation;

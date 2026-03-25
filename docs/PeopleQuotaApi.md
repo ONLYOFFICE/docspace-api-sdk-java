@@ -100,10 +100,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | User detailed information |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
 | **403** | The invitation link is invalid or its validity has expired |  -  |
 | **409** | Conflict - system user quota cannot be reset |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## updateUserQuota
@@ -197,6 +197,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of users with the detailed information |  -  |
+| **400** | The entered quota value is invalid or greater than the total storage size |  -  |
+| **403** | No permissions to perform this action |  -  |
 | **401** | Unauthorized |  -  |
-| **402** | Failed to set quota per user. The entered value is greater than the total DocSpace storage |  -  |
 

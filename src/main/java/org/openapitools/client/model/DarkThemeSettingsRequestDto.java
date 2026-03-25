@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.DarkThemeSettingsType;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -40,8 +41,7 @@ import java.util.StringJoiner;
 
 public class DarkThemeSettingsRequestDto {
   public static final String JSON_PROPERTY_THEME = "theme";
-  @javax.annotation.Nonnull
-  private DarkThemeSettingsType theme;
+  @javax.annotation.Nonnull  private DarkThemeSettingsType theme;
 
   public DarkThemeSettingsRequestDto() {
   }
@@ -57,8 +57,7 @@ public class DarkThemeSettingsRequestDto {
    * Get theme
    * @return theme
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_THEME)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_THEME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public DarkThemeSettingsType getTheme() {
@@ -66,7 +65,7 @@ public class DarkThemeSettingsRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_THEME)
+  @JsonProperty(value = JSON_PROPERTY_THEME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTheme(@javax.annotation.Nonnull DarkThemeSettingsType theme) {
     this.theme = theme;

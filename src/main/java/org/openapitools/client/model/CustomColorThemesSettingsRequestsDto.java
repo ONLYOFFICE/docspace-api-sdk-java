@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -45,12 +46,10 @@ import java.util.StringJoiner;
 
 public class CustomColorThemesSettingsRequestsDto {
   public static final String JSON_PROPERTY_THEME = "theme";
-  @javax.annotation.Nullable
-  private CustomColorThemesSettingsItem theme;
+  @javax.annotation.Nullable  private CustomColorThemesSettingsItem theme;
 
   public static final String JSON_PROPERTY_SELECTED = "selected";
-  @javax.annotation.Nullable
-  private JsonNullable<Integer> selected = JsonNullable.<Integer>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Integer> selected = JsonNullable.<Integer>undefined();
 
   public CustomColorThemesSettingsRequestsDto() {
   }
@@ -66,8 +65,7 @@ public class CustomColorThemesSettingsRequestsDto {
    * Get theme
    * @return theme
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_THEME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_THEME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CustomColorThemesSettingsItem getTheme() {
@@ -75,7 +73,7 @@ public class CustomColorThemesSettingsRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_THEME)
+  @JsonProperty(value = JSON_PROPERTY_THEME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTheme(@javax.annotation.Nullable CustomColorThemesSettingsItem theme) {
     this.theme = theme;
@@ -91,16 +89,14 @@ public class CustomColorThemesSettingsRequestsDto {
    * Specifies the optional value indicating the selected custom color theme.
    * @return selected
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Integer getSelected() {
         return selected.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SELECTED)
+  @JsonProperty(value = JSON_PROPERTY_SELECTED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Integer> getSelected_JsonNullable() {
     return selected;
   }

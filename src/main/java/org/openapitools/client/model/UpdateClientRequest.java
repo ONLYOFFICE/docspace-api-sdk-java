@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,8 +25,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -47,28 +49,22 @@ import java.util.StringJoiner;
 
 public class UpdateClientRequest {
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private String name;
+  @javax.annotation.Nullable  private String name;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  @javax.annotation.Nullable
-  private String description;
+  @javax.annotation.Nullable  private String description;
 
   public static final String JSON_PROPERTY_LOGO = "logo";
-  @javax.annotation.Nullable
-  private String logo;
+  @javax.annotation.Nullable  private String logo;
 
   public static final String JSON_PROPERTY_ALLOW_PKCE = "allow_pkce";
-  @javax.annotation.Nullable
-  private Boolean allowPkce;
+  @javax.annotation.Nullable  private Boolean allowPkce;
 
   public static final String JSON_PROPERTY_IS_PUBLIC = "is_public";
-  @javax.annotation.Nullable
-  private Boolean isPublic;
+  @javax.annotation.Nullable  private Boolean isPublic;
 
   public static final String JSON_PROPERTY_ALLOWED_ORIGINS = "allowed_origins";
-  @javax.annotation.Nullable
-  private Set<String> allowedOrigins = new LinkedHashSet<>();
+  @javax.annotation.Nullable  private Set<String> allowedOrigins = new LinkedHashSet<>();
 
   public UpdateClientRequest() {
   }
@@ -84,8 +80,7 @@ public class UpdateClientRequest {
    * The client name.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getName() {
@@ -93,7 +88,7 @@ public class UpdateClientRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
@@ -109,8 +104,7 @@ public class UpdateClientRequest {
    * The client description
    * @return description
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDescription() {
@@ -118,7 +112,7 @@ public class UpdateClientRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
@@ -134,8 +128,7 @@ public class UpdateClientRequest {
    * The client logo in base64 format.
    * @return logo
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOGO)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLogo() {
@@ -143,7 +136,7 @@ public class UpdateClientRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOGO)
+  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(@javax.annotation.Nullable String logo) {
     this.logo = logo;
@@ -159,8 +152,7 @@ public class UpdateClientRequest {
    * Indicates whether PKCE is allowed for the client.
    * @return allowPkce
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_PKCE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ALLOW_PKCE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAllowPkce() {
@@ -168,7 +160,7 @@ public class UpdateClientRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ALLOW_PKCE)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_PKCE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowPkce(@javax.annotation.Nullable Boolean allowPkce) {
     this.allowPkce = allowPkce;
@@ -184,8 +176,7 @@ public class UpdateClientRequest {
    * Indicates whether the client is accessible by third-party tenants.
    * @return isPublic
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_PUBLIC)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_PUBLIC, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsPublic() {
@@ -193,7 +184,7 @@ public class UpdateClientRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_PUBLIC)
+  @JsonProperty(value = JSON_PROPERTY_IS_PUBLIC, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsPublic(@javax.annotation.Nullable Boolean isPublic) {
     this.isPublic = isPublic;
@@ -217,8 +208,7 @@ public class UpdateClientRequest {
    * The allowed origins for the client.
    * @return allowedOrigins
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ALLOWED_ORIGINS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Set<String> getAllowedOrigins() {
@@ -227,7 +217,7 @@ public class UpdateClientRequest {
 
 
   @JsonDeserialize(as = LinkedHashSet.class)
-  @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
+  @JsonProperty(value = JSON_PROPERTY_ALLOWED_ORIGINS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedOrigins(@javax.annotation.Nullable Set<String> allowedOrigins) {
     this.allowedOrigins = allowedOrigins;

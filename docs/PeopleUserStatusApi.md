@@ -84,13 +84,13 @@ public class Example {
 
         UserStatusApi apiInstance = new UserStatusApi(defaultClient);
         EmployeeStatus status = EmployeeStatus.fromValue("1"); // EmployeeStatus | The user status.
-        String filterBy = "some text"; // String | Specifies the criteria used to filter the profiles in the request.
-        Integer count = 1234; // Integer | The maximum number of user profiles to retrieve.
-        Integer startIndex = 1234; // Integer | The starting index for retrieving data in a paginated request.
-        String sortBy = "some text"; // String | Specifies the property or field name by which the results should be sorted.
+        String filterBy = "displayName"; // String | Specifies the criteria used to filter the profiles in the request.
+        Integer count = 25; // Integer | The maximum number of user profiles to retrieve.
+        Integer startIndex = 0; // Integer | The starting index for retrieving data in a paginated request.
+        String sortBy = "displayName"; // String | Specifies the property or field name by which the results should be sorted.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterSeparator = "some text"; // String | Represents the separator used to split multiple filter criteria in a query string.
-        String filterValue = "some text"; // String | A string value representing additional filter criteria used in query parameters.
+        String filterSeparator = ","; // String | Represents the separator used to split multiple filter criteria in a query string.
+        String filterValue = "John"; // String | A string value representing additional filter criteria used in query parameters.
         try {
             EmployeeFullArrayWrapper result = apiInstance.getByStatus(status, filterBy, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
             System.out.println(result);
@@ -307,5 +307,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of users with the detailed information |  -  |
+| **400** | Incorrect status |  -  |
+| **403** | No permissions to perform this action or cannot change status for a specific user (yourself, owner, LDAP ...) |  -  |
 | **401** | Unauthorized |  -  |
 

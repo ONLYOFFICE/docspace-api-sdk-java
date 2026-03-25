@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -45,16 +46,13 @@ import java.util.StringJoiner;
 
 public class AceShortWrapper {
   public static final String JSON_PROPERTY_USER = "user";
-  @javax.annotation.Nullable
-  private JsonNullable<String> user = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> user = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PERMISSIONS = "permissions";
-  @javax.annotation.Nullable
-  private JsonNullable<String> permissions = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> permissions = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_IS_LINK = "isLink";
-  @javax.annotation.Nullable
-  private Boolean isLink;
+  @javax.annotation.Nullable  private Boolean isLink;
 
   public AceShortWrapper() {
   }
@@ -70,16 +68,14 @@ public class AceShortWrapper {
    * The name of the user the document will be shared with.
    * @return user
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getUser() {
         return user.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_USER)
+  @JsonProperty(value = JSON_PROPERTY_USER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getUser_JsonNullable() {
     return user;
   }
@@ -103,16 +99,14 @@ public class AceShortWrapper {
    * The access rights for the user with the name above.  Can be Full Access, Read Only, or Deny Access.
    * @return permissions
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPermissions() {
         return permissions.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PERMISSIONS)
+  @JsonProperty(value = JSON_PROPERTY_PERMISSIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPermissions_JsonNullable() {
     return permissions;
   }
@@ -136,8 +130,7 @@ public class AceShortWrapper {
    * Specifies whether to change the user icon to the link icon.
    * @return isLink
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_LINK)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsLink() {
@@ -145,7 +138,7 @@ public class AceShortWrapper {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_LINK)
+  @JsonProperty(value = JSON_PROPERTY_IS_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsLink(@javax.annotation.Nullable Boolean isLink) {
     this.isLink = isLink;

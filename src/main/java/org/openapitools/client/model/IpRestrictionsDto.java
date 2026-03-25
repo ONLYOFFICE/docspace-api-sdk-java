@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,12 +49,10 @@ import java.util.StringJoiner;
 
 public class IpRestrictionsDto {
   public static final String JSON_PROPERTY_IP_RESTRICTIONS = "ipRestrictions";
-  @javax.annotation.Nullable
-  private List<IpRestrictionBase> ipRestrictions;
+  @javax.annotation.Nullable  private List<IpRestrictionBase> ipRestrictions;
 
   public static final String JSON_PROPERTY_ENABLE = "enable";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> enable = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> enable = JsonNullable.<Boolean>undefined();
 
   public IpRestrictionsDto() {
   }
@@ -77,8 +76,7 @@ public class IpRestrictionsDto {
    * The list of IP restriction addresses.
    * @return ipRestrictions
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IP_RESTRICTIONS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IP_RESTRICTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<IpRestrictionBase> getIpRestrictions() {
@@ -86,7 +84,7 @@ public class IpRestrictionsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IP_RESTRICTIONS)
+  @JsonProperty(value = JSON_PROPERTY_IP_RESTRICTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIpRestrictions(@javax.annotation.Nullable List<IpRestrictionBase> ipRestrictions) {
     this.ipRestrictions = ipRestrictions;
@@ -102,16 +100,14 @@ public class IpRestrictionsDto {
    * Specifies whether to enable IP restrictions or not.
    * @return enable
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getEnable() {
         return enable.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ENABLE)
+  @JsonProperty(value = JSON_PROPERTY_ENABLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getEnable_JsonNullable() {
     return enable;
   }

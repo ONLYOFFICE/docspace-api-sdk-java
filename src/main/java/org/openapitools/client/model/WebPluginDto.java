@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,11 +25,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.Map;
 import org.openapitools.client.model.EmployeeDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -55,73 +58,69 @@ import java.util.StringJoiner;
   WebPluginDto.JSON_PROPERTY_ENABLED,
   WebPluginDto.JSON_PROPERTY_SYSTEM,
   WebPluginDto.JSON_PROPERTY_URL,
-  WebPluginDto.JSON_PROPERTY_SETTINGS
+  WebPluginDto.JSON_PROPERTY_CSS_URL,
+  WebPluginDto.JSON_PROPERTY_SETTINGS,
+  WebPluginDto.JSON_PROPERTY_NAME_LOCALE,
+  WebPluginDto.JSON_PROPERTY_DESCRIPTION_LOCALE
 })
 
 public class WebPluginDto {
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private String name;
+  @javax.annotation.Nullable  private String name;
 
   public static final String JSON_PROPERTY_VERSION = "version";
-  @javax.annotation.Nullable
-  private String version;
+  @javax.annotation.Nullable  private String version;
 
   public static final String JSON_PROPERTY_MIN_DOC_SPACE_VERSION = "minDocSpaceVersion";
-  @javax.annotation.Nullable
-  private JsonNullable<String> minDocSpaceVersion = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> minDocSpaceVersion = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  @javax.annotation.Nullable
-  private String description;
+  @javax.annotation.Nullable  private String description;
 
   public static final String JSON_PROPERTY_LICENSE = "license";
-  @javax.annotation.Nullable
-  private String license;
+  @javax.annotation.Nullable  private String license;
 
   public static final String JSON_PROPERTY_AUTHOR = "author";
-  @javax.annotation.Nullable
-  private String author;
+  @javax.annotation.Nullable  private String author;
 
   public static final String JSON_PROPERTY_HOME_PAGE = "homePage";
-  @javax.annotation.Nullable
-  private String homePage;
+  @javax.annotation.Nullable  private String homePage;
 
   public static final String JSON_PROPERTY_PLUGIN_NAME = "pluginName";
-  @javax.annotation.Nullable
-  private String pluginName;
+  @javax.annotation.Nullable  private String pluginName;
 
   public static final String JSON_PROPERTY_SCOPES = "scopes";
-  @javax.annotation.Nullable
-  private String scopes;
+  @javax.annotation.Nullable  private String scopes;
 
   public static final String JSON_PROPERTY_IMAGE = "image";
-  @javax.annotation.Nullable
-  private String image;
+  @javax.annotation.Nullable  private String image;
 
   public static final String JSON_PROPERTY_CREATE_BY = "createBy";
-  @javax.annotation.Nonnull
-  private EmployeeDto createBy;
+  @javax.annotation.Nonnull  private EmployeeDto createBy;
 
   public static final String JSON_PROPERTY_CREATE_ON = "createOn";
-  @javax.annotation.Nonnull
-  private OffsetDateTime createOn;
+  @javax.annotation.Nonnull  private OffsetDateTime createOn;
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
-  @javax.annotation.Nonnull
-  private Boolean enabled;
+  @javax.annotation.Nonnull  private Boolean enabled;
 
   public static final String JSON_PROPERTY_SYSTEM = "system";
-  @javax.annotation.Nonnull
-  private Boolean system;
+  @javax.annotation.Nonnull  private Boolean system;
 
   public static final String JSON_PROPERTY_URL = "url";
-  @javax.annotation.Nullable
-  private String url;
+  @javax.annotation.Nullable  private String url;
+
+  public static final String JSON_PROPERTY_CSS_URL = "cssUrl";
+  @javax.annotation.Nullable  private String cssUrl;
 
   public static final String JSON_PROPERTY_SETTINGS = "settings";
-  @javax.annotation.Nullable
-  private String settings;
+  @javax.annotation.Nullable  private String settings;
+
+  public static final String JSON_PROPERTY_NAME_LOCALE = "nameLocale";
+  @javax.annotation.Nullable  private JsonNullable<Map<String, String>> nameLocale = JsonNullable.<Map<String, String>>undefined();
+
+  public static final String JSON_PROPERTY_DESCRIPTION_LOCALE = "descriptionLocale";
+  @javax.annotation.Nullable  private JsonNullable<Map<String, String>> descriptionLocale = JsonNullable.<Map<String, String>>undefined();
 
   public WebPluginDto() {
   }
@@ -137,8 +136,7 @@ public class WebPluginDto {
    * The web plugin name.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
@@ -146,7 +144,7 @@ public class WebPluginDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
@@ -162,8 +160,7 @@ public class WebPluginDto {
    * The web plugin version.
    * @return version
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VERSION, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getVersion() {
@@ -171,7 +168,7 @@ public class WebPluginDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(value = JSON_PROPERTY_VERSION, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVersion(@javax.annotation.Nullable String version) {
     this.version = version;
@@ -187,16 +184,14 @@ public class WebPluginDto {
    * The minimum version of DocSpace with which the plugin is guaranteed to work.
    * @return minDocSpaceVersion
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getMinDocSpaceVersion() {
         return minDocSpaceVersion.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MIN_DOC_SPACE_VERSION)
+  @JsonProperty(value = JSON_PROPERTY_MIN_DOC_SPACE_VERSION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getMinDocSpaceVersion_JsonNullable() {
     return minDocSpaceVersion;
   }
@@ -220,8 +215,7 @@ public class WebPluginDto {
    * The web plugin description.
    * @return description
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDescription() {
@@ -229,7 +223,7 @@ public class WebPluginDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
@@ -245,8 +239,7 @@ public class WebPluginDto {
    * The web plugin license.
    * @return license
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LICENSE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LICENSE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getLicense() {
@@ -254,7 +247,7 @@ public class WebPluginDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LICENSE)
+  @JsonProperty(value = JSON_PROPERTY_LICENSE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLicense(@javax.annotation.Nullable String license) {
     this.license = license;
@@ -270,8 +263,7 @@ public class WebPluginDto {
    * The web plugin author.
    * @return author
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUTHOR)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTHOR, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getAuthor() {
@@ -279,7 +271,7 @@ public class WebPluginDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AUTHOR)
+  @JsonProperty(value = JSON_PROPERTY_AUTHOR, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAuthor(@javax.annotation.Nullable String author) {
     this.author = author;
@@ -295,8 +287,7 @@ public class WebPluginDto {
    * The web plugin home page URL.
    * @return homePage
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HOME_PAGE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HOME_PAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getHomePage() {
@@ -304,7 +295,7 @@ public class WebPluginDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HOME_PAGE)
+  @JsonProperty(value = JSON_PROPERTY_HOME_PAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHomePage(@javax.annotation.Nullable String homePage) {
     this.homePage = homePage;
@@ -320,8 +311,7 @@ public class WebPluginDto {
    * The name by which the web plugin is registered in the window object.
    * @return pluginName
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PLUGIN_NAME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PLUGIN_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getPluginName() {
@@ -329,7 +319,7 @@ public class WebPluginDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PLUGIN_NAME)
+  @JsonProperty(value = JSON_PROPERTY_PLUGIN_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPluginName(@javax.annotation.Nullable String pluginName) {
     this.pluginName = pluginName;
@@ -345,8 +335,7 @@ public class WebPluginDto {
    * The web plugin scopes.
    * @return scopes
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCOPES)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SCOPES, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getScopes() {
@@ -354,7 +343,7 @@ public class WebPluginDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SCOPES)
+  @JsonProperty(value = JSON_PROPERTY_SCOPES, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setScopes(@javax.annotation.Nullable String scopes) {
     this.scopes = scopes;
@@ -370,8 +359,7 @@ public class WebPluginDto {
    * The web plugin image.
    * @return image
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IMAGE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getImage() {
@@ -379,7 +367,7 @@ public class WebPluginDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IMAGE)
+  @JsonProperty(value = JSON_PROPERTY_IMAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setImage(@javax.annotation.Nullable String image) {
     this.image = image;
@@ -395,8 +383,7 @@ public class WebPluginDto {
    * Get createBy
    * @return createBy
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CREATE_BY)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CREATE_BY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public EmployeeDto getCreateBy() {
@@ -404,7 +391,7 @@ public class WebPluginDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATE_BY)
+  @JsonProperty(value = JSON_PROPERTY_CREATE_BY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreateBy(@javax.annotation.Nonnull EmployeeDto createBy) {
     this.createBy = createBy;
@@ -420,8 +407,7 @@ public class WebPluginDto {
    * The date and time when the web plugin was created.
    * @return createOn
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CREATE_ON)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CREATE_ON, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getCreateOn() {
@@ -429,7 +415,7 @@ public class WebPluginDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATE_ON)
+  @JsonProperty(value = JSON_PROPERTY_CREATE_ON, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreateOn(@javax.annotation.Nonnull OffsetDateTime createOn) {
     this.createOn = createOn;
@@ -445,8 +431,7 @@ public class WebPluginDto {
    * Specifies if the web plugin is enabled or not.
    * @return enabled
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getEnabled() {
@@ -454,7 +439,7 @@ public class WebPluginDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
     this.enabled = enabled;
@@ -470,8 +455,7 @@ public class WebPluginDto {
    * Specifies if the web plugin is system or not.
    * @return system
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SYSTEM)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SYSTEM, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getSystem() {
@@ -479,7 +463,7 @@ public class WebPluginDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SYSTEM)
+  @JsonProperty(value = JSON_PROPERTY_SYSTEM, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSystem(@javax.annotation.Nonnull Boolean system) {
     this.system = system;
@@ -495,8 +479,7 @@ public class WebPluginDto {
    * The web plugin URL.
    * @return url
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_URL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getUrl() {
@@ -504,10 +487,34 @@ public class WebPluginDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonProperty(value = JSON_PROPERTY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUrl(@javax.annotation.Nullable String url) {
     this.url = url;
+  }
+
+  public WebPluginDto cssUrl(@javax.annotation.Nullable String cssUrl) {
+    
+    this.cssUrl = cssUrl;
+    return this;
+  }
+
+  /**
+   * The web plugin css URL.
+   * @return cssUrl
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CSS_URL, required = false)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getCssUrl() {
+    return cssUrl;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CSS_URL, required = false)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCssUrl(@javax.annotation.Nullable String cssUrl) {
+    this.cssUrl = cssUrl;
   }
 
   public WebPluginDto settings(@javax.annotation.Nullable String settings) {
@@ -520,8 +527,7 @@ public class WebPluginDto {
    * The web plugin settings.
    * @return settings
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getSettings() {
@@ -529,10 +535,96 @@ public class WebPluginDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSettings(@javax.annotation.Nullable String settings) {
     this.settings = settings;
+  }
+
+  public WebPluginDto nameLocale(@javax.annotation.Nullable Map<String, String> nameLocale) {
+    this.nameLocale = JsonNullable.<Map<String, String>>of(nameLocale);
+    
+    return this;
+  }
+
+  public WebPluginDto putNameLocaleItem(String key, String nameLocaleItem) {
+    if (this.nameLocale == null || !this.nameLocale.isPresent()) {
+      this.nameLocale = JsonNullable.<Map<String, String>>of(new HashMap<>());
+    }
+    try {
+      this.nameLocale.get().put(key, nameLocaleItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * The web plugin localized name.
+   * @return nameLocale
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Map<String, String> getNameLocale() {
+        return nameLocale.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_NAME_LOCALE, required = false)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Map<String, String>> getNameLocale_JsonNullable() {
+    return nameLocale;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME_LOCALE)
+  public void setNameLocale_JsonNullable(JsonNullable<Map<String, String>> nameLocale) {
+    this.nameLocale = nameLocale;
+  }
+
+  public void setNameLocale(@javax.annotation.Nullable Map<String, String> nameLocale) {
+    this.nameLocale = JsonNullable.<Map<String, String>>of(nameLocale);
+  }
+
+  public WebPluginDto descriptionLocale(@javax.annotation.Nullable Map<String, String> descriptionLocale) {
+    this.descriptionLocale = JsonNullable.<Map<String, String>>of(descriptionLocale);
+    
+    return this;
+  }
+
+  public WebPluginDto putDescriptionLocaleItem(String key, String descriptionLocaleItem) {
+    if (this.descriptionLocale == null || !this.descriptionLocale.isPresent()) {
+      this.descriptionLocale = JsonNullable.<Map<String, String>>of(new HashMap<>());
+    }
+    try {
+      this.descriptionLocale.get().put(key, descriptionLocaleItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * The web plugin localized description.
+   * @return descriptionLocale
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Map<String, String> getDescriptionLocale() {
+        return descriptionLocale.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION_LOCALE, required = false)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Map<String, String>> getDescriptionLocale_JsonNullable() {
+    return descriptionLocale;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION_LOCALE)
+  public void setDescriptionLocale_JsonNullable(JsonNullable<Map<String, String>> descriptionLocale) {
+    this.descriptionLocale = descriptionLocale;
+  }
+
+  public void setDescriptionLocale(@javax.annotation.Nullable Map<String, String> descriptionLocale) {
+    this.descriptionLocale = JsonNullable.<Map<String, String>>of(descriptionLocale);
   }
 
   @Override
@@ -559,7 +651,10 @@ public class WebPluginDto {
         Objects.equals(this.enabled, webPluginDto.enabled) &&
         Objects.equals(this.system, webPluginDto.system) &&
         Objects.equals(this.url, webPluginDto.url) &&
-        Objects.equals(this.settings, webPluginDto.settings);
+        Objects.equals(this.cssUrl, webPluginDto.cssUrl) &&
+        Objects.equals(this.settings, webPluginDto.settings) &&
+        equalsNullable(this.nameLocale, webPluginDto.nameLocale) &&
+        equalsNullable(this.descriptionLocale, webPluginDto.descriptionLocale);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -568,7 +663,7 @@ public class WebPluginDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, version, hashCodeNullable(minDocSpaceVersion), description, license, author, homePage, pluginName, scopes, image, createBy, createOn, enabled, system, url, settings);
+    return Objects.hash(name, version, hashCodeNullable(minDocSpaceVersion), description, license, author, homePage, pluginName, scopes, image, createBy, createOn, enabled, system, url, cssUrl, settings, hashCodeNullable(nameLocale), hashCodeNullable(descriptionLocale));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -597,7 +692,10 @@ public class WebPluginDto {
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    system: ").append(toIndentedString(system)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    cssUrl: ").append(toIndentedString(cssUrl)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
+    sb.append("    nameLocale: ").append(toIndentedString(nameLocale)).append("\n");
+    sb.append("    descriptionLocale: ").append(toIndentedString(descriptionLocale)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -790,6 +888,16 @@ public class WebPluginDto {
       }
     }
 
+    // add `cssUrl` to the URL query string
+    if (getCssUrl() != null) {
+      try {
+        joiner.add(String.format("%scssUrl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCssUrl()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
     // add `settings` to the URL query string
     if (getSettings() != null) {
       try {
@@ -797,6 +905,34 @@ public class WebPluginDto {
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
+      }
+    }
+
+    // add `nameLocale` to the URL query string
+    if (getNameLocale() != null) {
+      for (String _key : getNameLocale().keySet()) {
+        try {
+          joiner.add(String.format("%snameLocale%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+              getNameLocale().get(_key), URLEncoder.encode(String.valueOf(getNameLocale().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `descriptionLocale` to the URL query string
+    if (getDescriptionLocale() != null) {
+      for (String _key : getDescriptionLocale().keySet()) {
+        try {
+          joiner.add(String.format("%sdescriptionLocale%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+              getDescriptionLocale().get(_key), URLEncoder.encode(String.valueOf(getDescriptionLocale().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
       }
     }
 

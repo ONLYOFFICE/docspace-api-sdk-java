@@ -14,7 +14,7 @@ The capabilities parameters.
 |**ssoLabel** | **String** | The SP login label. |  |
 |**oauthEnabled** | **Boolean** | Specifies if OAuth is enabled or not. |  |
 |**ssoUrl** | **URI** | The SSO URL. If this parameter is empty, then the SSO settings are disabled. |  |
-|**identityServerEnabled** | **Boolean** | Specifies if identity server is enabled or not |  |
+|**identityServerEnabled** | **Boolean** | Specifies if an identity server is enabled or not. |  |
 
 
 

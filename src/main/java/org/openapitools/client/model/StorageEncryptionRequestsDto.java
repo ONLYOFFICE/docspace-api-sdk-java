@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -39,8 +40,7 @@ import java.util.StringJoiner;
 
 public class StorageEncryptionRequestsDto {
   public static final String JSON_PROPERTY_NOTIFY_USERS = "notifyUsers";
-  @javax.annotation.Nullable
-  private Boolean notifyUsers;
+  @javax.annotation.Nullable  private Boolean notifyUsers;
 
   public StorageEncryptionRequestsDto() {
   }
@@ -56,8 +56,7 @@ public class StorageEncryptionRequestsDto {
    * Specifies whether the users receive notifications about the storage encryption operations.
    * @return notifyUsers
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NOTIFY_USERS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NOTIFY_USERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getNotifyUsers() {
@@ -65,7 +64,7 @@ public class StorageEncryptionRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NOTIFY_USERS)
+  @JsonProperty(value = JSON_PROPERTY_NOTIFY_USERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotifyUsers(@javax.annotation.Nullable Boolean notifyUsers) {
     this.notifyUsers = notifyUsers;

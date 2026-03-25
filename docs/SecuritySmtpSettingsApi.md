@@ -99,8 +99,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | SMTP operation status |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getSmtpSettings
@@ -190,8 +190,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | SMTP settings |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## resetSmtpSettings
@@ -281,8 +281,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Default SMTP settings |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## saveSmtpSettings
@@ -376,8 +376,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | SMTP settings |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## testSmtpSettings
@@ -467,6 +467,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | SMTP operation status |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
+| **401** | Unauthorized |  -  |
 

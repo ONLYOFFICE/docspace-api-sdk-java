@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,28 +49,22 @@ import java.util.StringJoiner;
 
 public class SsoIdpCertificateAdvanced {
   public static final String JSON_PROPERTY_VERIFY_ALGORITHM = "verifyAlgorithm";
-  @javax.annotation.Nullable
-  private JsonNullable<String> verifyAlgorithm = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> verifyAlgorithm = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_VERIFY_AUTH_RESPONSES_SIGN = "verifyAuthResponsesSign";
-  @javax.annotation.Nullable
-  private Boolean verifyAuthResponsesSign;
+  @javax.annotation.Nullable  private Boolean verifyAuthResponsesSign;
 
   public static final String JSON_PROPERTY_VERIFY_LOGOUT_REQUESTS_SIGN = "verifyLogoutRequestsSign";
-  @javax.annotation.Nullable
-  private Boolean verifyLogoutRequestsSign;
+  @javax.annotation.Nullable  private Boolean verifyLogoutRequestsSign;
 
   public static final String JSON_PROPERTY_VERIFY_LOGOUT_RESPONSES_SIGN = "verifyLogoutResponsesSign";
-  @javax.annotation.Nullable
-  private Boolean verifyLogoutResponsesSign;
+  @javax.annotation.Nullable  private Boolean verifyLogoutResponsesSign;
 
   public static final String JSON_PROPERTY_DECRYPT_ALGORITHM = "decryptAlgorithm";
-  @javax.annotation.Nullable
-  private JsonNullable<String> decryptAlgorithm = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> decryptAlgorithm = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DECRYPT_ASSERTIONS = "decryptAssertions";
-  @javax.annotation.Nullable
-  private Boolean decryptAssertions;
+  @javax.annotation.Nullable  private Boolean decryptAssertions;
 
   public SsoIdpCertificateAdvanced() {
   }
@@ -85,16 +80,14 @@ public class SsoIdpCertificateAdvanced {
    * The certificate verification algorithm.
    * @return verifyAlgorithm
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getVerifyAlgorithm() {
         return verifyAlgorithm.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_VERIFY_ALGORITHM)
+  @JsonProperty(value = JSON_PROPERTY_VERIFY_ALGORITHM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getVerifyAlgorithm_JsonNullable() {
     return verifyAlgorithm;
   }
@@ -118,8 +111,7 @@ public class SsoIdpCertificateAdvanced {
    * Specifies if the signatures of the SAML authentication responses sent to SP will be verified or not.
    * @return verifyAuthResponsesSign
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERIFY_AUTH_RESPONSES_SIGN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VERIFY_AUTH_RESPONSES_SIGN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getVerifyAuthResponsesSign() {
@@ -127,7 +119,7 @@ public class SsoIdpCertificateAdvanced {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERIFY_AUTH_RESPONSES_SIGN)
+  @JsonProperty(value = JSON_PROPERTY_VERIFY_AUTH_RESPONSES_SIGN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerifyAuthResponsesSign(@javax.annotation.Nullable Boolean verifyAuthResponsesSign) {
     this.verifyAuthResponsesSign = verifyAuthResponsesSign;
@@ -143,8 +135,7 @@ public class SsoIdpCertificateAdvanced {
    * Specifies if the signatures of the SAML logout requests sent to SP will be verified or not.
    * @return verifyLogoutRequestsSign
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERIFY_LOGOUT_REQUESTS_SIGN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VERIFY_LOGOUT_REQUESTS_SIGN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getVerifyLogoutRequestsSign() {
@@ -152,7 +143,7 @@ public class SsoIdpCertificateAdvanced {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERIFY_LOGOUT_REQUESTS_SIGN)
+  @JsonProperty(value = JSON_PROPERTY_VERIFY_LOGOUT_REQUESTS_SIGN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerifyLogoutRequestsSign(@javax.annotation.Nullable Boolean verifyLogoutRequestsSign) {
     this.verifyLogoutRequestsSign = verifyLogoutRequestsSign;
@@ -168,8 +159,7 @@ public class SsoIdpCertificateAdvanced {
    * Specifies if the signatures of the SAML logout responses sent to SP will be verified or not.
    * @return verifyLogoutResponsesSign
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERIFY_LOGOUT_RESPONSES_SIGN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VERIFY_LOGOUT_RESPONSES_SIGN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getVerifyLogoutResponsesSign() {
@@ -177,7 +167,7 @@ public class SsoIdpCertificateAdvanced {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERIFY_LOGOUT_RESPONSES_SIGN)
+  @JsonProperty(value = JSON_PROPERTY_VERIFY_LOGOUT_RESPONSES_SIGN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerifyLogoutResponsesSign(@javax.annotation.Nullable Boolean verifyLogoutResponsesSign) {
     this.verifyLogoutResponsesSign = verifyLogoutResponsesSign;
@@ -193,16 +183,14 @@ public class SsoIdpCertificateAdvanced {
    * The certificate decryption algorithm.
    * @return decryptAlgorithm
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getDecryptAlgorithm() {
         return decryptAlgorithm.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DECRYPT_ALGORITHM)
+  @JsonProperty(value = JSON_PROPERTY_DECRYPT_ALGORITHM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getDecryptAlgorithm_JsonNullable() {
     return decryptAlgorithm;
   }
@@ -226,8 +214,7 @@ public class SsoIdpCertificateAdvanced {
    * Specifies if the assertions will be decrypted or not.
    * @return decryptAssertions
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DECRYPT_ASSERTIONS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DECRYPT_ASSERTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDecryptAssertions() {
@@ -235,7 +222,7 @@ public class SsoIdpCertificateAdvanced {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DECRYPT_ASSERTIONS)
+  @JsonProperty(value = JSON_PROPERTY_DECRYPT_ASSERTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDecryptAssertions(@javax.annotation.Nullable Boolean decryptAssertions) {
     this.decryptAssertions = decryptAssertions;

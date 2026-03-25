@@ -8,7 +8,7 @@ The parameters for managing room tags.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**names** | **List&lt;String&gt;** | The list of tag names. |  [optional] |
+|**names** | **List&lt;String&gt;** | The list of tag names. |  |
 
 
 

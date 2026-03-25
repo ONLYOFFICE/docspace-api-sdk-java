@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -33,19 +34,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum PaymentMethodStatus {
   
-  /**
-   * None
-   */
   None(0),
   
-  /**
-   * Set
-   */
   Set(1),
   
-  /**
-   * Expired
-   */
   Expired(2);
 
   private Integer value;
@@ -85,7 +77,7 @@ public enum PaymentMethodStatus {
       prefix = "";
     }
 
-    return String.format("%s=%s", prefix, this.toString());
+    return String.format(java.util.Locale.ROOT, "%s=%s", prefix, this.toString());
   }
 }
 

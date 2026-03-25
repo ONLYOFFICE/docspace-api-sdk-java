@@ -86,7 +86,7 @@ public class Example {
 
 ## authenticateMeFromBodyWithCode
 
-> AuthenticationTokenWrapper authenticateMeFromBodyWithCode(code, authRequestsDto)
+> AuthenticationTokenWrapper authenticateMeFromBodyWithCode(code, authWithCodeRequestsDto)
 
 Authenticate a user by codeAuthenticates the current user by SMS or two-factor authentication code.
 
@@ -98,7 +98,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **code** | **String**|  | |
-| **authRequestsDto** | [**AuthRequestsDto**](AuthRequestsDto.md)|  | [optional] |
+| **authWithCodeRequestsDto** | [**AuthWithCodeRequestsDto**](AuthWithCodeRequestsDto.md)|  | [optional] |
 
 ### Return type
 
@@ -125,9 +125,9 @@ public class Example {
 
         AuthenticationApi apiInstance = new AuthenticationApi(defaultClient);
         String code = "code_example"; // String | 
-        AuthRequestsDto authRequestsDto = new AuthRequestsDto(); // AuthRequestsDto | 
+        AuthWithCodeRequestsDto authWithCodeRequestsDto = new AuthWithCodeRequestsDto(); // AuthWithCodeRequestsDto | 
         try {
-            AuthenticationTokenWrapper result = apiInstance.authenticateMeFromBodyWithCode(code, authRequestsDto);
+            AuthenticationTokenWrapper result = apiInstance.authenticateMeFromBodyWithCode(code, authWithCodeRequestsDto);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AuthenticationApi#authenticateMeFromBodyWithCode");

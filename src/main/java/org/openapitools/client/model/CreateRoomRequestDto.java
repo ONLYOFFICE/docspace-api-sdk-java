@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,6 +37,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -65,60 +66,46 @@ import java.util.StringJoiner;
 
 public class CreateRoomRequestDto {
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private String title;
+  @javax.annotation.Nullable  private String title;
 
   public static final String JSON_PROPERTY_QUOTA = "quota";
-  @javax.annotation.Nullable
-  private JsonNullable<Long> quota = JsonNullable.<Long>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Long> quota = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_INDEXING = "indexing";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> indexing = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> indexing = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_DENY_DOWNLOAD = "denyDownload";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> denyDownload = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> denyDownload = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_LIFETIME = "lifetime";
-  @javax.annotation.Nullable
-  private RoomDataLifetimeDto lifetime;
+  @javax.annotation.Nullable  private RoomDataLifetimeDto lifetime;
 
   public static final String JSON_PROPERTY_WATERMARK = "watermark";
-  @javax.annotation.Nullable
-  private WatermarkRequestDto watermark;
+  @javax.annotation.Nullable  private WatermarkRequestDto watermark;
 
   public static final String JSON_PROPERTY_LOGO = "logo";
-  @javax.annotation.Nullable
-  private LogoRequest logo;
+  @javax.annotation.Nullable  private LogoRequest logo;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_COLOR = "color";
-  @javax.annotation.Nullable
-  private JsonNullable<String> color = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> color = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_COVER = "cover";
-  @javax.annotation.Nullable
-  private JsonNullable<String> cover = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> cover = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ROOM_TYPE = "roomType";
-  @javax.annotation.Nonnull
-  private RoomType roomType;
+  @javax.annotation.Nonnull  private RoomType roomType;
 
   public static final String JSON_PROPERTY_PRIVATE = "private";
-  @javax.annotation.Nullable
-  private Boolean _private;
+  @javax.annotation.Nullable  private Boolean _private;
 
   public static final String JSON_PROPERTY_SHARE = "share";
-  @javax.annotation.Nullable
-  private JsonNullable<List<FileShareParams>> share = JsonNullable.<List<FileShareParams>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<FileShareParams>> share = JsonNullable.<List<FileShareParams>>undefined();
 
   public static final String JSON_PROPERTY_CHAT_SETTINGS = "chatSettings";
-  @javax.annotation.Nullable
-  private ChatSettings chatSettings;
+  @javax.annotation.Nullable  private ChatSettings chatSettings;
 
   public CreateRoomRequestDto() {
   }
@@ -134,8 +121,7 @@ public class CreateRoomRequestDto {
    * The room name.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getTitle() {
@@ -143,7 +129,7 @@ public class CreateRoomRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTitle(@javax.annotation.Nullable String title) {
     this.title = title;
@@ -159,16 +145,14 @@ public class CreateRoomRequestDto {
    * The room quota.
    * @return quota
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Long getQuota() {
         return quota.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_QUOTA)
+  @JsonProperty(value = JSON_PROPERTY_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Long> getQuota_JsonNullable() {
     return quota;
   }
@@ -192,16 +176,14 @@ public class CreateRoomRequestDto {
    * Specifies whether to create a room with indexing.
    * @return indexing
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getIndexing() {
         return indexing.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_INDEXING)
+  @JsonProperty(value = JSON_PROPERTY_INDEXING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getIndexing_JsonNullable() {
     return indexing;
   }
@@ -225,16 +207,14 @@ public class CreateRoomRequestDto {
    * Specifies whether to deny downloads from the room.
    * @return denyDownload
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getDenyDownload() {
         return denyDownload.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DENY_DOWNLOAD)
+  @JsonProperty(value = JSON_PROPERTY_DENY_DOWNLOAD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getDenyDownload_JsonNullable() {
     return denyDownload;
   }
@@ -258,8 +238,7 @@ public class CreateRoomRequestDto {
    * Get lifetime
    * @return lifetime
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIFETIME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIFETIME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public RoomDataLifetimeDto getLifetime() {
@@ -267,7 +246,7 @@ public class CreateRoomRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LIFETIME)
+  @JsonProperty(value = JSON_PROPERTY_LIFETIME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLifetime(@javax.annotation.Nullable RoomDataLifetimeDto lifetime) {
     this.lifetime = lifetime;
@@ -283,8 +262,7 @@ public class CreateRoomRequestDto {
    * Get watermark
    * @return watermark
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WATERMARK)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WATERMARK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public WatermarkRequestDto getWatermark() {
@@ -292,7 +270,7 @@ public class CreateRoomRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WATERMARK)
+  @JsonProperty(value = JSON_PROPERTY_WATERMARK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWatermark(@javax.annotation.Nullable WatermarkRequestDto watermark) {
     this.watermark = watermark;
@@ -308,8 +286,7 @@ public class CreateRoomRequestDto {
    * Get logo
    * @return logo
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOGO)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public LogoRequest getLogo() {
@@ -317,7 +294,7 @@ public class CreateRoomRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOGO)
+  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(@javax.annotation.Nullable LogoRequest logo) {
     this.logo = logo;
@@ -345,16 +322,14 @@ public class CreateRoomRequestDto {
    * The list of tags.
    * @return tags
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getTags() {
         return tags.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonProperty(value = JSON_PROPERTY_TAGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getTags_JsonNullable() {
     return tags;
   }
@@ -378,16 +353,14 @@ public class CreateRoomRequestDto {
    * The room color.
    * @return color
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getColor() {
         return color.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_COLOR)
+  @JsonProperty(value = JSON_PROPERTY_COLOR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getColor_JsonNullable() {
     return color;
   }
@@ -411,16 +384,14 @@ public class CreateRoomRequestDto {
    * The room cover.
    * @return cover
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCover() {
         return cover.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_COVER)
+  @JsonProperty(value = JSON_PROPERTY_COVER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCover_JsonNullable() {
     return cover;
   }
@@ -444,8 +415,7 @@ public class CreateRoomRequestDto {
    * Get roomType
    * @return roomType
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ROOM_TYPE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ROOM_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public RoomType getRoomType() {
@@ -453,7 +423,7 @@ public class CreateRoomRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROOM_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_ROOM_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRoomType(@javax.annotation.Nonnull RoomType roomType) {
     this.roomType = roomType;
@@ -469,8 +439,7 @@ public class CreateRoomRequestDto {
    * Specifies whether the room to be created is private or not.
    * @return _private
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRIVATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRIVATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getPrivate() {
@@ -478,7 +447,7 @@ public class CreateRoomRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PRIVATE)
+  @JsonProperty(value = JSON_PROPERTY_PRIVATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrivate(@javax.annotation.Nullable Boolean _private) {
     this._private = _private;
@@ -506,16 +475,14 @@ public class CreateRoomRequestDto {
    * The collection of sharing parameters.
    * @return share
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<FileShareParams> getShare() {
         return share.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SHARE)
+  @JsonProperty(value = JSON_PROPERTY_SHARE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<FileShareParams>> getShare_JsonNullable() {
     return share;
   }
@@ -539,8 +506,7 @@ public class CreateRoomRequestDto {
    * Get chatSettings
    * @return chatSettings
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHAT_SETTINGS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CHAT_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ChatSettings getChatSettings() {
@@ -548,7 +514,7 @@ public class CreateRoomRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CHAT_SETTINGS)
+  @JsonProperty(value = JSON_PROPERTY_CHAT_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChatSettings(@javax.annotation.Nullable ChatSettings chatSettings) {
     this.chatSettings = chatSettings;

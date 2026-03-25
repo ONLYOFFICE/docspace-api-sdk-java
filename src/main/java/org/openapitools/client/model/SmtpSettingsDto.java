@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -52,44 +53,34 @@ import java.util.StringJoiner;
 
 public class SmtpSettingsDto {
   public static final String JSON_PROPERTY_HOST = "host";
-  @javax.annotation.Nullable
-  private JsonNullable<String> host = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> host = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PORT = "port";
-  @javax.annotation.Nullable
-  private JsonNullable<Integer> port = JsonNullable.<Integer>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Integer> port = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_SENDER_ADDRESS = "senderAddress";
-  @javax.annotation.Nullable
-  private JsonNullable<String> senderAddress = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> senderAddress = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SENDER_DISPLAY_NAME = "senderDisplayName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> senderDisplayName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> senderDisplayName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CREDENTIALS_USER_NAME = "credentialsUserName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> credentialsUserName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> credentialsUserName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CREDENTIALS_USER_PASSWORD = "credentialsUserPassword";
-  @javax.annotation.Nullable
-  private JsonNullable<String> credentialsUserPassword = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> credentialsUserPassword = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ENABLE_S_S_L = "enableSSL";
-  @javax.annotation.Nullable
-  private Boolean enableSSL;
+  @javax.annotation.Nullable  private Boolean enableSSL;
 
   public static final String JSON_PROPERTY_ENABLE_AUTH = "enableAuth";
-  @javax.annotation.Nullable
-  private Boolean enableAuth;
+  @javax.annotation.Nullable  private Boolean enableAuth;
 
   public static final String JSON_PROPERTY_USE_NTLM = "useNtlm";
-  @javax.annotation.Nullable
-  private Boolean useNtlm;
+  @javax.annotation.Nullable  private Boolean useNtlm;
 
   public static final String JSON_PROPERTY_IS_DEFAULT_SETTINGS = "isDefaultSettings";
-  @javax.annotation.Nullable
-  private Boolean isDefaultSettings;
+  @javax.annotation.Nullable  private Boolean isDefaultSettings;
 
   public SmtpSettingsDto() {
   }
@@ -105,16 +96,14 @@ public class SmtpSettingsDto {
    * The SMTP host.
    * @return host
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getHost() {
         return host.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_HOST)
+  @JsonProperty(value = JSON_PROPERTY_HOST, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getHost_JsonNullable() {
     return host;
   }
@@ -140,16 +129,14 @@ public class SmtpSettingsDto {
    * maximum: 65535
    * @return port
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Integer getPort() {
         return port.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PORT)
+  @JsonProperty(value = JSON_PROPERTY_PORT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Integer> getPort_JsonNullable() {
     return port;
   }
@@ -173,16 +160,14 @@ public class SmtpSettingsDto {
    * The sender address.
    * @return senderAddress
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSenderAddress() {
         return senderAddress.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SENDER_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_SENDER_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSenderAddress_JsonNullable() {
     return senderAddress;
   }
@@ -206,16 +191,14 @@ public class SmtpSettingsDto {
    * The sender display name.
    * @return senderDisplayName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSenderDisplayName() {
         return senderDisplayName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SENDER_DISPLAY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_SENDER_DISPLAY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSenderDisplayName_JsonNullable() {
     return senderDisplayName;
   }
@@ -239,16 +222,14 @@ public class SmtpSettingsDto {
    * The credentials username.
    * @return credentialsUserName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCredentialsUserName() {
         return credentialsUserName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CREDENTIALS_USER_NAME)
+  @JsonProperty(value = JSON_PROPERTY_CREDENTIALS_USER_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCredentialsUserName_JsonNullable() {
     return credentialsUserName;
   }
@@ -272,16 +253,14 @@ public class SmtpSettingsDto {
    * The credentials user password.
    * @return credentialsUserPassword
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCredentialsUserPassword() {
         return credentialsUserPassword.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CREDENTIALS_USER_PASSWORD)
+  @JsonProperty(value = JSON_PROPERTY_CREDENTIALS_USER_PASSWORD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCredentialsUserPassword_JsonNullable() {
     return credentialsUserPassword;
   }
@@ -305,8 +284,7 @@ public class SmtpSettingsDto {
    * Specifies whether the SSL is enabled or not.
    * @return enableSSL
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLE_S_S_L)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLE_S_S_L, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEnableSSL() {
@@ -314,7 +292,7 @@ public class SmtpSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENABLE_S_S_L)
+  @JsonProperty(value = JSON_PROPERTY_ENABLE_S_S_L, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnableSSL(@javax.annotation.Nullable Boolean enableSSL) {
     this.enableSSL = enableSSL;
@@ -330,8 +308,7 @@ public class SmtpSettingsDto {
    * Specifies whether the authentication is enabled or not.
    * @return enableAuth
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLE_AUTH)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLE_AUTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEnableAuth() {
@@ -339,7 +316,7 @@ public class SmtpSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENABLE_AUTH)
+  @JsonProperty(value = JSON_PROPERTY_ENABLE_AUTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnableAuth(@javax.annotation.Nullable Boolean enableAuth) {
     this.enableAuth = enableAuth;
@@ -355,8 +332,7 @@ public class SmtpSettingsDto {
    * Specifies whether to use NTLM or not.
    * @return useNtlm
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USE_NTLM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USE_NTLM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getUseNtlm() {
@@ -364,7 +340,7 @@ public class SmtpSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USE_NTLM)
+  @JsonProperty(value = JSON_PROPERTY_USE_NTLM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUseNtlm(@javax.annotation.Nullable Boolean useNtlm) {
     this.useNtlm = useNtlm;
@@ -380,8 +356,7 @@ public class SmtpSettingsDto {
    * Specifies if the current settings are default or not.
    * @return isDefaultSettings
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_DEFAULT_SETTINGS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_DEFAULT_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsDefaultSettings() {
@@ -389,7 +364,7 @@ public class SmtpSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_DEFAULT_SETTINGS)
+  @JsonProperty(value = JSON_PROPERTY_IS_DEFAULT_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsDefaultSettings(@javax.annotation.Nullable Boolean isDefaultSettings) {
     this.isDefaultSettings = isDefaultSettings;

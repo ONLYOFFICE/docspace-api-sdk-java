@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,20 +47,16 @@ import java.util.StringJoiner;
 
 public class CheckFillFormDraft {
   public static final String JSON_PROPERTY_VERSION = "version";
-  @javax.annotation.Nonnull
-  private Integer version;
+  @javax.annotation.Nonnull  private Integer version;
 
   public static final String JSON_PROPERTY_ACTION = "action";
-  @javax.annotation.Nullable
-  private JsonNullable<String> action = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> action = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_VIEW = "requestView";
-  @javax.annotation.Nullable
-  private Boolean requestView;
+  @javax.annotation.Nullable  private Boolean requestView;
 
   public static final String JSON_PROPERTY_REQUEST_EMBEDDED = "requestEmbedded";
-  @javax.annotation.Nullable
-  private Boolean requestEmbedded;
+  @javax.annotation.Nullable  private Boolean requestEmbedded;
 
   public CheckFillFormDraft() {
   }
@@ -87,8 +84,7 @@ public class CheckFillFormDraft {
    * The file version of the form draft.
    * @return version
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_VERSION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getVersion() {
@@ -96,7 +92,7 @@ public class CheckFillFormDraft {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(value = JSON_PROPERTY_VERSION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
@@ -112,16 +108,14 @@ public class CheckFillFormDraft {
    * The action with the form draft.
    * @return action
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getAction() {
         return action.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ACTION)
+  @JsonProperty(value = JSON_PROPERTY_ACTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getAction_JsonNullable() {
     return action;
   }
@@ -139,8 +133,7 @@ public class CheckFillFormDraft {
    * Specifies whether to request the form for viewing or not.
    * @return requestView
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUEST_VIEW)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REQUEST_VIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getRequestView() {
@@ -153,8 +146,7 @@ public class CheckFillFormDraft {
    * Specifies whether to request an embedded form or not.
    * @return requestEmbedded
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUEST_EMBEDDED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REQUEST_EMBEDDED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getRequestEmbedded() {

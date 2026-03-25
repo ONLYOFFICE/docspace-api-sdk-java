@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -54,36 +55,28 @@ import java.util.StringJoiner;
 
 public class ContentDisposition {
   public static final String JSON_PROPERTY_DISPOSITION_TYPE = "dispositionType";
-  @javax.annotation.Nullable
-  private JsonNullable<String> dispositionType = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> dispositionType = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PARAMETERS = "parameters";
-  @javax.annotation.Nullable
-  private JsonNullable<List<Object>> parameters = JsonNullable.<List<Object>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<Object>> parameters = JsonNullable.<List<Object>>undefined();
 
   public static final String JSON_PROPERTY_FILE_NAME = "fileName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> fileName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> fileName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
-  @javax.annotation.Nullable
-  private OffsetDateTime creationDate;
+  @javax.annotation.Nullable  private OffsetDateTime creationDate;
 
   public static final String JSON_PROPERTY_MODIFICATION_DATE = "modificationDate";
-  @javax.annotation.Nullable
-  private OffsetDateTime modificationDate;
+  @javax.annotation.Nullable  private OffsetDateTime modificationDate;
 
   public static final String JSON_PROPERTY_INLINE = "inline";
-  @javax.annotation.Nullable
-  private Boolean inline;
+  @javax.annotation.Nullable  private Boolean inline;
 
   public static final String JSON_PROPERTY_READ_DATE = "readDate";
-  @javax.annotation.Nullable
-  private OffsetDateTime readDate;
+  @javax.annotation.Nullable  private OffsetDateTime readDate;
 
   public static final String JSON_PROPERTY_SIZE = "size";
-  @javax.annotation.Nullable
-  private Long size;
+  @javax.annotation.Nullable  private Long size;
 
   public ContentDisposition() {
   }
@@ -109,16 +102,14 @@ public class ContentDisposition {
    * Get dispositionType
    * @return dispositionType
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getDispositionType() {
         return dispositionType.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DISPOSITION_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_DISPOSITION_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getDispositionType_JsonNullable() {
     return dispositionType;
   }
@@ -136,8 +127,7 @@ public class ContentDisposition {
    * Get parameters
    * @return parameters
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<Object> getParameters() {
     
@@ -147,9 +137,8 @@ public class ContentDisposition {
     return parameters.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  @JsonProperty(value = JSON_PROPERTY_PARAMETERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<Object>> getParameters_JsonNullable() {
     return parameters;
   }
@@ -170,16 +159,14 @@ public class ContentDisposition {
    * Get fileName
    * @return fileName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFileName() {
         return fileName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE_NAME)
+  @JsonProperty(value = JSON_PROPERTY_FILE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFileName_JsonNullable() {
     return fileName;
   }
@@ -203,8 +190,7 @@ public class ContentDisposition {
    * Get creationDate
    * @return creationDate
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATION_DATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getCreationDate() {
@@ -212,7 +198,7 @@ public class ContentDisposition {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATION_DATE)
+  @JsonProperty(value = JSON_PROPERTY_CREATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(@javax.annotation.Nullable OffsetDateTime creationDate) {
     this.creationDate = creationDate;
@@ -228,8 +214,7 @@ public class ContentDisposition {
    * Get modificationDate
    * @return modificationDate
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFICATION_DATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MODIFICATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getModificationDate() {
@@ -237,7 +222,7 @@ public class ContentDisposition {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MODIFICATION_DATE)
+  @JsonProperty(value = JSON_PROPERTY_MODIFICATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationDate(@javax.annotation.Nullable OffsetDateTime modificationDate) {
     this.modificationDate = modificationDate;
@@ -253,8 +238,7 @@ public class ContentDisposition {
    * Get inline
    * @return inline
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INLINE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INLINE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getInline() {
@@ -262,7 +246,7 @@ public class ContentDisposition {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INLINE)
+  @JsonProperty(value = JSON_PROPERTY_INLINE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInline(@javax.annotation.Nullable Boolean inline) {
     this.inline = inline;
@@ -278,8 +262,7 @@ public class ContentDisposition {
    * Get readDate
    * @return readDate
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_READ_DATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_READ_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getReadDate() {
@@ -287,7 +270,7 @@ public class ContentDisposition {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_READ_DATE)
+  @JsonProperty(value = JSON_PROPERTY_READ_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReadDate(@javax.annotation.Nullable OffsetDateTime readDate) {
     this.readDate = readDate;
@@ -303,8 +286,7 @@ public class ContentDisposition {
    * Get size
    * @return size
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIZE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getSize() {
@@ -312,7 +294,7 @@ public class ContentDisposition {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIZE)
+  @JsonProperty(value = JSON_PROPERTY_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSize(@javax.annotation.Nullable Long size) {
     this.size = size;

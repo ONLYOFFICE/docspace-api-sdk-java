@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -49,12 +50,10 @@ import java.util.StringJoiner;
 
 public class UpdateMembersQuotaRequestDto {
   public static final String JSON_PROPERTY_USER_IDS = "userIds";
-  @javax.annotation.Nullable
-  private JsonNullable<List<UUID>> userIds = JsonNullable.<List<UUID>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<UUID>> userIds = JsonNullable.<List<UUID>>undefined();
 
   public static final String JSON_PROPERTY_QUOTA = "quota";
-  @javax.annotation.Nullable
-  private UpdateMembersQuotaRequestDtoQuota quota;
+  @javax.annotation.Nullable  private UpdateMembersQuotaRequestDtoQuota quota;
 
   public UpdateMembersQuotaRequestDto() {
   }
@@ -82,16 +81,14 @@ public class UpdateMembersQuotaRequestDto {
    * The list of user IDs.
    * @return userIds
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<UUID> getUserIds() {
         return userIds.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_USER_IDS)
+  @JsonProperty(value = JSON_PROPERTY_USER_IDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<UUID>> getUserIds_JsonNullable() {
     return userIds;
   }
@@ -115,8 +112,7 @@ public class UpdateMembersQuotaRequestDto {
    * Get quota
    * @return quota
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUOTA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UpdateMembersQuotaRequestDtoQuota getQuota() {
@@ -124,7 +120,7 @@ public class UpdateMembersQuotaRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_QUOTA)
+  @JsonProperty(value = JSON_PROPERTY_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQuota(@javax.annotation.Nullable UpdateMembersQuotaRequestDtoQuota quota) {
     this.quota = quota;

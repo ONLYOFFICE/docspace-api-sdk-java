@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -39,8 +40,7 @@ import java.util.StringJoiner;
 
 public class StartEdit {
   public static final String JSON_PROPERTY_EDITING_ALONE = "editingAlone";
-  @javax.annotation.Nullable
-  private Boolean editingAlone;
+  @javax.annotation.Nullable  private Boolean editingAlone;
 
   public StartEdit() {
   }
@@ -56,8 +56,7 @@ public class StartEdit {
    * Specifies whether to share the file with other users for editing or not.
    * @return editingAlone
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EDITING_ALONE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EDITING_ALONE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEditingAlone() {
@@ -65,7 +64,7 @@ public class StartEdit {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EDITING_ALONE)
+  @JsonProperty(value = JSON_PROPERTY_EDITING_ALONE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEditingAlone(@javax.annotation.Nullable Boolean editingAlone) {
     this.editingAlone = editingAlone;

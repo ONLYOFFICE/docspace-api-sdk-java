@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -978,10 +978,10 @@ public class FoldersApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("utcTime", fromDate.getUtcTime()));
-    localVarQueryParams.addAll(apiClient.parameterToPair("timeZoneOffset", fromDate.getTimeZoneOffset()));
-    localVarQueryParams.addAll(apiClient.parameterToPair("utcTime", toDate.getUtcTime()));
-    localVarQueryParams.addAll(apiClient.parameterToPair("timeZoneOffset", toDate.getTimeZoneOffset()));
+    localVarQueryParameterBaseName = "fromDate";
+    localVarQueryStringJoiner.add(fromDate.toUrlQueryString("fromDate"));
+    localVarQueryParameterBaseName = "toDate";
+    localVarQueryStringJoiner.add(toDate.toUrlQueryString("toDate"));
     localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
     localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
       
@@ -2575,7 +2575,7 @@ if (streamWriteTimeout != null)
 
   /**
    * Upload a file
-   * Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+   * Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
    *
    * REST API Reference for uploadFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/
@@ -2592,7 +2592,7 @@ if (streamWriteTimeout != null)
 
   /**
    * Upload a file
-   * Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+   * Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
    *
    * REST API Reference for uploadFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/
@@ -2661,7 +2661,7 @@ if (streamWriteTimeout != null)
 
   /**
    * Upload a file to the My documents section
-   * Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+   * Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
    *
    * REST API Reference for uploadFileToMy Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/
@@ -2677,7 +2677,7 @@ if (streamWriteTimeout != null)
 
   /**
    * Upload a file to the My documents section
-   * Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+   * Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
    *
    * REST API Reference for uploadFileToMy Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/
@@ -2701,14 +2701,8 @@ if (streamWriteTimeout != null)
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("file", inDto.getFile()));
-    localVarQueryParams.addAll(apiClient.parameterToPair("contentType", inDto.getContentType()));
-    localVarQueryParams.addAll(apiClient.parameterToPair("contentDisposition", inDto.getContentDisposition()));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "files", inDto.getFiles()));
-    localVarQueryParams.addAll(apiClient.parameterToPair("createNewIfExist", inDto.getCreateNewIfExist()));
-    localVarQueryParams.addAll(apiClient.parameterToPair("storeOriginalFileFlag", inDto.getStoreOriginalFileFlag()));
-    localVarQueryParams.addAll(apiClient.parameterToPair("keepConvertStatus", inDto.getKeepConvertStatus()));
-    localVarQueryParams.addAll(apiClient.parameterToPair("stream", inDto.getStream()));
+    localVarQueryParameterBaseName = "inDto";
+    localVarQueryStringJoiner.add(inDto.toUrlQueryString("inDto"));
       
     
     localVarHeaderParams.putAll(additionalHeaders);

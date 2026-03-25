@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,24 +49,19 @@ import java.util.StringJoiner;
 
 public class TenantWalletSettings {
   public static final String JSON_PROPERTY_ENABLED = "enabled";
-  @javax.annotation.Nullable
-  private Boolean enabled;
+  @javax.annotation.Nullable  private Boolean enabled;
 
   public static final String JSON_PROPERTY_MIN_BALANCE = "minBalance";
-  @javax.annotation.Nullable
-  private Integer minBalance;
+  @javax.annotation.Nullable  private Integer minBalance;
 
   public static final String JSON_PROPERTY_UP_TO_BALANCE = "upToBalance";
-  @javax.annotation.Nullable
-  private Integer upToBalance;
+  @javax.annotation.Nullable  private Integer upToBalance;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
-  @javax.annotation.Nullable
-  private JsonNullable<String> currency = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> currency = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LAST_MODIFIED = "lastModified";
-  @javax.annotation.Nullable
-  private OffsetDateTime lastModified;
+  @javax.annotation.Nullable  private OffsetDateTime lastModified;
 
   public TenantWalletSettings() {
   }
@@ -81,8 +77,7 @@ public class TenantWalletSettings {
    * Specifies whether automatic top-up for the tenant wallet is enabled.
    * @return enabled
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEnabled() {
@@ -90,7 +85,7 @@ public class TenantWalletSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
     this.enabled = enabled;
@@ -108,8 +103,7 @@ public class TenantWalletSettings {
    * maximum: 1000
    * @return minBalance
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MIN_BALANCE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MIN_BALANCE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getMinBalance() {
@@ -117,7 +111,7 @@ public class TenantWalletSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MIN_BALANCE)
+  @JsonProperty(value = JSON_PROPERTY_MIN_BALANCE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMinBalance(@javax.annotation.Nullable Integer minBalance) {
     this.minBalance = minBalance;
@@ -135,8 +129,7 @@ public class TenantWalletSettings {
    * maximum: 5000
    * @return upToBalance
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UP_TO_BALANCE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UP_TO_BALANCE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getUpToBalance() {
@@ -144,7 +137,7 @@ public class TenantWalletSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UP_TO_BALANCE)
+  @JsonProperty(value = JSON_PROPERTY_UP_TO_BALANCE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpToBalance(@javax.annotation.Nullable Integer upToBalance) {
     this.upToBalance = upToBalance;
@@ -160,16 +153,14 @@ public class TenantWalletSettings {
    * The three-character ISO 4217 currency symbol.
    * @return currency
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCurrency() {
         return currency.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonProperty(value = JSON_PROPERTY_CURRENCY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCurrency_JsonNullable() {
     return currency;
   }
@@ -193,8 +184,7 @@ public class TenantWalletSettings {
    * The date and time when the tenant wallet settings were last modified.
    * @return lastModified
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLastModified() {
@@ -202,7 +192,7 @@ public class TenantWalletSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
     this.lastModified = lastModified;

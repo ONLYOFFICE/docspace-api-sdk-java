@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,6 +47,7 @@ import java.util.StringJoiner;
   TenantQuota.JSON_PROPERTY_PRICE_I_S_O_CURRENCY_SYMBOL,
   TenantQuota.JSON_PROPERTY_PRODUCT_ID,
   TenantQuota.JSON_PROPERTY_SERVICE_NAME,
+  TenantQuota.JSON_PROPERTY_SERVICE_GROUP,
   TenantQuota.JSON_PROPERTY_VISIBLE,
   TenantQuota.JSON_PROPERTY_WALLET,
   TenantQuota.JSON_PROPERTY_DUE_DATE,
@@ -68,6 +70,7 @@ import java.util.StringJoiner;
   TenantQuota.JSON_PROPERTY_BRANDING,
   TenantQuota.JSON_PROPERTY_CUSTOMIZATION,
   TenantQuota.JSON_PROPERTY_LIFETIME,
+  TenantQuota.JSON_PROPERTY_AUTOMATION_API,
   TenantQuota.JSON_PROPERTY_CUSTOM,
   TenantQuota.JSON_PROPERTY_RESTORE,
   TenantQuota.JSON_PROPERTY_OAUTH,
@@ -76,161 +79,133 @@ import java.util.StringJoiner;
   TenantQuota.JSON_PROPERTY_YEAR,
   TenantQuota.JSON_PROPERTY_COUNT_FREE_BACKUP,
   TenantQuota.JSON_PROPERTY_BACKUP,
-  TenantQuota.JSON_PROPERTY_COUNT_A_I_AGENT
+  TenantQuota.JSON_PROPERTY_COUNT_A_I_AGENT,
+  TenantQuota.JSON_PROPERTY_AI_TOOLS
 })
 
 public class TenantQuota {
   public static final String JSON_PROPERTY_TENANT_ID = "tenantId";
-  @javax.annotation.Nullable
-  private Integer tenantId;
+  @javax.annotation.Nullable  private Integer tenantId;
 
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PRICE = "price";
-  @javax.annotation.Nullable
-  private Double price;
+  @javax.annotation.Nullable  private Double price;
 
   public static final String JSON_PROPERTY_PRICE_CURRENCY_SYMBOL = "priceCurrencySymbol";
-  @javax.annotation.Nullable
-  private JsonNullable<String> priceCurrencySymbol = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> priceCurrencySymbol = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PRICE_I_S_O_CURRENCY_SYMBOL = "priceISOCurrencySymbol";
-  @javax.annotation.Nullable
-  private JsonNullable<String> priceISOCurrencySymbol = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> priceISOCurrencySymbol = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PRODUCT_ID = "productId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> productId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> productId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SERVICE_NAME = "serviceName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> serviceName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> serviceName = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_SERVICE_GROUP = "serviceGroup";
+  @javax.annotation.Nullable  private JsonNullable<String> serviceGroup = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_VISIBLE = "visible";
-  @javax.annotation.Nullable
-  private Boolean visible;
+  @javax.annotation.Nullable  private Boolean visible;
 
   public static final String JSON_PROPERTY_WALLET = "wallet";
-  @javax.annotation.Nullable
-  private Boolean wallet;
+  @javax.annotation.Nullable  private Boolean wallet;
 
   public static final String JSON_PROPERTY_DUE_DATE = "dueDate";
-  @javax.annotation.Nullable
-  private JsonNullable<OffsetDateTime> dueDate = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> dueDate = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_FEATURES = "features";
-  @javax.annotation.Nullable
-  private JsonNullable<String> features = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> features = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_MAX_FILE_SIZE = "maxFileSize";
-  @javax.annotation.Nullable
-  private Long maxFileSize;
+  @javax.annotation.Nullable  private Long maxFileSize;
 
   public static final String JSON_PROPERTY_MAX_TOTAL_SIZE = "maxTotalSize";
-  @javax.annotation.Nullable
-  private Long maxTotalSize;
+  @javax.annotation.Nullable  private Long maxTotalSize;
 
   public static final String JSON_PROPERTY_COUNT_USER = "countUser";
-  @javax.annotation.Nullable
-  private Integer countUser;
+  @javax.annotation.Nullable  private Integer countUser;
 
   public static final String JSON_PROPERTY_COUNT_ROOM_ADMIN = "countRoomAdmin";
-  @javax.annotation.Nullable
-  private Integer countRoomAdmin;
+  @javax.annotation.Nullable  private Integer countRoomAdmin;
 
   public static final String JSON_PROPERTY_USERS_IN_ROOM = "usersInRoom";
-  @javax.annotation.Nullable
-  private Integer usersInRoom;
+  @javax.annotation.Nullable  private Integer usersInRoom;
 
   public static final String JSON_PROPERTY_COUNT_ROOM = "countRoom";
-  @javax.annotation.Nullable
-  private Integer countRoom;
+  @javax.annotation.Nullable  private Integer countRoom;
 
   public static final String JSON_PROPERTY_NON_PROFIT = "nonProfit";
-  @javax.annotation.Nullable
-  private Boolean nonProfit;
+  @javax.annotation.Nullable  private Boolean nonProfit;
 
   public static final String JSON_PROPERTY_TRIAL = "trial";
-  @javax.annotation.Nullable
-  private Boolean trial;
+  @javax.annotation.Nullable  private Boolean trial;
 
   public static final String JSON_PROPERTY_FREE = "free";
-  @javax.annotation.Nullable
-  private Boolean free;
+  @javax.annotation.Nullable  private Boolean free;
 
   public static final String JSON_PROPERTY_UPDATE = "update";
-  @javax.annotation.Nullable
-  private Boolean update;
+  @javax.annotation.Nullable  private Boolean update;
 
   public static final String JSON_PROPERTY_AUDIT = "audit";
-  @javax.annotation.Nullable
-  private Boolean audit;
+  @javax.annotation.Nullable  private Boolean audit;
 
   public static final String JSON_PROPERTY_DOCS_EDITION = "docsEdition";
-  @javax.annotation.Nullable
-  private Boolean docsEdition;
+  @javax.annotation.Nullable  private Boolean docsEdition;
 
   public static final String JSON_PROPERTY_LDAP = "ldap";
-  @javax.annotation.Nullable
-  private Boolean ldap;
+  @javax.annotation.Nullable  private Boolean ldap;
 
   public static final String JSON_PROPERTY_SSO = "sso";
-  @javax.annotation.Nullable
-  private Boolean sso;
+  @javax.annotation.Nullable  private Boolean sso;
 
   public static final String JSON_PROPERTY_STATISTIC = "statistic";
-  @javax.annotation.Nullable
-  private Boolean statistic;
+  @javax.annotation.Nullable  private Boolean statistic;
 
   public static final String JSON_PROPERTY_BRANDING = "branding";
-  @javax.annotation.Nullable
-  private Boolean branding;
+  @javax.annotation.Nullable  private Boolean branding;
 
   public static final String JSON_PROPERTY_CUSTOMIZATION = "customization";
-  @javax.annotation.Nullable
-  private Boolean customization;
+  @javax.annotation.Nullable  private Boolean customization;
 
   public static final String JSON_PROPERTY_LIFETIME = "lifetime";
-  @javax.annotation.Nullable
-  private Boolean lifetime;
+  @javax.annotation.Nullable  private Boolean lifetime;
+
+  public static final String JSON_PROPERTY_AUTOMATION_API = "automationApi";
+  @javax.annotation.Nullable  private Boolean automationApi;
 
   public static final String JSON_PROPERTY_CUSTOM = "custom";
-  @javax.annotation.Nullable
-  private Boolean custom;
+  @javax.annotation.Nullable  private Boolean custom;
 
   public static final String JSON_PROPERTY_RESTORE = "restore";
-  @javax.annotation.Nullable
-  private Boolean restore;
+  @javax.annotation.Nullable  private Boolean restore;
 
   public static final String JSON_PROPERTY_OAUTH = "oauth";
-  @javax.annotation.Nullable
-  private Boolean oauth;
+  @javax.annotation.Nullable  private Boolean oauth;
 
   public static final String JSON_PROPERTY_CONTENT_SEARCH = "contentSearch";
-  @javax.annotation.Nullable
-  private Boolean contentSearch;
+  @javax.annotation.Nullable  private Boolean contentSearch;
 
   public static final String JSON_PROPERTY_THIRD_PARTY = "thirdParty";
-  @javax.annotation.Nullable
-  private Boolean thirdParty;
+  @javax.annotation.Nullable  private Boolean thirdParty;
 
   public static final String JSON_PROPERTY_YEAR = "year";
-  @javax.annotation.Nullable
-  private Boolean year;
+  @javax.annotation.Nullable  private Boolean year;
 
   public static final String JSON_PROPERTY_COUNT_FREE_BACKUP = "countFreeBackup";
-  @javax.annotation.Nullable
-  private Integer countFreeBackup;
+  @javax.annotation.Nullable  private Integer countFreeBackup;
 
   public static final String JSON_PROPERTY_BACKUP = "backup";
-  @javax.annotation.Nullable
-  private Boolean backup;
+  @javax.annotation.Nullable  private Boolean backup;
 
   public static final String JSON_PROPERTY_COUNT_A_I_AGENT = "countAIAgent";
-  @javax.annotation.Nullable
-  private Integer countAIAgent;
+  @javax.annotation.Nullable  private Integer countAIAgent;
+
+  public static final String JSON_PROPERTY_AI_TOOLS = "aiTools";
+  @javax.annotation.Nullable  private Boolean aiTools;
 
   public TenantQuota() {
   }
@@ -246,8 +221,7 @@ public class TenantQuota {
    * The tenant ID.
    * @return tenantId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getTenantId() {
@@ -255,7 +229,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTenantId(@javax.annotation.Nullable Integer tenantId) {
     this.tenantId = tenantId;
@@ -271,16 +245,14 @@ public class TenantQuota {
    * The tenant name.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getName() {
         return name.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
@@ -304,8 +276,7 @@ public class TenantQuota {
    * The tenant price.
    * @return price
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRICE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRICE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getPrice() {
@@ -313,7 +284,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PRICE)
+  @JsonProperty(value = JSON_PROPERTY_PRICE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrice(@javax.annotation.Nullable Double price) {
     this.price = price;
@@ -329,16 +300,14 @@ public class TenantQuota {
    * The tenant price currency symbol.
    * @return priceCurrencySymbol
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPriceCurrencySymbol() {
         return priceCurrencySymbol.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PRICE_CURRENCY_SYMBOL)
+  @JsonProperty(value = JSON_PROPERTY_PRICE_CURRENCY_SYMBOL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPriceCurrencySymbol_JsonNullable() {
     return priceCurrencySymbol;
   }
@@ -362,16 +331,14 @@ public class TenantQuota {
    * The tenant price three-character ISO 4217 currency symbol.
    * @return priceISOCurrencySymbol
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPriceISOCurrencySymbol() {
         return priceISOCurrencySymbol.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PRICE_I_S_O_CURRENCY_SYMBOL)
+  @JsonProperty(value = JSON_PROPERTY_PRICE_I_S_O_CURRENCY_SYMBOL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPriceISOCurrencySymbol_JsonNullable() {
     return priceISOCurrencySymbol;
   }
@@ -395,16 +362,14 @@ public class TenantQuota {
    * The tenant product ID.
    * @return productId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getProductId() {
         return productId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PRODUCT_ID)
+  @JsonProperty(value = JSON_PROPERTY_PRODUCT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getProductId_JsonNullable() {
     return productId;
   }
@@ -428,16 +393,14 @@ public class TenantQuota {
    * The service name.
    * @return serviceName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getServiceName() {
         return serviceName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SERVICE_NAME)
+  @JsonProperty(value = JSON_PROPERTY_SERVICE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getServiceName_JsonNullable() {
     return serviceName;
   }
@@ -451,6 +414,37 @@ public class TenantQuota {
     this.serviceName = JsonNullable.<String>of(serviceName);
   }
 
+  public TenantQuota serviceGroup(@javax.annotation.Nullable String serviceGroup) {
+    this.serviceGroup = JsonNullable.<String>of(serviceGroup);
+    
+    return this;
+  }
+
+  /**
+   * The service group.
+   * @return serviceGroup
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getServiceGroup() {
+        return serviceGroup.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_SERVICE_GROUP, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getServiceGroup_JsonNullable() {
+    return serviceGroup;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SERVICE_GROUP)
+  public void setServiceGroup_JsonNullable(JsonNullable<String> serviceGroup) {
+    this.serviceGroup = serviceGroup;
+  }
+
+  public void setServiceGroup(@javax.annotation.Nullable String serviceGroup) {
+    this.serviceGroup = JsonNullable.<String>of(serviceGroup);
+  }
+
   public TenantQuota visible(@javax.annotation.Nullable Boolean visible) {
     
     this.visible = visible;
@@ -461,8 +455,7 @@ public class TenantQuota {
    * Specifies if the tenant quota is visible or not.
    * @return visible
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VISIBLE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VISIBLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getVisible() {
@@ -470,7 +463,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VISIBLE)
+  @JsonProperty(value = JSON_PROPERTY_VISIBLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVisible(@javax.annotation.Nullable Boolean visible) {
     this.visible = visible;
@@ -486,8 +479,7 @@ public class TenantQuota {
    * Specifies if the tenant quota applies to the wallet or not
    * @return wallet
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WALLET)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WALLET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getWallet() {
@@ -495,7 +487,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WALLET)
+  @JsonProperty(value = JSON_PROPERTY_WALLET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWallet(@javax.annotation.Nullable Boolean wallet) {
     this.wallet = wallet;
@@ -511,16 +503,14 @@ public class TenantQuota {
    * The quota due date.
    * @return dueDate
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public OffsetDateTime getDueDate() {
         return dueDate.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DUE_DATE)
+  @JsonProperty(value = JSON_PROPERTY_DUE_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<OffsetDateTime> getDueDate_JsonNullable() {
     return dueDate;
   }
@@ -544,16 +534,14 @@ public class TenantQuota {
    * The tenant quota features.
    * @return features
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFeatures() {
         return features.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FEATURES)
+  @JsonProperty(value = JSON_PROPERTY_FEATURES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFeatures_JsonNullable() {
     return features;
   }
@@ -577,8 +565,7 @@ public class TenantQuota {
    * The tenant maximum file size.
    * @return maxFileSize
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAX_FILE_SIZE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MAX_FILE_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getMaxFileSize() {
@@ -586,7 +573,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MAX_FILE_SIZE)
+  @JsonProperty(value = JSON_PROPERTY_MAX_FILE_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxFileSize(@javax.annotation.Nullable Long maxFileSize) {
     this.maxFileSize = maxFileSize;
@@ -602,8 +589,7 @@ public class TenantQuota {
    * The tenant maximum total size.
    * @return maxTotalSize
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAX_TOTAL_SIZE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MAX_TOTAL_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getMaxTotalSize() {
@@ -611,7 +597,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MAX_TOTAL_SIZE)
+  @JsonProperty(value = JSON_PROPERTY_MAX_TOTAL_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxTotalSize(@javax.annotation.Nullable Long maxTotalSize) {
     this.maxTotalSize = maxTotalSize;
@@ -627,8 +613,7 @@ public class TenantQuota {
    * The number of portal users.
    * @return countUser
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COUNT_USER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COUNT_USER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getCountUser() {
@@ -636,7 +621,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COUNT_USER)
+  @JsonProperty(value = JSON_PROPERTY_COUNT_USER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountUser(@javax.annotation.Nullable Integer countUser) {
     this.countUser = countUser;
@@ -652,8 +637,7 @@ public class TenantQuota {
    * The number of portal room administrators.
    * @return countRoomAdmin
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COUNT_ROOM_ADMIN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COUNT_ROOM_ADMIN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getCountRoomAdmin() {
@@ -661,7 +645,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COUNT_ROOM_ADMIN)
+  @JsonProperty(value = JSON_PROPERTY_COUNT_ROOM_ADMIN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountRoomAdmin(@javax.annotation.Nullable Integer countRoomAdmin) {
     this.countRoomAdmin = countRoomAdmin;
@@ -677,8 +661,7 @@ public class TenantQuota {
    * The number of room users.
    * @return usersInRoom
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USERS_IN_ROOM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USERS_IN_ROOM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getUsersInRoom() {
@@ -686,7 +669,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USERS_IN_ROOM)
+  @JsonProperty(value = JSON_PROPERTY_USERS_IN_ROOM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsersInRoom(@javax.annotation.Nullable Integer usersInRoom) {
     this.usersInRoom = usersInRoom;
@@ -702,8 +685,7 @@ public class TenantQuota {
    * The number of rooms.
    * @return countRoom
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COUNT_ROOM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COUNT_ROOM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getCountRoom() {
@@ -711,7 +693,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COUNT_ROOM)
+  @JsonProperty(value = JSON_PROPERTY_COUNT_ROOM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountRoom(@javax.annotation.Nullable Integer countRoom) {
     this.countRoom = countRoom;
@@ -727,8 +709,7 @@ public class TenantQuota {
    * Specifies if the tenant quota is nonprofit or not.
    * @return nonProfit
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NON_PROFIT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NON_PROFIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getNonProfit() {
@@ -736,7 +717,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NON_PROFIT)
+  @JsonProperty(value = JSON_PROPERTY_NON_PROFIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNonProfit(@javax.annotation.Nullable Boolean nonProfit) {
     this.nonProfit = nonProfit;
@@ -752,8 +733,7 @@ public class TenantQuota {
    * Specifies if the tenant quota is trial or not.
    * @return trial
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRIAL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRIAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getTrial() {
@@ -761,7 +741,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRIAL)
+  @JsonProperty(value = JSON_PROPERTY_TRIAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrial(@javax.annotation.Nullable Boolean trial) {
     this.trial = trial;
@@ -777,8 +757,7 @@ public class TenantQuota {
    * Specifies if the tenant quota is free or not.
    * @return free
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FREE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FREE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getFree() {
@@ -786,7 +765,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FREE)
+  @JsonProperty(value = JSON_PROPERTY_FREE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFree(@javax.annotation.Nullable Boolean free) {
     this.free = free;
@@ -802,8 +781,7 @@ public class TenantQuota {
    * Specifies if the tenant quota is updated or not.
    * @return update
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPDATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPDATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getUpdate() {
@@ -811,7 +789,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UPDATE)
+  @JsonProperty(value = JSON_PROPERTY_UPDATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdate(@javax.annotation.Nullable Boolean update) {
     this.update = update;
@@ -827,8 +805,7 @@ public class TenantQuota {
    * Specifies if the audit trail is available or not.
    * @return audit
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUDIT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUDIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAudit() {
@@ -836,7 +813,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AUDIT)
+  @JsonProperty(value = JSON_PROPERTY_AUDIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAudit(@javax.annotation.Nullable Boolean audit) {
     this.audit = audit;
@@ -852,8 +829,7 @@ public class TenantQuota {
    * Specifies if ONLYOFFICE Docs is included in the tenant quota or not.
    * @return docsEdition
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOCS_EDITION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOCS_EDITION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDocsEdition() {
@@ -861,7 +837,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOCS_EDITION)
+  @JsonProperty(value = JSON_PROPERTY_DOCS_EDITION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocsEdition(@javax.annotation.Nullable Boolean docsEdition) {
     this.docsEdition = docsEdition;
@@ -877,8 +853,7 @@ public class TenantQuota {
    * Specifies if the LDAP settings are available or not.
    * @return ldap
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LDAP)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LDAP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getLdap() {
@@ -886,7 +861,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LDAP)
+  @JsonProperty(value = JSON_PROPERTY_LDAP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLdap(@javax.annotation.Nullable Boolean ldap) {
     this.ldap = ldap;
@@ -902,8 +877,7 @@ public class TenantQuota {
    * Specifies if the SSO settings are available or not.
    * @return sso
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SSO)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SSO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSso() {
@@ -911,7 +885,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SSO)
+  @JsonProperty(value = JSON_PROPERTY_SSO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSso(@javax.annotation.Nullable Boolean sso) {
     this.sso = sso;
@@ -927,8 +901,7 @@ public class TenantQuota {
    * Specifies if the statistics settings are available or not.
    * @return statistic
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATISTIC)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATISTIC, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getStatistic() {
@@ -936,7 +909,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATISTIC)
+  @JsonProperty(value = JSON_PROPERTY_STATISTIC, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatistic(@javax.annotation.Nullable Boolean statistic) {
     this.statistic = statistic;
@@ -952,8 +925,7 @@ public class TenantQuota {
    * Specifies if the branding settings are available or not.
    * @return branding
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BRANDING)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_BRANDING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getBranding() {
@@ -961,7 +933,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BRANDING)
+  @JsonProperty(value = JSON_PROPERTY_BRANDING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBranding(@javax.annotation.Nullable Boolean branding) {
     this.branding = branding;
@@ -977,8 +949,7 @@ public class TenantQuota {
    * Specifies if the customization settings are available or not.
    * @return customization
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOMIZATION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CUSTOMIZATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCustomization() {
@@ -986,7 +957,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CUSTOMIZATION)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOMIZATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomization(@javax.annotation.Nullable Boolean customization) {
     this.customization = customization;
@@ -1002,8 +973,7 @@ public class TenantQuota {
    * Specifies if the license has the lifetime settings or not.
    * @return lifetime
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIFETIME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIFETIME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getLifetime() {
@@ -1011,10 +981,34 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LIFETIME)
+  @JsonProperty(value = JSON_PROPERTY_LIFETIME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLifetime(@javax.annotation.Nullable Boolean lifetime) {
     this.lifetime = lifetime;
+  }
+
+  public TenantQuota automationApi(@javax.annotation.Nullable Boolean automationApi) {
+    
+    this.automationApi = automationApi;
+    return this;
+  }
+
+  /**
+   * Specifies if the Automation API is available or not.
+   * @return automationApi
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTOMATION_API, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAutomationApi() {
+    return automationApi;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_AUTOMATION_API, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAutomationApi(@javax.annotation.Nullable Boolean automationApi) {
+    this.automationApi = automationApi;
   }
 
   public TenantQuota custom(@javax.annotation.Nullable Boolean custom) {
@@ -1027,8 +1021,7 @@ public class TenantQuota {
    * Specifies if the custom domain URL is available or not.
    * @return custom
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CUSTOM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCustom() {
@@ -1036,7 +1029,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CUSTOM)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustom(@javax.annotation.Nullable Boolean custom) {
     this.custom = custom;
@@ -1052,8 +1045,7 @@ public class TenantQuota {
    * Specifies if the restore is enabled or not.
    * @return restore
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESTORE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESTORE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getRestore() {
@@ -1061,7 +1053,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RESTORE)
+  @JsonProperty(value = JSON_PROPERTY_RESTORE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRestore(@javax.annotation.Nullable Boolean restore) {
     this.restore = restore;
@@ -1077,8 +1069,7 @@ public class TenantQuota {
    * Specifies if Oauth is available or not.
    * @return oauth
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OAUTH)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OAUTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getOauth() {
@@ -1086,7 +1077,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OAUTH)
+  @JsonProperty(value = JSON_PROPERTY_OAUTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOauth(@javax.annotation.Nullable Boolean oauth) {
     this.oauth = oauth;
@@ -1102,8 +1093,7 @@ public class TenantQuota {
    * Specifies if the content search is available or not.
    * @return contentSearch
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONTENT_SEARCH)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONTENT_SEARCH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getContentSearch() {
@@ -1111,7 +1101,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CONTENT_SEARCH)
+  @JsonProperty(value = JSON_PROPERTY_CONTENT_SEARCH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContentSearch(@javax.annotation.Nullable Boolean contentSearch) {
     this.contentSearch = contentSearch;
@@ -1127,8 +1117,7 @@ public class TenantQuota {
    * Specifies if the third-party accounts linking is available or not.
    * @return thirdParty
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_THIRD_PARTY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_THIRD_PARTY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getThirdParty() {
@@ -1136,7 +1125,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_THIRD_PARTY)
+  @JsonProperty(value = JSON_PROPERTY_THIRD_PARTY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThirdParty(@javax.annotation.Nullable Boolean thirdParty) {
     this.thirdParty = thirdParty;
@@ -1152,8 +1141,7 @@ public class TenantQuota {
    * Specifies if the tenant quota is yearly subscription or not.
    * @return year
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_YEAR)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_YEAR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getYear() {
@@ -1161,7 +1149,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_YEAR)
+  @JsonProperty(value = JSON_PROPERTY_YEAR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setYear(@javax.annotation.Nullable Boolean year) {
     this.year = year;
@@ -1177,8 +1165,7 @@ public class TenantQuota {
    * The number of free backups within a month.
    * @return countFreeBackup
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COUNT_FREE_BACKUP)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COUNT_FREE_BACKUP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getCountFreeBackup() {
@@ -1186,7 +1173,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COUNT_FREE_BACKUP)
+  @JsonProperty(value = JSON_PROPERTY_COUNT_FREE_BACKUP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountFreeBackup(@javax.annotation.Nullable Integer countFreeBackup) {
     this.countFreeBackup = countFreeBackup;
@@ -1199,11 +1186,10 @@ public class TenantQuota {
   }
 
   /**
-   * Specifies if the backup anabled as a wallet service or not.
+   * Specifies if the backup enabled as a wallet service or not.
    * @return backup
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BACKUP)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_BACKUP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getBackup() {
@@ -1211,7 +1197,7 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BACKUP)
+  @JsonProperty(value = JSON_PROPERTY_BACKUP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBackup(@javax.annotation.Nullable Boolean backup) {
     this.backup = backup;
@@ -1227,8 +1213,7 @@ public class TenantQuota {
    * The number of AI agents.
    * @return countAIAgent
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COUNT_A_I_AGENT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COUNT_A_I_AGENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getCountAIAgent() {
@@ -1236,10 +1221,34 @@ public class TenantQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COUNT_A_I_AGENT)
+  @JsonProperty(value = JSON_PROPERTY_COUNT_A_I_AGENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountAIAgent(@javax.annotation.Nullable Integer countAIAgent) {
     this.countAIAgent = countAIAgent;
+  }
+
+  public TenantQuota aiTools(@javax.annotation.Nullable Boolean aiTools) {
+    
+    this.aiTools = aiTools;
+    return this;
+  }
+
+  /**
+   * Specifies if the AI tools enabled as a wallet service or not.
+   * @return aiTools
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AI_TOOLS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAiTools() {
+    return aiTools;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_AI_TOOLS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAiTools(@javax.annotation.Nullable Boolean aiTools) {
+    this.aiTools = aiTools;
   }
 
   @Override
@@ -1258,6 +1267,7 @@ public class TenantQuota {
         equalsNullable(this.priceISOCurrencySymbol, tenantQuota.priceISOCurrencySymbol) &&
         equalsNullable(this.productId, tenantQuota.productId) &&
         equalsNullable(this.serviceName, tenantQuota.serviceName) &&
+        equalsNullable(this.serviceGroup, tenantQuota.serviceGroup) &&
         Objects.equals(this.visible, tenantQuota.visible) &&
         Objects.equals(this.wallet, tenantQuota.wallet) &&
         equalsNullable(this.dueDate, tenantQuota.dueDate) &&
@@ -1280,6 +1290,7 @@ public class TenantQuota {
         Objects.equals(this.branding, tenantQuota.branding) &&
         Objects.equals(this.customization, tenantQuota.customization) &&
         Objects.equals(this.lifetime, tenantQuota.lifetime) &&
+        Objects.equals(this.automationApi, tenantQuota.automationApi) &&
         Objects.equals(this.custom, tenantQuota.custom) &&
         Objects.equals(this.restore, tenantQuota.restore) &&
         Objects.equals(this.oauth, tenantQuota.oauth) &&
@@ -1288,7 +1299,8 @@ public class TenantQuota {
         Objects.equals(this.year, tenantQuota.year) &&
         Objects.equals(this.countFreeBackup, tenantQuota.countFreeBackup) &&
         Objects.equals(this.backup, tenantQuota.backup) &&
-        Objects.equals(this.countAIAgent, tenantQuota.countAIAgent);
+        Objects.equals(this.countAIAgent, tenantQuota.countAIAgent) &&
+        Objects.equals(this.aiTools, tenantQuota.aiTools);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1297,7 +1309,7 @@ public class TenantQuota {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tenantId, hashCodeNullable(name), price, hashCodeNullable(priceCurrencySymbol), hashCodeNullable(priceISOCurrencySymbol), hashCodeNullable(productId), hashCodeNullable(serviceName), visible, wallet, hashCodeNullable(dueDate), hashCodeNullable(features), maxFileSize, maxTotalSize, countUser, countRoomAdmin, usersInRoom, countRoom, nonProfit, trial, free, update, audit, docsEdition, ldap, sso, statistic, branding, customization, lifetime, custom, restore, oauth, contentSearch, thirdParty, year, countFreeBackup, backup, countAIAgent);
+    return Objects.hash(tenantId, hashCodeNullable(name), price, hashCodeNullable(priceCurrencySymbol), hashCodeNullable(priceISOCurrencySymbol), hashCodeNullable(productId), hashCodeNullable(serviceName), hashCodeNullable(serviceGroup), visible, wallet, hashCodeNullable(dueDate), hashCodeNullable(features), maxFileSize, maxTotalSize, countUser, countRoomAdmin, usersInRoom, countRoom, nonProfit, trial, free, update, audit, docsEdition, ldap, sso, statistic, branding, customization, lifetime, automationApi, custom, restore, oauth, contentSearch, thirdParty, year, countFreeBackup, backup, countAIAgent, aiTools);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1318,6 +1330,7 @@ public class TenantQuota {
     sb.append("    priceISOCurrencySymbol: ").append(toIndentedString(priceISOCurrencySymbol)).append("\n");
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
+    sb.append("    serviceGroup: ").append(toIndentedString(serviceGroup)).append("\n");
     sb.append("    visible: ").append(toIndentedString(visible)).append("\n");
     sb.append("    wallet: ").append(toIndentedString(wallet)).append("\n");
     sb.append("    dueDate: ").append(toIndentedString(dueDate)).append("\n");
@@ -1340,6 +1353,7 @@ public class TenantQuota {
     sb.append("    branding: ").append(toIndentedString(branding)).append("\n");
     sb.append("    customization: ").append(toIndentedString(customization)).append("\n");
     sb.append("    lifetime: ").append(toIndentedString(lifetime)).append("\n");
+    sb.append("    automationApi: ").append(toIndentedString(automationApi)).append("\n");
     sb.append("    custom: ").append(toIndentedString(custom)).append("\n");
     sb.append("    restore: ").append(toIndentedString(restore)).append("\n");
     sb.append("    oauth: ").append(toIndentedString(oauth)).append("\n");
@@ -1349,6 +1363,7 @@ public class TenantQuota {
     sb.append("    countFreeBackup: ").append(toIndentedString(countFreeBackup)).append("\n");
     sb.append("    backup: ").append(toIndentedString(backup)).append("\n");
     sb.append("    countAIAgent: ").append(toIndentedString(countAIAgent)).append("\n");
+    sb.append("    aiTools: ").append(toIndentedString(aiTools)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1460,6 +1475,16 @@ public class TenantQuota {
     if (getServiceName() != null) {
       try {
         joiner.add(String.format("%sserviceName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getServiceName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `serviceGroup` to the URL query string
+    if (getServiceGroup() != null) {
+      try {
+        joiner.add(String.format("%sserviceGroup%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getServiceGroup()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
@@ -1686,6 +1711,16 @@ public class TenantQuota {
       }
     }
 
+    // add `automationApi` to the URL query string
+    if (getAutomationApi() != null) {
+      try {
+        joiner.add(String.format("%sautomationApi%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAutomationApi()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
     // add `custom` to the URL query string
     if (getCustom() != null) {
       try {
@@ -1770,6 +1805,16 @@ public class TenantQuota {
     if (getCountAIAgent() != null) {
       try {
         joiner.add(String.format("%scountAIAgent%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCountAIAgent()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `aiTools` to the URL query string
+    if (getAiTools() != null) {
+      try {
+        joiner.add(String.format("%saiTools%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAiTools()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

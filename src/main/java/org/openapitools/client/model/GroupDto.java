@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -57,44 +58,34 @@ import java.util.StringJoiner;
 
 public class GroupDto {
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private String name;
+  @javax.annotation.Nullable  private String name;
 
   public static final String JSON_PROPERTY_PARENT = "parent";
-  @javax.annotation.Nullable
-  private JsonNullable<UUID> parent = JsonNullable.<UUID>undefined();
+  @javax.annotation.Nullable  private JsonNullable<UUID> parent = JsonNullable.<UUID>undefined();
 
   public static final String JSON_PROPERTY_CATEGORY = "category";
-  @javax.annotation.Nonnull
-  private UUID category;
+  @javax.annotation.Nonnull  private UUID category;
 
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nonnull
-  private UUID id;
+  @javax.annotation.Nonnull  private UUID id;
 
   public static final String JSON_PROPERTY_IS_L_D_A_P = "isLDAP";
-  @javax.annotation.Nonnull
-  private Boolean isLDAP;
+  @javax.annotation.Nonnull  private Boolean isLDAP;
 
   public static final String JSON_PROPERTY_IS_SYSTEM = "isSystem";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> isSystem = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> isSystem = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_MANAGER = "manager";
-  @javax.annotation.Nullable
-  private EmployeeFullDto manager;
+  @javax.annotation.Nullable  private EmployeeFullDto manager;
 
   public static final String JSON_PROPERTY_MEMBERS = "members";
-  @javax.annotation.Nullable
-  private JsonNullable<List<EmployeeFullDto>> members = JsonNullable.<List<EmployeeFullDto>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<EmployeeFullDto>> members = JsonNullable.<List<EmployeeFullDto>>undefined();
 
   public static final String JSON_PROPERTY_SHARED = "shared";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> shared = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> shared = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_MEMBERS_COUNT = "membersCount";
-  @javax.annotation.Nullable
-  private Integer membersCount;
+  @javax.annotation.Nullable  private Integer membersCount;
 
   public GroupDto() {
   }
@@ -110,8 +101,7 @@ public class GroupDto {
    * The group name.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
@@ -119,7 +109,7 @@ public class GroupDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
@@ -135,16 +125,14 @@ public class GroupDto {
    * The parent group ID.
    * @return parent
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public UUID getParent() {
         return parent.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PARENT)
+  @JsonProperty(value = JSON_PROPERTY_PARENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<UUID> getParent_JsonNullable() {
     return parent;
   }
@@ -168,8 +156,7 @@ public class GroupDto {
    * The group category ID.
    * @return category
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CATEGORY)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CATEGORY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getCategory() {
@@ -177,7 +164,7 @@ public class GroupDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CATEGORY)
+  @JsonProperty(value = JSON_PROPERTY_CATEGORY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCategory(@javax.annotation.Nonnull UUID category) {
     this.category = category;
@@ -193,8 +180,7 @@ public class GroupDto {
    * The group ID.
    * @return id
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getId() {
@@ -202,7 +188,7 @@ public class GroupDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@javax.annotation.Nonnull UUID id) {
     this.id = id;
@@ -218,8 +204,7 @@ public class GroupDto {
    * Specifies if the LDAP settings are enabled for the group or not.
    * @return isLDAP
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_L_D_A_P)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_L_D_A_P, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getIsLDAP() {
@@ -227,7 +212,7 @@ public class GroupDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_L_D_A_P)
+  @JsonProperty(value = JSON_PROPERTY_IS_L_D_A_P, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsLDAP(@javax.annotation.Nonnull Boolean isLDAP) {
     this.isLDAP = isLDAP;
@@ -243,16 +228,14 @@ public class GroupDto {
    * Indicates whether the group is a system group.
    * @return isSystem
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getIsSystem() {
         return isSystem.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IS_SYSTEM)
+  @JsonProperty(value = JSON_PROPERTY_IS_SYSTEM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getIsSystem_JsonNullable() {
     return isSystem;
   }
@@ -276,8 +259,7 @@ public class GroupDto {
    * Get manager
    * @return manager
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MANAGER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MANAGER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EmployeeFullDto getManager() {
@@ -285,7 +267,7 @@ public class GroupDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MANAGER)
+  @JsonProperty(value = JSON_PROPERTY_MANAGER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setManager(@javax.annotation.Nullable EmployeeFullDto manager) {
     this.manager = manager;
@@ -313,16 +295,14 @@ public class GroupDto {
    * The list of group members.
    * @return members
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<EmployeeFullDto> getMembers() {
         return members.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MEMBERS)
+  @JsonProperty(value = JSON_PROPERTY_MEMBERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<EmployeeFullDto>> getMembers_JsonNullable() {
     return members;
   }
@@ -346,16 +326,14 @@ public class GroupDto {
    * Specifies whether the group can be shared or not.
    * @return shared
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getShared() {
         return shared.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SHARED)
+  @JsonProperty(value = JSON_PROPERTY_SHARED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getShared_JsonNullable() {
     return shared;
   }
@@ -379,8 +357,7 @@ public class GroupDto {
    * The number of group members.
    * @return membersCount
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MEMBERS_COUNT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MEMBERS_COUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getMembersCount() {
@@ -388,7 +365,7 @@ public class GroupDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MEMBERS_COUNT)
+  @JsonProperty(value = JSON_PROPERTY_MEMBERS_COUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMembersCount(@javax.annotation.Nullable Integer membersCount) {
     this.membersCount = membersCount;

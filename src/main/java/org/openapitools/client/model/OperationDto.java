@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -54,48 +55,37 @@ import java.util.StringJoiner;
 
 public class OperationDto {
   public static final String JSON_PROPERTY_DATE = "date";
-  @javax.annotation.Nullable
-  private ApiDateTime date;
+  @javax.annotation.Nullable  private ApiDateTime date;
 
   public static final String JSON_PROPERTY_SERVICE = "service";
-  @javax.annotation.Nullable
-  private JsonNullable<String> service = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> service = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  @javax.annotation.Nullable
-  private JsonNullable<String> description = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DETAILS = "details";
-  @javax.annotation.Nullable
-  private JsonNullable<String> details = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> details = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SERVICE_UNIT = "serviceUnit";
-  @javax.annotation.Nullable
-  private JsonNullable<String> serviceUnit = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> serviceUnit = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_QUANTITY = "quantity";
-  @javax.annotation.Nullable
-  private Integer quantity;
+  @javax.annotation.Nullable  private Integer quantity;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
-  @javax.annotation.Nullable
-  private JsonNullable<String> currency = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> currency = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CREDIT = "credit";
-  @javax.annotation.Nullable
-  private Double credit;
+  @javax.annotation.Nullable  private Double credit;
 
   public static final String JSON_PROPERTY_DEBIT = "debit";
-  @javax.annotation.Nullable
-  private Double debit;
+  @javax.annotation.Nullable  private Double debit;
 
   public static final String JSON_PROPERTY_PARTICIPANT_NAME = "participantName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> participantName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> participantName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PARTICIPANT_DISPLAY_NAME = "participantDisplayName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> participantDisplayName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> participantDisplayName = JsonNullable.<String>undefined();
 
   public OperationDto() {
   }
@@ -111,8 +101,7 @@ public class OperationDto {
    * Get date
    * @return date
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApiDateTime getDate() {
@@ -120,7 +109,7 @@ public class OperationDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATE)
+  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDate(@javax.annotation.Nullable ApiDateTime date) {
     this.date = date;
@@ -136,16 +125,14 @@ public class OperationDto {
    * The service related to the operation.
    * @return service
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getService() {
         return service.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SERVICE)
+  @JsonProperty(value = JSON_PROPERTY_SERVICE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getService_JsonNullable() {
     return service;
   }
@@ -169,16 +156,14 @@ public class OperationDto {
    * The brief operation description.
    * @return description
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getDescription() {
         return description.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getDescription_JsonNullable() {
     return description;
   }
@@ -202,16 +187,14 @@ public class OperationDto {
    * The detailed information about the operation.
    * @return details
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getDetails() {
         return details.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DETAILS)
+  @JsonProperty(value = JSON_PROPERTY_DETAILS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getDetails_JsonNullable() {
     return details;
   }
@@ -235,16 +218,14 @@ public class OperationDto {
    * The service unit.
    * @return serviceUnit
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getServiceUnit() {
         return serviceUnit.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SERVICE_UNIT)
+  @JsonProperty(value = JSON_PROPERTY_SERVICE_UNIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getServiceUnit_JsonNullable() {
     return serviceUnit;
   }
@@ -268,8 +249,7 @@ public class OperationDto {
    * The quantity of the service used.
    * @return quantity
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUANTITY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_QUANTITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getQuantity() {
@@ -277,7 +257,7 @@ public class OperationDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_QUANTITY)
+  @JsonProperty(value = JSON_PROPERTY_QUANTITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQuantity(@javax.annotation.Nullable Integer quantity) {
     this.quantity = quantity;
@@ -293,16 +273,14 @@ public class OperationDto {
    * The three-character ISO 4217 currency symbol of the operation.
    * @return currency
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCurrency() {
         return currency.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonProperty(value = JSON_PROPERTY_CURRENCY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCurrency_JsonNullable() {
     return currency;
   }
@@ -326,8 +304,7 @@ public class OperationDto {
    * The credit amount of the operation.
    * @return credit
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREDIT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREDIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getCredit() {
@@ -335,7 +312,7 @@ public class OperationDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREDIT)
+  @JsonProperty(value = JSON_PROPERTY_CREDIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCredit(@javax.annotation.Nullable Double credit) {
     this.credit = credit;
@@ -351,8 +328,7 @@ public class OperationDto {
    * The debit amount of the operation.
    * @return debit
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEBIT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEBIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getDebit() {
@@ -360,7 +336,7 @@ public class OperationDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DEBIT)
+  @JsonProperty(value = JSON_PROPERTY_DEBIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDebit(@javax.annotation.Nullable Double debit) {
     this.debit = debit;
@@ -376,16 +352,14 @@ public class OperationDto {
    * The participant original name.
    * @return participantName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getParticipantName() {
         return participantName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PARTICIPANT_NAME)
+  @JsonProperty(value = JSON_PROPERTY_PARTICIPANT_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getParticipantName_JsonNullable() {
     return participantName;
   }
@@ -409,16 +383,14 @@ public class OperationDto {
    * The participant display name.
    * @return participantDisplayName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getParticipantDisplayName() {
         return participantDisplayName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PARTICIPANT_DISPLAY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_PARTICIPANT_DISPLAY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getParticipantDisplayName_JsonNullable() {
     return participantDisplayName;
   }

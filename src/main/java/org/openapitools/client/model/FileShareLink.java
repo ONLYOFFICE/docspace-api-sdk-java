@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -51,53 +52,50 @@ import java.util.StringJoiner;
   FileShareLink.JSON_PROPERTY_IS_EXPIRED,
   FileShareLink.JSON_PROPERTY_PRIMARY,
   FileShareLink.JSON_PROPERTY_INTERNAL,
-  FileShareLink.JSON_PROPERTY_REQUEST_TOKEN
+  FileShareLink.JSON_PROPERTY_REQUEST_TOKEN,
+  FileShareLink.JSON_PROPERTY_MAX_USE_COUNT,
+  FileShareLink.JSON_PROPERTY_CURRENT_USE_COUNT
 })
 
 public class FileShareLink {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private UUID id;
+  @javax.annotation.Nullable  private UUID id;
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SHARE_LINK = "shareLink";
-  @javax.annotation.Nullable
-  private JsonNullable<String> shareLink = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> shareLink = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EXPIRATION_DATE = "expirationDate";
-  @javax.annotation.Nullable
-  private ApiDateTime expirationDate;
+  @javax.annotation.Nullable  private ApiDateTime expirationDate;
 
   public static final String JSON_PROPERTY_LINK_TYPE = "linkType";
-  @javax.annotation.Nullable
-  private LinkType linkType;
+  @javax.annotation.Nullable  private LinkType linkType;
 
   public static final String JSON_PROPERTY_PASSWORD = "password";
-  @javax.annotation.Nullable
-  private JsonNullable<String> password = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> password = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DENY_DOWNLOAD = "denyDownload";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> denyDownload = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> denyDownload = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_IS_EXPIRED = "isExpired";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> isExpired = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> isExpired = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_PRIMARY = "primary";
-  @javax.annotation.Nullable
-  private Boolean primary;
+  @javax.annotation.Nullable  private Boolean primary;
 
   public static final String JSON_PROPERTY_INTERNAL = "internal";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> internal = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> internal = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_TOKEN = "requestToken";
-  @javax.annotation.Nullable
-  private JsonNullable<String> requestToken = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> requestToken = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_MAX_USE_COUNT = "maxUseCount";
+  @javax.annotation.Nullable  private JsonNullable<Integer> maxUseCount = JsonNullable.<Integer>undefined();
+
+  public static final String JSON_PROPERTY_CURRENT_USE_COUNT = "currentUseCount";
+  @javax.annotation.Nullable  private JsonNullable<Integer> currentUseCount = JsonNullable.<Integer>undefined();
 
   public FileShareLink() {
   }
@@ -113,8 +111,7 @@ public class FileShareLink {
    * The unique identifier of the shared link.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getId() {
@@ -122,7 +119,7 @@ public class FileShareLink {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(@javax.annotation.Nullable UUID id) {
     this.id = id;
@@ -138,16 +135,14 @@ public class FileShareLink {
    * The title of the shared content.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTitle() {
         return title.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
@@ -171,16 +166,14 @@ public class FileShareLink {
    * The URL for accessing the shared content.
    * @return shareLink
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getShareLink() {
         return shareLink.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SHARE_LINK)
+  @JsonProperty(value = JSON_PROPERTY_SHARE_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getShareLink_JsonNullable() {
     return shareLink;
   }
@@ -204,8 +197,7 @@ public class FileShareLink {
    * Get expirationDate
    * @return expirationDate
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApiDateTime getExpirationDate() {
@@ -213,7 +205,7 @@ public class FileShareLink {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpirationDate(@javax.annotation.Nullable ApiDateTime expirationDate) {
     this.expirationDate = expirationDate;
@@ -229,8 +221,7 @@ public class FileShareLink {
    * Get linkType
    * @return linkType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINK_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LINK_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public LinkType getLinkType() {
@@ -238,7 +229,7 @@ public class FileShareLink {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LINK_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_LINK_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinkType(@javax.annotation.Nullable LinkType linkType) {
     this.linkType = linkType;
@@ -254,16 +245,14 @@ public class FileShareLink {
    * The password protection for accessing the shared content.
    * @return password
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPassword() {
         return password.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PASSWORD)
+  @JsonProperty(value = JSON_PROPERTY_PASSWORD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPassword_JsonNullable() {
     return password;
   }
@@ -287,16 +276,14 @@ public class FileShareLink {
    * Indicates whether downloading of the shared content is prohibited.
    * @return denyDownload
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getDenyDownload() {
         return denyDownload.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DENY_DOWNLOAD)
+  @JsonProperty(value = JSON_PROPERTY_DENY_DOWNLOAD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getDenyDownload_JsonNullable() {
     return denyDownload;
   }
@@ -320,16 +307,14 @@ public class FileShareLink {
    * Indicates whether the shared link has expired.
    * @return isExpired
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getIsExpired() {
         return isExpired.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IS_EXPIRED)
+  @JsonProperty(value = JSON_PROPERTY_IS_EXPIRED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getIsExpired_JsonNullable() {
     return isExpired;
   }
@@ -353,8 +338,7 @@ public class FileShareLink {
    * Indicates whether this is the primary shared link.
    * @return primary
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRIMARY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRIMARY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getPrimary() {
@@ -362,7 +346,7 @@ public class FileShareLink {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PRIMARY)
+  @JsonProperty(value = JSON_PROPERTY_PRIMARY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrimary(@javax.annotation.Nullable Boolean primary) {
     this.primary = primary;
@@ -378,16 +362,14 @@ public class FileShareLink {
    * Indicates whether the link is for the internal sharing only.
    * @return internal
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getInternal() {
         return internal.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_INTERNAL)
+  @JsonProperty(value = JSON_PROPERTY_INTERNAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getInternal_JsonNullable() {
     return internal;
   }
@@ -411,16 +393,14 @@ public class FileShareLink {
    * The token for validating access requests.
    * @return requestToken
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRequestToken() {
         return requestToken.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_REQUEST_TOKEN)
+  @JsonProperty(value = JSON_PROPERTY_REQUEST_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRequestToken_JsonNullable() {
     return requestToken;
   }
@@ -432,6 +412,68 @@ public class FileShareLink {
 
   public void setRequestToken(@javax.annotation.Nullable String requestToken) {
     this.requestToken = JsonNullable.<String>of(requestToken);
+  }
+
+  public FileShareLink maxUseCount(@javax.annotation.Nullable Integer maxUseCount) {
+    this.maxUseCount = JsonNullable.<Integer>of(maxUseCount);
+    
+    return this;
+  }
+
+  /**
+   * The maximum number of times the invitation link can be used.
+   * @return maxUseCount
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Integer getMaxUseCount() {
+        return maxUseCount.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_MAX_USE_COUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Integer> getMaxUseCount_JsonNullable() {
+    return maxUseCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MAX_USE_COUNT)
+  public void setMaxUseCount_JsonNullable(JsonNullable<Integer> maxUseCount) {
+    this.maxUseCount = maxUseCount;
+  }
+
+  public void setMaxUseCount(@javax.annotation.Nullable Integer maxUseCount) {
+    this.maxUseCount = JsonNullable.<Integer>of(maxUseCount);
+  }
+
+  public FileShareLink currentUseCount(@javax.annotation.Nullable Integer currentUseCount) {
+    this.currentUseCount = JsonNullable.<Integer>of(currentUseCount);
+    
+    return this;
+  }
+
+  /**
+   * The current number of times the invitation link has been used.
+   * @return currentUseCount
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Integer getCurrentUseCount() {
+        return currentUseCount.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_CURRENT_USE_COUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Integer> getCurrentUseCount_JsonNullable() {
+    return currentUseCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CURRENT_USE_COUNT)
+  public void setCurrentUseCount_JsonNullable(JsonNullable<Integer> currentUseCount) {
+    this.currentUseCount = currentUseCount;
+  }
+
+  public void setCurrentUseCount(@javax.annotation.Nullable Integer currentUseCount) {
+    this.currentUseCount = JsonNullable.<Integer>of(currentUseCount);
   }
 
   @Override
@@ -453,7 +495,9 @@ public class FileShareLink {
         equalsNullable(this.isExpired, fileShareLink.isExpired) &&
         Objects.equals(this.primary, fileShareLink.primary) &&
         equalsNullable(this.internal, fileShareLink.internal) &&
-        equalsNullable(this.requestToken, fileShareLink.requestToken);
+        equalsNullable(this.requestToken, fileShareLink.requestToken) &&
+        equalsNullable(this.maxUseCount, fileShareLink.maxUseCount) &&
+        equalsNullable(this.currentUseCount, fileShareLink.currentUseCount);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -462,7 +506,7 @@ public class FileShareLink {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(title), hashCodeNullable(shareLink), expirationDate, linkType, hashCodeNullable(password), hashCodeNullable(denyDownload), hashCodeNullable(isExpired), primary, hashCodeNullable(internal), hashCodeNullable(requestToken));
+    return Objects.hash(id, hashCodeNullable(title), hashCodeNullable(shareLink), expirationDate, linkType, hashCodeNullable(password), hashCodeNullable(denyDownload), hashCodeNullable(isExpired), primary, hashCodeNullable(internal), hashCodeNullable(requestToken), hashCodeNullable(maxUseCount), hashCodeNullable(currentUseCount));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -487,6 +531,8 @@ public class FileShareLink {
     sb.append("    primary: ").append(toIndentedString(primary)).append("\n");
     sb.append("    internal: ").append(toIndentedString(internal)).append("\n");
     sb.append("    requestToken: ").append(toIndentedString(requestToken)).append("\n");
+    sb.append("    maxUseCount: ").append(toIndentedString(maxUseCount)).append("\n");
+    sb.append("    currentUseCount: ").append(toIndentedString(currentUseCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -633,6 +679,26 @@ public class FileShareLink {
     if (getRequestToken() != null) {
       try {
         joiner.add(String.format("%srequestToken%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRequestToken()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `maxUseCount` to the URL query string
+    if (getMaxUseCount() != null) {
+      try {
+        joiner.add(String.format("%smaxUseCount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaxUseCount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `currentUseCount` to the URL query string
+    if (getCurrentUseCount() != null) {
+      try {
+        joiner.add(String.format("%scurrentUseCount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCurrentUseCount()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

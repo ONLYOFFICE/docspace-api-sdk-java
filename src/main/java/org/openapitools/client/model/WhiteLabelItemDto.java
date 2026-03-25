@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -49,20 +50,16 @@ import java.util.StringJoiner;
 
 public class WhiteLabelItemDto {
   public static final String JSON_PROPERTY_TYPE = "type";
-  @javax.annotation.Nullable
-  private WhiteLabelLogoType type;
+  @javax.annotation.Nullable  private WhiteLabelLogoType type;
 
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SIZE = "size";
-  @javax.annotation.Nullable
-  private IMagickGeometry size;
+  @javax.annotation.Nullable  private IMagickGeometry size;
 
   public static final String JSON_PROPERTY_PATH = "path";
-  @javax.annotation.Nullable
-  private WhiteLabelItemPathDto path;
+  @javax.annotation.Nullable  private WhiteLabelItemPathDto path;
 
   public WhiteLabelItemDto() {
   }
@@ -78,8 +75,7 @@ public class WhiteLabelItemDto {
    * Get type
    * @return type
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public WhiteLabelLogoType getType() {
@@ -87,7 +83,7 @@ public class WhiteLabelItemDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(@javax.annotation.Nullable WhiteLabelLogoType type) {
     this.type = type;
@@ -103,16 +99,14 @@ public class WhiteLabelItemDto {
    * The white label file name.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getName() {
         return name.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
@@ -136,8 +130,7 @@ public class WhiteLabelItemDto {
    * Get size
    * @return size
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIZE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public IMagickGeometry getSize() {
@@ -145,7 +138,7 @@ public class WhiteLabelItemDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIZE)
+  @JsonProperty(value = JSON_PROPERTY_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSize(@javax.annotation.Nullable IMagickGeometry size) {
     this.size = size;
@@ -161,8 +154,7 @@ public class WhiteLabelItemDto {
    * Get path
    * @return path
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PATH)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PATH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public WhiteLabelItemPathDto getPath() {
@@ -170,7 +162,7 @@ public class WhiteLabelItemDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PATH)
+  @JsonProperty(value = JSON_PROPERTY_PATH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPath(@javax.annotation.Nullable WhiteLabelItemPathDto path) {
     this.path = path;

@@ -11,7 +11,7 @@ The tenant quota settings.
 |**enableQuota** | **Boolean** | Specifies if the tenant quota is enabled or not. |  [optional] |
 |**quota** | **Long** | The tenant quota. |  [optional] |
 |**lastRecalculateDate** | **OffsetDateTime** | The date of the last tenant quota recalculation. |  [optional] |
-|**lastModified** | **OffsetDateTime** |  |  [optional] |
+|**lastModified** | **OffsetDateTime** | The timestamp indicating when the settings were last modified. |  [optional] |
 
 
 

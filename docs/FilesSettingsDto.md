@@ -65,6 +65,7 @@ The file settings parameters.
 |**maxUploadThreadCount** | **Integer** | The maximum number of upload threads. |  [optional] |
 |**chunkUploadSize** | **Long** | The size of a large file that is uploaded in chunks. |  [optional] |
 |**openEditorInSameTab** | **Boolean** | Specifies whether to open the editor in the same tab or not. |  [optional] |
+|**organizeRoomsGrouping** | **Boolean** | Specifies whether the grouping of rooms is enabled or not. |  [optional] |
 |**extsFilesVectorized** | **List&lt;String&gt;** | List of extensions available for vectorization |  [optional] |
 |**maxVectorizationFileSize** | **Long** | The maximum file size for vectorization |  [optional] |
 

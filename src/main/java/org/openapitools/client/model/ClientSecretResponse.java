@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -39,8 +40,7 @@ import java.util.StringJoiner;
 
 public class ClientSecretResponse {
   public static final String JSON_PROPERTY_CLIENT_SECRET = "client_secret";
-  @javax.annotation.Nullable
-  private String clientSecret;
+  @javax.annotation.Nullable  private String clientSecret;
 
   public ClientSecretResponse() {
   }
@@ -56,8 +56,7 @@ public class ClientSecretResponse {
    * The newly generated client secret.
    * @return clientSecret
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CLIENT_SECRET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getClientSecret() {
@@ -65,7 +64,7 @@ public class ClientSecretResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_SECRET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientSecret(@javax.annotation.Nullable String clientSecret) {
     this.clientSecret = clientSecret;

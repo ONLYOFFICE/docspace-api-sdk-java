@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,36 +47,28 @@ import java.util.StringJoiner;
 
 public class CompanyWhiteLabelSettingsDto {
   public static final String JSON_PROPERTY_COMPANY_NAME = "companyName";
-  @javax.annotation.Nullable
-  private String companyName;
+  @javax.annotation.Nullable  private String companyName;
 
   public static final String JSON_PROPERTY_SITE = "site";
-  @javax.annotation.Nullable
-  private String site;
+  @javax.annotation.Nullable  private String site;
 
   public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nullable
-  private String email;
+  @javax.annotation.Nullable  private String email;
 
   public static final String JSON_PROPERTY_ADDRESS = "address";
-  @javax.annotation.Nullable
-  private String address;
+  @javax.annotation.Nullable  private String address;
 
   public static final String JSON_PROPERTY_PHONE = "phone";
-  @javax.annotation.Nullable
-  private String phone;
+  @javax.annotation.Nullable  private String phone;
 
   public static final String JSON_PROPERTY_IS_LICENSOR = "isLicensor";
-  @javax.annotation.Nonnull
-  private Boolean isLicensor;
+  @javax.annotation.Nonnull  private Boolean isLicensor;
 
   public static final String JSON_PROPERTY_HIDE_ABOUT = "hideAbout";
-  @javax.annotation.Nonnull
-  private Boolean hideAbout;
+  @javax.annotation.Nonnull  private Boolean hideAbout;
 
   public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
-  @javax.annotation.Nonnull
-  private Boolean isDefault;
+  @javax.annotation.Nonnull  private Boolean isDefault;
 
   public CompanyWhiteLabelSettingsDto() {
   }
@@ -91,8 +84,7 @@ public class CompanyWhiteLabelSettingsDto {
    * The company name.
    * @return companyName
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPANY_NAME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COMPANY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getCompanyName() {
@@ -100,7 +92,7 @@ public class CompanyWhiteLabelSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COMPANY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_COMPANY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCompanyName(@javax.annotation.Nullable String companyName) {
     this.companyName = companyName;
@@ -116,8 +108,7 @@ public class CompanyWhiteLabelSettingsDto {
    * The company site.
    * @return site
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SITE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SITE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getSite() {
@@ -125,7 +116,7 @@ public class CompanyWhiteLabelSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SITE)
+  @JsonProperty(value = JSON_PROPERTY_SITE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSite(@javax.annotation.Nullable String site) {
     this.site = site;
@@ -141,8 +132,7 @@ public class CompanyWhiteLabelSettingsDto {
    * The company email address.
    * @return email
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getEmail() {
@@ -150,7 +140,7 @@ public class CompanyWhiteLabelSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEmail(@javax.annotation.Nullable String email) {
     this.email = email;
@@ -166,8 +156,7 @@ public class CompanyWhiteLabelSettingsDto {
    * The company address.
    * @return address
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ADDRESS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getAddress() {
@@ -175,7 +164,7 @@ public class CompanyWhiteLabelSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAddress(@javax.annotation.Nullable String address) {
     this.address = address;
@@ -191,8 +180,7 @@ public class CompanyWhiteLabelSettingsDto {
    * The company phone number.
    * @return phone
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PHONE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PHONE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getPhone() {
@@ -200,7 +188,7 @@ public class CompanyWhiteLabelSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PHONE)
+  @JsonProperty(value = JSON_PROPERTY_PHONE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPhone(@javax.annotation.Nullable String phone) {
     this.phone = phone;
@@ -216,8 +204,7 @@ public class CompanyWhiteLabelSettingsDto {
    * Specifies if a company is a licensor or not.
    * @return isLicensor
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_LICENSOR)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_LICENSOR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getIsLicensor() {
@@ -225,7 +212,7 @@ public class CompanyWhiteLabelSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_LICENSOR)
+  @JsonProperty(value = JSON_PROPERTY_IS_LICENSOR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsLicensor(@javax.annotation.Nonnull Boolean isLicensor) {
     this.isLicensor = isLicensor;
@@ -241,8 +228,7 @@ public class CompanyWhiteLabelSettingsDto {
    * Specifies if the About page is visible or not.
    * @return hideAbout
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_HIDE_ABOUT)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_HIDE_ABOUT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getHideAbout() {
@@ -250,7 +236,7 @@ public class CompanyWhiteLabelSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HIDE_ABOUT)
+  @JsonProperty(value = JSON_PROPERTY_HIDE_ABOUT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHideAbout(@javax.annotation.Nonnull Boolean hideAbout) {
     this.hideAbout = hideAbout;
@@ -266,8 +252,7 @@ public class CompanyWhiteLabelSettingsDto {
    * Specifies if these settings are default or not.
    * @return isDefault
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_DEFAULT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getIsDefault() {
@@ -275,7 +260,7 @@ public class CompanyWhiteLabelSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
+  @JsonProperty(value = JSON_PROPERTY_IS_DEFAULT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsDefault(@javax.annotation.Nonnull Boolean isDefault) {
     this.isDefault = isDefault;

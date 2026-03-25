@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -45,16 +46,13 @@ import java.util.StringJoiner;
 
 public class FileUploadResultDto {
   public static final String JSON_PROPERTY_SUCCESS = "success";
-  @javax.annotation.Nullable
-  private Boolean success;
+  @javax.annotation.Nullable  private Boolean success;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  @javax.annotation.Nullable
-  private JsonNullable<Object> data = JsonNullable.<Object>of(null);
+  @javax.annotation.Nullable  private JsonNullable<Object> data = JsonNullable.<Object>of(null);
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
-  @javax.annotation.Nullable
-  private JsonNullable<String> message = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> message = JsonNullable.<String>undefined();
 
   public FileUploadResultDto() {
   }
@@ -70,8 +68,7 @@ public class FileUploadResultDto {
    * Specifies if the upload operation is successful or not.
    * @return success
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUCCESS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SUCCESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSuccess() {
@@ -79,7 +76,7 @@ public class FileUploadResultDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SUCCESS)
+  @JsonProperty(value = JSON_PROPERTY_SUCCESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSuccess(@javax.annotation.Nullable Boolean success) {
     this.success = success;
@@ -95,16 +92,14 @@ public class FileUploadResultDto {
    * The file upload result data.
    * @return data
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Object getData() {
         return data.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(value = JSON_PROPERTY_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Object> getData_JsonNullable() {
     return data;
   }
@@ -128,16 +123,14 @@ public class FileUploadResultDto {
    * The file upload result message.
    * @return message
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getMessage() {
         return message.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getMessage_JsonNullable() {
     return message;
   }

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -45,16 +46,13 @@ import java.util.StringJoiner;
 
 public class SalesRequestsDto {
   public static final String JSON_PROPERTY_USER_NAME = "userName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> userName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> userName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nullable
-  private String email;
+  @javax.annotation.Nullable  private String email;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
-  @javax.annotation.Nullable
-  private String message;
+  @javax.annotation.Nullable  private String message;
 
   public SalesRequestsDto() {
   }
@@ -70,16 +68,14 @@ public class SalesRequestsDto {
    * The name of the user submitting the sales request.
    * @return userName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getUserName() {
         return userName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_USER_NAME)
+  @JsonProperty(value = JSON_PROPERTY_USER_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getUserName_JsonNullable() {
     return userName;
   }
@@ -103,8 +99,7 @@ public class SalesRequestsDto {
    * The contact email address for the sales inquiry.
    * @return email
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getEmail() {
@@ -112,7 +107,7 @@ public class SalesRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEmail(@javax.annotation.Nullable String email) {
     this.email = email;
@@ -128,8 +123,7 @@ public class SalesRequestsDto {
    * The details of the sales inquiry or payment request.
    * @return message
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getMessage() {
@@ -137,7 +131,7 @@ public class SalesRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMessage(@javax.annotation.Nullable String message) {
     this.message = message;

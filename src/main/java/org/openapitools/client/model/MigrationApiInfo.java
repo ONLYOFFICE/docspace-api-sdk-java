@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -64,72 +65,55 @@ import java.util.StringJoiner;
 
 public class MigrationApiInfo {
   public static final String JSON_PROPERTY_MIGRATOR_NAME = "migratorName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> migratorName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> migratorName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_OPERATION = "operation";
-  @javax.annotation.Nullable
-  private JsonNullable<String> operation = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> operation = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FAILED_ARCHIVES = "failedArchives";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> failedArchives = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> failedArchives = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_USERS = "users";
-  @javax.annotation.Nullable
-  private JsonNullable<List<MigratingApiUser>> users = JsonNullable.<List<MigratingApiUser>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<MigratingApiUser>> users = JsonNullable.<List<MigratingApiUser>>undefined();
 
   public static final String JSON_PROPERTY_WITHOUT_EMAIL_USERS = "withoutEmailUsers";
-  @javax.annotation.Nullable
-  private JsonNullable<List<MigratingApiUser>> withoutEmailUsers = JsonNullable.<List<MigratingApiUser>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<MigratingApiUser>> withoutEmailUsers = JsonNullable.<List<MigratingApiUser>>undefined();
 
   public static final String JSON_PROPERTY_EXIST_USERS = "existUsers";
-  @javax.annotation.Nullable
-  private JsonNullable<List<MigratingApiUser>> existUsers = JsonNullable.<List<MigratingApiUser>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<MigratingApiUser>> existUsers = JsonNullable.<List<MigratingApiUser>>undefined();
 
   public static final String JSON_PROPERTY_GROUPS = "groups";
-  @javax.annotation.Nullable
-  private JsonNullable<List<MigratingApiGroup>> groups = JsonNullable.<List<MigratingApiGroup>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<MigratingApiGroup>> groups = JsonNullable.<List<MigratingApiGroup>>undefined();
 
   public static final String JSON_PROPERTY_IMPORT_PERSONAL_FILES = "importPersonalFiles";
-  @javax.annotation.Nullable
-  private Boolean importPersonalFiles;
+  @javax.annotation.Nullable  private Boolean importPersonalFiles;
 
   public static final String JSON_PROPERTY_IMPORT_SHARED_FILES = "importSharedFiles";
-  @javax.annotation.Nullable
-  private Boolean importSharedFiles;
+  @javax.annotation.Nullable  private Boolean importSharedFiles;
 
   public static final String JSON_PROPERTY_IMPORT_SHARED_FOLDERS = "importSharedFolders";
-  @javax.annotation.Nullable
-  private Boolean importSharedFolders;
+  @javax.annotation.Nullable  private Boolean importSharedFolders;
 
   public static final String JSON_PROPERTY_IMPORT_COMMON_FILES = "importCommonFiles";
-  @javax.annotation.Nullable
-  private Boolean importCommonFiles;
+  @javax.annotation.Nullable  private Boolean importCommonFiles;
 
   public static final String JSON_PROPERTY_IMPORT_PROJECT_FILES = "importProjectFiles";
-  @javax.annotation.Nullable
-  private Boolean importProjectFiles;
+  @javax.annotation.Nullable  private Boolean importProjectFiles;
 
   public static final String JSON_PROPERTY_IMPORT_GROUPS = "importGroups";
-  @javax.annotation.Nullable
-  private Boolean importGroups;
+  @javax.annotation.Nullable  private Boolean importGroups;
 
   public static final String JSON_PROPERTY_SUCCESSED_USERS = "successedUsers";
-  @javax.annotation.Nullable
-  private Integer successedUsers;
+  @javax.annotation.Nullable  private Integer successedUsers;
 
   public static final String JSON_PROPERTY_FAILED_USERS = "failedUsers";
-  @javax.annotation.Nullable
-  private Integer failedUsers;
+  @javax.annotation.Nullable  private Integer failedUsers;
 
   public static final String JSON_PROPERTY_FILES = "files";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> files = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> files = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> errors = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> errors = JsonNullable.<List<String>>undefined();
 
   public MigrationApiInfo() {
   }
@@ -145,16 +129,14 @@ public class MigrationApiInfo {
    * Get migratorName
    * @return migratorName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getMigratorName() {
         return migratorName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MIGRATOR_NAME)
+  @JsonProperty(value = JSON_PROPERTY_MIGRATOR_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getMigratorName_JsonNullable() {
     return migratorName;
   }
@@ -178,16 +160,14 @@ public class MigrationApiInfo {
    * Get operation
    * @return operation
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getOperation() {
         return operation.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_OPERATION)
+  @JsonProperty(value = JSON_PROPERTY_OPERATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getOperation_JsonNullable() {
     return operation;
   }
@@ -223,16 +203,14 @@ public class MigrationApiInfo {
    * Get failedArchives
    * @return failedArchives
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getFailedArchives() {
         return failedArchives.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FAILED_ARCHIVES)
+  @JsonProperty(value = JSON_PROPERTY_FAILED_ARCHIVES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getFailedArchives_JsonNullable() {
     return failedArchives;
   }
@@ -268,16 +246,14 @@ public class MigrationApiInfo {
    * Get users
    * @return users
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<MigratingApiUser> getUsers() {
         return users.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_USERS)
+  @JsonProperty(value = JSON_PROPERTY_USERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<MigratingApiUser>> getUsers_JsonNullable() {
     return users;
   }
@@ -313,16 +289,14 @@ public class MigrationApiInfo {
    * Get withoutEmailUsers
    * @return withoutEmailUsers
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<MigratingApiUser> getWithoutEmailUsers() {
         return withoutEmailUsers.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_WITHOUT_EMAIL_USERS)
+  @JsonProperty(value = JSON_PROPERTY_WITHOUT_EMAIL_USERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<MigratingApiUser>> getWithoutEmailUsers_JsonNullable() {
     return withoutEmailUsers;
   }
@@ -358,16 +332,14 @@ public class MigrationApiInfo {
    * Get existUsers
    * @return existUsers
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<MigratingApiUser> getExistUsers() {
         return existUsers.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXIST_USERS)
+  @JsonProperty(value = JSON_PROPERTY_EXIST_USERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<MigratingApiUser>> getExistUsers_JsonNullable() {
     return existUsers;
   }
@@ -403,16 +375,14 @@ public class MigrationApiInfo {
    * Get groups
    * @return groups
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<MigratingApiGroup> getGroups() {
         return groups.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_GROUPS)
+  @JsonProperty(value = JSON_PROPERTY_GROUPS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<MigratingApiGroup>> getGroups_JsonNullable() {
     return groups;
   }
@@ -436,8 +406,7 @@ public class MigrationApiInfo {
    * Get importPersonalFiles
    * @return importPersonalFiles
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IMPORT_PERSONAL_FILES)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMPORT_PERSONAL_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getImportPersonalFiles() {
@@ -445,7 +414,7 @@ public class MigrationApiInfo {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IMPORT_PERSONAL_FILES)
+  @JsonProperty(value = JSON_PROPERTY_IMPORT_PERSONAL_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImportPersonalFiles(@javax.annotation.Nullable Boolean importPersonalFiles) {
     this.importPersonalFiles = importPersonalFiles;
@@ -461,8 +430,7 @@ public class MigrationApiInfo {
    * Get importSharedFiles
    * @return importSharedFiles
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IMPORT_SHARED_FILES)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMPORT_SHARED_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getImportSharedFiles() {
@@ -470,7 +438,7 @@ public class MigrationApiInfo {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IMPORT_SHARED_FILES)
+  @JsonProperty(value = JSON_PROPERTY_IMPORT_SHARED_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImportSharedFiles(@javax.annotation.Nullable Boolean importSharedFiles) {
     this.importSharedFiles = importSharedFiles;
@@ -486,8 +454,7 @@ public class MigrationApiInfo {
    * Get importSharedFolders
    * @return importSharedFolders
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IMPORT_SHARED_FOLDERS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMPORT_SHARED_FOLDERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getImportSharedFolders() {
@@ -495,7 +462,7 @@ public class MigrationApiInfo {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IMPORT_SHARED_FOLDERS)
+  @JsonProperty(value = JSON_PROPERTY_IMPORT_SHARED_FOLDERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImportSharedFolders(@javax.annotation.Nullable Boolean importSharedFolders) {
     this.importSharedFolders = importSharedFolders;
@@ -511,8 +478,7 @@ public class MigrationApiInfo {
    * Get importCommonFiles
    * @return importCommonFiles
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IMPORT_COMMON_FILES)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMPORT_COMMON_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getImportCommonFiles() {
@@ -520,7 +486,7 @@ public class MigrationApiInfo {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IMPORT_COMMON_FILES)
+  @JsonProperty(value = JSON_PROPERTY_IMPORT_COMMON_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImportCommonFiles(@javax.annotation.Nullable Boolean importCommonFiles) {
     this.importCommonFiles = importCommonFiles;
@@ -536,8 +502,7 @@ public class MigrationApiInfo {
    * Get importProjectFiles
    * @return importProjectFiles
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IMPORT_PROJECT_FILES)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMPORT_PROJECT_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getImportProjectFiles() {
@@ -545,7 +510,7 @@ public class MigrationApiInfo {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IMPORT_PROJECT_FILES)
+  @JsonProperty(value = JSON_PROPERTY_IMPORT_PROJECT_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImportProjectFiles(@javax.annotation.Nullable Boolean importProjectFiles) {
     this.importProjectFiles = importProjectFiles;
@@ -561,8 +526,7 @@ public class MigrationApiInfo {
    * Get importGroups
    * @return importGroups
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IMPORT_GROUPS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMPORT_GROUPS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getImportGroups() {
@@ -570,7 +534,7 @@ public class MigrationApiInfo {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IMPORT_GROUPS)
+  @JsonProperty(value = JSON_PROPERTY_IMPORT_GROUPS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImportGroups(@javax.annotation.Nullable Boolean importGroups) {
     this.importGroups = importGroups;
@@ -586,8 +550,7 @@ public class MigrationApiInfo {
    * Get successedUsers
    * @return successedUsers
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUCCESSED_USERS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SUCCESSED_USERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getSuccessedUsers() {
@@ -595,7 +558,7 @@ public class MigrationApiInfo {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SUCCESSED_USERS)
+  @JsonProperty(value = JSON_PROPERTY_SUCCESSED_USERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSuccessedUsers(@javax.annotation.Nullable Integer successedUsers) {
     this.successedUsers = successedUsers;
@@ -611,8 +574,7 @@ public class MigrationApiInfo {
    * Get failedUsers
    * @return failedUsers
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FAILED_USERS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FAILED_USERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getFailedUsers() {
@@ -620,7 +582,7 @@ public class MigrationApiInfo {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FAILED_USERS)
+  @JsonProperty(value = JSON_PROPERTY_FAILED_USERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFailedUsers(@javax.annotation.Nullable Integer failedUsers) {
     this.failedUsers = failedUsers;
@@ -648,16 +610,14 @@ public class MigrationApiInfo {
    * Get files
    * @return files
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getFiles() {
         return files.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getFiles_JsonNullable() {
     return files;
   }
@@ -693,16 +653,14 @@ public class MigrationApiInfo {
    * Get errors
    * @return errors
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getErrors() {
         return errors.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonProperty(value = JSON_PROPERTY_ERRORS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getErrors_JsonNullable() {
     return errors;
   }

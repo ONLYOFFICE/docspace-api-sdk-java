@@ -349,7 +349,7 @@ public class Example {
 
 
         SettingsApi apiInstance = new SettingsApi(defaultClient);
-        String virtualPath = "some text"; // String | The virtual path for the portal resource access.
+        String virtualPath = "/portal/documents"; // String | The virtual path for the portal resource access.
         try {
             ObjectWrapper result = apiInstance.getPortalPath(virtualPath);
             System.out.println(result);

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -58,48 +59,37 @@ import java.util.StringJoiner;
 
 public class RoomTemplateDto {
   public static final String JSON_PROPERTY_ROOM_ID = "roomId";
-  @javax.annotation.Nonnull
-  private Integer roomId;
+  @javax.annotation.Nonnull  private Integer roomId;
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LOGO = "logo";
-  @javax.annotation.Nullable
-  private LogoRequest logo;
+  @javax.annotation.Nullable  private LogoRequest logo;
 
   public static final String JSON_PROPERTY_COPY_LOGO = "copyLogo";
-  @javax.annotation.Nullable
-  private Boolean copyLogo;
+  @javax.annotation.Nullable  private Boolean copyLogo;
 
   public static final String JSON_PROPERTY_SHARE = "share";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> share = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> share = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_GROUPS = "groups";
-  @javax.annotation.Nullable
-  private JsonNullable<List<UUID>> groups = JsonNullable.<List<UUID>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<UUID>> groups = JsonNullable.<List<UUID>>undefined();
 
   public static final String JSON_PROPERTY_PUBLIC = "public";
-  @javax.annotation.Nullable
-  private Boolean _public;
+  @javax.annotation.Nullable  private Boolean _public;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_COLOR = "color";
-  @javax.annotation.Nullable
-  private JsonNullable<String> color = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> color = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_COVER = "cover";
-  @javax.annotation.Nullable
-  private JsonNullable<String> cover = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> cover = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_QUOTA = "quota";
-  @javax.annotation.Nullable
-  private JsonNullable<Long> quota = JsonNullable.<Long>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Long> quota = JsonNullable.<Long>undefined();
 
   public RoomTemplateDto() {
   }
@@ -115,8 +105,7 @@ public class RoomTemplateDto {
    * The room template ID.
    * @return roomId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ROOM_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ROOM_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getRoomId() {
@@ -124,7 +113,7 @@ public class RoomTemplateDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROOM_ID)
+  @JsonProperty(value = JSON_PROPERTY_ROOM_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRoomId(@javax.annotation.Nonnull Integer roomId) {
     this.roomId = roomId;
@@ -140,16 +129,14 @@ public class RoomTemplateDto {
    * The room template title.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTitle() {
         return title.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
@@ -173,8 +160,7 @@ public class RoomTemplateDto {
    * Get logo
    * @return logo
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOGO)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public LogoRequest getLogo() {
@@ -182,7 +168,7 @@ public class RoomTemplateDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOGO)
+  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(@javax.annotation.Nullable LogoRequest logo) {
     this.logo = logo;
@@ -198,8 +184,7 @@ public class RoomTemplateDto {
    * Specifies whether to copy room logo or not.
    * @return copyLogo
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COPY_LOGO)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COPY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCopyLogo() {
@@ -207,7 +192,7 @@ public class RoomTemplateDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COPY_LOGO)
+  @JsonProperty(value = JSON_PROPERTY_COPY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCopyLogo(@javax.annotation.Nullable Boolean copyLogo) {
     this.copyLogo = copyLogo;
@@ -235,16 +220,14 @@ public class RoomTemplateDto {
    * The collection of email addresses of users with whom to share a room.
    * @return share
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getShare() {
         return share.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SHARE)
+  @JsonProperty(value = JSON_PROPERTY_SHARE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getShare_JsonNullable() {
     return share;
   }
@@ -280,16 +263,14 @@ public class RoomTemplateDto {
    * The collection of groups with whom to share a room.
    * @return groups
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<UUID> getGroups() {
         return groups.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_GROUPS)
+  @JsonProperty(value = JSON_PROPERTY_GROUPS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<UUID>> getGroups_JsonNullable() {
     return groups;
   }
@@ -313,8 +294,7 @@ public class RoomTemplateDto {
    * Specifies whether the room template is public or not.
    * @return _public
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PUBLIC)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PUBLIC, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getPublic() {
@@ -322,7 +302,7 @@ public class RoomTemplateDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PUBLIC)
+  @JsonProperty(value = JSON_PROPERTY_PUBLIC, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPublic(@javax.annotation.Nullable Boolean _public) {
     this._public = _public;
@@ -350,16 +330,14 @@ public class RoomTemplateDto {
    * The collection of tags.
    * @return tags
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getTags() {
         return tags.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonProperty(value = JSON_PROPERTY_TAGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getTags_JsonNullable() {
     return tags;
   }
@@ -383,16 +361,14 @@ public class RoomTemplateDto {
    * The color of the room template.
    * @return color
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getColor() {
         return color.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_COLOR)
+  @JsonProperty(value = JSON_PROPERTY_COLOR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getColor_JsonNullable() {
     return color;
   }
@@ -416,16 +392,14 @@ public class RoomTemplateDto {
    * The cover of the room template.
    * @return cover
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCover() {
         return cover.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_COVER)
+  @JsonProperty(value = JSON_PROPERTY_COVER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCover_JsonNullable() {
     return cover;
   }
@@ -449,16 +423,14 @@ public class RoomTemplateDto {
    * Room quota
    * @return quota
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Long getQuota() {
         return quota.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_QUOTA)
+  @JsonProperty(value = JSON_PROPERTY_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Long> getQuota_JsonNullable() {
     return quota;
   }

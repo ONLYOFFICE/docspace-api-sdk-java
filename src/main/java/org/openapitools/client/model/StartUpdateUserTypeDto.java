@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -47,16 +48,13 @@ import java.util.StringJoiner;
 
 public class StartUpdateUserTypeDto {
   public static final String JSON_PROPERTY_TYPE = "type";
-  @javax.annotation.Nullable
-  private EmployeeType type;
+  @javax.annotation.Nullable  private EmployeeType type;
 
   public static final String JSON_PROPERTY_USER_ID = "userId";
-  @javax.annotation.Nullable
-  private UUID userId;
+  @javax.annotation.Nullable  private UUID userId;
 
   public static final String JSON_PROPERTY_REASSIGN_USER_ID = "reassignUserId";
-  @javax.annotation.Nullable
-  private JsonNullable<UUID> reassignUserId = JsonNullable.<UUID>undefined();
+  @javax.annotation.Nullable  private JsonNullable<UUID> reassignUserId = JsonNullable.<UUID>undefined();
 
   public StartUpdateUserTypeDto() {
   }
@@ -72,8 +70,7 @@ public class StartUpdateUserTypeDto {
    * Get type
    * @return type
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EmployeeType getType() {
@@ -81,7 +78,7 @@ public class StartUpdateUserTypeDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(@javax.annotation.Nullable EmployeeType type) {
     this.type = type;
@@ -97,8 +94,7 @@ public class StartUpdateUserTypeDto {
    * The user ID.
    * @return userId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USER_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getUserId() {
@@ -106,7 +102,7 @@ public class StartUpdateUserTypeDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USER_ID)
+  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUserId(@javax.annotation.Nullable UUID userId) {
     this.userId = userId;
@@ -122,16 +118,14 @@ public class StartUpdateUserTypeDto {
    * The user ID to reassign.
    * @return reassignUserId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public UUID getReassignUserId() {
         return reassignUserId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_REASSIGN_USER_ID)
+  @JsonProperty(value = JSON_PROPERTY_REASSIGN_USER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<UUID> getReassignUserId_JsonNullable() {
     return reassignUserId;
   }

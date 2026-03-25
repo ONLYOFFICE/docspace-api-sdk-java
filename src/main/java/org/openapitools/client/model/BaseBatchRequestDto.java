@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -50,16 +51,13 @@ import java.util.StringJoiner;
 
 public class BaseBatchRequestDto {
   public static final String JSON_PROPERTY_RETURN_SINGLE_OPERATION = "returnSingleOperation";
-  @javax.annotation.Nullable
-  private Boolean returnSingleOperation;
+  @javax.annotation.Nullable  private Boolean returnSingleOperation;
 
   public static final String JSON_PROPERTY_FOLDER_IDS = "folderIds";
-  @javax.annotation.Nullable
-  private JsonNullable<List<BaseBatchRequestDtoAllOfFolderIds>> folderIds = JsonNullable.<List<BaseBatchRequestDtoAllOfFolderIds>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<BaseBatchRequestDtoAllOfFolderIds>> folderIds = JsonNullable.<List<BaseBatchRequestDtoAllOfFolderIds>>undefined();
 
   public static final String JSON_PROPERTY_FILE_IDS = "fileIds";
-  @javax.annotation.Nullable
-  private JsonNullable<List<BaseBatchRequestDtoAllOfFileIds>> fileIds = JsonNullable.<List<BaseBatchRequestDtoAllOfFileIds>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<BaseBatchRequestDtoAllOfFileIds>> fileIds = JsonNullable.<List<BaseBatchRequestDtoAllOfFileIds>>undefined();
 
   public BaseBatchRequestDto() {
   }
@@ -75,8 +73,7 @@ public class BaseBatchRequestDto {
    * Specifies whether to return only the current operation
    * @return returnSingleOperation
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RETURN_SINGLE_OPERATION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RETURN_SINGLE_OPERATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getReturnSingleOperation() {
@@ -84,7 +81,7 @@ public class BaseBatchRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RETURN_SINGLE_OPERATION)
+  @JsonProperty(value = JSON_PROPERTY_RETURN_SINGLE_OPERATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReturnSingleOperation(@javax.annotation.Nullable Boolean returnSingleOperation) {
     this.returnSingleOperation = returnSingleOperation;
@@ -112,16 +109,14 @@ public class BaseBatchRequestDto {
    * The list of folder IDs of the base batch request.
    * @return folderIds
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<BaseBatchRequestDtoAllOfFolderIds> getFolderIds() {
         return folderIds.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FOLDER_IDS)
+  @JsonProperty(value = JSON_PROPERTY_FOLDER_IDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<BaseBatchRequestDtoAllOfFolderIds>> getFolderIds_JsonNullable() {
     return folderIds;
   }
@@ -157,16 +152,14 @@ public class BaseBatchRequestDto {
    * The list of file IDs of the base batch request.
    * @return fileIds
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<BaseBatchRequestDtoAllOfFileIds> getFileIds() {
         return fileIds.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE_IDS)
+  @JsonProperty(value = JSON_PROPERTY_FILE_IDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<BaseBatchRequestDtoAllOfFileIds>> getFileIds_JsonNullable() {
     return fileIds;
   }

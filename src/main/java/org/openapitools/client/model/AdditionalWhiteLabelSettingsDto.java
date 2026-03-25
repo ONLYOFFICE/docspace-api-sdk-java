@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -45,32 +46,25 @@ import java.util.StringJoiner;
 
 public class AdditionalWhiteLabelSettingsDto {
   public static final String JSON_PROPERTY_START_DOCS_ENABLED = "startDocsEnabled";
-  @javax.annotation.Nonnull
-  private Boolean startDocsEnabled;
+  @javax.annotation.Nonnull  private Boolean startDocsEnabled;
 
   public static final String JSON_PROPERTY_HELP_CENTER_ENABLED = "helpCenterEnabled";
-  @javax.annotation.Nonnull
-  private Boolean helpCenterEnabled;
+  @javax.annotation.Nonnull  private Boolean helpCenterEnabled;
 
   public static final String JSON_PROPERTY_FEEDBACK_AND_SUPPORT_ENABLED = "feedbackAndSupportEnabled";
-  @javax.annotation.Nonnull
-  private Boolean feedbackAndSupportEnabled;
+  @javax.annotation.Nonnull  private Boolean feedbackAndSupportEnabled;
 
   public static final String JSON_PROPERTY_USER_FORUM_ENABLED = "userForumEnabled";
-  @javax.annotation.Nonnull
-  private Boolean userForumEnabled;
+  @javax.annotation.Nonnull  private Boolean userForumEnabled;
 
   public static final String JSON_PROPERTY_VIDEO_GUIDES_ENABLED = "videoGuidesEnabled";
-  @javax.annotation.Nonnull
-  private Boolean videoGuidesEnabled;
+  @javax.annotation.Nonnull  private Boolean videoGuidesEnabled;
 
   public static final String JSON_PROPERTY_LICENSE_AGREEMENTS_ENABLED = "licenseAgreementsEnabled";
-  @javax.annotation.Nonnull
-  private Boolean licenseAgreementsEnabled;
+  @javax.annotation.Nonnull  private Boolean licenseAgreementsEnabled;
 
   public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
-  @javax.annotation.Nonnull
-  private Boolean isDefault;
+  @javax.annotation.Nonnull  private Boolean isDefault;
 
   public AdditionalWhiteLabelSettingsDto() {
   }
@@ -86,8 +80,7 @@ public class AdditionalWhiteLabelSettingsDto {
    * Specifies if the sample documents are displayed or hidden.
    * @return startDocsEnabled
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_START_DOCS_ENABLED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_START_DOCS_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getStartDocsEnabled() {
@@ -95,7 +88,7 @@ public class AdditionalWhiteLabelSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_START_DOCS_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_START_DOCS_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStartDocsEnabled(@javax.annotation.Nonnull Boolean startDocsEnabled) {
     this.startDocsEnabled = startDocsEnabled;
@@ -111,8 +104,7 @@ public class AdditionalWhiteLabelSettingsDto {
    * Specifies if the Help Center link is available or not.
    * @return helpCenterEnabled
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_HELP_CENTER_ENABLED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_HELP_CENTER_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getHelpCenterEnabled() {
@@ -120,7 +112,7 @@ public class AdditionalWhiteLabelSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HELP_CENTER_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_HELP_CENTER_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHelpCenterEnabled(@javax.annotation.Nonnull Boolean helpCenterEnabled) {
     this.helpCenterEnabled = helpCenterEnabled;
@@ -136,8 +128,7 @@ public class AdditionalWhiteLabelSettingsDto {
    * Specifies if the Feedback &amp; Support link is available or not.
    * @return feedbackAndSupportEnabled
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FEEDBACK_AND_SUPPORT_ENABLED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_FEEDBACK_AND_SUPPORT_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getFeedbackAndSupportEnabled() {
@@ -145,7 +136,7 @@ public class AdditionalWhiteLabelSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FEEDBACK_AND_SUPPORT_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_FEEDBACK_AND_SUPPORT_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFeedbackAndSupportEnabled(@javax.annotation.Nonnull Boolean feedbackAndSupportEnabled) {
     this.feedbackAndSupportEnabled = feedbackAndSupportEnabled;
@@ -161,8 +152,7 @@ public class AdditionalWhiteLabelSettingsDto {
    * Specifies if the user forum is available or not.
    * @return userForumEnabled
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_USER_FORUM_ENABLED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_USER_FORUM_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getUserForumEnabled() {
@@ -170,7 +160,7 @@ public class AdditionalWhiteLabelSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USER_FORUM_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_USER_FORUM_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUserForumEnabled(@javax.annotation.Nonnull Boolean userForumEnabled) {
     this.userForumEnabled = userForumEnabled;
@@ -186,8 +176,7 @@ public class AdditionalWhiteLabelSettingsDto {
    * Specifies if the Video Guides link is available or not.
    * @return videoGuidesEnabled
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VIDEO_GUIDES_ENABLED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_VIDEO_GUIDES_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getVideoGuidesEnabled() {
@@ -195,7 +184,7 @@ public class AdditionalWhiteLabelSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VIDEO_GUIDES_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_VIDEO_GUIDES_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVideoGuidesEnabled(@javax.annotation.Nonnull Boolean videoGuidesEnabled) {
     this.videoGuidesEnabled = videoGuidesEnabled;
@@ -211,8 +200,7 @@ public class AdditionalWhiteLabelSettingsDto {
    * Specifies if the License Agreements link is available or not.
    * @return licenseAgreementsEnabled
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LICENSE_AGREEMENTS_ENABLED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_LICENSE_AGREEMENTS_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getLicenseAgreementsEnabled() {
@@ -220,7 +208,7 @@ public class AdditionalWhiteLabelSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LICENSE_AGREEMENTS_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_LICENSE_AGREEMENTS_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLicenseAgreementsEnabled(@javax.annotation.Nonnull Boolean licenseAgreementsEnabled) {
     this.licenseAgreementsEnabled = licenseAgreementsEnabled;
@@ -236,8 +224,7 @@ public class AdditionalWhiteLabelSettingsDto {
    * Specifies if the additional white label settings are default or not.
    * @return isDefault
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_DEFAULT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getIsDefault() {
@@ -245,7 +232,7 @@ public class AdditionalWhiteLabelSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
+  @JsonProperty(value = JSON_PROPERTY_IS_DEFAULT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsDefault(@javax.annotation.Nonnull Boolean isDefault) {
     this.isDefault = isDefault;

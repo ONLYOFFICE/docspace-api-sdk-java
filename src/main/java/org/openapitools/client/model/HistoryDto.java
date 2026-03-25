@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,6 +35,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -55,28 +56,22 @@ import java.util.StringJoiner;
 
 public class HistoryDto {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nonnull
-  private Integer id;
+  @javax.annotation.Nonnull  private Integer id;
 
   public static final String JSON_PROPERTY_ACTION = "action";
-  @javax.annotation.Nonnull
-  private HistoryAction action;
+  @javax.annotation.Nonnull  private HistoryAction action;
 
   public static final String JSON_PROPERTY_INITIATOR = "initiator";
-  @javax.annotation.Nonnull
-  private EmployeeDto initiator;
+  @javax.annotation.Nonnull  private EmployeeDto initiator;
 
   public static final String JSON_PROPERTY_DATE = "date";
-  @javax.annotation.Nonnull
-  private ApiDateTime date;
+  @javax.annotation.Nonnull  private ApiDateTime date;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  @javax.annotation.Nonnull
-  private HistoryData data;
+  @javax.annotation.Nonnull  private HistoryData data;
 
   public static final String JSON_PROPERTY_RELATED = "related";
-  @javax.annotation.Nullable
-  private JsonNullable<List<HistoryDto>> related = JsonNullable.<List<HistoryDto>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<HistoryDto>> related = JsonNullable.<List<HistoryDto>>undefined();
 
   public HistoryDto() {
   }
@@ -92,8 +87,7 @@ public class HistoryDto {
    * The unique identifier for the file history entry.
    * @return id
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getId() {
@@ -101,7 +95,7 @@ public class HistoryDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@javax.annotation.Nonnull Integer id) {
     this.id = id;
@@ -117,8 +111,7 @@ public class HistoryDto {
    * Get action
    * @return action
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ACTION)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ACTION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public HistoryAction getAction() {
@@ -126,7 +119,7 @@ public class HistoryDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACTION)
+  @JsonProperty(value = JSON_PROPERTY_ACTION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAction(@javax.annotation.Nonnull HistoryAction action) {
     this.action = action;
@@ -142,8 +135,7 @@ public class HistoryDto {
    * Get initiator
    * @return initiator
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INITIATOR)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_INITIATOR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public EmployeeDto getInitiator() {
@@ -151,7 +143,7 @@ public class HistoryDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INITIATOR)
+  @JsonProperty(value = JSON_PROPERTY_INITIATOR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setInitiator(@javax.annotation.Nonnull EmployeeDto initiator) {
     this.initiator = initiator;
@@ -167,8 +159,7 @@ public class HistoryDto {
    * Get date
    * @return date
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DATE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public ApiDateTime getDate() {
@@ -176,7 +167,7 @@ public class HistoryDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATE)
+  @JsonProperty(value = JSON_PROPERTY_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDate(@javax.annotation.Nonnull ApiDateTime date) {
     this.date = date;
@@ -192,8 +183,7 @@ public class HistoryDto {
    * Get data
    * @return data
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DATA, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public HistoryData getData() {
@@ -201,7 +191,7 @@ public class HistoryDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(value = JSON_PROPERTY_DATA, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setData(@javax.annotation.Nonnull HistoryData data) {
     this.data = data;
@@ -229,16 +219,14 @@ public class HistoryDto {
    * The list of related history.
    * @return related
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<HistoryDto> getRelated() {
         return related.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_RELATED)
+  @JsonProperty(value = JSON_PROPERTY_RELATED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<HistoryDto>> getRelated_JsonNullable() {
     return related;
   }

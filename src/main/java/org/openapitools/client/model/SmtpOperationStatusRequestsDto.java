@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -47,24 +48,19 @@ import java.util.StringJoiner;
 
 public class SmtpOperationStatusRequestsDto {
   public static final String JSON_PROPERTY_COMPLETED = "completed";
-  @javax.annotation.Nullable
-  private Boolean completed;
+  @javax.annotation.Nullable  private Boolean completed;
 
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private JsonNullable<String> id = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> id = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ERROR = "error";
-  @javax.annotation.Nullable
-  private JsonNullable<String> error = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> error = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_STATUS = "status";
-  @javax.annotation.Nullable
-  private JsonNullable<String> status = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> status = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PERCENTS = "percents";
-  @javax.annotation.Nullable
-  private Integer percents;
+  @javax.annotation.Nullable  private Integer percents;
 
   public SmtpOperationStatusRequestsDto() {
   }
@@ -80,8 +76,7 @@ public class SmtpOperationStatusRequestsDto {
    * Specifies whether the SMTP operation has finished processing.
    * @return completed
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPLETED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COMPLETED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCompleted() {
@@ -89,7 +84,7 @@ public class SmtpOperationStatusRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COMPLETED)
+  @JsonProperty(value = JSON_PROPERTY_COMPLETED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompleted(@javax.annotation.Nullable Boolean completed) {
     this.completed = completed;
@@ -105,16 +100,14 @@ public class SmtpOperationStatusRequestsDto {
    * The unique identifier for tracking the SMTP operation.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getId() {
         return id.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getId_JsonNullable() {
     return id;
   }
@@ -138,16 +131,14 @@ public class SmtpOperationStatusRequestsDto {
    * The error message if the SMTP operation encountered issues.
    * @return error
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getError() {
         return error.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getError_JsonNullable() {
     return error;
   }
@@ -171,16 +162,14 @@ public class SmtpOperationStatusRequestsDto {
    * The current state of the SMTP operation.
    * @return status
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getStatus() {
         return status.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getStatus_JsonNullable() {
     return status;
   }
@@ -204,8 +193,7 @@ public class SmtpOperationStatusRequestsDto {
    * The progress indicator showing completion percentage of the operation.
    * @return percents
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PERCENTS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PERCENTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getPercents() {
@@ -213,7 +201,7 @@ public class SmtpOperationStatusRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PERCENTS)
+  @JsonProperty(value = JSON_PROPERTY_PERCENTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPercents(@javax.annotation.Nullable Integer percents) {
     this.percents = percents;

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -52,36 +53,28 @@ import java.util.StringJoiner;
 
 public class CompanyWhiteLabelSettings {
   public static final String JSON_PROPERTY_COMPANY_NAME = "companyName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> companyName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> companyName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SITE = "site";
-  @javax.annotation.Nullable
-  private JsonNullable<URI> site = JsonNullable.<URI>undefined();
+  @javax.annotation.Nullable  private JsonNullable<URI> site = JsonNullable.<URI>undefined();
 
   public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nullable
-  private JsonNullable<String> email = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> email = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ADDRESS = "address";
-  @javax.annotation.Nullable
-  private JsonNullable<String> address = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> address = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PHONE = "phone";
-  @javax.annotation.Nullable
-  private JsonNullable<String> phone = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> phone = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_IS_LICENSOR = "IsLicensor";
-  @javax.annotation.Nullable
-  private Boolean isLicensor;
+  @javax.annotation.Nullable  private Boolean isLicensor;
 
   public static final String JSON_PROPERTY_HIDE_ABOUT = "hideAbout";
-  @javax.annotation.Nullable
-  private Boolean hideAbout;
+  @javax.annotation.Nullable  private Boolean hideAbout;
 
   public static final String JSON_PROPERTY_LAST_MODIFIED = "lastModified";
-  @javax.annotation.Nullable
-  private OffsetDateTime lastModified;
+  @javax.annotation.Nullable  private OffsetDateTime lastModified;
 
   public CompanyWhiteLabelSettings() {
   }
@@ -97,16 +90,14 @@ public class CompanyWhiteLabelSettings {
    * The company name.
    * @return companyName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCompanyName() {
         return companyName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_COMPANY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_COMPANY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCompanyName_JsonNullable() {
     return companyName;
   }
@@ -130,16 +121,14 @@ public class CompanyWhiteLabelSettings {
    * The company site.
    * @return site
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public URI getSite() {
         return site.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SITE)
+  @JsonProperty(value = JSON_PROPERTY_SITE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<URI> getSite_JsonNullable() {
     return site;
   }
@@ -163,16 +152,14 @@ public class CompanyWhiteLabelSettings {
    * The company email address.
    * @return email
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getEmail() {
         return email.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getEmail_JsonNullable() {
     return email;
   }
@@ -196,16 +183,14 @@ public class CompanyWhiteLabelSettings {
    * The company address.
    * @return address
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getAddress() {
         return address.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getAddress_JsonNullable() {
     return address;
   }
@@ -229,16 +214,14 @@ public class CompanyWhiteLabelSettings {
    * The company phone number.
    * @return phone
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPhone() {
         return phone.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PHONE)
+  @JsonProperty(value = JSON_PROPERTY_PHONE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPhone_JsonNullable() {
     return phone;
   }
@@ -262,8 +245,7 @@ public class CompanyWhiteLabelSettings {
    * Specifies if a company is a licensor or not.
    * @return isLicensor
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_LICENSOR)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_LICENSOR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsLicensor() {
@@ -271,7 +253,7 @@ public class CompanyWhiteLabelSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_LICENSOR)
+  @JsonProperty(value = JSON_PROPERTY_IS_LICENSOR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsLicensor(@javax.annotation.Nullable Boolean isLicensor) {
     this.isLicensor = isLicensor;
@@ -287,8 +269,7 @@ public class CompanyWhiteLabelSettings {
    * Specifies if the About page is visible or not
    * @return hideAbout
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HIDE_ABOUT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HIDE_ABOUT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getHideAbout() {
@@ -296,7 +277,7 @@ public class CompanyWhiteLabelSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HIDE_ABOUT)
+  @JsonProperty(value = JSON_PROPERTY_HIDE_ABOUT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHideAbout(@javax.annotation.Nullable Boolean hideAbout) {
     this.hideAbout = hideAbout;
@@ -309,11 +290,10 @@ public class CompanyWhiteLabelSettings {
   }
 
   /**
-   * Get lastModified
+   * The timestamp indicating when the settings were last modified.
    * @return lastModified
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLastModified() {
@@ -321,7 +301,7 @@ public class CompanyWhiteLabelSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
     this.lastModified = lastModified;

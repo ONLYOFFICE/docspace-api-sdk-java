@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,44 +49,34 @@ import java.util.StringJoiner;
 
 public class PermissionsConfig {
   public static final String JSON_PROPERTY_COMMENT = "comment";
-  @javax.annotation.Nullable
-  private Boolean comment;
+  @javax.annotation.Nullable  private Boolean comment;
 
   public static final String JSON_PROPERTY_CHAT = "chat";
-  @javax.annotation.Nullable
-  private Boolean chat;
+  @javax.annotation.Nullable  private Boolean chat;
 
   public static final String JSON_PROPERTY_DOWNLOAD = "download";
-  @javax.annotation.Nullable
-  private Boolean download;
+  @javax.annotation.Nullable  private Boolean download;
 
   public static final String JSON_PROPERTY_EDIT = "edit";
-  @javax.annotation.Nullable
-  private Boolean edit;
+  @javax.annotation.Nullable  private Boolean edit;
 
   public static final String JSON_PROPERTY_FILL_FORMS = "fillForms";
-  @javax.annotation.Nullable
-  private Boolean fillForms;
+  @javax.annotation.Nullable  private Boolean fillForms;
 
   public static final String JSON_PROPERTY_MODIFY_FILTER = "modifyFilter";
-  @javax.annotation.Nullable
-  private Boolean modifyFilter;
+  @javax.annotation.Nullable  private Boolean modifyFilter;
 
   public static final String JSON_PROPERTY_PROTECT = "protect";
-  @javax.annotation.Nullable
-  private Boolean protect;
+  @javax.annotation.Nullable  private Boolean protect;
 
   public static final String JSON_PROPERTY_PRINT = "print";
-  @javax.annotation.Nullable
-  private Boolean print;
+  @javax.annotation.Nullable  private Boolean print;
 
   public static final String JSON_PROPERTY_REVIEW = "review";
-  @javax.annotation.Nullable
-  private Boolean review;
+  @javax.annotation.Nullable  private Boolean review;
 
   public static final String JSON_PROPERTY_COPY = "copy";
-  @javax.annotation.Nullable
-  private Boolean copy;
+  @javax.annotation.Nullable  private Boolean copy;
 
   public PermissionsConfig() {
   }
@@ -101,8 +92,7 @@ public class PermissionsConfig {
    * Defines if the document can be commented or not.
    * @return comment
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMMENT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COMMENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getComment() {
@@ -110,7 +100,7 @@ public class PermissionsConfig {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COMMENT)
+  @JsonProperty(value = JSON_PROPERTY_COMMENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setComment(@javax.annotation.Nullable Boolean comment) {
     this.comment = comment;
@@ -126,8 +116,7 @@ public class PermissionsConfig {
    * Defines if the chat functionality is enabled in the document or not.
    * @return chat
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHAT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CHAT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getChat() {
@@ -135,7 +124,7 @@ public class PermissionsConfig {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CHAT)
+  @JsonProperty(value = JSON_PROPERTY_CHAT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChat(@javax.annotation.Nullable Boolean chat) {
     this.chat = chat;
@@ -151,8 +140,7 @@ public class PermissionsConfig {
    * Defines if the document can be downloaded or only viewed or edited online.
    * @return download
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOWNLOAD)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOWNLOAD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDownload() {
@@ -160,7 +148,7 @@ public class PermissionsConfig {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOWNLOAD)
+  @JsonProperty(value = JSON_PROPERTY_DOWNLOAD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDownload(@javax.annotation.Nullable Boolean download) {
     this.download = download;
@@ -176,8 +164,7 @@ public class PermissionsConfig {
    * Defines if the document can be edited or only viewed.
    * @return edit
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EDIT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EDIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEdit() {
@@ -185,7 +172,7 @@ public class PermissionsConfig {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EDIT)
+  @JsonProperty(value = JSON_PROPERTY_EDIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEdit(@javax.annotation.Nullable Boolean edit) {
     this.edit = edit;
@@ -201,8 +188,7 @@ public class PermissionsConfig {
    * Defines if the forms can be filled.
    * @return fillForms
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILL_FORMS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILL_FORMS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getFillForms() {
@@ -210,7 +196,7 @@ public class PermissionsConfig {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILL_FORMS)
+  @JsonProperty(value = JSON_PROPERTY_FILL_FORMS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFillForms(@javax.annotation.Nullable Boolean fillForms) {
     this.fillForms = fillForms;
@@ -226,8 +212,7 @@ public class PermissionsConfig {
    * Defines if the filter can be applied globally (true) affecting all the other users,  or locally (false), i.e. for the current user only.
    * @return modifyFilter
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFY_FILTER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MODIFY_FILTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getModifyFilter() {
@@ -235,7 +220,7 @@ public class PermissionsConfig {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MODIFY_FILTER)
+  @JsonProperty(value = JSON_PROPERTY_MODIFY_FILTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModifyFilter(@javax.annotation.Nullable Boolean modifyFilter) {
     this.modifyFilter = modifyFilter;
@@ -251,8 +236,7 @@ public class PermissionsConfig {
    * Defines if the Protection tab on the toolbar and the Protect button in the left menu are displayedor hidden.
    * @return protect
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROTECT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROTECT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getProtect() {
@@ -260,7 +244,7 @@ public class PermissionsConfig {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROTECT)
+  @JsonProperty(value = JSON_PROPERTY_PROTECT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProtect(@javax.annotation.Nullable Boolean protect) {
     this.protect = protect;
@@ -276,8 +260,7 @@ public class PermissionsConfig {
    * Defines if the document can be printed or not.
    * @return print
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRINT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRINT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getPrint() {
@@ -285,7 +268,7 @@ public class PermissionsConfig {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PRINT)
+  @JsonProperty(value = JSON_PROPERTY_PRINT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrint(@javax.annotation.Nullable Boolean print) {
     this.print = print;
@@ -301,8 +284,7 @@ public class PermissionsConfig {
    * Defines if the document can be reviewed or not.
    * @return review
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REVIEW)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REVIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getReview() {
@@ -310,7 +292,7 @@ public class PermissionsConfig {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REVIEW)
+  @JsonProperty(value = JSON_PROPERTY_REVIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReview(@javax.annotation.Nullable Boolean review) {
     this.review = review;
@@ -326,8 +308,7 @@ public class PermissionsConfig {
    * Defines if the content can be copied to the clipboard or not.
    * @return copy
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COPY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COPY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCopy() {
@@ -335,7 +316,7 @@ public class PermissionsConfig {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COPY)
+  @JsonProperty(value = JSON_PROPERTY_COPY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCopy(@javax.annotation.Nullable Boolean copy) {
     this.copy = copy;

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -51,32 +52,25 @@ import java.util.StringJoiner;
 
 public class FireBaseUser {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private Integer id;
+  @javax.annotation.Nullable  private Integer id;
 
   public static final String JSON_PROPERTY_USER_ID = "userId";
-  @javax.annotation.Nullable
-  private UUID userId;
+  @javax.annotation.Nullable  private UUID userId;
 
   public static final String JSON_PROPERTY_TENANT_ID = "tenantId";
-  @javax.annotation.Nullable
-  private Integer tenantId;
+  @javax.annotation.Nullable  private Integer tenantId;
 
   public static final String JSON_PROPERTY_FIREBASE_DEVICE_TOKEN = "firebaseDeviceToken";
-  @javax.annotation.Nullable
-  private JsonNullable<String> firebaseDeviceToken = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> firebaseDeviceToken = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_APPLICATION = "application";
-  @javax.annotation.Nullable
-  private JsonNullable<String> application = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> application = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_IS_SUBSCRIBED = "isSubscribed";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> isSubscribed = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> isSubscribed = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_TENANT = "tenant";
-  @javax.annotation.Nullable
-  private DbTenant tenant;
+  @javax.annotation.Nullable  private DbTenant tenant;
 
   public FireBaseUser() {
   }
@@ -92,8 +86,7 @@ public class FireBaseUser {
    * The Firebase user ID.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getId() {
@@ -101,7 +94,7 @@ public class FireBaseUser {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(@javax.annotation.Nullable Integer id) {
     this.id = id;
@@ -117,8 +110,7 @@ public class FireBaseUser {
    * The user ID.
    * @return userId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USER_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getUserId() {
@@ -126,7 +118,7 @@ public class FireBaseUser {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USER_ID)
+  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUserId(@javax.annotation.Nullable UUID userId) {
     this.userId = userId;
@@ -142,8 +134,7 @@ public class FireBaseUser {
    * The tenant ID.
    * @return tenantId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getTenantId() {
@@ -151,7 +142,7 @@ public class FireBaseUser {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTenantId(@javax.annotation.Nullable Integer tenantId) {
     this.tenantId = tenantId;
@@ -167,16 +158,14 @@ public class FireBaseUser {
    * The Firebase device token.
    * @return firebaseDeviceToken
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFirebaseDeviceToken() {
         return firebaseDeviceToken.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FIREBASE_DEVICE_TOKEN)
+  @JsonProperty(value = JSON_PROPERTY_FIREBASE_DEVICE_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFirebaseDeviceToken_JsonNullable() {
     return firebaseDeviceToken;
   }
@@ -200,16 +189,14 @@ public class FireBaseUser {
    * The Firebase application.
    * @return application
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getApplication() {
         return application.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_APPLICATION)
+  @JsonProperty(value = JSON_PROPERTY_APPLICATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getApplication_JsonNullable() {
     return application;
   }
@@ -233,16 +220,14 @@ public class FireBaseUser {
    * Specifies if the user is subscribed to the push notifications or not.
    * @return isSubscribed
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getIsSubscribed() {
         return isSubscribed.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IS_SUBSCRIBED)
+  @JsonProperty(value = JSON_PROPERTY_IS_SUBSCRIBED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getIsSubscribed_JsonNullable() {
     return isSubscribed;
   }
@@ -266,8 +251,7 @@ public class FireBaseUser {
    * Get tenant
    * @return tenant
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TENANT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public DbTenant getTenant() {
@@ -275,7 +259,7 @@ public class FireBaseUser {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TENANT)
+  @JsonProperty(value = JSON_PROPERTY_TENANT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTenant(@javax.annotation.Nullable DbTenant tenant) {
     this.tenant = tenant;

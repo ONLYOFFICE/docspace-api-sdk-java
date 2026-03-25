@@ -14,7 +14,7 @@ The additional white label settings.
 |**userForumEnabled** | **Boolean** | Specifies if the user forum is available or not. |  [optional] |
 |**videoGuidesEnabled** | **Boolean** | Specifies if the Video Guides link is available or not. |  [optional] |
 |**licenseAgreementsEnabled** | **Boolean** | Specifies if the License Agreements link is available or not. |  [optional] |
-|**lastModified** | **OffsetDateTime** |  |  [optional] |
+|**lastModified** | **OffsetDateTime** | The timestamp indicating when the settings were last modified. |  [optional] |
 
 
 

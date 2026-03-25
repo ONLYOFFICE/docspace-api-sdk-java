@@ -17,7 +17,6 @@ The wallet services settings.
 
 | Name | Value |
 |---- | -----|
-| WebSearch | -14 |
 | AITools | -13 |
 | Backup | -12 |
 | Storage | -11 |

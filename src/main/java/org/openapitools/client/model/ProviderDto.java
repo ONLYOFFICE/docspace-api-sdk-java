@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -49,32 +50,25 @@ import java.util.StringJoiner;
 
 public class ProviderDto {
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_KEY = "key";
-  @javax.annotation.Nullable
-  private JsonNullable<String> key = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> key = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CONNECTED = "connected";
-  @javax.annotation.Nullable
-  private Boolean connected;
+  @javax.annotation.Nullable  private Boolean connected;
 
   public static final String JSON_PROPERTY_OAUTH = "oauth";
-  @javax.annotation.Nullable
-  private Boolean oauth;
+  @javax.annotation.Nullable  private Boolean oauth;
 
   public static final String JSON_PROPERTY_REDIRECT_URL = "redirectUrl";
-  @javax.annotation.Nullable
-  private JsonNullable<String> redirectUrl = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> redirectUrl = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REQUIRED_CONNECTION_URL = "requiredConnectionUrl";
-  @javax.annotation.Nullable
-  private Boolean requiredConnectionUrl;
+  @javax.annotation.Nullable  private Boolean requiredConnectionUrl;
 
   public static final String JSON_PROPERTY_CLIENT_ID = "clientId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> clientId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> clientId = JsonNullable.<String>undefined();
 
   public ProviderDto() {
   }
@@ -90,16 +84,14 @@ public class ProviderDto {
    * The provider name.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getName() {
         return name.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
@@ -123,16 +115,14 @@ public class ProviderDto {
    * The provider key.
    * @return key
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getKey() {
         return key.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_KEY)
+  @JsonProperty(value = JSON_PROPERTY_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getKey_JsonNullable() {
     return key;
   }
@@ -156,8 +146,7 @@ public class ProviderDto {
    * Specifies whether the provider is connected.
    * @return connected
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONNECTED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONNECTED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getConnected() {
@@ -165,7 +154,7 @@ public class ProviderDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CONNECTED)
+  @JsonProperty(value = JSON_PROPERTY_CONNECTED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConnected(@javax.annotation.Nullable Boolean connected) {
     this.connected = connected;
@@ -181,8 +170,7 @@ public class ProviderDto {
    * Specifies if the provider is OAuth.
    * @return oauth
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OAUTH)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OAUTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getOauth() {
@@ -190,7 +178,7 @@ public class ProviderDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OAUTH)
+  @JsonProperty(value = JSON_PROPERTY_OAUTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOauth(@javax.annotation.Nullable Boolean oauth) {
     this.oauth = oauth;
@@ -206,16 +194,14 @@ public class ProviderDto {
    * The provider redirect URL.
    * @return redirectUrl
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRedirectUrl() {
         return redirectUrl.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_REDIRECT_URL)
+  @JsonProperty(value = JSON_PROPERTY_REDIRECT_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRedirectUrl_JsonNullable() {
     return redirectUrl;
   }
@@ -239,8 +225,7 @@ public class ProviderDto {
    * The required connection URL flag.
    * @return requiredConnectionUrl
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUIRED_CONNECTION_URL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REQUIRED_CONNECTION_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getRequiredConnectionUrl() {
@@ -248,7 +233,7 @@ public class ProviderDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REQUIRED_CONNECTION_URL)
+  @JsonProperty(value = JSON_PROPERTY_REQUIRED_CONNECTION_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequiredConnectionUrl(@javax.annotation.Nullable Boolean requiredConnectionUrl) {
     this.requiredConnectionUrl = requiredConnectionUrl;
@@ -264,16 +249,14 @@ public class ProviderDto {
    * The provider OAuth client ID.
    * @return clientId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getClientId() {
         return clientId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getClientId_JsonNullable() {
     return clientId;
   }

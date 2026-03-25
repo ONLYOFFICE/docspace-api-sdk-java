@@ -79,7 +79,7 @@ public class Example {
 
 
         PhotosApi apiInstance = new PhotosApi(defaultClient);
-        String userid = "9846"; // String | The user ID.
+        String userid = "00000000-0000-0000-0000-000000000000"; // String | The user ID.
         ThumbnailsRequest thumbnailsRequest = new ThumbnailsRequest(); // ThumbnailsRequest | The thumbnail request.
         try {
             ThumbnailsDataWrapper result = apiInstance.createMemberPhotoThumbnails(userid, thumbnailsRequest);
@@ -105,9 +105,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Thumbnail parameters |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | User not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## deleteMemberPhoto
@@ -176,7 +176,7 @@ public class Example {
 
 
         PhotosApi apiInstance = new PhotosApi(defaultClient);
-        String userid = "9846"; // String | The user ID.
+        String userid = "00000000-0000-0000-0000-000000000000"; // String | The user ID.
         try {
             ThumbnailsDataWrapper result = apiInstance.deleteMemberPhoto(userid);
             System.out.println(result);
@@ -201,9 +201,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Thumbnail parameters: original photo, retina, maximum size photo, big, medium, small |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | User not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getMemberPhoto
@@ -272,7 +272,7 @@ public class Example {
 
 
         PhotosApi apiInstance = new PhotosApi(defaultClient);
-        String userid = "9846"; // String | The user ID.
+        String userid = "00000000-0000-0000-0000-000000000000"; // String | The user ID.
         try {
             ThumbnailsDataWrapper result = apiInstance.getMemberPhoto(userid);
             System.out.println(result);
@@ -297,9 +297,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Thumbnail parameters: original photo, retina, maximum size photo, big, medium, small |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | User not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## updateMemberPhoto
@@ -369,7 +369,7 @@ public class Example {
 
 
         PhotosApi apiInstance = new PhotosApi(defaultClient);
-        String userid = "9846"; // String | The user ID.
+        String userid = "00000000-0000-0000-0000-000000000000"; // String | The user ID.
         UpdatePhotoMemberRequest updatePhotoMemberRequest = new UpdatePhotoMemberRequest(); // UpdatePhotoMemberRequest | The request parameters for updating a photo.
         try {
             ThumbnailsDataWrapper result = apiInstance.updateMemberPhoto(userid, updatePhotoMemberRequest);
@@ -395,14 +395,14 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Updated thumbnail parameters: original photo, retina, maximum size photo, big, medium, small |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | User not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## uploadMemberPhoto
 
-> FileUploadResultWrapper uploadMemberPhoto(userid, formCollection)
+> FileUploadResultWrapper uploadMemberPhoto(userid, _file, autosave)
 
 Upload a user photoUploads a photo of the user with the ID specified in the request.
 
@@ -414,7 +414,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **userid** | **String**| The user ID. | |
-| **formCollection** | [**List&lt;KeyValuePairStringStringValues&gt;**](KeyValuePairStringStringValues.md)| The image data. | |
+| **_file** | **File**| The image data. | |
+| **autosave** | **Boolean**|  | [optional] |
 
 ### Return type
 
@@ -467,10 +468,11 @@ public class Example {
 
 
         PhotosApi apiInstance = new PhotosApi(defaultClient);
-        String userid = "9846"; // String | The user ID.
-        List<KeyValuePairStringStringValues> formCollection = Arrays.asList(); // List<KeyValuePairStringStringValues> | The image data.
+        String userid = "00000000-0000-0000-0000-000000000000"; // String | The user ID.
+        File _file = new File("/path/to/file"); // File | The image data.
+        Boolean autosave = true; // Boolean | 
         try {
-            FileUploadResultWrapper result = apiInstance.uploadMemberPhoto(userid, formCollection);
+            FileUploadResultWrapper result = apiInstance.uploadMemberPhoto(userid, _file, autosave);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling PhotosApi#uploadMemberPhoto");
@@ -494,8 +496,8 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Result of file uploading |  -  |
 | **400** | The uploaded file could not be found |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **413** | Image size is too large |  -  |
 | **415** | Unknown image file type |  -  |
+| **401** | Unauthorized |  -  |
 

@@ -174,8 +174,8 @@ public class Example {
 
 
         SecurityApi apiInstance = new SecurityApi(defaultClient);
-        UUID productid = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The ID of the product extracted from the query parameters.
-        UUID userid = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The user ID extracted from the query parameters.
+        UUID productid = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The ID of the product extracted from the query parameters.
+        UUID userid = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user ID extracted from the query parameters.
         try {
             ProductAdministratorWrapper result = apiInstance.getIsProductAdministrator(productid, userid);
             System.out.println(result);
@@ -359,7 +359,7 @@ public class Example {
 
 
         SecurityApi apiInstance = new SecurityApi(defaultClient);
-        UUID productid = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The ID of the product extracted from the route parameters.
+        UUID productid = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The ID of the product extracted from the route parameters.
         try {
             EmployeeArrayWrapper result = apiInstance.getProductAdministrators(productid);
             System.out.println(result);
@@ -453,7 +453,7 @@ public class Example {
 
 
         SecurityApi apiInstance = new SecurityApi(defaultClient);
-        UUID id = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The ID extracted from the route parameters.
+        UUID id = UUID.randomUUID(); // UUID | The ID extracted from the route parameters.
         try {
             BooleanWrapper result = apiInstance.getWebItemSecurityInfo(id);
             System.out.println(result);
@@ -666,8 +666,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Security settings |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Security settings are disabled for an open portal |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## setProductAdministrator
@@ -761,9 +761,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Object with the user security information: product ID, user ID, administrator or not |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
 | **403** | Only portal owner can set user as administrator |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## setWebItemSecurity
@@ -857,8 +857,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Security settings |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Security settings are disabled for an open portal |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## updatePasswordSettings

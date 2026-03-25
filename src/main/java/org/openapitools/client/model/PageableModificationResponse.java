@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -42,16 +43,13 @@ import java.util.StringJoiner;
 
 public class PageableModificationResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  @javax.annotation.Nullable
-  private Object data;
+  @javax.annotation.Nullable  private Object data;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
-  @javax.annotation.Nullable
-  private Integer limit;
+  @javax.annotation.Nullable  private Integer limit;
 
   public static final String JSON_PROPERTY_LAST_MODIFIED_ON = "last_modified_on";
-  @javax.annotation.Nullable
-  private OffsetDateTime lastModifiedOn;
+  @javax.annotation.Nullable  private OffsetDateTime lastModifiedOn;
 
   public PageableModificationResponse() {
   }
@@ -67,8 +65,7 @@ public class PageableModificationResponse {
    * The paginated modification data.
    * @return data
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Object getData() {
@@ -76,7 +73,7 @@ public class PageableModificationResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(value = JSON_PROPERTY_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(@javax.annotation.Nullable Object data) {
     this.data = data;
@@ -92,8 +89,7 @@ public class PageableModificationResponse {
    * The maximum number of results returned per page.
    * @return limit
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIMIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getLimit() {
@@ -101,7 +97,7 @@ public class PageableModificationResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonProperty(value = JSON_PROPERTY_LIMIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLimit(@javax.annotation.Nullable Integer limit) {
     this.limit = limit;
@@ -117,8 +113,7 @@ public class PageableModificationResponse {
    * The date when the user consent was last modified.
    * @return lastModifiedOn
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_ON)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLastModifiedOn() {
@@ -126,7 +121,7 @@ public class PageableModificationResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_ON)
+  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastModifiedOn(@javax.annotation.Nullable OffsetDateTime lastModifiedOn) {
     this.lastModifiedOn = lastModifiedOn;

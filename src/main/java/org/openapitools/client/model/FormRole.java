@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -52,36 +53,28 @@ import java.util.StringJoiner;
 
 public class FormRole {
   public static final String JSON_PROPERTY_ROOM_ID = "roomId";
-  @javax.annotation.Nullable
-  private Integer roomId;
+  @javax.annotation.Nullable  private Integer roomId;
 
   public static final String JSON_PROPERTY_ROLE_NAME = "roleName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> roleName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> roleName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ROLE_COLOR = "roleColor";
-  @javax.annotation.Nullable
-  private JsonNullable<String> roleColor = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> roleColor = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_USER_ID = "userId";
-  @javax.annotation.Nullable
-  private UUID userId;
+  @javax.annotation.Nullable  private UUID userId;
 
   public static final String JSON_PROPERTY_SEQUENCE = "sequence";
-  @javax.annotation.Nullable
-  private Integer sequence;
+  @javax.annotation.Nullable  private Integer sequence;
 
   public static final String JSON_PROPERTY_SUBMITTED = "submitted";
-  @javax.annotation.Nullable
-  private Boolean submitted;
+  @javax.annotation.Nullable  private Boolean submitted;
 
   public static final String JSON_PROPERTY_OPENED_AT = "openedAt";
-  @javax.annotation.Nullable
-  private OffsetDateTime openedAt;
+  @javax.annotation.Nullable  private OffsetDateTime openedAt;
 
   public static final String JSON_PROPERTY_SUBMISSION_DATE = "submissionDate";
-  @javax.annotation.Nullable
-  private OffsetDateTime submissionDate;
+  @javax.annotation.Nullable  private OffsetDateTime submissionDate;
 
   public FormRole() {
   }
@@ -97,8 +90,7 @@ public class FormRole {
    * The room ID.
    * @return roomId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROOM_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOM_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getRoomId() {
@@ -106,7 +98,7 @@ public class FormRole {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROOM_ID)
+  @JsonProperty(value = JSON_PROPERTY_ROOM_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoomId(@javax.annotation.Nullable Integer roomId) {
     this.roomId = roomId;
@@ -122,16 +114,14 @@ public class FormRole {
    * The role name.
    * @return roleName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRoleName() {
         return roleName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ROLE_NAME)
+  @JsonProperty(value = JSON_PROPERTY_ROLE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRoleName_JsonNullable() {
     return roleName;
   }
@@ -155,16 +145,14 @@ public class FormRole {
    * The role color.
    * @return roleColor
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRoleColor() {
         return roleColor.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ROLE_COLOR)
+  @JsonProperty(value = JSON_PROPERTY_ROLE_COLOR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRoleColor_JsonNullable() {
     return roleColor;
   }
@@ -188,8 +176,7 @@ public class FormRole {
    * The user ID.
    * @return userId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USER_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getUserId() {
@@ -197,7 +184,7 @@ public class FormRole {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USER_ID)
+  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUserId(@javax.annotation.Nullable UUID userId) {
     this.userId = userId;
@@ -213,8 +200,7 @@ public class FormRole {
    * The role sequence.
    * @return sequence
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SEQUENCE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SEQUENCE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getSequence() {
@@ -222,7 +208,7 @@ public class FormRole {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SEQUENCE)
+  @JsonProperty(value = JSON_PROPERTY_SEQUENCE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSequence(@javax.annotation.Nullable Integer sequence) {
     this.sequence = sequence;
@@ -238,8 +224,7 @@ public class FormRole {
    * Specifies if the role was submitted or not.
    * @return submitted
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUBMITTED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SUBMITTED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSubmitted() {
@@ -247,7 +232,7 @@ public class FormRole {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SUBMITTED)
+  @JsonProperty(value = JSON_PROPERTY_SUBMITTED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubmitted(@javax.annotation.Nullable Boolean submitted) {
     this.submitted = submitted;
@@ -263,8 +248,7 @@ public class FormRole {
    * The date and time when the role was opened.
    * @return openedAt
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OPENED_AT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OPENED_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getOpenedAt() {
@@ -272,7 +256,7 @@ public class FormRole {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OPENED_AT)
+  @JsonProperty(value = JSON_PROPERTY_OPENED_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpenedAt(@javax.annotation.Nullable OffsetDateTime openedAt) {
     this.openedAt = openedAt;
@@ -288,8 +272,7 @@ public class FormRole {
    * The date and time when the role was submitted.
    * @return submissionDate
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUBMISSION_DATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SUBMISSION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getSubmissionDate() {
@@ -297,7 +280,7 @@ public class FormRole {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SUBMISSION_DATE)
+  @JsonProperty(value = JSON_PROPERTY_SUBMISSION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubmissionDate(@javax.annotation.Nullable OffsetDateTime submissionDate) {
     this.submissionDate = submissionDate;

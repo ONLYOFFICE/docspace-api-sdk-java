@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -42,20 +43,16 @@ import java.util.StringJoiner;
 
 public class LoginSettingsDto {
   public static final String JSON_PROPERTY_ATTEMPT_COUNT = "attemptCount";
-  @javax.annotation.Nonnull
-  private Integer attemptCount;
+  @javax.annotation.Nonnull  private Integer attemptCount;
 
   public static final String JSON_PROPERTY_BLOCK_TIME = "blockTime";
-  @javax.annotation.Nonnull
-  private Integer blockTime;
+  @javax.annotation.Nonnull  private Integer blockTime;
 
   public static final String JSON_PROPERTY_CHECK_PERIOD = "checkPeriod";
-  @javax.annotation.Nonnull
-  private Integer checkPeriod;
+  @javax.annotation.Nonnull  private Integer checkPeriod;
 
   public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
-  @javax.annotation.Nonnull
-  private Boolean isDefault;
+  @javax.annotation.Nonnull  private Boolean isDefault;
 
   public LoginSettingsDto() {
   }
@@ -71,8 +68,7 @@ public class LoginSettingsDto {
    * The maximum number of consecutive failed login attempts allowed before triggering account suspension.
    * @return attemptCount
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ATTEMPT_COUNT)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ATTEMPT_COUNT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getAttemptCount() {
@@ -80,7 +76,7 @@ public class LoginSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ATTEMPT_COUNT)
+  @JsonProperty(value = JSON_PROPERTY_ATTEMPT_COUNT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAttemptCount(@javax.annotation.Nonnull Integer attemptCount) {
     this.attemptCount = attemptCount;
@@ -96,8 +92,7 @@ public class LoginSettingsDto {
    * The duration (in minutes) for which an account remains suspended after exceeding maximum login attempts.
    * @return blockTime
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_BLOCK_TIME)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_BLOCK_TIME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getBlockTime() {
@@ -105,7 +100,7 @@ public class LoginSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BLOCK_TIME)
+  @JsonProperty(value = JSON_PROPERTY_BLOCK_TIME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setBlockTime(@javax.annotation.Nonnull Integer blockTime) {
     this.blockTime = blockTime;
@@ -121,8 +116,7 @@ public class LoginSettingsDto {
    * The maximum time (in seconds) allowed for server to process and respond to login requests.
    * @return checkPeriod
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CHECK_PERIOD)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CHECK_PERIOD, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getCheckPeriod() {
@@ -130,7 +124,7 @@ public class LoginSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CHECK_PERIOD)
+  @JsonProperty(value = JSON_PROPERTY_CHECK_PERIOD, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCheckPeriod(@javax.annotation.Nonnull Integer checkPeriod) {
     this.checkPeriod = checkPeriod;
@@ -143,11 +137,10 @@ public class LoginSettingsDto {
   }
 
   /**
-   * Specifies if these settings are default or not
+   * Specifies whether the login settings are default or not.
    * @return isDefault
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_DEFAULT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getIsDefault() {
@@ -155,7 +148,7 @@ public class LoginSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
+  @JsonProperty(value = JSON_PROPERTY_IS_DEFAULT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsDefault(@javax.annotation.Nonnull Boolean isDefault) {
     this.isDefault = isDefault;

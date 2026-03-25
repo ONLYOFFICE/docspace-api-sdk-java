@@ -102,7 +102,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder ID.
+        Integer folderId = 1; // Integer | The folder ID.
         CheckUploadRequest checkUploadRequest = new CheckUploadRequest(); // CheckUploadRequest | The request parameters for checking file uploads.
         try {
             STRINGArrayWrapper result = apiInstance.checkUpload(folderId, checkUploadRequest);
@@ -198,7 +198,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder ID for the folder creation.
+        Integer folderId = 1; // Integer | The folder ID for the folder creation.
         CreateFolder createFolder = new CreateFolder(); // CreateFolder | The parameters for creating a folder.
         try {
             FolderIntegerWrapper result = apiInstance.createFolder(folderId, createFolder);
@@ -294,7 +294,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer id = 9846; // Integer | The folder ID.
+        Integer id = 1; // Integer | The folder ID.
         FolderLinkRequest folderLinkRequest = new FolderLinkRequest(); // FolderLinkRequest | The folder link parameters.
         try {
             FileShareWrapper result = apiInstance.createFolderPrimaryExternalLink(id, folderLinkRequest);
@@ -320,8 +320,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Folders security information |  -  |
-| **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## createReportFolderHistory
@@ -415,9 +415,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | URL to the report file |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to perform the operation |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## deleteFolder
@@ -487,7 +487,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder ID to delete.
+        Integer folderId = 10; // Integer | The folder ID to delete.
         DeleteFolder deleteFolder = new DeleteFolder(); // DeleteFolder | The parameters for deleting a folder.
         try {
             FileOperationArrayWrapper result = apiInstance.deleteFolder(folderId, deleteFolder);
@@ -588,13 +588,13 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
+        UUID userIdOrGroupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user or group ID.
         FilterType filterType = FilterType.fromValue("0"); // FilterType | The filter type.
-        Integer count = 1234; // Integer | The maximum number of items to retrieve in the request.
-        Integer startIndex = 1234; // Integer | The zero-based index of the first item to retrieve in a paginated list.
-        String sortBy = "some text"; // String | Specifies the field by which the folder content should be sorted.
+        Integer count = 25; // Integer | The maximum number of items to retrieve in the request.
+        Integer startIndex = 0; // Integer | The zero-based index of the first item to retrieve in a paginated list.
+        String sortBy = "DateAndTime"; // String | Specifies the field by which the folder content should be sorted.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterValue = "some text"; // String | The text used as a filter or search criterion for folder content queries.
+        String filterValue = "My Document"; // String | The text used as a filter or search criterion for folder content queries.
         try {
             FolderContentIntegerWrapper result = apiInstance.getFavoritesFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
             System.out.println(result);
@@ -619,9 +619,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Favorites section contents |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getFilesUsedSpace
@@ -753,7 +753,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder unique identifier.
+        Integer folderId = 1; // Integer | The folder unique identifier.
         try {
             FormsItemArrayWrapper result = apiInstance.getFolder(folderId);
             System.out.println(result);
@@ -835,22 +835,22 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder ID.
-        UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
-        UUID sharedBy = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The identifier of the user who shared the folder or file.
+        Integer folderId = 1; // Integer | The folder ID.
+        UUID userIdOrGroupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user or group ID.
+        UUID sharedBy = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The identifier of the user who shared the folder or file.
         FilterType filterType = FilterType.fromValue("0"); // FilterType | The filter type.
-        Integer roomId = 9846; // Integer | The room ID.
-        Boolean excludeSubject = true; // Boolean | Specifies whether to exclude search by user or group ID.
+        Integer roomId = 1; // Integer | The room ID.
+        Boolean excludeSubject = false; // Boolean | Specifies whether to exclude search by user or group ID.
         ApplyFilterOption applyFilterOption = ApplyFilterOption.fromValue("0"); // ApplyFilterOption | Specifies whether to return only files, only folders, or all elements from the specified folder.
-        String extension = ".txt"; // String | Specifies whether to search for the specific file extension.
+        String extension = ".docx"; // String | Specifies whether to search for the specific file extension.
         SearchArea searchArea = SearchArea.fromValue("0"); // SearchArea | The search area.
-        String formsItemKey = "some text"; // String | The forms item key.
-        String formsItemType = "some text"; // String | The forms item type.
-        Integer count = 1234; // Integer | The maximum number of items to retrieve in the request.
-        Integer startIndex = 1234; // Integer | The zero-based index of the first item to retrieve in a paginated request.
-        String sortBy = "some text"; // String | The property used for sorting the folder request results.
+        String formsItemKey = "doc_key_123"; // String | The forms item key.
+        String formsItemType = "text"; // String | The forms item type.
+        Integer count = 25; // Integer | The maximum number of items to retrieve in the request.
+        Integer startIndex = 0; // Integer | The zero-based index of the first item to retrieve in a paginated request.
+        String sortBy = "DateAndTime"; // String | The property used for sorting the folder request results.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterValue = "some text"; // String | The text value used as a filter parameter for folder content queries.
+        String filterValue = "My Document"; // String | The text value used as a filter parameter for folder content queries.
         Location location = Location.fromValue("1"); // Location | The location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link.
         try {
             FolderContentIntegerWrapper result = apiInstance.getFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location);
@@ -950,11 +950,11 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder ID of the history request.
+        Integer folderId = 1; // Integer | The folder ID of the history request.
         ApiDateTime fromDate = new ApiDateTime(); // ApiDateTime | The start date of the history request.
         ApiDateTime toDate = new ApiDateTime(); // ApiDateTime | The end date of the history request.
-        Integer count = 1234; // Integer | The number of records to retrieve for the folder history.
-        Integer startIndex = 1234; // Integer | The starting index from which the history records are retrieved in the request.
+        Integer count = 25; // Integer | The number of records to retrieve for the folder history.
+        Integer startIndex = 0; // Integer | The starting index from which the history records are retrieved in the request.
         try {
             HistoryArrayWrapper result = apiInstance.getFolderHistory(folderId, fromDate, toDate, count, startIndex);
             System.out.println(result);
@@ -979,9 +979,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of actions in the folder |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to perform the operation |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getFolderInfo
@@ -1023,7 +1023,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder unique identifier.
+        Integer folderId = 1; // Integer | The folder unique identifier.
         try {
             FolderIntegerWrapper result = apiInstance.getFolderInfo(folderId);
             System.out.println(result);
@@ -1116,7 +1116,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer id = 9846; // Integer | The folder ID.
+        Integer id = 1; // Integer | The folder ID.
         try {
             FileShareArrayWrapper result = apiInstance.getFolderLinks(id);
             System.out.println(result);
@@ -1210,7 +1210,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder unique identifier.
+        Integer folderId = 1; // Integer | The folder unique identifier.
         try {
             FileEntryBaseArrayWrapper result = apiInstance.getFolderPath(folderId);
             System.out.println(result);
@@ -1235,8 +1235,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file entry information |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getFolderPrimaryExternalLink
@@ -1280,9 +1280,9 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer id = 9846; // Integer | The folder unique identifier.
-        Integer count = 1234; // Integer | The number of items to retrieve in the request.
-        Integer startIndex = 1234; // Integer | The starting index for the query results.
+        Integer id = 10; // Integer | The folder unique identifier.
+        Integer count = 25; // Integer | The number of items to retrieve in the request.
+        Integer startIndex = 0; // Integer | The starting index for the query results.
         try {
             FileShareWrapper result = apiInstance.getFolderPrimaryExternalLink(id, count, startIndex);
             System.out.println(result);
@@ -1376,7 +1376,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder unique identifier.
+        Integer folderId = 1; // Integer | The folder unique identifier.
         try {
             FileEntryBaseArrayWrapper result = apiInstance.getFolders(folderId);
             System.out.println(result);
@@ -1401,8 +1401,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file entry information |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getMyFolder
@@ -1478,14 +1478,14 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
+        UUID userIdOrGroupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user or group ID.
         FilterType filterType = FilterType.fromValue("0"); // FilterType | The filter type.
         ApplyFilterOption applyFilterOption = ApplyFilterOption.fromValue("0"); // ApplyFilterOption | Specifies whether to return only files, only folders or all elements.
-        Integer count = 1234; // Integer | The maximum number of items to retrieve in the response.
-        Integer startIndex = 1234; // Integer | The starting position of the items to be retrieved.
-        String sortBy = "some text"; // String | The property used to specify the sorting criteria for folder contents.
+        Integer count = 25; // Integer | The maximum number of items to retrieve in the response.
+        Integer startIndex = 0; // Integer | The starting position of the items to be retrieved.
+        String sortBy = "DateAndTime"; // String | The property used to specify the sorting criteria for folder contents.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterValue = "some text"; // String | The text used for filtering or searching folder contents.
+        String filterValue = "My Document"; // String | The text used for filtering or searching folder contents.
         try {
             FolderContentIntegerWrapper result = apiInstance.getMyFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
             System.out.println(result);
@@ -1510,9 +1510,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The My documents section contents |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getNewFolderItems
@@ -1581,7 +1581,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder unique identifier.
+        Integer folderId = 1; // Integer | The folder unique identifier.
         try {
             FileEntryBaseArrayWrapper result = apiInstance.getNewFolderItems(folderId);
             System.out.println(result);
@@ -1606,8 +1606,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file entry information |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getPrivacyFolder
@@ -1682,13 +1682,13 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
+        UUID userIdOrGroupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user or group ID.
         FilterType filterType = FilterType.fromValue("0"); // FilterType | The filter type.
-        Integer count = 1234; // Integer | The maximum number of items to retrieve in the request.
-        Integer startIndex = 1234; // Integer | The zero-based index of the first item to retrieve in a paginated list.
-        String sortBy = "some text"; // String | Specifies the field by which the folder content should be sorted.
+        Integer count = 25; // Integer | The maximum number of items to retrieve in the request.
+        Integer startIndex = 0; // Integer | The zero-based index of the first item to retrieve in a paginated list.
+        String sortBy = "DateAndTime"; // String | Specifies the field by which the folder content should be sorted.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterValue = "some text"; // String | The text used as a filter or search criterion for folder content queries.
+        String filterValue = "My Document"; // String | The text used as a filter or search criterion for folder content queries.
         try {
             FolderContentIntegerWrapper result = apiInstance.getPrivacyFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
             System.out.println(result);
@@ -1713,9 +1713,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Private Room section contents |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getRecentFolder
@@ -1794,17 +1794,17 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
+        UUID userIdOrGroupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user or group ID.
         FilterType filterType = FilterType.fromValue("0"); // FilterType | The filter type.
-        Boolean excludeSubject = true; // Boolean | Specifies whether to exclude search by user or group ID.
+        Boolean excludeSubject = false; // Boolean | Specifies whether to exclude search by user or group ID.
         ApplyFilterOption applyFilterOption = ApplyFilterOption.fromValue("0"); // ApplyFilterOption | Specifies whether to return only files, only folders or all elements.
         SearchArea searchArea = SearchArea.fromValue("0"); // SearchArea | The search area.
         List<String> extension = Arrays.asList(new ArrayList<>()); // List<String> | Specifies whether to search for a specific file extension in the Recent folder.
-        Integer count = 1234; // Integer | The maximum number of items to return.
-        Integer startIndex = 1234; // Integer | The starting position of the results to be returned in the query response.
-        String sortBy = "some text"; // String | Specifies the sorting criteria for the folder request.
+        Integer count = 25; // Integer | The maximum number of items to return.
+        Integer startIndex = 0; // Integer | The starting position of the results to be returned in the query response.
+        String sortBy = "DateAndTime"; // String | Specifies the sorting criteria for the folder request.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterValue = "some text"; // String | The text used for filtering or searching folder contents.
+        String filterValue = "My Document"; // String | The text used for filtering or searching folder contents.
         try {
             FolderContentIntegerWrapper result = apiInstance.getRecentFolder(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue);
             System.out.println(result);
@@ -1829,9 +1829,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Recent section contents |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getRootFolders
@@ -1907,14 +1907,14 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
+        UUID userIdOrGroupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user or group ID.
         FilterType filterType = FilterType.fromValue("0"); // FilterType | The filter type.
-        Boolean withoutTrash = true; // Boolean | Specifies whether to return the Trash section or not.
-        Integer count = 1234; // Integer | The maximum number of items to retrieve in the response.
-        Integer startIndex = 1234; // Integer | The starting position of the items to be retrieved.
-        String sortBy = "some text"; // String | Specifies the field by which the folder content should be sorted.
+        Boolean withoutTrash = false; // Boolean | Specifies whether to return the Trash section or not.
+        Integer count = 25; // Integer | The maximum number of items to retrieve in the response.
+        Integer startIndex = 0; // Integer | The starting position of the items to be retrieved.
+        String sortBy = "DateAndTime"; // String | Specifies the field by which the folder content should be sorted.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterValue = "some text"; // String | The text used as a filter for searching or retrieving folder contents.
+        String filterValue = "My Document"; // String | The text used as a filter for searching or retrieving folder contents.
         try {
             FolderContentIntegerArrayWrapper result = apiInstance.getRootFolders(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue);
             System.out.println(result);
@@ -1939,9 +1939,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of section contents with the following parameters |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getTrashFolder
@@ -2017,14 +2017,14 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
+        UUID userIdOrGroupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user or group ID.
         FilterType filterType = FilterType.fromValue("0"); // FilterType | The filter type.
         ApplyFilterOption applyFilterOption = ApplyFilterOption.fromValue("0"); // ApplyFilterOption | Specifies whether to return only files, only folders or all elements.
-        Integer count = 1234; // Integer | The maximum number of items to retrieve in the response.
-        Integer startIndex = 1234; // Integer | The starting position of the items to be retrieved.
-        String sortBy = "some text"; // String | The property used to specify the sorting criteria for folder contents.
+        Integer count = 25; // Integer | The maximum number of items to retrieve in the response.
+        Integer startIndex = 0; // Integer | The starting position of the items to be retrieved.
+        String sortBy = "DateAndTime"; // String | The property used to specify the sorting criteria for folder contents.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterValue = "some text"; // String | The text used for filtering or searching folder contents.
+        String filterValue = "My Document"; // String | The text used for filtering or searching folder contents.
         try {
             FolderContentIntegerWrapper result = apiInstance.getTrashFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
             System.out.println(result);
@@ -2049,9 +2049,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Trash section contents |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## insertFile
@@ -2132,7 +2132,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder ID for inserting a file.
+        Integer folderId = 1; // Integer | The folder ID for inserting a file.
         File insertFileFile = new File("/path/to/file"); // File | The file to be inserted.
         String insertFileTitle = "insertFileTitle_example"; // String | The file title to be inserted.
         Boolean insertFileCreateNewIfExist = true; // Boolean | Specifies whether to create a new file if it already exists or not.
@@ -2169,9 +2169,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Inserted file |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to create |  -  |
 | **404** | Folder not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## insertFileToMyFromBody
@@ -2287,9 +2287,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Inserted file |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to create |  -  |
 | **404** | Folder not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## renameFolder
@@ -2359,7 +2359,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder ID for the folder creation.
+        Integer folderId = 1; // Integer | The folder ID for the folder creation.
         CreateFolder createFolder = new CreateFolder(); // CreateFolder | The parameters for creating a folder.
         try {
             FolderIntegerWrapper result = apiInstance.renameFolder(folderId, createFolder);
@@ -2385,8 +2385,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Folder parameters |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to rename the folder |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## setFolderOrder
@@ -2456,7 +2456,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder unique identifier.
+        Integer folderId = 1; // Integer | The folder unique identifier.
         OrderRequestDto orderRequestDto = new OrderRequestDto(); // OrderRequestDto | The folder order information.
         try {
             FolderIntegerWrapper result = apiInstance.setFolderOrder(folderId, orderRequestDto);
@@ -2552,7 +2552,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer id = 9846; // Integer | The folder ID.
+        Integer id = 1; // Integer | The folder ID.
         FolderLinkRequest folderLinkRequest = new FolderLinkRequest(); // FolderLinkRequest | The folder link parameters.
         try {
             FileShareWrapper result = apiInstance.setFolderPrimaryExternalLink(id, folderLinkRequest);
@@ -2585,7 +2585,7 @@ public class Example {
 
 > ObjectWrapper uploadFile(folderId, uploadRequestDto)
 
-Upload a fileUploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   <ol>  <li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>  <li>Using standart multipart/form-data method.</li>  </ol>
+Upload a fileUploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/).
 
@@ -2648,7 +2648,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder ID to upload a file.
+        Integer folderId = 1; // Integer | The folder ID to upload a file.
         UploadRequestDto uploadRequestDto = new UploadRequestDto(); // UploadRequestDto | The request parameters for uploading a file.
         try {
             ObjectWrapper result = apiInstance.uploadFile(folderId, uploadRequestDto);
@@ -2674,16 +2674,16 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Inserted file |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to create |  -  |
 | **404** | Folder not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## uploadFileToMy
 
 > ObjectWrapper uploadFileToMy(inDto)
 
-Upload a file to the My documents sectionUploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   <ol>  <li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>  <li>Using standart multipart/form-data method.</li>  </ol>
+Upload a file to the My documents sectionUploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/).
 
@@ -2770,7 +2770,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Uploaded file(s) |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to create |  -  |
 | **404** | File not found |  -  |
+| **401** | Unauthorized |  -  |
 

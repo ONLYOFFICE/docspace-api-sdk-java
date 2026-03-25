@@ -8,8 +8,8 @@ The user invitation parameters.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**email** | **String** | The email address. |  [optional] |
 |**type** | **EmployeeType** |  |  [optional] |
-|**email** | **String** | The user email address. |  [optional] |
 
 
 

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -50,24 +51,19 @@ import java.util.StringJoiner;
 
 public class ContentType {
   public static final String JSON_PROPERTY_BOUNDARY = "boundary";
-  @javax.annotation.Nullable
-  private JsonNullable<String> boundary = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> boundary = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CHAR_SET = "charSet";
-  @javax.annotation.Nullable
-  private JsonNullable<String> charSet = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> charSet = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_MEDIA_TYPE = "mediaType";
-  @javax.annotation.Nullable
-  private JsonNullable<String> mediaType = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> mediaType = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PARAMETERS = "parameters";
-  @javax.annotation.Nullable
-  private JsonNullable<List<Object>> parameters = JsonNullable.<List<Object>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<Object>> parameters = JsonNullable.<List<Object>>undefined();
 
   public ContentType() {
   }
@@ -93,16 +89,14 @@ public class ContentType {
    * Get boundary
    * @return boundary
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getBoundary() {
         return boundary.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_BOUNDARY)
+  @JsonProperty(value = JSON_PROPERTY_BOUNDARY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getBoundary_JsonNullable() {
     return boundary;
   }
@@ -126,16 +120,14 @@ public class ContentType {
    * Get charSet
    * @return charSet
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCharSet() {
         return charSet.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CHAR_SET)
+  @JsonProperty(value = JSON_PROPERTY_CHAR_SET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCharSet_JsonNullable() {
     return charSet;
   }
@@ -159,16 +151,14 @@ public class ContentType {
    * Get mediaType
    * @return mediaType
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getMediaType() {
         return mediaType.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MEDIA_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_MEDIA_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getMediaType_JsonNullable() {
     return mediaType;
   }
@@ -192,16 +182,14 @@ public class ContentType {
    * Get name
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getName() {
         return name.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
@@ -219,8 +207,7 @@ public class ContentType {
    * Get parameters
    * @return parameters
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<Object> getParameters() {
     
@@ -230,9 +217,8 @@ public class ContentType {
     return parameters.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  @JsonProperty(value = JSON_PROPERTY_PARAMETERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<Object>> getParameters_JsonNullable() {
     return parameters;
   }

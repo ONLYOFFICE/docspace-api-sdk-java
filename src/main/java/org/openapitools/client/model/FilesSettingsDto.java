@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,6 +37,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -104,285 +105,197 @@ import java.util.StringJoiner;
   FilesSettingsDto.JSON_PROPERTY_MAX_UPLOAD_THREAD_COUNT,
   FilesSettingsDto.JSON_PROPERTY_CHUNK_UPLOAD_SIZE,
   FilesSettingsDto.JSON_PROPERTY_OPEN_EDITOR_IN_SAME_TAB,
+  FilesSettingsDto.JSON_PROPERTY_ORGANIZE_ROOMS_GROUPING,
   FilesSettingsDto.JSON_PROPERTY_EXTS_FILES_VECTORIZED,
   FilesSettingsDto.JSON_PROPERTY_MAX_VECTORIZATION_FILE_SIZE
 })
 
 public class FilesSettingsDto {
   public static final String JSON_PROPERTY_EXTS_IMAGE_PREVIEWED = "extsImagePreviewed";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsImagePreviewed = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsImagePreviewed = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_MEDIA_PREVIEWED = "extsMediaPreviewed";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsMediaPreviewed = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsMediaPreviewed = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_WEB_PREVIEWED = "extsWebPreviewed";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsWebPreviewed = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsWebPreviewed = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_WEB_EDITED = "extsWebEdited";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsWebEdited = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsWebEdited = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_WEB_ENCRYPT = "extsWebEncrypt";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsWebEncrypt = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsWebEncrypt = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_WEB_REVIEWED = "extsWebReviewed";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsWebReviewed = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsWebReviewed = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_WEB_CUSTOM_FILTER_EDITING = "extsWebCustomFilterEditing";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsWebCustomFilterEditing = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsWebCustomFilterEditing = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_WEB_RESTRICTED_EDITING = "extsWebRestrictedEditing";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsWebRestrictedEditing = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsWebRestrictedEditing = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_WEB_COMMENTED = "extsWebCommented";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsWebCommented = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsWebCommented = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_WEB_TEMPLATE = "extsWebTemplate";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsWebTemplate = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsWebTemplate = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_MUST_CONVERT = "extsMustConvert";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsMustConvert = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsMustConvert = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_CONVERTIBLE = "extsConvertible";
-  @javax.annotation.Nullable
-  private JsonNullable<Map<String, List<String>>> extsConvertible = JsonNullable.<Map<String, List<String>>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Map<String, List<String>>> extsConvertible = JsonNullable.<Map<String, List<String>>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_UPLOADABLE = "extsUploadable";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsUploadable = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsUploadable = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_ARCHIVE = "extsArchive";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsArchive = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsArchive = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_VIDEO = "extsVideo";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsVideo = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsVideo = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_AUDIO = "extsAudio";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsAudio = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsAudio = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_IMAGE = "extsImage";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsImage = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsImage = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_SPREADSHEET = "extsSpreadsheet";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsSpreadsheet = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsSpreadsheet = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_PRESENTATION = "extsPresentation";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsPresentation = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsPresentation = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_DOCUMENT = "extsDocument";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsDocument = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsDocument = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_DIAGRAM = "extsDiagram";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsDiagram = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsDiagram = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_INTERNAL_FORMATS = "internalFormats";
-  @javax.annotation.Nullable
-  private JsonNullable<FilesSettingsDtoInternalFormats> internalFormats = JsonNullable.<FilesSettingsDtoInternalFormats>undefined();
+  @javax.annotation.Nullable  private JsonNullable<FilesSettingsDtoInternalFormats> internalFormats = JsonNullable.<FilesSettingsDtoInternalFormats>undefined();
 
   public static final String JSON_PROPERTY_MASTER_FORM_EXTENSION = "masterFormExtension";
-  @javax.annotation.Nullable
-  private JsonNullable<String> masterFormExtension = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> masterFormExtension = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PARAM_VERSION = "paramVersion";
-  @javax.annotation.Nullable
-  private JsonNullable<String> paramVersion = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> paramVersion = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PARAM_OUT_TYPE = "paramOutType";
-  @javax.annotation.Nullable
-  private JsonNullable<String> paramOutType = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> paramOutType = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FILE_DOWNLOAD_URL_STRING = "fileDownloadUrlString";
-  @javax.annotation.Nullable
-  private JsonNullable<URI> fileDownloadUrlString = JsonNullable.<URI>undefined();
+  @javax.annotation.Nullable  private JsonNullable<URI> fileDownloadUrlString = JsonNullable.<URI>undefined();
 
   public static final String JSON_PROPERTY_FILE_WEB_VIEWER_URL_STRING = "fileWebViewerUrlString";
-  @javax.annotation.Nullable
-  private JsonNullable<String> fileWebViewerUrlString = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> fileWebViewerUrlString = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FILE_WEB_VIEWER_EXTERNAL_URL_STRING = "fileWebViewerExternalUrlString";
-  @javax.annotation.Nullable
-  private JsonNullable<URI> fileWebViewerExternalUrlString = JsonNullable.<URI>undefined();
+  @javax.annotation.Nullable  private JsonNullable<URI> fileWebViewerExternalUrlString = JsonNullable.<URI>undefined();
 
   public static final String JSON_PROPERTY_FILE_WEB_EDITOR_URL_STRING = "fileWebEditorUrlString";
-  @javax.annotation.Nullable
-  private JsonNullable<String> fileWebEditorUrlString = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> fileWebEditorUrlString = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FILE_WEB_EDITOR_EXTERNAL_URL_STRING = "fileWebEditorExternalUrlString";
-  @javax.annotation.Nullable
-  private JsonNullable<URI> fileWebEditorExternalUrlString = JsonNullable.<URI>undefined();
+  @javax.annotation.Nullable  private JsonNullable<URI> fileWebEditorExternalUrlString = JsonNullable.<URI>undefined();
 
   public static final String JSON_PROPERTY_FILE_REDIRECT_PREVIEW_URL_STRING = "fileRedirectPreviewUrlString";
-  @javax.annotation.Nullable
-  private JsonNullable<URI> fileRedirectPreviewUrlString = JsonNullable.<URI>undefined();
+  @javax.annotation.Nullable  private JsonNullable<URI> fileRedirectPreviewUrlString = JsonNullable.<URI>undefined();
 
   public static final String JSON_PROPERTY_FILE_THUMBNAIL_URL_STRING = "fileThumbnailUrlString";
-  @javax.annotation.Nullable
-  private JsonNullable<URI> fileThumbnailUrlString = JsonNullable.<URI>undefined();
+  @javax.annotation.Nullable  private JsonNullable<URI> fileThumbnailUrlString = JsonNullable.<URI>undefined();
 
   public static final String JSON_PROPERTY_CONFIRM_DELETE = "confirmDelete";
-  @javax.annotation.Nullable
-  private Boolean confirmDelete;
+  @javax.annotation.Nullable  private Boolean confirmDelete;
 
   public static final String JSON_PROPERTY_ENABLE_THIRD_PARTY = "enableThirdParty";
-  @javax.annotation.Nullable
-  private Boolean enableThirdParty;
+  @javax.annotation.Nullable  private Boolean enableThirdParty;
 
   public static final String JSON_PROPERTY_EXTERNAL_SHARE = "externalShare";
-  @javax.annotation.Nullable
-  private Boolean externalShare;
+  @javax.annotation.Nullable  private Boolean externalShare;
 
   public static final String JSON_PROPERTY_EXTERNAL_SHARE_SOCIAL_MEDIA = "externalShareSocialMedia";
-  @javax.annotation.Nullable
-  private Boolean externalShareSocialMedia;
+  @javax.annotation.Nullable  private Boolean externalShareSocialMedia;
 
   public static final String JSON_PROPERTY_STORE_ORIGINAL_FILES = "storeOriginalFiles";
-  @javax.annotation.Nullable
-  private Boolean storeOriginalFiles;
+  @javax.annotation.Nullable  private Boolean storeOriginalFiles;
 
   public static final String JSON_PROPERTY_KEEP_NEW_FILE_NAME = "keepNewFileName";
-  @javax.annotation.Nullable
-  private Boolean keepNewFileName;
+  @javax.annotation.Nullable  private Boolean keepNewFileName;
 
   public static final String JSON_PROPERTY_DISPLAY_FILE_EXTENSION = "displayFileExtension";
-  @javax.annotation.Nullable
-  private Boolean displayFileExtension;
+  @javax.annotation.Nullable  private Boolean displayFileExtension;
 
   public static final String JSON_PROPERTY_CONVERT_NOTIFY = "convertNotify";
-  @javax.annotation.Nullable
-  private Boolean convertNotify;
+  @javax.annotation.Nullable  private Boolean convertNotify;
 
   public static final String JSON_PROPERTY_HIDE_CONFIRM_CANCEL_OPERATION = "hideConfirmCancelOperation";
-  @javax.annotation.Nullable
-  private Boolean hideConfirmCancelOperation;
+  @javax.annotation.Nullable  private Boolean hideConfirmCancelOperation;
 
   public static final String JSON_PROPERTY_HIDE_CONFIRM_CONVERT_SAVE = "hideConfirmConvertSave";
-  @javax.annotation.Nullable
-  private Boolean hideConfirmConvertSave;
+  @javax.annotation.Nullable  private Boolean hideConfirmConvertSave;
 
   public static final String JSON_PROPERTY_HIDE_CONFIRM_CONVERT_OPEN = "hideConfirmConvertOpen";
-  @javax.annotation.Nullable
-  private Boolean hideConfirmConvertOpen;
+  @javax.annotation.Nullable  private Boolean hideConfirmConvertOpen;
 
   public static final String JSON_PROPERTY_HIDE_CONFIRM_ROOM_LIFETIME = "hideConfirmRoomLifetime";
-  @javax.annotation.Nullable
-  private Boolean hideConfirmRoomLifetime;
+  @javax.annotation.Nullable  private Boolean hideConfirmRoomLifetime;
 
   public static final String JSON_PROPERTY_DEFAULT_ORDER = "defaultOrder";
-  @javax.annotation.Nullable
-  private OrderBy defaultOrder;
+  @javax.annotation.Nullable  private OrderBy defaultOrder;
 
   public static final String JSON_PROPERTY_FORCESAVE = "forcesave";
-  @javax.annotation.Nullable
-  private Boolean forcesave;
+  @javax.annotation.Nullable  private Boolean forcesave;
 
   public static final String JSON_PROPERTY_STORE_FORCESAVE = "storeForcesave";
-  @javax.annotation.Nullable
-  private Boolean storeForcesave;
+  @javax.annotation.Nullable  private Boolean storeForcesave;
 
   public static final String JSON_PROPERTY_RECENT_SECTION = "recentSection";
-  @javax.annotation.Nullable
-  private Boolean recentSection;
+  @javax.annotation.Nullable  private Boolean recentSection;
 
   public static final String JSON_PROPERTY_FAVORITES_SECTION = "favoritesSection";
-  @javax.annotation.Nullable
-  private Boolean favoritesSection;
+  @javax.annotation.Nullable  private Boolean favoritesSection;
 
   public static final String JSON_PROPERTY_TEMPLATES_SECTION = "templatesSection";
-  @javax.annotation.Nullable
-  private Boolean templatesSection;
+  @javax.annotation.Nullable  private Boolean templatesSection;
 
   public static final String JSON_PROPERTY_DOWNLOAD_TAR_GZ = "downloadTarGz";
-  @javax.annotation.Nullable
-  private Boolean downloadTarGz;
+  @javax.annotation.Nullable  private Boolean downloadTarGz;
 
   public static final String JSON_PROPERTY_AUTOMATICALLY_CLEAN_UP = "automaticallyCleanUp";
-  @javax.annotation.Nullable
-  private AutoCleanUpData automaticallyCleanUp;
+  @javax.annotation.Nullable  private AutoCleanUpData automaticallyCleanUp;
 
   public static final String JSON_PROPERTY_CAN_SEARCH_BY_CONTENT = "canSearchByContent";
-  @javax.annotation.Nullable
-  private Boolean canSearchByContent;
+  @javax.annotation.Nullable  private Boolean canSearchByContent;
 
   /**
    * The default access rights in sharing settings.
    */
   public enum DefaultSharingAccessRightsEnum {
-    /**
-     * None
-     */
     None(Integer.valueOf(0)),
     
-    /**
-     * Read and write
-     */
     ReadWrite(Integer.valueOf(1)),
     
-    /**
-     * Read
-     */
     Read(Integer.valueOf(2)),
     
-    /**
-     * Restrict
-     */
     Restrict(Integer.valueOf(3)),
     
-    /**
-     * Varies
-     */
     Varies(Integer.valueOf(4)),
     
-    /**
-     * Review
-     */
     Review(Integer.valueOf(5)),
     
-    /**
-     * Comment
-     */
     Comment(Integer.valueOf(6)),
     
-    /**
-     * Fill forms
-     */
     FillForms(Integer.valueOf(7)),
     
-    /**
-     * Custom filter
-     */
     CustomFilter(Integer.valueOf(8)),
     
-    /**
-     * Room manager
-     */
     RoomManager(Integer.valueOf(9)),
     
-    /**
-     * Editing
-     */
     Editing(Integer.valueOf(10)),
     
-    /**
-     * Content creator
-     */
     ContentCreator(Integer.valueOf(11));
 
     private Integer value;
@@ -411,30 +324,26 @@ public class FilesSettingsDto {
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
   }
-
   public static final String JSON_PROPERTY_DEFAULT_SHARING_ACCESS_RIGHTS = "defaultSharingAccessRights";
-  @javax.annotation.Nullable
-  private JsonNullable<List<DefaultSharingAccessRightsEnum>> defaultSharingAccessRights = JsonNullable.<List<DefaultSharingAccessRightsEnum>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<DefaultSharingAccessRightsEnum>> defaultSharingAccessRights = JsonNullable.<List<DefaultSharingAccessRightsEnum>>undefined();
 
   public static final String JSON_PROPERTY_MAX_UPLOAD_THREAD_COUNT = "maxUploadThreadCount";
-  @javax.annotation.Nullable
-  private Integer maxUploadThreadCount;
+  @javax.annotation.Nullable  private Integer maxUploadThreadCount;
 
   public static final String JSON_PROPERTY_CHUNK_UPLOAD_SIZE = "chunkUploadSize";
-  @javax.annotation.Nullable
-  private Long chunkUploadSize;
+  @javax.annotation.Nullable  private Long chunkUploadSize;
 
   public static final String JSON_PROPERTY_OPEN_EDITOR_IN_SAME_TAB = "openEditorInSameTab";
-  @javax.annotation.Nullable
-  private Boolean openEditorInSameTab;
+  @javax.annotation.Nullable  private Boolean openEditorInSameTab;
+
+  public static final String JSON_PROPERTY_ORGANIZE_ROOMS_GROUPING = "organizeRoomsGrouping";
+  @javax.annotation.Nullable  private Boolean organizeRoomsGrouping;
 
   public static final String JSON_PROPERTY_EXTS_FILES_VECTORIZED = "extsFilesVectorized";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> extsFilesVectorized = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> extsFilesVectorized = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_MAX_VECTORIZATION_FILE_SIZE = "maxVectorizationFileSize";
-  @javax.annotation.Nullable
-  private Long maxVectorizationFileSize;
+  @javax.annotation.Nullable  private Long maxVectorizationFileSize;
 
   public FilesSettingsDto() {
   }
@@ -462,16 +371,14 @@ public class FilesSettingsDto {
    * The list of extensions of the viewed images.
    * @return extsImagePreviewed
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsImagePreviewed() {
         return extsImagePreviewed.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_IMAGE_PREVIEWED)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_IMAGE_PREVIEWED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsImagePreviewed_JsonNullable() {
     return extsImagePreviewed;
   }
@@ -507,16 +414,14 @@ public class FilesSettingsDto {
    * The list of extensions of the viewed media files.
    * @return extsMediaPreviewed
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsMediaPreviewed() {
         return extsMediaPreviewed.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_MEDIA_PREVIEWED)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_MEDIA_PREVIEWED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsMediaPreviewed_JsonNullable() {
     return extsMediaPreviewed;
   }
@@ -552,16 +457,14 @@ public class FilesSettingsDto {
    * The list of extensions of the viewed files.
    * @return extsWebPreviewed
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsWebPreviewed() {
         return extsWebPreviewed.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_WEB_PREVIEWED)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_WEB_PREVIEWED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsWebPreviewed_JsonNullable() {
     return extsWebPreviewed;
   }
@@ -597,16 +500,14 @@ public class FilesSettingsDto {
    * The list of extensions of the edited files.
    * @return extsWebEdited
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsWebEdited() {
         return extsWebEdited.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_WEB_EDITED)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_WEB_EDITED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsWebEdited_JsonNullable() {
     return extsWebEdited;
   }
@@ -642,16 +543,14 @@ public class FilesSettingsDto {
    * The list of extensions of the encrypted files.
    * @return extsWebEncrypt
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsWebEncrypt() {
         return extsWebEncrypt.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_WEB_ENCRYPT)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_WEB_ENCRYPT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsWebEncrypt_JsonNullable() {
     return extsWebEncrypt;
   }
@@ -687,16 +586,14 @@ public class FilesSettingsDto {
    * The list of extensions of the reviewed files.
    * @return extsWebReviewed
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsWebReviewed() {
         return extsWebReviewed.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_WEB_REVIEWED)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_WEB_REVIEWED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsWebReviewed_JsonNullable() {
     return extsWebReviewed;
   }
@@ -732,16 +629,14 @@ public class FilesSettingsDto {
    * The list of extensions of the custom filter files.
    * @return extsWebCustomFilterEditing
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsWebCustomFilterEditing() {
         return extsWebCustomFilterEditing.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_WEB_CUSTOM_FILTER_EDITING)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_WEB_CUSTOM_FILTER_EDITING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsWebCustomFilterEditing_JsonNullable() {
     return extsWebCustomFilterEditing;
   }
@@ -777,16 +672,14 @@ public class FilesSettingsDto {
    * The list of extensions of the files that are restricted for editing.
    * @return extsWebRestrictedEditing
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsWebRestrictedEditing() {
         return extsWebRestrictedEditing.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_WEB_RESTRICTED_EDITING)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_WEB_RESTRICTED_EDITING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsWebRestrictedEditing_JsonNullable() {
     return extsWebRestrictedEditing;
   }
@@ -822,16 +715,14 @@ public class FilesSettingsDto {
    * The list of extensions of the commented files.
    * @return extsWebCommented
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsWebCommented() {
         return extsWebCommented.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_WEB_COMMENTED)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_WEB_COMMENTED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsWebCommented_JsonNullable() {
     return extsWebCommented;
   }
@@ -867,16 +758,14 @@ public class FilesSettingsDto {
    * The list of extensions of the template files.
    * @return extsWebTemplate
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsWebTemplate() {
         return extsWebTemplate.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_WEB_TEMPLATE)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_WEB_TEMPLATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsWebTemplate_JsonNullable() {
     return extsWebTemplate;
   }
@@ -912,16 +801,14 @@ public class FilesSettingsDto {
    * The list of extensions of the files that must be converted.
    * @return extsMustConvert
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsMustConvert() {
         return extsMustConvert.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_MUST_CONVERT)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_MUST_CONVERT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsMustConvert_JsonNullable() {
     return extsMustConvert;
   }
@@ -957,16 +844,14 @@ public class FilesSettingsDto {
    * The list of the convertible extensions.
    * @return extsConvertible
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Map<String, List<String>> getExtsConvertible() {
         return extsConvertible.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_CONVERTIBLE)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_CONVERTIBLE, required = false)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Map<String, List<String>>> getExtsConvertible_JsonNullable() {
     return extsConvertible;
   }
@@ -1002,16 +887,14 @@ public class FilesSettingsDto {
    * The list of the uploadable extensions.
    * @return extsUploadable
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsUploadable() {
         return extsUploadable.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_UPLOADABLE)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_UPLOADABLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsUploadable_JsonNullable() {
     return extsUploadable;
   }
@@ -1047,16 +930,14 @@ public class FilesSettingsDto {
    * The list of extensions of the archive files.
    * @return extsArchive
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsArchive() {
         return extsArchive.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_ARCHIVE)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_ARCHIVE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsArchive_JsonNullable() {
     return extsArchive;
   }
@@ -1092,16 +973,14 @@ public class FilesSettingsDto {
    * The list of the video extensions.
    * @return extsVideo
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsVideo() {
         return extsVideo.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_VIDEO)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_VIDEO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsVideo_JsonNullable() {
     return extsVideo;
   }
@@ -1137,16 +1016,14 @@ public class FilesSettingsDto {
    * The list of the audio extensions.
    * @return extsAudio
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsAudio() {
         return extsAudio.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_AUDIO)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_AUDIO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsAudio_JsonNullable() {
     return extsAudio;
   }
@@ -1182,16 +1059,14 @@ public class FilesSettingsDto {
    * The list of the image extensions.
    * @return extsImage
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsImage() {
         return extsImage.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_IMAGE)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_IMAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsImage_JsonNullable() {
     return extsImage;
   }
@@ -1227,16 +1102,14 @@ public class FilesSettingsDto {
    * The list of the spreadsheet extensions.
    * @return extsSpreadsheet
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsSpreadsheet() {
         return extsSpreadsheet.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_SPREADSHEET)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_SPREADSHEET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsSpreadsheet_JsonNullable() {
     return extsSpreadsheet;
   }
@@ -1272,16 +1145,14 @@ public class FilesSettingsDto {
    * The list of the presentation extensions.
    * @return extsPresentation
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsPresentation() {
         return extsPresentation.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_PRESENTATION)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_PRESENTATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsPresentation_JsonNullable() {
     return extsPresentation;
   }
@@ -1317,16 +1188,14 @@ public class FilesSettingsDto {
    * The list of the text document extensions.
    * @return extsDocument
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsDocument() {
         return extsDocument.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_DOCUMENT)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_DOCUMENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsDocument_JsonNullable() {
     return extsDocument;
   }
@@ -1362,16 +1231,14 @@ public class FilesSettingsDto {
    * The list of the diagram extensions.
    * @return extsDiagram
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsDiagram() {
         return extsDiagram.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_DIAGRAM)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_DIAGRAM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsDiagram_JsonNullable() {
     return extsDiagram;
   }
@@ -1395,16 +1262,14 @@ public class FilesSettingsDto {
    * Get internalFormats
    * @return internalFormats
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public FilesSettingsDtoInternalFormats getInternalFormats() {
         return internalFormats.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_INTERNAL_FORMATS)
+  @JsonProperty(value = JSON_PROPERTY_INTERNAL_FORMATS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<FilesSettingsDtoInternalFormats> getInternalFormats_JsonNullable() {
     return internalFormats;
   }
@@ -1428,16 +1293,14 @@ public class FilesSettingsDto {
    * The master form extension.
    * @return masterFormExtension
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getMasterFormExtension() {
         return masterFormExtension.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MASTER_FORM_EXTENSION)
+  @JsonProperty(value = JSON_PROPERTY_MASTER_FORM_EXTENSION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getMasterFormExtension_JsonNullable() {
     return masterFormExtension;
   }
@@ -1461,16 +1324,14 @@ public class FilesSettingsDto {
    * The URL parameter which specifies the file version.
    * @return paramVersion
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getParamVersion() {
         return paramVersion.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PARAM_VERSION)
+  @JsonProperty(value = JSON_PROPERTY_PARAM_VERSION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getParamVersion_JsonNullable() {
     return paramVersion;
   }
@@ -1494,16 +1355,14 @@ public class FilesSettingsDto {
    * The URL parameter which specifies the output type of the converted file.
    * @return paramOutType
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getParamOutType() {
         return paramOutType.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PARAM_OUT_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_PARAM_OUT_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getParamOutType_JsonNullable() {
     return paramOutType;
   }
@@ -1527,16 +1386,14 @@ public class FilesSettingsDto {
    * The URL to download a file.
    * @return fileDownloadUrlString
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public URI getFileDownloadUrlString() {
         return fileDownloadUrlString.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE_DOWNLOAD_URL_STRING)
+  @JsonProperty(value = JSON_PROPERTY_FILE_DOWNLOAD_URL_STRING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<URI> getFileDownloadUrlString_JsonNullable() {
     return fileDownloadUrlString;
   }
@@ -1560,16 +1417,14 @@ public class FilesSettingsDto {
    * The URL to the file web viewer.
    * @return fileWebViewerUrlString
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFileWebViewerUrlString() {
         return fileWebViewerUrlString.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE_WEB_VIEWER_URL_STRING)
+  @JsonProperty(value = JSON_PROPERTY_FILE_WEB_VIEWER_URL_STRING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFileWebViewerUrlString_JsonNullable() {
     return fileWebViewerUrlString;
   }
@@ -1593,16 +1448,14 @@ public class FilesSettingsDto {
    * The external URL to the file web viewer.
    * @return fileWebViewerExternalUrlString
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public URI getFileWebViewerExternalUrlString() {
         return fileWebViewerExternalUrlString.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE_WEB_VIEWER_EXTERNAL_URL_STRING)
+  @JsonProperty(value = JSON_PROPERTY_FILE_WEB_VIEWER_EXTERNAL_URL_STRING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<URI> getFileWebViewerExternalUrlString_JsonNullable() {
     return fileWebViewerExternalUrlString;
   }
@@ -1626,16 +1479,14 @@ public class FilesSettingsDto {
    * The URL to the file web editor.
    * @return fileWebEditorUrlString
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFileWebEditorUrlString() {
         return fileWebEditorUrlString.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE_WEB_EDITOR_URL_STRING)
+  @JsonProperty(value = JSON_PROPERTY_FILE_WEB_EDITOR_URL_STRING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFileWebEditorUrlString_JsonNullable() {
     return fileWebEditorUrlString;
   }
@@ -1659,16 +1510,14 @@ public class FilesSettingsDto {
    * The external URL to the file web editor.
    * @return fileWebEditorExternalUrlString
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public URI getFileWebEditorExternalUrlString() {
         return fileWebEditorExternalUrlString.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE_WEB_EDITOR_EXTERNAL_URL_STRING)
+  @JsonProperty(value = JSON_PROPERTY_FILE_WEB_EDITOR_EXTERNAL_URL_STRING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<URI> getFileWebEditorExternalUrlString_JsonNullable() {
     return fileWebEditorExternalUrlString;
   }
@@ -1692,16 +1541,14 @@ public class FilesSettingsDto {
    * The redirect URL to the file viewer.
    * @return fileRedirectPreviewUrlString
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public URI getFileRedirectPreviewUrlString() {
         return fileRedirectPreviewUrlString.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE_REDIRECT_PREVIEW_URL_STRING)
+  @JsonProperty(value = JSON_PROPERTY_FILE_REDIRECT_PREVIEW_URL_STRING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<URI> getFileRedirectPreviewUrlString_JsonNullable() {
     return fileRedirectPreviewUrlString;
   }
@@ -1725,16 +1572,14 @@ public class FilesSettingsDto {
    * The URL to the file thumbnail.
    * @return fileThumbnailUrlString
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public URI getFileThumbnailUrlString() {
         return fileThumbnailUrlString.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE_THUMBNAIL_URL_STRING)
+  @JsonProperty(value = JSON_PROPERTY_FILE_THUMBNAIL_URL_STRING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<URI> getFileThumbnailUrlString_JsonNullable() {
     return fileThumbnailUrlString;
   }
@@ -1758,8 +1603,7 @@ public class FilesSettingsDto {
    * Specifies whether to confirm the file deletion or not.
    * @return confirmDelete
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONFIRM_DELETE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONFIRM_DELETE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getConfirmDelete() {
@@ -1767,7 +1611,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CONFIRM_DELETE)
+  @JsonProperty(value = JSON_PROPERTY_CONFIRM_DELETE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfirmDelete(@javax.annotation.Nullable Boolean confirmDelete) {
     this.confirmDelete = confirmDelete;
@@ -1783,8 +1627,7 @@ public class FilesSettingsDto {
    * Specifies whether to allow users to connect the third-party storages.
    * @return enableThirdParty
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLE_THIRD_PARTY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLE_THIRD_PARTY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEnableThirdParty() {
@@ -1792,7 +1635,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENABLE_THIRD_PARTY)
+  @JsonProperty(value = JSON_PROPERTY_ENABLE_THIRD_PARTY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnableThirdParty(@javax.annotation.Nullable Boolean enableThirdParty) {
     this.enableThirdParty = enableThirdParty;
@@ -1808,8 +1651,7 @@ public class FilesSettingsDto {
    * Specifies whether to enable sharing external links to the files.
    * @return externalShare
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXTERNAL_SHARE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_SHARE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getExternalShare() {
@@ -1817,7 +1659,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXTERNAL_SHARE)
+  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_SHARE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalShare(@javax.annotation.Nullable Boolean externalShare) {
     this.externalShare = externalShare;
@@ -1833,8 +1675,7 @@ public class FilesSettingsDto {
    * Specifies whether to enable sharing files on social media.
    * @return externalShareSocialMedia
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXTERNAL_SHARE_SOCIAL_MEDIA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_SHARE_SOCIAL_MEDIA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getExternalShareSocialMedia() {
@@ -1842,7 +1683,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXTERNAL_SHARE_SOCIAL_MEDIA)
+  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_SHARE_SOCIAL_MEDIA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalShareSocialMedia(@javax.annotation.Nullable Boolean externalShareSocialMedia) {
     this.externalShareSocialMedia = externalShareSocialMedia;
@@ -1858,8 +1699,7 @@ public class FilesSettingsDto {
    * Specifies whether to enable storing original files.
    * @return storeOriginalFiles
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STORE_ORIGINAL_FILES)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STORE_ORIGINAL_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getStoreOriginalFiles() {
@@ -1867,7 +1707,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STORE_ORIGINAL_FILES)
+  @JsonProperty(value = JSON_PROPERTY_STORE_ORIGINAL_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreOriginalFiles(@javax.annotation.Nullable Boolean storeOriginalFiles) {
     this.storeOriginalFiles = storeOriginalFiles;
@@ -1883,8 +1723,7 @@ public class FilesSettingsDto {
    * Specifies whether to keep the new file name.
    * @return keepNewFileName
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KEEP_NEW_FILE_NAME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_KEEP_NEW_FILE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getKeepNewFileName() {
@@ -1892,7 +1731,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KEEP_NEW_FILE_NAME)
+  @JsonProperty(value = JSON_PROPERTY_KEEP_NEW_FILE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKeepNewFileName(@javax.annotation.Nullable Boolean keepNewFileName) {
     this.keepNewFileName = keepNewFileName;
@@ -1908,8 +1747,7 @@ public class FilesSettingsDto {
    * Specifies whether to display the file extension.
    * @return displayFileExtension
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DISPLAY_FILE_EXTENSION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DISPLAY_FILE_EXTENSION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDisplayFileExtension() {
@@ -1917,7 +1755,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DISPLAY_FILE_EXTENSION)
+  @JsonProperty(value = JSON_PROPERTY_DISPLAY_FILE_EXTENSION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayFileExtension(@javax.annotation.Nullable Boolean displayFileExtension) {
     this.displayFileExtension = displayFileExtension;
@@ -1933,8 +1771,7 @@ public class FilesSettingsDto {
    * Specifies whether to display the conversion notification.
    * @return convertNotify
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONVERT_NOTIFY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONVERT_NOTIFY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getConvertNotify() {
@@ -1942,7 +1779,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CONVERT_NOTIFY)
+  @JsonProperty(value = JSON_PROPERTY_CONVERT_NOTIFY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConvertNotify(@javax.annotation.Nullable Boolean convertNotify) {
     this.convertNotify = convertNotify;
@@ -1958,8 +1795,7 @@ public class FilesSettingsDto {
    * Specifies whether to hide the confirmation dialog for the cancel operation.
    * @return hideConfirmCancelOperation
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HIDE_CONFIRM_CANCEL_OPERATION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HIDE_CONFIRM_CANCEL_OPERATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getHideConfirmCancelOperation() {
@@ -1967,7 +1803,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HIDE_CONFIRM_CANCEL_OPERATION)
+  @JsonProperty(value = JSON_PROPERTY_HIDE_CONFIRM_CANCEL_OPERATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHideConfirmCancelOperation(@javax.annotation.Nullable Boolean hideConfirmCancelOperation) {
     this.hideConfirmCancelOperation = hideConfirmCancelOperation;
@@ -1983,8 +1819,7 @@ public class FilesSettingsDto {
    * Specifies whether to hide the confirmation dialog  for saving the file copy in the original format when converting a file.
    * @return hideConfirmConvertSave
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HIDE_CONFIRM_CONVERT_SAVE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HIDE_CONFIRM_CONVERT_SAVE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getHideConfirmConvertSave() {
@@ -1992,7 +1827,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HIDE_CONFIRM_CONVERT_SAVE)
+  @JsonProperty(value = JSON_PROPERTY_HIDE_CONFIRM_CONVERT_SAVE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHideConfirmConvertSave(@javax.annotation.Nullable Boolean hideConfirmConvertSave) {
     this.hideConfirmConvertSave = hideConfirmConvertSave;
@@ -2008,8 +1843,7 @@ public class FilesSettingsDto {
    * Specifies whether to hide the confirmation dialog  for opening the conversion result.
    * @return hideConfirmConvertOpen
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HIDE_CONFIRM_CONVERT_OPEN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HIDE_CONFIRM_CONVERT_OPEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getHideConfirmConvertOpen() {
@@ -2017,7 +1851,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HIDE_CONFIRM_CONVERT_OPEN)
+  @JsonProperty(value = JSON_PROPERTY_HIDE_CONFIRM_CONVERT_OPEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHideConfirmConvertOpen(@javax.annotation.Nullable Boolean hideConfirmConvertOpen) {
     this.hideConfirmConvertOpen = hideConfirmConvertOpen;
@@ -2033,8 +1867,7 @@ public class FilesSettingsDto {
    * Specifies whether to hide the confirmation dialog about the file lifetime in the room.
    * @return hideConfirmRoomLifetime
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HIDE_CONFIRM_ROOM_LIFETIME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HIDE_CONFIRM_ROOM_LIFETIME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getHideConfirmRoomLifetime() {
@@ -2042,7 +1875,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HIDE_CONFIRM_ROOM_LIFETIME)
+  @JsonProperty(value = JSON_PROPERTY_HIDE_CONFIRM_ROOM_LIFETIME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHideConfirmRoomLifetime(@javax.annotation.Nullable Boolean hideConfirmRoomLifetime) {
     this.hideConfirmRoomLifetime = hideConfirmRoomLifetime;
@@ -2058,8 +1891,7 @@ public class FilesSettingsDto {
    * Get defaultOrder
    * @return defaultOrder
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEFAULT_ORDER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEFAULT_ORDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OrderBy getDefaultOrder() {
@@ -2067,7 +1899,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DEFAULT_ORDER)
+  @JsonProperty(value = JSON_PROPERTY_DEFAULT_ORDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefaultOrder(@javax.annotation.Nullable OrderBy defaultOrder) {
     this.defaultOrder = defaultOrder;
@@ -2083,8 +1915,7 @@ public class FilesSettingsDto {
    * Specifies whether to forcesave the files or not.
    * @return forcesave
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORCESAVE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FORCESAVE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getForcesave() {
@@ -2092,7 +1923,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORCESAVE)
+  @JsonProperty(value = JSON_PROPERTY_FORCESAVE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setForcesave(@javax.annotation.Nullable Boolean forcesave) {
     this.forcesave = forcesave;
@@ -2108,8 +1939,7 @@ public class FilesSettingsDto {
    * Specifies whether to store the forcesaved file versions or not.
    * @return storeForcesave
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STORE_FORCESAVE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STORE_FORCESAVE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getStoreForcesave() {
@@ -2117,7 +1947,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STORE_FORCESAVE)
+  @JsonProperty(value = JSON_PROPERTY_STORE_FORCESAVE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreForcesave(@javax.annotation.Nullable Boolean storeForcesave) {
     this.storeForcesave = storeForcesave;
@@ -2133,8 +1963,7 @@ public class FilesSettingsDto {
    * Specifies if the Recent section is displayed or not.
    * @return recentSection
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RECENT_SECTION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RECENT_SECTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getRecentSection() {
@@ -2142,7 +1971,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RECENT_SECTION)
+  @JsonProperty(value = JSON_PROPERTY_RECENT_SECTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecentSection(@javax.annotation.Nullable Boolean recentSection) {
     this.recentSection = recentSection;
@@ -2158,8 +1987,7 @@ public class FilesSettingsDto {
    * Specifies if the Favorites section is displayed or not.
    * @return favoritesSection
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FAVORITES_SECTION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FAVORITES_SECTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getFavoritesSection() {
@@ -2167,7 +1995,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FAVORITES_SECTION)
+  @JsonProperty(value = JSON_PROPERTY_FAVORITES_SECTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFavoritesSection(@javax.annotation.Nullable Boolean favoritesSection) {
     this.favoritesSection = favoritesSection;
@@ -2183,8 +2011,7 @@ public class FilesSettingsDto {
    * Specifies if the Templates section is displayed or not.
    * @return templatesSection
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEMPLATES_SECTION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TEMPLATES_SECTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getTemplatesSection() {
@@ -2192,7 +2019,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEMPLATES_SECTION)
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATES_SECTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTemplatesSection(@javax.annotation.Nullable Boolean templatesSection) {
     this.templatesSection = templatesSection;
@@ -2208,8 +2035,7 @@ public class FilesSettingsDto {
    * Specifies whether to download the .tar.gz files or not.
    * @return downloadTarGz
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOWNLOAD_TAR_GZ)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOWNLOAD_TAR_GZ, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDownloadTarGz() {
@@ -2217,7 +2043,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOWNLOAD_TAR_GZ)
+  @JsonProperty(value = JSON_PROPERTY_DOWNLOAD_TAR_GZ, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDownloadTarGz(@javax.annotation.Nullable Boolean downloadTarGz) {
     this.downloadTarGz = downloadTarGz;
@@ -2233,8 +2059,7 @@ public class FilesSettingsDto {
    * Get automaticallyCleanUp
    * @return automaticallyCleanUp
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUTOMATICALLY_CLEAN_UP)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTOMATICALLY_CLEAN_UP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AutoCleanUpData getAutomaticallyCleanUp() {
@@ -2242,7 +2067,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AUTOMATICALLY_CLEAN_UP)
+  @JsonProperty(value = JSON_PROPERTY_AUTOMATICALLY_CLEAN_UP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAutomaticallyCleanUp(@javax.annotation.Nullable AutoCleanUpData automaticallyCleanUp) {
     this.automaticallyCleanUp = automaticallyCleanUp;
@@ -2258,8 +2083,7 @@ public class FilesSettingsDto {
    * Specifies whether the file can be searched by its content or not.
    * @return canSearchByContent
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CAN_SEARCH_BY_CONTENT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CAN_SEARCH_BY_CONTENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCanSearchByContent() {
@@ -2267,7 +2091,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CAN_SEARCH_BY_CONTENT)
+  @JsonProperty(value = JSON_PROPERTY_CAN_SEARCH_BY_CONTENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCanSearchByContent(@javax.annotation.Nullable Boolean canSearchByContent) {
     this.canSearchByContent = canSearchByContent;
@@ -2295,16 +2119,14 @@ public class FilesSettingsDto {
    * The default access rights in sharing settings.
    * @return defaultSharingAccessRights
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<DefaultSharingAccessRightsEnum> getDefaultSharingAccessRights() {
         return defaultSharingAccessRights.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DEFAULT_SHARING_ACCESS_RIGHTS)
+  @JsonProperty(value = JSON_PROPERTY_DEFAULT_SHARING_ACCESS_RIGHTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<DefaultSharingAccessRightsEnum>> getDefaultSharingAccessRights_JsonNullable() {
     return defaultSharingAccessRights;
   }
@@ -2328,8 +2150,7 @@ public class FilesSettingsDto {
    * The maximum number of upload threads.
    * @return maxUploadThreadCount
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAX_UPLOAD_THREAD_COUNT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MAX_UPLOAD_THREAD_COUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getMaxUploadThreadCount() {
@@ -2337,7 +2158,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MAX_UPLOAD_THREAD_COUNT)
+  @JsonProperty(value = JSON_PROPERTY_MAX_UPLOAD_THREAD_COUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxUploadThreadCount(@javax.annotation.Nullable Integer maxUploadThreadCount) {
     this.maxUploadThreadCount = maxUploadThreadCount;
@@ -2353,8 +2174,7 @@ public class FilesSettingsDto {
    * The size of a large file that is uploaded in chunks.
    * @return chunkUploadSize
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHUNK_UPLOAD_SIZE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CHUNK_UPLOAD_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getChunkUploadSize() {
@@ -2362,7 +2182,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CHUNK_UPLOAD_SIZE)
+  @JsonProperty(value = JSON_PROPERTY_CHUNK_UPLOAD_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChunkUploadSize(@javax.annotation.Nullable Long chunkUploadSize) {
     this.chunkUploadSize = chunkUploadSize;
@@ -2378,8 +2198,7 @@ public class FilesSettingsDto {
    * Specifies whether to open the editor in the same tab or not.
    * @return openEditorInSameTab
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OPEN_EDITOR_IN_SAME_TAB)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OPEN_EDITOR_IN_SAME_TAB, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getOpenEditorInSameTab() {
@@ -2387,10 +2206,34 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OPEN_EDITOR_IN_SAME_TAB)
+  @JsonProperty(value = JSON_PROPERTY_OPEN_EDITOR_IN_SAME_TAB, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpenEditorInSameTab(@javax.annotation.Nullable Boolean openEditorInSameTab) {
     this.openEditorInSameTab = openEditorInSameTab;
+  }
+
+  public FilesSettingsDto organizeRoomsGrouping(@javax.annotation.Nullable Boolean organizeRoomsGrouping) {
+    
+    this.organizeRoomsGrouping = organizeRoomsGrouping;
+    return this;
+  }
+
+  /**
+   * Specifies whether the grouping of rooms is enabled or not.
+   * @return organizeRoomsGrouping
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ORGANIZE_ROOMS_GROUPING, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getOrganizeRoomsGrouping() {
+    return organizeRoomsGrouping;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ORGANIZE_ROOMS_GROUPING, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOrganizeRoomsGrouping(@javax.annotation.Nullable Boolean organizeRoomsGrouping) {
+    this.organizeRoomsGrouping = organizeRoomsGrouping;
   }
 
   public FilesSettingsDto extsFilesVectorized(@javax.annotation.Nullable List<String> extsFilesVectorized) {
@@ -2415,16 +2258,14 @@ public class FilesSettingsDto {
    * List of extensions available for vectorization
    * @return extsFilesVectorized
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getExtsFilesVectorized() {
         return extsFilesVectorized.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTS_FILES_VECTORIZED)
+  @JsonProperty(value = JSON_PROPERTY_EXTS_FILES_VECTORIZED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getExtsFilesVectorized_JsonNullable() {
     return extsFilesVectorized;
   }
@@ -2448,8 +2289,7 @@ public class FilesSettingsDto {
    * The maximum file size for vectorization
    * @return maxVectorizationFileSize
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAX_VECTORIZATION_FILE_SIZE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MAX_VECTORIZATION_FILE_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getMaxVectorizationFileSize() {
@@ -2457,7 +2297,7 @@ public class FilesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MAX_VECTORIZATION_FILE_SIZE)
+  @JsonProperty(value = JSON_PROPERTY_MAX_VECTORIZATION_FILE_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxVectorizationFileSize(@javax.annotation.Nullable Long maxVectorizationFileSize) {
     this.maxVectorizationFileSize = maxVectorizationFileSize;
@@ -2529,6 +2369,7 @@ public class FilesSettingsDto {
         Objects.equals(this.maxUploadThreadCount, filesSettingsDto.maxUploadThreadCount) &&
         Objects.equals(this.chunkUploadSize, filesSettingsDto.chunkUploadSize) &&
         Objects.equals(this.openEditorInSameTab, filesSettingsDto.openEditorInSameTab) &&
+        Objects.equals(this.organizeRoomsGrouping, filesSettingsDto.organizeRoomsGrouping) &&
         equalsNullable(this.extsFilesVectorized, filesSettingsDto.extsFilesVectorized) &&
         Objects.equals(this.maxVectorizationFileSize, filesSettingsDto.maxVectorizationFileSize);
   }
@@ -2539,7 +2380,7 @@ public class FilesSettingsDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(extsImagePreviewed), hashCodeNullable(extsMediaPreviewed), hashCodeNullable(extsWebPreviewed), hashCodeNullable(extsWebEdited), hashCodeNullable(extsWebEncrypt), hashCodeNullable(extsWebReviewed), hashCodeNullable(extsWebCustomFilterEditing), hashCodeNullable(extsWebRestrictedEditing), hashCodeNullable(extsWebCommented), hashCodeNullable(extsWebTemplate), hashCodeNullable(extsMustConvert), hashCodeNullable(extsConvertible), hashCodeNullable(extsUploadable), hashCodeNullable(extsArchive), hashCodeNullable(extsVideo), hashCodeNullable(extsAudio), hashCodeNullable(extsImage), hashCodeNullable(extsSpreadsheet), hashCodeNullable(extsPresentation), hashCodeNullable(extsDocument), hashCodeNullable(extsDiagram), hashCodeNullable(internalFormats), hashCodeNullable(masterFormExtension), hashCodeNullable(paramVersion), hashCodeNullable(paramOutType), hashCodeNullable(fileDownloadUrlString), hashCodeNullable(fileWebViewerUrlString), hashCodeNullable(fileWebViewerExternalUrlString), hashCodeNullable(fileWebEditorUrlString), hashCodeNullable(fileWebEditorExternalUrlString), hashCodeNullable(fileRedirectPreviewUrlString), hashCodeNullable(fileThumbnailUrlString), confirmDelete, enableThirdParty, externalShare, externalShareSocialMedia, storeOriginalFiles, keepNewFileName, displayFileExtension, convertNotify, hideConfirmCancelOperation, hideConfirmConvertSave, hideConfirmConvertOpen, hideConfirmRoomLifetime, defaultOrder, forcesave, storeForcesave, recentSection, favoritesSection, templatesSection, downloadTarGz, automaticallyCleanUp, canSearchByContent, hashCodeNullable(defaultSharingAccessRights), maxUploadThreadCount, chunkUploadSize, openEditorInSameTab, hashCodeNullable(extsFilesVectorized), maxVectorizationFileSize);
+    return Objects.hash(hashCodeNullable(extsImagePreviewed), hashCodeNullable(extsMediaPreviewed), hashCodeNullable(extsWebPreviewed), hashCodeNullable(extsWebEdited), hashCodeNullable(extsWebEncrypt), hashCodeNullable(extsWebReviewed), hashCodeNullable(extsWebCustomFilterEditing), hashCodeNullable(extsWebRestrictedEditing), hashCodeNullable(extsWebCommented), hashCodeNullable(extsWebTemplate), hashCodeNullable(extsMustConvert), hashCodeNullable(extsConvertible), hashCodeNullable(extsUploadable), hashCodeNullable(extsArchive), hashCodeNullable(extsVideo), hashCodeNullable(extsAudio), hashCodeNullable(extsImage), hashCodeNullable(extsSpreadsheet), hashCodeNullable(extsPresentation), hashCodeNullable(extsDocument), hashCodeNullable(extsDiagram), hashCodeNullable(internalFormats), hashCodeNullable(masterFormExtension), hashCodeNullable(paramVersion), hashCodeNullable(paramOutType), hashCodeNullable(fileDownloadUrlString), hashCodeNullable(fileWebViewerUrlString), hashCodeNullable(fileWebViewerExternalUrlString), hashCodeNullable(fileWebEditorUrlString), hashCodeNullable(fileWebEditorExternalUrlString), hashCodeNullable(fileRedirectPreviewUrlString), hashCodeNullable(fileThumbnailUrlString), confirmDelete, enableThirdParty, externalShare, externalShareSocialMedia, storeOriginalFiles, keepNewFileName, displayFileExtension, convertNotify, hideConfirmCancelOperation, hideConfirmConvertSave, hideConfirmConvertOpen, hideConfirmRoomLifetime, defaultOrder, forcesave, storeForcesave, recentSection, favoritesSection, templatesSection, downloadTarGz, automaticallyCleanUp, canSearchByContent, hashCodeNullable(defaultSharingAccessRights), maxUploadThreadCount, chunkUploadSize, openEditorInSameTab, organizeRoomsGrouping, hashCodeNullable(extsFilesVectorized), maxVectorizationFileSize);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -2610,6 +2451,7 @@ public class FilesSettingsDto {
     sb.append("    maxUploadThreadCount: ").append(toIndentedString(maxUploadThreadCount)).append("\n");
     sb.append("    chunkUploadSize: ").append(toIndentedString(chunkUploadSize)).append("\n");
     sb.append("    openEditorInSameTab: ").append(toIndentedString(openEditorInSameTab)).append("\n");
+    sb.append("    organizeRoomsGrouping: ").append(toIndentedString(organizeRoomsGrouping)).append("\n");
     sb.append("    extsFilesVectorized: ").append(toIndentedString(extsFilesVectorized)).append("\n");
     sb.append("    maxVectorizationFileSize: ").append(toIndentedString(maxVectorizationFileSize)).append("\n");
     sb.append("}");
@@ -3296,6 +3138,16 @@ public class FilesSettingsDto {
     if (getOpenEditorInSameTab() != null) {
       try {
         joiner.add(String.format("%sopenEditorInSameTab%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOpenEditorInSameTab()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `organizeRoomsGrouping` to the URL query string
+    if (getOrganizeRoomsGrouping() != null) {
+      try {
+        joiner.add(String.format("%sorganizeRoomsGrouping%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOrganizeRoomsGrouping()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

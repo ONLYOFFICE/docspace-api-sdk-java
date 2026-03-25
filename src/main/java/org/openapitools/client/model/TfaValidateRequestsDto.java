@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -34,13 +35,16 @@ import java.util.StringJoiner;
  * The request parameters for validating the two-factor authentication codes.
  */
 @JsonPropertyOrder({
-  TfaValidateRequestsDto.JSON_PROPERTY_CODE
+  TfaValidateRequestsDto.JSON_PROPERTY_CODE,
+  TfaValidateRequestsDto.JSON_PROPERTY_SESSION
 })
 
 public class TfaValidateRequestsDto {
   public static final String JSON_PROPERTY_CODE = "code";
-  @javax.annotation.Nullable
-  private String code;
+  @javax.annotation.Nullable  private String code;
+
+  public static final String JSON_PROPERTY_SESSION = "session";
+  @javax.annotation.Nullable  private Boolean session;
 
   public TfaValidateRequestsDto() {
   }
@@ -56,8 +60,7 @@ public class TfaValidateRequestsDto {
    * The verification code provided by the user.
    * @return code
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CODE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CODE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getCode() {
@@ -65,10 +68,34 @@ public class TfaValidateRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonProperty(value = JSON_PROPERTY_CODE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCode(@javax.annotation.Nullable String code) {
     this.code = code;
+  }
+
+  public TfaValidateRequestsDto session(@javax.annotation.Nullable Boolean session) {
+    
+    this.session = session;
+    return this;
+  }
+
+  /**
+   * Specifies whether the authentication is session-based.
+   * @return session
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SESSION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getSession() {
+    return session;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SESSION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSession(@javax.annotation.Nullable Boolean session) {
+    this.session = session;
   }
 
   @Override
@@ -80,12 +107,13 @@ public class TfaValidateRequestsDto {
       return false;
     }
     TfaValidateRequestsDto tfaValidateRequestsDto = (TfaValidateRequestsDto) o;
-    return Objects.equals(this.code, tfaValidateRequestsDto.code);
+    return Objects.equals(this.code, tfaValidateRequestsDto.code) &&
+        Objects.equals(this.session, tfaValidateRequestsDto.session);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code);
+    return Objects.hash(code, session);
   }
 
   @Override
@@ -93,6 +121,7 @@ public class TfaValidateRequestsDto {
     StringBuilder sb = new StringBuilder();
     sb.append("class TfaValidateRequestsDto {\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    session: ").append(toIndentedString(session)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -144,6 +173,16 @@ public class TfaValidateRequestsDto {
     if (getCode() != null) {
       try {
         joiner.add(String.format("%scode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCode()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `session` to the URL query string
+    if (getSession() != null) {
+      try {
+        joiner.add(String.format("%ssession%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSession()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

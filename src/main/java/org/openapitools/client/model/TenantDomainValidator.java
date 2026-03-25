@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -45,16 +46,13 @@ import java.util.StringJoiner;
 
 public class TenantDomainValidator {
   public static final String JSON_PROPERTY_REGEX = "regex";
-  @javax.annotation.Nullable
-  private JsonNullable<String> regex = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> regex = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_MIN_LENGTH = "minLength";
-  @javax.annotation.Nullable
-  private Integer minLength;
+  @javax.annotation.Nullable  private Integer minLength;
 
   public static final String JSON_PROPERTY_MAX_LENGTH = "maxLength";
-  @javax.annotation.Nullable
-  private Integer maxLength;
+  @javax.annotation.Nullable  private Integer maxLength;
 
   public TenantDomainValidator() {
   }
@@ -78,8 +76,7 @@ public class TenantDomainValidator {
    * The regex string to validate a domain.
    * @return regex
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRegex() {
     
@@ -89,9 +86,8 @@ public class TenantDomainValidator {
     return regex.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_REGEX)
+  @JsonProperty(value = JSON_PROPERTY_REGEX, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRegex_JsonNullable() {
     return regex;
   }
@@ -106,8 +102,7 @@ public class TenantDomainValidator {
    * The minimum length of the valid domain.
    * @return minLength
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MIN_LENGTH)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MIN_LENGTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getMinLength() {
@@ -120,8 +115,7 @@ public class TenantDomainValidator {
    * The maximum length of the valid domain.
    * @return maxLength
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAX_LENGTH)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MAX_LENGTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getMaxLength() {

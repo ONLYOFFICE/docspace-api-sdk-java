@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -44,12 +45,10 @@ import java.util.StringJoiner;
 
 public class Contact {
   public static final String JSON_PROPERTY_TYPE = "type";
-  @javax.annotation.Nullable
-  private JsonNullable<String> type = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> type = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  @javax.annotation.Nullable
-  private JsonNullable<String> value = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> value = JsonNullable.<String>undefined();
 
   public Contact() {
   }
@@ -65,16 +64,14 @@ public class Contact {
    * The contact type.
    * @return type
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getType() {
         return type.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getType_JsonNullable() {
     return type;
   }
@@ -98,16 +95,14 @@ public class Contact {
    * The contact value.
    * @return value
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getValue() {
         return value.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getValue_JsonNullable() {
     return value;
   }

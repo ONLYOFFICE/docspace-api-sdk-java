@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -42,16 +43,13 @@ import java.util.StringJoiner;
 
 public class TenantAuditSettings {
   public static final String JSON_PROPERTY_LOGIN_HISTORY_LIFE_TIME = "loginHistoryLifeTime";
-  @javax.annotation.Nullable
-  private Integer loginHistoryLifeTime;
+  @javax.annotation.Nullable  private Integer loginHistoryLifeTime;
 
   public static final String JSON_PROPERTY_AUDIT_TRAIL_LIFE_TIME = "auditTrailLifeTime";
-  @javax.annotation.Nullable
-  private Integer auditTrailLifeTime;
+  @javax.annotation.Nullable  private Integer auditTrailLifeTime;
 
   public static final String JSON_PROPERTY_LAST_MODIFIED = "lastModified";
-  @javax.annotation.Nullable
-  private OffsetDateTime lastModified;
+  @javax.annotation.Nullable  private OffsetDateTime lastModified;
 
   public TenantAuditSettings() {
   }
@@ -67,8 +65,7 @@ public class TenantAuditSettings {
    * The login history lifetime.
    * @return loginHistoryLifeTime
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOGIN_HISTORY_LIFE_TIME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGIN_HISTORY_LIFE_TIME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getLoginHistoryLifeTime() {
@@ -76,7 +73,7 @@ public class TenantAuditSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOGIN_HISTORY_LIFE_TIME)
+  @JsonProperty(value = JSON_PROPERTY_LOGIN_HISTORY_LIFE_TIME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLoginHistoryLifeTime(@javax.annotation.Nullable Integer loginHistoryLifeTime) {
     this.loginHistoryLifeTime = loginHistoryLifeTime;
@@ -92,8 +89,7 @@ public class TenantAuditSettings {
    * The audit trail lifetime.
    * @return auditTrailLifeTime
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUDIT_TRAIL_LIFE_TIME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUDIT_TRAIL_LIFE_TIME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getAuditTrailLifeTime() {
@@ -101,7 +97,7 @@ public class TenantAuditSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AUDIT_TRAIL_LIFE_TIME)
+  @JsonProperty(value = JSON_PROPERTY_AUDIT_TRAIL_LIFE_TIME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuditTrailLifeTime(@javax.annotation.Nullable Integer auditTrailLifeTime) {
     this.auditTrailLifeTime = auditTrailLifeTime;
@@ -114,11 +110,10 @@ public class TenantAuditSettings {
   }
 
   /**
-   * Get lastModified
+   * The timestamp indicating when the settings were last modified.
    * @return lastModified
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLastModified() {
@@ -126,7 +121,7 @@ public class TenantAuditSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
     this.lastModified = lastModified;

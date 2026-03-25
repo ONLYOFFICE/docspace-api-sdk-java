@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,19 +29,22 @@ import org.openapitools.client.model.BatchRequestDto;
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.CheckConversionRequestDtoInteger;
 import org.openapitools.client.model.CheckDestFolderWrapper;
+import org.openapitools.client.model.ChunkedUploadSessionResponseIntegerWrapper;
+import org.openapitools.client.model.ChunkedUploadSessionResponseWrapperIntegerWrapper;
 import org.openapitools.client.model.ConversationResultArrayWrapper;
 import org.openapitools.client.model.DeleteBatchRequestDto;
 import org.openapitools.client.model.DeleteVersionBatchRequestDto;
 import org.openapitools.client.model.DownloadRequestDto;
 import org.openapitools.client.model.DuplicateRequestDto;
+import java.io.File;
 import org.openapitools.client.model.FileEntryBaseArrayWrapper;
 import org.openapitools.client.model.FileOperationArrayWrapper;
 import org.openapitools.client.model.FileOperationType;
 import org.openapitools.client.model.FileOperationWrapper;
-import org.openapitools.client.model.ObjectWrapper;
 import org.openapitools.client.model.SessionRequest;
 import org.openapitools.client.model.StringWrapper;
 import org.openapitools.client.model.UpdateComment;
+import org.openapitools.client.model.UploadSessionResponseIntegerWrapper;
 
 
 import java.util.ArrayList;
@@ -61,6 +64,95 @@ public class OperationsApi extends BaseApi {
     super(apiClient);
   }
 
+
+  /**
+   * Aborts an in-progress file upload session.
+   * This method allows users to cancel an ongoing upload session identified by the session ID.  Once the session is aborted, the associated resources will be cleaned up, and the session will no longer accept further uploads.
+   *
+   * REST API Reference for abortUploadSession Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/
+   *
+   * @param sessionId The session ID. (required)
+   * @param folderId The folder ID. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void abortUploadSession(@javax.annotation.Nonnull String sessionId, @javax.annotation.Nonnull Integer folderId) throws ApiException {
+    this.abortUploadSession(sessionId, folderId, Collections.emptyMap());
+  }
+
+
+  /**
+   * Aborts an in-progress file upload session.
+   * This method allows users to cancel an ongoing upload session identified by the session ID.  Once the session is aborted, the associated resources will be cleaned up, and the session will no longer accept further uploads.
+   *
+   * REST API Reference for abortUploadSession Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/
+   *
+   * @param sessionId The session ID. (required)
+   * @param folderId The folder ID. (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @throws ApiException if fails to make API call
+   */
+  public void abortUploadSession(@javax.annotation.Nonnull String sessionId, @javax.annotation.Nonnull Integer folderId, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'sessionId' is set
+    if (sessionId == null) {
+      throw new ApiException(400, "Missing the required parameter 'sessionId' when calling abortUploadSession");
+    }
+    
+    // verify the required parameter 'folderId' is set
+    if (folderId == null) {
+      throw new ApiException(400, "Missing the required parameter 'folderId' when calling abortUploadSession");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/{folderId}/session/{sessionId}"
+      .replaceAll("\\{" + "sessionId" + "\\}", apiClient.escapeString(apiClient.parameterToString(sessionId)))
+      .replaceAll("\\{" + "folderId" + "\\}", apiClient.escapeString(apiClient.parameterToString(folderId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    apiClient.invokeAPI(
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null
+    );
+  }
 
   /**
    * Add favorite files and folders
@@ -543,24 +635,26 @@ public class OperationsApi extends BaseApi {
 
   /**
    * Chunked upload
-   * Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+   * Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.
    *
    * REST API Reference for createUploadSession Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/
    *
    * @param folderId The session folder ID. (required)
    * @param sessionRequest The session parameters. (required)
-   * @return ObjectWrapper
+   * @return ChunkedUploadSessionResponseWrapperIntegerWrapper
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
-  public ObjectWrapper createUploadSession(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull SessionRequest sessionRequest) throws ApiException {
+  @Deprecated
+  public ChunkedUploadSessionResponseWrapperIntegerWrapper createUploadSession(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull SessionRequest sessionRequest) throws ApiException {
     return this.createUploadSession(folderId, sessionRequest, Collections.emptyMap());
   }
 
 
   /**
    * Chunked upload
-   * Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+   * Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.
    *
    * REST API Reference for createUploadSession Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/
@@ -568,10 +662,12 @@ public class OperationsApi extends BaseApi {
    * @param folderId The session folder ID. (required)
    * @param sessionRequest The session parameters. (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return ObjectWrapper
+   * @return ChunkedUploadSessionResponseWrapperIntegerWrapper
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
-  public ObjectWrapper createUploadSession(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull SessionRequest sessionRequest, Map<String, String> additionalHeaders) throws ApiException {
+  @Deprecated
+  public ChunkedUploadSessionResponseWrapperIntegerWrapper createUploadSession(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull SessionRequest sessionRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = sessionRequest;
     
     // verify the required parameter 'folderId' is set
@@ -614,7 +710,98 @@ public class OperationsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ObjectWrapper> localVarReturnType = new TypeReference<ObjectWrapper>() {};
+    TypeReference<ChunkedUploadSessionResponseWrapperIntegerWrapper> localVarReturnType = new TypeReference<ChunkedUploadSessionResponseWrapperIntegerWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Creates a session for uploading a file to a specific folder in chunks.
+   * The session allows the user to upload a file in smaller chunks to the folder identified by its ID.  The file information, such as name, size, and additional metadata, must be provided in the request.  This method facilitates large file upload scenarios by enabling chunked file uploads.
+   *
+   * REST API Reference for createUploadSessionInFolder Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/
+   *
+   * @param folderId The session folder ID. (required)
+   * @param sessionRequest The session parameters. (required)
+   * @return ChunkedUploadSessionResponseIntegerWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ChunkedUploadSessionResponseIntegerWrapper createUploadSessionInFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull SessionRequest sessionRequest) throws ApiException {
+    return this.createUploadSessionInFolder(folderId, sessionRequest, Collections.emptyMap());
+  }
+
+
+  /**
+   * Creates a session for uploading a file to a specific folder in chunks.
+   * The session allows the user to upload a file in smaller chunks to the folder identified by its ID.  The file information, such as name, size, and additional metadata, must be provided in the request.  This method facilitates large file upload scenarios by enabling chunked file uploads.
+   *
+   * REST API Reference for createUploadSessionInFolder Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/
+   *
+   * @param folderId The session folder ID. (required)
+   * @param sessionRequest The session parameters. (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ChunkedUploadSessionResponseIntegerWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ChunkedUploadSessionResponseIntegerWrapper createUploadSessionInFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull SessionRequest sessionRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = sessionRequest;
+    
+    // verify the required parameter 'folderId' is set
+    if (folderId == null) {
+      throw new ApiException(400, "Missing the required parameter 'folderId' when calling createUploadSessionInFolder");
+    }
+    
+    // verify the required parameter 'sessionRequest' is set
+    if (sessionRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'sessionRequest' when calling createUploadSessionInFolder");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/{folderId}/session"
+      .replaceAll("\\{" + "folderId" + "\\}", apiClient.escapeString(apiClient.parameterToString(folderId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<ChunkedUploadSessionResponseIntegerWrapper> localVarReturnType = new TypeReference<ChunkedUploadSessionResponseIntegerWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -1006,6 +1193,98 @@ public class OperationsApi extends BaseApi {
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileOperationArrayWrapper> localVarReturnType = new TypeReference<FileOperationArrayWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Finalize an upload session
+   * Finalizes the upload session by processing the uploaded file chunks and marking the upload as complete.  This method consolidates chunked uploads into a complete file if required, sends notifications about the upload event,  and performs any additional cleanup or related actions, such as socket updates and webhook publishing.
+   *
+   * REST API Reference for finalizeSession Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/finalize-session/
+   *
+   * @param folderId The folder ID. (required)
+   * @param sessionId The session ID. (required)
+   * @return UploadSessionResponseIntegerWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public UploadSessionResponseIntegerWrapper finalizeSession(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull String sessionId) throws ApiException {
+    return this.finalizeSession(folderId, sessionId, Collections.emptyMap());
+  }
+
+
+  /**
+   * Finalize an upload session
+   * Finalizes the upload session by processing the uploaded file chunks and marking the upload as complete.  This method consolidates chunked uploads into a complete file if required, sends notifications about the upload event,  and performs any additional cleanup or related actions, such as socket updates and webhook publishing.
+   *
+   * REST API Reference for finalizeSession Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/finalize-session/
+   *
+   * @param folderId The folder ID. (required)
+   * @param sessionId The session ID. (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return UploadSessionResponseIntegerWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public UploadSessionResponseIntegerWrapper finalizeSession(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull String sessionId, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'folderId' is set
+    if (folderId == null) {
+      throw new ApiException(400, "Missing the required parameter 'folderId' when calling finalizeSession");
+    }
+    
+    // verify the required parameter 'sessionId' is set
+    if (sessionId == null) {
+      throw new ApiException(400, "Missing the required parameter 'sessionId' when calling finalizeSession");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/{folderId}/session/{sessionId}/finalize"
+      .replaceAll("\\{" + "folderId" + "\\}", apiClient.escapeString(apiClient.parameterToString(folderId)))
+      .replaceAll("\\{" + "sessionId" + "\\}", apiClient.escapeString(apiClient.parameterToString(sessionId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<UploadSessionResponseIntegerWrapper> localVarReturnType = new TypeReference<UploadSessionResponseIntegerWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
@@ -1606,6 +1885,201 @@ public class OperationsApi extends BaseApi {
     );
   }
 
+  /**
+   * Handles the upload of a chunk for an existing upload session.
+   * This method allows the caller to upload a specific chunk of a file to an ongoing upload session.  The session is identified by the session ID provided in the request. The chunk can be of any size  within the limits allowed during the session initialization. Each chunk must be uploaded in the  correct order for the server to process it appropriately.  The server updates the upload session status and stores the progress information after processing  each chunk. The updated session details are returned in the response.
+   *
+   * REST API Reference for uploadAsyncSession Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/
+   *
+   * @param folderId The folder ID. (required)
+   * @param sessionId The upload session ID. (required)
+   * @param chunkNumber The chunk number. (optional)
+   * @param _file The file chunk to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file chunk content from the HTTP request form for chunked upload operations.  The file chunk is accessed via the IFormFile interface which provides access to the chunk content and length. (optional)
+   * @return ChunkedUploadSessionResponseIntegerWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ChunkedUploadSessionResponseIntegerWrapper uploadAsyncSession(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull String sessionId, @javax.annotation.Nullable Integer chunkNumber, @javax.annotation.Nullable File _file) throws ApiException {
+    return this.uploadAsyncSession(folderId, sessionId, chunkNumber, _file, Collections.emptyMap());
+  }
+
+
+  /**
+   * Handles the upload of a chunk for an existing upload session.
+   * This method allows the caller to upload a specific chunk of a file to an ongoing upload session.  The session is identified by the session ID provided in the request. The chunk can be of any size  within the limits allowed during the session initialization. Each chunk must be uploaded in the  correct order for the server to process it appropriately.  The server updates the upload session status and stores the progress information after processing  each chunk. The updated session details are returned in the response.
+   *
+   * REST API Reference for uploadAsyncSession Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/
+   *
+   * @param folderId The folder ID. (required)
+   * @param sessionId The upload session ID. (required)
+   * @param chunkNumber The chunk number. (optional)
+   * @param _file The file chunk to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file chunk content from the HTTP request form for chunked upload operations.  The file chunk is accessed via the IFormFile interface which provides access to the chunk content and length. (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ChunkedUploadSessionResponseIntegerWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ChunkedUploadSessionResponseIntegerWrapper uploadAsyncSession(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull String sessionId, @javax.annotation.Nullable Integer chunkNumber, @javax.annotation.Nullable File _file, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'folderId' is set
+    if (folderId == null) {
+      throw new ApiException(400, "Missing the required parameter 'folderId' when calling uploadAsyncSession");
+    }
+    
+    // verify the required parameter 'sessionId' is set
+    if (sessionId == null) {
+      throw new ApiException(400, "Missing the required parameter 'sessionId' when calling uploadAsyncSession");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/{folderId}/session/{sessionId}/upload"
+      .replaceAll("\\{" + "folderId" + "\\}", apiClient.escapeString(apiClient.parameterToString(folderId)))
+      .replaceAll("\\{" + "sessionId" + "\\}", apiClient.escapeString(apiClient.parameterToString(sessionId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("ChunkNumber", chunkNumber));
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    if (_file != null)
+      localVarFormParams.put("File", _file);
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "multipart/form-data"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<ChunkedUploadSessionResponseIntegerWrapper> localVarReturnType = new TypeReference<ChunkedUploadSessionResponseIntegerWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Resumes an ongoing file upload session for uploading additional chunks of data.
+   * This method allows continuing an interrupted or partially completed file upload session by uploading subsequent data chunks.  The server will validate each uploaded chunk, update the session state, and respond with the status of the current upload. Once  the total bytes uploaded match the total file size, the file upload process is finalized and related events are triggered.  If the file is newly uploaded, the server responds with a 201 Created status upon completion. If it overwrites an existing file,  versioning information is updated accordingly. The method also triggers associated webhooks and socket notifications to reflect  the updated file state.
+   *
+   * REST API Reference for uploadSession Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-session/
+   *
+   * @param folderId The folder ID. (required)
+   * @param sessionId The upload session ID. (required)
+   * @param _file The file to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file content from the HTTP request form.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)
+   * @return UploadSessionResponseIntegerWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public UploadSessionResponseIntegerWrapper uploadSession(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull String sessionId, @javax.annotation.Nullable File _file) throws ApiException {
+    return this.uploadSession(folderId, sessionId, _file, Collections.emptyMap());
+  }
+
+
+  /**
+   * Resumes an ongoing file upload session for uploading additional chunks of data.
+   * This method allows continuing an interrupted or partially completed file upload session by uploading subsequent data chunks.  The server will validate each uploaded chunk, update the session state, and respond with the status of the current upload. Once  the total bytes uploaded match the total file size, the file upload process is finalized and related events are triggered.  If the file is newly uploaded, the server responds with a 201 Created status upon completion. If it overwrites an existing file,  versioning information is updated accordingly. The method also triggers associated webhooks and socket notifications to reflect  the updated file state.
+   *
+   * REST API Reference for uploadSession Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-session/
+   *
+   * @param folderId The folder ID. (required)
+   * @param sessionId The upload session ID. (required)
+   * @param _file The file to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file content from the HTTP request form.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return UploadSessionResponseIntegerWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public UploadSessionResponseIntegerWrapper uploadSession(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull String sessionId, @javax.annotation.Nullable File _file, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'folderId' is set
+    if (folderId == null) {
+      throw new ApiException(400, "Missing the required parameter 'folderId' when calling uploadSession");
+    }
+    
+    // verify the required parameter 'sessionId' is set
+    if (sessionId == null) {
+      throw new ApiException(400, "Missing the required parameter 'sessionId' when calling uploadSession");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/{folderId}/session/{sessionId}"
+      .replaceAll("\\{" + "folderId" + "\\}", apiClient.escapeString(apiClient.parameterToString(folderId)))
+      .replaceAll("\\{" + "sessionId" + "\\}", apiClient.escapeString(apiClient.parameterToString(sessionId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    if (_file != null)
+      localVarFormParams.put("File", _file);
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "multipart/form-data"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<UploadSessionResponseIntegerWrapper> localVarReturnType = new TypeReference<UploadSessionResponseIntegerWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
   @Override
   public <T> T invokeAPI(String url, String method, Object request, TypeReference<T> returnType, Map<String, String> additionalHeaders) throws ApiException {
     String localVarPath = url.replace(apiClient.getBaseURL(), "");
@@ -1624,7 +2098,7 @@ public class OperationsApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json"
+      "multipart/form-data"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 

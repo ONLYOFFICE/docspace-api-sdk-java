@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -39,47 +40,20 @@ import java.util.StringJoiner;
  * The user invitation parameters.
  */
 @JsonPropertyOrder({
-  UserInvitationRequestDto.JSON_PROPERTY_TYPE,
-  UserInvitationRequestDto.JSON_PROPERTY_EMAIL
+  UserInvitationRequestDto.JSON_PROPERTY_EMAIL,
+  UserInvitationRequestDto.JSON_PROPERTY_TYPE
 })
 
 public class UserInvitationRequestDto {
-  public static final String JSON_PROPERTY_TYPE = "type";
-  @javax.annotation.Nullable
-  private EmployeeType type;
-
   public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nullable
-  private JsonNullable<String> email = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> email = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable  private EmployeeType type;
 
   public UserInvitationRequestDto() {
   }
 
-
-  public UserInvitationRequestDto type(@javax.annotation.Nullable EmployeeType type) {
-    
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Get type
-   * @return type
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public EmployeeType getType() {
-    return type;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(@javax.annotation.Nullable EmployeeType type) {
-    this.type = type;
-  }
 
   public UserInvitationRequestDto email(@javax.annotation.Nullable String email) {
     this.email = JsonNullable.<String>of(email);
@@ -88,19 +62,17 @@ public class UserInvitationRequestDto {
   }
 
   /**
-   * The user email address.
+   * The email address.
    * @return email
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getEmail() {
         return email.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getEmail_JsonNullable() {
     return email;
   }
@@ -114,6 +86,30 @@ public class UserInvitationRequestDto {
     this.email = JsonNullable.<String>of(email);
   }
 
+  public UserInvitationRequestDto type(@javax.annotation.Nullable EmployeeType type) {
+    
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Get type
+   * @return type
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public EmployeeType getType() {
+    return type;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setType(@javax.annotation.Nullable EmployeeType type) {
+    this.type = type;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -123,8 +119,8 @@ public class UserInvitationRequestDto {
       return false;
     }
     UserInvitationRequestDto userInvitationRequestDto = (UserInvitationRequestDto) o;
-    return Objects.equals(this.type, userInvitationRequestDto.type) &&
-        equalsNullable(this.email, userInvitationRequestDto.email);
+    return equalsNullable(this.email, userInvitationRequestDto.email) &&
+        Objects.equals(this.type, userInvitationRequestDto.type);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -133,7 +129,7 @@ public class UserInvitationRequestDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, hashCodeNullable(email));
+    return Objects.hash(hashCodeNullable(email), type);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -147,8 +143,8 @@ public class UserInvitationRequestDto {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserInvitationRequestDto {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -196,20 +192,20 @@ public class UserInvitationRequestDto {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `type` to the URL query string
-    if (getType() != null) {
+    // add `email` to the URL query string
+    if (getEmail() != null) {
       try {
-        joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmail()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
     }
 
-    // add `email` to the URL query string
-    if (getEmail() != null) {
+    // add `type` to the URL query string
+    if (getType() != null) {
       try {
-        joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmail()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

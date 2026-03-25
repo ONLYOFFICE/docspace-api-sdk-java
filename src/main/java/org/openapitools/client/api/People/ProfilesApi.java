@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
+import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.Culture;
 import org.openapitools.client.model.EmployeeArrayWrapper;
 import org.openapitools.client.model.EmployeeFullArrayWrapper;
@@ -32,7 +33,6 @@ import org.openapitools.client.model.InviteUsersRequestDto;
 import org.openapitools.client.model.MemberRequestDto;
 import org.openapitools.client.model.ObjectWrapper;
 import org.openapitools.client.model.SortOrder;
-import org.openapitools.client.model.StringWrapper;
 import org.openapitools.client.model.UpdateMemberRequestDto;
 import org.openapitools.client.model.UpdateMembersRequestDto;
 
@@ -130,6 +130,91 @@ public class ProfilesApi extends BaseApi {
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Check if a user exists by email
+   * Returns a boolean indicating whether a user with the specified email exists on the portal.
+   *
+   * REST API Reference for checkUserExistsByEmail Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/
+   *
+   * @param email The user email address. (optional)
+   * @param encemail The user encrypted email address. (optional)
+   * @param culture Culture (optional)
+   * @return BooleanWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public BooleanWrapper checkUserExistsByEmail(@javax.annotation.Nullable String email, @javax.annotation.Nullable String encemail, @javax.annotation.Nullable String culture) throws ApiException {
+    return this.checkUserExistsByEmail(email, encemail, culture, Collections.emptyMap());
+  }
+
+
+  /**
+   * Check if a user exists by email
+   * Returns a boolean indicating whether a user with the specified email exists on the portal.
+   *
+   * REST API Reference for checkUserExistsByEmail Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/
+   *
+   * @param email The user email address. (optional)
+   * @param encemail The user encrypted email address. (optional)
+   * @param culture Culture (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return BooleanWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public BooleanWrapper checkUserExistsByEmail(@javax.annotation.Nullable String email, @javax.annotation.Nullable String encemail, @javax.annotation.Nullable String culture, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/people/exists";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("email", email));
+    localVarQueryParams.addAll(apiClient.parameterToPair("encemail", encemail));
+    localVarQueryParams.addAll(apiClient.parameterToPair("culture", culture));
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),
@@ -959,84 +1044,6 @@ public class ProfilesApi extends BaseApi {
   }
 
   /**
-   * Send instructions to change email
-   * Sends a message to the user email with the instructions to change the email address connected to the portal.
-   *
-   * REST API Reference for sendEmailChangeInstructions Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/
-   *
-   * @param updateMemberRequestDto  (optional)
-   * @return StringWrapper
-   * @throws ApiException if fails to make API call
-   */
-  public StringWrapper sendEmailChangeInstructions(@javax.annotation.Nullable UpdateMemberRequestDto updateMemberRequestDto) throws ApiException {
-    return this.sendEmailChangeInstructions(updateMemberRequestDto, Collections.emptyMap());
-  }
-
-
-  /**
-   * Send instructions to change email
-   * Sends a message to the user email with the instructions to change the email address connected to the portal.
-   *
-   * REST API Reference for sendEmailChangeInstructions Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/
-   *
-   * @param updateMemberRequestDto  (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return StringWrapper
-   * @throws ApiException if fails to make API call
-   */
-  public StringWrapper sendEmailChangeInstructions(@javax.annotation.Nullable UpdateMemberRequestDto updateMemberRequestDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = updateMemberRequestDto;
-    
-    // create path and map variables
-    String localVarPath = "/api/2.0/people/email";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-      
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
-
-    TypeReference<StringWrapper> localVarReturnType = new TypeReference<StringWrapper>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
    * Update a user
    * Updates the data for the selected portal user with the first name, last name, email address, and/or optional parameters specified in the request.
    *
@@ -1128,14 +1135,14 @@ public class ProfilesApi extends BaseApi {
   }
 
   /**
-   * Update a user culture code
-   * Updates the user culture code with the parameters specified in the request.
+   * Update a user culture
+   * Updates the user culture with the parameters specified in the request.
    *
    * REST API Reference for updateMemberCulture Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-culture/
    *
    * @param userid The user ID. (required)
-   * @param culture The culture code parameters. (optional)
+   * @param culture The culture name parameters. (optional)
    * @return EmployeeFullWrapper
    * @throws ApiException if fails to make API call
    */
@@ -1145,14 +1152,14 @@ public class ProfilesApi extends BaseApi {
 
 
   /**
-   * Update a user culture code
-   * Updates the user culture code with the parameters specified in the request.
+   * Update a user culture
+   * Updates the user culture with the parameters specified in the request.
    *
    * REST API Reference for updateMemberCulture Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-culture/
    *
    * @param userid The user ID. (required)
-   * @param culture The culture code parameters. (optional)
+   * @param culture The culture name parameters. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return EmployeeFullWrapper
    * @throws ApiException if fails to make API call

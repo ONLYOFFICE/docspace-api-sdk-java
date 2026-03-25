@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.CoEditingConfigMode;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -42,16 +43,13 @@ import java.util.StringJoiner;
 
 public class CoEditingConfig {
   public static final String JSON_PROPERTY_CHANGE = "change";
-  @javax.annotation.Nullable
-  private Boolean change;
+  @javax.annotation.Nullable  private Boolean change;
 
   public static final String JSON_PROPERTY_FAST = "fast";
-  @javax.annotation.Nullable
-  private Boolean fast;
+  @javax.annotation.Nullable  private Boolean fast;
 
   public static final String JSON_PROPERTY_MODE = "mode";
-  @javax.annotation.Nullable
-  private CoEditingConfigMode mode;
+  @javax.annotation.Nullable  private CoEditingConfigMode mode;
 
   public CoEditingConfig() {
   }
@@ -67,8 +65,7 @@ public class CoEditingConfig {
    * Specifies if the co-editing mode can be changed in the editor interface or not.
    * @return change
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHANGE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CHANGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getChange() {
@@ -76,7 +73,7 @@ public class CoEditingConfig {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CHANGE)
+  @JsonProperty(value = JSON_PROPERTY_CHANGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChange(@javax.annotation.Nullable Boolean change) {
     this.change = change;
@@ -92,8 +89,7 @@ public class CoEditingConfig {
    * Specifies if the co-editing mode is fast.
    * @return fast
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FAST)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FAST, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getFast() {
@@ -101,7 +97,7 @@ public class CoEditingConfig {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FAST)
+  @JsonProperty(value = JSON_PROPERTY_FAST, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFast(@javax.annotation.Nullable Boolean fast) {
     this.fast = fast;
@@ -117,8 +113,7 @@ public class CoEditingConfig {
    * Get mode
    * @return mode
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CoEditingConfigMode getMode() {
@@ -126,7 +121,7 @@ public class CoEditingConfig {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MODE)
+  @JsonProperty(value = JSON_PROPERTY_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMode(@javax.annotation.Nullable CoEditingConfigMode mode) {
     this.mode = mode;

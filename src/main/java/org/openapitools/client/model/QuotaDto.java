@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,6 +36,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -62,52 +63,40 @@ import java.util.StringJoiner;
 
 public class QuotaDto {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nonnull
-  private Integer id;
+  @javax.annotation.Nonnull  private Integer id;
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private String title;
+  @javax.annotation.Nullable  private String title;
 
   public static final String JSON_PROPERTY_PRICE = "price";
-  @javax.annotation.Nonnull
-  private PriceDto price;
+  @javax.annotation.Nonnull  private PriceDto price;
 
   public static final String JSON_PROPERTY_NON_PROFIT = "nonProfit";
-  @javax.annotation.Nonnull
-  private Boolean nonProfit;
+  @javax.annotation.Nonnull  private Boolean nonProfit;
 
   public static final String JSON_PROPERTY_FREE = "free";
-  @javax.annotation.Nonnull
-  private Boolean free;
+  @javax.annotation.Nonnull  private Boolean free;
 
   public static final String JSON_PROPERTY_TRIAL = "trial";
-  @javax.annotation.Nonnull
-  private Boolean trial;
+  @javax.annotation.Nonnull  private Boolean trial;
 
   public static final String JSON_PROPERTY_FEATURES = "features";
-  @javax.annotation.Nullable
-  private List<TenantQuotaFeatureDto> features;
+  @javax.annotation.Nullable  private List<TenantQuotaFeatureDto> features;
 
   public static final String JSON_PROPERTY_USERS_QUOTA = "usersQuota";
-  @javax.annotation.Nullable
-  private TenantEntityQuotaSettings usersQuota;
+  @javax.annotation.Nullable  private TenantEntityQuotaSettings usersQuota;
 
   public static final String JSON_PROPERTY_ROOMS_QUOTA = "roomsQuota";
-  @javax.annotation.Nullable
-  private TenantEntityQuotaSettings roomsQuota;
+  @javax.annotation.Nullable  private TenantEntityQuotaSettings roomsQuota;
 
   public static final String JSON_PROPERTY_AI_AGENTS_QUOTA = "aiAgentsQuota";
-  @javax.annotation.Nullable
-  private TenantEntityQuotaSettings aiAgentsQuota;
+  @javax.annotation.Nullable  private TenantEntityQuotaSettings aiAgentsQuota;
 
   public static final String JSON_PROPERTY_TENANT_CUSTOM_QUOTA = "tenantCustomQuota";
-  @javax.annotation.Nullable
-  private TenantQuotaSettings tenantCustomQuota;
+  @javax.annotation.Nullable  private TenantQuotaSettings tenantCustomQuota;
 
   public static final String JSON_PROPERTY_DUE_DATE = "dueDate";
-  @javax.annotation.Nullable
-  private JsonNullable<OffsetDateTime> dueDate = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> dueDate = JsonNullable.<OffsetDateTime>undefined();
 
   public QuotaDto() {
   }
@@ -123,8 +112,7 @@ public class QuotaDto {
    * The quota ID.
    * @return id
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getId() {
@@ -132,7 +120,7 @@ public class QuotaDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@javax.annotation.Nonnull Integer id) {
     this.id = id;
@@ -148,8 +136,7 @@ public class QuotaDto {
    * The quota title.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getTitle() {
@@ -157,7 +144,7 @@ public class QuotaDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTitle(@javax.annotation.Nullable String title) {
     this.title = title;
@@ -173,8 +160,7 @@ public class QuotaDto {
    * Get price
    * @return price
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PRICE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PRICE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public PriceDto getPrice() {
@@ -182,7 +168,7 @@ public class QuotaDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PRICE)
+  @JsonProperty(value = JSON_PROPERTY_PRICE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPrice(@javax.annotation.Nonnull PriceDto price) {
     this.price = price;
@@ -198,8 +184,7 @@ public class QuotaDto {
    * Specifies if the quota is nonprofit or not.
    * @return nonProfit
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NON_PROFIT)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_NON_PROFIT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getNonProfit() {
@@ -207,7 +192,7 @@ public class QuotaDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NON_PROFIT)
+  @JsonProperty(value = JSON_PROPERTY_NON_PROFIT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setNonProfit(@javax.annotation.Nonnull Boolean nonProfit) {
     this.nonProfit = nonProfit;
@@ -223,8 +208,7 @@ public class QuotaDto {
    * Specifies if the quota is free or not.
    * @return free
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FREE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_FREE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getFree() {
@@ -232,7 +216,7 @@ public class QuotaDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FREE)
+  @JsonProperty(value = JSON_PROPERTY_FREE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFree(@javax.annotation.Nonnull Boolean free) {
     this.free = free;
@@ -248,8 +232,7 @@ public class QuotaDto {
    * Specifies if the quota is trial or not.
    * @return trial
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TRIAL)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TRIAL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getTrial() {
@@ -257,7 +240,7 @@ public class QuotaDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRIAL)
+  @JsonProperty(value = JSON_PROPERTY_TRIAL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTrial(@javax.annotation.Nonnull Boolean trial) {
     this.trial = trial;
@@ -281,8 +264,7 @@ public class QuotaDto {
    * The list of tenant quota features.
    * @return features
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FEATURES)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FEATURES, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<TenantQuotaFeatureDto> getFeatures() {
@@ -290,7 +272,7 @@ public class QuotaDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FEATURES)
+  @JsonProperty(value = JSON_PROPERTY_FEATURES, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFeatures(@javax.annotation.Nullable List<TenantQuotaFeatureDto> features) {
     this.features = features;
@@ -306,8 +288,7 @@ public class QuotaDto {
    * Get usersQuota
    * @return usersQuota
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USERS_QUOTA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USERS_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TenantEntityQuotaSettings getUsersQuota() {
@@ -315,7 +296,7 @@ public class QuotaDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USERS_QUOTA)
+  @JsonProperty(value = JSON_PROPERTY_USERS_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsersQuota(@javax.annotation.Nullable TenantEntityQuotaSettings usersQuota) {
     this.usersQuota = usersQuota;
@@ -331,8 +312,7 @@ public class QuotaDto {
    * Get roomsQuota
    * @return roomsQuota
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROOMS_QUOTA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOMS_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TenantEntityQuotaSettings getRoomsQuota() {
@@ -340,7 +320,7 @@ public class QuotaDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROOMS_QUOTA)
+  @JsonProperty(value = JSON_PROPERTY_ROOMS_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoomsQuota(@javax.annotation.Nullable TenantEntityQuotaSettings roomsQuota) {
     this.roomsQuota = roomsQuota;
@@ -356,8 +336,7 @@ public class QuotaDto {
    * Get aiAgentsQuota
    * @return aiAgentsQuota
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AI_AGENTS_QUOTA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AI_AGENTS_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TenantEntityQuotaSettings getAiAgentsQuota() {
@@ -365,7 +344,7 @@ public class QuotaDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AI_AGENTS_QUOTA)
+  @JsonProperty(value = JSON_PROPERTY_AI_AGENTS_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAiAgentsQuota(@javax.annotation.Nullable TenantEntityQuotaSettings aiAgentsQuota) {
     this.aiAgentsQuota = aiAgentsQuota;
@@ -381,8 +360,7 @@ public class QuotaDto {
    * Get tenantCustomQuota
    * @return tenantCustomQuota
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TENANT_CUSTOM_QUOTA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT_CUSTOM_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TenantQuotaSettings getTenantCustomQuota() {
@@ -390,7 +368,7 @@ public class QuotaDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TENANT_CUSTOM_QUOTA)
+  @JsonProperty(value = JSON_PROPERTY_TENANT_CUSTOM_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTenantCustomQuota(@javax.annotation.Nullable TenantQuotaSettings tenantCustomQuota) {
     this.tenantCustomQuota = tenantCustomQuota;
@@ -406,16 +384,14 @@ public class QuotaDto {
    * The due date.
    * @return dueDate
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public OffsetDateTime getDueDate() {
         return dueDate.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DUE_DATE)
+  @JsonProperty(value = JSON_PROPERTY_DUE_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<OffsetDateTime> getDueDate_JsonNullable() {
     return dueDate;
   }

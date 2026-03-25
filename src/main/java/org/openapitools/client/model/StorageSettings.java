@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,11 +27,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -44,38 +44,20 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   StorageSettings.JSON_PROPERTY_MODULE,
   StorageSettings.JSON_PROPERTY_PROPS,
-  StorageSettings.JSON_PROPERTY_ID,
   StorageSettings.JSON_PROPERTY_LAST_MODIFIED
 })
 
 public class StorageSettings {
   public static final String JSON_PROPERTY_MODULE = "module";
-  @javax.annotation.Nullable
-  private JsonNullable<String> module = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> module = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PROPS = "props";
-  @javax.annotation.Nullable
-  private JsonNullable<Map<String, String>> props = JsonNullable.<Map<String, String>>undefined();
-
-  public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private UUID id;
+  @javax.annotation.Nullable  private JsonNullable<Map<String, String>> props = JsonNullable.<Map<String, String>>undefined();
 
   public static final String JSON_PROPERTY_LAST_MODIFIED = "lastModified";
-  @javax.annotation.Nullable
-  private OffsetDateTime lastModified;
+  @javax.annotation.Nullable  private OffsetDateTime lastModified;
 
   public StorageSettings() {
-  }
-  /**
-   * Constructor with only readonly parameters
-   */
-  @JsonCreator
-  public StorageSettings(
-    @JsonProperty(JSON_PROPERTY_ID) UUID id
-  ) {
-    this();
-    this.id = id;
   }
 
 
@@ -89,16 +71,14 @@ public class StorageSettings {
    * Get module
    * @return module
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getModule() {
         return module.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MODULE)
+  @JsonProperty(value = JSON_PROPERTY_MODULE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getModule_JsonNullable() {
     return module;
   }
@@ -134,16 +114,14 @@ public class StorageSettings {
    * Get props
    * @return props
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Map<String, String> getProps() {
         return props.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PROPS)
+  @JsonProperty(value = JSON_PROPERTY_PROPS, required = false)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Map<String, String>> getProps_JsonNullable() {
     return props;
   }
@@ -157,20 +135,6 @@ public class StorageSettings {
     this.props = JsonNullable.<Map<String, String>>of(props);
   }
 
-  /**
-   * Get id
-   * @return id
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public UUID getId() {
-    return id;
-  }
-
-
-
   public StorageSettings lastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
     
     this.lastModified = lastModified;
@@ -181,8 +145,7 @@ public class StorageSettings {
    * Get lastModified
    * @return lastModified
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLastModified() {
@@ -190,7 +153,7 @@ public class StorageSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
     this.lastModified = lastModified;
@@ -207,7 +170,6 @@ public class StorageSettings {
     StorageSettings storageSettings = (StorageSettings) o;
     return equalsNullable(this.module, storageSettings.module) &&
         equalsNullable(this.props, storageSettings.props) &&
-        Objects.equals(this.id, storageSettings.id) &&
         Objects.equals(this.lastModified, storageSettings.lastModified);
   }
 
@@ -217,7 +179,7 @@ public class StorageSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(module), hashCodeNullable(props), id, lastModified);
+    return Objects.hash(hashCodeNullable(module), hashCodeNullable(props), lastModified);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -233,7 +195,6 @@ public class StorageSettings {
     sb.append("class StorageSettings {\n");
     sb.append("    module: ").append(toIndentedString(module)).append("\n");
     sb.append("    props: ").append(toIndentedString(props)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    lastModified: ").append(toIndentedString(lastModified)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -303,16 +264,6 @@ public class StorageSettings {
           // Should never happen, UTF-8 is always supported
           throw new RuntimeException(e);
         }
-      }
-    }
-
-    // add `id` to the URL query string
-    if (getId() != null) {
-      try {
-        joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
       }
     }
 

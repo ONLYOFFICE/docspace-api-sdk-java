@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,11 +27,12 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.DuplicateRequestDtoAllOfFileIds;
+import org.openapitools.client.model.ContinueChatBodyFilesInner;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,26 +49,24 @@ import java.util.StringJoiner;
 
 public class UpdateRoomsQuotaRequestDtoInteger {
   public static final String JSON_PROPERTY_ROOM_IDS = "roomIds";
-  @javax.annotation.Nullable
-  private JsonNullable<List<DuplicateRequestDtoAllOfFileIds>> roomIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<ContinueChatBodyFilesInner>> roomIds = JsonNullable.<List<ContinueChatBodyFilesInner>>undefined();
 
   public static final String JSON_PROPERTY_QUOTA = "quota";
-  @javax.annotation.Nullable
-  private Long quota;
+  @javax.annotation.Nullable  private Long quota;
 
   public UpdateRoomsQuotaRequestDtoInteger() {
   }
 
 
-  public UpdateRoomsQuotaRequestDtoInteger roomIds(@javax.annotation.Nullable List<DuplicateRequestDtoAllOfFileIds> roomIds) {
-    this.roomIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>of(roomIds);
+  public UpdateRoomsQuotaRequestDtoInteger roomIds(@javax.annotation.Nullable List<ContinueChatBodyFilesInner> roomIds) {
+    this.roomIds = JsonNullable.<List<ContinueChatBodyFilesInner>>of(roomIds);
     
     return this;
   }
 
-  public UpdateRoomsQuotaRequestDtoInteger addRoomIdsItem(DuplicateRequestDtoAllOfFileIds roomIdsItem) {
+  public UpdateRoomsQuotaRequestDtoInteger addRoomIdsItem(ContinueChatBodyFilesInner roomIdsItem) {
     if (this.roomIds == null || !this.roomIds.isPresent()) {
-      this.roomIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>of(new ArrayList<>());
+      this.roomIds = JsonNullable.<List<ContinueChatBodyFilesInner>>of(new ArrayList<>());
     }
     try {
       this.roomIds.get().add(roomIdsItem);
@@ -81,27 +80,25 @@ public class UpdateRoomsQuotaRequestDtoInteger {
    * The list of room IDs.
    * @return roomIds
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public List<DuplicateRequestDtoAllOfFileIds> getRoomIds() {
+  public List<ContinueChatBodyFilesInner> getRoomIds() {
         return roomIds.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ROOM_IDS)
+  @JsonProperty(value = JSON_PROPERTY_ROOM_IDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<DuplicateRequestDtoAllOfFileIds>> getRoomIds_JsonNullable() {
+  public JsonNullable<List<ContinueChatBodyFilesInner>> getRoomIds_JsonNullable() {
     return roomIds;
   }
   
   @JsonProperty(JSON_PROPERTY_ROOM_IDS)
-  public void setRoomIds_JsonNullable(JsonNullable<List<DuplicateRequestDtoAllOfFileIds>> roomIds) {
+  public void setRoomIds_JsonNullable(JsonNullable<List<ContinueChatBodyFilesInner>> roomIds) {
     this.roomIds = roomIds;
   }
 
-  public void setRoomIds(@javax.annotation.Nullable List<DuplicateRequestDtoAllOfFileIds> roomIds) {
-    this.roomIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>of(roomIds);
+  public void setRoomIds(@javax.annotation.Nullable List<ContinueChatBodyFilesInner> roomIds) {
+    this.roomIds = JsonNullable.<List<ContinueChatBodyFilesInner>>of(roomIds);
   }
 
   public UpdateRoomsQuotaRequestDtoInteger quota(@javax.annotation.Nullable Long quota) {
@@ -114,8 +111,7 @@ public class UpdateRoomsQuotaRequestDtoInteger {
    * The room quota.
    * @return quota
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUOTA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getQuota() {
@@ -123,7 +119,7 @@ public class UpdateRoomsQuotaRequestDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_QUOTA)
+  @JsonProperty(value = JSON_PROPERTY_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQuota(@javax.annotation.Nullable Long quota) {
     this.quota = quota;

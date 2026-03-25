@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -39,8 +40,7 @@ import java.util.StringJoiner;
 
 public class ErrorResponse {
   public static final String JSON_PROPERTY_REASON = "reason";
-  @javax.annotation.Nullable
-  private String reason;
+  @javax.annotation.Nullable  private String reason;
 
   public ErrorResponse() {
   }
@@ -56,8 +56,7 @@ public class ErrorResponse {
    * The human-readable error explanation.
    * @return reason
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REASON)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REASON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getReason() {
@@ -65,7 +64,7 @@ public class ErrorResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REASON)
+  @JsonProperty(value = JSON_PROPERTY_REASON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(@javax.annotation.Nullable String reason) {
     this.reason = reason;

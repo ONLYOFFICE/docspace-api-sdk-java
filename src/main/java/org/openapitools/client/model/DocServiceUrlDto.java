@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -47,40 +48,31 @@ import java.util.StringJoiner;
 
 public class DocServiceUrlDto {
   public static final String JSON_PROPERTY_VERSION = "version";
-  @javax.annotation.Nullable
-  private String version;
+  @javax.annotation.Nullable  private String version;
 
   public static final String JSON_PROPERTY_DOC_SERVICE_URL_API = "docServiceUrlApi";
-  @javax.annotation.Nullable
-  private String docServiceUrlApi;
+  @javax.annotation.Nullable  private String docServiceUrlApi;
 
   public static final String JSON_PROPERTY_DOC_SERVICE_URL = "docServiceUrl";
-  @javax.annotation.Nullable
-  private String docServiceUrl;
+  @javax.annotation.Nullable  private String docServiceUrl;
 
   public static final String JSON_PROPERTY_DOC_SERVICE_PRELOAD_URL = "docServicePreloadUrl";
-  @javax.annotation.Nullable
-  private String docServicePreloadUrl;
+  @javax.annotation.Nullable  private String docServicePreloadUrl;
 
   public static final String JSON_PROPERTY_DOC_SERVICE_URL_INTERNAL = "docServiceUrlInternal";
-  @javax.annotation.Nullable
-  private String docServiceUrlInternal;
+  @javax.annotation.Nullable  private String docServiceUrlInternal;
 
   public static final String JSON_PROPERTY_DOC_SERVICE_PORTAL_URL = "docServicePortalUrl";
-  @javax.annotation.Nullable
-  private String docServicePortalUrl;
+  @javax.annotation.Nullable  private String docServicePortalUrl;
 
   public static final String JSON_PROPERTY_DOC_SERVICE_SIGNATURE_HEADER = "docServiceSignatureHeader";
-  @javax.annotation.Nullable
-  private String docServiceSignatureHeader;
+  @javax.annotation.Nullable  private String docServiceSignatureHeader;
 
   public static final String JSON_PROPERTY_DOC_SERVICE_SSL_VERIFICATION = "docServiceSslVerification";
-  @javax.annotation.Nonnull
-  private Boolean docServiceSslVerification;
+  @javax.annotation.Nonnull  private Boolean docServiceSslVerification;
 
   public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
-  @javax.annotation.Nonnull
-  private Boolean isDefault;
+  @javax.annotation.Nonnull  private Boolean isDefault;
 
   public DocServiceUrlDto() {
   }
@@ -96,8 +88,7 @@ public class DocServiceUrlDto {
    * The version of the document service.
    * @return version
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VERSION, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getVersion() {
@@ -105,7 +96,7 @@ public class DocServiceUrlDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(value = JSON_PROPERTY_VERSION, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVersion(@javax.annotation.Nullable String version) {
     this.version = version;
@@ -121,8 +112,7 @@ public class DocServiceUrlDto {
    * The document service URL API.
    * @return docServiceUrlApi
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_URL_API)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_URL_API, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDocServiceUrlApi() {
@@ -130,7 +120,7 @@ public class DocServiceUrlDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_URL_API)
+  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_URL_API, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDocServiceUrlApi(@javax.annotation.Nullable String docServiceUrlApi) {
     this.docServiceUrlApi = docServiceUrlApi;
@@ -146,8 +136,7 @@ public class DocServiceUrlDto {
    * The document service URL.
    * @return docServiceUrl
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_URL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDocServiceUrl() {
@@ -155,7 +144,7 @@ public class DocServiceUrlDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_URL)
+  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDocServiceUrl(@javax.annotation.Nullable String docServiceUrl) {
     this.docServiceUrl = docServiceUrl;
@@ -171,8 +160,7 @@ public class DocServiceUrlDto {
    * The URL used to preload the document service scripts.
    * @return docServicePreloadUrl
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_PRELOAD_URL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_PRELOAD_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDocServicePreloadUrl() {
@@ -180,7 +168,7 @@ public class DocServiceUrlDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_PRELOAD_URL)
+  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_PRELOAD_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDocServicePreloadUrl(@javax.annotation.Nullable String docServicePreloadUrl) {
     this.docServicePreloadUrl = docServicePreloadUrl;
@@ -196,8 +184,7 @@ public class DocServiceUrlDto {
    * The internal document service URL.
    * @return docServiceUrlInternal
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_URL_INTERNAL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_URL_INTERNAL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDocServiceUrlInternal() {
@@ -205,7 +192,7 @@ public class DocServiceUrlDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_URL_INTERNAL)
+  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_URL_INTERNAL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDocServiceUrlInternal(@javax.annotation.Nullable String docServiceUrlInternal) {
     this.docServiceUrlInternal = docServiceUrlInternal;
@@ -221,8 +208,7 @@ public class DocServiceUrlDto {
    * The document service portal URL.
    * @return docServicePortalUrl
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_PORTAL_URL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_PORTAL_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDocServicePortalUrl() {
@@ -230,7 +216,7 @@ public class DocServiceUrlDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_PORTAL_URL)
+  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_PORTAL_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDocServicePortalUrl(@javax.annotation.Nullable String docServicePortalUrl) {
     this.docServicePortalUrl = docServicePortalUrl;
@@ -246,8 +232,7 @@ public class DocServiceUrlDto {
    * The document service signature header.
    * @return docServiceSignatureHeader
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_SIGNATURE_HEADER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_SIGNATURE_HEADER, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDocServiceSignatureHeader() {
@@ -255,7 +240,7 @@ public class DocServiceUrlDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_SIGNATURE_HEADER)
+  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_SIGNATURE_HEADER, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDocServiceSignatureHeader(@javax.annotation.Nullable String docServiceSignatureHeader) {
     this.docServiceSignatureHeader = docServiceSignatureHeader;
@@ -271,8 +256,7 @@ public class DocServiceUrlDto {
    * Specifies if the document service SSL verification is enabled.
    * @return docServiceSslVerification
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_SSL_VERIFICATION)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_SSL_VERIFICATION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getDocServiceSslVerification() {
@@ -280,7 +264,7 @@ public class DocServiceUrlDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_SSL_VERIFICATION)
+  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_SSL_VERIFICATION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDocServiceSslVerification(@javax.annotation.Nonnull Boolean docServiceSslVerification) {
     this.docServiceSslVerification = docServiceSslVerification;
@@ -296,8 +280,7 @@ public class DocServiceUrlDto {
    * Specifies if the document service is default.
    * @return isDefault
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_DEFAULT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getIsDefault() {
@@ -305,7 +288,7 @@ public class DocServiceUrlDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
+  @JsonProperty(value = JSON_PROPERTY_IS_DEFAULT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsDefault(@javax.annotation.Nonnull Boolean isDefault) {
     this.isDefault = isDefault;

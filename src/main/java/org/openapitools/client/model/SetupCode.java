@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -45,16 +46,13 @@ import java.util.StringJoiner;
 
 public class SetupCode {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
-  @javax.annotation.Nullable
-  private JsonNullable<String> account = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> account = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_MANUAL_ENTRY_KEY = "manualEntryKey";
-  @javax.annotation.Nullable
-  private JsonNullable<String> manualEntryKey = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> manualEntryKey = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_QR_CODE_SETUP_IMAGE_URL = "qrCodeSetupImageUrl";
-  @javax.annotation.Nullable
-  private JsonNullable<String> qrCodeSetupImageUrl = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> qrCodeSetupImageUrl = JsonNullable.<String>undefined();
 
   public SetupCode() {
   }
@@ -78,8 +76,7 @@ public class SetupCode {
    * Get account
    * @return account
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getAccount() {
     
@@ -89,9 +86,8 @@ public class SetupCode {
     return account.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ACCOUNT)
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getAccount_JsonNullable() {
     return account;
   }
@@ -106,8 +102,7 @@ public class SetupCode {
    * Get manualEntryKey
    * @return manualEntryKey
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getManualEntryKey() {
     
@@ -117,9 +112,8 @@ public class SetupCode {
     return manualEntryKey.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MANUAL_ENTRY_KEY)
+  @JsonProperty(value = JSON_PROPERTY_MANUAL_ENTRY_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getManualEntryKey_JsonNullable() {
     return manualEntryKey;
   }
@@ -134,8 +128,7 @@ public class SetupCode {
    * Get qrCodeSetupImageUrl
    * @return qrCodeSetupImageUrl
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getQrCodeSetupImageUrl() {
     
@@ -145,9 +138,8 @@ public class SetupCode {
     return qrCodeSetupImageUrl.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_QR_CODE_SETUP_IMAGE_URL)
+  @JsonProperty(value = JSON_PROPERTY_QR_CODE_SETUP_IMAGE_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getQrCodeSetupImageUrl_JsonNullable() {
     return qrCodeSetupImageUrl;
   }

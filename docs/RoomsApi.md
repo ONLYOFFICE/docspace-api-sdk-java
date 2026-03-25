@@ -30,6 +30,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**getRoomsFolder**](RoomsApi.md#getRoomsFolder) | **GET** /api/2.0/files/rooms | Get rooms |
 | [**getRoomsNewItems**](RoomsApi.md#getRoomsNewItems) | **GET** /api/2.0/files/rooms/news | Get the room new items |
 | [**getRoomsPrimaryExternalLink**](RoomsApi.md#getRoomsPrimaryExternalLink) | **GET** /api/2.0/files/rooms/{id}/link | Get the room primary external link |
+| [**hasTagLinks**](RoomsApi.md#hasTagLinks) | **GET** /api/2.0/files/tags/{tagName}/haslinks | Has tag links |
 | [**pinRoom**](RoomsApi.md#pinRoom) | **PUT** /api/2.0/files/rooms/{id}/pin | Pin a room |
 | [**reorderRoom**](RoomsApi.md#reorderRoom) | **PUT** /api/2.0/files/rooms/{id}/reorder | Reorder the room |
 | [**resendEmailInvitations**](RoomsApi.md#resendEmailInvitations) | **POST** /api/2.0/files/rooms/{id}/resend | Resend the room invitations |
@@ -41,6 +42,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**unarchiveRoom**](RoomsApi.md#unarchiveRoom) | **PUT** /api/2.0/files/rooms/{id}/unarchive | Unarchive a room |
 | [**unpinRoom**](RoomsApi.md#unpinRoom) | **PUT** /api/2.0/files/rooms/{id}/unpin | Unpin a room |
 | [**updateRoom**](RoomsApi.md#updateRoom) | **PUT** /api/2.0/files/rooms/{id} | Update a room |
+| [**updateRoomTag**](RoomsApi.md#updateRoomTag) | **PUT** /api/2.0/files/tags | Update tag |
 | [**uploadRoomLogo**](RoomsApi.md#uploadRoomLogo) | **POST** /api/2.0/files/logos | Upload a room logo image |
 
 
@@ -112,7 +114,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room Id.
+        Integer id = 1; // Integer | The room Id.
         BatchTagsRequestDto batchTagsRequestDto = new BatchTagsRequestDto(); // BatchTagsRequestDto | The parameters for managing tags.
         try {
             FolderIntegerWrapper result = apiInstance.addRoomTags(id, batchTagsRequestDto);
@@ -138,8 +140,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Room information |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have permission to edit the room |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## archiveRoom
@@ -209,7 +211,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room ID.
+        Integer id = 1; // Integer | The room ID.
         ArchiveRoomRequest archiveRoomRequest = new ArchiveRoomRequest(); // ArchiveRoomRequest | The parameters for archiving a room.
         try {
             FileOperationWrapper result = apiInstance.archiveRoom(id, archiveRoomRequest);
@@ -305,7 +307,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room ID.
+        Integer id = 1; // Integer | The room ID.
         CoverRequestDto coverRequestDto = new CoverRequestDto(); // CoverRequestDto | The request parameters to change the room cover.
         try {
             FolderIntegerWrapper result = apiInstance.changeRoomCover(id, coverRequestDto);
@@ -331,9 +333,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Room cover |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have permission to change cover |  -  |
 | **404** | The required room was not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## createRoom
@@ -591,7 +593,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room ID.
+        Integer id = 1; // Integer | The room ID.
         LogoRequest logoRequest = new LogoRequest(); // LogoRequest | The logo request parameters.
         try {
             FolderIntegerWrapper result = apiInstance.createRoomLogo(id, logoRequest);
@@ -617,13 +619,13 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Room information |  -  |
-| **401** | Unauthorized |  -  |
 | **404** | The required room was not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## createRoomTag
 
-> ObjectWrapper createRoomTag(createTagRequestDto)
+> StringWrapper createRoomTag(createTagRequestDto)
 
 Create a room tagCreates a custom room tag with the parameters specified in the request.
 
@@ -638,7 +640,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**ObjectWrapper**](ObjectWrapper.md)
+[**StringWrapper**](StringWrapper.md)
 
 ### Authorization
 
@@ -689,7 +691,7 @@ public class Example {
         RoomsApi apiInstance = new RoomsApi(defaultClient);
         CreateTagRequestDto createTagRequestDto = new CreateTagRequestDto(); // CreateTagRequestDto | 
         try {
-            ObjectWrapper result = apiInstance.createRoomTag(createTagRequestDto);
+            StringWrapper result = apiInstance.createRoomTag(createTagRequestDto);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RoomsApi#createRoomTag");
@@ -712,8 +714,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | New tag name |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## createRoomTemplate
@@ -877,7 +879,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        String id = "9846"; // String | The ID of the folder in the third-party storage in which the contents of the room will be stored.
+        String id = "folder-123-abc"; // String | The ID of the folder in the third-party storage in which the contents of the room will be stored.
         CreateThirdPartyRoom createThirdPartyRoom = new CreateThirdPartyRoom(); // CreateThirdPartyRoom | The third-party room information.
         try {
             FolderStringWrapper result = apiInstance.createRoomThirdParty(id, createThirdPartyRoom);
@@ -910,7 +912,7 @@ public class Example {
 
 > deleteCustomTags(batchTagsRequestDto)
 
-Delete the custom room tagsDeletes a bunch of custom room tags specified in the request.
+Delete the custom room tagsDeletes a bunch of custom tags specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-tags/).
 
@@ -996,8 +998,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## deleteRoom
@@ -1067,7 +1069,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room ID.
+        Integer id = 10; // Integer | The room ID.
         DeleteRoomRequest deleteRoomRequest = new DeleteRoomRequest(); // DeleteRoomRequest | The parameters for deleting a room.
         try {
             FileOperationWrapper result = apiInstance.deleteRoom(id, deleteRoomRequest);
@@ -1162,7 +1164,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room ID.
+        Integer id = 1; // Integer | The room ID.
         try {
             FolderIntegerWrapper result = apiInstance.deleteRoomLogo(id);
             System.out.println(result);
@@ -1257,7 +1259,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room Id.
+        Integer id = 1; // Integer | The room Id.
         BatchTagsRequestDto batchTagsRequestDto = new BatchTagsRequestDto(); // BatchTagsRequestDto | The parameters for managing tags.
         try {
             FolderIntegerWrapper result = apiInstance.deleteRoomTags(id, batchTagsRequestDto);
@@ -1283,8 +1285,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Room information |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have permission to edit the room |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getNewRoomItems
@@ -1353,7 +1355,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room ID.
+        Integer id = 1; // Integer | The room ID.
         try {
             NewItemsFileEntryBaseArrayWrapper result = apiInstance.getNewRoomItems(id);
             System.out.println(result);
@@ -1447,7 +1449,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room template ID.
+        Integer id = 1; // Integer | The room template ID.
         try {
             BooleanWrapper result = apiInstance.getPublicSettings(id);
             System.out.println(result);
@@ -1784,7 +1786,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room ID.
+        Integer id = 1; // Integer | The room ID.
         try {
             FolderIntegerWrapper result = apiInstance.getRoomInfo(id);
             System.out.println(result);
@@ -1878,7 +1880,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room ID.
+        Integer id = 1; // Integer | The room ID.
         LinkType type = LinkType.fromValue("0"); // LinkType | The link type.
         try {
             FileShareArrayWrapper result = apiInstance.getRoomLinks(id, type);
@@ -1921,7 +1923,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **Integer**| The room ID. | |
-| **filterType** | [**ShareFilterType**](.md)| The filter type of the access rights. | [optional] [enum: 0, 1, 2, 4, 8, 16, 32] |
+| **filterType** | [**ShareFilterType**](.md)| The filter type of the access rights. | [optional] [enum: 0, 1, 2, 4, 8, 15, 16, 32] |
 | **count** | **Integer**| The number of items to be retrieved or processed. | [optional] |
 | **startIndex** | **Integer**| The starting index of the items to retrieve in a paginated request. | [optional] |
 | **filterValue** | **String**| The text filter value used for filtering room security information. | [optional] |
@@ -1977,11 +1979,11 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room ID.
+        Integer id = 1; // Integer | The room ID.
         ShareFilterType filterType = ShareFilterType.fromValue("0"); // ShareFilterType | The filter type of the access rights.
-        Integer count = 1234; // Integer | The number of items to be retrieved or processed.
-        Integer startIndex = 1234; // Integer | The starting index of the items to retrieve in a paginated request.
-        String filterValue = "some text"; // String | The text filter value used for filtering room security information.
+        Integer count = 25; // Integer | The number of items to be retrieved or processed.
+        Integer startIndex = 0; // Integer | The starting index of the items to retrieve in a paginated request.
+        String filterValue = "Sample filter"; // String | The text filter value used for filtering room security information.
         try {
             FileShareArrayWrapper result = apiInstance.getRoomSecurityInfo(id, filterType, count, startIndex, filterValue);
             System.out.println(result);
@@ -2013,7 +2015,7 @@ public class Example {
 
 > ObjectArrayWrapper getRoomTagsInfo(count, startIndex, filterValue)
 
-Get the room tagsReturns a list of custom room tags.
+Get the room tagsReturns a list of custom tags.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/).
 
@@ -2077,9 +2079,9 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer count = 1234; // Integer | Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set.
-        Integer startIndex = 1234; // Integer | Represents the starting index from which the tags' information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins.
-        String filterValue = "some text"; // String | Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information.
+        Integer count = 25; // Integer | Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set.
+        Integer startIndex = 0; // Integer | Represents the starting index from which the tags' information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins.
+        String filterValue = "My Document"; // String | Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information.
         try {
             ObjectArrayWrapper result = apiInstance.getRoomTagsInfo(count, startIndex, filterValue);
             System.out.println(result);
@@ -2199,7 +2201,7 @@ public class Example {
 
 ## getRoomsFolder
 
-> FolderContentIntegerWrapper getRoomsFolder(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue)
+> FolderContentIntegerWrapper getRoomsFolder(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId)
 
 Get roomsReturns the contents of the Rooms section by the parameters specified in the request.
 
@@ -2225,6 +2227,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortBy** | **String**| Specifies the field by which the room content should be sorted. | [optional] |
 | **sortOrder** | [**SortOrder**](.md)| The order in which the results are sorted. | [optional] [enum: 0, 1] |
 | **filterValue** | **String**| The text filter value used to refine search or query operations. | [optional] |
+| **groupId** | **Integer**| The group ID | [optional] |
 
 ### Return type
 
@@ -2278,22 +2281,23 @@ public class Example {
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
         List<RoomType> type = Arrays.asList(new ArrayList<>()); // List<RoomType> | The filter by room type.
-        String subjectId = "some text"; // String | The filter by user ID.
+        String subjectId = "00000000-0000-0000-0000-000000000000"; // String | The filter by user ID.
         SearchArea searchArea = SearchArea.fromValue("0"); // SearchArea | The room search area (Active, Archive, Any, Recent by links).
-        Boolean withoutTags = true; // Boolean | Specifies whether to search by tags or not.
-        String tags = "some text"; // String | The tags in the serialized format.
-        Boolean excludeSubject = true; // Boolean | Specifies whether to exclude search by user or group ID.
+        Boolean withoutTags = false; // Boolean | Specifies whether to search by tags or not.
+        String tags = "tag1"; // String | The tags in the serialized format.
+        Boolean excludeSubject = false; // Boolean | Specifies whether to exclude search by user or group ID.
         ProviderFilter provider = ProviderFilter.fromValue("0"); // ProviderFilter | The filter by provider name (None, Box, DropBox, GoogleDrive, kDrive, OneDrive, SharePoint, WebDav, Yandex, Storage).
         SubjectFilter subjectFilter = SubjectFilter.fromValue("0"); // SubjectFilter | The filter by user (Owner - 0, Member - 1).
         QuotaFilter quotaFilter = QuotaFilter.fromValue("0"); // QuotaFilter | The filter by quota (All - 0, Default - 1, Custom - 2).
         StorageFilter storageFilter = StorageFilter.fromValue("0"); // StorageFilter | The filter by storage (None - 0, Internal - 1, ThirdParty - 2).
-        Integer count = 1234; // Integer | Specifies the maximum number of items to retrieve.
-        Integer startIndex = 1234; // Integer | The index from which to start retrieving the room content.
-        String sortBy = "some text"; // String | Specifies the field by which the room content should be sorted.
+        Integer count = 25; // Integer | Specifies the maximum number of items to retrieve.
+        Integer startIndex = 0; // Integer | The index from which to start retrieving the room content.
+        String sortBy = "DateAndTime"; // String | Specifies the field by which the room content should be sorted.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterValue = "some text"; // String | The text filter value used to refine search or query operations.
+        String filterValue = "My Document"; // String | The text filter value used to refine search or query operations.
+        Integer groupId = 1; // Integer | The group ID
         try {
-            FolderContentIntegerWrapper result = apiInstance.getRoomsFolder(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue);
+            FolderContentIntegerWrapper result = apiInstance.getRoomsFolder(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RoomsApi#getRoomsFolder");
@@ -2316,8 +2320,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns the contents of the Rooms section |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the room content |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getRoomsNewItems
@@ -2476,7 +2480,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room ID.
+        Integer id = 1; // Integer | The room ID.
         try {
             FileShareWrapper result = apiInstance.getRoomsPrimaryExternalLink(id);
             System.out.println(result);
@@ -2501,8 +2505,105 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Room security information |  -  |
-| **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+| **401** | Unauthorized |  -  |
+
+
+## hasTagLinks
+
+> BooleanWrapper hasTagLinks(tagName2, tagName)
+
+Has tag linksChecks if a specific custom tag has linked items.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/).
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tagName2** | **String**|  | |
+| **tagName** | **String**| Represents the name of a tag | [optional] |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.RoomsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        RoomsApi apiInstance = new RoomsApi(defaultClient);
+        String tagName2 = "tagName_example"; // String | 
+        String tagName = "tag1"; // String | Represents the name of a tag
+        try {
+            BooleanWrapper result = apiInstance.hasTagLinks(tagName2, tagName);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RoomsApi#hasTagLinks");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | True if tag has links, false otherwise |  -  |
+| **404** | Tag not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## pinRoom
@@ -2571,7 +2672,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room ID.
+        Integer id = 1; // Integer | The room ID.
         try {
             FolderIntegerWrapper result = apiInstance.pinRoom(id);
             System.out.println(result);
@@ -2665,7 +2766,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room ID.
+        Integer id = 1; // Integer | The room ID.
         try {
             FolderIntegerWrapper result = apiInstance.reorderRoom(id);
             System.out.println(result);
@@ -2760,7 +2861,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room ID.
+        Integer id = 1; // Integer | The room ID.
         UserInvitation userInvitation = new UserInvitation(); // UserInvitation | The user invitation parameters.
         try {
             apiInstance.resendEmailInvitations(id, userInvitation);
@@ -2948,7 +3049,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room ID.
+        Integer id = 1; // Integer | The room ID.
         RoomLinkRequest roomLinkRequest = new RoomLinkRequest(); // RoomLinkRequest | The room link parameters.
         try {
             FileShareWrapper result = apiInstance.setRoomLink(id, roomLinkRequest);
@@ -3044,7 +3145,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room ID.
+        Integer id = 1; // Integer | The room ID.
         RoomInvitationRequest roomInvitationRequest = new RoomInvitationRequest(); // RoomInvitationRequest | The room invitation request.
         try {
             RoomSecurityWrapper result = apiInstance.setRoomSecurity(id, roomInvitationRequest);
@@ -3139,7 +3240,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room ID.
+        Integer id = 1; // Integer | The room ID.
         try {
             DocumentBuilderTaskWrapper result = apiInstance.startRoomIndexExport(id);
             System.out.println(result);
@@ -3164,8 +3265,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **501** | Folder indexing is turned off |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## terminateRoomIndexExport
@@ -3324,7 +3425,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room ID.
+        Integer id = 1; // Integer | The room ID.
         ArchiveRoomRequest archiveRoomRequest = new ArchiveRoomRequest(); // ArchiveRoomRequest | The parameters for archiving a room.
         try {
             FileOperationWrapper result = apiInstance.unarchiveRoom(id, archiveRoomRequest);
@@ -3419,7 +3520,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room ID.
+        Integer id = 1; // Integer | The room ID.
         try {
             FolderIntegerWrapper result = apiInstance.unpinRoom(id);
             System.out.println(result);
@@ -3514,7 +3615,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 9846; // Integer | The room ID.
+        Integer id = 56; // Integer | The room ID.
         UpdateRoomRequest updateRoomRequest = new UpdateRoomRequest(); // UpdateRoomRequest | The request parameters for updating a room.
         try {
             FolderIntegerWrapper result = apiInstance.updateRoom(id, updateRoomRequest);
@@ -3543,9 +3644,104 @@ public class Example {
 | **401** | Unauthorized |  -  |
 
 
+## updateRoomTag
+
+> StringWrapper updateRoomTag(updateTagRequestDto)
+
+Update tagUpdates the name of a custom tag.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room-tag/).
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **updateTagRequestDto** | [**UpdateTagRequestDto**](UpdateTagRequestDto.md)|  | [optional] |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.RoomsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        RoomsApi apiInstance = new RoomsApi(defaultClient);
+        UpdateTagRequestDto updateTagRequestDto = new UpdateTagRequestDto(); // UpdateTagRequestDto | 
+        try {
+            StringWrapper result = apiInstance.updateRoomTag(updateTagRequestDto);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RoomsApi#updateRoomTag");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Updated tag name |  -  |
+| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **401** | Unauthorized |  -  |
+
+
 ## uploadRoomLogo
 
-> UploadResultWrapper uploadRoomLogo(formCollection)
+> UploadResultWrapper uploadRoomLogo(_file)
 
 Upload a room logo imageUploads a temporary image to create a room logo.
 
@@ -3556,7 +3752,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **formCollection** | [**List&lt;KeyValuePairStringStringValues&gt;**](KeyValuePairStringStringValues.md)| The image data. | [optional] |
+| **_file** | **File**| The image data. | [optional] |
 
 ### Return type
 
@@ -3609,9 +3805,9 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        List<KeyValuePairStringStringValues> formCollection = Arrays.asList(); // List<KeyValuePairStringStringValues> | The image data.
+        File _file = new File("/path/to/file"); // File | The image data.
         try {
-            UploadResultWrapper result = apiInstance.uploadRoomLogo(formCollection);
+            UploadResultWrapper result = apiInstance.uploadRoomLogo(_file);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RoomsApi#uploadRoomLogo");
@@ -3634,6 +3830,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Upload result |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 

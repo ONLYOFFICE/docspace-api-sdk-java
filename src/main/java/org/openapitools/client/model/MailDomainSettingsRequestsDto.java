@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.TenantTrustedDomainsType;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -45,16 +46,13 @@ import java.util.StringJoiner;
 
 public class MailDomainSettingsRequestsDto {
   public static final String JSON_PROPERTY_TYPE = "type";
-  @javax.annotation.Nonnull
-  private TenantTrustedDomainsType type;
+  @javax.annotation.Nonnull  private TenantTrustedDomainsType type;
 
   public static final String JSON_PROPERTY_DOMAINS = "domains";
-  @javax.annotation.Nullable
-  private List<String> domains;
+  @javax.annotation.Nullable  private List<String> domains;
 
   public static final String JSON_PROPERTY_INVITE_USERS_AS_VISITORS = "inviteUsersAsVisitors";
-  @javax.annotation.Nonnull
-  private Boolean inviteUsersAsVisitors;
+  @javax.annotation.Nonnull  private Boolean inviteUsersAsVisitors;
 
   public MailDomainSettingsRequestsDto() {
   }
@@ -70,8 +68,7 @@ public class MailDomainSettingsRequestsDto {
    * Get type
    * @return type
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public TenantTrustedDomainsType getType() {
@@ -79,7 +76,7 @@ public class MailDomainSettingsRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(@javax.annotation.Nonnull TenantTrustedDomainsType type) {
     this.type = type;
@@ -103,8 +100,7 @@ public class MailDomainSettingsRequestsDto {
    * The list of authorized email domains that are considered trusted.
    * @return domains
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOMAINS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOMAINS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<String> getDomains() {
@@ -112,7 +108,7 @@ public class MailDomainSettingsRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOMAINS)
+  @JsonProperty(value = JSON_PROPERTY_DOMAINS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDomains(@javax.annotation.Nullable List<String> domains) {
     this.domains = domains;
@@ -128,8 +124,7 @@ public class MailDomainSettingsRequestsDto {
    * Specifies the default permission level for the invited users (visitors or not).
    * @return inviteUsersAsVisitors
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INVITE_USERS_AS_VISITORS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_INVITE_USERS_AS_VISITORS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getInviteUsersAsVisitors() {
@@ -137,7 +132,7 @@ public class MailDomainSettingsRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INVITE_USERS_AS_VISITORS)
+  @JsonProperty(value = JSON_PROPERTY_INVITE_USERS_AS_VISITORS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setInviteUsersAsVisitors(@javax.annotation.Nonnull Boolean inviteUsersAsVisitors) {
     this.inviteUsersAsVisitors = inviteUsersAsVisitors;

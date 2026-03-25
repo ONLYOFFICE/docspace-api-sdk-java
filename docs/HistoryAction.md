@@ -9,7 +9,7 @@ The action performed on the file.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **MessageAction** |  |  [optional] |
-|**key** | **String** |  |  [optional] |
+|**key** | **String** | The action performed on the file. |  [optional] |
 
 
 

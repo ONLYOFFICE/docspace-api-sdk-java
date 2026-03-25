@@ -192,8 +192,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Tenant AI Agent quota settings |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## saveRoomQuotaSettings
@@ -287,8 +287,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Tenant room quota settings |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## setTenantQuotaSettings
@@ -382,7 +382,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Tenant quota settings |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
 | **405** | Not available |  -  |
+| **401** | Unauthorized |  -  |
 

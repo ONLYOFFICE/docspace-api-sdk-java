@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -49,16 +50,13 @@ import java.util.StringJoiner;
 
 public class WebItemSecurityRequestsDto {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private String id;
+  @javax.annotation.Nullable  private String id;
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
-  @javax.annotation.Nullable
-  private Boolean enabled;
+  @javax.annotation.Nullable  private Boolean enabled;
 
   public static final String JSON_PROPERTY_SUBJECTS = "subjects";
-  @javax.annotation.Nullable
-  private JsonNullable<List<UUID>> subjects = JsonNullable.<List<UUID>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<UUID>> subjects = JsonNullable.<List<UUID>>undefined();
 
   public WebItemSecurityRequestsDto() {
   }
@@ -74,8 +72,7 @@ public class WebItemSecurityRequestsDto {
    * The module ID.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getId() {
@@ -83,7 +80,7 @@ public class WebItemSecurityRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@javax.annotation.Nullable String id) {
     this.id = id;
@@ -99,8 +96,7 @@ public class WebItemSecurityRequestsDto {
    * Controls whether the security restrictions are enforced for this module.
    * @return enabled
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEnabled() {
@@ -108,7 +104,7 @@ public class WebItemSecurityRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
     this.enabled = enabled;
@@ -136,16 +132,14 @@ public class WebItemSecurityRequestsDto {
    * The collection of user and group identifiers granted access to the module.
    * @return subjects
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<UUID> getSubjects() {
         return subjects.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SUBJECTS)
+  @JsonProperty(value = JSON_PROPERTY_SUBJECTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<UUID>> getSubjects_JsonNullable() {
     return subjects;
   }

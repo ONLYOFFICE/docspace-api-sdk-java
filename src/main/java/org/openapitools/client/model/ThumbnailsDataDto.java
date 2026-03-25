@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,28 +49,22 @@ import java.util.StringJoiner;
 
 public class ThumbnailsDataDto {
   public static final String JSON_PROPERTY_ORIGINAL = "original";
-  @javax.annotation.Nullable
-  private JsonNullable<String> original = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> original = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_RETINA = "retina";
-  @javax.annotation.Nullable
-  private JsonNullable<String> retina = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> retina = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_MAX = "max";
-  @javax.annotation.Nullable
-  private JsonNullable<String> max = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> max = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_BIG = "big";
-  @javax.annotation.Nullable
-  private JsonNullable<String> big = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> big = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_MEDIUM = "medium";
-  @javax.annotation.Nullable
-  private JsonNullable<String> medium = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> medium = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SMALL = "small";
-  @javax.annotation.Nullable
-  private JsonNullable<String> small = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> small = JsonNullable.<String>undefined();
 
   public ThumbnailsDataDto() {
   }
@@ -85,16 +80,14 @@ public class ThumbnailsDataDto {
    * The thumbnail original photo.
    * @return original
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getOriginal() {
         return original.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ORIGINAL)
+  @JsonProperty(value = JSON_PROPERTY_ORIGINAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getOriginal_JsonNullable() {
     return original;
   }
@@ -118,16 +111,14 @@ public class ThumbnailsDataDto {
    * The thumbnail retina.
    * @return retina
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRetina() {
         return retina.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_RETINA)
+  @JsonProperty(value = JSON_PROPERTY_RETINA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRetina_JsonNullable() {
     return retina;
   }
@@ -151,16 +142,14 @@ public class ThumbnailsDataDto {
    * The thumbnail maximum size photo.
    * @return max
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getMax() {
         return max.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MAX)
+  @JsonProperty(value = JSON_PROPERTY_MAX, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getMax_JsonNullable() {
     return max;
   }
@@ -184,16 +173,14 @@ public class ThumbnailsDataDto {
    * The thumbnail big size photo.
    * @return big
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getBig() {
         return big.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_BIG)
+  @JsonProperty(value = JSON_PROPERTY_BIG, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getBig_JsonNullable() {
     return big;
   }
@@ -217,16 +204,14 @@ public class ThumbnailsDataDto {
    * The thumbnail medium size photo.
    * @return medium
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getMedium() {
         return medium.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MEDIUM)
+  @JsonProperty(value = JSON_PROPERTY_MEDIUM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getMedium_JsonNullable() {
     return medium;
   }
@@ -250,16 +235,14 @@ public class ThumbnailsDataDto {
    * The thumbnail small size photo.
    * @return small
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSmall() {
         return small.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SMALL)
+  @JsonProperty(value = JSON_PROPERTY_SMALL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSmall_JsonNullable() {
     return small;
   }

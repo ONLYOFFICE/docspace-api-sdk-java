@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -29,41 +30,41 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Gets or Sets WhiteLabelLogoType
+ * [1 - Light small, 2 - Login page, 3 - Favicon, 4 - Docs editor, 5 - Docs editor embed, 6 - Left menu, 7 - About page, 8 - Notification, 9 - Spreadsheet editor, 10 - Spreadsheet editor embed, 11 - Presentation editor, 12 - Presentation editor embed, 13 - Pdf editor, 14 - Pdf editor embed, 15 - Diagram editor, 16 - Diagram editor embed]
  */
 public enum WhiteLabelLogoType {
   
-  NUMBER_1(1),
+  LightSmall(1),
   
-  NUMBER_2(2),
+  LoginPage(2),
   
-  NUMBER_3(3),
+  Favicon(3),
   
-  NUMBER_4(4),
+  DocsEditor(4),
   
-  NUMBER_5(5),
+  DocsEditorEmbed(5),
   
-  NUMBER_6(6),
+  LeftMenu(6),
   
-  NUMBER_7(7),
+  AboutPage(7),
   
-  NUMBER_8(8),
+  Notification(8),
   
-  NUMBER_9(9),
+  SpreadsheetEditor(9),
   
-  NUMBER_10(10),
+  SpreadsheetEditorEmbed(10),
   
-  NUMBER_11(11),
+  PresentationEditor(11),
   
-  NUMBER_12(12),
+  PresentationEditorEmbed(12),
   
-  NUMBER_13(13),
+  PdfEditor(13),
   
-  NUMBER_14(14),
+  PdfEditorEmbed(14),
   
-  NUMBER_15(15),
+  DiagramEditor(15),
   
-  NUMBER_16(16);
+  DiagramEditorEmbed(16);
 
   private Integer value;
 
@@ -102,7 +103,7 @@ public enum WhiteLabelLogoType {
       prefix = "";
     }
 
-    return String.format("%s=%s", prefix, this.toString());
+    return String.format(java.util.Locale.ROOT, "%s=%s", prefix, this.toString());
   }
 }
 

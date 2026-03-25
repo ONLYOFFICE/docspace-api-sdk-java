@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,15 +21,23 @@ import java.time.OffsetDateTime;
 import java.time.ZonedDateTime;
 
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.databind.Module.SetupContext;
+
 
 public class RFC3339JavaTimeModule extends SimpleModule {
     private static final long serialVersionUID = 1L;
 
     public RFC3339JavaTimeModule() {
         super("RFC3339JavaTimeModule");
-
-        addDeserializer(Instant.class, RFC3339InstantDeserializer.INSTANT);
-        addDeserializer(OffsetDateTime.class, RFC3339InstantDeserializer.OFFSET_DATE_TIME);
-        addDeserializer(ZonedDateTime.class, RFC3339InstantDeserializer.ZONED_DATE_TIME);
     }
+
+   @Override
+   public void setupModule(SetupContext context) {
+       super.setupModule(context);
+
+       addDeserializer(Instant.class, RFC3339InstantDeserializer.INSTANT);
+       addDeserializer(OffsetDateTime.class, RFC3339InstantDeserializer.OFFSET_DATE_TIME);
+       addDeserializer(ZonedDateTime.class, RFC3339InstantDeserializer.ZONED_DATE_TIME);
+   }
+
 }

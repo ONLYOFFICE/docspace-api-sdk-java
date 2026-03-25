@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -33,89 +34,38 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum TenantIndustry {
   
-  /**
-   * Other
-   */
   Other(0),
   
-  /**
-   * Accounting
-   */
   Accounting(1),
   
-  /**
-   * Advertising marketing PR
-   */
   AdvertisingMarketingPR(2),
   
-  /**
-   * Banking
-   */
   Banking(3),
   
-  /**
-   * Consulting
-   */
   Consulting(4),
   
-  /**
-   * Design
-   */
   Design(5),
   
-  /**
-   * Education
-   */
   Education(6),
   
-  /**
-   * Environment
-   */
   Environment(7),
   
-  /**
-   * Financial services
-   */
   FinancialServices(8),
   
-  /**
-   * Health care
-   */
   HealthCare(9),
   
-  /**
-   * IT
-   */
   IT(10),
   
-  /**
-   * Legal
-   */
   Legal(11),
   
-  /**
-   * Manufacturing
-   */
   Manufacturing(12),
   
-  /**
-   * Public sector
-   */
   PublicSector(13),
   
-  /**
-   * Publishing
-   */
   Publishing(14),
   
-  /**
-   * Retail sales
-   */
   RetailSales(15),
   
-  /**
-   * Telecommunications
-   */
   Telecommunications(16);
 
   private Integer value;
@@ -155,7 +105,7 @@ public enum TenantIndustry {
       prefix = "";
     }
 
-    return String.format("%s=%s", prefix, this.toString());
+    return String.format(java.util.Locale.ROOT, "%s=%s", prefix, this.toString());
   }
 }
 

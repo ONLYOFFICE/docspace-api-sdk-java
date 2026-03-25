@@ -11,7 +11,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 ## changeUserPassword
 
-> EmployeeFullWrapper changeUserPassword(userid, memberBaseRequestDto)
+> EmployeeFullWrapper changeUserPassword(userid, changePasswordRequest)
 
 Change a user passwordSets a new password to the user with the ID specified in the request.
 
@@ -23,7 +23,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **userid** | **UUID**| The user ID. | |
-| **memberBaseRequestDto** | [**MemberBaseRequestDto**](MemberBaseRequestDto.md)| The request parameters for the user generic information. | |
+| **changePasswordRequest** | [**ChangePasswordRequest**](ChangePasswordRequest.md)| The request parameters for updating a user password. | |
 
 ### Return type
 
@@ -76,10 +76,10 @@ public class Example {
 
 
         PasswordApi apiInstance = new PasswordApi(defaultClient);
-        UUID userid = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The user ID.
-        MemberBaseRequestDto memberBaseRequestDto = new MemberBaseRequestDto(); // MemberBaseRequestDto | The request parameters for the user generic information.
+        UUID userid = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user ID.
+        ChangePasswordRequest changePasswordRequest = new ChangePasswordRequest(); // ChangePasswordRequest | The request parameters for updating a user password.
         try {
-            EmployeeFullWrapper result = apiInstance.changeUserPassword(userid, memberBaseRequestDto);
+            EmployeeFullWrapper result = apiInstance.changeUserPassword(userid, changePasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling PasswordApi#changeUserPassword");
@@ -102,10 +102,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Detailed user information |  -  |
-| **400** | Incorrect email |  -  |
+| **400** | Incorrect userId or password |  -  |
+| **403** | The link is invalid or no permissions to perform this action |  -  |
+| **404** | The user could not be found |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | The invitation link is invalid or its validity has expired |  -  |
-| **404** | User not found |  -  |
 
 
 ## sendUserPassword

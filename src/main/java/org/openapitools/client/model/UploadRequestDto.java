@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -56,36 +57,28 @@ import java.util.StringJoiner;
 
 public class UploadRequestDto {
   public static final String JSON_PROPERTY_FILE = "file";
-  @javax.annotation.Nullable
-  private JsonNullable<File> _file = JsonNullable.<File>undefined();
+  @javax.annotation.Nullable  private JsonNullable<File> _file = JsonNullable.<File>undefined();
 
   public static final String JSON_PROPERTY_CONTENT_TYPE = "contentType";
-  @javax.annotation.Nullable
-  private ContentType contentType;
+  @javax.annotation.Nullable  private ContentType contentType;
 
   public static final String JSON_PROPERTY_CONTENT_DISPOSITION = "contentDisposition";
-  @javax.annotation.Nullable
-  private ContentDisposition contentDisposition;
+  @javax.annotation.Nullable  private ContentDisposition contentDisposition;
 
   public static final String JSON_PROPERTY_FILES = "files";
-  @javax.annotation.Nullable
-  private JsonNullable<List<File>> files = JsonNullable.<List<File>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<File>> files = JsonNullable.<List<File>>undefined();
 
   public static final String JSON_PROPERTY_CREATE_NEW_IF_EXIST = "createNewIfExist";
-  @javax.annotation.Nullable
-  private Boolean createNewIfExist;
+  @javax.annotation.Nullable  private Boolean createNewIfExist;
 
   public static final String JSON_PROPERTY_STORE_ORIGINAL_FILE_FLAG = "storeOriginalFileFlag";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> storeOriginalFileFlag = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> storeOriginalFileFlag = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_KEEP_CONVERT_STATUS = "keepConvertStatus";
-  @javax.annotation.Nullable
-  private Boolean keepConvertStatus;
+  @javax.annotation.Nullable  private Boolean keepConvertStatus;
 
   public static final String JSON_PROPERTY_STREAM = "stream";
-  @javax.annotation.Nullable
-  private JsonNullable<File> stream = JsonNullable.<File>undefined();
+  @javax.annotation.Nullable  private JsonNullable<File> stream = JsonNullable.<File>undefined();
 
   public UploadRequestDto() {
   }
@@ -101,16 +94,14 @@ public class UploadRequestDto {
    * The file to be uploaded.
    * @return _file
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public File getFile() {
         return _file.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE)
+  @JsonProperty(value = JSON_PROPERTY_FILE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<File> getFile_JsonNullable() {
     return _file;
   }
@@ -134,8 +125,7 @@ public class UploadRequestDto {
    * Get contentType
    * @return contentType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONTENT_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ContentType getContentType() {
@@ -143,7 +133,7 @@ public class UploadRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_CONTENT_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContentType(@javax.annotation.Nullable ContentType contentType) {
     this.contentType = contentType;
@@ -159,8 +149,7 @@ public class UploadRequestDto {
    * Get contentDisposition
    * @return contentDisposition
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONTENT_DISPOSITION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONTENT_DISPOSITION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ContentDisposition getContentDisposition() {
@@ -168,7 +157,7 @@ public class UploadRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CONTENT_DISPOSITION)
+  @JsonProperty(value = JSON_PROPERTY_CONTENT_DISPOSITION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContentDisposition(@javax.annotation.Nullable ContentDisposition contentDisposition) {
     this.contentDisposition = contentDisposition;
@@ -196,16 +185,14 @@ public class UploadRequestDto {
    * The list of files when specified as multipart/form-data.
    * @return files
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<File> getFiles() {
         return files.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<File>> getFiles_JsonNullable() {
     return files;
   }
@@ -229,8 +216,7 @@ public class UploadRequestDto {
    * Specifies whether to create the new file if it already exists or not.
    * @return createNewIfExist
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATE_NEW_IF_EXIST)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_NEW_IF_EXIST, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCreateNewIfExist() {
@@ -238,7 +224,7 @@ public class UploadRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATE_NEW_IF_EXIST)
+  @JsonProperty(value = JSON_PROPERTY_CREATE_NEW_IF_EXIST, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreateNewIfExist(@javax.annotation.Nullable Boolean createNewIfExist) {
     this.createNewIfExist = createNewIfExist;
@@ -254,16 +240,14 @@ public class UploadRequestDto {
    * Specifies whether to upload documents in the original formats as well or not.
    * @return storeOriginalFileFlag
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getStoreOriginalFileFlag() {
         return storeOriginalFileFlag.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_STORE_ORIGINAL_FILE_FLAG)
+  @JsonProperty(value = JSON_PROPERTY_STORE_ORIGINAL_FILE_FLAG, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getStoreOriginalFileFlag_JsonNullable() {
     return storeOriginalFileFlag;
   }
@@ -287,8 +271,7 @@ public class UploadRequestDto {
    * Specifies whether to keep the file converting status or not.
    * @return keepConvertStatus
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KEEP_CONVERT_STATUS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_KEEP_CONVERT_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getKeepConvertStatus() {
@@ -296,7 +279,7 @@ public class UploadRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KEEP_CONVERT_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_KEEP_CONVERT_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKeepConvertStatus(@javax.annotation.Nullable Boolean keepConvertStatus) {
     this.keepConvertStatus = keepConvertStatus;
@@ -312,16 +295,14 @@ public class UploadRequestDto {
    * The request input stream.
    * @return stream
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public File getStream() {
         return stream.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_STREAM)
+  @JsonProperty(value = JSON_PROPERTY_STREAM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<File> getStream_JsonNullable() {
     return stream;
   }

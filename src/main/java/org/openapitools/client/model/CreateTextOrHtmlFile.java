@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -45,16 +46,13 @@ import java.util.StringJoiner;
 
 public class CreateTextOrHtmlFile {
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private String title;
+  @javax.annotation.Nullable  private String title;
 
   public static final String JSON_PROPERTY_CONTENT = "content";
-  @javax.annotation.Nullable
-  private JsonNullable<String> content = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> content = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CREATE_NEW_IF_EXIST = "createNewIfExist";
-  @javax.annotation.Nullable
-  private Boolean createNewIfExist;
+  @javax.annotation.Nullable  private Boolean createNewIfExist;
 
   public CreateTextOrHtmlFile() {
   }
@@ -70,8 +68,7 @@ public class CreateTextOrHtmlFile {
    * The file title for text or HTML file.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getTitle() {
@@ -79,7 +76,7 @@ public class CreateTextOrHtmlFile {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTitle(@javax.annotation.Nullable String title) {
     this.title = title;
@@ -95,16 +92,14 @@ public class CreateTextOrHtmlFile {
    * The text or HTML file contents.
    * @return content
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getContent() {
         return content.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CONTENT)
+  @JsonProperty(value = JSON_PROPERTY_CONTENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getContent_JsonNullable() {
     return content;
   }
@@ -128,8 +123,7 @@ public class CreateTextOrHtmlFile {
    * Specifies whether to create a new text or HTML file if it exists or not.
    * @return createNewIfExist
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATE_NEW_IF_EXIST)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_NEW_IF_EXIST, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCreateNewIfExist() {
@@ -137,7 +131,7 @@ public class CreateTextOrHtmlFile {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATE_NEW_IF_EXIST)
+  @JsonProperty(value = JSON_PROPERTY_CREATE_NEW_IF_EXIST, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreateNewIfExist(@javax.annotation.Nullable Boolean createNewIfExist) {
     this.createNewIfExist = createNewIfExist;

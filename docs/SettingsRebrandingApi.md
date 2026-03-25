@@ -111,8 +111,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Default additional white label settings |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## deleteCompanyWhiteLabelSettings
@@ -202,8 +202,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Default company white label settings |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getAdditionalWhiteLabelSettings
@@ -1015,8 +1015,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## restoreWhiteLabelLogos
@@ -1112,8 +1112,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## saveAdditionalWhiteLabelSettings
@@ -1208,8 +1208,8 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
 | **400** | Settings is empty |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## saveCompanyWhiteLabelSettings
@@ -1304,8 +1304,8 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
 | **400** | Argument is empty or invalid |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## saveWhiteLabelLogoText
@@ -1403,8 +1403,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is sucessful |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## saveWhiteLabelSettings
@@ -1502,8 +1502,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is sucessful |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## saveWhiteLabelSettingsFromFiles
@@ -1599,7 +1599,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is sucessful |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **409** | No input files |  -  |
+| **401** | Unauthorized |  -  |
 

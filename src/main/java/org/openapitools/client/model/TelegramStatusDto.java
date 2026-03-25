@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -36,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * TelegramStatusDto
+ * The Telegram connection status parameters.
  */
 @JsonPropertyOrder({
   TelegramStatusDto.JSON_PROPERTY_STATUS,
@@ -45,12 +46,10 @@ import java.util.StringJoiner;
 
 public class TelegramStatusDto {
   public static final String JSON_PROPERTY_STATUS = "status";
-  @javax.annotation.Nonnull
-  private RegStatus status;
+  @javax.annotation.Nonnull  private RegStatus status;
 
   public static final String JSON_PROPERTY_USERNAME = "username";
-  @javax.annotation.Nullable
-  private JsonNullable<String> username = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> username = JsonNullable.<String>undefined();
 
   public TelegramStatusDto() {
   }
@@ -66,8 +65,7 @@ public class TelegramStatusDto {
    * Get status
    * @return status
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public RegStatus getStatus() {
@@ -75,7 +73,7 @@ public class TelegramStatusDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(@javax.annotation.Nonnull RegStatus status) {
     this.status = status;
@@ -88,19 +86,17 @@ public class TelegramStatusDto {
   }
 
   /**
-   * Get username
+   * The Telegram username.
    * @return username
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getUsername() {
         return username.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonProperty(value = JSON_PROPERTY_USERNAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getUsername_JsonNullable() {
     return username;
   }

@@ -29,7 +29,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **dump** | **Boolean**|  | [optional] |
+| **dump** | **Boolean**| Indicates whether the operation should perform a dump of backup storage data.  This property is used as a parameter in backup-related API requests to specify  if additional details or data dumping is required during the process. | [optional] |
 
 ### Return type
 
@@ -82,7 +82,7 @@ public class Example {
 
 
         StorageApi apiInstance = new StorageApi(defaultClient);
-        Boolean dump = true; // Boolean | 
+        Boolean dump = true; // Boolean | Indicates whether the operation should perform a dump of backup storage data.  This property is used as a parameter in backup-related API requests to specify  if additional details or data dumping is required during the process.
         try {
             StorageArrayWrapper result = apiInstance.getAllBackupStorages(dump);
             System.out.println(result);
@@ -107,8 +107,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of the backup storages with the following parameters |  -  |
+| **403** | Access denied |  -  |
 | **401** | Unauthorized |  -  |
-| **402** | Your pricing plan does not support this option |  -  |
 
 
 ## getAllCdnStorages
@@ -198,8 +198,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of the CDN storages with the following parameters |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getAllStorages
@@ -289,8 +289,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of storages with the following parameters |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getAmazonS3Regions
@@ -559,8 +559,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## resetStorageToDefault
@@ -649,8 +649,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## updateCdnStorage
@@ -745,8 +745,8 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Updated CDN storage |  -  |
 | **400** | Module |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## updateStorage
@@ -841,6 +841,6 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Updated storage settings |  -  |
 | **400** | Module |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 

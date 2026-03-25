@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,16 +49,13 @@ import java.util.StringJoiner;
 
 public class Run {
   public static final String JSON_PROPERTY_FILL = "fill";
-  @javax.annotation.Nullable
-  private JsonNullable<List<Integer>> fill = JsonNullable.<List<Integer>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<Integer>> fill = JsonNullable.<List<Integer>>undefined();
 
   public static final String JSON_PROPERTY_TEXT = "text";
-  @javax.annotation.Nullable
-  private JsonNullable<String> text = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> text = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FONT_SIZE = "font-size";
-  @javax.annotation.Nullable
-  private JsonNullable<String> fontSize = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> fontSize = JsonNullable.<String>undefined();
 
   public Run() {
   }
@@ -85,16 +83,14 @@ public class Run {
    * The fill color of the text run in RGB format.
    * @return fill
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<Integer> getFill() {
         return fill.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILL)
+  @JsonProperty(value = JSON_PROPERTY_FILL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<Integer>> getFill_JsonNullable() {
     return fill;
   }
@@ -118,16 +114,14 @@ public class Run {
    * The run text.
    * @return text
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getText() {
         return text.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TEXT)
+  @JsonProperty(value = JSON_PROPERTY_TEXT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getText_JsonNullable() {
     return text;
   }
@@ -151,16 +145,14 @@ public class Run {
    * The font size of the text run in points.
    * @return fontSize
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFontSize() {
         return fontSize.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FONT_SIZE)
+  @JsonProperty(value = JSON_PROPERTY_FONT_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFontSize_JsonNullable() {
     return fontSize;
   }

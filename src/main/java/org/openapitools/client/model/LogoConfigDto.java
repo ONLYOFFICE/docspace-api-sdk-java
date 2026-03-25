@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,28 +49,22 @@ import java.util.StringJoiner;
 
 public class LogoConfigDto {
   public static final String JSON_PROPERTY_IMAGE = "image";
-  @javax.annotation.Nullable
-  private JsonNullable<String> image = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> image = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_IMAGE_DARK = "imageDark";
-  @javax.annotation.Nullable
-  private JsonNullable<String> imageDark = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> imageDark = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_IMAGE_LIGHT = "imageLight";
-  @javax.annotation.Nullable
-  private JsonNullable<String> imageLight = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> imageLight = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_IMAGE_EMBEDDED = "imageEmbedded";
-  @javax.annotation.Nullable
-  private JsonNullable<String> imageEmbedded = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> imageEmbedded = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_URL = "url";
-  @javax.annotation.Nullable
-  private JsonNullable<String> url = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> url = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_VISIBLE = "visible";
-  @javax.annotation.Nullable
-  private Boolean visible;
+  @javax.annotation.Nullable  private Boolean visible;
 
   public LogoConfigDto() {
   }
@@ -85,16 +80,14 @@ public class LogoConfigDto {
    * The image of the logo.
    * @return image
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getImage() {
         return image.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IMAGE)
+  @JsonProperty(value = JSON_PROPERTY_IMAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getImage_JsonNullable() {
     return image;
   }
@@ -118,16 +111,14 @@ public class LogoConfigDto {
    * The dark image of the logo.
    * @return imageDark
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getImageDark() {
         return imageDark.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IMAGE_DARK)
+  @JsonProperty(value = JSON_PROPERTY_IMAGE_DARK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getImageDark_JsonNullable() {
     return imageDark;
   }
@@ -151,16 +142,14 @@ public class LogoConfigDto {
    * The light image of the logo.
    * @return imageLight
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getImageLight() {
         return imageLight.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IMAGE_LIGHT)
+  @JsonProperty(value = JSON_PROPERTY_IMAGE_LIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getImageLight_JsonNullable() {
     return imageLight;
   }
@@ -184,16 +173,14 @@ public class LogoConfigDto {
    * The embedded image of the logo.
    * @return imageEmbedded
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getImageEmbedded() {
         return imageEmbedded.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IMAGE_EMBEDDED)
+  @JsonProperty(value = JSON_PROPERTY_IMAGE_EMBEDDED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getImageEmbedded_JsonNullable() {
     return imageEmbedded;
   }
@@ -217,16 +204,14 @@ public class LogoConfigDto {
    * The url link of the logo.
    * @return url
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getUrl() {
         return url.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonProperty(value = JSON_PROPERTY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getUrl_JsonNullable() {
     return url;
   }
@@ -250,8 +235,7 @@ public class LogoConfigDto {
    * Specifies if the logo is visible.
    * @return visible
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VISIBLE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VISIBLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getVisible() {
@@ -259,7 +243,7 @@ public class LogoConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VISIBLE)
+  @JsonProperty(value = JSON_PROPERTY_VISIBLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVisible(@javax.annotation.Nullable Boolean visible) {
     this.visible = visible;

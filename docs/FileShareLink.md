@@ -19,6 +19,8 @@ A shareable link for a file with its configuration and status.
 |**primary** | **Boolean** | Indicates whether this is the primary shared link. |  [optional] |
 |**internal** | **Boolean** | Indicates whether the link is for the internal sharing only. |  [optional] |
 |**requestToken** | **String** | The token for validating access requests. |  [optional] |
+|**maxUseCount** | **Integer** | The maximum number of times the invitation link can be used. |  [optional] |
+|**currentUseCount** | **Integer** | The current number of times the invitation link has been used. |  [optional] |
 
 
 

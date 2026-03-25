@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -150,6 +150,7 @@ public class ApiClient extends JavaTimeFormatter {
     authentications.put("ApiKeyBearer", new ApiKeyAuth("header", "ApiKeyBearer"));
     authentications.put("OAuth2", new OAuth());
     authentications.put("x-signature", new ApiKeyAuth("query", "x-signature"));
+    authentications.put("OpenId", new OpenIdAuth());
     // Prevent the authentications from being modified.
     authentications = Collections.unmodifiableMap(authentications);
 

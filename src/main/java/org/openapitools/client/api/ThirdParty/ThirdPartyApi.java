@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,7 +48,7 @@ public class ThirdPartyApi extends BaseApi {
 
   /**
    * Get the code request
-   * Returns a request to get the confirmation code from URL.   **Note**: List of providers: Google, Dropbox, Docusign, Box, OneDrive, Wordpress.
+   * Returns a request to get the confirmation code from URL.
    *
    * REST API Reference for getThirdPartyCode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-code/
@@ -64,7 +64,7 @@ public class ThirdPartyApi extends BaseApi {
 
   /**
    * Get the code request
-   * Returns a request to get the confirmation code from URL.   **Note**: List of providers: Google, Dropbox, Docusign, Box, OneDrive, Wordpress.
+   * Returns a request to get the confirmation code from URL.
    *
    * REST API Reference for getThirdPartyCode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-code/

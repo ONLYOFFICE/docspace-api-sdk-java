@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -43,20 +44,16 @@ import java.util.StringJoiner;
 
 public class ExchangeToken200Response {
   public static final String JSON_PROPERTY_ACCESS_TOKEN = "access_token";
-  @javax.annotation.Nullable
-  private String accessToken;
+  @javax.annotation.Nullable  private String accessToken;
 
   public static final String JSON_PROPERTY_TOKEN_TYPE = "token_type";
-  @javax.annotation.Nullable
-  private String tokenType;
+  @javax.annotation.Nullable  private String tokenType;
 
   public static final String JSON_PROPERTY_EXPIRES_IN = "expires_in";
-  @javax.annotation.Nullable
-  private Integer expiresIn;
+  @javax.annotation.Nullable  private Integer expiresIn;
 
   public static final String JSON_PROPERTY_REFRESH_TOKEN = "refresh_token";
-  @javax.annotation.Nullable
-  private String refreshToken;
+  @javax.annotation.Nullable  private String refreshToken;
 
   public ExchangeToken200Response() {
   }
@@ -72,8 +69,7 @@ public class ExchangeToken200Response {
    * The access token issued by the authorization server.
    * @return accessToken
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCESS_TOKEN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAccessToken() {
@@ -81,7 +77,7 @@ public class ExchangeToken200Response {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACCESS_TOKEN)
+  @JsonProperty(value = JSON_PROPERTY_ACCESS_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccessToken(@javax.annotation.Nullable String accessToken) {
     this.accessToken = accessToken;
@@ -97,8 +93,7 @@ public class ExchangeToken200Response {
    * The type of token issued, typically &#39;Bearer&#39;.
    * @return tokenType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TOKEN_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOKEN_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTokenType() {
@@ -106,7 +101,7 @@ public class ExchangeToken200Response {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TOKEN_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TOKEN_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenType(@javax.annotation.Nullable String tokenType) {
     this.tokenType = tokenType;
@@ -122,8 +117,7 @@ public class ExchangeToken200Response {
    * The number of seconds until the access token expires.
    * @return expiresIn
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXPIRES_IN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRES_IN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getExpiresIn() {
@@ -131,7 +125,7 @@ public class ExchangeToken200Response {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXPIRES_IN)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRES_IN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresIn(@javax.annotation.Nullable Integer expiresIn) {
     this.expiresIn = expiresIn;
@@ -147,8 +141,7 @@ public class ExchangeToken200Response {
    * The token used to obtain a new access token when the current one expires.
    * @return refreshToken
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REFRESH_TOKEN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REFRESH_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRefreshToken() {
@@ -156,7 +149,7 @@ public class ExchangeToken200Response {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REFRESH_TOKEN)
+  @JsonProperty(value = JSON_PROPERTY_REFRESH_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefreshToken(@javax.annotation.Nullable String refreshToken) {
     this.refreshToken = refreshToken;

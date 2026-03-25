@@ -96,19 +96,19 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        Integer id = 9846; // Integer | The user ID.
+        Integer id = 56; // Integer | The user ID.
         EmployeeStatus employeeStatus = EmployeeStatus.fromValue("1"); // EmployeeStatus | The user status.
         EmployeeActivationStatus activationStatus = EmployeeActivationStatus.fromValue("0"); // EmployeeActivationStatus | The user activation status.
-        Boolean excludeShared = true; // Boolean | Specifies whether to exclude the account sharing settings from the response.
-        Boolean includeShared = true; // Boolean | Specifies whether to include the account sharing settings in the response.
-        Boolean invitedByMe = true; // Boolean | Specifies whether the user is invited by the current user or not.
-        UUID inviterId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The inviter ID.
+        Boolean excludeShared = false; // Boolean | Specifies whether to exclude the account sharing settings from the response.
+        Boolean includeShared = false; // Boolean | Specifies whether to include the account sharing settings in the response.
+        Boolean invitedByMe = false; // Boolean | Specifies whether the user is invited by the current user or not.
+        UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The inviter ID.
         Area area = Area.fromValue("0"); // Area | The area of the account entries.
         List<EmployeeType> employeeTypes = Arrays.asList(new ArrayList<>()); // List<EmployeeType> | The list of the user types.
-        Integer count = 1234; // Integer | The number of items to retrieve in a request.
-        Integer startIndex = 1234; // Integer | The starting index for the query results.
-        String filterSeparator = "some text"; // String | Specifies the separator used in filter expressions.
-        String filterValue = "some text"; // String | The text filter applied to the accounts search query.
+        Integer count = 25; // Integer | The number of items to retrieve in a request.
+        Integer startIndex = 0; // Integer | The starting index for the query results.
+        String filterSeparator = ","; // String | Specifies the separator used in filter expressions.
+        String filterValue = "John"; // String | The text filter applied to the accounts search query.
         try {
             ObjectArrayWrapper result = apiInstance.getAccountsEntriesWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             System.out.println(result);
@@ -133,8 +133,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getAccountsEntriesWithFoldersShared
@@ -215,19 +215,19 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        Integer id = 9846; // Integer | The user ID.
+        Integer id = 56; // Integer | The user ID.
         EmployeeStatus employeeStatus = EmployeeStatus.fromValue("1"); // EmployeeStatus | The user status.
         EmployeeActivationStatus activationStatus = EmployeeActivationStatus.fromValue("0"); // EmployeeActivationStatus | The user activation status.
-        Boolean excludeShared = true; // Boolean | Specifies whether to exclude the account sharing settings from the response.
-        Boolean includeShared = true; // Boolean | Specifies whether to include the account sharing settings in the response.
-        Boolean invitedByMe = true; // Boolean | Specifies whether the user is invited by the current user or not.
-        UUID inviterId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The inviter ID.
+        Boolean excludeShared = false; // Boolean | Specifies whether to exclude the account sharing settings from the response.
+        Boolean includeShared = false; // Boolean | Specifies whether to include the account sharing settings in the response.
+        Boolean invitedByMe = false; // Boolean | Specifies whether the user is invited by the current user or not.
+        UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The inviter ID.
         Area area = Area.fromValue("0"); // Area | The area of the account entries.
         List<EmployeeType> employeeTypes = Arrays.asList(new ArrayList<>()); // List<EmployeeType> | The list of the user types.
-        Integer count = 1234; // Integer | The number of items to retrieve in a request.
-        Integer startIndex = 1234; // Integer | The starting index for the query results.
-        String filterSeparator = "some text"; // String | Specifies the separator used in filter expressions.
-        String filterValue = "some text"; // String | The text filter applied to the accounts search query.
+        Integer count = 25; // Integer | The number of items to retrieve in a request.
+        Integer startIndex = 0; // Integer | The starting index for the query results.
+        String filterSeparator = ","; // String | Specifies the separator used in filter expressions.
+        String filterValue = "John"; // String | The text filter applied to the accounts search query.
         try {
             ObjectArrayWrapper result = apiInstance.getAccountsEntriesWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             System.out.println(result);
@@ -252,8 +252,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getAccountsEntriesWithRoomsShared
@@ -334,19 +334,19 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        Integer id = 9846; // Integer | The user ID.
+        Integer id = 56; // Integer | The user ID.
         EmployeeStatus employeeStatus = EmployeeStatus.fromValue("1"); // EmployeeStatus | The user status.
         EmployeeActivationStatus activationStatus = EmployeeActivationStatus.fromValue("0"); // EmployeeActivationStatus | The user activation status.
-        Boolean excludeShared = true; // Boolean | Specifies whether to exclude the account sharing settings from the response.
-        Boolean includeShared = true; // Boolean | Specifies whether to include the account sharing settings in the response.
-        Boolean invitedByMe = true; // Boolean | Specifies whether the user is invited by the current user or not.
-        UUID inviterId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The inviter ID.
+        Boolean excludeShared = false; // Boolean | Specifies whether to exclude the account sharing settings from the response.
+        Boolean includeShared = false; // Boolean | Specifies whether to include the account sharing settings in the response.
+        Boolean invitedByMe = false; // Boolean | Specifies whether the user is invited by the current user or not.
+        UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The inviter ID.
         Area area = Area.fromValue("0"); // Area | The area of the account entries.
         List<EmployeeType> employeeTypes = Arrays.asList(new ArrayList<>()); // List<EmployeeType> | The list of the user types.
-        Integer count = 1234; // Integer | The number of items to retrieve in a request.
-        Integer startIndex = 1234; // Integer | The starting index for the query results.
-        String filterSeparator = "some text"; // String | Specifies the separator used in filter expressions.
-        String filterValue = "some text"; // String | The text filter applied to the accounts search query.
+        Integer count = 25; // Integer | The number of items to retrieve in a request.
+        Integer startIndex = 0; // Integer | The starting index for the query results.
+        String filterSeparator = ","; // String | Specifies the separator used in filter expressions.
+        String filterValue = "John"; // String | The text filter applied to the accounts search query.
         try {
             ObjectArrayWrapper result = apiInstance.getAccountsEntriesWithRoomsShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             System.out.println(result);
@@ -371,8 +371,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getSearch
@@ -443,9 +443,9 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        String query = "some text"; // String | The search query.
-        String filterBy = "some text"; // String | Specifies a filter criteria for the user search query.
-        String filterValue = "some text"; // String | The value used for filtering users, allowing additional constraints for the query.
+        String query = "John"; // String | The search query.
+        String filterBy = "displayName"; // String | Specifies a filter criteria for the user search query.
+        String filterValue = "John"; // String | The value used for filtering users, allowing additional constraints for the query.
         try {
             EmployeeFullArrayWrapper result = apiInstance.getSearch(query, filterBy, filterValue);
             System.out.println(result);
@@ -470,8 +470,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of users with the detailed information |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getSimpleByFilter
@@ -560,25 +560,25 @@ public class Example {
 
         SearchApi apiInstance = new SearchApi(defaultClient);
         EmployeeStatus employeeStatus = EmployeeStatus.fromValue("1"); // EmployeeStatus | The user status.
-        UUID groupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The group ID.
+        UUID groupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The group ID.
         EmployeeActivationStatus activationStatus = EmployeeActivationStatus.fromValue("0"); // EmployeeActivationStatus | The user activation status.
         EmployeeType employeeType = EmployeeType.fromValue("All"); // EmployeeType | The user type.
         List<Integer> employeeTypes = Arrays.asList(new ArrayList<>()); // List<Integer> | The list of user types.
-        Boolean isAdministrator = true; // Boolean | Specifies if the user is an administrator or not.
+        Boolean isAdministrator = false; // Boolean | Specifies if the user is an administrator or not.
         Payments payments = Payments.fromValue("0"); // Payments | The user payment status.
         AccountLoginType accountLoginType = AccountLoginType.fromValue("0"); // AccountLoginType | The account login type.
         QuotaFilter quotaFilter = QuotaFilter.fromValue("0"); // QuotaFilter | The quota filter (All - 0, Default - 1, Custom - 2).
-        Boolean withoutGroup = true; // Boolean | Specifies whether the user should be a member of a group or not.
-        Boolean excludeGroup = true; // Boolean | Specifies whether the user should be a member of the group with the specified ID.
-        Boolean invitedByMe = true; // Boolean | Specifies whether the user is invited by the current user or not.
-        UUID inviterId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The inviter ID.
+        Boolean withoutGroup = false; // Boolean | Specifies whether the user should be a member of a group or not.
+        Boolean excludeGroup = false; // Boolean | Specifies whether the user should be a member of the group with the specified ID.
+        Boolean invitedByMe = false; // Boolean | Specifies whether the user is invited by the current user or not.
+        UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The inviter ID.
         Area area = Area.fromValue("0"); // Area | The filter area.
-        Integer count = 1234; // Integer | The maximum number of items to be retrieved in the response.
-        Integer startIndex = 1234; // Integer | The zero-based index of the first item to be retrieved in a filtered result set.
-        String sortBy = "some text"; // String | Specifies the property or field name by which the results should be sorted.
+        Integer count = 25; // Integer | The maximum number of items to be retrieved in the response.
+        Integer startIndex = 0; // Integer | The zero-based index of the first item to be retrieved in a filtered result set.
+        String sortBy = "displayName"; // String | Specifies the property or field name by which the results should be sorted.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterSeparator = "some text"; // String | Represents the separator used to split filter criteria in query parameters.
-        String filterValue = "some text"; // String | The search text used to filter results based on user input.
+        String filterSeparator = ","; // String | Represents the separator used to split filter criteria in query parameters.
+        String filterValue = "John"; // String | The search text used to filter results based on user input.
         try {
             EmployeeArrayWrapper result = apiInstance.getSimpleByFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
             System.out.println(result);
@@ -603,8 +603,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of users |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getUsersWithFilesShared
@@ -685,19 +685,19 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        Integer id = 9846; // Integer | The user ID.
+        Integer id = 56; // Integer | The user ID.
         EmployeeStatus employeeStatus = EmployeeStatus.fromValue("1"); // EmployeeStatus | The user status.
         EmployeeActivationStatus activationStatus = EmployeeActivationStatus.fromValue("0"); // EmployeeActivationStatus | The user activation status.
-        Boolean excludeShared = true; // Boolean | Specifies whether to exclude the user sharing settings or not.
-        Boolean includeShared = true; // Boolean | Specifies whether to include the user sharing settings or not.
-        Boolean invitedByMe = true; // Boolean | Specifies whether the user was invited by the current user or not.
-        UUID inviterId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The inviter ID.
+        Boolean excludeShared = false; // Boolean | Specifies whether to exclude the user sharing settings or not.
+        Boolean includeShared = false; // Boolean | Specifies whether to include the user sharing settings or not.
+        Boolean invitedByMe = false; // Boolean | Specifies whether the user was invited by the current user or not.
+        UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The inviter ID.
         Area area = Area.fromValue("0"); // Area | The user area.
         List<EmployeeType> employeeTypes = Arrays.asList(new ArrayList<>()); // List<EmployeeType> | The list of user types.
-        Integer count = 1234; // Integer | The maximum number of users to be retrieved in the request.
-        Integer startIndex = 1234; // Integer | The zero-based index of the first record to retrieve in a paged query.
-        String filterSeparator = "some text"; // String | The character or string used to separate multiple filter values in a filtering query.
-        String filterValue = "some text"; // String | The filter text value used for searching or filtering user results.
+        Integer count = 25; // Integer | The maximum number of users to be retrieved in the request.
+        Integer startIndex = 0; // Integer | The zero-based index of the first record to retrieve in a paged query.
+        String filterSeparator = ","; // String | The character or string used to separate multiple filter values in a filtering query.
+        String filterValue = "John"; // String | The filter text value used for searching or filtering user results.
         try {
             EmployeeFullArrayWrapper result = apiInstance.getUsersWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             System.out.println(result);
@@ -722,8 +722,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getUsersWithFoldersShared
@@ -804,19 +804,19 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        Integer id = 9846; // Integer | The user ID.
+        Integer id = 56; // Integer | The user ID.
         EmployeeStatus employeeStatus = EmployeeStatus.fromValue("1"); // EmployeeStatus | The user status.
         EmployeeActivationStatus activationStatus = EmployeeActivationStatus.fromValue("0"); // EmployeeActivationStatus | The user activation status.
-        Boolean excludeShared = true; // Boolean | Specifies whether to exclude the user sharing settings or not.
-        Boolean includeShared = true; // Boolean | Specifies whether to include the user sharing settings or not.
-        Boolean invitedByMe = true; // Boolean | Specifies whether the user was invited by the current user or not.
-        UUID inviterId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The inviter ID.
+        Boolean excludeShared = false; // Boolean | Specifies whether to exclude the user sharing settings or not.
+        Boolean includeShared = false; // Boolean | Specifies whether to include the user sharing settings or not.
+        Boolean invitedByMe = false; // Boolean | Specifies whether the user was invited by the current user or not.
+        UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The inviter ID.
         Area area = Area.fromValue("0"); // Area | The user area.
         List<EmployeeType> employeeTypes = Arrays.asList(new ArrayList<>()); // List<EmployeeType> | The list of user types.
-        Integer count = 1234; // Integer | The maximum number of users to be retrieved in the request.
-        Integer startIndex = 1234; // Integer | The zero-based index of the first record to retrieve in a paged query.
-        String filterSeparator = "some text"; // String | The character or string used to separate multiple filter values in a filtering query.
-        String filterValue = "some text"; // String | The filter text value used for searching or filtering user results.
+        Integer count = 25; // Integer | The maximum number of users to be retrieved in the request.
+        Integer startIndex = 0; // Integer | The zero-based index of the first record to retrieve in a paged query.
+        String filterSeparator = ","; // String | The character or string used to separate multiple filter values in a filtering query.
+        String filterValue = "John"; // String | The filter text value used for searching or filtering user results.
         try {
             EmployeeFullArrayWrapper result = apiInstance.getUsersWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             System.out.println(result);
@@ -841,8 +841,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getUsersWithRoomShared
@@ -923,19 +923,19 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        Integer id = 9846; // Integer | The user ID.
+        Integer id = 56; // Integer | The user ID.
         EmployeeStatus employeeStatus = EmployeeStatus.fromValue("1"); // EmployeeStatus | The user status.
         EmployeeActivationStatus activationStatus = EmployeeActivationStatus.fromValue("0"); // EmployeeActivationStatus | The user activation status.
-        Boolean excludeShared = true; // Boolean | Specifies whether to exclude the user sharing settings or not.
-        Boolean includeShared = true; // Boolean | Specifies whether to include the user sharing settings or not.
-        Boolean invitedByMe = true; // Boolean | Specifies whether the user was invited by the current user or not.
-        UUID inviterId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The inviter ID.
+        Boolean excludeShared = false; // Boolean | Specifies whether to exclude the user sharing settings or not.
+        Boolean includeShared = false; // Boolean | Specifies whether to include the user sharing settings or not.
+        Boolean invitedByMe = false; // Boolean | Specifies whether the user was invited by the current user or not.
+        UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The inviter ID.
         Area area = Area.fromValue("0"); // Area | The user area.
         List<EmployeeType> employeeTypes = Arrays.asList(new ArrayList<>()); // List<EmployeeType> | The list of user types.
-        Integer count = 1234; // Integer | The maximum number of users to be retrieved in the request.
-        Integer startIndex = 1234; // Integer | The zero-based index of the first record to retrieve in a paged query.
-        String filterSeparator = "some text"; // String | The character or string used to separate multiple filter values in a filtering query.
-        String filterValue = "some text"; // String | The filter text value used for searching or filtering user results.
+        Integer count = 25; // Integer | The maximum number of users to be retrieved in the request.
+        Integer startIndex = 0; // Integer | The zero-based index of the first record to retrieve in a paged query.
+        String filterSeparator = ","; // String | The character or string used to separate multiple filter values in a filtering query.
+        String filterValue = "John"; // String | The filter text value used for searching or filtering user results.
         try {
             EmployeeFullArrayWrapper result = apiInstance.getUsersWithRoomShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             System.out.println(result);
@@ -960,8 +960,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## searchUsersByExtendedFilter
@@ -1050,25 +1050,25 @@ public class Example {
 
         SearchApi apiInstance = new SearchApi(defaultClient);
         EmployeeStatus employeeStatus = EmployeeStatus.fromValue("1"); // EmployeeStatus | The user status.
-        UUID groupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The group ID.
+        UUID groupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The group ID.
         EmployeeActivationStatus activationStatus = EmployeeActivationStatus.fromValue("0"); // EmployeeActivationStatus | The user activation status.
         EmployeeType employeeType = EmployeeType.fromValue("All"); // EmployeeType | The user type.
         List<Integer> employeeTypes = Arrays.asList(new ArrayList<>()); // List<Integer> | The list of user types.
-        Boolean isAdministrator = true; // Boolean | Specifies if the user is an administrator or not.
+        Boolean isAdministrator = false; // Boolean | Specifies if the user is an administrator or not.
         Payments payments = Payments.fromValue("0"); // Payments | The user payment status.
         AccountLoginType accountLoginType = AccountLoginType.fromValue("0"); // AccountLoginType | The account login type.
         QuotaFilter quotaFilter = QuotaFilter.fromValue("0"); // QuotaFilter | The quota filter (All - 0, Default - 1, Custom - 2).
-        Boolean withoutGroup = true; // Boolean | Specifies whether the user should be a member of a group or not.
-        Boolean excludeGroup = true; // Boolean | Specifies whether the user should be a member of the group with the specified ID.
-        Boolean invitedByMe = true; // Boolean | Specifies whether the user is invited by the current user or not.
-        UUID inviterId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The inviter ID.
+        Boolean withoutGroup = false; // Boolean | Specifies whether the user should be a member of a group or not.
+        Boolean excludeGroup = false; // Boolean | Specifies whether the user should be a member of the group with the specified ID.
+        Boolean invitedByMe = false; // Boolean | Specifies whether the user is invited by the current user or not.
+        UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The inviter ID.
         Area area = Area.fromValue("0"); // Area | The filter area.
-        Integer count = 1234; // Integer | The maximum number of items to be retrieved in the response.
-        Integer startIndex = 1234; // Integer | The zero-based index of the first item to be retrieved in a filtered result set.
-        String sortBy = "some text"; // String | Specifies the property or field name by which the results should be sorted.
+        Integer count = 25; // Integer | The maximum number of items to be retrieved in the response.
+        Integer startIndex = 0; // Integer | The zero-based index of the first item to be retrieved in a filtered result set.
+        String sortBy = "displayName"; // String | Specifies the property or field name by which the results should be sorted.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterSeparator = "some text"; // String | Represents the separator used to split filter criteria in query parameters.
-        String filterValue = "some text"; // String | The search text used to filter results based on user input.
+        String filterSeparator = ","; // String | Represents the separator used to split filter criteria in query parameters.
+        String filterValue = "John"; // String | The search text used to filter results based on user input.
         try {
             EmployeeFullArrayWrapper result = apiInstance.searchUsersByExtendedFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
             System.out.println(result);
@@ -1093,8 +1093,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of users with the detailed information |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## searchUsersByQuery
@@ -1163,7 +1163,7 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        String query = "some text"; // String | The search query.
+        String query = "John"; // String | The search query.
         try {
             EmployeeArrayWrapper result = apiInstance.searchUsersByQuery(query);
             System.out.println(result);
@@ -1261,9 +1261,9 @@ public class Example {
 
         SearchApi apiInstance = new SearchApi(defaultClient);
         EmployeeStatus status = EmployeeStatus.fromValue("1"); // EmployeeStatus | The user status.
-        String query = "some text"; // String | The advanced search query.
-        String filterBy = "some text"; // String | Specifies the criteria used to filter search results in advanced queries.
-        String filterValue = "some text"; // String | The value used to filter the search query.
+        String query = "John"; // String | The advanced search query.
+        String filterBy = "displayName"; // String | Specifies the criteria used to filter search results in advanced queries.
+        String filterValue = "John"; // String | The value used to filter the search query.
         try {
             EmployeeFullArrayWrapper result = apiInstance.searchUsersByStatus(status, query, filterBy, filterValue);
             System.out.println(result);
@@ -1288,6 +1288,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of users with the detailed information |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 

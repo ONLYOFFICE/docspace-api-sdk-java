@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -47,16 +48,13 @@ import java.util.StringJoiner;
 
 public class RoomInvitation {
   public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nullable
-  private JsonNullable<String> email = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> email = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private UUID id;
+  @javax.annotation.Nullable  private UUID id;
 
   public static final String JSON_PROPERTY_ACCESS = "access";
-  @javax.annotation.Nullable
-  private FileShare access;
+  @javax.annotation.Nullable  private FileShare access;
 
   public RoomInvitation() {
   }
@@ -72,16 +70,14 @@ public class RoomInvitation {
    * The email address.
    * @return email
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getEmail() {
         return email.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getEmail_JsonNullable() {
     return email;
   }
@@ -105,8 +101,7 @@ public class RoomInvitation {
    * The ID of the user to share a room with.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getId() {
@@ -114,7 +109,7 @@ public class RoomInvitation {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(@javax.annotation.Nullable UUID id) {
     this.id = id;
@@ -130,8 +125,7 @@ public class RoomInvitation {
    * Get access
    * @return access
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCESS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FileShare getAccess() {
@@ -139,7 +133,7 @@ public class RoomInvitation {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACCESS)
+  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccess(@javax.annotation.Nullable FileShare access) {
     this.access = access;

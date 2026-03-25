@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,16 +47,13 @@ import java.util.StringJoiner;
 
 public class DownloadRequestItemDto {
   public static final String JSON_PROPERTY_KEY = "key";
-  @javax.annotation.Nonnull
-  private DownloadRequestItemDtoKey key;
+  @javax.annotation.Nonnull  private DownloadRequestItemDtoKey key;
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  @javax.annotation.Nullable
-  private String value;
+  @javax.annotation.Nullable  private String value;
 
   public static final String JSON_PROPERTY_PASSWORD = "password";
-  @javax.annotation.Nullable
-  private JsonNullable<String> password = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> password = JsonNullable.<String>undefined();
 
   public DownloadRequestItemDto() {
   }
@@ -71,8 +69,7 @@ public class DownloadRequestItemDto {
    * Get key
    * @return key
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_KEY)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_KEY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public DownloadRequestItemDtoKey getKey() {
@@ -80,7 +77,7 @@ public class DownloadRequestItemDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KEY)
+  @JsonProperty(value = JSON_PROPERTY_KEY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setKey(@javax.annotation.Nonnull DownloadRequestItemDtoKey key) {
     this.key = key;
@@ -96,8 +93,7 @@ public class DownloadRequestItemDto {
    * The target format or conversion type for the file download.
    * @return value
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getValue() {
@@ -105,7 +101,7 @@ public class DownloadRequestItemDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setValue(@javax.annotation.Nullable String value) {
     this.value = value;
@@ -121,16 +117,14 @@ public class DownloadRequestItemDto {
    * The optional password for accessing protected files.
    * @return password
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPassword() {
         return password.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PASSWORD)
+  @JsonProperty(value = JSON_PROPERTY_PASSWORD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPassword_JsonNullable() {
     return password;
   }

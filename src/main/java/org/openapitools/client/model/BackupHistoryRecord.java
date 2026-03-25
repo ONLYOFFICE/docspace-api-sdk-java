@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 import org.openapitools.client.model.BackupStorageType;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -34,7 +35,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * BackupHistoryRecord
+ * The backup history parameters.
  */
 @JsonPropertyOrder({
   BackupHistoryRecord.JSON_PROPERTY_ID,
@@ -46,24 +47,19 @@ import java.util.StringJoiner;
 
 public class BackupHistoryRecord {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nonnull
-  private UUID id;
+  @javax.annotation.Nonnull  private UUID id;
 
   public static final String JSON_PROPERTY_FILE_NAME = "fileName";
-  @javax.annotation.Nullable
-  private String fileName;
+  @javax.annotation.Nullable  private String fileName;
 
   public static final String JSON_PROPERTY_STORAGE_TYPE = "storageType";
-  @javax.annotation.Nonnull
-  private BackupStorageType storageType;
+  @javax.annotation.Nonnull  private BackupStorageType storageType;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
-  @javax.annotation.Nonnull
-  private OffsetDateTime createdOn;
+  @javax.annotation.Nonnull  private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_EXPIRES_ON = "expiresOn";
-  @javax.annotation.Nonnull
-  private OffsetDateTime expiresOn;
+  @javax.annotation.Nonnull  private OffsetDateTime expiresOn;
 
   public BackupHistoryRecord() {
   }
@@ -76,11 +72,10 @@ public class BackupHistoryRecord {
   }
 
   /**
-   * Get id
+   * The backup ID.
    * @return id
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getId() {
@@ -88,7 +83,7 @@ public class BackupHistoryRecord {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@javax.annotation.Nonnull UUID id) {
     this.id = id;
@@ -101,11 +96,10 @@ public class BackupHistoryRecord {
   }
 
   /**
-   * Get fileName
+   * The backup file name.
    * @return fileName
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILE_NAME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getFileName() {
@@ -113,7 +107,7 @@ public class BackupHistoryRecord {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE_NAME)
+  @JsonProperty(value = JSON_PROPERTY_FILE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFileName(@javax.annotation.Nullable String fileName) {
     this.fileName = fileName;
@@ -129,8 +123,7 @@ public class BackupHistoryRecord {
    * Get storageType
    * @return storageType
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STORAGE_TYPE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STORAGE_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public BackupStorageType getStorageType() {
@@ -138,7 +131,7 @@ public class BackupHistoryRecord {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STORAGE_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_STORAGE_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStorageType(@javax.annotation.Nonnull BackupStorageType storageType) {
     this.storageType = storageType;
@@ -151,11 +144,10 @@ public class BackupHistoryRecord {
   }
 
   /**
-   * Get createdOn
+   * The backup creation date.
    * @return createdOn
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CREATED_ON)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CREATED_ON, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getCreatedOn() {
@@ -163,7 +155,7 @@ public class BackupHistoryRecord {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATED_ON)
+  @JsonProperty(value = JSON_PROPERTY_CREATED_ON, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedOn(@javax.annotation.Nonnull OffsetDateTime createdOn) {
     this.createdOn = createdOn;
@@ -176,11 +168,10 @@ public class BackupHistoryRecord {
   }
 
   /**
-   * Get expiresOn
+   * The backup expiration date.
    * @return expiresOn
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EXPIRES_ON)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_EXPIRES_ON, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getExpiresOn() {
@@ -188,7 +179,7 @@ public class BackupHistoryRecord {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXPIRES_ON)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRES_ON, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setExpiresOn(@javax.annotation.Nonnull OffsetDateTime expiresOn) {
     this.expiresOn = expiresOn;

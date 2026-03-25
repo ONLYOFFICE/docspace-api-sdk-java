@@ -80,11 +80,11 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        Integer id = 9846; // Integer | The group ID.
-        Boolean excludeShared = true; // Boolean | Specifies whether to exclude the group sharing settings from the response.
-        Integer count = 1234; // Integer | The number of groups to retrieve in the request.
-        Integer startIndex = 1234; // Integer | The starting index from which to begin retrieving groups with their sharing settings.
-        String filterValue = "some text"; // String | The text used as a filter for retrieving groups with their sharing settings.
+        Integer id = 56; // Integer | The group ID.
+        Boolean excludeShared = false; // Boolean | Specifies whether to exclude the group sharing settings from the response.
+        Integer count = 25; // Integer | The number of groups to retrieve in the request.
+        Integer startIndex = 0; // Integer | The starting index from which to begin retrieving groups with their sharing settings.
+        String filterValue = "John"; // String | The text used as a filter for retrieving groups with their sharing settings.
         try {
             GroupArrayWrapper result = apiInstance.getGroupsWithFilesShared(id, excludeShared, count, startIndex, filterValue);
             System.out.println(result);
@@ -109,8 +109,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getGroupsWithFoldersShared
@@ -183,11 +183,11 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        Integer id = 9846; // Integer | The group ID.
-        Boolean excludeShared = true; // Boolean | Specifies whether to exclude the group sharing settings from the response.
-        Integer count = 1234; // Integer | The number of groups to retrieve in the request.
-        Integer startIndex = 1234; // Integer | The starting index from which to begin retrieving groups with their sharing settings.
-        String filterValue = "some text"; // String | The text used as a filter for retrieving groups with their sharing settings.
+        Integer id = 56; // Integer | The group ID.
+        Boolean excludeShared = false; // Boolean | Specifies whether to exclude the group sharing settings from the response.
+        Integer count = 25; // Integer | The number of groups to retrieve in the request.
+        Integer startIndex = 0; // Integer | The starting index from which to begin retrieving groups with their sharing settings.
+        String filterValue = "John"; // String | The text used as a filter for retrieving groups with their sharing settings.
         try {
             GroupArrayWrapper result = apiInstance.getGroupsWithFoldersShared(id, excludeShared, count, startIndex, filterValue);
             System.out.println(result);
@@ -212,8 +212,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## getGroupsWithRoomsShared
@@ -286,11 +286,11 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        Integer id = 9846; // Integer | The group ID.
-        Boolean excludeShared = true; // Boolean | Specifies whether to exclude the group sharing settings from the response.
-        Integer count = 1234; // Integer | The number of groups to retrieve in the request.
-        Integer startIndex = 1234; // Integer | The starting index from which to begin retrieving groups with their sharing settings.
-        String filterValue = "some text"; // String | The text used as a filter for retrieving groups with their sharing settings.
+        Integer id = 56; // Integer | The group ID.
+        Boolean excludeShared = false; // Boolean | Specifies whether to exclude the group sharing settings from the response.
+        Integer count = 25; // Integer | The number of groups to retrieve in the request.
+        Integer startIndex = 0; // Integer | The starting index from which to begin retrieving groups with their sharing settings.
+        String filterValue = "John"; // String | The text used as a filter for retrieving groups with their sharing settings.
         try {
             GroupArrayWrapper result = apiInstance.getGroupsWithRoomsShared(id, excludeShared, count, startIndex, filterValue);
             System.out.println(result);
@@ -315,6 +315,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 

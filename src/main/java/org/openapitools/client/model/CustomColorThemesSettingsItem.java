@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -47,20 +48,16 @@ import java.util.StringJoiner;
 
 public class CustomColorThemesSettingsItem {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private Integer id;
+  @javax.annotation.Nullable  private Integer id;
 
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_MAIN = "main";
-  @javax.annotation.Nullable
-  private CustomColorThemesSettingsColorItem main;
+  @javax.annotation.Nullable  private CustomColorThemesSettingsColorItem main;
 
   public static final String JSON_PROPERTY_TEXT = "text";
-  @javax.annotation.Nullable
-  private CustomColorThemesSettingsColorItem text;
+  @javax.annotation.Nullable  private CustomColorThemesSettingsColorItem text;
 
   public CustomColorThemesSettingsItem() {
   }
@@ -76,8 +73,7 @@ public class CustomColorThemesSettingsItem {
    * The custom color theme ID.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getId() {
@@ -85,7 +81,7 @@ public class CustomColorThemesSettingsItem {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(@javax.annotation.Nullable Integer id) {
     this.id = id;
@@ -101,16 +97,14 @@ public class CustomColorThemesSettingsItem {
    * The custom color theme name.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getName() {
         return name.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
@@ -134,8 +128,7 @@ public class CustomColorThemesSettingsItem {
    * Get main
    * @return main
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAIN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MAIN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CustomColorThemesSettingsColorItem getMain() {
@@ -143,7 +136,7 @@ public class CustomColorThemesSettingsItem {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MAIN)
+  @JsonProperty(value = JSON_PROPERTY_MAIN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMain(@javax.annotation.Nullable CustomColorThemesSettingsColorItem main) {
     this.main = main;
@@ -159,8 +152,7 @@ public class CustomColorThemesSettingsItem {
    * Get text
    * @return text
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEXT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TEXT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CustomColorThemesSettingsColorItem getText() {
@@ -168,7 +160,7 @@ public class CustomColorThemesSettingsItem {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEXT)
+  @JsonProperty(value = JSON_PROPERTY_TEXT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setText(@javax.annotation.Nullable CustomColorThemesSettingsColorItem text) {
     this.text = text;

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -39,8 +40,7 @@ import java.util.StringJoiner;
 
 public class TenantBannerSettingsDto {
   public static final String JSON_PROPERTY_HIDDEN = "hidden";
-  @javax.annotation.Nullable
-  private Boolean hidden;
+  @javax.annotation.Nullable  private Boolean hidden;
 
   public TenantBannerSettingsDto() {
   }
@@ -56,8 +56,7 @@ public class TenantBannerSettingsDto {
    * The banners visibility flag.
    * @return hidden
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HIDDEN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HIDDEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getHidden() {
@@ -65,7 +64,7 @@ public class TenantBannerSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HIDDEN)
+  @JsonProperty(value = JSON_PROPERTY_HIDDEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHidden(@javax.annotation.Nullable Boolean hidden) {
     this.hidden = hidden;

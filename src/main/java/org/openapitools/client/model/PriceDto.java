@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -45,16 +46,13 @@ import java.util.StringJoiner;
 
 public class PriceDto {
   public static final String JSON_PROPERTY_VALUE = "value";
-  @javax.annotation.Nullable
-  private JsonNullable<Double> value = JsonNullable.<Double>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Double> value = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_CURRENCY_SYMBOL = "currencySymbol";
-  @javax.annotation.Nullable
-  private JsonNullable<String> currencySymbol = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> currencySymbol = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ISO_CURRENCY_SYMBOL = "isoCurrencySymbol";
-  @javax.annotation.Nullable
-  private JsonNullable<String> isoCurrencySymbol = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> isoCurrencySymbol = JsonNullable.<String>undefined();
 
   public PriceDto() {
   }
@@ -70,16 +68,14 @@ public class PriceDto {
    * The price value.
    * @return value
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Double getValue() {
         return value.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Double> getValue_JsonNullable() {
     return value;
   }
@@ -103,16 +99,14 @@ public class PriceDto {
    * The currency symbol.
    * @return currencySymbol
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCurrencySymbol() {
         return currencySymbol.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CURRENCY_SYMBOL)
+  @JsonProperty(value = JSON_PROPERTY_CURRENCY_SYMBOL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCurrencySymbol_JsonNullable() {
     return currencySymbol;
   }
@@ -136,16 +130,14 @@ public class PriceDto {
    * The three-character ISO 4217 currency symbol.
    * @return isoCurrencySymbol
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getIsoCurrencySymbol() {
         return isoCurrencySymbol.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ISO_CURRENCY_SYMBOL)
+  @JsonProperty(value = JSON_PROPERTY_ISO_CURRENCY_SYMBOL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getIsoCurrencySymbol_JsonNullable() {
     return isoCurrencySymbol;
   }

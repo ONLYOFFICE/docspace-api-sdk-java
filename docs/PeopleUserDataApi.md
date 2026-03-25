@@ -173,7 +173,7 @@ public class Example {
 
 
         UserDataApi apiInstance = new UserDataApi(defaultClient);
-        UUID userid = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The user ID.
+        UUID userid = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user ID.
         try {
             TaskProgressResponseWrapper result = apiInstance.getReassignProgress(userid);
             System.out.println(result);
@@ -267,7 +267,7 @@ public class Example {
 
 
         UserDataApi apiInstance = new UserDataApi(defaultClient);
-        UUID userid = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The user ID.
+        UUID userid = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user ID.
         try {
             TaskProgressResponseWrapper result = apiInstance.getRemoveProgress(userid);
             System.out.println(result);
@@ -362,7 +362,7 @@ public class Example {
 
 
         UserDataApi apiInstance = new UserDataApi(defaultClient);
-        UUID userId = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The user ID.
+        UUID userId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user ID.
         EmployeeType type = EmployeeType.fromValue("All"); // EmployeeType | The expected user type.
         try {
             BooleanWrapper result = apiInstance.necessaryReassign(userId, type);
@@ -478,8 +478,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Information message |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## startDeletePersonalFolder
@@ -760,9 +760,9 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Deletion progress |  -  |
 | **400** | User exception |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | User not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## terminateReassign

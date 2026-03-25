@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -47,24 +48,19 @@ import java.util.StringJoiner;
 
 public class ThumbnailsRequest {
   public static final String JSON_PROPERTY_TMP_FILE = "tmpFile";
-  @javax.annotation.Nullable
-  private JsonNullable<String> tmpFile = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> tmpFile = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_X = "x";
-  @javax.annotation.Nullable
-  private Integer x;
+  @javax.annotation.Nullable  private Integer x;
 
   public static final String JSON_PROPERTY_Y = "y";
-  @javax.annotation.Nullable
-  private Integer y;
+  @javax.annotation.Nullable  private Integer y;
 
   public static final String JSON_PROPERTY_WIDTH = "width";
-  @javax.annotation.Nullable
-  private Integer width;
+  @javax.annotation.Nullable  private Integer width;
 
   public static final String JSON_PROPERTY_HEIGHT = "height";
-  @javax.annotation.Nullable
-  private Integer height;
+  @javax.annotation.Nullable  private Integer height;
 
   public ThumbnailsRequest() {
   }
@@ -80,16 +76,14 @@ public class ThumbnailsRequest {
    * The path to the temporary thumbnail file.
    * @return tmpFile
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTmpFile() {
         return tmpFile.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TMP_FILE)
+  @JsonProperty(value = JSON_PROPERTY_TMP_FILE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTmpFile_JsonNullable() {
     return tmpFile;
   }
@@ -113,8 +107,7 @@ public class ThumbnailsRequest {
    * The thumbnail horizontal coordinate.
    * @return x
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_X)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_X, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getX() {
@@ -122,7 +115,7 @@ public class ThumbnailsRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_X)
+  @JsonProperty(value = JSON_PROPERTY_X, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setX(@javax.annotation.Nullable Integer x) {
     this.x = x;
@@ -138,8 +131,7 @@ public class ThumbnailsRequest {
    * The thumbnail vertical coordinate.
    * @return y
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_Y)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_Y, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getY() {
@@ -147,7 +139,7 @@ public class ThumbnailsRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_Y)
+  @JsonProperty(value = JSON_PROPERTY_Y, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setY(@javax.annotation.Nullable Integer y) {
     this.y = y;
@@ -163,8 +155,7 @@ public class ThumbnailsRequest {
    * The thumbnail width.
    * @return width
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WIDTH)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getWidth() {
@@ -172,7 +163,7 @@ public class ThumbnailsRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WIDTH)
+  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWidth(@javax.annotation.Nullable Integer width) {
     this.width = width;
@@ -188,8 +179,7 @@ public class ThumbnailsRequest {
    * The thumbnail height.
    * @return height
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HEIGHT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getHeight() {
@@ -197,7 +187,7 @@ public class ThumbnailsRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHeight(@javax.annotation.Nullable Integer height) {
     this.height = height;

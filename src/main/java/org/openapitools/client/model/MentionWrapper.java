@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -49,28 +50,22 @@ import java.util.StringJoiner;
 
 public class MentionWrapper {
   public static final String JSON_PROPERTY_USER = "user";
-  @javax.annotation.Nullable
-  private UserInfo user;
+  @javax.annotation.Nullable  private UserInfo user;
 
   public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nullable
-  private JsonNullable<String> email = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> email = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private JsonNullable<String> id = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> id = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_IMAGE = "image";
-  @javax.annotation.Nullable
-  private JsonNullable<String> image = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> image = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_HAS_ACCESS = "hasAccess";
-  @javax.annotation.Nullable
-  private Boolean hasAccess;
+  @javax.annotation.Nullable  private Boolean hasAccess;
 
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public MentionWrapper() {
   }
@@ -104,8 +99,7 @@ public class MentionWrapper {
    * Get user
    * @return user
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UserInfo getUser() {
@@ -113,7 +107,7 @@ public class MentionWrapper {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USER)
+  @JsonProperty(value = JSON_PROPERTY_USER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUser(@javax.annotation.Nullable UserInfo user) {
     this.user = user;
@@ -123,8 +117,7 @@ public class MentionWrapper {
    * The user email address.
    * @return email
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getEmail() {
     
@@ -134,9 +127,8 @@ public class MentionWrapper {
     return email.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getEmail_JsonNullable() {
     return email;
   }
@@ -151,8 +143,7 @@ public class MentionWrapper {
    * The user unique identification.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getId() {
     
@@ -162,9 +153,8 @@ public class MentionWrapper {
     return id.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getId_JsonNullable() {
     return id;
   }
@@ -179,8 +169,7 @@ public class MentionWrapper {
    * The path to the user&#39;s avatar.
    * @return image
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getImage() {
     
@@ -190,9 +179,8 @@ public class MentionWrapper {
     return image.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IMAGE)
+  @JsonProperty(value = JSON_PROPERTY_IMAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getImage_JsonNullable() {
     return image;
   }
@@ -207,8 +195,7 @@ public class MentionWrapper {
    * Specifies whether the user has the access to the file where they are mentioned.
    * @return hasAccess
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HAS_ACCESS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HAS_ACCESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getHasAccess() {
@@ -221,8 +208,7 @@ public class MentionWrapper {
    * The user full name.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getName() {
     
@@ -232,9 +218,8 @@ public class MentionWrapper {
     return name.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getName_JsonNullable() {
     return name;
   }

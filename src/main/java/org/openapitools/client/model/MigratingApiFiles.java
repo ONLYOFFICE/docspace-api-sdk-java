@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -41,16 +42,13 @@ import java.util.StringJoiner;
 
 public class MigratingApiFiles {
   public static final String JSON_PROPERTY_FOLDERS_COUNT = "foldersCount";
-  @javax.annotation.Nullable
-  private Integer foldersCount;
+  @javax.annotation.Nullable  private Integer foldersCount;
 
   public static final String JSON_PROPERTY_FILES_COUNT = "filesCount";
-  @javax.annotation.Nullable
-  private Integer filesCount;
+  @javax.annotation.Nullable  private Integer filesCount;
 
   public static final String JSON_PROPERTY_BYTES_TOTAL = "bytesTotal";
-  @javax.annotation.Nullable
-  private Long bytesTotal;
+  @javax.annotation.Nullable  private Long bytesTotal;
 
   public MigratingApiFiles() {
   }
@@ -66,8 +64,7 @@ public class MigratingApiFiles {
    * Get foldersCount
    * @return foldersCount
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FOLDERS_COUNT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FOLDERS_COUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getFoldersCount() {
@@ -75,7 +72,7 @@ public class MigratingApiFiles {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FOLDERS_COUNT)
+  @JsonProperty(value = JSON_PROPERTY_FOLDERS_COUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFoldersCount(@javax.annotation.Nullable Integer foldersCount) {
     this.foldersCount = foldersCount;
@@ -91,8 +88,7 @@ public class MigratingApiFiles {
    * Get filesCount
    * @return filesCount
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILES_COUNT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILES_COUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getFilesCount() {
@@ -100,7 +96,7 @@ public class MigratingApiFiles {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILES_COUNT)
+  @JsonProperty(value = JSON_PROPERTY_FILES_COUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFilesCount(@javax.annotation.Nullable Integer filesCount) {
     this.filesCount = filesCount;
@@ -116,8 +112,7 @@ public class MigratingApiFiles {
    * Get bytesTotal
    * @return bytesTotal
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BYTES_TOTAL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_BYTES_TOTAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getBytesTotal() {
@@ -125,7 +120,7 @@ public class MigratingApiFiles {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BYTES_TOTAL)
+  @JsonProperty(value = JSON_PROPERTY_BYTES_TOTAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBytesTotal(@javax.annotation.Nullable Long bytesTotal) {
     this.bytesTotal = bytesTotal;

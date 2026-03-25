@@ -173,7 +173,7 @@ public class Example {
 
 
         ApiKeysApi apiInstance = new ApiKeysApi(defaultClient);
-        UUID keyId = UUID.randomUUID(); // UUID | The API key ID.
+        UUID keyId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The API key ID.
         try {
             BooleanWrapper result = apiInstance.deleteApiKey(keyId);
             System.out.println(result);
@@ -538,7 +538,7 @@ public class Example {
 
 
         ApiKeysApi apiInstance = new ApiKeysApi(defaultClient);
-        UUID keyId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The unique identifier of the API key to update.
+        UUID keyId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The unique identifier of the API key to update.
         UpdateApiKeyRequest updateApiKeyRequest = new UpdateApiKeyRequest(); // UpdateApiKeyRequest | The request parameters for updating an existing API key.
         try {
             BooleanWrapper result = apiInstance.updateApiKey(keyId, updateApiKeyRequest);

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -47,20 +48,16 @@ import java.util.StringJoiner;
 
 public class GroupSummaryDto {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nonnull
-  private UUID id;
+  @javax.annotation.Nonnull  private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private String name;
+  @javax.annotation.Nullable  private String name;
 
   public static final String JSON_PROPERTY_MANAGER = "manager";
-  @javax.annotation.Nullable
-  private JsonNullable<String> manager = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> manager = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_IS_SYSTEM = "isSystem";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> isSystem = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> isSystem = JsonNullable.<Boolean>undefined();
 
   public GroupSummaryDto() {
   }
@@ -76,8 +73,7 @@ public class GroupSummaryDto {
    * The group ID.
    * @return id
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getId() {
@@ -85,7 +81,7 @@ public class GroupSummaryDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@javax.annotation.Nonnull UUID id) {
     this.id = id;
@@ -101,8 +97,7 @@ public class GroupSummaryDto {
    * The group name.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
@@ -110,7 +105,7 @@ public class GroupSummaryDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
@@ -126,16 +121,14 @@ public class GroupSummaryDto {
    * The group manager.
    * @return manager
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getManager() {
         return manager.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MANAGER)
+  @JsonProperty(value = JSON_PROPERTY_MANAGER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getManager_JsonNullable() {
     return manager;
   }
@@ -159,16 +152,14 @@ public class GroupSummaryDto {
    * Indicates whether the group is a system group.
    * @return isSystem
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getIsSystem() {
         return isSystem.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IS_SYSTEM)
+  @JsonProperty(value = JSON_PROPERTY_IS_SYSTEM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getIsSystem_JsonNullable() {
     return isSystem;
   }

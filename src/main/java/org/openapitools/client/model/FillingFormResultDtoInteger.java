@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.EmployeeFullDto;
 import org.openapitools.client.model.FileDtoInteger;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,28 +47,22 @@ import java.util.StringJoiner;
 
 public class FillingFormResultDtoInteger {
   public static final String JSON_PROPERTY_FORM_NUMBER = "formNumber";
-  @javax.annotation.Nonnull
-  private Integer formNumber;
+  @javax.annotation.Nonnull  private Integer formNumber;
 
   public static final String JSON_PROPERTY_COMPLETED_FORM = "completedForm";
-  @javax.annotation.Nullable
-  private FileDtoInteger completedForm;
+  @javax.annotation.Nullable  private FileDtoInteger completedForm;
 
   public static final String JSON_PROPERTY_ORIGINAL_FORM = "originalForm";
-  @javax.annotation.Nullable
-  private FileDtoInteger originalForm;
+  @javax.annotation.Nullable  private FileDtoInteger originalForm;
 
   public static final String JSON_PROPERTY_MANAGER = "manager";
-  @javax.annotation.Nullable
-  private EmployeeFullDto manager;
+  @javax.annotation.Nullable  private EmployeeFullDto manager;
 
   public static final String JSON_PROPERTY_ROOM_ID = "roomId";
-  @javax.annotation.Nonnull
-  private Integer roomId;
+  @javax.annotation.Nonnull  private Integer roomId;
 
   public static final String JSON_PROPERTY_IS_ROOM_MEMBER = "isRoomMember";
-  @javax.annotation.Nullable
-  private Boolean isRoomMember;
+  @javax.annotation.Nullable  private Boolean isRoomMember;
 
   public FillingFormResultDtoInteger() {
   }
@@ -83,8 +78,7 @@ public class FillingFormResultDtoInteger {
    * The filling form number.
    * @return formNumber
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FORM_NUMBER)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_FORM_NUMBER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getFormNumber() {
@@ -92,7 +86,7 @@ public class FillingFormResultDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORM_NUMBER)
+  @JsonProperty(value = JSON_PROPERTY_FORM_NUMBER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFormNumber(@javax.annotation.Nonnull Integer formNumber) {
     this.formNumber = formNumber;
@@ -108,8 +102,7 @@ public class FillingFormResultDtoInteger {
    * Get completedForm
    * @return completedForm
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPLETED_FORM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COMPLETED_FORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FileDtoInteger getCompletedForm() {
@@ -117,7 +110,7 @@ public class FillingFormResultDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COMPLETED_FORM)
+  @JsonProperty(value = JSON_PROPERTY_COMPLETED_FORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompletedForm(@javax.annotation.Nullable FileDtoInteger completedForm) {
     this.completedForm = completedForm;
@@ -133,8 +126,7 @@ public class FillingFormResultDtoInteger {
    * Get originalForm
    * @return originalForm
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ORIGINAL_FORM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ORIGINAL_FORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FileDtoInteger getOriginalForm() {
@@ -142,7 +134,7 @@ public class FillingFormResultDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ORIGINAL_FORM)
+  @JsonProperty(value = JSON_PROPERTY_ORIGINAL_FORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalForm(@javax.annotation.Nullable FileDtoInteger originalForm) {
     this.originalForm = originalForm;
@@ -158,8 +150,7 @@ public class FillingFormResultDtoInteger {
    * Get manager
    * @return manager
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MANAGER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MANAGER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EmployeeFullDto getManager() {
@@ -167,7 +158,7 @@ public class FillingFormResultDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MANAGER)
+  @JsonProperty(value = JSON_PROPERTY_MANAGER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setManager(@javax.annotation.Nullable EmployeeFullDto manager) {
     this.manager = manager;
@@ -183,8 +174,7 @@ public class FillingFormResultDtoInteger {
    * The room ID where filling the form.
    * @return roomId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ROOM_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ROOM_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getRoomId() {
@@ -192,7 +182,7 @@ public class FillingFormResultDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROOM_ID)
+  @JsonProperty(value = JSON_PROPERTY_ROOM_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRoomId(@javax.annotation.Nonnull Integer roomId) {
     this.roomId = roomId;
@@ -208,8 +198,7 @@ public class FillingFormResultDtoInteger {
    * Specifies if the manager who fills the form is a room member or not.
    * @return isRoomMember
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_ROOM_MEMBER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_ROOM_MEMBER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsRoomMember() {
@@ -217,7 +206,7 @@ public class FillingFormResultDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_ROOM_MEMBER)
+  @JsonProperty(value = JSON_PROPERTY_IS_ROOM_MEMBER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsRoomMember(@javax.annotation.Nullable Boolean isRoomMember) {
     this.isRoomMember = isRoomMember;

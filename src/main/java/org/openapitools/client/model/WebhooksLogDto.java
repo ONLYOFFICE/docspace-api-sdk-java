@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -56,52 +57,40 @@ import java.util.StringJoiner;
 
 public class WebhooksLogDto {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nonnull
-  private Integer id;
+  @javax.annotation.Nonnull  private Integer id;
 
   public static final String JSON_PROPERTY_CONFIG_NAME = "configName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> configName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> configName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TRIGGER = "trigger";
-  @javax.annotation.Nullable
-  private WebhookTrigger trigger;
+  @javax.annotation.Nullable  private WebhookTrigger trigger;
 
   public static final String JSON_PROPERTY_CREATION_TIME = "creationTime";
-  @javax.annotation.Nullable
-  private OffsetDateTime creationTime;
+  @javax.annotation.Nullable  private OffsetDateTime creationTime;
 
   public static final String JSON_PROPERTY_METHOD = "method";
-  @javax.annotation.Nullable
-  private JsonNullable<String> method = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> method = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ROUTE = "route";
-  @javax.annotation.Nullable
-  private JsonNullable<String> route = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> route = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_HEADERS = "requestHeaders";
-  @javax.annotation.Nullable
-  private JsonNullable<String> requestHeaders = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> requestHeaders = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_PAYLOAD = "requestPayload";
-  @javax.annotation.Nullable
-  private JsonNullable<String> requestPayload = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> requestPayload = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_RESPONSE_HEADERS = "responseHeaders";
-  @javax.annotation.Nullable
-  private JsonNullable<String> responseHeaders = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> responseHeaders = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_RESPONSE_PAYLOAD = "responsePayload";
-  @javax.annotation.Nullable
-  private JsonNullable<String> responsePayload = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> responsePayload = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_STATUS = "status";
-  @javax.annotation.Nullable
-  private Integer status;
+  @javax.annotation.Nullable  private Integer status;
 
   public static final String JSON_PROPERTY_DELIVERY = "delivery";
-  @javax.annotation.Nullable
-  private JsonNullable<OffsetDateTime> delivery = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> delivery = JsonNullable.<OffsetDateTime>undefined();
 
   public WebhooksLogDto() {
   }
@@ -117,8 +106,7 @@ public class WebhooksLogDto {
    * The webhook log ID.
    * @return id
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getId() {
@@ -126,7 +114,7 @@ public class WebhooksLogDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@javax.annotation.Nonnull Integer id) {
     this.id = id;
@@ -142,16 +130,14 @@ public class WebhooksLogDto {
    * The webhook configuration name.
    * @return configName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getConfigName() {
         return configName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CONFIG_NAME)
+  @JsonProperty(value = JSON_PROPERTY_CONFIG_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getConfigName_JsonNullable() {
     return configName;
   }
@@ -175,8 +161,7 @@ public class WebhooksLogDto {
    * Get trigger
    * @return trigger
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRIGGER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRIGGER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public WebhookTrigger getTrigger() {
@@ -184,7 +169,7 @@ public class WebhooksLogDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRIGGER)
+  @JsonProperty(value = JSON_PROPERTY_TRIGGER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrigger(@javax.annotation.Nullable WebhookTrigger trigger) {
     this.trigger = trigger;
@@ -200,8 +185,7 @@ public class WebhooksLogDto {
    * The webhook creation time.
    * @return creationTime
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATION_TIME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATION_TIME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getCreationTime() {
@@ -209,7 +193,7 @@ public class WebhooksLogDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATION_TIME)
+  @JsonProperty(value = JSON_PROPERTY_CREATION_TIME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationTime(@javax.annotation.Nullable OffsetDateTime creationTime) {
     this.creationTime = creationTime;
@@ -225,16 +209,14 @@ public class WebhooksLogDto {
    * The webhook method.
    * @return method
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getMethod() {
         return method.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_METHOD)
+  @JsonProperty(value = JSON_PROPERTY_METHOD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getMethod_JsonNullable() {
     return method;
   }
@@ -258,16 +240,14 @@ public class WebhooksLogDto {
    * The webhook route.
    * @return route
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRoute() {
         return route.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ROUTE)
+  @JsonProperty(value = JSON_PROPERTY_ROUTE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRoute_JsonNullable() {
     return route;
   }
@@ -291,16 +271,14 @@ public class WebhooksLogDto {
    * The webhook request headers.
    * @return requestHeaders
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRequestHeaders() {
         return requestHeaders.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_REQUEST_HEADERS)
+  @JsonProperty(value = JSON_PROPERTY_REQUEST_HEADERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRequestHeaders_JsonNullable() {
     return requestHeaders;
   }
@@ -324,16 +302,14 @@ public class WebhooksLogDto {
    * The webhook request payload.
    * @return requestPayload
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRequestPayload() {
         return requestPayload.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_REQUEST_PAYLOAD)
+  @JsonProperty(value = JSON_PROPERTY_REQUEST_PAYLOAD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRequestPayload_JsonNullable() {
     return requestPayload;
   }
@@ -357,16 +333,14 @@ public class WebhooksLogDto {
    * The webhook response headers.
    * @return responseHeaders
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getResponseHeaders() {
         return responseHeaders.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_RESPONSE_HEADERS)
+  @JsonProperty(value = JSON_PROPERTY_RESPONSE_HEADERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getResponseHeaders_JsonNullable() {
     return responseHeaders;
   }
@@ -390,16 +364,14 @@ public class WebhooksLogDto {
    * The webhook response payload.
    * @return responsePayload
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getResponsePayload() {
         return responsePayload.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_RESPONSE_PAYLOAD)
+  @JsonProperty(value = JSON_PROPERTY_RESPONSE_PAYLOAD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getResponsePayload_JsonNullable() {
     return responsePayload;
   }
@@ -423,8 +395,7 @@ public class WebhooksLogDto {
    * The webhook status.
    * @return status
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getStatus() {
@@ -432,7 +403,7 @@ public class WebhooksLogDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(@javax.annotation.Nullable Integer status) {
     this.status = status;
@@ -448,16 +419,14 @@ public class WebhooksLogDto {
    * The webhook delivery time.
    * @return delivery
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public OffsetDateTime getDelivery() {
         return delivery.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DELIVERY)
+  @JsonProperty(value = JSON_PROPERTY_DELIVERY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<OffsetDateTime> getDelivery_JsonNullable() {
     return delivery;
   }

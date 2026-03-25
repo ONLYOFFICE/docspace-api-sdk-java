@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -49,44 +50,34 @@ import java.util.StringJoiner;
 
 public class FilesSettingsDtoInternalFormats {
   public static final String JSON_PROPERTY_UNKNOWN = "Unknown";
-  @javax.annotation.Nullable
-  private String unknown;
+  @javax.annotation.Nullable  private String unknown;
 
   public static final String JSON_PROPERTY_ARCHIVE = "Archive";
-  @javax.annotation.Nullable
-  private String archive;
+  @javax.annotation.Nullable  private String archive;
 
   public static final String JSON_PROPERTY_VIDEO = "Video";
-  @javax.annotation.Nullable
-  private String video;
+  @javax.annotation.Nullable  private String video;
 
   public static final String JSON_PROPERTY_AUDIO = "Audio";
-  @javax.annotation.Nullable
-  private String audio;
+  @javax.annotation.Nullable  private String audio;
 
   public static final String JSON_PROPERTY_IMAGE = "Image";
-  @javax.annotation.Nullable
-  private String image;
+  @javax.annotation.Nullable  private String image;
 
   public static final String JSON_PROPERTY_SPREADSHEET = "Spreadsheet";
-  @javax.annotation.Nullable
-  private String spreadsheet;
+  @javax.annotation.Nullable  private String spreadsheet;
 
   public static final String JSON_PROPERTY_PRESENTATION = "Presentation";
-  @javax.annotation.Nullable
-  private String presentation;
+  @javax.annotation.Nullable  private String presentation;
 
   public static final String JSON_PROPERTY_DOCUMENT = "Document";
-  @javax.annotation.Nullable
-  private String document;
+  @javax.annotation.Nullable  private String document;
 
   public static final String JSON_PROPERTY_PDF = "Pdf";
-  @javax.annotation.Nullable
-  private String pdf;
+  @javax.annotation.Nullable  private String pdf;
 
   public static final String JSON_PROPERTY_DIAGRAM = "Diagram";
-  @javax.annotation.Nullable
-  private String diagram;
+  @javax.annotation.Nullable  private String diagram;
 
   public FilesSettingsDtoInternalFormats() {
   }
@@ -102,8 +93,7 @@ public class FilesSettingsDtoInternalFormats {
    * Get unknown
    * @return unknown
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UNKNOWN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UNKNOWN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getUnknown() {
@@ -111,7 +101,7 @@ public class FilesSettingsDtoInternalFormats {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UNKNOWN)
+  @JsonProperty(value = JSON_PROPERTY_UNKNOWN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUnknown(@javax.annotation.Nullable String unknown) {
     this.unknown = unknown;
@@ -127,8 +117,7 @@ public class FilesSettingsDtoInternalFormats {
    * Get archive
    * @return archive
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ARCHIVE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ARCHIVE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getArchive() {
@@ -136,7 +125,7 @@ public class FilesSettingsDtoInternalFormats {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ARCHIVE)
+  @JsonProperty(value = JSON_PROPERTY_ARCHIVE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setArchive(@javax.annotation.Nullable String archive) {
     this.archive = archive;
@@ -152,8 +141,7 @@ public class FilesSettingsDtoInternalFormats {
    * Get video
    * @return video
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VIDEO)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VIDEO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getVideo() {
@@ -161,7 +149,7 @@ public class FilesSettingsDtoInternalFormats {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VIDEO)
+  @JsonProperty(value = JSON_PROPERTY_VIDEO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVideo(@javax.annotation.Nullable String video) {
     this.video = video;
@@ -177,8 +165,7 @@ public class FilesSettingsDtoInternalFormats {
    * Get audio
    * @return audio
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUDIO)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUDIO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAudio() {
@@ -186,7 +173,7 @@ public class FilesSettingsDtoInternalFormats {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AUDIO)
+  @JsonProperty(value = JSON_PROPERTY_AUDIO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAudio(@javax.annotation.Nullable String audio) {
     this.audio = audio;
@@ -202,8 +189,7 @@ public class FilesSettingsDtoInternalFormats {
    * Get image
    * @return image
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IMAGE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getImage() {
@@ -211,7 +197,7 @@ public class FilesSettingsDtoInternalFormats {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IMAGE)
+  @JsonProperty(value = JSON_PROPERTY_IMAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImage(@javax.annotation.Nullable String image) {
     this.image = image;
@@ -227,8 +213,7 @@ public class FilesSettingsDtoInternalFormats {
    * Get spreadsheet
    * @return spreadsheet
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SPREADSHEET)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SPREADSHEET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSpreadsheet() {
@@ -236,7 +221,7 @@ public class FilesSettingsDtoInternalFormats {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SPREADSHEET)
+  @JsonProperty(value = JSON_PROPERTY_SPREADSHEET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSpreadsheet(@javax.annotation.Nullable String spreadsheet) {
     this.spreadsheet = spreadsheet;
@@ -252,8 +237,7 @@ public class FilesSettingsDtoInternalFormats {
    * Get presentation
    * @return presentation
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRESENTATION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRESENTATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPresentation() {
@@ -261,7 +245,7 @@ public class FilesSettingsDtoInternalFormats {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PRESENTATION)
+  @JsonProperty(value = JSON_PROPERTY_PRESENTATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPresentation(@javax.annotation.Nullable String presentation) {
     this.presentation = presentation;
@@ -277,8 +261,7 @@ public class FilesSettingsDtoInternalFormats {
    * Get document
    * @return document
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOCUMENT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOCUMENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDocument() {
@@ -286,7 +269,7 @@ public class FilesSettingsDtoInternalFormats {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOCUMENT)
+  @JsonProperty(value = JSON_PROPERTY_DOCUMENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocument(@javax.annotation.Nullable String document) {
     this.document = document;
@@ -302,8 +285,7 @@ public class FilesSettingsDtoInternalFormats {
    * Get pdf
    * @return pdf
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PDF)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PDF, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPdf() {
@@ -311,7 +293,7 @@ public class FilesSettingsDtoInternalFormats {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PDF)
+  @JsonProperty(value = JSON_PROPERTY_PDF, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPdf(@javax.annotation.Nullable String pdf) {
     this.pdf = pdf;
@@ -327,8 +309,7 @@ public class FilesSettingsDtoInternalFormats {
    * Get diagram
    * @return diagram
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DIAGRAM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DIAGRAM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDiagram() {
@@ -336,7 +317,7 @@ public class FilesSettingsDtoInternalFormats {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DIAGRAM)
+  @JsonProperty(value = JSON_PROPERTY_DIAGRAM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDiagram(@javax.annotation.Nullable String diagram) {
     this.diagram = diagram;

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,8 @@ import org.openapitools.client.Pair;
 import org.openapitools.client.model.AuthServiceRequestsArrayWrapper;
 import org.openapitools.client.model.AuthServiceRequestsDto;
 import org.openapitools.client.model.BooleanWrapper;
+import org.openapitools.client.model.ConnectionTestResultWrapper;
+import org.openapitools.client.model.ExternalDatabaseSettings;
 
 
 import java.util.ArrayList;
@@ -184,6 +186,84 @@ public class AuthorizationApi extends BaseApi {
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Test external database connection
+   * Tests an external database connection with the provided settings without saving them.
+   *
+   * REST API Reference for testExternalDatabaseConnection Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/
+   *
+   * @param externalDatabaseSettings  (optional)
+   * @return ConnectionTestResultWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ConnectionTestResultWrapper testExternalDatabaseConnection(@javax.annotation.Nullable ExternalDatabaseSettings externalDatabaseSettings) throws ApiException {
+    return this.testExternalDatabaseConnection(externalDatabaseSettings, Collections.emptyMap());
+  }
+
+
+  /**
+   * Test external database connection
+   * Tests an external database connection with the provided settings without saving them.
+   *
+   * REST API Reference for testExternalDatabaseConnection Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/
+   *
+   * @param externalDatabaseSettings  (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ConnectionTestResultWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ConnectionTestResultWrapper testExternalDatabaseConnection(@javax.annotation.Nullable ExternalDatabaseSettings externalDatabaseSettings, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = externalDatabaseSettings;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/settings/authservice/externaldb/test";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<ConnectionTestResultWrapper> localVarReturnType = new TypeReference<ConnectionTestResultWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",

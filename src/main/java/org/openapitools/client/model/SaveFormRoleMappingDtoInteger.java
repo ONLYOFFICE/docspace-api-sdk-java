@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.FormRole;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -44,12 +45,10 @@ import java.util.StringJoiner;
 
 public class SaveFormRoleMappingDtoInteger {
   public static final String JSON_PROPERTY_FORM_ID = "formId";
-  @javax.annotation.Nonnull
-  private Integer formId;
+  @javax.annotation.Nonnull  private Integer formId;
 
   public static final String JSON_PROPERTY_ROLES = "roles";
-  @javax.annotation.Nullable
-  private List<FormRole> roles;
+  @javax.annotation.Nullable  private List<FormRole> roles;
 
   public SaveFormRoleMappingDtoInteger() {
   }
@@ -65,8 +64,7 @@ public class SaveFormRoleMappingDtoInteger {
    * The form ID.
    * @return formId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FORM_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_FORM_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getFormId() {
@@ -74,7 +72,7 @@ public class SaveFormRoleMappingDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORM_ID)
+  @JsonProperty(value = JSON_PROPERTY_FORM_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFormId(@javax.annotation.Nonnull Integer formId) {
     this.formId = formId;
@@ -98,8 +96,7 @@ public class SaveFormRoleMappingDtoInteger {
    * The collection of roles.
    * @return roles
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROLES)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROLES, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<FormRole> getRoles() {
@@ -107,7 +104,7 @@ public class SaveFormRoleMappingDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROLES)
+  @JsonProperty(value = JSON_PROPERTY_ROLES, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRoles(@javax.annotation.Nullable List<FormRole> roles) {
     this.roles = roles;

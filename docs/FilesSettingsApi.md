@@ -16,6 +16,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**externalShareSocialMedia**](FilesSettingsApi.md#externalShareSocialMedia) | **PUT** /api/2.0/files/settings/externalsocialmedia | Change the external sharing ability on social networks |
 | [**forcesave**](FilesSettingsApi.md#forcesave) | **PUT** /api/2.0/files/forcesave | Change the forcesaving ability |
 | [**getAutomaticallyCleanUp**](FilesSettingsApi.md#getAutomaticallyCleanUp) | **GET** /api/2.0/files/settings/autocleanup | Get the trash bin auto-clearing setting |
+| [**getDefaultTemplates**](FilesSettingsApi.md#getDefaultTemplates) | **GET** /api/2.0/files/settings/defaulttemplate | Get the default template setting |
 | [**getDocServiceUrl**](FilesSettingsApi.md#getDocServiceUrl) | **GET** /api/2.0/files/docservice | Get the document service URL |
 | [**getFilesModule**](FilesSettingsApi.md#getFilesModule) | **GET** /api/2.0/files/info | Get the Documents information |
 | [**getFilesSettings**](FilesSettingsApi.md#getFilesSettings) | **GET** /api/2.0/files/settings | Get file settings |
@@ -24,10 +25,14 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**hideConfirmRoomLifetime**](FilesSettingsApi.md#hideConfirmRoomLifetime) | **PUT** /api/2.0/files/hideconfirmroomlifetime | Hide confirmation dialog when changing room lifetime settings |
 | [**isAvailablePrivacyRoomSettings**](FilesSettingsApi.md#isAvailablePrivacyRoomSettings) | **GET** /api/2.0/files/@privacy/available | Check the Private Room availability |
 | [**keepNewFileName**](FilesSettingsApi.md#keepNewFileName) | **PUT** /api/2.0/files/keepnewfilename | Ask a new file name |
+| [**resetDefaultTemplate**](FilesSettingsApi.md#resetDefaultTemplate) | **DELETE** /api/2.0/files/settings/defaulttemplate | Reset the default template setting |
+| [**setDefaultTemplate**](FilesSettingsApi.md#setDefaultTemplate) | **PUT** /api/2.0/files/settings/defaulttemplate | Change the default template setting |
 | [**setOpenEditorInSameTab**](FilesSettingsApi.md#setOpenEditorInSameTab) | **PUT** /api/2.0/files/settings/openeditorinsametab | Open document in the same browser tab |
+| [**setOrganizeRoomsGrouping**](FilesSettingsApi.md#setOrganizeRoomsGrouping) | **PUT** /api/2.0/files/settings/organizegrouping | Organize rooms grouping |
 | [**storeForcesave**](FilesSettingsApi.md#storeForcesave) | **PUT** /api/2.0/files/storeforcesave | Change the ability to store the forcesaved files |
 | [**storeOriginal**](FilesSettingsApi.md#storeOriginal) | **PUT** /api/2.0/files/storeoriginal | Change the ability to upload original formats |
 | [**updateFileIfExist**](FilesSettingsApi.md#updateFileIfExist) | **PUT** /api/2.0/files/updateifexist | Update a file version if it exists |
+| [**uploadDefaultTemplate**](FilesSettingsApi.md#uploadDefaultTemplate) | **POST** /api/2.0/files/settings/defaulttemplate | Upload a file as the default template setting |
 
 
 
@@ -781,8 +786,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the parameter is enabled |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## externalShare
@@ -1153,6 +1158,97 @@ public class Example {
 | **401** | Unauthorized |  -  |
 
 
+## getDefaultTemplates
+
+> DefaultTemplateSettingsWrapper getDefaultTemplates()
+
+Get the default template settingReturns the default template setting.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-templates/).
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DefaultTemplateSettingsWrapper**](DefaultTemplateSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SettingsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        SettingsApi apiInstance = new SettingsApi(defaultClient);
+        try {
+            DefaultTemplateSettingsWrapper result = apiInstance.getDefaultTemplates();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SettingsApi#getDefaultTemplates");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Default template settings |  -  |
+| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **401** | Unauthorized |  -  |
+
+
 ## getDocServiceUrl
 
 > DocServiceUrlWrapper getDocServiceUrl(version)
@@ -1467,7 +1563,7 @@ public class Example {
 
 ## hideConfirmConvert
 
-> ModuleWrapper hideConfirmConvert(hideConfirmConvertRequestDto)
+> BooleanWrapper hideConfirmConvert(hideConfirmConvertRequestDto)
 
 Hide the confirmation dialog when convertingHides the confirmation dialog for saving the file copy in the original format when converting a file.
 
@@ -1482,7 +1578,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**ModuleWrapper**](ModuleWrapper.md)
+[**BooleanWrapper**](BooleanWrapper.md)
 
 ### Authorization
 
@@ -1533,7 +1629,7 @@ public class Example {
         SettingsApi apiInstance = new SettingsApi(defaultClient);
         HideConfirmConvertRequestDto hideConfirmConvertRequestDto = new HideConfirmConvertRequestDto(); // HideConfirmConvertRequestDto | 
         try {
-            ModuleWrapper result = apiInstance.hideConfirmConvert(hideConfirmConvertRequestDto);
+            BooleanWrapper result = apiInstance.hideConfirmConvert(hideConfirmConvertRequestDto);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SettingsApi#hideConfirmConvert");
@@ -1837,6 +1933,197 @@ public class Example {
 | **401** | Unauthorized |  -  |
 
 
+## resetDefaultTemplate
+
+> DefaultTemplateSettingsWrapper resetDefaultTemplate(defaultTemplateSettingsResetRequestDto)
+
+Reset the default template settingResets the default template setting.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-default-template/).
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **defaultTemplateSettingsResetRequestDto** | [**DefaultTemplateSettingsResetRequestDto**](DefaultTemplateSettingsResetRequestDto.md)|  | [optional] |
+
+### Return type
+
+[**DefaultTemplateSettingsWrapper**](DefaultTemplateSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SettingsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        SettingsApi apiInstance = new SettingsApi(defaultClient);
+        DefaultTemplateSettingsResetRequestDto defaultTemplateSettingsResetRequestDto = new DefaultTemplateSettingsResetRequestDto(); // DefaultTemplateSettingsResetRequestDto | 
+        try {
+            DefaultTemplateSettingsWrapper result = apiInstance.resetDefaultTemplate(defaultTemplateSettingsResetRequestDto);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SettingsApi#resetDefaultTemplate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | New default template settings |  -  |
+| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **401** | Unauthorized |  -  |
+
+
+## setDefaultTemplate
+
+> DefaultTemplateSettingsWrapper setDefaultTemplate(defaultTemplateSettingsRequestDto)
+
+Change the default template settingChanges the default template setting.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-template/).
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **defaultTemplateSettingsRequestDto** | [**DefaultTemplateSettingsRequestDto**](DefaultTemplateSettingsRequestDto.md)|  | [optional] |
+
+### Return type
+
+[**DefaultTemplateSettingsWrapper**](DefaultTemplateSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SettingsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        SettingsApi apiInstance = new SettingsApi(defaultClient);
+        DefaultTemplateSettingsRequestDto defaultTemplateSettingsRequestDto = new DefaultTemplateSettingsRequestDto(); // DefaultTemplateSettingsRequestDto | 
+        try {
+            DefaultTemplateSettingsWrapper result = apiInstance.setDefaultTemplate(defaultTemplateSettingsRequestDto);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SettingsApi#setDefaultTemplate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | New default template settings |  -  |
+| **400** | Incorrect or missing file |  -  |
+| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **401** | Unauthorized |  -  |
+
+
 ## setOpenEditorInSameTab
 
 > BooleanWrapper setOpenEditorInSameTab(settingsRequestDto)
@@ -1909,6 +2196,100 @@ public class Example {
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SettingsApi#setOpenEditorInSameTab");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Boolean value: true if the parameter is enabled |  -  |
+| **401** | Unauthorized |  -  |
+
+
+## setOrganizeRoomsGrouping
+
+> BooleanWrapper setOrganizeRoomsGrouping(settingsRequestDto)
+
+Organize rooms groupingChanges the setting that allows the user to organize the grouping of rooms.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-organize-rooms-grouping/).
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **settingsRequestDto** | [**SettingsRequestDto**](SettingsRequestDto.md)|  | [optional] |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SettingsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        SettingsApi apiInstance = new SettingsApi(defaultClient);
+        SettingsRequestDto settingsRequestDto = new SettingsRequestDto(); // SettingsRequestDto | 
+        try {
+            BooleanWrapper result = apiInstance.setOrganizeRoomsGrouping(settingsRequestDto);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SettingsApi#setOrganizeRoomsGrouping");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2206,5 +2587,103 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
+| **401** | Unauthorized |  -  |
+
+
+## uploadDefaultTemplate
+
+> DefaultTemplateSettingsWrapper uploadDefaultTemplate(fileExtension, _file)
+
+Upload a file as the default template settingUploads a file to use as the default template setting.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-default-template/).
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **fileExtension** | **String**| File extension of a template to replace | |
+| **_file** | **File**| File to replace template with | |
+
+### Return type
+
+[**DefaultTemplateSettingsWrapper**](DefaultTemplateSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SettingsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        SettingsApi apiInstance = new SettingsApi(defaultClient);
+        String fileExtension = ".docx"; // String | File extension of a template to replace
+        File _file = new File("/path/to/file"); // File | File to replace template with
+        try {
+            DefaultTemplateSettingsWrapper result = apiInstance.uploadDefaultTemplate(fileExtension, _file);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SettingsApi#uploadDefaultTemplate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | New default template settings |  -  |
+| **400** | Incorrect or missing file |  -  |
+| **403** | You don&#39;t have enough permission to perform the operation |  -  |
 | **401** | Unauthorized |  -  |
 

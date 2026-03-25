@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -57,44 +58,34 @@ import java.util.StringJoiner;
 
 public class CreateThirdPartyRoom {
   public static final String JSON_PROPERTY_CREATE_AS_NEW_FOLDER = "createAsNewFolder";
-  @javax.annotation.Nullable
-  private Boolean createAsNewFolder;
+  @javax.annotation.Nullable  private Boolean createAsNewFolder;
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private String title;
+  @javax.annotation.Nullable  private String title;
 
   public static final String JSON_PROPERTY_ROOM_TYPE = "roomType";
-  @javax.annotation.Nonnull
-  private RoomType roomType;
+  @javax.annotation.Nonnull  private RoomType roomType;
 
   public static final String JSON_PROPERTY_PRIVATE = "private";
-  @javax.annotation.Nullable
-  private Boolean _private;
+  @javax.annotation.Nullable  private Boolean _private;
 
   public static final String JSON_PROPERTY_INDEXING = "indexing";
-  @javax.annotation.Nullable
-  private Boolean indexing;
+  @javax.annotation.Nullable  private Boolean indexing;
 
   public static final String JSON_PROPERTY_DENY_DOWNLOAD = "denyDownload";
-  @javax.annotation.Nullable
-  private Boolean denyDownload;
+  @javax.annotation.Nullable  private Boolean denyDownload;
 
   public static final String JSON_PROPERTY_COLOR = "color";
-  @javax.annotation.Nullable
-  private JsonNullable<String> color = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> color = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_COVER = "cover";
-  @javax.annotation.Nullable
-  private JsonNullable<String> cover = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> cover = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TAGS = "tags";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_LOGO = "logo";
-  @javax.annotation.Nullable
-  private LogoRequest logo;
+  @javax.annotation.Nullable  private LogoRequest logo;
 
   public CreateThirdPartyRoom() {
   }
@@ -110,8 +101,7 @@ public class CreateThirdPartyRoom {
    * Specifies whether to create a third-party room as a new folder or not.
    * @return createAsNewFolder
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATE_AS_NEW_FOLDER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_AS_NEW_FOLDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCreateAsNewFolder() {
@@ -119,7 +109,7 @@ public class CreateThirdPartyRoom {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATE_AS_NEW_FOLDER)
+  @JsonProperty(value = JSON_PROPERTY_CREATE_AS_NEW_FOLDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreateAsNewFolder(@javax.annotation.Nullable Boolean createAsNewFolder) {
     this.createAsNewFolder = createAsNewFolder;
@@ -135,8 +125,7 @@ public class CreateThirdPartyRoom {
    * The third-party room name to be created.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getTitle() {
@@ -144,7 +133,7 @@ public class CreateThirdPartyRoom {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTitle(@javax.annotation.Nullable String title) {
     this.title = title;
@@ -160,8 +149,7 @@ public class CreateThirdPartyRoom {
    * Get roomType
    * @return roomType
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ROOM_TYPE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ROOM_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public RoomType getRoomType() {
@@ -169,7 +157,7 @@ public class CreateThirdPartyRoom {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROOM_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_ROOM_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRoomType(@javax.annotation.Nonnull RoomType roomType) {
     this.roomType = roomType;
@@ -185,8 +173,7 @@ public class CreateThirdPartyRoom {
    * Specifies whether to create the private third-party room or not.
    * @return _private
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRIVATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRIVATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getPrivate() {
@@ -194,7 +181,7 @@ public class CreateThirdPartyRoom {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PRIVATE)
+  @JsonProperty(value = JSON_PROPERTY_PRIVATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrivate(@javax.annotation.Nullable Boolean _private) {
     this._private = _private;
@@ -210,8 +197,7 @@ public class CreateThirdPartyRoom {
    * Specifies whether to create the third-party room with indexing.
    * @return indexing
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDEXING)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INDEXING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIndexing() {
@@ -219,7 +205,7 @@ public class CreateThirdPartyRoom {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INDEXING)
+  @JsonProperty(value = JSON_PROPERTY_INDEXING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndexing(@javax.annotation.Nullable Boolean indexing) {
     this.indexing = indexing;
@@ -235,8 +221,7 @@ public class CreateThirdPartyRoom {
    * Specifies whether to deny downloads from the third-party room.
    * @return denyDownload
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DENY_DOWNLOAD)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DENY_DOWNLOAD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDenyDownload() {
@@ -244,7 +229,7 @@ public class CreateThirdPartyRoom {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DENY_DOWNLOAD)
+  @JsonProperty(value = JSON_PROPERTY_DENY_DOWNLOAD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDenyDownload(@javax.annotation.Nullable Boolean denyDownload) {
     this.denyDownload = denyDownload;
@@ -260,16 +245,14 @@ public class CreateThirdPartyRoom {
    * The color of the third-party room.
    * @return color
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getColor() {
         return color.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_COLOR)
+  @JsonProperty(value = JSON_PROPERTY_COLOR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getColor_JsonNullable() {
     return color;
   }
@@ -293,16 +276,14 @@ public class CreateThirdPartyRoom {
    * The cover of the third-party room.
    * @return cover
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCover() {
         return cover.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_COVER)
+  @JsonProperty(value = JSON_PROPERTY_COVER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCover_JsonNullable() {
     return cover;
   }
@@ -338,16 +319,14 @@ public class CreateThirdPartyRoom {
    * The list of tags of the third-party room.
    * @return tags
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getTags() {
         return tags.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonProperty(value = JSON_PROPERTY_TAGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getTags_JsonNullable() {
     return tags;
   }
@@ -371,8 +350,7 @@ public class CreateThirdPartyRoom {
    * Get logo
    * @return logo
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOGO)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public LogoRequest getLogo() {
@@ -380,7 +358,7 @@ public class CreateThirdPartyRoom {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOGO)
+  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(@javax.annotation.Nullable LogoRequest logo) {
     this.logo = logo;

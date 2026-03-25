@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import java.util.Date;
 import java.text.DecimalFormat;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
+
 
 public class RFC3339DateFormat extends DateFormat {
   private static final long serialVersionUID = 1L;

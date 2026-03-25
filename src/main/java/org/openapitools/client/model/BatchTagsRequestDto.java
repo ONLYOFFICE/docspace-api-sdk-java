@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,10 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,28 +43,23 @@ import java.util.StringJoiner;
 
 public class BatchTagsRequestDto {
   public static final String JSON_PROPERTY_NAMES = "names";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> names = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nonnull  private List<String> names = new ArrayList<>();
 
   public BatchTagsRequestDto() {
   }
 
 
-  public BatchTagsRequestDto names(@javax.annotation.Nullable List<String> names) {
-    this.names = JsonNullable.<List<String>>of(names);
+  public BatchTagsRequestDto names(@javax.annotation.Nonnull List<String> names) {
     
+    this.names = names;
     return this;
   }
 
   public BatchTagsRequestDto addNamesItem(String namesItem) {
-    if (this.names == null || !this.names.isPresent()) {
-      this.names = JsonNullable.<List<String>>of(new ArrayList<>());
+    if (this.names == null) {
+      this.names = new ArrayList<>();
     }
-    try {
-      this.names.get().add(namesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.names.add(namesItem);
     return this;
   }
 
@@ -75,27 +67,18 @@ public class BatchTagsRequestDto {
    * The list of tag names.
    * @return names
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_NAMES, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<String> getNames() {
-        return names.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NAMES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<String>> getNames_JsonNullable() {
     return names;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NAMES)
-  public void setNames_JsonNullable(JsonNullable<List<String>> names) {
-    this.names = names;
-  }
 
-  public void setNames(@javax.annotation.Nullable List<String> names) {
-    this.names = JsonNullable.<List<String>>of(names);
+
+  @JsonProperty(value = JSON_PROPERTY_NAMES, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setNames(@javax.annotation.Nonnull List<String> names) {
+    this.names = names;
   }
 
   @Override
@@ -107,23 +90,12 @@ public class BatchTagsRequestDto {
       return false;
     }
     BatchTagsRequestDto batchTagsRequestDto = (BatchTagsRequestDto) o;
-    return equalsNullable(this.names, batchTagsRequestDto.names);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.names, batchTagsRequestDto.names);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(names));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(names);
   }
 
   @Override

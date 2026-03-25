@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,8 +25,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -53,52 +55,40 @@ import java.util.StringJoiner;
 
 public class CreateClientRequest {
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private String name;
+  @javax.annotation.Nullable  private String name;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  @javax.annotation.Nullable
-  private String description;
+  @javax.annotation.Nullable  private String description;
 
   public static final String JSON_PROPERTY_LOGO = "logo";
-  @javax.annotation.Nullable
-  private String logo;
+  @javax.annotation.Nullable  private String logo;
 
   public static final String JSON_PROPERTY_SCOPES = "scopes";
-  @javax.annotation.Nullable
-  private Set<String> scopes = new LinkedHashSet<>();
+  @javax.annotation.Nullable  private Set<String> scopes = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_ALLOW_PKCE = "allow_pkce";
-  @javax.annotation.Nullable
-  private Boolean allowPkce;
+  @javax.annotation.Nullable  private Boolean allowPkce;
 
   public static final String JSON_PROPERTY_IS_PUBLIC = "is_public";
-  @javax.annotation.Nullable
-  private Boolean isPublic;
+  @javax.annotation.Nullable  private Boolean isPublic;
 
   public static final String JSON_PROPERTY_WEBSITE_URL = "website_url";
-  @javax.annotation.Nullable
-  private String websiteUrl;
+  @javax.annotation.Nullable  private String websiteUrl;
 
   public static final String JSON_PROPERTY_TERMS_URL = "terms_url";
-  @javax.annotation.Nullable
-  private String termsUrl;
+  @javax.annotation.Nullable  private String termsUrl;
 
   public static final String JSON_PROPERTY_POLICY_URL = "policy_url";
-  @javax.annotation.Nullable
-  private String policyUrl;
+  @javax.annotation.Nullable  private String policyUrl;
 
   public static final String JSON_PROPERTY_REDIRECT_URIS = "redirect_uris";
-  @javax.annotation.Nonnull
-  private Set<String> redirectUris = new LinkedHashSet<>();
+  @javax.annotation.Nonnull  private Set<String> redirectUris = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_ALLOWED_ORIGINS = "allowed_origins";
-  @javax.annotation.Nonnull
-  private Set<String> allowedOrigins = new LinkedHashSet<>();
+  @javax.annotation.Nonnull  private Set<String> allowedOrigins = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_LOGOUT_REDIRECT_URI = "logout_redirect_uri";
-  @javax.annotation.Nullable
-  private String logoutRedirectUri;
+  @javax.annotation.Nullable  private String logoutRedirectUri;
 
   public CreateClientRequest() {
   }
@@ -114,8 +104,7 @@ public class CreateClientRequest {
    * The client name.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getName() {
@@ -123,7 +112,7 @@ public class CreateClientRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
@@ -139,8 +128,7 @@ public class CreateClientRequest {
    * The client description.
    * @return description
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDescription() {
@@ -148,7 +136,7 @@ public class CreateClientRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
@@ -164,8 +152,7 @@ public class CreateClientRequest {
    * The client logo in base64 format.
    * @return logo
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOGO)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLogo() {
@@ -173,7 +160,7 @@ public class CreateClientRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOGO)
+  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(@javax.annotation.Nullable String logo) {
     this.logo = logo;
@@ -197,8 +184,7 @@ public class CreateClientRequest {
    * The client scopes.
    * @return scopes
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCOPES)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SCOPES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Set<String> getScopes() {
@@ -207,7 +193,7 @@ public class CreateClientRequest {
 
 
   @JsonDeserialize(as = LinkedHashSet.class)
-  @JsonProperty(JSON_PROPERTY_SCOPES)
+  @JsonProperty(value = JSON_PROPERTY_SCOPES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScopes(@javax.annotation.Nullable Set<String> scopes) {
     this.scopes = scopes;
@@ -223,8 +209,7 @@ public class CreateClientRequest {
    * Indicates whether PKCE is allowed for the client.
    * @return allowPkce
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_PKCE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ALLOW_PKCE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAllowPkce() {
@@ -232,7 +217,7 @@ public class CreateClientRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ALLOW_PKCE)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_PKCE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowPkce(@javax.annotation.Nullable Boolean allowPkce) {
     this.allowPkce = allowPkce;
@@ -248,8 +233,7 @@ public class CreateClientRequest {
    * Indicates whether the client is accessible by third-party tenants.
    * @return isPublic
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_PUBLIC)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_PUBLIC, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsPublic() {
@@ -257,7 +241,7 @@ public class CreateClientRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_PUBLIC)
+  @JsonProperty(value = JSON_PROPERTY_IS_PUBLIC, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsPublic(@javax.annotation.Nullable Boolean isPublic) {
     this.isPublic = isPublic;
@@ -273,8 +257,7 @@ public class CreateClientRequest {
    * The URL to the client&#39;s website.
    * @return websiteUrl
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WEBSITE_URL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WEBSITE_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getWebsiteUrl() {
@@ -282,7 +265,7 @@ public class CreateClientRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WEBSITE_URL)
+  @JsonProperty(value = JSON_PROPERTY_WEBSITE_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebsiteUrl(@javax.annotation.Nullable String websiteUrl) {
     this.websiteUrl = websiteUrl;
@@ -298,8 +281,7 @@ public class CreateClientRequest {
    * The URL to the client&#39;s terms of service.
    * @return termsUrl
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TERMS_URL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TERMS_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTermsUrl() {
@@ -307,7 +289,7 @@ public class CreateClientRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TERMS_URL)
+  @JsonProperty(value = JSON_PROPERTY_TERMS_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsUrl(@javax.annotation.Nullable String termsUrl) {
     this.termsUrl = termsUrl;
@@ -323,8 +305,7 @@ public class CreateClientRequest {
    * The URL to the client&#39;s privacy policy.
    * @return policyUrl
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POLICY_URL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_POLICY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPolicyUrl() {
@@ -332,7 +313,7 @@ public class CreateClientRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_POLICY_URL)
+  @JsonProperty(value = JSON_PROPERTY_POLICY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPolicyUrl(@javax.annotation.Nullable String policyUrl) {
     this.policyUrl = policyUrl;
@@ -356,8 +337,7 @@ public class CreateClientRequest {
    * The list of allowed redirect URIs.
    * @return redirectUris
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_REDIRECT_URIS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_REDIRECT_URIS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Set<String> getRedirectUris() {
@@ -366,7 +346,7 @@ public class CreateClientRequest {
 
 
   @JsonDeserialize(as = LinkedHashSet.class)
-  @JsonProperty(JSON_PROPERTY_REDIRECT_URIS)
+  @JsonProperty(value = JSON_PROPERTY_REDIRECT_URIS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRedirectUris(@javax.annotation.Nonnull Set<String> redirectUris) {
     this.redirectUris = redirectUris;
@@ -390,8 +370,7 @@ public class CreateClientRequest {
    * The list of allowed CORS origins.
    * @return allowedOrigins
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ALLOWED_ORIGINS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Set<String> getAllowedOrigins() {
@@ -400,7 +379,7 @@ public class CreateClientRequest {
 
 
   @JsonDeserialize(as = LinkedHashSet.class)
-  @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
+  @JsonProperty(value = JSON_PROPERTY_ALLOWED_ORIGINS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAllowedOrigins(@javax.annotation.Nonnull Set<String> allowedOrigins) {
     this.allowedOrigins = allowedOrigins;
@@ -416,8 +395,7 @@ public class CreateClientRequest {
    * The list of allowed logout redirect URIs.
    * @return logoutRedirectUri
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOGOUT_REDIRECT_URI)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGOUT_REDIRECT_URI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLogoutRedirectUri() {
@@ -425,7 +403,7 @@ public class CreateClientRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOGOUT_REDIRECT_URI)
+  @JsonProperty(value = JSON_PROPERTY_LOGOUT_REDIRECT_URI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogoutRedirectUri(@javax.annotation.Nullable String logoutRedirectUri) {
     this.logoutRedirectUri = logoutRedirectUri;

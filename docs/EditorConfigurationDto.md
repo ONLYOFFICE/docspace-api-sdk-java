@@ -20,7 +20,7 @@ The editor configuration parameters.
 |**plugins** | [**PluginsConfig**](PluginsConfig.md) |  |  [optional] |
 |**recent** | [**List&lt;RecentConfig&gt;**](RecentConfig.md) | The recent configuration of the editor. |  [optional] |
 |**templates** | [**List&lt;TemplatesConfig&gt;**](TemplatesConfig.md) | The templates of the editor configuration. |  [optional] |
-|**user** | [**UserConfig**](UserConfig.md) |  |  |
+|**user** | [**UserConfig**](UserConfig.md) |  |  [optional] |
 
 
 

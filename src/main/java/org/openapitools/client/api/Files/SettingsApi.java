@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,8 +28,12 @@ import org.openapitools.client.model.AutoCleanUpDataWrapper;
 import org.openapitools.client.model.AutoCleanupRequestDto;
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.CheckDocServiceUrlRequestDto;
+import org.openapitools.client.model.DefaultTemplateSettingsRequestDto;
+import org.openapitools.client.model.DefaultTemplateSettingsResetRequestDto;
+import org.openapitools.client.model.DefaultTemplateSettingsWrapper;
 import org.openapitools.client.model.DisplayRequestDto;
 import org.openapitools.client.model.DocServiceUrlWrapper;
+import java.io.File;
 import org.openapitools.client.model.FileShareArrayWrapper;
 import org.openapitools.client.model.FilesSettingsWrapper;
 import org.openapitools.client.model.HideConfirmConvertRequestDto;
@@ -989,6 +993,82 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
+   * Get the default template setting
+   * Returns the default template setting.
+   *
+   * REST API Reference for getDefaultTemplates Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-templates/
+   *
+   * @return DefaultTemplateSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DefaultTemplateSettingsWrapper getDefaultTemplates() throws ApiException {
+    return this.getDefaultTemplates(Collections.emptyMap());
+  }
+
+
+  /**
+   * Get the default template setting
+   * Returns the default template setting.
+   *
+   * REST API Reference for getDefaultTemplates Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-templates/
+   *
+   * @param additionalHeaders additionalHeaders for this call
+   * @return DefaultTemplateSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DefaultTemplateSettingsWrapper getDefaultTemplates(Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/settings/defaulttemplate";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<DefaultTemplateSettingsWrapper> localVarReturnType = new TypeReference<DefaultTemplateSettingsWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Get the document service URL
    * Returns the URL address of the connected editors.
    *
@@ -1305,10 +1385,10 @@ public class SettingsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/
    *
    * @param hideConfirmConvertRequestDto  (optional)
-   * @return ModuleWrapper
+   * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public ModuleWrapper hideConfirmConvert(@javax.annotation.Nullable HideConfirmConvertRequestDto hideConfirmConvertRequestDto) throws ApiException {
+  public BooleanWrapper hideConfirmConvert(@javax.annotation.Nullable HideConfirmConvertRequestDto hideConfirmConvertRequestDto) throws ApiException {
     return this.hideConfirmConvert(hideConfirmConvertRequestDto, Collections.emptyMap());
   }
 
@@ -1322,10 +1402,10 @@ public class SettingsApi extends BaseApi {
    *
    * @param hideConfirmConvertRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return ModuleWrapper
+   * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public ModuleWrapper hideConfirmConvert(@javax.annotation.Nullable HideConfirmConvertRequestDto hideConfirmConvertRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+  public BooleanWrapper hideConfirmConvert(@javax.annotation.Nullable HideConfirmConvertRequestDto hideConfirmConvertRequestDto, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = hideConfirmConvertRequestDto;
     
     // create path and map variables
@@ -1357,7 +1437,7 @@ public class SettingsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ModuleWrapper> localVarReturnType = new TypeReference<ModuleWrapper>() {};
+    TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
@@ -1608,6 +1688,162 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
+   * Reset the default template setting
+   * Resets the default template setting.
+   *
+   * REST API Reference for resetDefaultTemplate Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-default-template/
+   *
+   * @param defaultTemplateSettingsResetRequestDto  (optional)
+   * @return DefaultTemplateSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DefaultTemplateSettingsWrapper resetDefaultTemplate(@javax.annotation.Nullable DefaultTemplateSettingsResetRequestDto defaultTemplateSettingsResetRequestDto) throws ApiException {
+    return this.resetDefaultTemplate(defaultTemplateSettingsResetRequestDto, Collections.emptyMap());
+  }
+
+
+  /**
+   * Reset the default template setting
+   * Resets the default template setting.
+   *
+   * REST API Reference for resetDefaultTemplate Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-default-template/
+   *
+   * @param defaultTemplateSettingsResetRequestDto  (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return DefaultTemplateSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DefaultTemplateSettingsWrapper resetDefaultTemplate(@javax.annotation.Nullable DefaultTemplateSettingsResetRequestDto defaultTemplateSettingsResetRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = defaultTemplateSettingsResetRequestDto;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/settings/defaulttemplate";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<DefaultTemplateSettingsWrapper> localVarReturnType = new TypeReference<DefaultTemplateSettingsWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Change the default template setting
+   * Changes the default template setting.
+   *
+   * REST API Reference for setDefaultTemplate Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-template/
+   *
+   * @param defaultTemplateSettingsRequestDto  (optional)
+   * @return DefaultTemplateSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DefaultTemplateSettingsWrapper setDefaultTemplate(@javax.annotation.Nullable DefaultTemplateSettingsRequestDto defaultTemplateSettingsRequestDto) throws ApiException {
+    return this.setDefaultTemplate(defaultTemplateSettingsRequestDto, Collections.emptyMap());
+  }
+
+
+  /**
+   * Change the default template setting
+   * Changes the default template setting.
+   *
+   * REST API Reference for setDefaultTemplate Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-template/
+   *
+   * @param defaultTemplateSettingsRequestDto  (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return DefaultTemplateSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DefaultTemplateSettingsWrapper setDefaultTemplate(@javax.annotation.Nullable DefaultTemplateSettingsRequestDto defaultTemplateSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = defaultTemplateSettingsRequestDto;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/settings/defaulttemplate";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<DefaultTemplateSettingsWrapper> localVarReturnType = new TypeReference<DefaultTemplateSettingsWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Open document in the same browser tab
    * Changes the ability to open the document in the same browser tab.
    *
@@ -1640,6 +1876,84 @@ public class SettingsApi extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/api/2.0/files/settings/openeditorinsametab";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Organize rooms grouping
+   * Changes the setting that allows the user to organize the grouping of rooms.
+   *
+   * REST API Reference for setOrganizeRoomsGrouping Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-organize-rooms-grouping/
+   *
+   * @param settingsRequestDto  (optional)
+   * @return BooleanWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public BooleanWrapper setOrganizeRoomsGrouping(@javax.annotation.Nullable SettingsRequestDto settingsRequestDto) throws ApiException {
+    return this.setOrganizeRoomsGrouping(settingsRequestDto, Collections.emptyMap());
+  }
+
+
+  /**
+   * Organize rooms grouping
+   * Changes the setting that allows the user to organize the grouping of rooms.
+   *
+   * REST API Reference for setOrganizeRoomsGrouping Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-organize-rooms-grouping/
+   *
+   * @param settingsRequestDto  (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return BooleanWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public BooleanWrapper setOrganizeRoomsGrouping(@javax.annotation.Nullable SettingsRequestDto settingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = settingsRequestDto;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/settings/organizegrouping";
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1917,6 +2231,99 @@ public class SettingsApi extends BaseApi {
     );
   }
 
+  /**
+   * Upload a file as the default template setting
+   * Uploads a file to use as the default template setting.
+   *
+   * REST API Reference for uploadDefaultTemplate Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-default-template/
+   *
+   * @param fileExtension File extension of a template to replace (required)
+   * @param _file File to replace template with (required)
+   * @return DefaultTemplateSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DefaultTemplateSettingsWrapper uploadDefaultTemplate(@javax.annotation.Nonnull String fileExtension, @javax.annotation.Nonnull File _file) throws ApiException {
+    return this.uploadDefaultTemplate(fileExtension, _file, Collections.emptyMap());
+  }
+
+
+  /**
+   * Upload a file as the default template setting
+   * Uploads a file to use as the default template setting.
+   *
+   * REST API Reference for uploadDefaultTemplate Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-default-template/
+   *
+   * @param fileExtension File extension of a template to replace (required)
+   * @param _file File to replace template with (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return DefaultTemplateSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DefaultTemplateSettingsWrapper uploadDefaultTemplate(@javax.annotation.Nonnull String fileExtension, @javax.annotation.Nonnull File _file, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'fileExtension' is set
+    if (fileExtension == null) {
+      throw new ApiException(400, "Missing the required parameter 'fileExtension' when calling uploadDefaultTemplate");
+    }
+    
+    // verify the required parameter '_file' is set
+    if (_file == null) {
+      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadDefaultTemplate");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/settings/defaulttemplate";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("FileExtension", fileExtension));
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    if (_file != null)
+      localVarFormParams.put("File", _file);
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "multipart/form-data"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<DefaultTemplateSettingsWrapper> localVarReturnType = new TypeReference<DefaultTemplateSettingsWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
   @Override
   public <T> T invokeAPI(String url, String method, Object request, TypeReference<T> returnType, Map<String, String> additionalHeaders) throws ApiException {
     String localVarPath = url.replace(apiClient.getBaseURL(), "");
@@ -1935,7 +2342,7 @@ public class SettingsApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json"
+      "multipart/form-data"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 

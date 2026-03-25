@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,24 +49,19 @@ import java.util.StringJoiner;
 
 public class CopyAsJsonElement {
   public static final String JSON_PROPERTY_DEST_TITLE = "destTitle";
-  @javax.annotation.Nullable
-  private String destTitle;
+  @javax.annotation.Nullable  private String destTitle;
 
   public static final String JSON_PROPERTY_DEST_FOLDER_ID = "destFolderId";
-  @javax.annotation.Nonnull
-  private CopyAsJsonElementDestFolderId destFolderId;
+  @javax.annotation.Nonnull  private CopyAsJsonElementDestFolderId destFolderId;
 
   public static final String JSON_PROPERTY_ENABLE_EXTERNAL_EXT = "enableExternalExt";
-  @javax.annotation.Nullable
-  private Boolean enableExternalExt;
+  @javax.annotation.Nullable  private Boolean enableExternalExt;
 
   public static final String JSON_PROPERTY_PASSWORD = "password";
-  @javax.annotation.Nullable
-  private JsonNullable<String> password = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> password = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TO_FORM = "toForm";
-  @javax.annotation.Nullable
-  private Boolean toForm;
+  @javax.annotation.Nullable  private Boolean toForm;
 
   public CopyAsJsonElement() {
   }
@@ -81,8 +77,7 @@ public class CopyAsJsonElement {
    * The copied file name.
    * @return destTitle
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEST_TITLE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEST_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDestTitle() {
@@ -90,7 +85,7 @@ public class CopyAsJsonElement {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DEST_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_DEST_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDestTitle(@javax.annotation.Nullable String destTitle) {
     this.destTitle = destTitle;
@@ -106,8 +101,7 @@ public class CopyAsJsonElement {
    * Get destFolderId
    * @return destFolderId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DEST_FOLDER_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DEST_FOLDER_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public CopyAsJsonElementDestFolderId getDestFolderId() {
@@ -115,7 +109,7 @@ public class CopyAsJsonElement {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DEST_FOLDER_ID)
+  @JsonProperty(value = JSON_PROPERTY_DEST_FOLDER_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDestFolderId(@javax.annotation.Nonnull CopyAsJsonElementDestFolderId destFolderId) {
     this.destFolderId = destFolderId;
@@ -131,8 +125,7 @@ public class CopyAsJsonElement {
    * Specifies whether to allow creating the copied file of an external extension or not.
    * @return enableExternalExt
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLE_EXTERNAL_EXT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLE_EXTERNAL_EXT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEnableExternalExt() {
@@ -140,7 +133,7 @@ public class CopyAsJsonElement {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENABLE_EXTERNAL_EXT)
+  @JsonProperty(value = JSON_PROPERTY_ENABLE_EXTERNAL_EXT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnableExternalExt(@javax.annotation.Nullable Boolean enableExternalExt) {
     this.enableExternalExt = enableExternalExt;
@@ -156,16 +149,14 @@ public class CopyAsJsonElement {
    * The copied file password.
    * @return password
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPassword() {
         return password.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PASSWORD)
+  @JsonProperty(value = JSON_PROPERTY_PASSWORD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPassword_JsonNullable() {
     return password;
   }
@@ -189,8 +180,7 @@ public class CopyAsJsonElement {
    * Specifies whether to convert the file to form or not.
    * @return toForm
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TO_FORM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TO_FORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getToForm() {
@@ -198,7 +188,7 @@ public class CopyAsJsonElement {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TO_FORM)
+  @JsonProperty(value = JSON_PROPERTY_TO_FORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToForm(@javax.annotation.Nullable Boolean toForm) {
     this.toForm = toForm;

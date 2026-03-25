@@ -296,7 +296,7 @@ public class Example {
 
 ## getWebhookTriggers
 
-> UnknownWrapper getWebhookTriggers()
+> GetWebhookTriggers200Response getWebhookTriggers()
 
 Get webhook triggersReturns a list of triggers for a webhook.
 
@@ -308,7 +308,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**UnknownWrapper**](UnknownWrapper.md)
+[**GetWebhookTriggers200Response**](GetWebhookTriggers200Response.md)
 
 ### Authorization
 
@@ -358,7 +358,7 @@ public class Example {
 
         WebhooksApi apiInstance = new WebhooksApi(defaultClient);
         try {
-            UnknownWrapper result = apiInstance.getWebhookTriggers();
+            GetWebhookTriggers200Response result = apiInstance.getWebhookTriggers();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling WebhooksApi#getWebhookTriggers");
@@ -404,7 +404,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **eventId** | **Integer**| The unique identifier of the event that triggered the webhook. | [optional] |
 | **groupStatus** | [**WebhookGroupStatus**](.md)| The status of the webhook delivery group. | [optional] [enum: 0, 1, 2, 4, 8, 16] |
 | **userId** | **UUID**| The identifier of the user associated with the webhook event. | [optional] |
-| **trigger** | [**WebhookTrigger**](.md)| The type of event that triggered the webhook. | [optional] [enum: 0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 33554432, 67108864, 134217728] |
+| **trigger** | [**WebhookTrigger**](.md)| The type of event that triggered the webhook. | [optional] [enum: 0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 33554432, 67108864, 134217728, 268435456, 536870912, 1073741824] |
 | **count** | **Integer**| The maximum number of webhook log records to return in the query response. | [optional] |
 | **startIndex** | **Integer**| Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. | [optional] |
 
@@ -459,16 +459,16 @@ public class Example {
 
 
         WebhooksApi apiInstance = new WebhooksApi(defaultClient);
-        OffsetDateTime deliveryFrom = OffsetDateTime.parse("2008-04-10T06:30+04:00"); // OffsetDateTime | The delivery start time for filtering webhook logs.
-        OffsetDateTime deliveryTo = OffsetDateTime.parse("2008-04-10T06:30+04:00"); // OffsetDateTime | The delivery end time for filtering webhook logs.
-        String hookUri = "some text"; // String | The destination URL where webhooks are delivered.
-        Integer configId = 1234; // Integer | The webhook configuration identifier.
-        Integer eventId = 1234; // Integer | The unique identifier of the event that triggered the webhook.
+        OffsetDateTime deliveryFrom = OffsetDateTime.parse("2024-01-15T10:30Z"); // OffsetDateTime | The delivery start time for filtering webhook logs.
+        OffsetDateTime deliveryTo = OffsetDateTime.parse("2024-01-15T10:30Z"); // OffsetDateTime | The delivery end time for filtering webhook logs.
+        String hookUri = "https://example.com/webhook"; // String | The destination URL where webhooks are delivered.
+        Integer configId = 1; // Integer | The webhook configuration identifier.
+        Integer eventId = 1; // Integer | The unique identifier of the event that triggered the webhook.
         WebhookGroupStatus groupStatus = WebhookGroupStatus.fromValue("0"); // WebhookGroupStatus | The status of the webhook delivery group.
-        UUID userId = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The identifier of the user associated with the webhook event.
+        UUID userId = UUID.randomUUID(); // UUID | The identifier of the user associated with the webhook event.
         WebhookTrigger trigger = WebhookTrigger.fromValue("0"); // WebhookTrigger | The type of event that triggered the webhook.
-        Integer count = 1234; // Integer | The maximum number of webhook log records to return in the query response.
-        Integer startIndex = 1234; // Integer | Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries.
+        Integer count = 1; // Integer | The maximum number of webhook log records to return in the query response.
+        Integer startIndex = 1; // Integer | Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries.
         try {
             WebhooksLogArrayWrapper result = apiInstance.getWebhooksLogs(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex);
             System.out.println(result);
@@ -562,7 +562,7 @@ public class Example {
 
 
         WebhooksApi apiInstance = new WebhooksApi(defaultClient);
-        Integer id = 9846; // Integer | The ID extracted from the route parameters.
+        Integer id = 1; // Integer | The ID extracted from the route parameters.
         try {
             WebhooksConfigWrapper result = apiInstance.removeWebhook(id);
             System.out.println(result);
@@ -656,7 +656,7 @@ public class Example {
 
 
         WebhooksApi apiInstance = new WebhooksApi(defaultClient);
-        Integer id = 9846; // Integer | The ID extracted from the route parameters.
+        Integer id = 1; // Integer | The ID extracted from the route parameters.
         try {
             WebhooksLogWrapper result = apiInstance.retryWebhook(id);
             System.out.println(result);
@@ -682,8 +682,8 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Logs of the webhook activities |  -  |
 | **400** | Id incorrect |  -  |
-| **401** | Unauthorized |  -  |
 | **404** | Item not found |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## retryWebhooks

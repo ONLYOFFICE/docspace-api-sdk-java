@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -41,16 +42,13 @@ import java.util.StringJoiner;
 
 public class ScopeResponse {
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private String name;
+  @javax.annotation.Nullable  private String name;
 
   public static final String JSON_PROPERTY_GROUP = "group";
-  @javax.annotation.Nullable
-  private String group;
+  @javax.annotation.Nullable  private String group;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  @javax.annotation.Nullable
-  private String type;
+  @javax.annotation.Nullable  private String type;
 
   public ScopeResponse() {
   }
@@ -66,8 +64,7 @@ public class ScopeResponse {
    * The scope name.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getName() {
@@ -75,7 +72,7 @@ public class ScopeResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
@@ -91,8 +88,7 @@ public class ScopeResponse {
    * The group the scope belongs to.
    * @return group
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GROUP)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GROUP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getGroup() {
@@ -100,7 +96,7 @@ public class ScopeResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonProperty(value = JSON_PROPERTY_GROUP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGroup(@javax.annotation.Nullable String group) {
     this.group = group;
@@ -116,8 +112,7 @@ public class ScopeResponse {
    * The scope type.
    * @return type
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getType() {
@@ -125,7 +120,7 @@ public class ScopeResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(@javax.annotation.Nullable String type) {
     this.type = type;
