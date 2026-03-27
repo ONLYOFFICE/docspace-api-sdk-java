@@ -514,7 +514,7 @@ public class MCPApi extends BaseApi {
 
   /**
    * Disconnect an MCP server in a room
-   * Revokes the current user&#39;s OAuth connection to an MCP server within the specified room. After  disconnection, the server&#39;s tools will no longer be available to this user in AI chat sessions  until they re-authorize. Other room members&#39; connections are not affected.  Requires room edit permissions.
+   * Revokes the current user's OAuth connection to an MCP server within the specified room. After  disconnection, the server's tools will no longer be available to this user in AI chat sessions  until they re-authorize. Other room members' connections are not affected.  Requires room edit permissions.
    *
    * REST API Reference for disconnectServer Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/disconnect-server/
@@ -531,7 +531,7 @@ public class MCPApi extends BaseApi {
 
   /**
    * Disconnect an MCP server in a room
-   * Revokes the current user&#39;s OAuth connection to an MCP server within the specified room. After  disconnection, the server&#39;s tools will no longer be available to this user in AI chat sessions  until they re-authorize. Other room members&#39; connections are not affected.  Requires room edit permissions.
+   * Revokes the current user's OAuth connection to an MCP server within the specified room. After  disconnection, the server's tools will no longer be available to this user in AI chat sessions  until they re-authorize. Other room members' connections are not affected.  Requires room edit permissions.
    *
    * REST API Reference for disconnectServer Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/disconnect-server/
@@ -690,7 +690,7 @@ public class MCPApi extends BaseApi {
 
   /**
    * Get MCP servers assigned to a room
-   * Returns the list of MCP servers currently assigned to the specified room along with their connection  statuses for the current user. For OAuth-based servers, the connection status reflects whether the  current user has completed authorization. Requires access to the room&#39;s AI chat.
+   * Returns the list of MCP servers currently assigned to the specified room along with their connection  statuses for the current user. For OAuth-based servers, the connection status reflects whether the  current user has completed authorization. Requires access to the room's AI chat.
    *
    * REST API Reference for getRoomServers Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-servers/
@@ -706,7 +706,7 @@ public class MCPApi extends BaseApi {
 
   /**
    * Get MCP servers assigned to a room
-   * Returns the list of MCP servers currently assigned to the specified room along with their connection  statuses for the current user. For OAuth-based servers, the connection status reflects whether the  current user has completed authorization. Requires access to the room&#39;s AI chat.
+   * Returns the list of MCP servers currently assigned to the specified room along with their connection  statuses for the current user. For OAuth-based servers, the connection status reflects whether the  current user has completed authorization. Requires access to the room's AI chat.
    *
    * REST API Reference for getRoomServers Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-servers/
@@ -942,7 +942,7 @@ public class MCPApi extends BaseApi {
 
   /**
    * Get MCP server tools in a room
-   * Retrieves the full list of tools exposed by an MCP server within the context of a specific room,  along with each tool&#39;s enabled or disabled state. Disabled tools will not be invoked during  AI chat sessions in this room. Requires access to the room&#39;s AI chat.
+   * Retrieves the full list of tools exposed by an MCP server within the context of a specific room,  along with each tool's enabled or disabled state. Disabled tools will not be invoked during  AI chat sessions in this room. Requires access to the room's AI chat.
    *
    * REST API Reference for getTools Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tools/
@@ -959,7 +959,7 @@ public class MCPApi extends BaseApi {
 
   /**
    * Get MCP server tools in a room
-   * Retrieves the full list of tools exposed by an MCP server within the context of a specific room,  along with each tool&#39;s enabled or disabled state. Disabled tools will not be invoked during  AI chat sessions in this room. Requires access to the room&#39;s AI chat.
+   * Retrieves the full list of tools exposed by an MCP server within the context of a specific room,  along with each tool's enabled or disabled state. Disabled tools will not be invoked during  AI chat sessions in this room. Requires access to the room's AI chat.
    *
    * REST API Reference for getTools Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tools/

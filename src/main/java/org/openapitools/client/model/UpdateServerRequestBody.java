@@ -111,7 +111,7 @@ public class UpdateServerRequestBody {
   }
 
   /**
-   * New human-readable description of the server&#39;s purpose. Maximum 255 characters.
+   * New human-readable description of the server's purpose. Maximum 255 characters.
    * @return description
    */
   @javax.annotation.Nullable  @JsonIgnore

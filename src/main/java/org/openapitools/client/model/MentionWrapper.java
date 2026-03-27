@@ -166,7 +166,7 @@ public class MentionWrapper {
 
 
   /**
-   * The path to the user&#39;s avatar.
+   * The path to the user's avatar.
    * @return image
    */
   @javax.annotation.Nullable  @JsonIgnore

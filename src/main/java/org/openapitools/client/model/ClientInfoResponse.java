@@ -215,7 +215,7 @@ public class ClientInfoResponse {
   }
 
   /**
-   * The URL to the client&#39;s website
+   * The URL to the client's website
    * @return websiteUrl
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WEBSITE_URL, required = false)
@@ -239,7 +239,7 @@ public class ClientInfoResponse {
   }
 
   /**
-   * The URL to the client&#39;s terms of service.
+   * The URL to the client's terms of service.
    * @return termsUrl
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TERMS_URL, required = false)
@@ -263,7 +263,7 @@ public class ClientInfoResponse {
   }
 
   /**
-   * The URL to the client&#39;s privacy policy.
+   * The URL to the client's privacy policy.
    * @return policyUrl
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_POLICY_URL, required = false)

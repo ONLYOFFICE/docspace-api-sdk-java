@@ -290,8 +290,8 @@ public class ApiKeysApi extends BaseApi {
   }
 
   /**
-   * Get current user&#39;s API key
-   * Returns information about the current user&#39;s API key.
+   * Get current user's API key
+   * Returns information about the current user's API key.
    *
    * REST API Reference for getApiKey Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-key/
@@ -305,8 +305,8 @@ public class ApiKeysApi extends BaseApi {
 
 
   /**
-   * Get current user&#39;s API key
-   * Returns information about the current user&#39;s API key.
+   * Get current user's API key
+   * Returns information about the current user's API key.
    *
    * REST API Reference for getApiKey Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-key/
@@ -366,7 +366,7 @@ public class ApiKeysApi extends BaseApi {
   }
 
   /**
-   * Get current user&#39;s API keys
+   * Get current user's API keys
    * Returns a list of all API keys for the current user.
    *
    * REST API Reference for getApiKeys Operation
@@ -381,7 +381,7 @@ public class ApiKeysApi extends BaseApi {
 
 
   /**
-   * Get current user&#39;s API keys
+   * Get current user's API keys
    * Returns a list of all API keys for the current user.
    *
    * REST API Reference for getApiKeys Operation

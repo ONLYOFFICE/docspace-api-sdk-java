@@ -238,7 +238,7 @@ public class AiProviderDto {
   }
 
   /**
-   * Indicates whether the provider&#39;s API key needs to be reset.
+   * Indicates whether the provider's API key needs to be reset.
    * @return needReset
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NEED_RESET, required = false)

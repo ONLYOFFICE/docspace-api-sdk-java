@@ -9,8 +9,8 @@ The user information.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** | The user ID. |  [optional] |
-|**firstName** | **String** | The user&#39;s first name. |  [optional] |
-|**lastName** | **String** | The user&#39;s last name. |  [optional] |
+|**firstName** | **String** | The user's first name. |  [optional] |
+|**lastName** | **String** | The user's last name. |  [optional] |
 |**userName** | **String** | The user username. |  [optional] |
 |**birthDate** | **OffsetDateTime** | The user birthday. |  [optional] |
 |**sex** | **Boolean** | The user sex (male or female). |  [optional] |

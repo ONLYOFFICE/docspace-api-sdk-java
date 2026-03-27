@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The agent new item&#39;s information.
+ * The agent new item's information.
  */
 @JsonPropertyOrder({
   AgentNewItemsDto.JSON_PROPERTY_AGENT,

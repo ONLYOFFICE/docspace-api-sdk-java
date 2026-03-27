@@ -8,8 +8,8 @@ The settings for the Feedback & Support menu button.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**url** | **String** | The absolute URL to the website address which will be opened when clicking the Feedback &amp; Support menu button. |  [optional] |
-|**visible** | **Boolean** | Shows or hides the Feedback &amp; Support menu button. |  [optional] [readonly] |
+|**url** | **String** | The absolute URL to the website address which will be opened when clicking the Feedback & Support menu button. |  [optional] |
+|**visible** | **Boolean** | Shows or hides the Feedback & Support menu button. |  [optional] [readonly] |
 
 
 

@@ -52,7 +52,7 @@ public class AuthorizationApi extends BaseApi {
    * REST API Reference for authorizeOAuth Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/authorize-oauth/
    *
-   * @param responseType The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow. (required)
+   * @param responseType The OAuth 2.0 response type, must be 'code' for authorization code flow. (required)
    * @param clientId The client identifier issued to the client during registration. (required)
    * @param redirectUri The URL to redirect to after authorization is complete. (required)
    * @param scope The space-separated list of requested scope permissions. (required)
@@ -70,7 +70,7 @@ public class AuthorizationApi extends BaseApi {
    * REST API Reference for authorizeOAuth Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/authorize-oauth/
    *
-   * @param responseType The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow. (required)
+   * @param responseType The OAuth 2.0 response type, must be 'code' for authorization code flow. (required)
    * @param clientId The client identifier issued to the client during registration. (required)
    * @param redirectUri The URL to redirect to after authorization is complete. (required)
    * @param scope The space-separated list of requested scope permissions. (required)
@@ -157,7 +157,7 @@ public class AuthorizationApi extends BaseApi {
    * REST API Reference for exchangeToken Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/exchange-token/
    *
-   * @param grantType The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. (optional)
+   * @param grantType The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. (optional)
    * @param code A temporary authorization code that is sent to the client to be exchanged for a token. (optional)
    * @param redirectUri The URL where the user will be redirected after successful or unsuccessful authentication. (optional)
    * @param clientId The client identifier issued to the client during registration. (optional)
@@ -177,7 +177,7 @@ public class AuthorizationApi extends BaseApi {
    * REST API Reference for exchangeToken Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/exchange-token/
    *
-   * @param grantType The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. (optional)
+   * @param grantType The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. (optional)
    * @param code A temporary authorization code that is sent to the client to be exchanged for a token. (optional)
    * @param redirectUri The URL where the user will be redirected after successful or unsuccessful authentication. (optional)
    * @param clientId The client identifier issued to the client during registration. (optional)

@@ -392,7 +392,7 @@ public class AuthRequestsDto {
   }
 
   /**
-   * The user&#39;s response to the CAPTCHA challenge.
+   * The user's response to the CAPTCHA challenge.
    * @return recaptchaResponse
    */
   @javax.annotation.Nullable  @JsonIgnore

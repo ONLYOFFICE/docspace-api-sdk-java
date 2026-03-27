@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The Complete &amp; Submit button settings.
+ * The Complete & Submit button settings.
  */
 @JsonPropertyOrder({
   SubmitForm.JSON_PROPERTY_VISIBLE,
@@ -61,7 +61,7 @@ public class SubmitForm {
   }
 
   /**
-   * Specifies whether the Complete  &amp; Submit button will be displayed or hidden on the top toolbar.
+   * Specifies whether the Complete  & Submit button will be displayed or hidden on the top toolbar.
    * @return visible
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VISIBLE, required = false)

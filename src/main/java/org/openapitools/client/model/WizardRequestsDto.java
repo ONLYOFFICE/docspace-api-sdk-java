@@ -77,7 +77,7 @@ public class WizardRequestsDto {
   }
 
   /**
-   * The user&#39;s email address for authentication and communication.
+   * The user's email address for authentication and communication.
    * @return email
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
@@ -101,7 +101,7 @@ public class WizardRequestsDto {
   }
 
   /**
-   * The hashed representation of the user&#39;s password.
+   * The hashed representation of the user's password.
    * @return passwordHash
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PASSWORD_HASH, required = false)
@@ -125,7 +125,7 @@ public class WizardRequestsDto {
   }
 
   /**
-   * The user&#39;s preferred interface language code.
+   * The user's preferred interface language code.
    * @return lng
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -156,7 +156,7 @@ public class WizardRequestsDto {
   }
 
   /**
-   * The user&#39;s time zone identifier.
+   * The user's time zone identifier.
    * @return timeZone
    */
   @javax.annotation.Nullable  @JsonIgnore

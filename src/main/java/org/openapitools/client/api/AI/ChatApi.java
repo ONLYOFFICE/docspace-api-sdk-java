@@ -58,7 +58,7 @@ public class ChatApi extends BaseApi {
 
   /**
    * Send a message to an existing AI chat
-   * Appends a new user message to an existing chat session and streams the AI assistant&#39;s response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
+   * Appends a new user message to an existing chat session and streams the AI assistant's response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
    *
    * REST API Reference for continueChat Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/continue-chat/
@@ -74,7 +74,7 @@ public class ChatApi extends BaseApi {
 
   /**
    * Send a message to an existing AI chat
-   * Appends a new user message to an existing chat session and streams the AI assistant&#39;s response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
+   * Appends a new user message to an existing chat session and streams the AI assistant's response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
    *
    * REST API Reference for continueChat Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/continue-chat/
@@ -658,7 +658,7 @@ public class ChatApi extends BaseApi {
 
   /**
    * Get user chat settings for a room
-   * Retrieves the current user&#39;s personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
+   * Retrieves the current user's personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
    *
    * REST API Reference for getUserChatsSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-chats-settings/
@@ -674,7 +674,7 @@ public class ChatApi extends BaseApi {
 
   /**
    * Get user chat settings for a room
-   * Retrieves the current user&#39;s personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
+   * Retrieves the current user's personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
    *
    * REST API Reference for getUserChatsSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-chats-settings/
@@ -742,7 +742,7 @@ public class ChatApi extends BaseApi {
 
   /**
    * Submit a tool execution permission decision
-   * Provides the user&#39;s approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user&#39;s decision  so that the AI chat session can proceed accordingly.
+   * Provides the user's approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user's decision  so that the AI chat session can proceed accordingly.
    *
    * REST API Reference for providePermission Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/provide-permission/
@@ -758,7 +758,7 @@ public class ChatApi extends BaseApi {
 
   /**
    * Submit a tool execution permission decision
-   * Provides the user&#39;s approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user&#39;s decision  so that the AI chat session can proceed accordingly.
+   * Provides the user's approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user's decision  so that the AI chat session can proceed accordingly.
    *
    * REST API Reference for providePermission Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/provide-permission/
@@ -921,7 +921,7 @@ public class ChatApi extends BaseApi {
 
   /**
    * Update user chat settings for a room
-   * Saves the current user&#39;s personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
+   * Saves the current user's personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
    *
    * REST API Reference for setUserChatsSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-user-chats-settings/
@@ -938,7 +938,7 @@ public class ChatApi extends BaseApi {
 
   /**
    * Update user chat settings for a room
-   * Saves the current user&#39;s personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
+   * Saves the current user's personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
    *
    * REST API Reference for setUserChatsSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-user-chats-settings/

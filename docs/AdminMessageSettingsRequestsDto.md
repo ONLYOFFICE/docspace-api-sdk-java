@@ -12,7 +12,7 @@ The request parameters for configuring the administrator message content.
 |**email** | **String** | Email |  |
 |**culture** | **String** | Culture |  [optional] |
 |**recaptchaType** | **RecaptchaType** |  |  [optional] |
-|**recaptchaResponse** | **String** | The user&#39;s response to the CAPTCHA challenge. |  [optional] |
+|**recaptchaResponse** | **String** | The user's response to the CAPTCHA challenge. |  [optional] |
 
 
 

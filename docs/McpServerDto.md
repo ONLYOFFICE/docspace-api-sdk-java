@@ -10,7 +10,7 @@ Full MCP server configuration, including connection details and authentication h
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** | Unique identifier of the MCP server. |  [optional] |
 |**name** | **String** | Display name of the MCP server. |  [optional] |
-|**description** | **String** | Human-readable description of the server&#39;s purpose and capabilities. |  [optional] |
+|**description** | **String** | Human-readable description of the server's purpose and capabilities. |  [optional] |
 |**endpoint** | **String** | Base URL of the MCP server endpoint. |  [optional] |
 |**serverType** | **ServerType** |  |  [optional] |
 |**headers** | **Map&lt;String, String&gt;** | HTTP headers sent with every request to the server (e.g., authentication tokens). |  [optional] |

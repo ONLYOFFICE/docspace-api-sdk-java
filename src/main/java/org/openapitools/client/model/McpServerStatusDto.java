@@ -35,7 +35,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * MCP server status within a room, reflecting the current user&#39;s connection state for OAuth-based servers.
+ * MCP server status within a room, reflecting the current user's connection state for OAuth-based servers.
  */
 @JsonPropertyOrder({
   McpServerStatusDto.JSON_PROPERTY_ID,

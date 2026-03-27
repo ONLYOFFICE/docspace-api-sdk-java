@@ -65,7 +65,7 @@ public class ConfirmData {
   }
 
   /**
-   * The email address to confirm the user&#39;s identity.
+   * The email address to confirm the user's identity.
    * @return email
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -96,7 +96,7 @@ public class ConfirmData {
   }
 
   /**
-   * Specifies whether this is the first access to the user&#39;s account.
+   * Specifies whether this is the first access to the user's account.
    * @return first
    */
   @javax.annotation.Nullable  @JsonIgnore

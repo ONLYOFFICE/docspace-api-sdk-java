@@ -1862,7 +1862,7 @@ public class RoomsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/
    *
    * @param count Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)
-   * @param startIndex Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)
+   * @param startIndex Represents the starting index from which the tags' information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)
    * @param filterValue Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)
    * @return ObjectArrayWrapper
    * @throws ApiException if fails to make API call
@@ -1880,7 +1880,7 @@ public class RoomsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/
    *
    * @param count Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)
-   * @param startIndex Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)
+   * @param startIndex Represents the starting index from which the tags' information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)
    * @param filterValue Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return ObjectArrayWrapper

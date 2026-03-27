@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The settings for the Feedback &amp; Support menu button.
+ * The settings for the Feedback & Support menu button.
  */
 @JsonPropertyOrder({
   FeedbackConfig.JSON_PROPERTY_URL,
@@ -71,7 +71,7 @@ public class FeedbackConfig {
   }
 
   /**
-   * The absolute URL to the website address which will be opened when clicking the Feedback &amp; Support menu button.
+   * The absolute URL to the website address which will be opened when clicking the Feedback & Support menu button.
    * @return url
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -96,7 +96,7 @@ public class FeedbackConfig {
   }
 
   /**
-   * Shows or hides the Feedback &amp; Support menu button.
+   * Shows or hides the Feedback & Support menu button.
    * @return visible
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VISIBLE, required = false)

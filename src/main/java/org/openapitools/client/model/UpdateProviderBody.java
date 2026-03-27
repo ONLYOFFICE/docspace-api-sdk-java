@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Parameters for updating an AI provider&#39;s configuration.
+ * Parameters for updating an AI provider's configuration.
  */
 @JsonPropertyOrder({
   UpdateProviderBody.JSON_PROPERTY_TITLE,

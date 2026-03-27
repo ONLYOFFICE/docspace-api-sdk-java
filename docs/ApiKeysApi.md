@@ -7,8 +7,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**createApiKey**](ApiKeysApi.md#createApiKey) | **POST** /api/2.0/keys | Create a user API key |
 | [**deleteApiKey**](ApiKeysApi.md#deleteApiKey) | **DELETE** /api/2.0/keys/{keyId} | Delete a user API key |
 | [**getAllPermissions**](ApiKeysApi.md#getAllPermissions) | **GET** /api/2.0/keys/permissions | Get API key permissions |
-| [**getApiKey**](ApiKeysApi.md#getApiKey) | **GET** /api/2.0/keys/@self | Get current user&#39;s API key |
-| [**getApiKeys**](ApiKeysApi.md#getApiKeys) | **GET** /api/2.0/keys | Get current user&#39;s API keys |
+| [**getApiKey**](ApiKeysApi.md#getApiKey) | **GET** /api/2.0/keys/@self | Get current user's API key |
+| [**getApiKeys**](ApiKeysApi.md#getApiKeys) | **GET** /api/2.0/keys | Get current user's API keys |
 | [**updateApiKey**](ApiKeysApi.md#updateApiKey) | **PUT** /api/2.0/keys/{keyId} | Update an API key |
 
 
@@ -295,7 +295,7 @@ public class Example {
 
 > ApiKeyResponseWrapper getApiKey()
 
-Get current user&#39;s API keyReturns information about the current user's API key.
+Get current user's API keyReturns information about the current user's API key.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-key/).
 
@@ -385,7 +385,7 @@ public class Example {
 
 > ApiKeyResponseArrayWrapper getApiKeys()
 
-Get current user&#39;s API keysReturns a list of all API keys for the current user.
+Get current user's API keysReturns a list of all API keys for the current user.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-keys/).
 

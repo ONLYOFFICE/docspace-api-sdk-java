@@ -122,7 +122,7 @@ public class EmployeeDto {
   }
 
   /**
-   * The HTML-encoded user&#39;s display name formatted according to the default format for the current culture.
+   * The HTML-encoded user's display name formatted according to the default format for the current culture.
    * @return displayName
    */
   @javax.annotation.Nullable  @JsonIgnore

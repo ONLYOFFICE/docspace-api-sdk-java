@@ -48,7 +48,7 @@ public class ScopeManagementApi extends BaseApi {
 
   /**
    * Get available OAuth2 scopes
-   * Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the &#39;openid&#39; scope always appearing first.
+   * Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
    *
    * REST API Reference for getScopes Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/
@@ -63,7 +63,7 @@ public class ScopeManagementApi extends BaseApi {
 
   /**
    * Get available OAuth2 scopes
-   * Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the &#39;openid&#39; scope always appearing first.
+   * Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
    *
    * REST API Reference for getScopes Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/

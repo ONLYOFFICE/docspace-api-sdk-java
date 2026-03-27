@@ -1728,7 +1728,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Updated AI access settings |  -  |
-| **403** | You don&#39;t have enough permission to change the AI access settings |  -  |
+| **403** | You don't have enough permission to change the AI access settings |  -  |
 | **401** | Unauthorized |  -  |
 
 

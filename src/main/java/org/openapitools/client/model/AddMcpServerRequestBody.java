@@ -100,7 +100,7 @@ public class AddMcpServerRequestBody {
   }
 
   /**
-   * Human-readable description of the server&#39;s purpose and capabilities. Maximum 255 characters.
+   * Human-readable description of the server's purpose and capabilities. Maximum 255 characters.
    * @return description
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)

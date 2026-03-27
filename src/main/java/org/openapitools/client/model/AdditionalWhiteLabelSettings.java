@@ -126,7 +126,7 @@ public class AdditionalWhiteLabelSettings {
   }
 
   /**
-   * Specifies if the Feedback &amp; Support link is available or not.
+   * Specifies if the Feedback & Support link is available or not.
    * @return feedbackAndSupportEnabled
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FEEDBACK_AND_SUPPORT_ENABLED, required = false)

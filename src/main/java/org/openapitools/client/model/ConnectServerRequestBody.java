@@ -53,7 +53,7 @@ public class ConnectServerRequestBody {
   }
 
   /**
-   * OAuth authorization code received from the provider&#39;s redirect. Used to exchange for access and refresh tokens.
+   * OAuth authorization code received from the provider's redirect. Used to exchange for access and refresh tokens.
    * @return code
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CODE, required = false)

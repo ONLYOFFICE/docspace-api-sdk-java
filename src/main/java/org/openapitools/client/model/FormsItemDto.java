@@ -61,7 +61,7 @@ public class FormsItemDto {
   }
 
   /**
-   * The form item key.              &lt;example&gt;field_name&lt;/example&gt;
+   * The form item key.              <example>field_name</example>
    * @return key
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -92,7 +92,7 @@ public class FormsItemDto {
   }
 
   /**
-   * The form item type.              &lt;example&gt;text&lt;/example&gt;
+   * The form item type.              <example>text</example>
    * @return type
    */
   @javax.annotation.Nullable  @JsonIgnore

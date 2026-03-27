@@ -1174,7 +1174,7 @@ public class SettingsDto {
   }
 
   /**
-   * Specifies whether AI functionality (chat, agents, vectorization) is enabled for the current tenant.  When &#x60;false&#x60;, all AI features are disabled and the AI Agents folder is hidden.
+   * Specifies whether AI functionality (chat, agents, vectorization) is enabled for the current tenant.  When `false`, all AI features are disabled and the AI Agents folder is hidden.
    * @return aiEnabled
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AI_ENABLED, required = false)

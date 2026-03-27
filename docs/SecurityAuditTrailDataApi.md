@@ -102,7 +102,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | URL to the xlsx report file |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
-| **403** | You don&#39;t have enough permission to create |  -  |
+| **403** | You don't have enough permission to create |  -  |
 | **401** | Unauthorized |  -  |
 
 

@@ -14,7 +14,7 @@ AI provider details.
 |**url** | **String** | API endpoint URL for the AI provider. |  [optional] |
 |**createdOn** | [**ApiDateTime**](ApiDateTime.md) |  |  |
 |**modifiedOn** | [**ApiDateTime**](ApiDateTime.md) |  |  |
-|**needReset** | **Boolean** | Indicates whether the provider&#39;s API key needs to be reset. |  [optional] |
+|**needReset** | **Boolean** | Indicates whether the provider's API key needs to be reset. |  [optional] |
 |**isDefault** | **Boolean** | Indicates whether this provider is the default provider for the tenant. |  [optional] |
 
 

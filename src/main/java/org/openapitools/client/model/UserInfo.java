@@ -221,7 +221,7 @@ public class UserInfo {
   }
 
   /**
-   * The user&#39;s first name.
+   * The user's first name.
    * @return firstName
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -252,7 +252,7 @@ public class UserInfo {
   }
 
   /**
-   * The user&#39;s last name.
+   * The user's last name.
    * @return lastName
    */
   @javax.annotation.Nullable  @JsonIgnore

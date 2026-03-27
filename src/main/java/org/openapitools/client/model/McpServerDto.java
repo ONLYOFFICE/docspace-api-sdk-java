@@ -149,7 +149,7 @@ public class McpServerDto {
   }
 
   /**
-   * Human-readable description of the server&#39;s purpose and capabilities.
+   * Human-readable description of the server's purpose and capabilities.
    * @return description
    */
   @javax.annotation.Nullable  @JsonIgnore

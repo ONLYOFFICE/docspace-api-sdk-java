@@ -407,7 +407,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Link to the form |  -  |
-| **403** | You don&#39;t have enough permission to view the file |  -  |
+| **403** | You don't have enough permission to view the file |  -  |
 
 
 ## copyFileAs
@@ -504,7 +504,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Copied file entry information |  -  |
 | **400** | No file id or folder id toFolderId determine provider |  -  |
-| **403** | You don&#39;t have enough permission to create |  -  |
+| **403** | You don't have enough permission to create |  -  |
 | **404** | File not found |  -  |
 | **401** | Unauthorized |  -  |
 
@@ -602,7 +602,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Information about created session |  -  |
-| **403** | You don&#39;t have enough permission to edit the file |  -  |
+| **403** | You don't have enough permission to edit the file |  -  |
 | **401** | Unauthorized |  -  |
 
 
@@ -986,7 +986,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | New file information |  -  |
-| **403** | You don&#39;t have enough permission to create |  -  |
+| **403** | You don't have enough permission to create |  -  |
 | **401** | Unauthorized |  -  |
 
 
@@ -1081,7 +1081,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | New file information |  -  |
-| **403** | You don&#39;t have enough permission to create |  -  |
+| **403** | You don't have enough permission to create |  -  |
 | **401** | Unauthorized |  -  |
 
 
@@ -2050,7 +2050,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of actions performed on the file |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **404** | The required file was not found |  -  |
 | **401** | Unauthorized |  -  |
 
@@ -3255,7 +3255,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Configuration parameters |  -  |
-| **403** | You don&#39;t have enough permission to view the file |  -  |
+| **403** | You don't have enough permission to view the file |  -  |
 
 
 ## restoreFileVersion
@@ -3912,7 +3912,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Updated file information |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **404** | Not Found |  -  |
 | **401** | Unauthorized |  -  |
 
@@ -4077,7 +4077,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | File key for Document Service |  -  |
-| **403** | You don&#39;t have enough permission to view the file |  -  |
+| **403** | You don't have enough permission to view the file |  -  |
 
 
 ## startFillingFile
@@ -4268,7 +4268,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true - the file is favorite, false - the file is not favorite |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **401** | Unauthorized |  -  |
 
 
@@ -4342,7 +4342,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | File changes |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 
 
 ## updateFile

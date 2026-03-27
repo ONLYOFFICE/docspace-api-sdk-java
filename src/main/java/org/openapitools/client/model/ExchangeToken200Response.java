@@ -90,7 +90,7 @@ public class ExchangeToken200Response {
   }
 
   /**
-   * The type of token issued, typically &#39;Bearer&#39;.
+   * The type of token issued, typically 'Bearer'.
    * @return tokenType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOKEN_TYPE, required = false)

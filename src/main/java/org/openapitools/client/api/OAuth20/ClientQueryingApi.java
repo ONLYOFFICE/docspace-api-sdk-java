@@ -221,7 +221,7 @@ public class ClientQueryingApi extends BaseApi {
 
   /**
    * Get clients
-   * Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
+   * Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
    *
    * REST API Reference for getClients Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/
@@ -239,7 +239,7 @@ public class ClientQueryingApi extends BaseApi {
 
   /**
    * Get clients
-   * Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
+   * Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
    *
    * REST API Reference for getClients Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/

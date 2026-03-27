@@ -57,7 +57,7 @@ public class MobileRequestsDto {
   }
 
   /**
-   * The user&#39;s mobile phone number.
+   * The user's mobile phone number.
    * @return mobilePhone
    */
   @javax.annotation.Nullable  @JsonIgnore

@@ -140,7 +140,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Room information |  -  |
-| **403** | You don&#39;t have permission to edit the room |  -  |
+| **403** | You don't have permission to edit the room |  -  |
 | **401** | Unauthorized |  -  |
 
 
@@ -333,7 +333,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Room cover |  -  |
-| **403** | You don&#39;t have permission to change cover |  -  |
+| **403** | You don't have permission to change cover |  -  |
 | **404** | The required room was not found |  -  |
 | **401** | Unauthorized |  -  |
 
@@ -714,7 +714,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | New tag name |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **401** | Unauthorized |  -  |
 
 
@@ -998,7 +998,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **401** | Unauthorized |  -  |
 
 
@@ -1285,7 +1285,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Room information |  -  |
-| **403** | You don&#39;t have permission to edit the room |  -  |
+| **403** | You don't have permission to edit the room |  -  |
 | **401** | Unauthorized |  -  |
 
 
@@ -2025,7 +2025,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **count** | **Integer**| Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. | [optional] |
-| **startIndex** | **Integer**| Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. | [optional] |
+| **startIndex** | **Integer**| Represents the starting index from which the tags' information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. | [optional] |
 | **filterValue** | **String**| Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. | [optional] |
 
 ### Return type
@@ -2320,7 +2320,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns the contents of the Rooms section |  -  |
-| **403** | You don&#39;t have enough permission to view the room content |  -  |
+| **403** | You don't have enough permission to view the room content |  -  |
 | **401** | Unauthorized |  -  |
 
 
@@ -3735,7 +3735,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Updated tag name |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **401** | Unauthorized |  -  |
 
 

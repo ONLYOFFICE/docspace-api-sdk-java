@@ -14,10 +14,10 @@
 |**enabled** | **Boolean** | Specifies if the client is currently enabled or not. |  [optional] |
 |**clientId** | **String** | The client identifier issued to the client during registration. |  [optional] |
 |**clientSecret** | **String** | The client secret issued to the client during registration. |  [optional] |
-|**websiteUrl** | **String** | The URL to the client&#39;s website. |  [optional] |
-|**termsUrl** | **String** | The URL to the client&#39;s terms of service. |  [optional] |
-|**policyUrl** | **String** | The URL to the client&#39;s privacy policy. |  [optional] |
-|**logo** | **String** | The URL to the client&#39;s logo. |  [optional] |
+|**websiteUrl** | **String** | The URL to the client's website. |  [optional] |
+|**termsUrl** | **String** | The URL to the client's terms of service. |  [optional] |
+|**policyUrl** | **String** | The URL to the client's privacy policy. |  [optional] |
+|**logo** | **String** | The URL to the client's logo. |  [optional] |
 |**authenticationMethods** | **Set&lt;String&gt;** | The authentication methods supported by the client. |  [optional] |
 |**redirectUris** | **Set&lt;String&gt;** | The list of allowed redirect URIs. |  [optional] |
 |**allowedOrigins** | **Set&lt;String&gt;** | The list of allowed CORS origins. |  [optional] |

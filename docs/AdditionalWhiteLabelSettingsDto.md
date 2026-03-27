@@ -10,7 +10,7 @@ The additional white label settings parameters.
 |------------ | ------------- | ------------- | -------------|
 |**startDocsEnabled** | **Boolean** | Specifies if the sample documents are displayed or hidden. |  |
 |**helpCenterEnabled** | **Boolean** | Specifies if the Help Center link is available or not. |  |
-|**feedbackAndSupportEnabled** | **Boolean** | Specifies if the Feedback &amp; Support link is available or not. |  |
+|**feedbackAndSupportEnabled** | **Boolean** | Specifies if the Feedback & Support link is available or not. |  |
 |**userForumEnabled** | **Boolean** | Specifies if the user forum is available or not. |  |
 |**videoGuidesEnabled** | **Boolean** | Specifies if the Video Guides link is available or not. |  |
 |**licenseAgreementsEnabled** | **Boolean** | Specifies if the License Agreements link is available or not. |  |

@@ -203,7 +203,7 @@ public class ChunkedUploadSessionResponseInteger {
   }
 
   /**
-   * Represents the URI or path of the chunked upload session&#39;s current location.
+   * Represents the URI or path of the chunked upload session's current location.
    * @return location
    */
   @javax.annotation.Nullable  @JsonIgnore
