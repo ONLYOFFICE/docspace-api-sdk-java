@@ -46,7 +46,7 @@ public class AuthorizationApi extends BaseApi {
 
 
   /**
-   * OAuth2 authorization endpoint
+   * OAuth2 Authorization Endpoint
    * Initiates the OAuth2 authorization flow.
    *
    * REST API Reference for authorizeOAuth Operation
@@ -64,7 +64,7 @@ public class AuthorizationApi extends BaseApi {
 
 
   /**
-   * OAuth2 authorization endpoint
+   * OAuth2 Authorization Endpoint
    * Initiates the OAuth2 authorization flow.
    *
    * REST API Reference for authorizeOAuth Operation
@@ -131,7 +131,7 @@ public class AuthorizationApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "asc_auth_key" };
+    String[] localVarAuthNames = new String[] { "x-signature" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -151,8 +151,8 @@ public class AuthorizationApi extends BaseApi {
   }
 
   /**
-   * OAuth2 token endpoint
-   * Exchanges an authorization code specified in the request for the access token.
+   * OAuth2 Token Endpoint
+   * Exchange authorization code for access token
    *
    * REST API Reference for exchangeToken Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/exchange-token/
@@ -171,8 +171,8 @@ public class AuthorizationApi extends BaseApi {
 
 
   /**
-   * OAuth2 token endpoint
-   * Exchanges an authorization code specified in the request for the access token.
+   * OAuth2 Token Endpoint
+   * Exchange authorization code for access token
    *
    * REST API Reference for exchangeToken Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/exchange-token/
@@ -248,7 +248,7 @@ if (clientSecret != null)
 
   /**
    * OAuth2 consent endpoint
-   * Sends a consent request with the specified parameters.
+   * Sends consent approval
    *
    * REST API Reference for submitConsent Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/submit-consent/
@@ -265,7 +265,7 @@ if (clientSecret != null)
 
   /**
    * OAuth2 consent endpoint
-   * Sends a consent request with the specified parameters.
+   * Sends consent approval
    *
    * REST API Reference for submitConsent Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/submit-consent/
@@ -312,7 +312,7 @@ if (scope != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "asc_auth_key" };
+    String[] localVarAuthNames = new String[] { "x-signature" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -353,7 +353,7 @@ if (scope != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "asc_auth_key" };
+    String[] localVarAuthNames = new String[] { "x-signature" };
 
     return apiClient.invokeAPI(
       localVarPath,

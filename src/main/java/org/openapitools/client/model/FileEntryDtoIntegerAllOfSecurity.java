@@ -77,7 +77,8 @@ import java.util.StringJoiner;
   FileEntryDtoIntegerAllOfSecurity.JSON_PROPERTY_EDIT_EXPIRATION,
   FileEntryDtoIntegerAllOfSecurity.JSON_PROPERTY_VECTORIZATION,
   FileEntryDtoIntegerAllOfSecurity.JSON_PROPERTY_ASK_AI,
-  FileEntryDtoIntegerAllOfSecurity.JSON_PROPERTY_USE_CHAT
+  FileEntryDtoIntegerAllOfSecurity.JSON_PROPERTY_USE_CHAT,
+  FileEntryDtoIntegerAllOfSecurity.JSON_PROPERTY_UPDATE_XLSX
 })
 @JsonTypeName("FileEntryDtoInteger_allOf_security")
 
@@ -210,6 +211,9 @@ public class FileEntryDtoIntegerAllOfSecurity {
 
   public static final String JSON_PROPERTY_USE_CHAT = "UseChat";
   @javax.annotation.Nullable  private Boolean useChat;
+
+  public static final String JSON_PROPERTY_UPDATE_XLSX = "UpdateXlsx";
+  @javax.annotation.Nullable  private Boolean updateXlsx;
 
   public FileEntryDtoIntegerAllOfSecurity() {
   }
@@ -1247,6 +1251,30 @@ public class FileEntryDtoIntegerAllOfSecurity {
     this.useChat = useChat;
   }
 
+  public FileEntryDtoIntegerAllOfSecurity updateXlsx(@javax.annotation.Nullable Boolean updateXlsx) {
+    
+    this.updateXlsx = updateXlsx;
+    return this;
+  }
+
+  /**
+   * Get updateXlsx
+   * @return updateXlsx
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPDATE_XLSX, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getUpdateXlsx() {
+    return updateXlsx;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_UPDATE_XLSX, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUpdateXlsx(@javax.annotation.Nullable Boolean updateXlsx) {
+    this.updateXlsx = updateXlsx;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -1298,12 +1326,13 @@ public class FileEntryDtoIntegerAllOfSecurity {
         Objects.equals(this.editExpiration, fileEntryDtoIntegerAllOfSecurity.editExpiration) &&
         Objects.equals(this.vectorization, fileEntryDtoIntegerAllOfSecurity.vectorization) &&
         Objects.equals(this.askAi, fileEntryDtoIntegerAllOfSecurity.askAi) &&
-        Objects.equals(this.useChat, fileEntryDtoIntegerAllOfSecurity.useChat);
+        Objects.equals(this.useChat, fileEntryDtoIntegerAllOfSecurity.useChat) &&
+        Objects.equals(this.updateXlsx, fileEntryDtoIntegerAllOfSecurity.updateXlsx);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(read, comment, fillForms, review, create, createFrom, edit, delete, customFilter, editRoom, rename, readHistory, lock, editHistory, copyTo, copy, moveTo, move, pin, mute, editAccess, duplicate, submitToFormGallery, download, convert, copySharedLink, readLinks, reconnect, createRoomFrom, copyLink, embed, changeOwner, indexExport, startFilling, fillingStatus, resetFilling, stopFilling, openForm, editInternal, editExpiration, vectorization, askAi, useChat);
+    return Objects.hash(read, comment, fillForms, review, create, createFrom, edit, delete, customFilter, editRoom, rename, readHistory, lock, editHistory, copyTo, copy, moveTo, move, pin, mute, editAccess, duplicate, submitToFormGallery, download, convert, copySharedLink, readLinks, reconnect, createRoomFrom, copyLink, embed, changeOwner, indexExport, startFilling, fillingStatus, resetFilling, stopFilling, openForm, editInternal, editExpiration, vectorization, askAi, useChat, updateXlsx);
   }
 
   @Override
@@ -1353,6 +1382,7 @@ public class FileEntryDtoIntegerAllOfSecurity {
     sb.append("    vectorization: ").append(toIndentedString(vectorization)).append("\n");
     sb.append("    askAi: ").append(toIndentedString(askAi)).append("\n");
     sb.append("    useChat: ").append(toIndentedString(useChat)).append("\n");
+    sb.append("    updateXlsx: ").append(toIndentedString(updateXlsx)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1824,6 +1854,16 @@ public class FileEntryDtoIntegerAllOfSecurity {
     if (getUseChat() != null) {
       try {
         joiner.add(String.format("%sUseChat%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUseChat()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `UpdateXlsx` to the URL query string
+    if (getUpdateXlsx() != null) {
+      try {
+        joiner.add(String.format("%sUpdateXlsx%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdateXlsx()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

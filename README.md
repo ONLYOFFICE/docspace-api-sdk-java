@@ -894,6 +894,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Delete a folder</td>
       </tr>
       <tr>
+        <td><a href="docs/FilesFoldersApi.md#generatexlsxbyfolder"><strong>generateXlsxByFolder</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/files/folder/{folderId}/xlsx</td>
+        <td>Generate XLSX report by folder</td>
+      </tr>
+      <tr>
         <td><a href="docs/FilesFoldersApi.md#getfavoritesfolder"><strong>getFavoritesFolder</strong></a></td>
         <td><strong>GET</strong> /api/2.0/files/@favorites</td>
         <td>Get the Favorites section</td>
@@ -1575,12 +1580,12 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/OAuth20AuthorizationApi.md#authorizeoauth"><strong>authorizeOAuth</strong></a></td>
         <td><strong>GET</strong> /oauth2/authorize</td>
-        <td>OAuth2 authorization endpoint</td>
+        <td>OAuth2 Authorization Endpoint</td>
       </tr>
       <tr>
         <td><a href="docs/OAuth20AuthorizationApi.md#exchangetoken"><strong>exchangeToken</strong></a></td>
         <td><strong>POST</strong> /oauth2/token</td>
-        <td>OAuth2 token endpoint</td>
+        <td>OAuth2 Token Endpoint</td>
       </tr>
       <tr>
         <td><a href="docs/OAuth20AuthorizationApi.md#submitconsent"><strong>submitConsent</strong></a></td>
@@ -1593,7 +1598,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/OAuth20ClientManagementApi.md#changeactivation"><strong>changeActivation</strong></a></td>
         <td><strong>PATCH</strong> /api/2.0/clients/{clientId}/activation</td>
-        <td>Change the client activation status</td>
+        <td>Change client activation status</td>
       </tr>
       <tr>
         <td><a href="docs/OAuth20ClientManagementApi.md#createclient"><strong>createClient</strong></a></td>
@@ -1606,9 +1611,19 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Delete an OAuth2 client</td>
       </tr>
       <tr>
+        <td><a href="docs/OAuth20ClientManagementApi.md#deletetenantclients"><strong>deleteTenantClients</strong></a></td>
+        <td><strong>DELETE</strong> /api/2.0/clients/tenant</td>
+        <td>Delete all tenant OAuth2 clients</td>
+      </tr>
+      <tr>
+        <td><a href="docs/OAuth20ClientManagementApi.md#deleteuserclients"><strong>deleteUserClients</strong></a></td>
+        <td><strong>DELETE</strong> /api/2.0/clients</td>
+        <td>Delete all user OAuth2 clients</td>
+      </tr>
+      <tr>
         <td><a href="docs/OAuth20ClientManagementApi.md#regeneratesecret"><strong>regenerateSecret</strong></a></td>
         <td><strong>PATCH</strong> /api/2.0/clients/{clientId}/regenerate</td>
-        <td>Regenerate the client secret</td>
+        <td>Regenerate client secret</td>
       </tr>
       <tr>
         <td><a href="docs/OAuth20ClientManagementApi.md#revokeuserclient"><strong>revokeUserClient</strong></a></td>
@@ -1631,27 +1646,35 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/OAuth20ClientQueryingApi.md#getclientinfo"><strong>getClientInfo</strong></a></td>
         <td><strong>GET</strong> /api/2.0/clients/{clientId}/info</td>
-        <td>Get detailed client information</td>
+        <td>Retrieves detailed information for a specific client</td>
       </tr>
       <tr>
         <td><a href="docs/OAuth20ClientQueryingApi.md#getclients"><strong>getClients</strong></a></td>
         <td><strong>GET</strong> /api/2.0/clients</td>
-        <td>Get clients</td>
+        <td>List clients</td>
       </tr>
       <tr>
         <td><a href="docs/OAuth20ClientQueryingApi.md#getclientsinfo"><strong>getClientsInfo</strong></a></td>
         <td><strong>GET</strong> /api/2.0/clients/info</td>
-        <td>Get detailed information of clients</td>
+        <td>Retrieves a pageable list of client information</td>
       </tr>
       <tr>
         <td><a href="docs/OAuth20ClientQueryingApi.md#getconsents"><strong>getConsents</strong></a></td>
         <td><strong>GET</strong> /api/2.0/clients/consents</td>
-        <td>Get user consents</td>
+        <td>Retrieves a pageable list of consents</td>
       </tr>
       <tr>
         <td><a href="docs/OAuth20ClientQueryingApi.md#getpublicclientinfo"><strong>getPublicClientInfo</strong></a></td>
         <td><strong>GET</strong> /api/2.0/clients/{clientId}/public/info</td>
-        <td>Get public client information</td>
+        <td>Handles the GET request for public client information</td>
+      </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;"><strong>DiscoveryApi</strong></td>
+      </tr>
+      <tr>
+        <td><a href="docs/OAuth20DiscoveryApi.md#handleoptions"><strong>handleOptions</strong></a></td>
+        <td><strong>OPTIONS</strong> /.well-known/oauth-authorization-server</td>
+        <td></td>
       </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>ScopeManagementApi</strong></td>
@@ -1659,7 +1682,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/OAuth20ScopeManagementApi.md#getscopes"><strong>getScopes</strong></a></td>
         <td><strong>GET</strong> /api/2.0/scopes</td>
-        <td>Get available OAuth2 scopes</td>
+        <td>List available OAuth2 scopes</td>
       </tr>
     </tbody>
   </table>
@@ -3736,7 +3759,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.EncryptionSettingsWrapper](docs/EncryptionSettingsWrapper.md)
  - [org.openapitools.client.model.EngineType](docs/EngineType.md)
  - [org.openapitools.client.model.EntryType](docs/EntryType.md)
- - [org.openapitools.client.model.ErrorResponse](docs/ErrorResponse.md)
  - [org.openapitools.client.model.ExchangeToken200Response](docs/ExchangeToken200Response.md)
  - [org.openapitools.client.model.ExportChatRequestBodyInteger](docs/ExportChatRequestBodyInteger.md)
  - [org.openapitools.client.model.ExportMessageRequestBodyInteger](docs/ExportMessageRequestBodyInteger.md)
@@ -3971,6 +3993,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.PluginsConfig](docs/PluginsConfig.md)
  - [org.openapitools.client.model.PluginsDto](docs/PluginsDto.md)
  - [org.openapitools.client.model.PriceDto](docs/PriceDto.md)
+ - [org.openapitools.client.model.ProblemDetail](docs/ProblemDetail.md)
  - [org.openapitools.client.model.ProductAdministratorDto](docs/ProductAdministratorDto.md)
  - [org.openapitools.client.model.ProductAdministratorWrapper](docs/ProductAdministratorWrapper.md)
  - [org.openapitools.client.model.ProductQuantityType](docs/ProductQuantityType.md)

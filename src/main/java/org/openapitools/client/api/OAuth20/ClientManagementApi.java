@@ -28,7 +28,7 @@ import org.openapitools.client.model.ChangeClientActivationRequest;
 import org.openapitools.client.model.ClientResponse;
 import org.openapitools.client.model.ClientSecretResponse;
 import org.openapitools.client.model.CreateClientRequest;
-import org.openapitools.client.model.ErrorResponse;
+import org.openapitools.client.model.ProblemDetail;
 import org.openapitools.client.model.UpdateClientRequest;
 
 
@@ -51,13 +51,13 @@ public class ClientManagementApi extends BaseApi {
 
 
   /**
-   * Change the client activation status
+   * Change client activation status
    * Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
    *
    * REST API Reference for changeActivation Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/
    *
-   * @param clientId The client identifier. (required)
+   * @param clientId ID of the client to change activation for (required)
    * @param changeClientActivationRequest  (required)
    * @return Object
    * @throws ApiException if fails to make API call
@@ -68,13 +68,13 @@ public class ClientManagementApi extends BaseApi {
 
 
   /**
-   * Change the client activation status
+   * Change client activation status
    * Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
    *
    * REST API Reference for changeActivation Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/
    *
-   * @param clientId The client identifier. (required)
+   * @param clientId ID of the client to change activation for (required)
    * @param changeClientActivationRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Object
@@ -121,7 +121,7 @@ public class ClientManagementApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "asc_auth_key" };
+    String[] localVarAuthNames = new String[] { "x-signature" };
 
     TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
@@ -204,7 +204,7 @@ public class ClientManagementApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "asc_auth_key" };
+    String[] localVarAuthNames = new String[] { "x-signature" };
 
     TypeReference<ClientResponse> localVarReturnType = new TypeReference<ClientResponse>() {};
     return apiClient.invokeAPI(
@@ -226,12 +226,12 @@ public class ClientManagementApi extends BaseApi {
 
   /**
    * Delete an OAuth2 client
-   * Permanently deletes an OAuth2 client and all associated data. All access and refresh tokens issued to this client will be invalidated. This operation cannot be undone.
+   * Permanently deletes an OAuth2 client and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
    *
    * REST API Reference for deleteClient Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/
    *
-   * @param clientId The client identifier. (required)
+   * @param clientId ID of the client to delete (required)
    * @return Object
    * @throws ApiException if fails to make API call
    */
@@ -242,12 +242,12 @@ public class ClientManagementApi extends BaseApi {
 
   /**
    * Delete an OAuth2 client
-   * Permanently deletes an OAuth2 client and all associated data. All access and refresh tokens issued to this client will be invalidated. This operation cannot be undone.
+   * Permanently deletes an OAuth2 client and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
    *
    * REST API Reference for deleteClient Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/
    *
-   * @param clientId The client identifier. (required)
+   * @param clientId ID of the client to delete (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Object
    * @throws ApiException if fails to make API call
@@ -288,7 +288,7 @@ public class ClientManagementApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "asc_auth_key" };
+    String[] localVarAuthNames = new String[] { "x-signature" };
 
     TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
@@ -309,13 +309,165 @@ public class ClientManagementApi extends BaseApi {
   }
 
   /**
-   * Regenerate the client secret
+   * Delete all tenant OAuth2 clients
+   * Permanently deletes tenant OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+   *
+   * REST API Reference for deleteTenantClients Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-tenant-clients/
+   *
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object deleteTenantClients() throws ApiException {
+    return this.deleteTenantClients(Collections.emptyMap());
+  }
+
+
+  /**
+   * Delete all tenant OAuth2 clients
+   * Permanently deletes tenant OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+   *
+   * REST API Reference for deleteTenantClients Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-tenant-clients/
+   *
+   * @param additionalHeaders additionalHeaders for this call
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object deleteTenantClients(Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/clients/tenant";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "x-signature" };
+
+    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Delete all user OAuth2 clients
+   * Permanently deletes user OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+   *
+   * REST API Reference for deleteUserClients Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-user-clients/
+   *
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object deleteUserClients() throws ApiException {
+    return this.deleteUserClients(Collections.emptyMap());
+  }
+
+
+  /**
+   * Delete all user OAuth2 clients
+   * Permanently deletes user OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+   *
+   * REST API Reference for deleteUserClients Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-user-clients/
+   *
+   * @param additionalHeaders additionalHeaders for this call
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object deleteUserClients(Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/clients";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "x-signature" };
+
+    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Regenerate client secret
    * Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
    *
    * REST API Reference for regenerateSecret Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/regenerate-secret/
    *
-   * @param clientId The client identifier. (required)
+   * @param clientId ID of the client to regenerate secret for (required)
    * @return ClientSecretResponse
    * @throws ApiException if fails to make API call
    */
@@ -325,13 +477,13 @@ public class ClientManagementApi extends BaseApi {
 
 
   /**
-   * Regenerate the client secret
+   * Regenerate client secret
    * Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
    *
    * REST API Reference for regenerateSecret Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/regenerate-secret/
    *
-   * @param clientId The client identifier. (required)
+   * @param clientId ID of the client to regenerate secret for (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ClientSecretResponse
    * @throws ApiException if fails to make API call
@@ -372,7 +524,7 @@ public class ClientManagementApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "asc_auth_key" };
+    String[] localVarAuthNames = new String[] { "x-signature" };
 
     TypeReference<ClientSecretResponse> localVarReturnType = new TypeReference<ClientSecretResponse>() {};
     return apiClient.invokeAPI(
@@ -399,7 +551,7 @@ public class ClientManagementApi extends BaseApi {
    * REST API Reference for revokeUserClient Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/
    *
-   * @param clientId The client identifier. (required)
+   * @param clientId ID of the client to revoke consent for (required)
    * @return Object
    * @throws ApiException if fails to make API call
    */
@@ -415,7 +567,7 @@ public class ClientManagementApi extends BaseApi {
    * REST API Reference for revokeUserClient Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/
    *
-   * @param clientId The client identifier. (required)
+   * @param clientId ID of the client to revoke consent for (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Object
    * @throws ApiException if fails to make API call
@@ -456,7 +608,7 @@ public class ClientManagementApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "asc_auth_key" };
+    String[] localVarAuthNames = new String[] { "x-signature" };
 
     TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
@@ -478,12 +630,12 @@ public class ClientManagementApi extends BaseApi {
 
   /**
    * Update an existing OAuth2 client
-   * Updates the configuration of an existing OAuth2 client, allowing modifications to the client name, description, redirect URIs, and other settings. The client ID cannot be modified.
+   * Updates the configuration of an existing OAuth2 client. Allows modification of client name, description, redirect URIs, and other settings. The client ID cannot be modified.
    *
    * REST API Reference for updateClient Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/
    *
-   * @param clientId The client identifier. (required)
+   * @param clientId ID of the client to update (required)
    * @param updateClientRequest  (required)
    * @return Object
    * @throws ApiException if fails to make API call
@@ -495,12 +647,12 @@ public class ClientManagementApi extends BaseApi {
 
   /**
    * Update an existing OAuth2 client
-   * Updates the configuration of an existing OAuth2 client, allowing modifications to the client name, description, redirect URIs, and other settings. The client ID cannot be modified.
+   * Updates the configuration of an existing OAuth2 client. Allows modification of client name, description, redirect URIs, and other settings. The client ID cannot be modified.
    *
    * REST API Reference for updateClient Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/
    *
-   * @param clientId The client identifier. (required)
+   * @param clientId ID of the client to update (required)
    * @param updateClientRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Object
@@ -547,7 +699,7 @@ public class ClientManagementApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "asc_auth_key" };
+    String[] localVarAuthNames = new String[] { "x-signature" };
 
     TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
@@ -589,7 +741,7 @@ public class ClientManagementApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "asc_auth_key" };
+    String[] localVarAuthNames = new String[] { "x-signature" };
 
     return apiClient.invokeAPI(
       localVarPath,

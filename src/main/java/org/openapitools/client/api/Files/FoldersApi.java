@@ -532,6 +532,90 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
+   * Generate XLSX report by folder
+   * Triggers asynchronous XLSX report generation for the specified form results folder.
+   *
+   * REST API Reference for generateXlsxByFolder Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/
+   *
+   * @param folderId The folder unique identifier. (required)
+   * @return FileIntegerWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public FileIntegerWrapper generateXlsxByFolder(@javax.annotation.Nonnull Integer folderId) throws ApiException {
+    return this.generateXlsxByFolder(folderId, Collections.emptyMap());
+  }
+
+
+  /**
+   * Generate XLSX report by folder
+   * Triggers asynchronous XLSX report generation for the specified form results folder.
+   *
+   * REST API Reference for generateXlsxByFolder Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/
+   *
+   * @param folderId The folder unique identifier. (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return FileIntegerWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public FileIntegerWrapper generateXlsxByFolder(@javax.annotation.Nonnull Integer folderId, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'folderId' is set
+    if (folderId == null) {
+      throw new ApiException(400, "Missing the required parameter 'folderId' when calling generateXlsxByFolder");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/folder/{folderId}/xlsx"
+      .replaceAll("\\{" + "folderId" + "\\}", apiClient.escapeString(apiClient.parameterToString(folderId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<FileIntegerWrapper> localVarReturnType = new TypeReference<FileIntegerWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Get the Favorites section
    * Returns the detailed list of files and folders located in the Favorites section.
    *

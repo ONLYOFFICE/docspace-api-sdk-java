@@ -5,11 +5,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**getClient**](OAuth20ClientQueryingApi.md#getClient) | **GET** /api/2.0/clients/{clientId} | Get client details |
-| [**getClientInfo**](OAuth20ClientQueryingApi.md#getClientInfo) | **GET** /api/2.0/clients/{clientId}/info | Get detailed client information |
-| [**getClients**](OAuth20ClientQueryingApi.md#getClients) | **GET** /api/2.0/clients | Get clients |
-| [**getClientsInfo**](OAuth20ClientQueryingApi.md#getClientsInfo) | **GET** /api/2.0/clients/info | Get detailed information of clients |
-| [**getConsents**](OAuth20ClientQueryingApi.md#getConsents) | **GET** /api/2.0/clients/consents | Get user consents |
-| [**getPublicClientInfo**](OAuth20ClientQueryingApi.md#getPublicClientInfo) | **GET** /api/2.0/clients/{clientId}/public/info | Get public client information |
+| [**getClientInfo**](OAuth20ClientQueryingApi.md#getClientInfo) | **GET** /api/2.0/clients/{clientId}/info | Retrieves detailed information for a specific client |
+| [**getClients**](OAuth20ClientQueryingApi.md#getClients) | **GET** /api/2.0/clients | List clients |
+| [**getClientsInfo**](OAuth20ClientQueryingApi.md#getClientsInfo) | **GET** /api/2.0/clients/info | Retrieves a pageable list of client information |
+| [**getConsents**](OAuth20ClientQueryingApi.md#getConsents) | **GET** /api/2.0/clients/consents | Retrieves a pageable list of consents |
+| [**getPublicClientInfo**](OAuth20ClientQueryingApi.md#getPublicClientInfo) | **GET** /api/2.0/clients/{clientId}/public/info | Handles the GET request for public client information |
 
 
 
@@ -26,7 +26,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **clientId** | **String**| The client identifier. | |
+| **clientId** | **String**| ID of the client to retrieve | |
 
 ### Return type
 
@@ -34,7 +34,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[x-signature](../README.md#x-signature)
 
 ### Example
 
@@ -52,14 +52,14 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
         
-        // Configure API key authorization: asc_auth_key
-        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
-        asc_auth_key.setApiKey("YOUR API KEY");
+        // Configure API key authorization: x-signature
+        ApiKeyAuth x-signature = (ApiKeyAuth) defaultClient.getAuthentication("x-signature");
+        x-signature.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //asc_auth_key.setApiKeyPrefix("Token");
+        //x-signature.setApiKeyPrefix("Token");
 
         ClientQueryingApi apiInstance = new ClientQueryingApi(defaultClient);
-        String clientId = "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"; // String | The client identifier.
+        String clientId = "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"; // String | ID of the client to retrieve
         try {
             ClientResponse result = apiInstance.getClient(clientId);
             System.out.println(result);
@@ -95,7 +95,7 @@ public class Example {
 
 > ClientInfoResponse getClientInfo(clientId)
 
-Get detailed client informationRetrieves the detailed information for a client with the ID specified in the request.
+Retrieves detailed information for a specific clientRetrieves the detailed information for a client with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/).
 
@@ -104,7 +104,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **clientId** | **String**| The client identifier. | |
+| **clientId** | **String**| ID of the client to retrieve | |
 
 ### Return type
 
@@ -112,7 +112,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[x-signature](../README.md#x-signature)
 
 ### Example
 
@@ -130,14 +130,14 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
         
-        // Configure API key authorization: asc_auth_key
-        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
-        asc_auth_key.setApiKey("YOUR API KEY");
+        // Configure API key authorization: x-signature
+        ApiKeyAuth x-signature = (ApiKeyAuth) defaultClient.getAuthentication("x-signature");
+        x-signature.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //asc_auth_key.setApiKeyPrefix("Token");
+        //x-signature.setApiKeyPrefix("Token");
 
         ClientQueryingApi apiInstance = new ClientQueryingApi(defaultClient);
-        String clientId = "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"; // String | The client identifier.
+        String clientId = "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"; // String | ID of the client to retrieve
         try {
             ClientInfoResponse result = apiInstance.getClientInfo(clientId);
             System.out.println(result);
@@ -171,7 +171,7 @@ public class Example {
 
 > PageableResponse getClients(limit, lastClientId, lastCreatedOn)
 
-Get clientsRetrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
+List clientsRetrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/).
 
@@ -180,9 +180,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **limit** | **Integer**| The maximum number of results returned per page. | |
-| **lastClientId** | **String**| The ID of the last retrieved client. | [optional] |
-| **lastCreatedOn** | **OffsetDateTime**| The creation date of the last retrieved client. | [optional] |
+| **limit** | **Integer**| Pagination limit | [default to 30] |
+| **lastClientId** | **String**| ID of the last retrieved client | [optional] |
+| **lastCreatedOn** | **OffsetDateTime**| Date of the last retrieved client | [optional] |
 
 ### Return type
 
@@ -190,7 +190,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[x-signature](../README.md#x-signature)
 
 ### Example
 
@@ -208,16 +208,16 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
         
-        // Configure API key authorization: asc_auth_key
-        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
-        asc_auth_key.setApiKey("YOUR API KEY");
+        // Configure API key authorization: x-signature
+        ApiKeyAuth x-signature = (ApiKeyAuth) defaultClient.getAuthentication("x-signature");
+        x-signature.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //asc_auth_key.setApiKeyPrefix("Token");
+        //x-signature.setApiKeyPrefix("Token");
 
         ClientQueryingApi apiInstance = new ClientQueryingApi(defaultClient);
-        Integer limit = 1; // Integer | The maximum number of results returned per page.
-        String lastClientId = "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"; // String | The ID of the last retrieved client.
-        OffsetDateTime lastCreatedOn = OffsetDateTime.parse("2024-04-04T12:00:00Z"); // OffsetDateTime | The creation date of the last retrieved client.
+        Integer limit = 30; // Integer | Pagination limit
+        String lastClientId = "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"; // String | ID of the last retrieved client
+        OffsetDateTime lastCreatedOn = OffsetDateTime.parse("2024-04-04T12:00:00Z"); // OffsetDateTime | Date of the last retrieved client
         try {
             PageableResponse result = apiInstance.getClients(limit, lastClientId, lastCreatedOn);
             System.out.println(result);
@@ -243,7 +243,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Client list successfully retrieved |  -  |
 | **400** | Invalid pagination parameters |  -  |
-| **403** | Insufficient permissions to create a client list |  -  |
+| **403** | Insufficient permissions to list clients |  -  |
 | **429** | Too many requests - rate limit exceeded |  -  |
 | **500** | Internal server error occurred |  -  |
 
@@ -252,7 +252,7 @@ public class Example {
 
 > PageableResponseClientInfoResponse getClientsInfo(limit, lastClientId, lastCreatedOn)
 
-Get detailed information of clientsRetrieves a paginated list of information for all clients.
+Retrieves a pageable list of client informationRetrieves a paginated list of information for all clients.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/).
 
@@ -261,9 +261,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **limit** | **Integer**| The maximum number of results returned per page. | |
-| **lastClientId** | **String**| The identifier of the last retrieved client. | [optional] |
-| **lastCreatedOn** | **OffsetDateTime**| The creation date of the last retrieved client. | [optional] |
+| **limit** | **Integer**| Pagination limit | |
+| **lastClientId** | **String**| ID of the last retrieved client | [optional] |
+| **lastCreatedOn** | **OffsetDateTime**| Date of the last retrieved client | [optional] |
 
 ### Return type
 
@@ -271,7 +271,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[x-signature](../README.md#x-signature)
 
 ### Example
 
@@ -289,16 +289,16 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
         
-        // Configure API key authorization: asc_auth_key
-        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
-        asc_auth_key.setApiKey("YOUR API KEY");
+        // Configure API key authorization: x-signature
+        ApiKeyAuth x-signature = (ApiKeyAuth) defaultClient.getAuthentication("x-signature");
+        x-signature.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //asc_auth_key.setApiKeyPrefix("Token");
+        //x-signature.setApiKeyPrefix("Token");
 
         ClientQueryingApi apiInstance = new ClientQueryingApi(defaultClient);
-        Integer limit = 1; // Integer | The maximum number of results returned per page.
-        String lastClientId = "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"; // String | The identifier of the last retrieved client.
-        OffsetDateTime lastCreatedOn = OffsetDateTime.parse("2024-04-04T12:00:00Z"); // OffsetDateTime | The creation date of the last retrieved client.
+        Integer limit = 1; // Integer | Pagination limit
+        String lastClientId = "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"; // String | ID of the last retrieved client
+        OffsetDateTime lastCreatedOn = OffsetDateTime.parse("2024-04-04T12:00:00Z"); // OffsetDateTime | Date of the last retrieved client
         try {
             PageableResponseClientInfoResponse result = apiInstance.getClientsInfo(limit, lastClientId, lastCreatedOn);
             System.out.println(result);
@@ -332,7 +332,7 @@ public class Example {
 
 > PageableModificationResponse getConsents(limit, lastModifiedOn)
 
-Get user consentsRetrieves a paginated list of user consents.
+Retrieves a pageable list of consentsRetrieves a paginated list of user consents.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/).
 
@@ -341,8 +341,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **limit** | **Integer**| The maximum number of results returned per page. | |
-| **lastModifiedOn** | **OffsetDateTime**| The date when the user consent was last modified. | [optional] |
+| **limit** | **Integer**| Pagination limit | |
+| **lastModifiedOn** | **OffsetDateTime**| Date of the last retrieved consent | [optional] |
 
 ### Return type
 
@@ -350,7 +350,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[x-signature](../README.md#x-signature)
 
 ### Example
 
@@ -368,15 +368,15 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
         
-        // Configure API key authorization: asc_auth_key
-        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
-        asc_auth_key.setApiKey("YOUR API KEY");
+        // Configure API key authorization: x-signature
+        ApiKeyAuth x-signature = (ApiKeyAuth) defaultClient.getAuthentication("x-signature");
+        x-signature.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //asc_auth_key.setApiKeyPrefix("Token");
+        //x-signature.setApiKeyPrefix("Token");
 
         ClientQueryingApi apiInstance = new ClientQueryingApi(defaultClient);
-        Integer limit = 1; // Integer | The maximum number of results returned per page.
-        OffsetDateTime lastModifiedOn = OffsetDateTime.parse("2024-04-04T12:00:00Z"); // OffsetDateTime | The date when the user consent was last modified.
+        Integer limit = 1; // Integer | Pagination limit
+        OffsetDateTime lastModifiedOn = OffsetDateTime.parse("2024-04-04T12:00:00Z"); // OffsetDateTime | Date of the last retrieved consent
         try {
             PageableModificationResponse result = apiInstance.getConsents(limit, lastModifiedOn);
             System.out.println(result);
@@ -407,7 +407,7 @@ public class Example {
 
 > ClientInfoResponse getPublicClientInfo(clientId)
 
-Get public client informationReturns the public information for a client with the ID secified din the request.
+Handles the GET request for public client information
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/).
 
@@ -416,7 +416,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **clientId** | **String**| The client identifier. | |
+| **clientId** | **String**| ID of the client to retrieve | |
 
 ### Return type
 
@@ -442,7 +442,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         ClientQueryingApi apiInstance = new ClientQueryingApi(defaultClient);
-        String clientId = "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"; // String | The client identifier.
+        String clientId = "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"; // String | ID of the client to retrieve
         try {
             ClientInfoResponse result = apiInstance.getPublicClientInfo(clientId);
             System.out.println(result);

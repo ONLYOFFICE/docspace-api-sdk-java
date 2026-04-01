@@ -43,6 +43,7 @@ import java.util.StringJoiner;
   ClientInfoResponse.JSON_PROPERTY_NAME,
   ClientInfoResponse.JSON_PROPERTY_DESCRIPTION,
   ClientInfoResponse.JSON_PROPERTY_SCOPES,
+  ClientInfoResponse.JSON_PROPERTY_PUBLIC,
   ClientInfoResponse.JSON_PROPERTY_CLIENT_ID,
   ClientInfoResponse.JSON_PROPERTY_WEBSITE_URL,
   ClientInfoResponse.JSON_PROPERTY_TERMS_URL,
@@ -65,6 +66,9 @@ public class ClientInfoResponse {
 
   public static final String JSON_PROPERTY_SCOPES = "scopes";
   @javax.annotation.Nullable  private Set<String> scopes = new LinkedHashSet<>();
+
+  public static final String JSON_PROPERTY_PUBLIC = "public";
+  @javax.annotation.Nullable  private Boolean _public;
 
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   @javax.annotation.Nullable  private String clientId;
@@ -182,6 +186,30 @@ public class ClientInfoResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScopes(@javax.annotation.Nullable Set<String> scopes) {
     this.scopes = scopes;
+  }
+
+  public ClientInfoResponse _public(@javax.annotation.Nullable Boolean _public) {
+    
+    this._public = _public;
+    return this;
+  }
+
+  /**
+   * Get _public
+   * @return _public
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PUBLIC, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getPublic() {
+    return _public;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PUBLIC, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPublic(@javax.annotation.Nullable Boolean _public) {
+    this._public = _public;
   }
 
   public ClientInfoResponse clientId(@javax.annotation.Nullable String clientId) {
@@ -469,6 +497,7 @@ public class ClientInfoResponse {
     return Objects.equals(this.name, clientInfoResponse.name) &&
         Objects.equals(this.description, clientInfoResponse.description) &&
         Objects.equals(this.scopes, clientInfoResponse.scopes) &&
+        Objects.equals(this._public, clientInfoResponse._public) &&
         Objects.equals(this.clientId, clientInfoResponse.clientId) &&
         Objects.equals(this.websiteUrl, clientInfoResponse.websiteUrl) &&
         Objects.equals(this.termsUrl, clientInfoResponse.termsUrl) &&
@@ -484,7 +513,7 @@ public class ClientInfoResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, scopes, clientId, websiteUrl, termsUrl, policyUrl, logo, authenticationMethods, isPublic, createdOn, createdBy, modifiedOn, modifiedBy);
+    return Objects.hash(name, description, scopes, _public, clientId, websiteUrl, termsUrl, policyUrl, logo, authenticationMethods, isPublic, createdOn, createdBy, modifiedOn, modifiedBy);
   }
 
   @Override
@@ -494,6 +523,7 @@ public class ClientInfoResponse {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
+    sb.append("    _public: ").append(toIndentedString(_public)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    websiteUrl: ").append(toIndentedString(websiteUrl)).append("\n");
     sb.append("    termsUrl: ").append(toIndentedString(termsUrl)).append("\n");
@@ -586,6 +616,16 @@ public class ClientInfoResponse {
         }
       }
       i++;
+    }
+
+    // add `public` to the URL query string
+    if (getPublic() != null) {
+      try {
+        joiner.add(String.format("%spublic%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPublic()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `client_id` to the URL query string

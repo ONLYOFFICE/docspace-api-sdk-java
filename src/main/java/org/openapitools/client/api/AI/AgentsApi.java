@@ -329,6 +329,7 @@ public class AgentsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents/
    *
    * @param subjectId The filter by user ID. (optional)
+   * @param subjectOwnerId The filter by room owner ID. (optional)
    * @param withoutTags Specifies whether to search by tags or not. (optional)
    * @param tags The tags in the serialized format. (optional)
    * @param excludeSubject Specifies whether to exclude search by user or group ID. (optional)
@@ -342,8 +343,8 @@ public class AgentsApi extends BaseApi {
    * @return FolderContentIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentIntegerWrapper getAgents(@javax.annotation.Nullable String subjectId, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable SubjectFilter subjectFilter, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue) throws ApiException {
-    return this.getAgents(subjectId, withoutTags, tags, excludeSubject, subjectFilter, quotaFilter, count, startIndex, sortBy, sortOrder, filterValue, Collections.emptyMap());
+  public FolderContentIntegerWrapper getAgents(@javax.annotation.Nullable String subjectId, @javax.annotation.Nullable String subjectOwnerId, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable SubjectFilter subjectFilter, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue) throws ApiException {
+    return this.getAgents(subjectId, subjectOwnerId, withoutTags, tags, excludeSubject, subjectFilter, quotaFilter, count, startIndex, sortBy, sortOrder, filterValue, Collections.emptyMap());
   }
 
 
@@ -355,6 +356,7 @@ public class AgentsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents/
    *
    * @param subjectId The filter by user ID. (optional)
+   * @param subjectOwnerId The filter by room owner ID. (optional)
    * @param withoutTags Specifies whether to search by tags or not. (optional)
    * @param tags The tags in the serialized format. (optional)
    * @param excludeSubject Specifies whether to exclude search by user or group ID. (optional)
@@ -369,7 +371,7 @@ public class AgentsApi extends BaseApi {
    * @return FolderContentIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentIntegerWrapper getAgents(@javax.annotation.Nullable String subjectId, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable SubjectFilter subjectFilter, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public FolderContentIntegerWrapper getAgents(@javax.annotation.Nullable String subjectId, @javax.annotation.Nullable String subjectOwnerId, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable SubjectFilter subjectFilter, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -384,6 +386,7 @@ public class AgentsApi extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPair("subjectId", subjectId));
+    localVarQueryParams.addAll(apiClient.parameterToPair("subjectOwnerId", subjectOwnerId));
     localVarQueryParams.addAll(apiClient.parameterToPair("withoutTags", withoutTags));
     localVarQueryParams.addAll(apiClient.parameterToPair("tags", tags));
     localVarQueryParams.addAll(apiClient.parameterToPair("excludeSubject", excludeSubject));

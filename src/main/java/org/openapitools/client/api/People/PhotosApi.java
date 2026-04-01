@@ -408,7 +408,7 @@ public class PhotosApi extends BaseApi {
    *
    * @param userid The user ID. (required)
    * @param _file The image data. (required)
-   * @param autosave  (optional)
+   * @param autosave Specifies whether to autosave a photo or not. (optional)
    * @return FileUploadResultWrapper
    * @throws ApiException if fails to make API call
    */
@@ -426,7 +426,7 @@ public class PhotosApi extends BaseApi {
    *
    * @param userid The user ID. (required)
    * @param _file The image data. (required)
-   * @param autosave  (optional)
+   * @param autosave Specifies whether to autosave a photo or not. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileUploadResultWrapper
    * @throws ApiException if fails to make API call

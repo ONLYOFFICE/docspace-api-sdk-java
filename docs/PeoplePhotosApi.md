@@ -415,7 +415,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 |------------- | ------------- | ------------- | -------------|
 | **userid** | **String**| The user ID. | |
 | **_file** | **File**| The image data. | |
-| **autosave** | **Boolean**|  | [optional] |
+| **autosave** | **Boolean**| Specifies whether to autosave a photo or not. | [optional] |
 
 ### Return type
 
@@ -470,7 +470,7 @@ public class Example {
         PhotosApi apiInstance = new PhotosApi(defaultClient);
         String userid = "00000000-0000-0000-0000-000000000000"; // String | The user ID.
         File _file = new File("/path/to/file"); // File | The image data.
-        Boolean autosave = true; // Boolean | 
+        Boolean autosave = true; // Boolean | Specifies whether to autosave a photo or not.
         try {
             FileUploadResultWrapper result = apiInstance.uploadMemberPhoto(userid, _file, autosave);
             System.out.println(result);

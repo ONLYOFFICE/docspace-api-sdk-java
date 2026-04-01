@@ -2201,7 +2201,7 @@ public class Example {
 
 ## getRoomsFolder
 
-> FolderContentIntegerWrapper getRoomsFolder(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId)
+> FolderContentIntegerWrapper getRoomsFolder(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId)
 
 Get roomsReturns the contents of the Rooms section by the parameters specified in the request.
 
@@ -2214,6 +2214,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 |------------- | ------------- | ------------- | -------------|
 | **type** | [**List&lt;RoomType&gt;**](RoomType.md)| The filter by room type. | [optional] |
 | **subjectId** | **String**| The filter by user ID. | [optional] |
+| **subjectOwnerId** | **String**| The filter by room owner ID. | [optional] |
 | **searchArea** | [**SearchArea**](.md)| The room search area (Active, Archive, Any, Recent by links). | [optional] [enum: 0, 1, 2, 3, 4, 5, 6, 7] |
 | **withoutTags** | **Boolean**| Specifies whether to search by tags or not. | [optional] |
 | **tags** | **String**| The tags in the serialized format. | [optional] |
@@ -2282,6 +2283,7 @@ public class Example {
         RoomsApi apiInstance = new RoomsApi(defaultClient);
         List<RoomType> type = Arrays.asList(new ArrayList<>()); // List<RoomType> | The filter by room type.
         String subjectId = "00000000-0000-0000-0000-000000000000"; // String | The filter by user ID.
+        String subjectOwnerId = "00000000-0000-0000-0000-000000000000"; // String | The filter by room owner ID.
         SearchArea searchArea = SearchArea.fromValue("0"); // SearchArea | The room search area (Active, Archive, Any, Recent by links).
         Boolean withoutTags = false; // Boolean | Specifies whether to search by tags or not.
         String tags = "tag1"; // String | The tags in the serialized format.
@@ -2297,7 +2299,7 @@ public class Example {
         String filterValue = "My Document"; // String | The text filter value used to refine search or query operations.
         Integer groupId = 1; // Integer | The group ID
         try {
-            FolderContentIntegerWrapper result = apiInstance.getRoomsFolder(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId);
+            FolderContentIntegerWrapper result = apiInstance.getRoomsFolder(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RoomsApi#getRoomsFolder");

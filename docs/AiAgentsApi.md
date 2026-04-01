@@ -301,7 +301,7 @@ public class Example {
 
 ## getAgents
 
-> FolderContentIntegerWrapper getAgents(subjectId, withoutTags, tags, excludeSubject, subjectFilter, quotaFilter, count, startIndex, sortBy, sortOrder, filterValue)
+> FolderContentIntegerWrapper getAgents(subjectId, subjectOwnerId, withoutTags, tags, excludeSubject, subjectFilter, quotaFilter, count, startIndex, sortBy, sortOrder, filterValue)
 
 Get ai agentsGet ai agents
 
@@ -313,6 +313,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **subjectId** | **String**| The filter by user ID. | [optional] |
+| **subjectOwnerId** | **String**| The filter by room owner ID. | [optional] |
 | **withoutTags** | **Boolean**| Specifies whether to search by tags or not. | [optional] |
 | **tags** | **String**| The tags in the serialized format. | [optional] |
 | **excludeSubject** | **Boolean**| Specifies whether to exclude search by user or group ID. | [optional] |
@@ -376,6 +377,7 @@ public class Example {
 
         AgentsApi apiInstance = new AgentsApi(defaultClient);
         String subjectId = "00000000-0000-0000-0000-000000000000"; // String | The filter by user ID.
+        String subjectOwnerId = "00000000-0000-0000-0000-000000000000"; // String | The filter by room owner ID.
         Boolean withoutTags = false; // Boolean | Specifies whether to search by tags or not.
         String tags = "ai,assistant"; // String | The tags in the serialized format.
         Boolean excludeSubject = false; // Boolean | Specifies whether to exclude search by user or group ID.
@@ -387,7 +389,7 @@ public class Example {
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
         String filterValue = "my agent"; // String | The text filter value used to refine search or query operations.
         try {
-            FolderContentIntegerWrapper result = apiInstance.getAgents(subjectId, withoutTags, tags, excludeSubject, subjectFilter, quotaFilter, count, startIndex, sortBy, sortOrder, filterValue);
+            FolderContentIntegerWrapper result = apiInstance.getAgents(subjectId, subjectOwnerId, withoutTags, tags, excludeSubject, subjectFilter, quotaFilter, count, startIndex, sortBy, sortOrder, filterValue);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AgentsApi#getAgents");

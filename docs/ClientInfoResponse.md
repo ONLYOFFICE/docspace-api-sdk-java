@@ -11,6 +11,7 @@ The response containing public client information.
 |**name** | **String** | The client name. |  [optional] |
 |**description** | **String** | The client description. |  [optional] |
 |**scopes** | **Set&lt;String&gt;** | The client scopes. |  [optional] |
+|**_public** | **Boolean** |  |  [optional] |
 |**clientId** | **String** | The client ID. |  [optional] |
 |**websiteUrl** | **String** | The URL to the client's website |  [optional] |
 |**termsUrl** | **String** | The URL to the client's terms of service. |  [optional] |

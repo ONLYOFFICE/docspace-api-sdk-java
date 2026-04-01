@@ -1546,10 +1546,11 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/
    *
    * @param fileId The file unique identifier. (required)
+   * @return FileIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public void generateXlsx(@javax.annotation.Nonnull Integer fileId) throws ApiException {
-    this.generateXlsx(fileId, Collections.emptyMap());
+  public FileIntegerWrapper generateXlsx(@javax.annotation.Nonnull Integer fileId) throws ApiException {
+    return this.generateXlsx(fileId, Collections.emptyMap());
   }
 
 
@@ -1562,9 +1563,10 @@ public class FilesApi extends BaseApi {
    *
    * @param fileId The file unique identifier. (required)
    * @param additionalHeaders additionalHeaders for this call
+   * @return FileIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public void generateXlsx(@javax.annotation.Nonnull Integer fileId, Map<String, String> additionalHeaders) throws ApiException {
+  public FileIntegerWrapper generateXlsx(@javax.annotation.Nonnull Integer fileId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'fileId' is set
@@ -1591,7 +1593,7 @@ public class FilesApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -1602,7 +1604,8 @@ public class FilesApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    apiClient.invokeAPI(
+    TypeReference<FileIntegerWrapper> localVarReturnType = new TypeReference<FileIntegerWrapper>() {};
+    return apiClient.invokeAPI(
         localVarPath,
         "POST",
         localVarQueryParams,
@@ -1615,7 +1618,7 @@ public class FilesApi extends BaseApi {
         localVarAccept,
         localVarContentType,
         localVarAuthNames,
-        null
+        localVarReturnType
     );
   }
 

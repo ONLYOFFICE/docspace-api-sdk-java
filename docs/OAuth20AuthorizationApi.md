@@ -4,8 +4,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**authorizeOAuth**](OAuth20AuthorizationApi.md#authorizeOAuth) | **GET** /oauth2/authorize | OAuth2 authorization endpoint |
-| [**exchangeToken**](OAuth20AuthorizationApi.md#exchangeToken) | **POST** /oauth2/token | OAuth2 token endpoint |
+| [**authorizeOAuth**](OAuth20AuthorizationApi.md#authorizeOAuth) | **GET** /oauth2/authorize | OAuth2 Authorization Endpoint |
+| [**exchangeToken**](OAuth20AuthorizationApi.md#exchangeToken) | **POST** /oauth2/token | OAuth2 Token Endpoint |
 | [**submitConsent**](OAuth20AuthorizationApi.md#submitConsent) | **POST** /oauth2/authorize | OAuth2 consent endpoint |
 
 
@@ -14,7 +14,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > authorizeOAuth(responseType, clientId, redirectUri, scope)
 
-OAuth2 authorization endpointInitiates the OAuth2 authorization flow.
+OAuth2 Authorization EndpointInitiates the OAuth2 authorization flow.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/authorize-oauth/).
 
@@ -34,7 +34,7 @@ null (empty response body)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[x-signature](../README.md#x-signature)
 
 ### Example
 
@@ -52,11 +52,11 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
         
-        // Configure API key authorization: asc_auth_key
-        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
-        asc_auth_key.setApiKey("YOUR API KEY");
+        // Configure API key authorization: x-signature
+        ApiKeyAuth x-signature = (ApiKeyAuth) defaultClient.getAuthentication("x-signature");
+        x-signature.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //asc_auth_key.setApiKeyPrefix("Token");
+        //x-signature.setApiKeyPrefix("Token");
 
         AuthorizationApi apiInstance = new AuthorizationApi(defaultClient);
         String responseType = "code"; // String | The OAuth 2.0 response type, must be 'code' for authorization code flow.
@@ -93,7 +93,7 @@ public class Example {
 
 > ExchangeToken200Response exchangeToken(grantType, code, redirectUri, clientId, clientSecret)
 
-OAuth2 token endpointExchanges an authorization code specified in the request for the access token.
+OAuth2 Token EndpointExchange authorization code for access token
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/exchange-token/).
 
@@ -160,7 +160,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The authorization code was successfully exchanged for the access token |  -  |
+| **200** | Successfully exchanged authorization code for access token |  -  |
 | **400** | Invalid request parameters |  -  |
 
 
@@ -168,7 +168,7 @@ public class Example {
 
 > submitConsent(clientId, state, scope)
 
-OAuth2 consent endpointSends a consent request with the specified parameters.
+OAuth2 consent endpointSends consent approval
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/submit-consent/).
 
@@ -187,7 +187,7 @@ null (empty response body)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[x-signature](../README.md#x-signature)
 
 ### Example
 
@@ -205,11 +205,11 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
         
-        // Configure API key authorization: asc_auth_key
-        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
-        asc_auth_key.setApiKey("YOUR API KEY");
+        // Configure API key authorization: x-signature
+        ApiKeyAuth x-signature = (ApiKeyAuth) defaultClient.getAuthentication("x-signature");
+        x-signature.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //asc_auth_key.setApiKeyPrefix("Token");
+        //x-signature.setApiKeyPrefix("Token");
 
         AuthorizationApi apiInstance = new AuthorizationApi(defaultClient);
         String clientId = "clientId_example"; // String | The client identifier issued to the client during registration.

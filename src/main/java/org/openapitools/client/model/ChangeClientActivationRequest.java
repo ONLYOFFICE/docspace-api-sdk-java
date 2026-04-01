@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for changing the client activation status.
+ * Client activation change request
  */
 @JsonPropertyOrder({
   ChangeClientActivationRequest.JSON_PROPERTY_STATUS
@@ -53,7 +53,7 @@ public class ChangeClientActivationRequest {
   }
 
   /**
-   * The client activation status.
+   * The activation status of the client
    * @return status
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)

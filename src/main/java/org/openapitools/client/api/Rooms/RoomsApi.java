@@ -2026,6 +2026,7 @@ public class RoomsApi extends BaseApi {
    *
    * @param type The filter by room type. (optional)
    * @param subjectId The filter by user ID. (optional)
+   * @param subjectOwnerId The filter by room owner ID. (optional)
    * @param searchArea The room search area (Active, Archive, Any, Recent by links). (optional)
    * @param withoutTags Specifies whether to search by tags or not. (optional)
    * @param tags The tags in the serialized format. (optional)
@@ -2043,8 +2044,8 @@ public class RoomsApi extends BaseApi {
    * @return FolderContentIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentIntegerWrapper getRoomsFolder(@javax.annotation.Nullable List<RoomType> type, @javax.annotation.Nullable String subjectId, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ProviderFilter provider, @javax.annotation.Nullable SubjectFilter subjectFilter, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable StorageFilter storageFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer groupId) throws ApiException {
-    return this.getRoomsFolder(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId, Collections.emptyMap());
+  public FolderContentIntegerWrapper getRoomsFolder(@javax.annotation.Nullable List<RoomType> type, @javax.annotation.Nullable String subjectId, @javax.annotation.Nullable String subjectOwnerId, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ProviderFilter provider, @javax.annotation.Nullable SubjectFilter subjectFilter, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable StorageFilter storageFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer groupId) throws ApiException {
+    return this.getRoomsFolder(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId, Collections.emptyMap());
   }
 
 
@@ -2057,6 +2058,7 @@ public class RoomsApi extends BaseApi {
    *
    * @param type The filter by room type. (optional)
    * @param subjectId The filter by user ID. (optional)
+   * @param subjectOwnerId The filter by room owner ID. (optional)
    * @param searchArea The room search area (Active, Archive, Any, Recent by links). (optional)
    * @param withoutTags Specifies whether to search by tags or not. (optional)
    * @param tags The tags in the serialized format. (optional)
@@ -2075,7 +2077,7 @@ public class RoomsApi extends BaseApi {
    * @return FolderContentIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentIntegerWrapper getRoomsFolder(@javax.annotation.Nullable List<RoomType> type, @javax.annotation.Nullable String subjectId, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ProviderFilter provider, @javax.annotation.Nullable SubjectFilter subjectFilter, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable StorageFilter storageFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer groupId, Map<String, String> additionalHeaders) throws ApiException {
+  public FolderContentIntegerWrapper getRoomsFolder(@javax.annotation.Nullable List<RoomType> type, @javax.annotation.Nullable String subjectId, @javax.annotation.Nullable String subjectOwnerId, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ProviderFilter provider, @javax.annotation.Nullable SubjectFilter subjectFilter, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable StorageFilter storageFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer groupId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -2094,6 +2096,7 @@ public class RoomsApi extends BaseApi {
       localVarQueryStringJoiner.add(String.format(java.util.Locale.ROOT, "type[%d]=%s", i, apiClient.parameterToString(type.get(i))));
     }
     localVarQueryParams.addAll(apiClient.parameterToPair("subjectId", subjectId));
+    localVarQueryParams.addAll(apiClient.parameterToPair("subjectOwnerId", subjectOwnerId));
     localVarQueryParams.addAll(apiClient.parameterToPair("searchArea", searchArea));
     localVarQueryParams.addAll(apiClient.parameterToPair("withoutTags", withoutTags));
     localVarQueryParams.addAll(apiClient.parameterToPair("tags", tags));

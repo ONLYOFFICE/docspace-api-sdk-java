@@ -36,12 +36,13 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request for updating client details.
+ * Client update request containing modified client details
  */
 @JsonPropertyOrder({
   UpdateClientRequest.JSON_PROPERTY_NAME,
   UpdateClientRequest.JSON_PROPERTY_DESCRIPTION,
   UpdateClientRequest.JSON_PROPERTY_LOGO,
+  UpdateClientRequest.JSON_PROPERTY_PUBLIC,
   UpdateClientRequest.JSON_PROPERTY_ALLOW_PKCE,
   UpdateClientRequest.JSON_PROPERTY_IS_PUBLIC,
   UpdateClientRequest.JSON_PROPERTY_ALLOWED_ORIGINS
@@ -56,6 +57,9 @@ public class UpdateClientRequest {
 
   public static final String JSON_PROPERTY_LOGO = "logo";
   @javax.annotation.Nullable  private String logo;
+
+  public static final String JSON_PROPERTY_PUBLIC = "public";
+  @javax.annotation.Nullable  private Boolean _public;
 
   public static final String JSON_PROPERTY_ALLOW_PKCE = "allow_pkce";
   @javax.annotation.Nullable  private Boolean allowPkce;
@@ -77,7 +81,7 @@ public class UpdateClientRequest {
   }
 
   /**
-   * The client name.
+   * The name of the client
    * @return name
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
@@ -101,7 +105,7 @@ public class UpdateClientRequest {
   }
 
   /**
-   * The client description
+   * The description of the client
    * @return description
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
@@ -125,7 +129,7 @@ public class UpdateClientRequest {
   }
 
   /**
-   * The client logo in base64 format.
+   * The logo of the client in base64 format
    * @return logo
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
@@ -142,6 +146,30 @@ public class UpdateClientRequest {
     this.logo = logo;
   }
 
+  public UpdateClientRequest _public(@javax.annotation.Nullable Boolean _public) {
+    
+    this._public = _public;
+    return this;
+  }
+
+  /**
+   * Get _public
+   * @return _public
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PUBLIC, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getPublic() {
+    return _public;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PUBLIC, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPublic(@javax.annotation.Nullable Boolean _public) {
+    this._public = _public;
+  }
+
   public UpdateClientRequest allowPkce(@javax.annotation.Nullable Boolean allowPkce) {
     
     this.allowPkce = allowPkce;
@@ -149,7 +177,7 @@ public class UpdateClientRequest {
   }
 
   /**
-   * Indicates whether PKCE is allowed for the client.
+   * Indicates whether PKCE is allowed for the client
    * @return allowPkce
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ALLOW_PKCE, required = false)
@@ -173,7 +201,7 @@ public class UpdateClientRequest {
   }
 
   /**
-   * Indicates whether the client is accessible by third-party tenants.
+   * Indicates whether client is accessible by third-party tenants
    * @return isPublic
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_PUBLIC, required = false)
@@ -205,7 +233,7 @@ public class UpdateClientRequest {
   }
 
   /**
-   * The allowed origins for the client.
+   * The allowed origins for the client
    * @return allowedOrigins
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ALLOWED_ORIGINS, required = false)
@@ -235,6 +263,7 @@ public class UpdateClientRequest {
     return Objects.equals(this.name, updateClientRequest.name) &&
         Objects.equals(this.description, updateClientRequest.description) &&
         Objects.equals(this.logo, updateClientRequest.logo) &&
+        Objects.equals(this._public, updateClientRequest._public) &&
         Objects.equals(this.allowPkce, updateClientRequest.allowPkce) &&
         Objects.equals(this.isPublic, updateClientRequest.isPublic) &&
         Objects.equals(this.allowedOrigins, updateClientRequest.allowedOrigins);
@@ -242,7 +271,7 @@ public class UpdateClientRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, logo, allowPkce, isPublic, allowedOrigins);
+    return Objects.hash(name, description, logo, _public, allowPkce, isPublic, allowedOrigins);
   }
 
   @Override
@@ -252,6 +281,7 @@ public class UpdateClientRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    logo: ").append(toIndentedString(logo)).append("\n");
+    sb.append("    _public: ").append(toIndentedString(_public)).append("\n");
     sb.append("    allowPkce: ").append(toIndentedString(allowPkce)).append("\n");
     sb.append("    isPublic: ").append(toIndentedString(isPublic)).append("\n");
     sb.append("    allowedOrigins: ").append(toIndentedString(allowedOrigins)).append("\n");
@@ -326,6 +356,16 @@ public class UpdateClientRequest {
     if (getLogo() != null) {
       try {
         joiner.add(String.format("%slogo%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLogo()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `public` to the URL query string
+    if (getPublic() != null) {
+      try {
+        joiner.add(String.format("%spublic%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPublic()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

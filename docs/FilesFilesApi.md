@@ -1629,7 +1629,7 @@ public class Example {
 
 ## generateXlsx
 
-> generateXlsx(fileId)
+> FileIntegerWrapper generateXlsx(fileId)
 
 Generate XLSX reportTriggers asynchronous XLSX report generation for the specified form file.
 
@@ -1644,7 +1644,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-null (empty response body)
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
 
 ### Authorization
 
@@ -1695,7 +1695,8 @@ public class Example {
         FilesApi apiInstance = new FilesApi(defaultClient);
         Integer fileId = 1; // Integer | The file unique identifier.
         try {
-            apiInstance.generateXlsx(fileId);
+            FileIntegerWrapper result = apiInstance.generateXlsx(fileId);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling FilesApi#generateXlsx");
             System.err.println("Status code: " + e.getCode());
@@ -1710,15 +1711,15 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | XLSX report generation has been queued |  -  |
+| **200** | Original form file information |  -  |
 | **403** | You do not have enough permissions to perform this action |  -  |
-| **404** | Form file not found |  -  |
+| **404** | File not found |  -  |
 | **401** | Unauthorized |  -  |
 
 

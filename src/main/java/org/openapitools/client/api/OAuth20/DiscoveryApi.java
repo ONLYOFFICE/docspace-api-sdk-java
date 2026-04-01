@@ -24,8 +24,6 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.ProblemDetail;
-import org.openapitools.client.model.ScopeResponse;
 
 
 import java.util.ArrayList;
@@ -35,48 +33,48 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-public class ScopeManagementApi extends BaseApi {
+public class DiscoveryApi extends BaseApi {
 
-  public ScopeManagementApi() {
+  public DiscoveryApi() {
     super(Configuration.getDefaultApiClient());
   }
 
-  public ScopeManagementApi(ApiClient apiClient) {
+  public DiscoveryApi(ApiClient apiClient) {
     super(apiClient);
   }
 
 
   /**
-   * List available OAuth2 scopes
-   * Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
+   * 
+   * 
    *
-   * REST API Reference for getScopes Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/
+   * REST API Reference for handleOptions Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/handle-options/
    *
-   * @return ScopeResponse
+   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public ScopeResponse getScopes() throws ApiException {
-    return this.getScopes(Collections.emptyMap());
+  public Object handleOptions() throws ApiException {
+    return this.handleOptions(Collections.emptyMap());
   }
 
 
   /**
-   * List available OAuth2 scopes
-   * Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
+   * 
+   * 
    *
-   * REST API Reference for getScopes Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/
+   * REST API Reference for handleOptions Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/handle-options/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return ScopeResponse
+   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public ScopeResponse getScopes(Map<String, String> additionalHeaders) throws ApiException {
+  public Object handleOptions(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/api/2.0/scopes";
+    String localVarPath = "/.well-known/oauth-authorization-server";
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -93,7 +91,7 @@ public class ScopeManagementApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      "application/json"
+      "*/*"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -102,12 +100,12 @@ public class ScopeManagementApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "x-signature" };
+    String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<ScopeResponse> localVarReturnType = new TypeReference<ScopeResponse>() {};
+    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
         localVarPath,
-        "GET",
+        "OPTIONS",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),
@@ -135,7 +133,7 @@ public class ScopeManagementApi extends BaseApi {
     localVarHeaderParams.putAll(additionalHeaders);
 
     final String[] localVarAccepts = {
-      "application/json"
+      "*/*"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -144,7 +142,7 @@ public class ScopeManagementApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "x-signature" };
+    String[] localVarAuthNames = new String[] {  };
 
     return apiClient.invokeAPI(
       localVarPath,

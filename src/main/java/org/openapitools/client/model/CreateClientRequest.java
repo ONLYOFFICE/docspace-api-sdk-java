@@ -36,13 +36,14 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for creating a client.
+ * Client creation request containing client details
  */
 @JsonPropertyOrder({
   CreateClientRequest.JSON_PROPERTY_NAME,
   CreateClientRequest.JSON_PROPERTY_DESCRIPTION,
   CreateClientRequest.JSON_PROPERTY_LOGO,
   CreateClientRequest.JSON_PROPERTY_SCOPES,
+  CreateClientRequest.JSON_PROPERTY_PUBLIC,
   CreateClientRequest.JSON_PROPERTY_ALLOW_PKCE,
   CreateClientRequest.JSON_PROPERTY_IS_PUBLIC,
   CreateClientRequest.JSON_PROPERTY_WEBSITE_URL,
@@ -65,6 +66,9 @@ public class CreateClientRequest {
 
   public static final String JSON_PROPERTY_SCOPES = "scopes";
   @javax.annotation.Nullable  private Set<String> scopes = new LinkedHashSet<>();
+
+  public static final String JSON_PROPERTY_PUBLIC = "public";
+  @javax.annotation.Nullable  private Boolean _public;
 
   public static final String JSON_PROPERTY_ALLOW_PKCE = "allow_pkce";
   @javax.annotation.Nullable  private Boolean allowPkce;
@@ -125,7 +129,7 @@ public class CreateClientRequest {
   }
 
   /**
-   * The client description.
+   * The description of the client
    * @return description
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
@@ -149,7 +153,7 @@ public class CreateClientRequest {
   }
 
   /**
-   * The client logo in base64 format.
+   * The logo of the client in base64 format
    * @return logo
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
@@ -181,7 +185,7 @@ public class CreateClientRequest {
   }
 
   /**
-   * The client scopes.
+   * The scopes for the client
    * @return scopes
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SCOPES, required = false)
@@ -199,6 +203,30 @@ public class CreateClientRequest {
     this.scopes = scopes;
   }
 
+  public CreateClientRequest _public(@javax.annotation.Nullable Boolean _public) {
+    
+    this._public = _public;
+    return this;
+  }
+
+  /**
+   * Get _public
+   * @return _public
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PUBLIC, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getPublic() {
+    return _public;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PUBLIC, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPublic(@javax.annotation.Nullable Boolean _public) {
+    this._public = _public;
+  }
+
   public CreateClientRequest allowPkce(@javax.annotation.Nullable Boolean allowPkce) {
     
     this.allowPkce = allowPkce;
@@ -206,7 +234,7 @@ public class CreateClientRequest {
   }
 
   /**
-   * Indicates whether PKCE is allowed for the client.
+   * Indicates whether PKCE is allowed for the client
    * @return allowPkce
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ALLOW_PKCE, required = false)
@@ -230,7 +258,7 @@ public class CreateClientRequest {
   }
 
   /**
-   * Indicates whether the client is accessible by third-party tenants.
+   * Indicates if the client is public
    * @return isPublic
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_PUBLIC, required = false)
@@ -254,7 +282,7 @@ public class CreateClientRequest {
   }
 
   /**
-   * The URL to the client's website.
+   * The website URL of the client
    * @return websiteUrl
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WEBSITE_URL, required = false)
@@ -278,7 +306,7 @@ public class CreateClientRequest {
   }
 
   /**
-   * The URL to the client's terms of service.
+   * The terms URL of the client
    * @return termsUrl
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TERMS_URL, required = false)
@@ -302,7 +330,7 @@ public class CreateClientRequest {
   }
 
   /**
-   * The URL to the client's privacy policy.
+   * The policy URL of the client
    * @return policyUrl
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_POLICY_URL, required = false)
@@ -334,7 +362,7 @@ public class CreateClientRequest {
   }
 
   /**
-   * The list of allowed redirect URIs.
+   * The redirect URIs for the client
    * @return redirectUris
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_REDIRECT_URIS, required = true)
@@ -367,7 +395,7 @@ public class CreateClientRequest {
   }
 
   /**
-   * The list of allowed CORS origins.
+   * The allowed origins for the client
    * @return allowedOrigins
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ALLOWED_ORIGINS, required = true)
@@ -392,7 +420,7 @@ public class CreateClientRequest {
   }
 
   /**
-   * The list of allowed logout redirect URIs.
+   * The logout redirect URI for the client
    * @return logoutRedirectUri
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGOUT_REDIRECT_URI, required = false)
@@ -422,6 +450,7 @@ public class CreateClientRequest {
         Objects.equals(this.description, createClientRequest.description) &&
         Objects.equals(this.logo, createClientRequest.logo) &&
         Objects.equals(this.scopes, createClientRequest.scopes) &&
+        Objects.equals(this._public, createClientRequest._public) &&
         Objects.equals(this.allowPkce, createClientRequest.allowPkce) &&
         Objects.equals(this.isPublic, createClientRequest.isPublic) &&
         Objects.equals(this.websiteUrl, createClientRequest.websiteUrl) &&
@@ -434,7 +463,7 @@ public class CreateClientRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, logo, scopes, allowPkce, isPublic, websiteUrl, termsUrl, policyUrl, redirectUris, allowedOrigins, logoutRedirectUri);
+    return Objects.hash(name, description, logo, scopes, _public, allowPkce, isPublic, websiteUrl, termsUrl, policyUrl, redirectUris, allowedOrigins, logoutRedirectUri);
   }
 
   @Override
@@ -445,6 +474,7 @@ public class CreateClientRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    logo: ").append(toIndentedString(logo)).append("\n");
     sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
+    sb.append("    _public: ").append(toIndentedString(_public)).append("\n");
     sb.append("    allowPkce: ").append(toIndentedString(allowPkce)).append("\n");
     sb.append("    isPublic: ").append(toIndentedString(isPublic)).append("\n");
     sb.append("    websiteUrl: ").append(toIndentedString(websiteUrl)).append("\n");
@@ -544,6 +574,16 @@ public class CreateClientRequest {
         }
       }
       i++;
+    }
+
+    // add `public` to the URL query string
+    if (getPublic() != null) {
+      try {
+        joiner.add(String.format("%spublic%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPublic()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `allow_pkce` to the URL query string
