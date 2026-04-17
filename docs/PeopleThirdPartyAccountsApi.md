@@ -80,7 +80,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of third-party accounts |  -  |
+| **200** | List of third-party accounts |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## linkThirdPartyAccount
@@ -172,9 +175,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  -  |
+| **200** | Ok |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **405** | Error not allowed option |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## signupThirdPartyAccount
@@ -240,9 +246,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  -  |
+| **200** | Ok |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Incorrect email |  -  |
 | **403** | The invitation link is invalid or its validity has expired |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## unlinkThirdPartyAccount
@@ -334,6 +343,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | OK |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

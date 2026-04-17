@@ -24,7 +24,7 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.ExportMessageRequestBodyInteger;
+import org.openapitools.client.model.ExportMessageRequestBody;
 
 
 import java.util.ArrayList;
@@ -53,11 +53,11 @@ public class MessagesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/export-message/
    *
    * @param messageId The unique identifier of the AI chat message to export. (required)
-   * @param exportMessageRequestBodyInteger The export parameters including destination folder and file title. (required)
+   * @param exportMessageRequestBody The export parameters including destination folder and file title. (required)
    * @throws ApiException if fails to make API call
    */
-  public void exportMessage(@javax.annotation.Nonnull Integer messageId, @javax.annotation.Nonnull ExportMessageRequestBodyInteger exportMessageRequestBodyInteger) throws ApiException {
-    this.exportMessage(messageId, exportMessageRequestBodyInteger, Collections.emptyMap());
+  public void exportMessage(@javax.annotation.Nonnull Integer messageId, @javax.annotation.Nonnull ExportMessageRequestBody exportMessageRequestBody) throws ApiException {
+    this.exportMessage(messageId, exportMessageRequestBody, Collections.emptyMap());
   }
 
 
@@ -69,21 +69,21 @@ public class MessagesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/export-message/
    *
    * @param messageId The unique identifier of the AI chat message to export. (required)
-   * @param exportMessageRequestBodyInteger The export parameters including destination folder and file title. (required)
+   * @param exportMessageRequestBody The export parameters including destination folder and file title. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void exportMessage(@javax.annotation.Nonnull Integer messageId, @javax.annotation.Nonnull ExportMessageRequestBodyInteger exportMessageRequestBodyInteger, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = exportMessageRequestBodyInteger;
+  public void exportMessage(@javax.annotation.Nonnull Integer messageId, @javax.annotation.Nonnull ExportMessageRequestBody exportMessageRequestBody, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = exportMessageRequestBody;
     
     // verify the required parameter 'messageId' is set
     if (messageId == null) {
       throw new ApiException(400, "Missing the required parameter 'messageId' when calling exportMessage");
     }
     
-    // verify the required parameter 'exportMessageRequestBodyInteger' is set
-    if (exportMessageRequestBodyInteger == null) {
-      throw new ApiException(400, "Missing the required parameter 'exportMessageRequestBodyInteger' when calling exportMessage");
+    // verify the required parameter 'exportMessageRequestBody' is set
+    if (exportMessageRequestBody == null) {
+      throw new ApiException(400, "Missing the required parameter 'exportMessageRequestBody' when calling exportMessage");
     }
     
     // create path and map variables

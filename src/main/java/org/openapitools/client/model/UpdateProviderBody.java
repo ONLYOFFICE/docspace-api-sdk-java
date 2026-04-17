@@ -24,6 +24,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import org.openapitools.client.model.ModelSettingsItemDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -41,7 +45,8 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   UpdateProviderBody.JSON_PROPERTY_TITLE,
   UpdateProviderBody.JSON_PROPERTY_URL,
-  UpdateProviderBody.JSON_PROPERTY_KEY
+  UpdateProviderBody.JSON_PROPERTY_KEY,
+  UpdateProviderBody.JSON_PROPERTY_MODEL_SETTINGS
 })
 
 public class UpdateProviderBody {
@@ -53,6 +58,9 @@ public class UpdateProviderBody {
 
   public static final String JSON_PROPERTY_KEY = "key";
   @javax.annotation.Nullable  private JsonNullable<String> key = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_MODEL_SETTINGS = "modelSettings";
+  @javax.annotation.Nullable  private JsonNullable<Set<ModelSettingsItemDto>> modelSettings = JsonNullable.<Set<ModelSettingsItemDto>>undefined();
 
   public UpdateProviderBody() {
   }
@@ -151,6 +159,49 @@ public class UpdateProviderBody {
     this.key = JsonNullable.<String>of(key);
   }
 
+  public UpdateProviderBody modelSettings(@javax.annotation.Nullable Set<ModelSettingsItemDto> modelSettings) {
+    this.modelSettings = JsonNullable.<Set<ModelSettingsItemDto>>of(modelSettings);
+    
+    return this;
+  }
+
+  public UpdateProviderBody addModelSettingsItem(ModelSettingsItemDto modelSettingsItem) {
+    if (this.modelSettings == null || !this.modelSettings.isPresent()) {
+      this.modelSettings = JsonNullable.<Set<ModelSettingsItemDto>>of(new LinkedHashSet<>());
+    }
+    try {
+      this.modelSettings.get().add(modelSettingsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Optional list of model settings changes to apply atomically with the provider update.
+   * @return modelSettings
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Set<ModelSettingsItemDto> getModelSettings() {
+        return modelSettings.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_MODEL_SETTINGS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Set<ModelSettingsItemDto>> getModelSettings_JsonNullable() {
+    return modelSettings;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODEL_SETTINGS)
+  public void setModelSettings_JsonNullable(JsonNullable<Set<ModelSettingsItemDto>> modelSettings) {
+    this.modelSettings = modelSettings;
+  }
+
+  public void setModelSettings(@javax.annotation.Nullable Set<ModelSettingsItemDto> modelSettings) {
+    this.modelSettings = JsonNullable.<Set<ModelSettingsItemDto>>of(modelSettings);
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -162,7 +213,8 @@ public class UpdateProviderBody {
     UpdateProviderBody updateProviderBody = (UpdateProviderBody) o;
     return equalsNullable(this.title, updateProviderBody.title) &&
         equalsNullable(this.url, updateProviderBody.url) &&
-        equalsNullable(this.key, updateProviderBody.key);
+        equalsNullable(this.key, updateProviderBody.key) &&
+        equalsNullable(this.modelSettings, updateProviderBody.modelSettings);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -171,7 +223,7 @@ public class UpdateProviderBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(title), hashCodeNullable(url), hashCodeNullable(key));
+    return Objects.hash(hashCodeNullable(title), hashCodeNullable(url), hashCodeNullable(key), hashCodeNullable(modelSettings));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -188,6 +240,7 @@ public class UpdateProviderBody {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    modelSettings: ").append(toIndentedString(modelSettings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -263,6 +316,18 @@ public class UpdateProviderBody {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
+    }
+
+    // add `modelSettings` to the URL query string
+    if (getModelSettings() != null) {
+      int i = 0;
+      for (ModelSettingsItemDto _item : getModelSettings()) {
+        if (_item != null) {
+          joiner.add(_item.toUrlQueryString(String.format("%smodelSettings%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+      i++;
     }
 
     return joiner.toString();

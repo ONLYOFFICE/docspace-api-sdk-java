@@ -27,11 +27,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.net.URI;
 import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.EmployeeDto;
-import org.openapitools.client.model.FileEntryDtoIntegerAllOfAvailableShareRights;
-import org.openapitools.client.model.FileEntryDtoIntegerAllOfSecurity;
-import org.openapitools.client.model.FileEntryDtoIntegerAllOfShareSettings;
 import org.openapitools.client.model.FileEntryType;
 import org.openapitools.client.model.FileShare;
+import org.openapitools.client.model.FolderDtoIntegerAvailableShareRights;
+import org.openapitools.client.model.FolderDtoIntegerSecurity;
+import org.openapitools.client.model.FolderDtoIntegerShareSettings;
 import org.openapitools.client.model.FolderType;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -171,13 +171,13 @@ public class FileEntryDtoInteger {
   @javax.annotation.Nullable  private Boolean canShare;
 
   public static final String JSON_PROPERTY_SHARE_SETTINGS = "shareSettings";
-  @javax.annotation.Nullable  private JsonNullable<FileEntryDtoIntegerAllOfShareSettings> shareSettings = JsonNullable.<FileEntryDtoIntegerAllOfShareSettings>undefined();
+  @javax.annotation.Nullable  private JsonNullable<FolderDtoIntegerShareSettings> shareSettings = JsonNullable.<FolderDtoIntegerShareSettings>undefined();
 
   public static final String JSON_PROPERTY_SECURITY = "security";
-  @javax.annotation.Nullable  private JsonNullable<FileEntryDtoIntegerAllOfSecurity> security = JsonNullable.<FileEntryDtoIntegerAllOfSecurity>undefined();
+  @javax.annotation.Nullable  private JsonNullable<FolderDtoIntegerSecurity> security = JsonNullable.<FolderDtoIntegerSecurity>undefined();
 
   public static final String JSON_PROPERTY_AVAILABLE_SHARE_RIGHTS = "availableShareRights";
-  @javax.annotation.Nullable  private JsonNullable<FileEntryDtoIntegerAllOfAvailableShareRights> availableShareRights = JsonNullable.<FileEntryDtoIntegerAllOfAvailableShareRights>undefined();
+  @javax.annotation.Nullable  private JsonNullable<FolderDtoIntegerAvailableShareRights> availableShareRights = JsonNullable.<FolderDtoIntegerAvailableShareRights>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_TOKEN = "requestToken";
   @javax.annotation.Nullable  private JsonNullable<String> requestToken = JsonNullable.<String>undefined();
@@ -930,8 +930,8 @@ public class FileEntryDtoInteger {
     this.canShare = canShare;
   }
 
-  public FileEntryDtoInteger shareSettings(@javax.annotation.Nullable FileEntryDtoIntegerAllOfShareSettings shareSettings) {
-    this.shareSettings = JsonNullable.<FileEntryDtoIntegerAllOfShareSettings>of(shareSettings);
+  public FileEntryDtoInteger shareSettings(@javax.annotation.Nullable FolderDtoIntegerShareSettings shareSettings) {
+    this.shareSettings = JsonNullable.<FolderDtoIntegerShareSettings>of(shareSettings);
     
     return this;
   }
@@ -942,27 +942,27 @@ public class FileEntryDtoInteger {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public FileEntryDtoIntegerAllOfShareSettings getShareSettings() {
+  public FolderDtoIntegerShareSettings getShareSettings() {
         return shareSettings.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_SHARE_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<FileEntryDtoIntegerAllOfShareSettings> getShareSettings_JsonNullable() {
+  public JsonNullable<FolderDtoIntegerShareSettings> getShareSettings_JsonNullable() {
     return shareSettings;
   }
   
   @JsonProperty(JSON_PROPERTY_SHARE_SETTINGS)
-  public void setShareSettings_JsonNullable(JsonNullable<FileEntryDtoIntegerAllOfShareSettings> shareSettings) {
+  public void setShareSettings_JsonNullable(JsonNullable<FolderDtoIntegerShareSettings> shareSettings) {
     this.shareSettings = shareSettings;
   }
 
-  public void setShareSettings(@javax.annotation.Nullable FileEntryDtoIntegerAllOfShareSettings shareSettings) {
-    this.shareSettings = JsonNullable.<FileEntryDtoIntegerAllOfShareSettings>of(shareSettings);
+  public void setShareSettings(@javax.annotation.Nullable FolderDtoIntegerShareSettings shareSettings) {
+    this.shareSettings = JsonNullable.<FolderDtoIntegerShareSettings>of(shareSettings);
   }
 
-  public FileEntryDtoInteger security(@javax.annotation.Nullable FileEntryDtoIntegerAllOfSecurity security) {
-    this.security = JsonNullable.<FileEntryDtoIntegerAllOfSecurity>of(security);
+  public FileEntryDtoInteger security(@javax.annotation.Nullable FolderDtoIntegerSecurity security) {
+    this.security = JsonNullable.<FolderDtoIntegerSecurity>of(security);
     
     return this;
   }
@@ -973,27 +973,27 @@ public class FileEntryDtoInteger {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public FileEntryDtoIntegerAllOfSecurity getSecurity() {
+  public FolderDtoIntegerSecurity getSecurity() {
         return security.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_SECURITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<FileEntryDtoIntegerAllOfSecurity> getSecurity_JsonNullable() {
+  public JsonNullable<FolderDtoIntegerSecurity> getSecurity_JsonNullable() {
     return security;
   }
   
   @JsonProperty(JSON_PROPERTY_SECURITY)
-  public void setSecurity_JsonNullable(JsonNullable<FileEntryDtoIntegerAllOfSecurity> security) {
+  public void setSecurity_JsonNullable(JsonNullable<FolderDtoIntegerSecurity> security) {
     this.security = security;
   }
 
-  public void setSecurity(@javax.annotation.Nullable FileEntryDtoIntegerAllOfSecurity security) {
-    this.security = JsonNullable.<FileEntryDtoIntegerAllOfSecurity>of(security);
+  public void setSecurity(@javax.annotation.Nullable FolderDtoIntegerSecurity security) {
+    this.security = JsonNullable.<FolderDtoIntegerSecurity>of(security);
   }
 
-  public FileEntryDtoInteger availableShareRights(@javax.annotation.Nullable FileEntryDtoIntegerAllOfAvailableShareRights availableShareRights) {
-    this.availableShareRights = JsonNullable.<FileEntryDtoIntegerAllOfAvailableShareRights>of(availableShareRights);
+  public FileEntryDtoInteger availableShareRights(@javax.annotation.Nullable FolderDtoIntegerAvailableShareRights availableShareRights) {
+    this.availableShareRights = JsonNullable.<FolderDtoIntegerAvailableShareRights>of(availableShareRights);
     
     return this;
   }
@@ -1004,23 +1004,23 @@ public class FileEntryDtoInteger {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public FileEntryDtoIntegerAllOfAvailableShareRights getAvailableShareRights() {
+  public FolderDtoIntegerAvailableShareRights getAvailableShareRights() {
         return availableShareRights.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_AVAILABLE_SHARE_RIGHTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<FileEntryDtoIntegerAllOfAvailableShareRights> getAvailableShareRights_JsonNullable() {
+  public JsonNullable<FolderDtoIntegerAvailableShareRights> getAvailableShareRights_JsonNullable() {
     return availableShareRights;
   }
   
   @JsonProperty(JSON_PROPERTY_AVAILABLE_SHARE_RIGHTS)
-  public void setAvailableShareRights_JsonNullable(JsonNullable<FileEntryDtoIntegerAllOfAvailableShareRights> availableShareRights) {
+  public void setAvailableShareRights_JsonNullable(JsonNullable<FolderDtoIntegerAvailableShareRights> availableShareRights) {
     this.availableShareRights = availableShareRights;
   }
 
-  public void setAvailableShareRights(@javax.annotation.Nullable FileEntryDtoIntegerAllOfAvailableShareRights availableShareRights) {
-    this.availableShareRights = JsonNullable.<FileEntryDtoIntegerAllOfAvailableShareRights>of(availableShareRights);
+  public void setAvailableShareRights(@javax.annotation.Nullable FolderDtoIntegerAvailableShareRights availableShareRights) {
+    this.availableShareRights = JsonNullable.<FolderDtoIntegerAvailableShareRights>of(availableShareRights);
   }
 
   public FileEntryDtoInteger requestToken(@javax.annotation.Nullable String requestToken) {

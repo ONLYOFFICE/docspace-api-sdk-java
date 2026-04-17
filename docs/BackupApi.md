@@ -106,8 +106,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Boolean value: true if the operation is successful |  -  |
+| **200** | Boolean value: true if the operation is successful |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## createBackupSchedule
@@ -200,12 +203,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Boolean value: true if the operation is successful |  -  |
+| **200** | Boolean value: true if the operation is successful |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | BackupStored must be 1 - 30 or backup can not start as dump |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
 | **403** | Access denied |  -  |
 | **404** | The required folder was not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## deleteBackup
@@ -298,9 +304,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Boolean value: true if the operation is successful |  -  |
+| **200** | Boolean value: true if the operation is successful |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | Access denied |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## deleteBackupHistory
@@ -393,9 +402,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Boolean value: true if the operation is successful |  -  |
+| **200** | Boolean value: true if the operation is successful |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | Access denied |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## deleteBackupSchedule
@@ -488,9 +500,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Boolean value: true if the operation is successful |  -  |
+| **200** | Boolean value: true if the operation is successful |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | Access denied |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getBackupHistory
@@ -583,9 +598,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of backup history records |  -  |
+| **200** | List of backup history records |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | Access denied |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getBackupProgress
@@ -678,9 +696,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Backup progress: completed or not, progress percentage, error, tenant ID, backup progress item (Backup, Restore, Transfer), link |  -  |
+| **200** | Backup progress: completed or not, progress percentage, error, tenant ID, backup progress item (Backup, Restore, Transfer), link |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | Access denied |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getBackupSchedule
@@ -773,9 +794,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Backup schedule |  -  |
+| **200** | Backup schedule |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | Access denied |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getBackupsCount
@@ -872,10 +896,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Number of backups |  -  |
+| **200** | Number of backups |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | From date must be less than to date |  -  |
 | **403** | Access denied |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getBackupsServiceState
@@ -964,8 +991,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Backup service state |  -  |
+| **200** | Backup service state |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | Access denied |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getRestoreProgress
@@ -1031,7 +1062,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Backup progress: completed or not, progress percentage, error, tenant ID, backup progress item (Backup, Restore, Transfer), link |  -  |
+| **200** | Backup progress: completed or not, progress percentage, error, tenant ID, backup progress item (Backup, Restore, Transfer), link |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## startBackup
@@ -1124,12 +1158,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Backup progress: completed or not, progress percentage, error, tenant ID, backup progress item (Backup, Restore, Transfer), link |  -  |
+| **200** | Backup progress: completed or not, progress percentage, error, tenant ID, backup progress item (Backup, Restore, Transfer), link |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Wrong folder type or backup can`t start as dump |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
 | **403** | Access denied |  -  |
 | **404** | The required folder was not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## startBackupRestore
@@ -1222,10 +1259,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Backup progress: completed or not, progress percentage, error, tenant ID, backup progress item (Backup, Restore, Transfer), link |  -  |
+| **200** | Backup progress: completed or not, progress percentage, error, tenant ID, backup progress item (Backup, Restore, Transfer), link |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Backup can not start as dump |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
 | **403** | Access denied |  -  |
 | **404** | The required file or folder was not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

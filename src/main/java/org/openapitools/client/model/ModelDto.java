@@ -25,7 +25,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.AiChatPrice;
+import org.openapitools.client.model.AiModelCapabilities;
 import org.openapitools.client.model.CurrencyInfo;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -40,6 +45,8 @@ import java.util.StringJoiner;
   ModelDto.JSON_PROPERTY_PROVIDER_ID,
   ModelDto.JSON_PROPERTY_PROVIDER_TITLE,
   ModelDto.JSON_PROPERTY_MODEL_ID,
+  ModelDto.JSON_PROPERTY_ALIAS,
+  ModelDto.JSON_PROPERTY_CAPABILITIES,
   ModelDto.JSON_PROPERTY_PRICE,
   ModelDto.JSON_PROPERTY_CURRENCY
 })
@@ -53,6 +60,12 @@ public class ModelDto {
 
   public static final String JSON_PROPERTY_MODEL_ID = "modelId";
   @javax.annotation.Nullable  private String modelId;
+
+  public static final String JSON_PROPERTY_ALIAS = "alias";
+  @javax.annotation.Nullable  private JsonNullable<String> alias = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
+  @javax.annotation.Nullable  private AiModelCapabilities capabilities;
 
   public static final String JSON_PROPERTY_PRICE = "price";
   @javax.annotation.Nullable  private AiChatPrice price;
@@ -136,6 +149,61 @@ public class ModelDto {
     this.modelId = modelId;
   }
 
+  public ModelDto alias(@javax.annotation.Nullable String alias) {
+    this.alias = JsonNullable.<String>of(alias);
+    
+    return this;
+  }
+
+  /**
+   * The display name for the model.
+   * @return alias
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getAlias() {
+        return alias.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_ALIAS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getAlias_JsonNullable() {
+    return alias;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ALIAS)
+  public void setAlias_JsonNullable(JsonNullable<String> alias) {
+    this.alias = alias;
+  }
+
+  public void setAlias(@javax.annotation.Nullable String alias) {
+    this.alias = JsonNullable.<String>of(alias);
+  }
+
+  public ModelDto capabilities(@javax.annotation.Nullable AiModelCapabilities capabilities) {
+    
+    this.capabilities = capabilities;
+    return this;
+  }
+
+  /**
+   * Get capabilities
+   * @return capabilities
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CAPABILITIES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AiModelCapabilities getCapabilities() {
+    return capabilities;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CAPABILITIES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCapabilities(@javax.annotation.Nullable AiModelCapabilities capabilities) {
+    this.capabilities = capabilities;
+  }
+
   public ModelDto price(@javax.annotation.Nullable AiChatPrice price) {
     
     this.price = price;
@@ -196,13 +264,26 @@ public class ModelDto {
     return Objects.equals(this.providerId, modelDto.providerId) &&
         Objects.equals(this.providerTitle, modelDto.providerTitle) &&
         Objects.equals(this.modelId, modelDto.modelId) &&
+        equalsNullable(this.alias, modelDto.alias) &&
+        Objects.equals(this.capabilities, modelDto.capabilities) &&
         Objects.equals(this.price, modelDto.price) &&
         Objects.equals(this.currency, modelDto.currency);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(providerId, providerTitle, modelId, price, currency);
+    return Objects.hash(providerId, providerTitle, modelId, hashCodeNullable(alias), capabilities, price, currency);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -212,6 +293,8 @@ public class ModelDto {
     sb.append("    providerId: ").append(toIndentedString(providerId)).append("\n");
     sb.append("    providerTitle: ").append(toIndentedString(providerTitle)).append("\n");
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
+    sb.append("    alias: ").append(toIndentedString(alias)).append("\n");
+    sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("}");
@@ -289,6 +372,21 @@ public class ModelDto {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
+    }
+
+    // add `alias` to the URL query string
+    if (getAlias() != null) {
+      try {
+        joiner.add(String.format("%salias%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAlias()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `capabilities` to the URL query string
+    if (getCapabilities() != null) {
+      joiner.add(getCapabilities().toUrlQueryString(prefix + "capabilities" + suffix));
     }
 
     // add `price` to the URL query string

@@ -28,9 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.Contact;
-import org.openapitools.client.model.SexEnum;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -53,11 +51,7 @@ import java.util.StringJoiner;
   UpdateMemberRequestDto.JSON_PROPERTY_FIRST_NAME,
   UpdateMemberRequestDto.JSON_PROPERTY_LAST_NAME,
   UpdateMemberRequestDto.JSON_PROPERTY_DEPARTMENT,
-  UpdateMemberRequestDto.JSON_PROPERTY_TITLE,
   UpdateMemberRequestDto.JSON_PROPERTY_LOCATION,
-  UpdateMemberRequestDto.JSON_PROPERTY_SEX,
-  UpdateMemberRequestDto.JSON_PROPERTY_BIRTHDAY,
-  UpdateMemberRequestDto.JSON_PROPERTY_WORKSFROM,
   UpdateMemberRequestDto.JSON_PROPERTY_COMMENT,
   UpdateMemberRequestDto.JSON_PROPERTY_CONTACTS,
   UpdateMemberRequestDto.JSON_PROPERTY_FILES,
@@ -86,20 +80,8 @@ public class UpdateMemberRequestDto {
   public static final String JSON_PROPERTY_DEPARTMENT = "department";
   @javax.annotation.Nullable  private JsonNullable<List<UUID>> department = JsonNullable.<List<UUID>>undefined();
 
-  public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
-
   public static final String JSON_PROPERTY_LOCATION = "location";
   @javax.annotation.Nullable  private JsonNullable<String> location = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_SEX = "sex";
-  @javax.annotation.Nullable  private SexEnum sex;
-
-  public static final String JSON_PROPERTY_BIRTHDAY = "birthday";
-  @javax.annotation.Nullable  private ApiDateTime birthday;
-
-  public static final String JSON_PROPERTY_WORKSFROM = "worksfrom";
-  @javax.annotation.Nullable  private ApiDateTime worksfrom;
 
   public static final String JSON_PROPERTY_COMMENT = "comment";
   @javax.annotation.Nullable  private JsonNullable<String> comment = JsonNullable.<String>undefined();
@@ -346,37 +328,6 @@ public class UpdateMemberRequestDto {
     this.department = JsonNullable.<List<UUID>>of(department);
   }
 
-  public UpdateMemberRequestDto title(@javax.annotation.Nullable String title) {
-    this.title = JsonNullable.<String>of(title);
-    
-    return this;
-  }
-
-  /**
-   * The user title.
-   * @return title
-   */
-  @javax.annotation.Nullable  @JsonIgnore
-
-  public String getTitle() {
-        return title.orElse(null);
-  }
-
-  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getTitle_JsonNullable() {
-    return title;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  public void setTitle_JsonNullable(JsonNullable<String> title) {
-    this.title = title;
-  }
-
-  public void setTitle(@javax.annotation.Nullable String title) {
-    this.title = JsonNullable.<String>of(title);
-  }
-
   public UpdateMemberRequestDto location(@javax.annotation.Nullable String location) {
     this.location = JsonNullable.<String>of(location);
     
@@ -406,78 +357,6 @@ public class UpdateMemberRequestDto {
 
   public void setLocation(@javax.annotation.Nullable String location) {
     this.location = JsonNullable.<String>of(location);
-  }
-
-  public UpdateMemberRequestDto sex(@javax.annotation.Nullable SexEnum sex) {
-    
-    this.sex = sex;
-    return this;
-  }
-
-  /**
-   * Get sex
-   * @return sex
-   */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SEX, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public SexEnum getSex() {
-    return sex;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_SEX, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSex(@javax.annotation.Nullable SexEnum sex) {
-    this.sex = sex;
-  }
-
-  public UpdateMemberRequestDto birthday(@javax.annotation.Nullable ApiDateTime birthday) {
-    
-    this.birthday = birthday;
-    return this;
-  }
-
-  /**
-   * Get birthday
-   * @return birthday
-   */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_BIRTHDAY, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public ApiDateTime getBirthday() {
-    return birthday;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_BIRTHDAY, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBirthday(@javax.annotation.Nullable ApiDateTime birthday) {
-    this.birthday = birthday;
-  }
-
-  public UpdateMemberRequestDto worksfrom(@javax.annotation.Nullable ApiDateTime worksfrom) {
-    
-    this.worksfrom = worksfrom;
-    return this;
-  }
-
-  /**
-   * Get worksfrom
-   * @return worksfrom
-   */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WORKSFROM, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public ApiDateTime getWorksfrom() {
-    return worksfrom;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_WORKSFROM, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWorksfrom(@javax.annotation.Nullable ApiDateTime worksfrom) {
-    this.worksfrom = worksfrom;
   }
 
   public UpdateMemberRequestDto comment(@javax.annotation.Nullable String comment) {
@@ -632,11 +511,7 @@ public class UpdateMemberRequestDto {
         equalsNullable(this.firstName, updateMemberRequestDto.firstName) &&
         equalsNullable(this.lastName, updateMemberRequestDto.lastName) &&
         equalsNullable(this.department, updateMemberRequestDto.department) &&
-        equalsNullable(this.title, updateMemberRequestDto.title) &&
         equalsNullable(this.location, updateMemberRequestDto.location) &&
-        Objects.equals(this.sex, updateMemberRequestDto.sex) &&
-        Objects.equals(this.birthday, updateMemberRequestDto.birthday) &&
-        Objects.equals(this.worksfrom, updateMemberRequestDto.worksfrom) &&
         equalsNullable(this.comment, updateMemberRequestDto.comment) &&
         equalsNullable(this.contacts, updateMemberRequestDto.contacts) &&
         equalsNullable(this.files, updateMemberRequestDto.files) &&
@@ -649,7 +524,7 @@ public class UpdateMemberRequestDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(userId), hashCodeNullable(disable), hashCodeNullable(email), hashCodeNullable(isUser), hashCodeNullable(firstName), hashCodeNullable(lastName), hashCodeNullable(department), hashCodeNullable(title), hashCodeNullable(location), sex, birthday, worksfrom, hashCodeNullable(comment), hashCodeNullable(contacts), hashCodeNullable(files), hashCodeNullable(spam));
+    return Objects.hash(hashCodeNullable(userId), hashCodeNullable(disable), hashCodeNullable(email), hashCodeNullable(isUser), hashCodeNullable(firstName), hashCodeNullable(lastName), hashCodeNullable(department), hashCodeNullable(location), hashCodeNullable(comment), hashCodeNullable(contacts), hashCodeNullable(files), hashCodeNullable(spam));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -670,11 +545,7 @@ public class UpdateMemberRequestDto {
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    department: ").append(toIndentedString(department)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
-    sb.append("    sex: ").append(toIndentedString(sex)).append("\n");
-    sb.append("    birthday: ").append(toIndentedString(birthday)).append("\n");
-    sb.append("    worksfrom: ").append(toIndentedString(worksfrom)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    contacts: ").append(toIndentedString(contacts)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
@@ -802,16 +673,6 @@ public class UpdateMemberRequestDto {
       }
     }
 
-    // add `title` to the URL query string
-    if (getTitle() != null) {
-      try {
-        joiner.add(String.format("%stitle%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTitle()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
     // add `location` to the URL query string
     if (getLocation() != null) {
       try {
@@ -820,26 +681,6 @@ public class UpdateMemberRequestDto {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
-    }
-
-    // add `sex` to the URL query string
-    if (getSex() != null) {
-      try {
-        joiner.add(String.format("%ssex%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSex()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `birthday` to the URL query string
-    if (getBirthday() != null) {
-      joiner.add(getBirthday().toUrlQueryString(prefix + "birthday" + suffix));
-    }
-
-    // add `worksfrom` to the URL query string
-    if (getWorksfrom() != null) {
-      joiner.add(getWorksfrom().toUrlQueryString(prefix + "worksfrom" + suffix));
     }
 
     // add `comment` to the URL query string

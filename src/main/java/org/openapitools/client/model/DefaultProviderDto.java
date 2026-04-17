@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.client.model.ProviderType;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -41,7 +42,9 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   DefaultProviderDto.JSON_PROPERTY_PROVIDER_ID,
   DefaultProviderDto.JSON_PROPERTY_DEFAULT_MODEL,
-  DefaultProviderDto.JSON_PROPERTY_PROVIDER_TITLE
+  DefaultProviderDto.JSON_PROPERTY_PROVIDER_TITLE,
+  DefaultProviderDto.JSON_PROPERTY_PROVIDER_TYPE,
+  DefaultProviderDto.JSON_PROPERTY_DEFAULT_MODEL_ALIAS
 })
 
 public class DefaultProviderDto {
@@ -53,6 +56,12 @@ public class DefaultProviderDto {
 
   public static final String JSON_PROPERTY_PROVIDER_TITLE = "providerTitle";
   @javax.annotation.Nullable  private JsonNullable<String> providerTitle = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_PROVIDER_TYPE = "providerType";
+  @javax.annotation.Nullable  private ProviderType providerType;
+
+  public static final String JSON_PROPERTY_DEFAULT_MODEL_ALIAS = "defaultModelAlias";
+  @javax.annotation.Nullable  private JsonNullable<String> defaultModelAlias = JsonNullable.<String>undefined();
 
   public DefaultProviderDto() {
   }
@@ -137,6 +146,61 @@ public class DefaultProviderDto {
     this.providerTitle = JsonNullable.<String>of(providerTitle);
   }
 
+  public DefaultProviderDto providerType(@javax.annotation.Nullable ProviderType providerType) {
+    
+    this.providerType = providerType;
+    return this;
+  }
+
+  /**
+   * Get providerType
+   * @return providerType
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROVIDER_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public ProviderType getProviderType() {
+    return providerType;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PROVIDER_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setProviderType(@javax.annotation.Nullable ProviderType providerType) {
+    this.providerType = providerType;
+  }
+
+  public DefaultProviderDto defaultModelAlias(@javax.annotation.Nullable String defaultModelAlias) {
+    this.defaultModelAlias = JsonNullable.<String>of(defaultModelAlias);
+    
+    return this;
+  }
+
+  /**
+   * Display alias of the default model.
+   * @return defaultModelAlias
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getDefaultModelAlias() {
+        return defaultModelAlias.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_DEFAULT_MODEL_ALIAS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getDefaultModelAlias_JsonNullable() {
+    return defaultModelAlias;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DEFAULT_MODEL_ALIAS)
+  public void setDefaultModelAlias_JsonNullable(JsonNullable<String> defaultModelAlias) {
+    this.defaultModelAlias = defaultModelAlias;
+  }
+
+  public void setDefaultModelAlias(@javax.annotation.Nullable String defaultModelAlias) {
+    this.defaultModelAlias = JsonNullable.<String>of(defaultModelAlias);
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -148,7 +212,9 @@ public class DefaultProviderDto {
     DefaultProviderDto defaultProviderDto = (DefaultProviderDto) o;
     return Objects.equals(this.providerId, defaultProviderDto.providerId) &&
         Objects.equals(this.defaultModel, defaultProviderDto.defaultModel) &&
-        equalsNullable(this.providerTitle, defaultProviderDto.providerTitle);
+        equalsNullable(this.providerTitle, defaultProviderDto.providerTitle) &&
+        Objects.equals(this.providerType, defaultProviderDto.providerType) &&
+        equalsNullable(this.defaultModelAlias, defaultProviderDto.defaultModelAlias);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -157,7 +223,7 @@ public class DefaultProviderDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerId, defaultModel, hashCodeNullable(providerTitle));
+    return Objects.hash(providerId, defaultModel, hashCodeNullable(providerTitle), providerType, hashCodeNullable(defaultModelAlias));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -174,6 +240,8 @@ public class DefaultProviderDto {
     sb.append("    providerId: ").append(toIndentedString(providerId)).append("\n");
     sb.append("    defaultModel: ").append(toIndentedString(defaultModel)).append("\n");
     sb.append("    providerTitle: ").append(toIndentedString(providerTitle)).append("\n");
+    sb.append("    providerType: ").append(toIndentedString(providerType)).append("\n");
+    sb.append("    defaultModelAlias: ").append(toIndentedString(defaultModelAlias)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -245,6 +313,26 @@ public class DefaultProviderDto {
     if (getProviderTitle() != null) {
       try {
         joiner.add(String.format("%sproviderTitle%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getProviderTitle()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `providerType` to the URL query string
+    if (getProviderType() != null) {
+      try {
+        joiner.add(String.format("%sproviderType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getProviderType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `defaultModelAlias` to the URL query string
+    if (getDefaultModelAlias() != null) {
+      try {
+        joiner.add(String.format("%sdefaultModelAlias%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDefaultModelAlias()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

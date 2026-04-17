@@ -108,9 +108,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  -  |
+| **200** | Ok |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | No permissions to perform this action |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getGroupsWithFoldersShared
@@ -211,9 +214,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  -  |
+| **200** | Ok |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | No permissions to perform this action |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getGroupsWithRoomsShared
@@ -314,7 +320,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  -  |
+| **200** | Ok |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | No permissions to perform this action |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

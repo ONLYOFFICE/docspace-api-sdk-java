@@ -28,7 +28,6 @@ The folder parameters.
 |**providerId** | **Integer** | The provider ID of the file entry. |  [optional] |
 |**order** | **String** | The order of the file entry. |  [optional] |
 |**isFavorite** | **Boolean** | Specifies if the file is a favorite or not. |  [optional] |
-|**fileEntryType** | **FileEntryType** |  |  [optional] |
 |**id** | **Integer** | The file entry ID. |  [optional] |
 |**rootFolderId** | **Integer** | The root folder ID of the file entry. |  [optional] |
 |**originId** | **Integer** | The origin ID of the file entry. |  [optional] |
@@ -36,9 +35,9 @@ The folder parameters.
 |**originTitle** | **String** | The origin title of the file entry. |  [optional] |
 |**originRoomTitle** | **String** | The origin room title of the file entry. |  [optional] |
 |**canShare** | **Boolean** | Specifies if the file entry can be shared or not. |  [optional] |
-|**shareSettings** | [**FileEntryDtoIntegerAllOfShareSettings**](FileEntryDtoIntegerAllOfShareSettings.md) |  |  [optional] |
-|**security** | [**FileEntryDtoIntegerAllOfSecurity**](FileEntryDtoIntegerAllOfSecurity.md) |  |  [optional] |
-|**availableShareRights** | [**FileEntryDtoIntegerAllOfAvailableShareRights**](FileEntryDtoIntegerAllOfAvailableShareRights.md) |  |  [optional] |
+|**shareSettings** | [**FolderDtoIntegerShareSettings**](FolderDtoIntegerShareSettings.md) |  |  [optional] |
+|**security** | [**FolderDtoIntegerSecurity**](FolderDtoIntegerSecurity.md) |  |  [optional] |
+|**availableShareRights** | [**FolderDtoIntegerAvailableShareRights**](FolderDtoIntegerAvailableShareRights.md) |  |  [optional] |
 |**requestToken** | **String** | The request token of the file entry. |  [optional] |
 |**external** | **Boolean** | Specifies if the folder can be accessed via an external link or not. |  [optional] |
 |**expirationDate** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
@@ -65,6 +64,7 @@ The folder parameters.
 |**usedSpace** | **Long** | How much folder space is used (counter). |  [optional] |
 |**passwordProtected** | **Boolean** | Specifies if the folder is password protected or not. |  [optional] |
 |**expired** | **Boolean** | Specifies if an external link to the folder is expired or not. |  [optional] |
+|**fileEntryType** | **FileEntryType** |  |  [optional] |
 |**chatSettings** | [**ChatSettingsDto**](ChatSettingsDto.md) |  |  [optional] |
 |**rootRoomType** | **RoomType** |  |  [optional] |
 |**saveFormAsXLSX** | **Boolean** | Specifies whether to save form data as XLSX file. |  [optional] |

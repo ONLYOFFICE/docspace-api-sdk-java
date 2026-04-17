@@ -53,7 +53,6 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   EmployeeFullDto.JSON_PROPERTY_ID,
   EmployeeFullDto.JSON_PROPERTY_DISPLAY_NAME,
-  EmployeeFullDto.JSON_PROPERTY_TITLE,
   EmployeeFullDto.JSON_PROPERTY_AVATAR,
   EmployeeFullDto.JSON_PROPERTY_AVATAR_ORIGINAL,
   EmployeeFullDto.JSON_PROPERTY_AVATAR_MAX,
@@ -67,13 +66,10 @@ import java.util.StringJoiner;
   EmployeeFullDto.JSON_PROPERTY_USER_NAME,
   EmployeeFullDto.JSON_PROPERTY_EMAIL,
   EmployeeFullDto.JSON_PROPERTY_CONTACTS,
-  EmployeeFullDto.JSON_PROPERTY_BIRTHDAY,
-  EmployeeFullDto.JSON_PROPERTY_SEX,
   EmployeeFullDto.JSON_PROPERTY_STATUS,
   EmployeeFullDto.JSON_PROPERTY_ACTIVATION_STATUS,
   EmployeeFullDto.JSON_PROPERTY_TERMINATED,
   EmployeeFullDto.JSON_PROPERTY_DEPARTMENT,
-  EmployeeFullDto.JSON_PROPERTY_WORK_FROM,
   EmployeeFullDto.JSON_PROPERTY_GROUPS,
   EmployeeFullDto.JSON_PROPERTY_LOCATION,
   EmployeeFullDto.JSON_PROPERTY_NOTES,
@@ -107,9 +103,6 @@ public class EmployeeFullDto {
 
   public static final String JSON_PROPERTY_DISPLAY_NAME = "displayName";
   @javax.annotation.Nullable  private JsonNullable<String> displayName = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_AVATAR = "avatar";
   @javax.annotation.Nullable  private JsonNullable<String> avatar = JsonNullable.<String>undefined();
@@ -150,12 +143,6 @@ public class EmployeeFullDto {
   public static final String JSON_PROPERTY_CONTACTS = "contacts";
   @javax.annotation.Nullable  private JsonNullable<List<Contact>> contacts = JsonNullable.<List<Contact>>undefined();
 
-  public static final String JSON_PROPERTY_BIRTHDAY = "birthday";
-  @javax.annotation.Nullable  private ApiDateTime birthday;
-
-  public static final String JSON_PROPERTY_SEX = "sex";
-  @javax.annotation.Nullable  private JsonNullable<String> sex = JsonNullable.<String>undefined();
-
   public static final String JSON_PROPERTY_STATUS = "status";
   @javax.annotation.Nullable  private EmployeeStatus status;
 
@@ -167,9 +154,6 @@ public class EmployeeFullDto {
 
   public static final String JSON_PROPERTY_DEPARTMENT = "department";
   @javax.annotation.Nullable  private JsonNullable<String> department = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_WORK_FROM = "workFrom";
-  @javax.annotation.Nullable  private ApiDateTime workFrom;
 
   public static final String JSON_PROPERTY_GROUPS = "groups";
   @javax.annotation.Nullable  private JsonNullable<List<GroupSummaryDto>> groups = JsonNullable.<List<GroupSummaryDto>>undefined();
@@ -303,37 +287,6 @@ public class EmployeeFullDto {
 
   public void setDisplayName(@javax.annotation.Nullable String displayName) {
     this.displayName = JsonNullable.<String>of(displayName);
-  }
-
-  public EmployeeFullDto title(@javax.annotation.Nullable String title) {
-    this.title = JsonNullable.<String>of(title);
-    
-    return this;
-  }
-
-  /**
-   * The user title.
-   * @return title
-   */
-  @javax.annotation.Nullable  @JsonIgnore
-
-  public String getTitle() {
-        return title.orElse(null);
-  }
-
-  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getTitle_JsonNullable() {
-    return title;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  public void setTitle_JsonNullable(JsonNullable<String> title) {
-    this.title = title;
-  }
-
-  public void setTitle(@javax.annotation.Nullable String title) {
-    this.title = JsonNullable.<String>of(title);
   }
 
   public EmployeeFullDto avatar(@javax.annotation.Nullable String avatar) {
@@ -737,61 +690,6 @@ public class EmployeeFullDto {
     this.contacts = JsonNullable.<List<Contact>>of(contacts);
   }
 
-  public EmployeeFullDto birthday(@javax.annotation.Nullable ApiDateTime birthday) {
-    
-    this.birthday = birthday;
-    return this;
-  }
-
-  /**
-   * Get birthday
-   * @return birthday
-   */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_BIRTHDAY, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public ApiDateTime getBirthday() {
-    return birthday;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_BIRTHDAY, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBirthday(@javax.annotation.Nullable ApiDateTime birthday) {
-    this.birthday = birthday;
-  }
-
-  public EmployeeFullDto sex(@javax.annotation.Nullable String sex) {
-    this.sex = JsonNullable.<String>of(sex);
-    
-    return this;
-  }
-
-  /**
-   * The user sex.
-   * @return sex
-   */
-  @javax.annotation.Nullable  @JsonIgnore
-
-  public String getSex() {
-        return sex.orElse(null);
-  }
-
-  @JsonProperty(value = JSON_PROPERTY_SEX, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getSex_JsonNullable() {
-    return sex;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_SEX)
-  public void setSex_JsonNullable(JsonNullable<String> sex) {
-    this.sex = sex;
-  }
-
-  public void setSex(@javax.annotation.Nullable String sex) {
-    this.sex = JsonNullable.<String>of(sex);
-  }
-
   public EmployeeFullDto status(@javax.annotation.Nullable EmployeeStatus status) {
     
     this.status = status;
@@ -893,30 +791,6 @@ public class EmployeeFullDto {
 
   public void setDepartment(@javax.annotation.Nullable String department) {
     this.department = JsonNullable.<String>of(department);
-  }
-
-  public EmployeeFullDto workFrom(@javax.annotation.Nullable ApiDateTime workFrom) {
-    
-    this.workFrom = workFrom;
-    return this;
-  }
-
-  /**
-   * Get workFrom
-   * @return workFrom
-   */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WORK_FROM, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public ApiDateTime getWorkFrom() {
-    return workFrom;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_WORK_FROM, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWorkFrom(@javax.annotation.Nullable ApiDateTime workFrom) {
-    this.workFrom = workFrom;
   }
 
   public EmployeeFullDto groups(@javax.annotation.Nullable List<GroupSummaryDto> groups) {
@@ -1652,7 +1526,6 @@ public class EmployeeFullDto {
     EmployeeFullDto employeeFullDto = (EmployeeFullDto) o;
     return Objects.equals(this.id, employeeFullDto.id) &&
         equalsNullable(this.displayName, employeeFullDto.displayName) &&
-        equalsNullable(this.title, employeeFullDto.title) &&
         equalsNullable(this.avatar, employeeFullDto.avatar) &&
         equalsNullable(this.avatarOriginal, employeeFullDto.avatarOriginal) &&
         equalsNullable(this.avatarMax, employeeFullDto.avatarMax) &&
@@ -1666,13 +1539,10 @@ public class EmployeeFullDto {
         equalsNullable(this.userName, employeeFullDto.userName) &&
         equalsNullable(this.email, employeeFullDto.email) &&
         equalsNullable(this.contacts, employeeFullDto.contacts) &&
-        Objects.equals(this.birthday, employeeFullDto.birthday) &&
-        equalsNullable(this.sex, employeeFullDto.sex) &&
         Objects.equals(this.status, employeeFullDto.status) &&
         Objects.equals(this.activationStatus, employeeFullDto.activationStatus) &&
         Objects.equals(this.terminated, employeeFullDto.terminated) &&
         equalsNullable(this.department, employeeFullDto.department) &&
-        Objects.equals(this.workFrom, employeeFullDto.workFrom) &&
         equalsNullable(this.groups, employeeFullDto.groups) &&
         equalsNullable(this.location, employeeFullDto.location) &&
         equalsNullable(this.notes, employeeFullDto.notes) &&
@@ -1706,7 +1576,7 @@ public class EmployeeFullDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(displayName), hashCodeNullable(title), hashCodeNullable(avatar), hashCodeNullable(avatarOriginal), hashCodeNullable(avatarMax), hashCodeNullable(avatarMedium), hashCodeNullable(avatarSmall), hashCodeNullable(profileUrl), hasAvatar, isAnonim, hashCodeNullable(firstName), hashCodeNullable(lastName), hashCodeNullable(userName), hashCodeNullable(email), hashCodeNullable(contacts), birthday, hashCodeNullable(sex), status, activationStatus, terminated, hashCodeNullable(department), workFrom, hashCodeNullable(groups), hashCodeNullable(location), hashCodeNullable(notes), isAdmin, isRoomAdmin, isLDAP, hashCodeNullable(listAdminModules), isOwner, isVisitor, isCollaborator, hashCodeNullable(cultureName), hashCodeNullable(mobilePhone), mobilePhoneActivationStatus, isSSO, theme, hashCodeNullable(quotaLimit), hashCodeNullable(usedSpace), hashCodeNullable(shared), hashCodeNullable(isCustomQuota), hashCodeNullable(loginEventId), hashCodeNullable(authCookieLifetime), createdBy, registrationDate, hashCodeNullable(hasPersonalFolder), hashCodeNullable(tfaAppEnabled));
+    return Objects.hash(id, hashCodeNullable(displayName), hashCodeNullable(avatar), hashCodeNullable(avatarOriginal), hashCodeNullable(avatarMax), hashCodeNullable(avatarMedium), hashCodeNullable(avatarSmall), hashCodeNullable(profileUrl), hasAvatar, isAnonim, hashCodeNullable(firstName), hashCodeNullable(lastName), hashCodeNullable(userName), hashCodeNullable(email), hashCodeNullable(contacts), status, activationStatus, terminated, hashCodeNullable(department), hashCodeNullable(groups), hashCodeNullable(location), hashCodeNullable(notes), isAdmin, isRoomAdmin, isLDAP, hashCodeNullable(listAdminModules), isOwner, isVisitor, isCollaborator, hashCodeNullable(cultureName), hashCodeNullable(mobilePhone), mobilePhoneActivationStatus, isSSO, theme, hashCodeNullable(quotaLimit), hashCodeNullable(usedSpace), hashCodeNullable(shared), hashCodeNullable(isCustomQuota), hashCodeNullable(loginEventId), hashCodeNullable(authCookieLifetime), createdBy, registrationDate, hashCodeNullable(hasPersonalFolder), hashCodeNullable(tfaAppEnabled));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1722,7 +1592,6 @@ public class EmployeeFullDto {
     sb.append("class EmployeeFullDto {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    avatar: ").append(toIndentedString(avatar)).append("\n");
     sb.append("    avatarOriginal: ").append(toIndentedString(avatarOriginal)).append("\n");
     sb.append("    avatarMax: ").append(toIndentedString(avatarMax)).append("\n");
@@ -1736,13 +1605,10 @@ public class EmployeeFullDto {
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    contacts: ").append(toIndentedString(contacts)).append("\n");
-    sb.append("    birthday: ").append(toIndentedString(birthday)).append("\n");
-    sb.append("    sex: ").append(toIndentedString(sex)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    activationStatus: ").append(toIndentedString(activationStatus)).append("\n");
     sb.append("    terminated: ").append(toIndentedString(terminated)).append("\n");
     sb.append("    department: ").append(toIndentedString(department)).append("\n");
-    sb.append("    workFrom: ").append(toIndentedString(workFrom)).append("\n");
     sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
@@ -1829,16 +1695,6 @@ public class EmployeeFullDto {
     if (getDisplayName() != null) {
       try {
         joiner.add(String.format("%sdisplayName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDisplayName()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `title` to the URL query string
-    if (getTitle() != null) {
-      try {
-        joiner.add(String.format("%stitle%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTitle()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
@@ -1975,21 +1831,6 @@ public class EmployeeFullDto {
       }
     }
 
-    // add `birthday` to the URL query string
-    if (getBirthday() != null) {
-      joiner.add(getBirthday().toUrlQueryString(prefix + "birthday" + suffix));
-    }
-
-    // add `sex` to the URL query string
-    if (getSex() != null) {
-      try {
-        joiner.add(String.format("%ssex%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSex()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
     // add `status` to the URL query string
     if (getStatus() != null) {
       try {
@@ -2023,11 +1864,6 @@ public class EmployeeFullDto {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
-    }
-
-    // add `workFrom` to the URL query string
-    if (getWorkFrom() != null) {
-      joiner.add(getWorkFrom().toUrlQueryString(prefix + "workFrom" + suffix));
     }
 
     // add `groups` to the URL query string

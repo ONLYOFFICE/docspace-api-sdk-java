@@ -103,8 +103,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of enabled modules |  -  |
+| **200** | List of enabled modules |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getIsProductAdministrator
@@ -199,8 +202,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Object with the user security information: product ID, user ID, administrator or not |  -  |
+| **200** | Object with the user security information: product ID, user ID, administrator or not |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getPasswordSettings
@@ -289,8 +295,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Password settings |  -  |
+| **200** | Password settings |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getProductAdministrators
@@ -383,8 +392,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of product administrators with the following parameters |  -  |
+| **200** | List of product administrators with the following parameters |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getWebItemSecurityInfo
@@ -477,8 +489,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Boolean value: true - module is enabled, false - module is disabled |  -  |
+| **200** | Boolean value: true - module is enabled, false - module is disabled |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getWebItemSettingsSecurityInfo
@@ -571,8 +586,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Security settings |  -  |
+| **200** | Security settings |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## setAccessToWebItems
@@ -665,9 +683,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Security settings |  -  |
+| **200** | Security settings |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | Security settings are disabled for an open portal |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## setProductAdministrator
@@ -760,10 +781,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Object with the user security information: product ID, user ID, administrator or not |  -  |
+| **200** | Object with the user security information: product ID, user ID, administrator or not |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **402** | Your pricing plan does not support this option |  -  |
 | **403** | Only portal owner can set user as administrator |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## setWebItemSecurity
@@ -856,9 +880,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Security settings |  -  |
+| **200** | Security settings |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | Security settings are disabled for an open portal |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## updatePasswordSettings
@@ -951,7 +978,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Password settings |  -  |
+| **200** | Password settings |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | MinLength |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

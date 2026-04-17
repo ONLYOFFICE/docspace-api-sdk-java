@@ -128,8 +128,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Inserted file |  -  |
+| **200** | Inserted file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## createFolder
@@ -224,8 +227,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | New folder parameters |  -  |
+| **200** | New folder parameters |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## createFolderPrimaryExternalLink
@@ -320,9 +326,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Folders security information |  -  |
+| **200** | Folders security information |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **404** | Not Found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## createReportFolderHistory
@@ -415,10 +424,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | URL to the report file |  -  |
+| **200** | URL to the report file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to perform the operation |  -  |
 | **404** | The required folder was not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## deleteFolder
@@ -513,13 +525,16 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of file operations |  -  |
+| **200** | List of file operations |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## generateXlsxByFolder
 
-> FileIntegerWrapper generateXlsxByFolder(folderId)
+> XlsxReportResponseWrapper generateXlsxByFolder(folderId)
 
 Generate XLSX report by folderTriggers asynchronous XLSX report generation for the specified form results folder.
 
@@ -534,7 +549,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
+[**XlsxReportResponseWrapper**](XlsxReportResponseWrapper.md)
 
 ### Authorization
 
@@ -585,7 +600,7 @@ public class Example {
         FoldersApi apiInstance = new FoldersApi(defaultClient);
         Integer folderId = 1; // Integer | The folder unique identifier.
         try {
-            FileIntegerWrapper result = apiInstance.generateXlsxByFolder(folderId);
+            XlsxReportResponseWrapper result = apiInstance.generateXlsxByFolder(folderId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling FoldersApi#generateXlsxByFolder");
@@ -607,10 +622,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Original form file information |  -  |
+| **200** | Ok |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You do not have enough permissions to perform this action |  -  |
-| **404** | Form results folder not found |  -  |
+| **404** | The required folder was not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFavoritesFolder
@@ -715,10 +733,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The Favorites section contents |  -  |
+| **200** | The Favorites section contents |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFilesUsedSpace
@@ -807,8 +828,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Used space of files in the root folders |  -  |
+| **200** | Used space of files in the root folders |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFolder
@@ -874,7 +898,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  -  |
+| **200** | Ok |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFolderByFolderId
@@ -972,9 +999,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Folder contents |  -  |
+| **200** | Folder contents |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFolderHistory
@@ -1075,10 +1105,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of actions in the folder |  -  |
+| **200** | List of actions in the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to perform the operation |  -  |
 | **404** | The required folder was not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFolderInfo
@@ -1144,7 +1177,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Folder parameters |  -  |
+| **200** | Folder parameters |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFolderLinks
@@ -1237,8 +1273,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Folder security information |  -  |
+| **200** | Folder security information |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFolderPath
@@ -1331,9 +1370,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of file entry information |  -  |
+| **200** | List of file entry information |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to view the folder content |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFolderPrimaryExternalLink
@@ -1403,8 +1445,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Folder security information |  -  |
+| **200** | Folder security information |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFolders
@@ -1497,9 +1542,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of file entry information |  -  |
+| **200** | List of file entry information |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to view the folder content |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getMyFolder
@@ -1606,10 +1654,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The My documents section contents |  -  |
+| **200** | The My documents section contents |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getNewFolderItems
@@ -1702,9 +1753,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of file entry information |  -  |
+| **200** | List of file entry information |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to view the folder content |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getPrivacyFolder
@@ -1809,10 +1863,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The Private Room section contents |  -  |
+| **200** | The Private Room section contents |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getRecentFolder
@@ -1925,10 +1982,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The Recent section contents |  -  |
+| **200** | The Recent section contents |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getRootFolders
@@ -2035,10 +2095,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of section contents with the following parameters |  -  |
+| **200** | List of section contents with the following parameters |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getTrashFolder
@@ -2145,10 +2208,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The Trash section contents |  -  |
+| **200** | The Trash section contents |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## insertFile
@@ -2265,10 +2331,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Inserted file |  -  |
+| **200** | Inserted file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to create |  -  |
 | **404** | Folder not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## insertFileToMyFromBody
@@ -2383,10 +2452,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Inserted file |  -  |
+| **200** | Inserted file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to create |  -  |
 | **404** | Folder not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## renameFolder
@@ -2481,9 +2553,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Folder parameters |  -  |
+| **200** | Folder parameters |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to rename the folder |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## setFolderOrder
@@ -2578,8 +2653,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of file operations |  -  |
+| **200** | List of file operations |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## setFolderPrimaryExternalLink
@@ -2674,8 +2752,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Folder information |  -  |
+| **200** | Folder information |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## uploadFile
@@ -2770,10 +2851,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Inserted file |  -  |
+| **200** | Inserted file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to create |  -  |
 | **404** | Folder not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## uploadFileToMy
@@ -2866,8 +2950,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Uploaded file(s) |  -  |
+| **200** | Uploaded file(s) |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to create |  -  |
 | **404** | File not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

@@ -110,11 +110,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | SSE stream of ChatCompletion events (text/event-stream) |  -  |
+| **200** | SSE stream of ChatCompletion events (text/event-stream) |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The message is empty or one or more file attachments could not be processed |  -  |
 | **403** | You don't have enough permission to access the chat in this room |  -  |
 | **404** | The specified chat, room, or AI provider was not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## deleteChat
@@ -209,11 +212,14 @@ public class Example {
 | **204** | The chat was successfully deleted |  -  |
 | **404** | The chat with the specified ID was not found or does not belong to the current user |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## exportChat
 
-> exportChat(chatId, exportChatRequestBodyInteger)
+> exportChat(chatId, exportChatRequestBody)
 
 Export AI chat messages to a fileExports the entire message history of an AI chat session and saves it as a document in the specified folder.  The exported file is created with the provided title. Only the chat owner can export their own chat sessions.
 
@@ -225,7 +231,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **chatId** | **UUID**| The unique identifier of the AI chat session to export. | |
-| **exportChatRequestBodyInteger** | [**ExportChatRequestBodyInteger**](ExportChatRequestBodyInteger.md)| The export parameters including destination folder and file title. | |
+| **exportChatRequestBody** | [**ExportChatRequestBody**](ExportChatRequestBody.md)| The export parameters including destination folder and file title. | |
 
 ### Return type
 
@@ -279,9 +285,9 @@ public class Example {
 
         ChatApi apiInstance = new ChatApi(defaultClient);
         UUID chatId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The unique identifier of the AI chat session to export.
-        ExportChatRequestBodyInteger exportChatRequestBodyInteger = new ExportChatRequestBodyInteger(); // ExportChatRequestBodyInteger | The export parameters including destination folder and file title.
+        ExportChatRequestBody exportChatRequestBody = new ExportChatRequestBody(); // ExportChatRequestBody | The export parameters including destination folder and file title.
         try {
-            apiInstance.exportChat(chatId, exportChatRequestBodyInteger);
+            apiInstance.exportChat(chatId, exportChatRequestBody);
         } catch (ApiException e) {
             System.err.println("Exception when calling ChatApi#exportChat");
             System.err.println("Status code: " + e.getCode());
@@ -302,9 +308,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The chat messages were successfully exported to the specified folder |  -  |
+| **200** | The chat messages were successfully exported to the specified folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **404** | The chat with the specified ID was not found or does not belong to the current user |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getChat
@@ -397,9 +406,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Chat session details |  -  |
+| **200** | Chat session details |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **404** | The chat with the specified ID was not found or does not belong to the current user |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getChatModels
@@ -492,8 +504,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of available AI models |  -  |
+| **200** | List of available AI models |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getChats
@@ -590,10 +605,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Paginated list of chat sessions in the room |  -  |
+| **200** | Paginated list of chat sessions in the room |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to access chats in this room |  -  |
 | **404** | The room with the specified ID was not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getMessages
@@ -690,9 +708,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Paginated list of messages in the chat |  -  |
+| **200** | Paginated list of messages in the chat |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **404** | The chat with the specified ID was not found or does not belong to the current user |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getUserChatsSettings
@@ -785,10 +806,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Current user chat settings |  -  |
+| **200** | Current user chat settings |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to access chats in this room |  -  |
 | **404** | The room with the specified ID was not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## providePermission
@@ -882,8 +906,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The permission decision was successfully recorded |  -  |
+| **200** | The permission decision was successfully recorded |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## renameChat
@@ -978,9 +1005,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Updated chat session details |  -  |
+| **200** | Updated chat session details |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **404** | The chat with the specified ID was not found or does not belong to the current user |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## setUserChatsSettings
@@ -1075,10 +1105,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Updated user chat settings |  -  |
+| **200** | Updated user chat settings |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to access chats in this room |  -  |
 | **404** | The room with the specified ID was not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## startNewChat
@@ -1172,9 +1205,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | SSE stream of ChatCompletion events (text/event-stream) |  -  |
+| **200** | SSE stream of ChatCompletion events (text/event-stream) |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The message is empty or one or more file attachments could not be processed |  -  |
 | **403** | You don't have enough permission to access the chat in this room |  -  |
 | **404** | The specified room or AI provider was not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

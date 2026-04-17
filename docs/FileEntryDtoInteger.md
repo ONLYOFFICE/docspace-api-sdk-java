@@ -36,9 +36,9 @@ The generic file entry information.
 |**originTitle** | **String** | The origin title of the file entry. |  [optional] |
 |**originRoomTitle** | **String** | The origin room title of the file entry. |  [optional] |
 |**canShare** | **Boolean** | Specifies if the file entry can be shared or not. |  [optional] |
-|**shareSettings** | [**FileEntryDtoIntegerAllOfShareSettings**](FileEntryDtoIntegerAllOfShareSettings.md) |  |  [optional] |
-|**security** | [**FileEntryDtoIntegerAllOfSecurity**](FileEntryDtoIntegerAllOfSecurity.md) |  |  [optional] |
-|**availableShareRights** | [**FileEntryDtoIntegerAllOfAvailableShareRights**](FileEntryDtoIntegerAllOfAvailableShareRights.md) |  |  [optional] |
+|**shareSettings** | [**FolderDtoIntegerShareSettings**](FolderDtoIntegerShareSettings.md) |  |  [optional] |
+|**security** | [**FolderDtoIntegerSecurity**](FolderDtoIntegerSecurity.md) |  |  [optional] |
+|**availableShareRights** | [**FolderDtoIntegerAvailableShareRights**](FolderDtoIntegerAvailableShareRights.md) |  |  [optional] |
 |**requestToken** | **String** | The request token of the file entry. |  [optional] |
 |**external** | **Boolean** | Specifies if the folder can be accessed via an external link or not. |  [optional] |
 |**expirationDate** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |

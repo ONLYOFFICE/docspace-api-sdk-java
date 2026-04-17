@@ -27,7 +27,7 @@ import org.openapitools.client.Pair;
 import org.openapitools.client.model.ChatArrayWrapper;
 import org.openapitools.client.model.ChatWrapper;
 import org.openapitools.client.model.ContinueChatBody;
-import org.openapitools.client.model.ExportChatRequestBodyInteger;
+import org.openapitools.client.model.ExportChatRequestBody;
 import org.openapitools.client.model.MessageArrayWrapper;
 import org.openapitools.client.model.ModelArrayWrapper;
 import org.openapitools.client.model.RenameChatBody;
@@ -233,11 +233,11 @@ public class ChatApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/export-chat/
    *
    * @param chatId The unique identifier of the AI chat session to export. (required)
-   * @param exportChatRequestBodyInteger The export parameters including destination folder and file title. (required)
+   * @param exportChatRequestBody The export parameters including destination folder and file title. (required)
    * @throws ApiException if fails to make API call
    */
-  public void exportChat(@javax.annotation.Nonnull UUID chatId, @javax.annotation.Nonnull ExportChatRequestBodyInteger exportChatRequestBodyInteger) throws ApiException {
-    this.exportChat(chatId, exportChatRequestBodyInteger, Collections.emptyMap());
+  public void exportChat(@javax.annotation.Nonnull UUID chatId, @javax.annotation.Nonnull ExportChatRequestBody exportChatRequestBody) throws ApiException {
+    this.exportChat(chatId, exportChatRequestBody, Collections.emptyMap());
   }
 
 
@@ -249,21 +249,21 @@ public class ChatApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/export-chat/
    *
    * @param chatId The unique identifier of the AI chat session to export. (required)
-   * @param exportChatRequestBodyInteger The export parameters including destination folder and file title. (required)
+   * @param exportChatRequestBody The export parameters including destination folder and file title. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void exportChat(@javax.annotation.Nonnull UUID chatId, @javax.annotation.Nonnull ExportChatRequestBodyInteger exportChatRequestBodyInteger, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = exportChatRequestBodyInteger;
+  public void exportChat(@javax.annotation.Nonnull UUID chatId, @javax.annotation.Nonnull ExportChatRequestBody exportChatRequestBody, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = exportChatRequestBody;
     
     // verify the required parameter 'chatId' is set
     if (chatId == null) {
       throw new ApiException(400, "Missing the required parameter 'chatId' when calling exportChat");
     }
     
-    // verify the required parameter 'exportChatRequestBodyInteger' is set
-    if (exportChatRequestBodyInteger == null) {
-      throw new ApiException(400, "Missing the required parameter 'exportChatRequestBodyInteger' when calling exportChat");
+    // verify the required parameter 'exportChatRequestBody' is set
+    if (exportChatRequestBody == null) {
+      throw new ApiException(400, "Missing the required parameter 'exportChatRequestBody' when calling exportChat");
     }
     
     // create path and map variables

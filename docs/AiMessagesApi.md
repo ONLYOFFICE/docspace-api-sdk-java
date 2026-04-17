@@ -10,7 +10,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 ## exportMessage
 
-> exportMessage(messageId, exportMessageRequestBodyInteger)
+> exportMessage(messageId, exportMessageRequestBody)
 
 Export a single AI message to a documentExports a specific AI chat message as a document into the specified folder. The system verifies that the message exists  and belongs to a chat accessible by the current user, then publishes an asynchronous export task to the event bus.  The exported document will be created in the target folder with the given title once the background task completes.
 
@@ -22,7 +22,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **messageId** | **Integer**| The unique identifier of the AI chat message to export. | |
-| **exportMessageRequestBodyInteger** | [**ExportMessageRequestBodyInteger**](ExportMessageRequestBodyInteger.md)| The export parameters including destination folder and file title. | |
+| **exportMessageRequestBody** | [**ExportMessageRequestBody**](ExportMessageRequestBody.md)| The export parameters including destination folder and file title. | |
 
 ### Return type
 
@@ -76,9 +76,9 @@ public class Example {
 
         MessagesApi apiInstance = new MessagesApi(defaultClient);
         Integer messageId = 1; // Integer | The unique identifier of the AI chat message to export.
-        ExportMessageRequestBodyInteger exportMessageRequestBodyInteger = new ExportMessageRequestBodyInteger(); // ExportMessageRequestBodyInteger | The export parameters including destination folder and file title.
+        ExportMessageRequestBody exportMessageRequestBody = new ExportMessageRequestBody(); // ExportMessageRequestBody | The export parameters including destination folder and file title.
         try {
-            apiInstance.exportMessage(messageId, exportMessageRequestBodyInteger);
+            apiInstance.exportMessage(messageId, exportMessageRequestBody);
         } catch (ApiException e) {
             System.err.println("Exception when calling MessagesApi#exportMessage");
             System.err.println("Status code: " + e.getCode());
@@ -99,8 +99,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The message export task has been successfully queued for background processing |  -  |
+| **200** | The message export task has been successfully queued for background processing |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The message identifier is invalid (must be greater than 0) |  -  |
 | **404** | The specified message was not found or the current user does not have access to it |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

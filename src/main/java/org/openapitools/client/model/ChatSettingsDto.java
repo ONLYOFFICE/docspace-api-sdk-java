@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.client.model.AiModelCapabilities;
 import org.openapitools.client.model.ChatMultimodalSettingsDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -46,6 +47,7 @@ import java.util.StringJoiner;
   ChatSettingsDto.JSON_PROPERTY_PROMPT,
   ChatSettingsDto.JSON_PROPERTY_MULTIMODAL,
   ChatSettingsDto.JSON_PROPERTY_THINKING,
+  ChatSettingsDto.JSON_PROPERTY_CAPABILITIES,
   ChatSettingsDto.JSON_PROPERTY_INTERNAL
 })
 
@@ -67,6 +69,9 @@ public class ChatSettingsDto {
 
   public static final String JSON_PROPERTY_THINKING = "thinking";
   @javax.annotation.Nullable  private Boolean thinking;
+
+  public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
+  @javax.annotation.Nullable  private AiModelCapabilities capabilities;
 
   public static final String JSON_PROPERTY_INTERNAL = "internal";
   @javax.annotation.Nullable  private Boolean internal;
@@ -235,7 +240,9 @@ public class ChatSettingsDto {
   /**
    * Indicates whether the model supports extended thinking mode.
    * @return thinking
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_THINKING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -248,6 +255,30 @@ public class ChatSettingsDto {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThinking(@javax.annotation.Nullable Boolean thinking) {
     this.thinking = thinking;
+  }
+
+  public ChatSettingsDto capabilities(@javax.annotation.Nullable AiModelCapabilities capabilities) {
+    
+    this.capabilities = capabilities;
+    return this;
+  }
+
+  /**
+   * Get capabilities
+   * @return capabilities
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CAPABILITIES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AiModelCapabilities getCapabilities() {
+    return capabilities;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CAPABILITIES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCapabilities(@javax.annotation.Nullable AiModelCapabilities capabilities) {
+    this.capabilities = capabilities;
   }
 
   /**
@@ -278,6 +309,7 @@ public class ChatSettingsDto {
         equalsNullable(this.prompt, chatSettingsDto.prompt) &&
         Objects.equals(this.multimodal, chatSettingsDto.multimodal) &&
         Objects.equals(this.thinking, chatSettingsDto.thinking) &&
+        Objects.equals(this.capabilities, chatSettingsDto.capabilities) &&
         Objects.equals(this.internal, chatSettingsDto.internal);
   }
 
@@ -287,7 +319,7 @@ public class ChatSettingsDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerId, hashCodeNullable(modelId), hashCodeNullable(modelAlias), hashCodeNullable(prompt), multimodal, thinking, internal);
+    return Objects.hash(providerId, hashCodeNullable(modelId), hashCodeNullable(modelAlias), hashCodeNullable(prompt), multimodal, thinking, capabilities, internal);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -307,6 +339,7 @@ public class ChatSettingsDto {
     sb.append("    prompt: ").append(toIndentedString(prompt)).append("\n");
     sb.append("    multimodal: ").append(toIndentedString(multimodal)).append("\n");
     sb.append("    thinking: ").append(toIndentedString(thinking)).append("\n");
+    sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("    internal: ").append(toIndentedString(internal)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -408,6 +441,11 @@ public class ChatSettingsDto {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
+    }
+
+    // add `capabilities` to the URL query string
+    if (getCapabilities() != null) {
+      joiner.add(getCapabilities().toUrlQueryString(prefix + "capabilities" + suffix));
     }
 
     // add `internal` to the URL query string

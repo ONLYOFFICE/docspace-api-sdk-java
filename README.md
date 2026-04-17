@@ -123,6 +123,18 @@ Authentication schemes defined for the API:
 - **API key parameter name**: x-signature
 - **Location**: 
 
+## Rate Limiting
+
+All API responses may include the following rate limiting headers:
+
+| Header | Description |
+|--------|-------------|
+| `X-RateLimit-Limit` | Sliding window rate limit: 1500 requests per minute per user/IP. |
+| `X-RateLimit-Remaining` | Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. |
+| `X-RateLimit-Reset` | Unix timestamp (seconds) when the current sliding window rate limit resets. |
+| `Retry-After` | Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). |
+
+
 ## Documentation for API Endpoints
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
@@ -350,9 +362,19 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Get the default AI provider</td>
       </tr>
       <tr>
+        <td><a href="docs/AiProvidersApi.md#getprovidermodels"><strong>getProviderModels</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/providers/{providerId}/models</td>
+        <td>Get all models for a provider with their settings</td>
+      </tr>
+      <tr>
         <td><a href="docs/AiProvidersApi.md#getproviders"><strong>getProviders</strong></a></td>
         <td><strong>GET</strong> /api/2.0/ai/providers</td>
         <td>Get AI providers</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AiProvidersApi.md#previewprovidermodels"><strong>previewProviderModels</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/ai/providers/models/preview</td>
+        <td>Preview models for a new AI provider</td>
       </tr>
       <tr>
         <td><a href="docs/AiProvidersApi.md#setdefaultprovider"><strong>setDefaultProvider</strong></a></td>
@@ -779,6 +801,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/FilesFilesApi.md#getreferencedata"><strong>getReferenceData</strong></a></td>
         <td><strong>POST</strong> /api/2.0/files/file/referencedata</td>
         <td>Get reference data</td>
+      </tr>
+      <tr>
+        <td><a href="docs/FilesFilesApi.md#getxlsx"><strong>getXlsx</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/files/file/{fileId}/xlsx</td>
+        <td>Get XLSX report generation status</td>
       </tr>
       <tr>
         <td><a href="docs/FilesFilesApi.md#isformpdf"><strong>isFormPDF</strong></a></td>
@@ -3359,7 +3386,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/SettingsTfaSettingsApi.md#gettfaconfirmurl"><strong>getTfaConfirmUrl</strong></a></td>
         <td><strong>GET</strong> /api/2.0/settings/tfaapp/confirm</td>
-        <td>Get confirmation email</td>
+        <td>Get TFA confirmation URL</td>
       </tr>
       <tr>
         <td><a href="docs/SettingsTfaSettingsApi.md#gettfasettings"><strong>getTfaSettings</strong></a></td>
@@ -3394,7 +3421,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/SettingsTfaSettingsApi.md#updatetfasettingslink"><strong>updateTfaSettingsLink</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/settings/tfaappwithlink</td>
-        <td>Get a confirmation email for updating TFA settings</td>
+        <td>Updates TFA settings</td>
       </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>WebhooksApi</strong></td>
@@ -3526,6 +3553,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.AiChatPrice](docs/AiChatPrice.md)
  - [org.openapitools.client.model.AiEmbeddingModelPricing](docs/AiEmbeddingModelPricing.md)
  - [org.openapitools.client.model.AiEmbeddingPrice](docs/AiEmbeddingPrice.md)
+ - [org.openapitools.client.model.AiModelCapabilities](docs/AiModelCapabilities.md)
  - [org.openapitools.client.model.AiPricesResponse](docs/AiPricesResponse.md)
  - [org.openapitools.client.model.AiPricesResponseWrapper](docs/AiPricesResponseWrapper.md)
  - [org.openapitools.client.model.AiProviderArrayWrapper](docs/AiProviderArrayWrapper.md)
@@ -3760,8 +3788,9 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.EngineType](docs/EngineType.md)
  - [org.openapitools.client.model.EntryType](docs/EntryType.md)
  - [org.openapitools.client.model.ExchangeToken200Response](docs/ExchangeToken200Response.md)
- - [org.openapitools.client.model.ExportChatRequestBodyInteger](docs/ExportChatRequestBodyInteger.md)
- - [org.openapitools.client.model.ExportMessageRequestBodyInteger](docs/ExportMessageRequestBodyInteger.md)
+ - [org.openapitools.client.model.ExportChatRequestBody](docs/ExportChatRequestBody.md)
+ - [org.openapitools.client.model.ExportChatRequestBodyFolderId](docs/ExportChatRequestBodyFolderId.md)
+ - [org.openapitools.client.model.ExportMessageRequestBody](docs/ExportMessageRequestBody.md)
  - [org.openapitools.client.model.ExternalDatabaseSettings](docs/ExternalDatabaseSettings.md)
  - [org.openapitools.client.model.ExternalDatabaseType](docs/ExternalDatabaseType.md)
  - [org.openapitools.client.model.ExternalShareDto](docs/ExternalShareDto.md)
@@ -3771,15 +3800,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.FeedbackConfig](docs/FeedbackConfig.md)
  - [org.openapitools.client.model.FileConflictResolveType](docs/FileConflictResolveType.md)
  - [org.openapitools.client.model.FileDtoInteger](docs/FileDtoInteger.md)
- - [org.openapitools.client.model.FileDtoIntegerAllOfViewAccessibility](docs/FileDtoIntegerAllOfViewAccessibility.md)
+ - [org.openapitools.client.model.FileDtoIntegerViewAccessibility](docs/FileDtoIntegerViewAccessibility.md)
  - [org.openapitools.client.model.FileEntryBaseArrayWrapper](docs/FileEntryBaseArrayWrapper.md)
  - [org.openapitools.client.model.FileEntryBaseDto](docs/FileEntryBaseDto.md)
  - [org.openapitools.client.model.FileEntryBaseWrapper](docs/FileEntryBaseWrapper.md)
  - [org.openapitools.client.model.FileEntryDtoInteger](docs/FileEntryDtoInteger.md)
- - [org.openapitools.client.model.FileEntryDtoIntegerAllOfAvailableShareRights](docs/FileEntryDtoIntegerAllOfAvailableShareRights.md)
- - [org.openapitools.client.model.FileEntryDtoIntegerAllOfSecurity](docs/FileEntryDtoIntegerAllOfSecurity.md)
- - [org.openapitools.client.model.FileEntryDtoIntegerAllOfShareSettings](docs/FileEntryDtoIntegerAllOfShareSettings.md)
- - [org.openapitools.client.model.FileEntryDtoString](docs/FileEntryDtoString.md)
  - [org.openapitools.client.model.FileEntryIntegerArrayWrapper](docs/FileEntryIntegerArrayWrapper.md)
  - [org.openapitools.client.model.FileEntryType](docs/FileEntryType.md)
  - [org.openapitools.client.model.FileIntegerArrayWrapper](docs/FileIntegerArrayWrapper.md)
@@ -3823,6 +3848,9 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.FolderContentIntegerArrayWrapper](docs/FolderContentIntegerArrayWrapper.md)
  - [org.openapitools.client.model.FolderContentIntegerWrapper](docs/FolderContentIntegerWrapper.md)
  - [org.openapitools.client.model.FolderDtoInteger](docs/FolderDtoInteger.md)
+ - [org.openapitools.client.model.FolderDtoIntegerAvailableShareRights](docs/FolderDtoIntegerAvailableShareRights.md)
+ - [org.openapitools.client.model.FolderDtoIntegerSecurity](docs/FolderDtoIntegerSecurity.md)
+ - [org.openapitools.client.model.FolderDtoIntegerShareSettings](docs/FolderDtoIntegerShareSettings.md)
  - [org.openapitools.client.model.FolderDtoString](docs/FolderDtoString.md)
  - [org.openapitools.client.model.FolderIntegerArrayWrapper](docs/FolderIntegerArrayWrapper.md)
  - [org.openapitools.client.model.FolderIntegerWrapper](docs/FolderIntegerWrapper.md)
@@ -3941,6 +3969,9 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.MobileRequestsDto](docs/MobileRequestsDto.md)
  - [org.openapitools.client.model.ModelArrayWrapper](docs/ModelArrayWrapper.md)
  - [org.openapitools.client.model.ModelDto](docs/ModelDto.md)
+ - [org.openapitools.client.model.ModelSettingsArrayWrapper](docs/ModelSettingsArrayWrapper.md)
+ - [org.openapitools.client.model.ModelSettingsDto](docs/ModelSettingsDto.md)
+ - [org.openapitools.client.model.ModelSettingsItemDto](docs/ModelSettingsItemDto.md)
  - [org.openapitools.client.model.Module](docs/Module.md)
  - [org.openapitools.client.model.ModuleWrapper](docs/ModuleWrapper.md)
  - [org.openapitools.client.model.MultiSizeLogoCover](docs/MultiSizeLogoCover.md)
@@ -3992,6 +4023,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.PermissionsConfig](docs/PermissionsConfig.md)
  - [org.openapitools.client.model.PluginsConfig](docs/PluginsConfig.md)
  - [org.openapitools.client.model.PluginsDto](docs/PluginsDto.md)
+ - [org.openapitools.client.model.PreviewProviderModelsRequestDto](docs/PreviewProviderModelsRequestDto.md)
  - [org.openapitools.client.model.PriceDto](docs/PriceDto.md)
  - [org.openapitools.client.model.ProblemDetail](docs/ProblemDetail.md)
  - [org.openapitools.client.model.ProductAdministratorDto](docs/ProductAdministratorDto.md)
@@ -4079,7 +4111,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.SettingsWrapper](docs/SettingsWrapper.md)
  - [org.openapitools.client.model.SetupCode](docs/SetupCode.md)
  - [org.openapitools.client.model.SetupCodeWrapper](docs/SetupCodeWrapper.md)
- - [org.openapitools.client.model.SexEnum](docs/SexEnum.md)
  - [org.openapitools.client.model.ShareFilterType](docs/ShareFilterType.md)
  - [org.openapitools.client.model.SignupAccountRequestDto](docs/SignupAccountRequestDto.md)
  - [org.openapitools.client.model.Size](docs/Size.md)
@@ -4169,6 +4200,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.TenantWalletSettingsWrapper](docs/TenantWalletSettingsWrapper.md)
  - [org.openapitools.client.model.TenantWrapper](docs/TenantWrapper.md)
  - [org.openapitools.client.model.TerminateRequestDto](docs/TerminateRequestDto.md)
+ - [org.openapitools.client.model.TfaAppCodeArrayWrapper](docs/TfaAppCodeArrayWrapper.md)
+ - [org.openapitools.client.model.TfaAppCodeDto](docs/TfaAppCodeDto.md)
  - [org.openapitools.client.model.TfaRequestsDto](docs/TfaRequestsDto.md)
  - [org.openapitools.client.model.TfaRequestsDtoType](docs/TfaRequestsDtoType.md)
  - [org.openapitools.client.model.TfaSettingsArrayWrapper](docs/TfaSettingsArrayWrapper.md)
@@ -4260,6 +4293,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.WizardRequestsDto](docs/WizardRequestsDto.md)
  - [org.openapitools.client.model.WizardSettings](docs/WizardSettings.md)
  - [org.openapitools.client.model.WizardSettingsWrapper](docs/WizardSettingsWrapper.md)
+ - [org.openapitools.client.model.XlsxReportResponseDto](docs/XlsxReportResponseDto.md)
+ - [org.openapitools.client.model.XlsxReportResponseWrapper](docs/XlsxReportResponseWrapper.md)
 
 </details>
 

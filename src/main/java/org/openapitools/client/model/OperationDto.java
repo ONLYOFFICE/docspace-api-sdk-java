@@ -50,7 +50,9 @@ import java.util.StringJoiner;
   OperationDto.JSON_PROPERTY_CREDIT,
   OperationDto.JSON_PROPERTY_DEBIT,
   OperationDto.JSON_PROPERTY_PARTICIPANT_NAME,
-  OperationDto.JSON_PROPERTY_PARTICIPANT_DISPLAY_NAME
+  OperationDto.JSON_PROPERTY_PARTICIPANT_DISPLAY_NAME,
+  OperationDto.JSON_PROPERTY_AGENT_ID,
+  OperationDto.JSON_PROPERTY_AGENT_TITLE
 })
 
 public class OperationDto {
@@ -86,6 +88,12 @@ public class OperationDto {
 
   public static final String JSON_PROPERTY_PARTICIPANT_DISPLAY_NAME = "participantDisplayName";
   @javax.annotation.Nullable  private JsonNullable<String> participantDisplayName = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_AGENT_ID = "agentId";
+  @javax.annotation.Nullable  private JsonNullable<String> agentId = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_AGENT_TITLE = "agentTitle";
+  @javax.annotation.Nullable  private JsonNullable<String> agentTitle = JsonNullable.<String>undefined();
 
   public OperationDto() {
   }
@@ -404,6 +412,68 @@ public class OperationDto {
     this.participantDisplayName = JsonNullable.<String>of(participantDisplayName);
   }
 
+  public OperationDto agentId(@javax.annotation.Nullable String agentId) {
+    this.agentId = JsonNullable.<String>of(agentId);
+    
+    return this;
+  }
+
+  /**
+   * AI Agent id.
+   * @return agentId
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getAgentId() {
+        return agentId.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_AGENT_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getAgentId_JsonNullable() {
+    return agentId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AGENT_ID)
+  public void setAgentId_JsonNullable(JsonNullable<String> agentId) {
+    this.agentId = agentId;
+  }
+
+  public void setAgentId(@javax.annotation.Nullable String agentId) {
+    this.agentId = JsonNullable.<String>of(agentId);
+  }
+
+  public OperationDto agentTitle(@javax.annotation.Nullable String agentTitle) {
+    this.agentTitle = JsonNullable.<String>of(agentTitle);
+    
+    return this;
+  }
+
+  /**
+   * AI Agent name.
+   * @return agentTitle
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getAgentTitle() {
+        return agentTitle.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_AGENT_TITLE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getAgentTitle_JsonNullable() {
+    return agentTitle;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AGENT_TITLE)
+  public void setAgentTitle_JsonNullable(JsonNullable<String> agentTitle) {
+    this.agentTitle = agentTitle;
+  }
+
+  public void setAgentTitle(@javax.annotation.Nullable String agentTitle) {
+    this.agentTitle = JsonNullable.<String>of(agentTitle);
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -423,7 +493,9 @@ public class OperationDto {
         Objects.equals(this.credit, operationDto.credit) &&
         Objects.equals(this.debit, operationDto.debit) &&
         equalsNullable(this.participantName, operationDto.participantName) &&
-        equalsNullable(this.participantDisplayName, operationDto.participantDisplayName);
+        equalsNullable(this.participantDisplayName, operationDto.participantDisplayName) &&
+        equalsNullable(this.agentId, operationDto.agentId) &&
+        equalsNullable(this.agentTitle, operationDto.agentTitle);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -432,7 +504,7 @@ public class OperationDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, hashCodeNullable(service), hashCodeNullable(description), hashCodeNullable(details), hashCodeNullable(serviceUnit), quantity, hashCodeNullable(currency), credit, debit, hashCodeNullable(participantName), hashCodeNullable(participantDisplayName));
+    return Objects.hash(date, hashCodeNullable(service), hashCodeNullable(description), hashCodeNullable(details), hashCodeNullable(serviceUnit), quantity, hashCodeNullable(currency), credit, debit, hashCodeNullable(participantName), hashCodeNullable(participantDisplayName), hashCodeNullable(agentId), hashCodeNullable(agentTitle));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -457,6 +529,8 @@ public class OperationDto {
     sb.append("    debit: ").append(toIndentedString(debit)).append("\n");
     sb.append("    participantName: ").append(toIndentedString(participantName)).append("\n");
     sb.append("    participantDisplayName: ").append(toIndentedString(participantDisplayName)).append("\n");
+    sb.append("    agentId: ").append(toIndentedString(agentId)).append("\n");
+    sb.append("    agentTitle: ").append(toIndentedString(agentTitle)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -603,6 +677,26 @@ public class OperationDto {
     if (getParticipantDisplayName() != null) {
       try {
         joiner.add(String.format("%sparticipantDisplayName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getParticipantDisplayName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `agentId` to the URL query string
+    if (getAgentId() != null) {
+      try {
+        joiner.add(String.format("%sagentId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAgentId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `agentTitle` to the URL query string
+    if (getAgentTitle() != null) {
+      try {
+        joiner.add(String.format("%sagentTitle%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAgentTitle()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

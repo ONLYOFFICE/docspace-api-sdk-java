@@ -42,7 +42,6 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   EmployeeDto.JSON_PROPERTY_ID,
   EmployeeDto.JSON_PROPERTY_DISPLAY_NAME,
-  EmployeeDto.JSON_PROPERTY_TITLE,
   EmployeeDto.JSON_PROPERTY_AVATAR,
   EmployeeDto.JSON_PROPERTY_AVATAR_ORIGINAL,
   EmployeeDto.JSON_PROPERTY_AVATAR_MAX,
@@ -59,9 +58,6 @@ public class EmployeeDto {
 
   public static final String JSON_PROPERTY_DISPLAY_NAME = "displayName";
   @javax.annotation.Nullable  private JsonNullable<String> displayName = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_AVATAR = "avatar";
   @javax.annotation.Nullable  private JsonNullable<String> avatar = JsonNullable.<String>undefined();
@@ -144,37 +140,6 @@ public class EmployeeDto {
 
   public void setDisplayName(@javax.annotation.Nullable String displayName) {
     this.displayName = JsonNullable.<String>of(displayName);
-  }
-
-  public EmployeeDto title(@javax.annotation.Nullable String title) {
-    this.title = JsonNullable.<String>of(title);
-    
-    return this;
-  }
-
-  /**
-   * The user title.
-   * @return title
-   */
-  @javax.annotation.Nullable  @JsonIgnore
-
-  public String getTitle() {
-        return title.orElse(null);
-  }
-
-  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getTitle_JsonNullable() {
-    return title;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  public void setTitle_JsonNullable(JsonNullable<String> title) {
-    this.title = title;
-  }
-
-  public void setTitle(@javax.annotation.Nullable String title) {
-    this.title = JsonNullable.<String>of(title);
   }
 
   public EmployeeDto avatar(@javax.annotation.Nullable String avatar) {
@@ -422,7 +387,6 @@ public class EmployeeDto {
     EmployeeDto employeeDto = (EmployeeDto) o;
     return Objects.equals(this.id, employeeDto.id) &&
         equalsNullable(this.displayName, employeeDto.displayName) &&
-        equalsNullable(this.title, employeeDto.title) &&
         equalsNullable(this.avatar, employeeDto.avatar) &&
         equalsNullable(this.avatarOriginal, employeeDto.avatarOriginal) &&
         equalsNullable(this.avatarMax, employeeDto.avatarMax) &&
@@ -439,7 +403,7 @@ public class EmployeeDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(displayName), hashCodeNullable(title), hashCodeNullable(avatar), hashCodeNullable(avatarOriginal), hashCodeNullable(avatarMax), hashCodeNullable(avatarMedium), hashCodeNullable(avatarSmall), hashCodeNullable(profileUrl), hasAvatar, isAnonim);
+    return Objects.hash(id, hashCodeNullable(displayName), hashCodeNullable(avatar), hashCodeNullable(avatarOriginal), hashCodeNullable(avatarMax), hashCodeNullable(avatarMedium), hashCodeNullable(avatarSmall), hashCodeNullable(profileUrl), hasAvatar, isAnonim);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -455,7 +419,6 @@ public class EmployeeDto {
     sb.append("class EmployeeDto {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    avatar: ").append(toIndentedString(avatar)).append("\n");
     sb.append("    avatarOriginal: ").append(toIndentedString(avatarOriginal)).append("\n");
     sb.append("    avatarMax: ").append(toIndentedString(avatarMax)).append("\n");
@@ -525,16 +488,6 @@ public class EmployeeDto {
     if (getDisplayName() != null) {
       try {
         joiner.add(String.format("%sdisplayName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDisplayName()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `title` to the URL query string
-    if (getTitle() != null) {
-      try {
-        joiner.add(String.format("%stitle%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTitle()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

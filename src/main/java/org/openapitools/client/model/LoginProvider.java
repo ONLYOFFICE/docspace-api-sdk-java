@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * [0 - Facebook, 1 - Google, 2 - Dropbox, 3 - Docusign, 4 - Box, 5 - OneDrive, 6 - GosUslugi, 7 - LinkedIn, 8 - MailRu, 9 - VK, 10 - Wordpress, 11 - Yahoo, 12 - Yandex, 13 - Github]
+ * [0 - Facebook, 1 - Google, 2 - Dropbox, 3 - Docusign, 4 - Box, 5 - OneDrive, 6 - GosUslugi, 7 - LinkedIn, 8 - MailRu, 9 - VK, 10 - Wordpress, 11 - Yahoo, 12 - Yandex, 13 - Github, 14 - Nextcloud]
  */
 public enum LoginProvider {
   
@@ -60,7 +60,9 @@ public enum LoginProvider {
   
   Yandex(12),
   
-  Github(13);
+  Github(13),
+  
+  Nextcloud(14);
 
   private Integer value;
 

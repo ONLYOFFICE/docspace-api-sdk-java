@@ -1,0 +1,1877 @@
+/*
+ * (c) Copyright Ascensio System SIA 2026
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+package org.openapitools.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
+
+/**
+ * The actions that can be performed with the file entry.
+ */
+@JsonPropertyOrder({
+  FolderDtoIntegerSecurity.JSON_PROPERTY_READ,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_COMMENT,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_FILL_FORMS,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_REVIEW,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_CREATE,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_CREATE_FROM,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_EDIT,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_DELETE,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_CUSTOM_FILTER,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_EDIT_ROOM,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_RENAME,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_READ_HISTORY,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_LOCK,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_EDIT_HISTORY,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_COPY_TO,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_COPY,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_MOVE_TO,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_MOVE,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_PIN,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_MUTE,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_EDIT_ACCESS,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_DUPLICATE,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_SUBMIT_TO_FORM_GALLERY,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_DOWNLOAD,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_CONVERT,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_COPY_SHARED_LINK,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_READ_LINKS,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_RECONNECT,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_CREATE_ROOM_FROM,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_COPY_LINK,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_EMBED,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_CHANGE_OWNER,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_INDEX_EXPORT,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_START_FILLING,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_FILLING_STATUS,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_RESET_FILLING,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_STOP_FILLING,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_OPEN_FORM,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_EDIT_INTERNAL,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_EDIT_EXPIRATION,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_VECTORIZATION,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_ASK_AI,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_USE_CHAT,
+  FolderDtoIntegerSecurity.JSON_PROPERTY_UPDATE_XLSX
+})
+@JsonTypeName("FolderDtoInteger_security")
+
+public class FolderDtoIntegerSecurity {
+  public static final String JSON_PROPERTY_READ = "Read";
+  @javax.annotation.Nullable  private Boolean read;
+
+  public static final String JSON_PROPERTY_COMMENT = "Comment";
+  @javax.annotation.Nullable  private Boolean comment;
+
+  public static final String JSON_PROPERTY_FILL_FORMS = "FillForms";
+  @javax.annotation.Nullable  private Boolean fillForms;
+
+  public static final String JSON_PROPERTY_REVIEW = "Review";
+  @javax.annotation.Nullable  private Boolean review;
+
+  public static final String JSON_PROPERTY_CREATE = "Create";
+  @javax.annotation.Nullable  private Boolean create;
+
+  public static final String JSON_PROPERTY_CREATE_FROM = "CreateFrom";
+  @javax.annotation.Nullable  private Boolean createFrom;
+
+  public static final String JSON_PROPERTY_EDIT = "Edit";
+  @javax.annotation.Nullable  private Boolean edit;
+
+  public static final String JSON_PROPERTY_DELETE = "Delete";
+  @javax.annotation.Nullable  private Boolean delete;
+
+  public static final String JSON_PROPERTY_CUSTOM_FILTER = "CustomFilter";
+  @javax.annotation.Nullable  private Boolean customFilter;
+
+  public static final String JSON_PROPERTY_EDIT_ROOM = "EditRoom";
+  @javax.annotation.Nullable  private Boolean editRoom;
+
+  public static final String JSON_PROPERTY_RENAME = "Rename";
+  @javax.annotation.Nullable  private Boolean rename;
+
+  public static final String JSON_PROPERTY_READ_HISTORY = "ReadHistory";
+  @javax.annotation.Nullable  private Boolean readHistory;
+
+  public static final String JSON_PROPERTY_LOCK = "Lock";
+  @javax.annotation.Nullable  private Boolean lock;
+
+  public static final String JSON_PROPERTY_EDIT_HISTORY = "EditHistory";
+  @javax.annotation.Nullable  private Boolean editHistory;
+
+  public static final String JSON_PROPERTY_COPY_TO = "CopyTo";
+  @javax.annotation.Nullable  private Boolean copyTo;
+
+  public static final String JSON_PROPERTY_COPY = "Copy";
+  @javax.annotation.Nullable  private Boolean copy;
+
+  public static final String JSON_PROPERTY_MOVE_TO = "MoveTo";
+  @javax.annotation.Nullable  private Boolean moveTo;
+
+  public static final String JSON_PROPERTY_MOVE = "Move";
+  @javax.annotation.Nullable  private Boolean move;
+
+  public static final String JSON_PROPERTY_PIN = "Pin";
+  @javax.annotation.Nullable  private Boolean pin;
+
+  public static final String JSON_PROPERTY_MUTE = "Mute";
+  @javax.annotation.Nullable  private Boolean mute;
+
+  public static final String JSON_PROPERTY_EDIT_ACCESS = "EditAccess";
+  @javax.annotation.Nullable  private Boolean editAccess;
+
+  public static final String JSON_PROPERTY_DUPLICATE = "Duplicate";
+  @javax.annotation.Nullable  private Boolean duplicate;
+
+  public static final String JSON_PROPERTY_SUBMIT_TO_FORM_GALLERY = "SubmitToFormGallery";
+  @javax.annotation.Nullable  private Boolean submitToFormGallery;
+
+  public static final String JSON_PROPERTY_DOWNLOAD = "Download";
+  @javax.annotation.Nullable  private Boolean download;
+
+  public static final String JSON_PROPERTY_CONVERT = "Convert";
+  @javax.annotation.Nullable  private Boolean convert;
+
+  public static final String JSON_PROPERTY_COPY_SHARED_LINK = "CopySharedLink";
+  @javax.annotation.Nullable  private Boolean copySharedLink;
+
+  public static final String JSON_PROPERTY_READ_LINKS = "ReadLinks";
+  @javax.annotation.Nullable  private Boolean readLinks;
+
+  public static final String JSON_PROPERTY_RECONNECT = "Reconnect";
+  @javax.annotation.Nullable  private Boolean reconnect;
+
+  public static final String JSON_PROPERTY_CREATE_ROOM_FROM = "CreateRoomFrom";
+  @javax.annotation.Nullable  private Boolean createRoomFrom;
+
+  public static final String JSON_PROPERTY_COPY_LINK = "CopyLink";
+  @javax.annotation.Nullable  private Boolean copyLink;
+
+  public static final String JSON_PROPERTY_EMBED = "Embed";
+  @javax.annotation.Nullable  private Boolean embed;
+
+  public static final String JSON_PROPERTY_CHANGE_OWNER = "ChangeOwner";
+  @javax.annotation.Nullable  private Boolean changeOwner;
+
+  public static final String JSON_PROPERTY_INDEX_EXPORT = "IndexExport";
+  @javax.annotation.Nullable  private Boolean indexExport;
+
+  public static final String JSON_PROPERTY_START_FILLING = "StartFilling";
+  @javax.annotation.Nullable  private Boolean startFilling;
+
+  public static final String JSON_PROPERTY_FILLING_STATUS = "FillingStatus";
+  @javax.annotation.Nullable  private Boolean fillingStatus;
+
+  public static final String JSON_PROPERTY_RESET_FILLING = "ResetFilling";
+  @javax.annotation.Nullable  private Boolean resetFilling;
+
+  public static final String JSON_PROPERTY_STOP_FILLING = "StopFilling";
+  @javax.annotation.Nullable  private Boolean stopFilling;
+
+  public static final String JSON_PROPERTY_OPEN_FORM = "OpenForm";
+  @javax.annotation.Nullable  private Boolean openForm;
+
+  public static final String JSON_PROPERTY_EDIT_INTERNAL = "EditInternal";
+  @javax.annotation.Nullable  private Boolean editInternal;
+
+  public static final String JSON_PROPERTY_EDIT_EXPIRATION = "EditExpiration";
+  @javax.annotation.Nullable  private Boolean editExpiration;
+
+  public static final String JSON_PROPERTY_VECTORIZATION = "Vectorization";
+  @javax.annotation.Nullable  private Boolean vectorization;
+
+  public static final String JSON_PROPERTY_ASK_AI = "AskAi";
+  @javax.annotation.Nullable  private Boolean askAi;
+
+  public static final String JSON_PROPERTY_USE_CHAT = "UseChat";
+  @javax.annotation.Nullable  private Boolean useChat;
+
+  public static final String JSON_PROPERTY_UPDATE_XLSX = "UpdateXlsx";
+  @javax.annotation.Nullable  private Boolean updateXlsx;
+
+  public FolderDtoIntegerSecurity() {
+  }
+
+
+  public FolderDtoIntegerSecurity read(@javax.annotation.Nullable Boolean read) {
+    
+    this.read = read;
+    return this;
+  }
+
+  /**
+   * Get read
+   * @return read
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_READ, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getRead() {
+    return read;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_READ, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRead(@javax.annotation.Nullable Boolean read) {
+    this.read = read;
+  }
+
+  public FolderDtoIntegerSecurity comment(@javax.annotation.Nullable Boolean comment) {
+    
+    this.comment = comment;
+    return this;
+  }
+
+  /**
+   * Get comment
+   * @return comment
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COMMENT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getComment() {
+    return comment;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_COMMENT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setComment(@javax.annotation.Nullable Boolean comment) {
+    this.comment = comment;
+  }
+
+  public FolderDtoIntegerSecurity fillForms(@javax.annotation.Nullable Boolean fillForms) {
+    
+    this.fillForms = fillForms;
+    return this;
+  }
+
+  /**
+   * Get fillForms
+   * @return fillForms
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILL_FORMS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getFillForms() {
+    return fillForms;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_FILL_FORMS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFillForms(@javax.annotation.Nullable Boolean fillForms) {
+    this.fillForms = fillForms;
+  }
+
+  public FolderDtoIntegerSecurity review(@javax.annotation.Nullable Boolean review) {
+    
+    this.review = review;
+    return this;
+  }
+
+  /**
+   * Get review
+   * @return review
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REVIEW, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getReview() {
+    return review;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_REVIEW, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReview(@javax.annotation.Nullable Boolean review) {
+    this.review = review;
+  }
+
+  public FolderDtoIntegerSecurity create(@javax.annotation.Nullable Boolean create) {
+    
+    this.create = create;
+    return this;
+  }
+
+  /**
+   * Get create
+   * @return create
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getCreate() {
+    return create;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CREATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCreate(@javax.annotation.Nullable Boolean create) {
+    this.create = create;
+  }
+
+  public FolderDtoIntegerSecurity createFrom(@javax.annotation.Nullable Boolean createFrom) {
+    
+    this.createFrom = createFrom;
+    return this;
+  }
+
+  /**
+   * Get createFrom
+   * @return createFrom
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_FROM, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getCreateFrom() {
+    return createFrom;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CREATE_FROM, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCreateFrom(@javax.annotation.Nullable Boolean createFrom) {
+    this.createFrom = createFrom;
+  }
+
+  public FolderDtoIntegerSecurity edit(@javax.annotation.Nullable Boolean edit) {
+    
+    this.edit = edit;
+    return this;
+  }
+
+  /**
+   * Get edit
+   * @return edit
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EDIT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getEdit() {
+    return edit;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_EDIT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEdit(@javax.annotation.Nullable Boolean edit) {
+    this.edit = edit;
+  }
+
+  public FolderDtoIntegerSecurity delete(@javax.annotation.Nullable Boolean delete) {
+    
+    this.delete = delete;
+    return this;
+  }
+
+  /**
+   * Get delete
+   * @return delete
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DELETE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getDelete() {
+    return delete;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_DELETE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDelete(@javax.annotation.Nullable Boolean delete) {
+    this.delete = delete;
+  }
+
+  public FolderDtoIntegerSecurity customFilter(@javax.annotation.Nullable Boolean customFilter) {
+    
+    this.customFilter = customFilter;
+    return this;
+  }
+
+  /**
+   * Get customFilter
+   * @return customFilter
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CUSTOM_FILTER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getCustomFilter() {
+    return customFilter;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_FILTER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCustomFilter(@javax.annotation.Nullable Boolean customFilter) {
+    this.customFilter = customFilter;
+  }
+
+  public FolderDtoIntegerSecurity editRoom(@javax.annotation.Nullable Boolean editRoom) {
+    
+    this.editRoom = editRoom;
+    return this;
+  }
+
+  /**
+   * Get editRoom
+   * @return editRoom
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EDIT_ROOM, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getEditRoom() {
+    return editRoom;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_EDIT_ROOM, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEditRoom(@javax.annotation.Nullable Boolean editRoom) {
+    this.editRoom = editRoom;
+  }
+
+  public FolderDtoIntegerSecurity rename(@javax.annotation.Nullable Boolean rename) {
+    
+    this.rename = rename;
+    return this;
+  }
+
+  /**
+   * Get rename
+   * @return rename
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RENAME, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getRename() {
+    return rename;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_RENAME, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRename(@javax.annotation.Nullable Boolean rename) {
+    this.rename = rename;
+  }
+
+  public FolderDtoIntegerSecurity readHistory(@javax.annotation.Nullable Boolean readHistory) {
+    
+    this.readHistory = readHistory;
+    return this;
+  }
+
+  /**
+   * Get readHistory
+   * @return readHistory
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_READ_HISTORY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getReadHistory() {
+    return readHistory;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_READ_HISTORY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReadHistory(@javax.annotation.Nullable Boolean readHistory) {
+    this.readHistory = readHistory;
+  }
+
+  public FolderDtoIntegerSecurity lock(@javax.annotation.Nullable Boolean lock) {
+    
+    this.lock = lock;
+    return this;
+  }
+
+  /**
+   * Get lock
+   * @return lock
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOCK, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getLock() {
+    return lock;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_LOCK, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLock(@javax.annotation.Nullable Boolean lock) {
+    this.lock = lock;
+  }
+
+  public FolderDtoIntegerSecurity editHistory(@javax.annotation.Nullable Boolean editHistory) {
+    
+    this.editHistory = editHistory;
+    return this;
+  }
+
+  /**
+   * Get editHistory
+   * @return editHistory
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EDIT_HISTORY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getEditHistory() {
+    return editHistory;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_EDIT_HISTORY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEditHistory(@javax.annotation.Nullable Boolean editHistory) {
+    this.editHistory = editHistory;
+  }
+
+  public FolderDtoIntegerSecurity copyTo(@javax.annotation.Nullable Boolean copyTo) {
+    
+    this.copyTo = copyTo;
+    return this;
+  }
+
+  /**
+   * Get copyTo
+   * @return copyTo
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COPY_TO, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getCopyTo() {
+    return copyTo;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_COPY_TO, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCopyTo(@javax.annotation.Nullable Boolean copyTo) {
+    this.copyTo = copyTo;
+  }
+
+  public FolderDtoIntegerSecurity copy(@javax.annotation.Nullable Boolean copy) {
+    
+    this.copy = copy;
+    return this;
+  }
+
+  /**
+   * Get copy
+   * @return copy
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COPY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getCopy() {
+    return copy;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_COPY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCopy(@javax.annotation.Nullable Boolean copy) {
+    this.copy = copy;
+  }
+
+  public FolderDtoIntegerSecurity moveTo(@javax.annotation.Nullable Boolean moveTo) {
+    
+    this.moveTo = moveTo;
+    return this;
+  }
+
+  /**
+   * Get moveTo
+   * @return moveTo
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MOVE_TO, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getMoveTo() {
+    return moveTo;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_MOVE_TO, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMoveTo(@javax.annotation.Nullable Boolean moveTo) {
+    this.moveTo = moveTo;
+  }
+
+  public FolderDtoIntegerSecurity move(@javax.annotation.Nullable Boolean move) {
+    
+    this.move = move;
+    return this;
+  }
+
+  /**
+   * Get move
+   * @return move
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MOVE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getMove() {
+    return move;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_MOVE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMove(@javax.annotation.Nullable Boolean move) {
+    this.move = move;
+  }
+
+  public FolderDtoIntegerSecurity pin(@javax.annotation.Nullable Boolean pin) {
+    
+    this.pin = pin;
+    return this;
+  }
+
+  /**
+   * Get pin
+   * @return pin
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PIN, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getPin() {
+    return pin;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PIN, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPin(@javax.annotation.Nullable Boolean pin) {
+    this.pin = pin;
+  }
+
+  public FolderDtoIntegerSecurity mute(@javax.annotation.Nullable Boolean mute) {
+    
+    this.mute = mute;
+    return this;
+  }
+
+  /**
+   * Get mute
+   * @return mute
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MUTE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getMute() {
+    return mute;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_MUTE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMute(@javax.annotation.Nullable Boolean mute) {
+    this.mute = mute;
+  }
+
+  public FolderDtoIntegerSecurity editAccess(@javax.annotation.Nullable Boolean editAccess) {
+    
+    this.editAccess = editAccess;
+    return this;
+  }
+
+  /**
+   * Get editAccess
+   * @return editAccess
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EDIT_ACCESS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getEditAccess() {
+    return editAccess;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_EDIT_ACCESS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEditAccess(@javax.annotation.Nullable Boolean editAccess) {
+    this.editAccess = editAccess;
+  }
+
+  public FolderDtoIntegerSecurity duplicate(@javax.annotation.Nullable Boolean duplicate) {
+    
+    this.duplicate = duplicate;
+    return this;
+  }
+
+  /**
+   * Get duplicate
+   * @return duplicate
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DUPLICATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getDuplicate() {
+    return duplicate;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_DUPLICATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDuplicate(@javax.annotation.Nullable Boolean duplicate) {
+    this.duplicate = duplicate;
+  }
+
+  public FolderDtoIntegerSecurity submitToFormGallery(@javax.annotation.Nullable Boolean submitToFormGallery) {
+    
+    this.submitToFormGallery = submitToFormGallery;
+    return this;
+  }
+
+  /**
+   * Get submitToFormGallery
+   * @return submitToFormGallery
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SUBMIT_TO_FORM_GALLERY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getSubmitToFormGallery() {
+    return submitToFormGallery;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SUBMIT_TO_FORM_GALLERY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubmitToFormGallery(@javax.annotation.Nullable Boolean submitToFormGallery) {
+    this.submitToFormGallery = submitToFormGallery;
+  }
+
+  public FolderDtoIntegerSecurity download(@javax.annotation.Nullable Boolean download) {
+    
+    this.download = download;
+    return this;
+  }
+
+  /**
+   * Get download
+   * @return download
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOWNLOAD, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getDownload() {
+    return download;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_DOWNLOAD, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDownload(@javax.annotation.Nullable Boolean download) {
+    this.download = download;
+  }
+
+  public FolderDtoIntegerSecurity convert(@javax.annotation.Nullable Boolean convert) {
+    
+    this.convert = convert;
+    return this;
+  }
+
+  /**
+   * Get convert
+   * @return convert
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONVERT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getConvert() {
+    return convert;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CONVERT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setConvert(@javax.annotation.Nullable Boolean convert) {
+    this.convert = convert;
+  }
+
+  public FolderDtoIntegerSecurity copySharedLink(@javax.annotation.Nullable Boolean copySharedLink) {
+    
+    this.copySharedLink = copySharedLink;
+    return this;
+  }
+
+  /**
+   * Get copySharedLink
+   * @return copySharedLink
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COPY_SHARED_LINK, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getCopySharedLink() {
+    return copySharedLink;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_COPY_SHARED_LINK, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCopySharedLink(@javax.annotation.Nullable Boolean copySharedLink) {
+    this.copySharedLink = copySharedLink;
+  }
+
+  public FolderDtoIntegerSecurity readLinks(@javax.annotation.Nullable Boolean readLinks) {
+    
+    this.readLinks = readLinks;
+    return this;
+  }
+
+  /**
+   * Get readLinks
+   * @return readLinks
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_READ_LINKS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getReadLinks() {
+    return readLinks;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_READ_LINKS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReadLinks(@javax.annotation.Nullable Boolean readLinks) {
+    this.readLinks = readLinks;
+  }
+
+  public FolderDtoIntegerSecurity reconnect(@javax.annotation.Nullable Boolean reconnect) {
+    
+    this.reconnect = reconnect;
+    return this;
+  }
+
+  /**
+   * Get reconnect
+   * @return reconnect
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RECONNECT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getReconnect() {
+    return reconnect;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_RECONNECT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReconnect(@javax.annotation.Nullable Boolean reconnect) {
+    this.reconnect = reconnect;
+  }
+
+  public FolderDtoIntegerSecurity createRoomFrom(@javax.annotation.Nullable Boolean createRoomFrom) {
+    
+    this.createRoomFrom = createRoomFrom;
+    return this;
+  }
+
+  /**
+   * Get createRoomFrom
+   * @return createRoomFrom
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_ROOM_FROM, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getCreateRoomFrom() {
+    return createRoomFrom;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CREATE_ROOM_FROM, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCreateRoomFrom(@javax.annotation.Nullable Boolean createRoomFrom) {
+    this.createRoomFrom = createRoomFrom;
+  }
+
+  public FolderDtoIntegerSecurity copyLink(@javax.annotation.Nullable Boolean copyLink) {
+    
+    this.copyLink = copyLink;
+    return this;
+  }
+
+  /**
+   * Get copyLink
+   * @return copyLink
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COPY_LINK, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getCopyLink() {
+    return copyLink;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_COPY_LINK, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCopyLink(@javax.annotation.Nullable Boolean copyLink) {
+    this.copyLink = copyLink;
+  }
+
+  public FolderDtoIntegerSecurity embed(@javax.annotation.Nullable Boolean embed) {
+    
+    this.embed = embed;
+    return this;
+  }
+
+  /**
+   * Get embed
+   * @return embed
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMBED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getEmbed() {
+    return embed;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_EMBED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEmbed(@javax.annotation.Nullable Boolean embed) {
+    this.embed = embed;
+  }
+
+  public FolderDtoIntegerSecurity changeOwner(@javax.annotation.Nullable Boolean changeOwner) {
+    
+    this.changeOwner = changeOwner;
+    return this;
+  }
+
+  /**
+   * Get changeOwner
+   * @return changeOwner
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CHANGE_OWNER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getChangeOwner() {
+    return changeOwner;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CHANGE_OWNER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setChangeOwner(@javax.annotation.Nullable Boolean changeOwner) {
+    this.changeOwner = changeOwner;
+  }
+
+  public FolderDtoIntegerSecurity indexExport(@javax.annotation.Nullable Boolean indexExport) {
+    
+    this.indexExport = indexExport;
+    return this;
+  }
+
+  /**
+   * Get indexExport
+   * @return indexExport
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INDEX_EXPORT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIndexExport() {
+    return indexExport;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_INDEX_EXPORT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIndexExport(@javax.annotation.Nullable Boolean indexExport) {
+    this.indexExport = indexExport;
+  }
+
+  public FolderDtoIntegerSecurity startFilling(@javax.annotation.Nullable Boolean startFilling) {
+    
+    this.startFilling = startFilling;
+    return this;
+  }
+
+  /**
+   * Get startFilling
+   * @return startFilling
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_START_FILLING, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getStartFilling() {
+    return startFilling;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_START_FILLING, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStartFilling(@javax.annotation.Nullable Boolean startFilling) {
+    this.startFilling = startFilling;
+  }
+
+  public FolderDtoIntegerSecurity fillingStatus(@javax.annotation.Nullable Boolean fillingStatus) {
+    
+    this.fillingStatus = fillingStatus;
+    return this;
+  }
+
+  /**
+   * Get fillingStatus
+   * @return fillingStatus
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILLING_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getFillingStatus() {
+    return fillingStatus;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_FILLING_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFillingStatus(@javax.annotation.Nullable Boolean fillingStatus) {
+    this.fillingStatus = fillingStatus;
+  }
+
+  public FolderDtoIntegerSecurity resetFilling(@javax.annotation.Nullable Boolean resetFilling) {
+    
+    this.resetFilling = resetFilling;
+    return this;
+  }
+
+  /**
+   * Get resetFilling
+   * @return resetFilling
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESET_FILLING, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getResetFilling() {
+    return resetFilling;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_RESET_FILLING, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setResetFilling(@javax.annotation.Nullable Boolean resetFilling) {
+    this.resetFilling = resetFilling;
+  }
+
+  public FolderDtoIntegerSecurity stopFilling(@javax.annotation.Nullable Boolean stopFilling) {
+    
+    this.stopFilling = stopFilling;
+    return this;
+  }
+
+  /**
+   * Get stopFilling
+   * @return stopFilling
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STOP_FILLING, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getStopFilling() {
+    return stopFilling;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_STOP_FILLING, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStopFilling(@javax.annotation.Nullable Boolean stopFilling) {
+    this.stopFilling = stopFilling;
+  }
+
+  public FolderDtoIntegerSecurity openForm(@javax.annotation.Nullable Boolean openForm) {
+    
+    this.openForm = openForm;
+    return this;
+  }
+
+  /**
+   * Get openForm
+   * @return openForm
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OPEN_FORM, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getOpenForm() {
+    return openForm;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_OPEN_FORM, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOpenForm(@javax.annotation.Nullable Boolean openForm) {
+    this.openForm = openForm;
+  }
+
+  public FolderDtoIntegerSecurity editInternal(@javax.annotation.Nullable Boolean editInternal) {
+    
+    this.editInternal = editInternal;
+    return this;
+  }
+
+  /**
+   * Get editInternal
+   * @return editInternal
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EDIT_INTERNAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getEditInternal() {
+    return editInternal;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_EDIT_INTERNAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEditInternal(@javax.annotation.Nullable Boolean editInternal) {
+    this.editInternal = editInternal;
+  }
+
+  public FolderDtoIntegerSecurity editExpiration(@javax.annotation.Nullable Boolean editExpiration) {
+    
+    this.editExpiration = editExpiration;
+    return this;
+  }
+
+  /**
+   * Get editExpiration
+   * @return editExpiration
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EDIT_EXPIRATION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getEditExpiration() {
+    return editExpiration;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_EDIT_EXPIRATION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEditExpiration(@javax.annotation.Nullable Boolean editExpiration) {
+    this.editExpiration = editExpiration;
+  }
+
+  public FolderDtoIntegerSecurity vectorization(@javax.annotation.Nullable Boolean vectorization) {
+    
+    this.vectorization = vectorization;
+    return this;
+  }
+
+  /**
+   * Get vectorization
+   * @return vectorization
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VECTORIZATION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getVectorization() {
+    return vectorization;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_VECTORIZATION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVectorization(@javax.annotation.Nullable Boolean vectorization) {
+    this.vectorization = vectorization;
+  }
+
+  public FolderDtoIntegerSecurity askAi(@javax.annotation.Nullable Boolean askAi) {
+    
+    this.askAi = askAi;
+    return this;
+  }
+
+  /**
+   * Get askAi
+   * @return askAi
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ASK_AI, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAskAi() {
+    return askAi;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ASK_AI, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAskAi(@javax.annotation.Nullable Boolean askAi) {
+    this.askAi = askAi;
+  }
+
+  public FolderDtoIntegerSecurity useChat(@javax.annotation.Nullable Boolean useChat) {
+    
+    this.useChat = useChat;
+    return this;
+  }
+
+  /**
+   * Get useChat
+   * @return useChat
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USE_CHAT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getUseChat() {
+    return useChat;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_USE_CHAT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUseChat(@javax.annotation.Nullable Boolean useChat) {
+    this.useChat = useChat;
+  }
+
+  public FolderDtoIntegerSecurity updateXlsx(@javax.annotation.Nullable Boolean updateXlsx) {
+    
+    this.updateXlsx = updateXlsx;
+    return this;
+  }
+
+  /**
+   * Get updateXlsx
+   * @return updateXlsx
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPDATE_XLSX, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getUpdateXlsx() {
+    return updateXlsx;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_UPDATE_XLSX, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUpdateXlsx(@javax.annotation.Nullable Boolean updateXlsx) {
+    this.updateXlsx = updateXlsx;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    FolderDtoIntegerSecurity folderDtoIntegerSecurity = (FolderDtoIntegerSecurity) o;
+    return Objects.equals(this.read, folderDtoIntegerSecurity.read) &&
+        Objects.equals(this.comment, folderDtoIntegerSecurity.comment) &&
+        Objects.equals(this.fillForms, folderDtoIntegerSecurity.fillForms) &&
+        Objects.equals(this.review, folderDtoIntegerSecurity.review) &&
+        Objects.equals(this.create, folderDtoIntegerSecurity.create) &&
+        Objects.equals(this.createFrom, folderDtoIntegerSecurity.createFrom) &&
+        Objects.equals(this.edit, folderDtoIntegerSecurity.edit) &&
+        Objects.equals(this.delete, folderDtoIntegerSecurity.delete) &&
+        Objects.equals(this.customFilter, folderDtoIntegerSecurity.customFilter) &&
+        Objects.equals(this.editRoom, folderDtoIntegerSecurity.editRoom) &&
+        Objects.equals(this.rename, folderDtoIntegerSecurity.rename) &&
+        Objects.equals(this.readHistory, folderDtoIntegerSecurity.readHistory) &&
+        Objects.equals(this.lock, folderDtoIntegerSecurity.lock) &&
+        Objects.equals(this.editHistory, folderDtoIntegerSecurity.editHistory) &&
+        Objects.equals(this.copyTo, folderDtoIntegerSecurity.copyTo) &&
+        Objects.equals(this.copy, folderDtoIntegerSecurity.copy) &&
+        Objects.equals(this.moveTo, folderDtoIntegerSecurity.moveTo) &&
+        Objects.equals(this.move, folderDtoIntegerSecurity.move) &&
+        Objects.equals(this.pin, folderDtoIntegerSecurity.pin) &&
+        Objects.equals(this.mute, folderDtoIntegerSecurity.mute) &&
+        Objects.equals(this.editAccess, folderDtoIntegerSecurity.editAccess) &&
+        Objects.equals(this.duplicate, folderDtoIntegerSecurity.duplicate) &&
+        Objects.equals(this.submitToFormGallery, folderDtoIntegerSecurity.submitToFormGallery) &&
+        Objects.equals(this.download, folderDtoIntegerSecurity.download) &&
+        Objects.equals(this.convert, folderDtoIntegerSecurity.convert) &&
+        Objects.equals(this.copySharedLink, folderDtoIntegerSecurity.copySharedLink) &&
+        Objects.equals(this.readLinks, folderDtoIntegerSecurity.readLinks) &&
+        Objects.equals(this.reconnect, folderDtoIntegerSecurity.reconnect) &&
+        Objects.equals(this.createRoomFrom, folderDtoIntegerSecurity.createRoomFrom) &&
+        Objects.equals(this.copyLink, folderDtoIntegerSecurity.copyLink) &&
+        Objects.equals(this.embed, folderDtoIntegerSecurity.embed) &&
+        Objects.equals(this.changeOwner, folderDtoIntegerSecurity.changeOwner) &&
+        Objects.equals(this.indexExport, folderDtoIntegerSecurity.indexExport) &&
+        Objects.equals(this.startFilling, folderDtoIntegerSecurity.startFilling) &&
+        Objects.equals(this.fillingStatus, folderDtoIntegerSecurity.fillingStatus) &&
+        Objects.equals(this.resetFilling, folderDtoIntegerSecurity.resetFilling) &&
+        Objects.equals(this.stopFilling, folderDtoIntegerSecurity.stopFilling) &&
+        Objects.equals(this.openForm, folderDtoIntegerSecurity.openForm) &&
+        Objects.equals(this.editInternal, folderDtoIntegerSecurity.editInternal) &&
+        Objects.equals(this.editExpiration, folderDtoIntegerSecurity.editExpiration) &&
+        Objects.equals(this.vectorization, folderDtoIntegerSecurity.vectorization) &&
+        Objects.equals(this.askAi, folderDtoIntegerSecurity.askAi) &&
+        Objects.equals(this.useChat, folderDtoIntegerSecurity.useChat) &&
+        Objects.equals(this.updateXlsx, folderDtoIntegerSecurity.updateXlsx);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(read, comment, fillForms, review, create, createFrom, edit, delete, customFilter, editRoom, rename, readHistory, lock, editHistory, copyTo, copy, moveTo, move, pin, mute, editAccess, duplicate, submitToFormGallery, download, convert, copySharedLink, readLinks, reconnect, createRoomFrom, copyLink, embed, changeOwner, indexExport, startFilling, fillingStatus, resetFilling, stopFilling, openForm, editInternal, editExpiration, vectorization, askAi, useChat, updateXlsx);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class FolderDtoIntegerSecurity {\n");
+    sb.append("    read: ").append(toIndentedString(read)).append("\n");
+    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    fillForms: ").append(toIndentedString(fillForms)).append("\n");
+    sb.append("    review: ").append(toIndentedString(review)).append("\n");
+    sb.append("    create: ").append(toIndentedString(create)).append("\n");
+    sb.append("    createFrom: ").append(toIndentedString(createFrom)).append("\n");
+    sb.append("    edit: ").append(toIndentedString(edit)).append("\n");
+    sb.append("    delete: ").append(toIndentedString(delete)).append("\n");
+    sb.append("    customFilter: ").append(toIndentedString(customFilter)).append("\n");
+    sb.append("    editRoom: ").append(toIndentedString(editRoom)).append("\n");
+    sb.append("    rename: ").append(toIndentedString(rename)).append("\n");
+    sb.append("    readHistory: ").append(toIndentedString(readHistory)).append("\n");
+    sb.append("    lock: ").append(toIndentedString(lock)).append("\n");
+    sb.append("    editHistory: ").append(toIndentedString(editHistory)).append("\n");
+    sb.append("    copyTo: ").append(toIndentedString(copyTo)).append("\n");
+    sb.append("    copy: ").append(toIndentedString(copy)).append("\n");
+    sb.append("    moveTo: ").append(toIndentedString(moveTo)).append("\n");
+    sb.append("    move: ").append(toIndentedString(move)).append("\n");
+    sb.append("    pin: ").append(toIndentedString(pin)).append("\n");
+    sb.append("    mute: ").append(toIndentedString(mute)).append("\n");
+    sb.append("    editAccess: ").append(toIndentedString(editAccess)).append("\n");
+    sb.append("    duplicate: ").append(toIndentedString(duplicate)).append("\n");
+    sb.append("    submitToFormGallery: ").append(toIndentedString(submitToFormGallery)).append("\n");
+    sb.append("    download: ").append(toIndentedString(download)).append("\n");
+    sb.append("    convert: ").append(toIndentedString(convert)).append("\n");
+    sb.append("    copySharedLink: ").append(toIndentedString(copySharedLink)).append("\n");
+    sb.append("    readLinks: ").append(toIndentedString(readLinks)).append("\n");
+    sb.append("    reconnect: ").append(toIndentedString(reconnect)).append("\n");
+    sb.append("    createRoomFrom: ").append(toIndentedString(createRoomFrom)).append("\n");
+    sb.append("    copyLink: ").append(toIndentedString(copyLink)).append("\n");
+    sb.append("    embed: ").append(toIndentedString(embed)).append("\n");
+    sb.append("    changeOwner: ").append(toIndentedString(changeOwner)).append("\n");
+    sb.append("    indexExport: ").append(toIndentedString(indexExport)).append("\n");
+    sb.append("    startFilling: ").append(toIndentedString(startFilling)).append("\n");
+    sb.append("    fillingStatus: ").append(toIndentedString(fillingStatus)).append("\n");
+    sb.append("    resetFilling: ").append(toIndentedString(resetFilling)).append("\n");
+    sb.append("    stopFilling: ").append(toIndentedString(stopFilling)).append("\n");
+    sb.append("    openForm: ").append(toIndentedString(openForm)).append("\n");
+    sb.append("    editInternal: ").append(toIndentedString(editInternal)).append("\n");
+    sb.append("    editExpiration: ").append(toIndentedString(editExpiration)).append("\n");
+    sb.append("    vectorization: ").append(toIndentedString(vectorization)).append("\n");
+    sb.append("    askAi: ").append(toIndentedString(askAi)).append("\n");
+    sb.append("    useChat: ").append(toIndentedString(useChat)).append("\n");
+    sb.append("    updateXlsx: ").append(toIndentedString(updateXlsx)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `Read` to the URL query string
+    if (getRead() != null) {
+      try {
+        joiner.add(String.format("%sRead%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRead()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `Comment` to the URL query string
+    if (getComment() != null) {
+      try {
+        joiner.add(String.format("%sComment%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getComment()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `FillForms` to the URL query string
+    if (getFillForms() != null) {
+      try {
+        joiner.add(String.format("%sFillForms%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFillForms()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `Review` to the URL query string
+    if (getReview() != null) {
+      try {
+        joiner.add(String.format("%sReview%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReview()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `Create` to the URL query string
+    if (getCreate() != null) {
+      try {
+        joiner.add(String.format("%sCreate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `CreateFrom` to the URL query string
+    if (getCreateFrom() != null) {
+      try {
+        joiner.add(String.format("%sCreateFrom%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreateFrom()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `Edit` to the URL query string
+    if (getEdit() != null) {
+      try {
+        joiner.add(String.format("%sEdit%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEdit()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `Delete` to the URL query string
+    if (getDelete() != null) {
+      try {
+        joiner.add(String.format("%sDelete%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDelete()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `CustomFilter` to the URL query string
+    if (getCustomFilter() != null) {
+      try {
+        joiner.add(String.format("%sCustomFilter%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCustomFilter()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `EditRoom` to the URL query string
+    if (getEditRoom() != null) {
+      try {
+        joiner.add(String.format("%sEditRoom%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEditRoom()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `Rename` to the URL query string
+    if (getRename() != null) {
+      try {
+        joiner.add(String.format("%sRename%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRename()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `ReadHistory` to the URL query string
+    if (getReadHistory() != null) {
+      try {
+        joiner.add(String.format("%sReadHistory%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReadHistory()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `Lock` to the URL query string
+    if (getLock() != null) {
+      try {
+        joiner.add(String.format("%sLock%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLock()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `EditHistory` to the URL query string
+    if (getEditHistory() != null) {
+      try {
+        joiner.add(String.format("%sEditHistory%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEditHistory()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `CopyTo` to the URL query string
+    if (getCopyTo() != null) {
+      try {
+        joiner.add(String.format("%sCopyTo%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCopyTo()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `Copy` to the URL query string
+    if (getCopy() != null) {
+      try {
+        joiner.add(String.format("%sCopy%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCopy()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `MoveTo` to the URL query string
+    if (getMoveTo() != null) {
+      try {
+        joiner.add(String.format("%sMoveTo%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMoveTo()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `Move` to the URL query string
+    if (getMove() != null) {
+      try {
+        joiner.add(String.format("%sMove%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMove()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `Pin` to the URL query string
+    if (getPin() != null) {
+      try {
+        joiner.add(String.format("%sPin%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPin()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `Mute` to the URL query string
+    if (getMute() != null) {
+      try {
+        joiner.add(String.format("%sMute%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMute()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `EditAccess` to the URL query string
+    if (getEditAccess() != null) {
+      try {
+        joiner.add(String.format("%sEditAccess%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEditAccess()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `Duplicate` to the URL query string
+    if (getDuplicate() != null) {
+      try {
+        joiner.add(String.format("%sDuplicate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDuplicate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `SubmitToFormGallery` to the URL query string
+    if (getSubmitToFormGallery() != null) {
+      try {
+        joiner.add(String.format("%sSubmitToFormGallery%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSubmitToFormGallery()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `Download` to the URL query string
+    if (getDownload() != null) {
+      try {
+        joiner.add(String.format("%sDownload%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDownload()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `Convert` to the URL query string
+    if (getConvert() != null) {
+      try {
+        joiner.add(String.format("%sConvert%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getConvert()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `CopySharedLink` to the URL query string
+    if (getCopySharedLink() != null) {
+      try {
+        joiner.add(String.format("%sCopySharedLink%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCopySharedLink()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `ReadLinks` to the URL query string
+    if (getReadLinks() != null) {
+      try {
+        joiner.add(String.format("%sReadLinks%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReadLinks()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `Reconnect` to the URL query string
+    if (getReconnect() != null) {
+      try {
+        joiner.add(String.format("%sReconnect%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReconnect()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `CreateRoomFrom` to the URL query string
+    if (getCreateRoomFrom() != null) {
+      try {
+        joiner.add(String.format("%sCreateRoomFrom%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreateRoomFrom()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `CopyLink` to the URL query string
+    if (getCopyLink() != null) {
+      try {
+        joiner.add(String.format("%sCopyLink%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCopyLink()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `Embed` to the URL query string
+    if (getEmbed() != null) {
+      try {
+        joiner.add(String.format("%sEmbed%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmbed()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `ChangeOwner` to the URL query string
+    if (getChangeOwner() != null) {
+      try {
+        joiner.add(String.format("%sChangeOwner%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getChangeOwner()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `IndexExport` to the URL query string
+    if (getIndexExport() != null) {
+      try {
+        joiner.add(String.format("%sIndexExport%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIndexExport()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `StartFilling` to the URL query string
+    if (getStartFilling() != null) {
+      try {
+        joiner.add(String.format("%sStartFilling%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStartFilling()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `FillingStatus` to the URL query string
+    if (getFillingStatus() != null) {
+      try {
+        joiner.add(String.format("%sFillingStatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFillingStatus()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `ResetFilling` to the URL query string
+    if (getResetFilling() != null) {
+      try {
+        joiner.add(String.format("%sResetFilling%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getResetFilling()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `StopFilling` to the URL query string
+    if (getStopFilling() != null) {
+      try {
+        joiner.add(String.format("%sStopFilling%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStopFilling()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `OpenForm` to the URL query string
+    if (getOpenForm() != null) {
+      try {
+        joiner.add(String.format("%sOpenForm%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOpenForm()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `EditInternal` to the URL query string
+    if (getEditInternal() != null) {
+      try {
+        joiner.add(String.format("%sEditInternal%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEditInternal()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `EditExpiration` to the URL query string
+    if (getEditExpiration() != null) {
+      try {
+        joiner.add(String.format("%sEditExpiration%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEditExpiration()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `Vectorization` to the URL query string
+    if (getVectorization() != null) {
+      try {
+        joiner.add(String.format("%sVectorization%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVectorization()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `AskAi` to the URL query string
+    if (getAskAi() != null) {
+      try {
+        joiner.add(String.format("%sAskAi%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAskAi()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `UseChat` to the URL query string
+    if (getUseChat() != null) {
+      try {
+        joiner.add(String.format("%sUseChat%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUseChat()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `UpdateXlsx` to the URL query string
+    if (getUpdateXlsx() != null) {
+      try {
+        joiner.add(String.format("%sUpdateXlsx%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdateXlsx()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
+  }
+
+}
+

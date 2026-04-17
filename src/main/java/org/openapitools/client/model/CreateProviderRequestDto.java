@@ -24,6 +24,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import org.openapitools.client.model.ModelSettingsItemDto;
 import org.openapitools.client.model.ProviderType;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -43,7 +47,8 @@ import java.util.StringJoiner;
   CreateProviderRequestDto.JSON_PROPERTY_TYPE,
   CreateProviderRequestDto.JSON_PROPERTY_TITLE,
   CreateProviderRequestDto.JSON_PROPERTY_URL,
-  CreateProviderRequestDto.JSON_PROPERTY_KEY
+  CreateProviderRequestDto.JSON_PROPERTY_KEY,
+  CreateProviderRequestDto.JSON_PROPERTY_MODEL_SETTINGS
 })
 
 public class CreateProviderRequestDto {
@@ -58,6 +63,9 @@ public class CreateProviderRequestDto {
 
   public static final String JSON_PROPERTY_KEY = "key";
   @javax.annotation.Nullable  private String key;
+
+  public static final String JSON_PROPERTY_MODEL_SETTINGS = "modelSettings";
+  @javax.annotation.Nullable  private JsonNullable<Set<ModelSettingsItemDto>> modelSettings = JsonNullable.<Set<ModelSettingsItemDto>>undefined();
 
   public CreateProviderRequestDto() {
   }
@@ -166,6 +174,49 @@ public class CreateProviderRequestDto {
     this.key = key;
   }
 
+  public CreateProviderRequestDto modelSettings(@javax.annotation.Nullable Set<ModelSettingsItemDto> modelSettings) {
+    this.modelSettings = JsonNullable.<Set<ModelSettingsItemDto>>of(modelSettings);
+    
+    return this;
+  }
+
+  public CreateProviderRequestDto addModelSettingsItem(ModelSettingsItemDto modelSettingsItem) {
+    if (this.modelSettings == null || !this.modelSettings.isPresent()) {
+      this.modelSettings = JsonNullable.<Set<ModelSettingsItemDto>>of(new LinkedHashSet<>());
+    }
+    try {
+      this.modelSettings.get().add(modelSettingsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Optional list of model settings to configure atomically with the provider creation.
+   * @return modelSettings
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Set<ModelSettingsItemDto> getModelSettings() {
+        return modelSettings.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_MODEL_SETTINGS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Set<ModelSettingsItemDto>> getModelSettings_JsonNullable() {
+    return modelSettings;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODEL_SETTINGS)
+  public void setModelSettings_JsonNullable(JsonNullable<Set<ModelSettingsItemDto>> modelSettings) {
+    this.modelSettings = modelSettings;
+  }
+
+  public void setModelSettings(@javax.annotation.Nullable Set<ModelSettingsItemDto> modelSettings) {
+    this.modelSettings = JsonNullable.<Set<ModelSettingsItemDto>>of(modelSettings);
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -178,7 +229,8 @@ public class CreateProviderRequestDto {
     return Objects.equals(this.type, createProviderRequestDto.type) &&
         Objects.equals(this.title, createProviderRequestDto.title) &&
         equalsNullable(this.url, createProviderRequestDto.url) &&
-        Objects.equals(this.key, createProviderRequestDto.key);
+        Objects.equals(this.key, createProviderRequestDto.key) &&
+        equalsNullable(this.modelSettings, createProviderRequestDto.modelSettings);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -187,7 +239,7 @@ public class CreateProviderRequestDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, title, hashCodeNullable(url), key);
+    return Objects.hash(type, title, hashCodeNullable(url), key, hashCodeNullable(modelSettings));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -205,6 +257,7 @@ public class CreateProviderRequestDto {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    modelSettings: ").append(toIndentedString(modelSettings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -290,6 +343,18 @@ public class CreateProviderRequestDto {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
+    }
+
+    // add `modelSettings` to the URL query string
+    if (getModelSettings() != null) {
+      int i = 0;
+      for (ModelSettingsItemDto _item : getModelSettings()) {
+        if (_item != null) {
+          joiner.add(_item.toUrlQueryString(String.format("%smodelSettings%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+      i++;
     }
 
     return joiner.toString();

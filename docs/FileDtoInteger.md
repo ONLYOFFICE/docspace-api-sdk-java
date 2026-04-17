@@ -28,7 +28,6 @@ The file parameters.
 |**providerId** | **Integer** | The provider ID of the file entry. |  [optional] |
 |**order** | **String** | The order of the file entry. |  [optional] |
 |**isFavorite** | **Boolean** | Specifies if the file is a favorite or not. |  [optional] |
-|**fileEntryType** | **FileEntryType** |  |  [optional] |
 |**id** | **Integer** | The file entry ID. |  [optional] |
 |**rootFolderId** | **Integer** | The root folder ID of the file entry. |  [optional] |
 |**originId** | **Integer** | The origin ID of the file entry. |  [optional] |
@@ -36,9 +35,9 @@ The file parameters.
 |**originTitle** | **String** | The origin title of the file entry. |  [optional] |
 |**originRoomTitle** | **String** | The origin room title of the file entry. |  [optional] |
 |**canShare** | **Boolean** | Specifies if the file entry can be shared or not. |  [optional] |
-|**shareSettings** | [**FileEntryDtoIntegerAllOfShareSettings**](FileEntryDtoIntegerAllOfShareSettings.md) |  |  [optional] |
-|**security** | [**FileEntryDtoIntegerAllOfSecurity**](FileEntryDtoIntegerAllOfSecurity.md) |  |  [optional] |
-|**availableShareRights** | [**FileEntryDtoIntegerAllOfAvailableShareRights**](FileEntryDtoIntegerAllOfAvailableShareRights.md) |  |  [optional] |
+|**shareSettings** | [**FolderDtoIntegerShareSettings**](FolderDtoIntegerShareSettings.md) |  |  [optional] |
+|**security** | [**FolderDtoIntegerSecurity**](FolderDtoIntegerSecurity.md) |  |  [optional] |
+|**availableShareRights** | [**FolderDtoIntegerAvailableShareRights**](FolderDtoIntegerAvailableShareRights.md) |  |  [optional] |
 |**requestToken** | **String** | The request token of the file entry. |  [optional] |
 |**external** | **Boolean** | Specifies if the folder can be accessed via an external link or not. |  [optional] |
 |**expirationDate** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
@@ -71,9 +70,10 @@ The file parameters.
 |**inProcessFolderId** | **Integer** | The InProcess folder ID of the file. |  [optional] |
 |**inProcessFolderTitle** | **String** | The InProcess folder title of the file. |  [optional] |
 |**draftLocation** | [**DraftLocationInteger**](DraftLocationInteger.md) |  |  [optional] |
-|**viewAccessibility** | [**FileDtoIntegerAllOfViewAccessibility**](FileDtoIntegerAllOfViewAccessibility.md) |  |  [optional] |
+|**viewAccessibility** | [**FileDtoIntegerViewAccessibility**](FileDtoIntegerViewAccessibility.md) |  |  [optional] |
 |**lastOpened** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
 |**expired** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
+|**fileEntryType** | **FileEntryType** |  |  [optional] |
 |**vectorizationStatus** | **VectorizationStatus** |  |  [optional] |
 |**dimensions** | [**Size**](Size.md) |  |  [optional] |
 

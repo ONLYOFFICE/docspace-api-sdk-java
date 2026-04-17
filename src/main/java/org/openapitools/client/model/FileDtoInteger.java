@@ -30,14 +30,14 @@ import java.util.Map;
 import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.DraftLocationInteger;
 import org.openapitools.client.model.EmployeeDto;
-import org.openapitools.client.model.FileDtoIntegerAllOfViewAccessibility;
-import org.openapitools.client.model.FileEntryDtoIntegerAllOfAvailableShareRights;
-import org.openapitools.client.model.FileEntryDtoIntegerAllOfSecurity;
-import org.openapitools.client.model.FileEntryDtoIntegerAllOfShareSettings;
+import org.openapitools.client.model.FileDtoIntegerViewAccessibility;
 import org.openapitools.client.model.FileEntryType;
 import org.openapitools.client.model.FileShare;
 import org.openapitools.client.model.FileStatus;
 import org.openapitools.client.model.FileType;
+import org.openapitools.client.model.FolderDtoIntegerAvailableShareRights;
+import org.openapitools.client.model.FolderDtoIntegerSecurity;
+import org.openapitools.client.model.FolderDtoIntegerShareSettings;
 import org.openapitools.client.model.FolderType;
 import org.openapitools.client.model.FormFillingStatus;
 import org.openapitools.client.model.Size;
@@ -78,7 +78,6 @@ import java.util.StringJoiner;
   FileDtoInteger.JSON_PROPERTY_PROVIDER_ID,
   FileDtoInteger.JSON_PROPERTY_ORDER,
   FileDtoInteger.JSON_PROPERTY_IS_FAVORITE,
-  FileDtoInteger.JSON_PROPERTY_FILE_ENTRY_TYPE,
   FileDtoInteger.JSON_PROPERTY_ID,
   FileDtoInteger.JSON_PROPERTY_ROOT_FOLDER_ID,
   FileDtoInteger.JSON_PROPERTY_ORIGIN_ID,
@@ -124,6 +123,7 @@ import java.util.StringJoiner;
   FileDtoInteger.JSON_PROPERTY_VIEW_ACCESSIBILITY,
   FileDtoInteger.JSON_PROPERTY_LAST_OPENED,
   FileDtoInteger.JSON_PROPERTY_EXPIRED,
+  FileDtoInteger.JSON_PROPERTY_FILE_ENTRY_TYPE,
   FileDtoInteger.JSON_PROPERTY_VECTORIZATION_STATUS,
   FileDtoInteger.JSON_PROPERTY_DIMENSIONS
 })
@@ -189,9 +189,6 @@ public class FileDtoInteger {
   public static final String JSON_PROPERTY_IS_FAVORITE = "isFavorite";
   @javax.annotation.Nullable  private JsonNullable<Boolean> isFavorite = JsonNullable.<Boolean>undefined();
 
-  public static final String JSON_PROPERTY_FILE_ENTRY_TYPE = "fileEntryType";
-  @javax.annotation.Nullable  private FileEntryType fileEntryType;
-
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable  private Integer id;
 
@@ -214,13 +211,13 @@ public class FileDtoInteger {
   @javax.annotation.Nullable  private Boolean canShare;
 
   public static final String JSON_PROPERTY_SHARE_SETTINGS = "shareSettings";
-  @javax.annotation.Nullable  private JsonNullable<FileEntryDtoIntegerAllOfShareSettings> shareSettings = JsonNullable.<FileEntryDtoIntegerAllOfShareSettings>undefined();
+  @javax.annotation.Nullable  private JsonNullable<FolderDtoIntegerShareSettings> shareSettings = JsonNullable.<FolderDtoIntegerShareSettings>undefined();
 
   public static final String JSON_PROPERTY_SECURITY = "security";
-  @javax.annotation.Nullable  private JsonNullable<FileEntryDtoIntegerAllOfSecurity> security = JsonNullable.<FileEntryDtoIntegerAllOfSecurity>undefined();
+  @javax.annotation.Nullable  private JsonNullable<FolderDtoIntegerSecurity> security = JsonNullable.<FolderDtoIntegerSecurity>undefined();
 
   public static final String JSON_PROPERTY_AVAILABLE_SHARE_RIGHTS = "availableShareRights";
-  @javax.annotation.Nullable  private JsonNullable<FileEntryDtoIntegerAllOfAvailableShareRights> availableShareRights = JsonNullable.<FileEntryDtoIntegerAllOfAvailableShareRights>undefined();
+  @javax.annotation.Nullable  private JsonNullable<FolderDtoIntegerAvailableShareRights> availableShareRights = JsonNullable.<FolderDtoIntegerAvailableShareRights>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_TOKEN = "requestToken";
   @javax.annotation.Nullable  private JsonNullable<String> requestToken = JsonNullable.<String>undefined();
@@ -319,13 +316,16 @@ public class FileDtoInteger {
   @javax.annotation.Nullable  private DraftLocationInteger draftLocation;
 
   public static final String JSON_PROPERTY_VIEW_ACCESSIBILITY = "viewAccessibility";
-  @javax.annotation.Nullable  private JsonNullable<FileDtoIntegerAllOfViewAccessibility> viewAccessibility = JsonNullable.<FileDtoIntegerAllOfViewAccessibility>undefined();
+  @javax.annotation.Nullable  private JsonNullable<FileDtoIntegerViewAccessibility> viewAccessibility = JsonNullable.<FileDtoIntegerViewAccessibility>undefined();
 
   public static final String JSON_PROPERTY_LAST_OPENED = "lastOpened";
   @javax.annotation.Nullable  private ApiDateTime lastOpened;
 
   public static final String JSON_PROPERTY_EXPIRED = "expired";
   @javax.annotation.Nullable  private ApiDateTime expired;
+
+  public static final String JSON_PROPERTY_FILE_ENTRY_TYPE = "fileEntryType";
+  @javax.annotation.Nullable  private FileEntryType fileEntryType;
 
   public static final String JSON_PROPERTY_VECTORIZATION_STATUS = "vectorizationStatus";
   @javax.annotation.Nullable  private VectorizationStatus vectorizationStatus;
@@ -866,30 +866,6 @@ public class FileDtoInteger {
     this.isFavorite = JsonNullable.<Boolean>of(isFavorite);
   }
 
-  public FileDtoInteger fileEntryType(@javax.annotation.Nullable FileEntryType fileEntryType) {
-    
-    this.fileEntryType = fileEntryType;
-    return this;
-  }
-
-  /**
-   * Get fileEntryType
-   * @return fileEntryType
-   */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_ENTRY_TYPE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public FileEntryType getFileEntryType() {
-    return fileEntryType;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_FILE_ENTRY_TYPE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFileEntryType(@javax.annotation.Nullable FileEntryType fileEntryType) {
-    this.fileEntryType = fileEntryType;
-  }
-
   public FileDtoInteger id(@javax.annotation.Nullable Integer id) {
     
     this.id = id;
@@ -1072,8 +1048,8 @@ public class FileDtoInteger {
     this.canShare = canShare;
   }
 
-  public FileDtoInteger shareSettings(@javax.annotation.Nullable FileEntryDtoIntegerAllOfShareSettings shareSettings) {
-    this.shareSettings = JsonNullable.<FileEntryDtoIntegerAllOfShareSettings>of(shareSettings);
+  public FileDtoInteger shareSettings(@javax.annotation.Nullable FolderDtoIntegerShareSettings shareSettings) {
+    this.shareSettings = JsonNullable.<FolderDtoIntegerShareSettings>of(shareSettings);
     
     return this;
   }
@@ -1084,27 +1060,27 @@ public class FileDtoInteger {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public FileEntryDtoIntegerAllOfShareSettings getShareSettings() {
+  public FolderDtoIntegerShareSettings getShareSettings() {
         return shareSettings.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_SHARE_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<FileEntryDtoIntegerAllOfShareSettings> getShareSettings_JsonNullable() {
+  public JsonNullable<FolderDtoIntegerShareSettings> getShareSettings_JsonNullable() {
     return shareSettings;
   }
   
   @JsonProperty(JSON_PROPERTY_SHARE_SETTINGS)
-  public void setShareSettings_JsonNullable(JsonNullable<FileEntryDtoIntegerAllOfShareSettings> shareSettings) {
+  public void setShareSettings_JsonNullable(JsonNullable<FolderDtoIntegerShareSettings> shareSettings) {
     this.shareSettings = shareSettings;
   }
 
-  public void setShareSettings(@javax.annotation.Nullable FileEntryDtoIntegerAllOfShareSettings shareSettings) {
-    this.shareSettings = JsonNullable.<FileEntryDtoIntegerAllOfShareSettings>of(shareSettings);
+  public void setShareSettings(@javax.annotation.Nullable FolderDtoIntegerShareSettings shareSettings) {
+    this.shareSettings = JsonNullable.<FolderDtoIntegerShareSettings>of(shareSettings);
   }
 
-  public FileDtoInteger security(@javax.annotation.Nullable FileEntryDtoIntegerAllOfSecurity security) {
-    this.security = JsonNullable.<FileEntryDtoIntegerAllOfSecurity>of(security);
+  public FileDtoInteger security(@javax.annotation.Nullable FolderDtoIntegerSecurity security) {
+    this.security = JsonNullable.<FolderDtoIntegerSecurity>of(security);
     
     return this;
   }
@@ -1115,27 +1091,27 @@ public class FileDtoInteger {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public FileEntryDtoIntegerAllOfSecurity getSecurity() {
+  public FolderDtoIntegerSecurity getSecurity() {
         return security.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_SECURITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<FileEntryDtoIntegerAllOfSecurity> getSecurity_JsonNullable() {
+  public JsonNullable<FolderDtoIntegerSecurity> getSecurity_JsonNullable() {
     return security;
   }
   
   @JsonProperty(JSON_PROPERTY_SECURITY)
-  public void setSecurity_JsonNullable(JsonNullable<FileEntryDtoIntegerAllOfSecurity> security) {
+  public void setSecurity_JsonNullable(JsonNullable<FolderDtoIntegerSecurity> security) {
     this.security = security;
   }
 
-  public void setSecurity(@javax.annotation.Nullable FileEntryDtoIntegerAllOfSecurity security) {
-    this.security = JsonNullable.<FileEntryDtoIntegerAllOfSecurity>of(security);
+  public void setSecurity(@javax.annotation.Nullable FolderDtoIntegerSecurity security) {
+    this.security = JsonNullable.<FolderDtoIntegerSecurity>of(security);
   }
 
-  public FileDtoInteger availableShareRights(@javax.annotation.Nullable FileEntryDtoIntegerAllOfAvailableShareRights availableShareRights) {
-    this.availableShareRights = JsonNullable.<FileEntryDtoIntegerAllOfAvailableShareRights>of(availableShareRights);
+  public FileDtoInteger availableShareRights(@javax.annotation.Nullable FolderDtoIntegerAvailableShareRights availableShareRights) {
+    this.availableShareRights = JsonNullable.<FolderDtoIntegerAvailableShareRights>of(availableShareRights);
     
     return this;
   }
@@ -1146,23 +1122,23 @@ public class FileDtoInteger {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public FileEntryDtoIntegerAllOfAvailableShareRights getAvailableShareRights() {
+  public FolderDtoIntegerAvailableShareRights getAvailableShareRights() {
         return availableShareRights.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_AVAILABLE_SHARE_RIGHTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<FileEntryDtoIntegerAllOfAvailableShareRights> getAvailableShareRights_JsonNullable() {
+  public JsonNullable<FolderDtoIntegerAvailableShareRights> getAvailableShareRights_JsonNullable() {
     return availableShareRights;
   }
   
   @JsonProperty(JSON_PROPERTY_AVAILABLE_SHARE_RIGHTS)
-  public void setAvailableShareRights_JsonNullable(JsonNullable<FileEntryDtoIntegerAllOfAvailableShareRights> availableShareRights) {
+  public void setAvailableShareRights_JsonNullable(JsonNullable<FolderDtoIntegerAvailableShareRights> availableShareRights) {
     this.availableShareRights = availableShareRights;
   }
 
-  public void setAvailableShareRights(@javax.annotation.Nullable FileEntryDtoIntegerAllOfAvailableShareRights availableShareRights) {
-    this.availableShareRights = JsonNullable.<FileEntryDtoIntegerAllOfAvailableShareRights>of(availableShareRights);
+  public void setAvailableShareRights(@javax.annotation.Nullable FolderDtoIntegerAvailableShareRights availableShareRights) {
+    this.availableShareRights = JsonNullable.<FolderDtoIntegerAvailableShareRights>of(availableShareRights);
   }
 
   public FileDtoInteger requestToken(@javax.annotation.Nullable String requestToken) {
@@ -2099,8 +2075,8 @@ public class FileDtoInteger {
     this.draftLocation = draftLocation;
   }
 
-  public FileDtoInteger viewAccessibility(@javax.annotation.Nullable FileDtoIntegerAllOfViewAccessibility viewAccessibility) {
-    this.viewAccessibility = JsonNullable.<FileDtoIntegerAllOfViewAccessibility>of(viewAccessibility);
+  public FileDtoInteger viewAccessibility(@javax.annotation.Nullable FileDtoIntegerViewAccessibility viewAccessibility) {
+    this.viewAccessibility = JsonNullable.<FileDtoIntegerViewAccessibility>of(viewAccessibility);
     
     return this;
   }
@@ -2111,23 +2087,23 @@ public class FileDtoInteger {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public FileDtoIntegerAllOfViewAccessibility getViewAccessibility() {
+  public FileDtoIntegerViewAccessibility getViewAccessibility() {
         return viewAccessibility.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_VIEW_ACCESSIBILITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<FileDtoIntegerAllOfViewAccessibility> getViewAccessibility_JsonNullable() {
+  public JsonNullable<FileDtoIntegerViewAccessibility> getViewAccessibility_JsonNullable() {
     return viewAccessibility;
   }
   
   @JsonProperty(JSON_PROPERTY_VIEW_ACCESSIBILITY)
-  public void setViewAccessibility_JsonNullable(JsonNullable<FileDtoIntegerAllOfViewAccessibility> viewAccessibility) {
+  public void setViewAccessibility_JsonNullable(JsonNullable<FileDtoIntegerViewAccessibility> viewAccessibility) {
     this.viewAccessibility = viewAccessibility;
   }
 
-  public void setViewAccessibility(@javax.annotation.Nullable FileDtoIntegerAllOfViewAccessibility viewAccessibility) {
-    this.viewAccessibility = JsonNullable.<FileDtoIntegerAllOfViewAccessibility>of(viewAccessibility);
+  public void setViewAccessibility(@javax.annotation.Nullable FileDtoIntegerViewAccessibility viewAccessibility) {
+    this.viewAccessibility = JsonNullable.<FileDtoIntegerViewAccessibility>of(viewAccessibility);
   }
 
   public FileDtoInteger lastOpened(@javax.annotation.Nullable ApiDateTime lastOpened) {
@@ -2176,6 +2152,30 @@ public class FileDtoInteger {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpired(@javax.annotation.Nullable ApiDateTime expired) {
     this.expired = expired;
+  }
+
+  public FileDtoInteger fileEntryType(@javax.annotation.Nullable FileEntryType fileEntryType) {
+    
+    this.fileEntryType = fileEntryType;
+    return this;
+  }
+
+  /**
+   * Get fileEntryType
+   * @return fileEntryType
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_ENTRY_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public FileEntryType getFileEntryType() {
+    return fileEntryType;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_FILE_ENTRY_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFileEntryType(@javax.annotation.Nullable FileEntryType fileEntryType) {
+    this.fileEntryType = fileEntryType;
   }
 
   public FileDtoInteger vectorizationStatus(@javax.annotation.Nullable VectorizationStatus vectorizationStatus) {
@@ -2255,7 +2255,6 @@ public class FileDtoInteger {
         equalsNullable(this.providerId, fileDtoInteger.providerId) &&
         equalsNullable(this.order, fileDtoInteger.order) &&
         equalsNullable(this.isFavorite, fileDtoInteger.isFavorite) &&
-        Objects.equals(this.fileEntryType, fileDtoInteger.fileEntryType) &&
         Objects.equals(this.id, fileDtoInteger.id) &&
         Objects.equals(this.rootFolderId, fileDtoInteger.rootFolderId) &&
         Objects.equals(this.originId, fileDtoInteger.originId) &&
@@ -2301,6 +2300,7 @@ public class FileDtoInteger {
         equalsNullable(this.viewAccessibility, fileDtoInteger.viewAccessibility) &&
         Objects.equals(this.lastOpened, fileDtoInteger.lastOpened) &&
         Objects.equals(this.expired, fileDtoInteger.expired) &&
+        Objects.equals(this.fileEntryType, fileDtoInteger.fileEntryType) &&
         Objects.equals(this.vectorizationStatus, fileDtoInteger.vectorizationStatus) &&
         Objects.equals(this.dimensions, fileDtoInteger.dimensions);
   }
@@ -2311,7 +2311,7 @@ public class FileDtoInteger {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(title), access, sharedBy, ownedBy, shared, sharedForUser, parentShared, hashCodeNullable(shortWebUrl), created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), fileEntryType, id, rootFolderId, originId, originRoomId, hashCodeNullable(originTitle), hashCodeNullable(originRoomTitle), canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), hashCodeNullable(requestToken), hashCodeNullable(external), expirationDate, hashCodeNullable(isLinkExpired), folderId, version, versionGroup, hashCodeNullable(contentLength), hashCodeNullable(pureContentLength), fileStatus, hashCodeNullable(editingBy), mute, hashCodeNullable(viewUrl), hashCodeNullable(webUrl), fileType, hashCodeNullable(fileExst), hashCodeNullable(comment), hashCodeNullable(encrypted), hashCodeNullable(thumbnailUrl), thumbnailStatus, hashCodeNullable(locked), hashCodeNullable(lockedBy), hashCodeNullable(hasDraft), formFillingStatus, hashCodeNullable(isForm), hashCodeNullable(customFilterEnabled), hashCodeNullable(customFilterEnabledBy), hashCodeNullable(startFilling), hashCodeNullable(isFillingPreparing), hashCodeNullable(inProcessFolderId), hashCodeNullable(inProcessFolderTitle), draftLocation, hashCodeNullable(viewAccessibility), lastOpened, expired, vectorizationStatus, dimensions);
+    return Objects.hash(hashCodeNullable(title), access, sharedBy, ownedBy, shared, sharedForUser, parentShared, hashCodeNullable(shortWebUrl), created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), id, rootFolderId, originId, originRoomId, hashCodeNullable(originTitle), hashCodeNullable(originRoomTitle), canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), hashCodeNullable(requestToken), hashCodeNullable(external), expirationDate, hashCodeNullable(isLinkExpired), folderId, version, versionGroup, hashCodeNullable(contentLength), hashCodeNullable(pureContentLength), fileStatus, hashCodeNullable(editingBy), mute, hashCodeNullable(viewUrl), hashCodeNullable(webUrl), fileType, hashCodeNullable(fileExst), hashCodeNullable(comment), hashCodeNullable(encrypted), hashCodeNullable(thumbnailUrl), thumbnailStatus, hashCodeNullable(locked), hashCodeNullable(lockedBy), hashCodeNullable(hasDraft), formFillingStatus, hashCodeNullable(isForm), hashCodeNullable(customFilterEnabled), hashCodeNullable(customFilterEnabledBy), hashCodeNullable(startFilling), hashCodeNullable(isFillingPreparing), hashCodeNullable(inProcessFolderId), hashCodeNullable(inProcessFolderTitle), draftLocation, hashCodeNullable(viewAccessibility), lastOpened, expired, fileEntryType, vectorizationStatus, dimensions);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -2345,7 +2345,6 @@ public class FileDtoInteger {
     sb.append("    providerId: ").append(toIndentedString(providerId)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    isFavorite: ").append(toIndentedString(isFavorite)).append("\n");
-    sb.append("    fileEntryType: ").append(toIndentedString(fileEntryType)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    rootFolderId: ").append(toIndentedString(rootFolderId)).append("\n");
     sb.append("    originId: ").append(toIndentedString(originId)).append("\n");
@@ -2391,6 +2390,7 @@ public class FileDtoInteger {
     sb.append("    viewAccessibility: ").append(toIndentedString(viewAccessibility)).append("\n");
     sb.append("    lastOpened: ").append(toIndentedString(lastOpened)).append("\n");
     sb.append("    expired: ").append(toIndentedString(expired)).append("\n");
+    sb.append("    fileEntryType: ").append(toIndentedString(fileEntryType)).append("\n");
     sb.append("    vectorizationStatus: ").append(toIndentedString(vectorizationStatus)).append("\n");
     sb.append("    dimensions: ").append(toIndentedString(dimensions)).append("\n");
     sb.append("}");
@@ -2599,16 +2599,6 @@ public class FileDtoInteger {
     if (getIsFavorite() != null) {
       try {
         joiner.add(String.format("%sisFavorite%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsFavorite()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `fileEntryType` to the URL query string
-    if (getFileEntryType() != null) {
-      try {
-        joiner.add(String.format("%sfileEntryType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFileEntryType()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
@@ -3027,6 +3017,16 @@ public class FileDtoInteger {
     // add `expired` to the URL query string
     if (getExpired() != null) {
       joiner.add(getExpired().toUrlQueryString(prefix + "expired" + suffix));
+    }
+
+    // add `fileEntryType` to the URL query string
+    if (getFileEntryType() != null) {
+      try {
+        joiner.add(String.format("%sfileEntryType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFileEntryType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `vectorizationStatus` to the URL query string

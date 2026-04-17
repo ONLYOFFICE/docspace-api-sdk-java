@@ -36,6 +36,7 @@ import org.openapitools.client.model.CreateFileJsonElement;
 import org.openapitools.client.model.CreateTextOrHtmlFile;
 import org.openapitools.client.model.CustomFilterParameters;
 import org.openapitools.client.model.Delete;
+import org.openapitools.client.model.DocumentBuilderTaskWrapper;
 import org.openapitools.client.model.EditHistoryArrayWrapper;
 import org.openapitools.client.model.EditHistoryDataWrapper;
 import org.openapitools.client.model.EditorType;
@@ -70,6 +71,7 @@ import org.openapitools.client.model.StringWrapper;
 import org.openapitools.client.model.TemplatesRequestDto;
 import java.util.UUID;
 import org.openapitools.client.model.UpdateFile;
+import org.openapitools.client.model.XlsxReportResponseWrapper;
 
 
 import java.util.ArrayList;
@@ -1546,10 +1548,10 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/
    *
    * @param fileId The file unique identifier. (required)
-   * @return FileIntegerWrapper
+   * @return XlsxReportResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileIntegerWrapper generateXlsx(@javax.annotation.Nonnull Integer fileId) throws ApiException {
+  public XlsxReportResponseWrapper generateXlsx(@javax.annotation.Nonnull Integer fileId) throws ApiException {
     return this.generateXlsx(fileId, Collections.emptyMap());
   }
 
@@ -1563,10 +1565,10 @@ public class FilesApi extends BaseApi {
    *
    * @param fileId The file unique identifier. (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FileIntegerWrapper
+   * @return XlsxReportResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileIntegerWrapper generateXlsx(@javax.annotation.Nonnull Integer fileId, Map<String, String> additionalHeaders) throws ApiException {
+  public XlsxReportResponseWrapper generateXlsx(@javax.annotation.Nonnull Integer fileId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'fileId' is set
@@ -1604,7 +1606,7 @@ public class FilesApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<FileIntegerWrapper> localVarReturnType = new TypeReference<FileIntegerWrapper>() {};
+    TypeReference<XlsxReportResponseWrapper> localVarReturnType = new TypeReference<XlsxReportResponseWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -2805,6 +2807,90 @@ public class FilesApi extends BaseApi {
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get XLSX report generation status
+   * Returns the status of the XLSX report generation task for the specified form.
+   *
+   * REST API Reference for getXlsx Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/
+   *
+   * @param fileId The file unique identifier. (required)
+   * @return DocumentBuilderTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentBuilderTaskWrapper getXlsx(@javax.annotation.Nonnull Integer fileId) throws ApiException {
+    return this.getXlsx(fileId, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get XLSX report generation status
+   * Returns the status of the XLSX report generation task for the specified form.
+   *
+   * REST API Reference for getXlsx Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/
+   *
+   * @param fileId The file unique identifier. (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return DocumentBuilderTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentBuilderTaskWrapper getXlsx(@javax.annotation.Nonnull Integer fileId, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'fileId' is set
+    if (fileId == null) {
+      throw new ApiException(400, "Missing the required parameter 'fileId' when calling getXlsx");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/file/{fileId}/xlsx"
+      .replaceAll("\\{" + "fileId" + "\\}", apiClient.escapeString(apiClient.parameterToString(fileId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<DocumentBuilderTaskWrapper> localVarReturnType = new TypeReference<DocumentBuilderTaskWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),

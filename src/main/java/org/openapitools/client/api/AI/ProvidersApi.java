@@ -28,6 +28,8 @@ import org.openapitools.client.model.AiProviderArrayWrapper;
 import org.openapitools.client.model.AiProviderWrapper;
 import org.openapitools.client.model.CreateProviderRequestDto;
 import org.openapitools.client.model.DefaultProviderWrapper;
+import org.openapitools.client.model.ModelSettingsArrayWrapper;
+import org.openapitools.client.model.PreviewProviderModelsRequestDto;
 import org.openapitools.client.model.ProviderSettingsArrayWrapper;
 import org.openapitools.client.model.RemoveProviderRequestDto;
 import org.openapitools.client.model.SetDefaultProviderRequestDto;
@@ -369,6 +371,90 @@ public class ProvidersApi extends BaseApi {
   }
 
   /**
+   * Get all models for a provider with their settings
+   * Returns the full list of AI models available from a provider, including both recommended and additional models.  Each model includes its current settings: enabled state, display alias, and capabilities (vision, tool calling, thinking).  Recommended models are enabled by default and their alias and capabilities come from configuration.  Additional models are disabled by default and can be configured by the admin.
+   *
+   * REST API Reference for getProviderModels Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-provider-models/
+   *
+   * @param providerId The identifier of the AI provider. (required)
+   * @return ModelSettingsArrayWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ModelSettingsArrayWrapper getProviderModels(@javax.annotation.Nonnull Integer providerId) throws ApiException {
+    return this.getProviderModels(providerId, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get all models for a provider with their settings
+   * Returns the full list of AI models available from a provider, including both recommended and additional models.  Each model includes its current settings: enabled state, display alias, and capabilities (vision, tool calling, thinking).  Recommended models are enabled by default and their alias and capabilities come from configuration.  Additional models are disabled by default and can be configured by the admin.
+   *
+   * REST API Reference for getProviderModels Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-provider-models/
+   *
+   * @param providerId The identifier of the AI provider. (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ModelSettingsArrayWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ModelSettingsArrayWrapper getProviderModels(@javax.annotation.Nonnull Integer providerId, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'providerId' is set
+    if (providerId == null) {
+      throw new ApiException(400, "Missing the required parameter 'providerId' when calling getProviderModels");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/ai/providers/{providerId}/models"
+      .replaceAll("\\{" + "providerId" + "\\}", apiClient.escapeString(apiClient.parameterToString(providerId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<ModelSettingsArrayWrapper> localVarReturnType = new TypeReference<ModelSettingsArrayWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Get AI providers
    * Returns a paginated list of AI providers configured for the current tenant.  Supports pagination via the startIndex and count query parameters. The total number of providers is included in the response metadata.
    *
@@ -438,6 +524,84 @@ public class ProvidersApi extends BaseApi {
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Preview models for a new AI provider
+   * Connects to the specified AI provider using the provided credentials and returns the available models  with their default settings. This is used to preview models before saving the provider.  Recommended models are enabled by default with configuration-defined settings.  Additional models are disabled by default with empty capabilities.
+   *
+   * REST API Reference for previewProviderModels Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/preview-provider-models/
+   *
+   * @param previewProviderModelsRequestDto  (optional)
+   * @return ModelSettingsArrayWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ModelSettingsArrayWrapper previewProviderModels(@javax.annotation.Nullable PreviewProviderModelsRequestDto previewProviderModelsRequestDto) throws ApiException {
+    return this.previewProviderModels(previewProviderModelsRequestDto, Collections.emptyMap());
+  }
+
+
+  /**
+   * Preview models for a new AI provider
+   * Connects to the specified AI provider using the provided credentials and returns the available models  with their default settings. This is used to preview models before saving the provider.  Recommended models are enabled by default with configuration-defined settings.  Additional models are disabled by default with empty capabilities.
+   *
+   * REST API Reference for previewProviderModels Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/preview-provider-models/
+   *
+   * @param previewProviderModelsRequestDto  (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ModelSettingsArrayWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ModelSettingsArrayWrapper previewProviderModels(@javax.annotation.Nullable PreviewProviderModelsRequestDto previewProviderModelsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = previewProviderModelsRequestDto;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/ai/providers/models/preview";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<ModelSettingsArrayWrapper> localVarReturnType = new TypeReference<ModelSettingsArrayWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),

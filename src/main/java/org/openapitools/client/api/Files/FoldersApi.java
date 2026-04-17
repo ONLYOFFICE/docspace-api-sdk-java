@@ -52,6 +52,7 @@ import org.openapitools.client.model.SortOrder;
 import org.openapitools.client.model.StringWrapper;
 import java.util.UUID;
 import org.openapitools.client.model.UploadRequestDto;
+import org.openapitools.client.model.XlsxReportResponseWrapper;
 
 
 import java.util.ArrayList;
@@ -539,10 +540,10 @@ public class FoldersApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/
    *
    * @param folderId The folder unique identifier. (required)
-   * @return FileIntegerWrapper
+   * @return XlsxReportResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileIntegerWrapper generateXlsxByFolder(@javax.annotation.Nonnull Integer folderId) throws ApiException {
+  public XlsxReportResponseWrapper generateXlsxByFolder(@javax.annotation.Nonnull Integer folderId) throws ApiException {
     return this.generateXlsxByFolder(folderId, Collections.emptyMap());
   }
 
@@ -556,10 +557,10 @@ public class FoldersApi extends BaseApi {
    *
    * @param folderId The folder unique identifier. (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FileIntegerWrapper
+   * @return XlsxReportResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileIntegerWrapper generateXlsxByFolder(@javax.annotation.Nonnull Integer folderId, Map<String, String> additionalHeaders) throws ApiException {
+  public XlsxReportResponseWrapper generateXlsxByFolder(@javax.annotation.Nonnull Integer folderId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'folderId' is set
@@ -597,7 +598,7 @@ public class FoldersApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<FileIntegerWrapper> localVarReturnType = new TypeReference<FileIntegerWrapper>() {};
+    TypeReference<XlsxReportResponseWrapper> localVarReturnType = new TypeReference<XlsxReportResponseWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
