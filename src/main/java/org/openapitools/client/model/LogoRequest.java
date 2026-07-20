@@ -24,10 +24,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -48,7 +44,7 @@ import java.util.StringJoiner;
 
 public class LogoRequest {
   public static final String JSON_PROPERTY_TMP_FILE = "tmpFile";
-  @javax.annotation.Nullable  private JsonNullable<String> tmpFile = JsonNullable.<String>undefined();
+  @javax.annotation.Nonnull  private String tmpFile;
 
   public static final String JSON_PROPERTY_X = "x";
   @javax.annotation.Nullable  private Integer x;
@@ -66,9 +62,9 @@ public class LogoRequest {
   }
 
 
-  public LogoRequest tmpFile(@javax.annotation.Nullable String tmpFile) {
-    this.tmpFile = JsonNullable.<String>of(tmpFile);
+  public LogoRequest tmpFile(@javax.annotation.Nonnull String tmpFile) {
     
+    this.tmpFile = tmpFile;
     return this;
   }
 
@@ -76,25 +72,18 @@ public class LogoRequest {
    * The path to the temporary image file.
    * @return tmpFile
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TMP_FILE, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getTmpFile() {
-        return tmpFile.orElse(null);
-  }
-
-  @JsonProperty(value = JSON_PROPERTY_TMP_FILE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getTmpFile_JsonNullable() {
     return tmpFile;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TMP_FILE)
-  public void setTmpFile_JsonNullable(JsonNullable<String> tmpFile) {
-    this.tmpFile = tmpFile;
-  }
 
-  public void setTmpFile(@javax.annotation.Nullable String tmpFile) {
-    this.tmpFile = JsonNullable.<String>of(tmpFile);
+
+  @JsonProperty(value = JSON_PROPERTY_TMP_FILE, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTmpFile(@javax.annotation.Nonnull String tmpFile) {
+    this.tmpFile = tmpFile;
   }
 
   public LogoRequest x(@javax.annotation.Nullable Integer x) {
@@ -105,6 +94,8 @@ public class LogoRequest {
 
   /**
    * The X coordinate of the rectangle starting point.
+   * minimum: 0
+   * maximum: 1280
    * @return x
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_X, required = false)
@@ -129,6 +120,8 @@ public class LogoRequest {
 
   /**
    * The Y coordinate of the rectangle starting point.
+   * minimum: 0
+   * maximum: 1280
    * @return y
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_Y, required = false)
@@ -153,6 +146,8 @@ public class LogoRequest {
 
   /**
    * The rectangle width.
+   * minimum: 1
+   * maximum: 1280
    * @return width
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
@@ -177,6 +172,8 @@ public class LogoRequest {
 
   /**
    * The rectangle height.
+   * minimum: 1
+   * maximum: 1280
    * @return height
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
@@ -202,27 +199,16 @@ public class LogoRequest {
       return false;
     }
     LogoRequest logoRequest = (LogoRequest) o;
-    return equalsNullable(this.tmpFile, logoRequest.tmpFile) &&
+    return Objects.equals(this.tmpFile, logoRequest.tmpFile) &&
         Objects.equals(this.x, logoRequest.x) &&
         Objects.equals(this.y, logoRequest.y) &&
         Objects.equals(this.width, logoRequest.width) &&
         Objects.equals(this.height, logoRequest.height);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(tmpFile), x, y, width, height);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(tmpFile, x, y, width, height);
   }
 
   @Override

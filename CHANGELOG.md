@@ -4,13 +4,17 @@
 
 ### Added
 
-- Added new API methods and enhanced models with additional properties
+- Added new API methods for AI settings, wallet/payment operations, room external
+  sharing & DB sync, file uploads, and webhook triggers
+- Added corresponding request/response models (DTOs and wrappers)
+- Added rate limit documentation (`X-RateLimit-*` and `Retry-After` headers) to API docs
 - Added tag Rooms / Groups
 
 ### Changed
 
-- Updated SDK OpenAPI specification v3.7.0
-- Updated example values, added email length validation, and adjusted method return types in API models and methods
+- Updated SDK OpenAPI specification to v3.7.0
+- Adjusted method return types and renamed several payment/TFA methods
+- Updated example values and added email length validation in API models
 
 ### Fixed
 

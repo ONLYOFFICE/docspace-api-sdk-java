@@ -30,19 +30,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * [0 - Any, 1 - Pending, 2 - Completed, 4 - Rejected, 8 - Canceled]
+ * [0 - Pending, 1 - Completed, 2 - Rejected, 3 - Canceled]
  */
 public enum OperationStatus {
   
-  Any(0),
+  Pending(0),
   
-  Pending(1),
+  Completed(1),
   
-  Completed(2),
+  Rejected(2),
   
-  Rejected(4),
-  
-  Canceled(8);
+  Canceled(3);
 
   private Integer value;
 

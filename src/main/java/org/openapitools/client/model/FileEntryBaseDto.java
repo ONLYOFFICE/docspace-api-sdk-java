@@ -51,6 +51,7 @@ import java.util.StringJoiner;
   FileEntryBaseDto.JSON_PROPERTY_OWNED_BY,
   FileEntryBaseDto.JSON_PROPERTY_SHARED,
   FileEntryBaseDto.JSON_PROPERTY_SHARED_FOR_USER,
+  FileEntryBaseDto.JSON_PROPERTY_SHARED_EXTERNAL,
   FileEntryBaseDto.JSON_PROPERTY_PARENT_SHARED,
   FileEntryBaseDto.JSON_PROPERTY_SHORT_WEB_URL,
   FileEntryBaseDto.JSON_PROPERTY_CREATED,
@@ -86,6 +87,9 @@ public class FileEntryBaseDto {
 
   public static final String JSON_PROPERTY_SHARED_FOR_USER = "sharedForUser";
   @javax.annotation.Nullable  private Boolean sharedForUser;
+
+  public static final String JSON_PROPERTY_SHARED_EXTERNAL = "sharedExternal";
+  @javax.annotation.Nullable  private Boolean sharedExternal;
 
   public static final String JSON_PROPERTY_PARENT_SHARED = "parentShared";
   @javax.annotation.Nullable  private Boolean parentShared;
@@ -285,6 +289,30 @@ public class FileEntryBaseDto {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSharedForUser(@javax.annotation.Nullable Boolean sharedForUser) {
     this.sharedForUser = sharedForUser;
+  }
+
+  public FileEntryBaseDto sharedExternal(@javax.annotation.Nullable Boolean sharedExternal) {
+    
+    this.sharedExternal = sharedExternal;
+    return this;
+  }
+
+  /**
+   * Specifies if the file entry is shared via a public (non-internal) external link.
+   * @return sharedExternal
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARED_EXTERNAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getSharedExternal() {
+    return sharedExternal;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SHARED_EXTERNAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSharedExternal(@javax.annotation.Nullable Boolean sharedExternal) {
+    this.sharedExternal = sharedExternal;
   }
 
   public FileEntryBaseDto parentShared(@javax.annotation.Nullable Boolean parentShared) {
@@ -704,6 +732,7 @@ public class FileEntryBaseDto {
         Objects.equals(this.ownedBy, fileEntryBaseDto.ownedBy) &&
         Objects.equals(this.shared, fileEntryBaseDto.shared) &&
         Objects.equals(this.sharedForUser, fileEntryBaseDto.sharedForUser) &&
+        Objects.equals(this.sharedExternal, fileEntryBaseDto.sharedExternal) &&
         Objects.equals(this.parentShared, fileEntryBaseDto.parentShared) &&
         equalsNullable(this.shortWebUrl, fileEntryBaseDto.shortWebUrl) &&
         Objects.equals(this.created, fileEntryBaseDto.created) &&
@@ -727,7 +756,7 @@ public class FileEntryBaseDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(title), access, sharedBy, ownedBy, shared, sharedForUser, parentShared, hashCodeNullable(shortWebUrl), created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), fileEntryType);
+    return Objects.hash(hashCodeNullable(title), access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, hashCodeNullable(shortWebUrl), created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), fileEntryType);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -747,6 +776,7 @@ public class FileEntryBaseDto {
     sb.append("    ownedBy: ").append(toIndentedString(ownedBy)).append("\n");
     sb.append("    shared: ").append(toIndentedString(shared)).append("\n");
     sb.append("    sharedForUser: ").append(toIndentedString(sharedForUser)).append("\n");
+    sb.append("    sharedExternal: ").append(toIndentedString(sharedExternal)).append("\n");
     sb.append("    parentShared: ").append(toIndentedString(parentShared)).append("\n");
     sb.append("    shortWebUrl: ").append(toIndentedString(shortWebUrl)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
@@ -853,6 +883,16 @@ public class FileEntryBaseDto {
     if (getSharedForUser() != null) {
       try {
         joiner.add(String.format("%ssharedForUser%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSharedForUser()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `sharedExternal` to the URL query string
+    if (getSharedExternal() != null) {
+      try {
+        joiner.add(String.format("%ssharedExternal%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSharedExternal()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

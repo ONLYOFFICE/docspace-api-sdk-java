@@ -24,6 +24,7 @@ The AI module settings.
 |**generateFormToolName** | **String** | The tool name used by the AI assistant to launch form creation in the editor. |  |
 |**generatePresentationToolName** | **String** | The tool name used by the AI assistant to launch presentation creation in the editor. |  |
 |**systemAiEnabled** | **Boolean** | Indicates whether the system-level AI provider is enabled. |  [optional] |
+|**recommendedModelForForms** | **String** | The identifier of the model recommended for form generation. |  [optional] |
 
 
 

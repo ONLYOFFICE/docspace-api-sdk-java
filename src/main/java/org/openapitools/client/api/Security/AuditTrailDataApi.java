@@ -390,7 +390,7 @@ public class AuditTrailDataApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<ObjectWrapper> localVarReturnType = new TypeReference<ObjectWrapper>() {};
     return apiClient.invokeAPI(
@@ -466,7 +466,7 @@ public class AuditTrailDataApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<ObjectWrapper> localVarReturnType = new TypeReference<ObjectWrapper>() {};
     return apiClient.invokeAPI(

@@ -31,6 +31,7 @@ import org.openapitools.client.model.CreateFolder;
 import org.openapitools.client.model.DeleteFolder;
 import java.io.File;
 import org.openapitools.client.model.FileEntryBaseArrayWrapper;
+import org.openapitools.client.model.FileIntegerArrayWrapper;
 import org.openapitools.client.model.FileIntegerWrapper;
 import org.openapitools.client.model.FileOperationArrayWrapper;
 import org.openapitools.client.model.FileShareArrayWrapper;
@@ -44,14 +45,12 @@ import org.openapitools.client.model.FolderLinkRequest;
 import org.openapitools.client.model.FormsItemArrayWrapper;
 import org.openapitools.client.model.HistoryArrayWrapper;
 import org.openapitools.client.model.Location;
-import org.openapitools.client.model.ObjectWrapper;
 import org.openapitools.client.model.OrderRequestDto;
 import org.openapitools.client.model.STRINGArrayWrapper;
 import org.openapitools.client.model.SearchArea;
 import org.openapitools.client.model.SortOrder;
 import org.openapitools.client.model.StringWrapper;
 import java.util.UUID;
-import org.openapitools.client.model.UploadRequestDto;
 import org.openapitools.client.model.XlsxReportResponseWrapper;
 
 
@@ -889,6 +888,7 @@ public class FoldersApi extends BaseApi {
    * @param roomId The room ID. (optional)
    * @param excludeSubject Specifies whether to exclude search by user or group ID. (optional)
    * @param applyFilterOption Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)
+   * @param withSubFolders Specifies whether to include files from subfolders in the results. (optional)
    * @param extension Specifies whether to search for the specific file extension. (optional)
    * @param searchArea The search area. (optional)
    * @param formsItemKey The forms item key. (optional)
@@ -902,8 +902,8 @@ public class FoldersApi extends BaseApi {
    * @return FolderContentIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentIntegerWrapper getFolderByFolderId(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable UUID sharedBy, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer roomId, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable String extension, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable String formsItemKey, @javax.annotation.Nullable String formsItemType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Location location) throws ApiException {
-    return this.getFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, Collections.emptyMap());
+  public FolderContentIntegerWrapper getFolderByFolderId(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable UUID sharedBy, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer roomId, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Boolean withSubFolders, @javax.annotation.Nullable String extension, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable String formsItemKey, @javax.annotation.Nullable String formsItemType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Location location) throws ApiException {
+    return this.getFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, Collections.emptyMap());
   }
 
 
@@ -921,6 +921,7 @@ public class FoldersApi extends BaseApi {
    * @param roomId The room ID. (optional)
    * @param excludeSubject Specifies whether to exclude search by user or group ID. (optional)
    * @param applyFilterOption Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)
+   * @param withSubFolders Specifies whether to include files from subfolders in the results. (optional)
    * @param extension Specifies whether to search for the specific file extension. (optional)
    * @param searchArea The search area. (optional)
    * @param formsItemKey The forms item key. (optional)
@@ -935,7 +936,7 @@ public class FoldersApi extends BaseApi {
    * @return FolderContentIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentIntegerWrapper getFolderByFolderId(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable UUID sharedBy, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer roomId, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable String extension, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable String formsItemKey, @javax.annotation.Nullable String formsItemType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Location location, Map<String, String> additionalHeaders) throws ApiException {
+  public FolderContentIntegerWrapper getFolderByFolderId(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable UUID sharedBy, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer roomId, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Boolean withSubFolders, @javax.annotation.Nullable String extension, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable String formsItemKey, @javax.annotation.Nullable String formsItemType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Location location, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'folderId' is set
@@ -961,6 +962,7 @@ public class FoldersApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("roomId", roomId));
     localVarQueryParams.addAll(apiClient.parameterToPair("excludeSubject", excludeSubject));
     localVarQueryParams.addAll(apiClient.parameterToPair("applyFilterOption", applyFilterOption));
+    localVarQueryParams.addAll(apiClient.parameterToPair("withSubFolders", withSubFolders));
     localVarQueryParams.addAll(apiClient.parameterToPair("extension", extension));
     localVarQueryParams.addAll(apiClient.parameterToPair("searchArea", searchArea));
     localVarQueryParams.addAll(apiClient.parameterToPair("formsItemKey", formsItemKey));
@@ -2666,12 +2668,15 @@ if (streamWriteTimeout != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/
    *
    * @param folderId The folder ID to upload a file. (required)
-   * @param uploadRequestDto The request parameters for uploading a file. (optional)
-   * @return ObjectWrapper
+   * @param createNewIfExist Specifies whether to create the new file if it already exists or not. (optional)
+   * @param storeOriginalFile Specifies whether to upload documents in the original formats as well or not. (optional)
+   * @param keepConvertStatus Specifies whether to keep the file converting status or not. (optional)
+   * @param _file The file to be uploaded. (optional)
+   * @return FileIntegerArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public ObjectWrapper uploadFile(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable UploadRequestDto uploadRequestDto) throws ApiException {
-    return this.uploadFile(folderId, uploadRequestDto, Collections.emptyMap());
+  public FileIntegerArrayWrapper uploadFile(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable Boolean createNewIfExist, @javax.annotation.Nullable Boolean storeOriginalFile, @javax.annotation.Nullable Boolean keepConvertStatus, @javax.annotation.Nullable File _file) throws ApiException {
+    return this.uploadFile(folderId, createNewIfExist, storeOriginalFile, keepConvertStatus, _file, Collections.emptyMap());
   }
 
 
@@ -2683,13 +2688,16 @@ if (streamWriteTimeout != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/
    *
    * @param folderId The folder ID to upload a file. (required)
-   * @param uploadRequestDto The request parameters for uploading a file. (optional)
+   * @param createNewIfExist Specifies whether to create the new file if it already exists or not. (optional)
+   * @param storeOriginalFile Specifies whether to upload documents in the original formats as well or not. (optional)
+   * @param keepConvertStatus Specifies whether to keep the file converting status or not. (optional)
+   * @param _file The file to be uploaded. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return ObjectWrapper
+   * @return FileIntegerArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public ObjectWrapper uploadFile(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable UploadRequestDto uploadRequestDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = uploadRequestDto;
+  public FileIntegerArrayWrapper uploadFile(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable Boolean createNewIfExist, @javax.annotation.Nullable Boolean storeOriginalFile, @javax.annotation.Nullable Boolean keepConvertStatus, @javax.annotation.Nullable File _file, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
     
     // verify the required parameter 'folderId' is set
     if (folderId == null) {
@@ -2708,25 +2716,30 @@ if (streamWriteTimeout != null)
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPair("createNewIfExist", createNewIfExist));
+    localVarQueryParams.addAll(apiClient.parameterToPair("storeOriginalFile", storeOriginalFile));
+    localVarQueryParams.addAll(apiClient.parameterToPair("keepConvertStatus", keepConvertStatus));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
 
     
-    
+    if (_file != null)
+      localVarFormParams.put("File", _file);
+
     final String[] localVarAccepts = {
       "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json"
+      "multipart/form-data"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ObjectWrapper> localVarReturnType = new TypeReference<ObjectWrapper>() {};
+    TypeReference<FileIntegerArrayWrapper> localVarReturnType = new TypeReference<FileIntegerArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -2751,12 +2764,15 @@ if (streamWriteTimeout != null)
    * REST API Reference for uploadFileToMy Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/
    *
-   * @param inDto The request parameters for uploading a file. (optional)
-   * @return ObjectWrapper
+   * @param createNewIfExist Specifies whether to create the new file if it already exists or not. (optional)
+   * @param storeOriginalFile Specifies whether to upload documents in the original formats as well or not. (optional)
+   * @param keepConvertStatus Specifies whether to keep the file converting status or not. (optional)
+   * @param _file The file to be uploaded. (optional)
+   * @return FileIntegerArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public ObjectWrapper uploadFileToMy(@javax.annotation.Nullable UploadRequestDto inDto) throws ApiException {
-    return this.uploadFileToMy(inDto, Collections.emptyMap());
+  public FileIntegerArrayWrapper uploadFileToMy(@javax.annotation.Nullable Boolean createNewIfExist, @javax.annotation.Nullable Boolean storeOriginalFile, @javax.annotation.Nullable Boolean keepConvertStatus, @javax.annotation.Nullable File _file) throws ApiException {
+    return this.uploadFileToMy(createNewIfExist, storeOriginalFile, keepConvertStatus, _file, Collections.emptyMap());
   }
 
 
@@ -2767,12 +2783,15 @@ if (streamWriteTimeout != null)
    * REST API Reference for uploadFileToMy Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/
    *
-   * @param inDto The request parameters for uploading a file. (optional)
+   * @param createNewIfExist Specifies whether to create the new file if it already exists or not. (optional)
+   * @param storeOriginalFile Specifies whether to upload documents in the original formats as well or not. (optional)
+   * @param keepConvertStatus Specifies whether to keep the file converting status or not. (optional)
+   * @param _file The file to be uploaded. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return ObjectWrapper
+   * @return FileIntegerArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public ObjectWrapper uploadFileToMy(@javax.annotation.Nullable UploadRequestDto inDto, Map<String, String> additionalHeaders) throws ApiException {
+  public FileIntegerArrayWrapper uploadFileToMy(@javax.annotation.Nullable Boolean createNewIfExist, @javax.annotation.Nullable Boolean storeOriginalFile, @javax.annotation.Nullable Boolean keepConvertStatus, @javax.annotation.Nullable File _file, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -2786,27 +2805,30 @@ if (streamWriteTimeout != null)
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParameterBaseName = "inDto";
-    localVarQueryStringJoiner.add(inDto.toUrlQueryString("inDto"));
+    localVarQueryParams.addAll(apiClient.parameterToPair("createNewIfExist", createNewIfExist));
+    localVarQueryParams.addAll(apiClient.parameterToPair("storeOriginalFile", storeOriginalFile));
+    localVarQueryParams.addAll(apiClient.parameterToPair("keepConvertStatus", keepConvertStatus));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
 
     
-    
+    if (_file != null)
+      localVarFormParams.put("File", _file);
+
     final String[] localVarAccepts = {
       "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "multipart/form-data"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ObjectWrapper> localVarReturnType = new TypeReference<ObjectWrapper>() {};
+    TypeReference<FileIntegerArrayWrapper> localVarReturnType = new TypeReference<FileIntegerArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -2842,7 +2864,7 @@ if (streamWriteTimeout != null)
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "multipart/form-data"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 

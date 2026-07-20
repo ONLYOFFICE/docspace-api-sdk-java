@@ -54,6 +54,7 @@ import java.util.StringJoiner;
   FileEntryDtoString.JSON_PROPERTY_OWNED_BY,
   FileEntryDtoString.JSON_PROPERTY_SHARED,
   FileEntryDtoString.JSON_PROPERTY_SHARED_FOR_USER,
+  FileEntryDtoString.JSON_PROPERTY_SHARED_EXTERNAL,
   FileEntryDtoString.JSON_PROPERTY_PARENT_SHARED,
   FileEntryDtoString.JSON_PROPERTY_SHORT_WEB_URL,
   FileEntryDtoString.JSON_PROPERTY_CREATED,
@@ -103,6 +104,9 @@ public class FileEntryDtoString {
 
   public static final String JSON_PROPERTY_SHARED_FOR_USER = "sharedForUser";
   @javax.annotation.Nullable  private Boolean sharedForUser;
+
+  public static final String JSON_PROPERTY_SHARED_EXTERNAL = "sharedExternal";
+  @javax.annotation.Nullable  private Boolean sharedExternal;
 
   public static final String JSON_PROPERTY_PARENT_SHARED = "parentShared";
   @javax.annotation.Nullable  private Boolean parentShared;
@@ -344,6 +348,30 @@ public class FileEntryDtoString {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSharedForUser(@javax.annotation.Nullable Boolean sharedForUser) {
     this.sharedForUser = sharedForUser;
+  }
+
+  public FileEntryDtoString sharedExternal(@javax.annotation.Nullable Boolean sharedExternal) {
+    
+    this.sharedExternal = sharedExternal;
+    return this;
+  }
+
+  /**
+   * Specifies if the file entry is shared via a public (non-internal) external link.
+   * @return sharedExternal
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARED_EXTERNAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getSharedExternal() {
+    return sharedExternal;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SHARED_EXTERNAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSharedExternal(@javax.annotation.Nullable Boolean sharedExternal) {
+    this.sharedExternal = sharedExternal;
   }
 
   public FileEntryDtoString parentShared(@javax.annotation.Nullable Boolean parentShared) {
@@ -1183,6 +1211,7 @@ public class FileEntryDtoString {
         Objects.equals(this.ownedBy, fileEntryDtoString.ownedBy) &&
         Objects.equals(this.shared, fileEntryDtoString.shared) &&
         Objects.equals(this.sharedForUser, fileEntryDtoString.sharedForUser) &&
+        Objects.equals(this.sharedExternal, fileEntryDtoString.sharedExternal) &&
         Objects.equals(this.parentShared, fileEntryDtoString.parentShared) &&
         equalsNullable(this.shortWebUrl, fileEntryDtoString.shortWebUrl) &&
         Objects.equals(this.created, fileEntryDtoString.created) &&
@@ -1220,7 +1249,7 @@ public class FileEntryDtoString {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(title), access, sharedBy, ownedBy, shared, sharedForUser, parentShared, hashCodeNullable(shortWebUrl), created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), fileEntryType, hashCodeNullable(id), hashCodeNullable(rootFolderId), hashCodeNullable(originId), hashCodeNullable(originRoomId), hashCodeNullable(originTitle), hashCodeNullable(originRoomTitle), canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), hashCodeNullable(requestToken), hashCodeNullable(external), expirationDate, hashCodeNullable(isLinkExpired));
+    return Objects.hash(hashCodeNullable(title), access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, hashCodeNullable(shortWebUrl), created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), fileEntryType, hashCodeNullable(id), hashCodeNullable(rootFolderId), hashCodeNullable(originId), hashCodeNullable(originRoomId), hashCodeNullable(originTitle), hashCodeNullable(originRoomTitle), canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), hashCodeNullable(requestToken), hashCodeNullable(external), expirationDate, hashCodeNullable(isLinkExpired));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1240,6 +1269,7 @@ public class FileEntryDtoString {
     sb.append("    ownedBy: ").append(toIndentedString(ownedBy)).append("\n");
     sb.append("    shared: ").append(toIndentedString(shared)).append("\n");
     sb.append("    sharedForUser: ").append(toIndentedString(sharedForUser)).append("\n");
+    sb.append("    sharedExternal: ").append(toIndentedString(sharedExternal)).append("\n");
     sb.append("    parentShared: ").append(toIndentedString(parentShared)).append("\n");
     sb.append("    shortWebUrl: ").append(toIndentedString(shortWebUrl)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
@@ -1360,6 +1390,16 @@ public class FileEntryDtoString {
     if (getSharedForUser() != null) {
       try {
         joiner.add(String.format("%ssharedForUser%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSharedForUser()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `sharedExternal` to the URL query string
+    if (getSharedExternal() != null) {
+      try {
+        joiner.add(String.format("%ssharedExternal%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSharedExternal()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

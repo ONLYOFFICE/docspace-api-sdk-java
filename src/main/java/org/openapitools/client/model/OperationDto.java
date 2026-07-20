@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.ApiDateTime;
+import org.openapitools.client.model.OperationType;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -52,7 +53,8 @@ import java.util.StringJoiner;
   OperationDto.JSON_PROPERTY_PARTICIPANT_NAME,
   OperationDto.JSON_PROPERTY_PARTICIPANT_DISPLAY_NAME,
   OperationDto.JSON_PROPERTY_AGENT_ID,
-  OperationDto.JSON_PROPERTY_AGENT_TITLE
+  OperationDto.JSON_PROPERTY_AGENT_TITLE,
+  OperationDto.JSON_PROPERTY_TYPE
 })
 
 public class OperationDto {
@@ -94,6 +96,9 @@ public class OperationDto {
 
   public static final String JSON_PROPERTY_AGENT_TITLE = "agentTitle";
   @javax.annotation.Nullable  private JsonNullable<String> agentTitle = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable  private OperationType type;
 
   public OperationDto() {
   }
@@ -474,6 +479,30 @@ public class OperationDto {
     this.agentTitle = JsonNullable.<String>of(agentTitle);
   }
 
+  public OperationDto type(@javax.annotation.Nullable OperationType type) {
+    
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Get type
+   * @return type
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OperationType getType() {
+    return type;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setType(@javax.annotation.Nullable OperationType type) {
+    this.type = type;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -495,7 +524,8 @@ public class OperationDto {
         equalsNullable(this.participantName, operationDto.participantName) &&
         equalsNullable(this.participantDisplayName, operationDto.participantDisplayName) &&
         equalsNullable(this.agentId, operationDto.agentId) &&
-        equalsNullable(this.agentTitle, operationDto.agentTitle);
+        equalsNullable(this.agentTitle, operationDto.agentTitle) &&
+        Objects.equals(this.type, operationDto.type);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -504,7 +534,7 @@ public class OperationDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, hashCodeNullable(service), hashCodeNullable(description), hashCodeNullable(details), hashCodeNullable(serviceUnit), quantity, hashCodeNullable(currency), credit, debit, hashCodeNullable(participantName), hashCodeNullable(participantDisplayName), hashCodeNullable(agentId), hashCodeNullable(agentTitle));
+    return Objects.hash(date, hashCodeNullable(service), hashCodeNullable(description), hashCodeNullable(details), hashCodeNullable(serviceUnit), quantity, hashCodeNullable(currency), credit, debit, hashCodeNullable(participantName), hashCodeNullable(participantDisplayName), hashCodeNullable(agentId), hashCodeNullable(agentTitle), type);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -531,6 +561,7 @@ public class OperationDto {
     sb.append("    participantDisplayName: ").append(toIndentedString(participantDisplayName)).append("\n");
     sb.append("    agentId: ").append(toIndentedString(agentId)).append("\n");
     sb.append("    agentTitle: ").append(toIndentedString(agentTitle)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -697,6 +728,16 @@ public class OperationDto {
     if (getAgentTitle() != null) {
       try {
         joiner.add(String.format("%sagentTitle%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAgentTitle()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `type` to the URL query string
+    if (getType() != null) {
+      try {
+        joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

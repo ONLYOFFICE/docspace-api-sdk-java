@@ -22,6 +22,8 @@ The request parameters for creating a room.
 |**_private** | **Boolean** | Specifies whether the room to be created is private or not. |  [optional] |
 |**share** | [**List&lt;FileShareParams&gt;**](FileShareParams.md) | The collection of sharing parameters. |  [optional] |
 |**chatSettings** | [**ChatSettings**](ChatSettings.md) |  |  [optional] |
+|**sendFormToExternalDB** | **Boolean** | Specifies whether to send form data to external database. |  [optional] |
+|**saveFormAsXLSX** | **Boolean** | Specifies whether to save form data as XLSX file. |  [optional] |
 
 
 

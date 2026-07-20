@@ -57,7 +57,8 @@ import java.util.StringJoiner;
   AiSettingsDto.JSON_PROPERTY_GENERATE_DOCX_TOOL_NAME,
   AiSettingsDto.JSON_PROPERTY_GENERATE_FORM_TOOL_NAME,
   AiSettingsDto.JSON_PROPERTY_GENERATE_PRESENTATION_TOOL_NAME,
-  AiSettingsDto.JSON_PROPERTY_SYSTEM_AI_ENABLED
+  AiSettingsDto.JSON_PROPERTY_SYSTEM_AI_ENABLED,
+  AiSettingsDto.JSON_PROPERTY_RECOMMENDED_MODEL_FOR_FORMS
 })
 
 public class AiSettingsDto {
@@ -108,6 +109,9 @@ public class AiSettingsDto {
 
   public static final String JSON_PROPERTY_SYSTEM_AI_ENABLED = "systemAiEnabled";
   @javax.annotation.Nullable  private Boolean systemAiEnabled;
+
+  public static final String JSON_PROPERTY_RECOMMENDED_MODEL_FOR_FORMS = "recommendedModelForForms";
+  @javax.annotation.Nullable  private JsonNullable<String> recommendedModelForForms = JsonNullable.<String>undefined();
 
   public AiSettingsDto() {
   }
@@ -509,6 +513,37 @@ public class AiSettingsDto {
     this.systemAiEnabled = systemAiEnabled;
   }
 
+  public AiSettingsDto recommendedModelForForms(@javax.annotation.Nullable String recommendedModelForForms) {
+    this.recommendedModelForForms = JsonNullable.<String>of(recommendedModelForForms);
+    
+    return this;
+  }
+
+  /**
+   * The identifier of the model recommended for form generation.
+   * @return recommendedModelForForms
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getRecommendedModelForForms() {
+        return recommendedModelForForms.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_RECOMMENDED_MODEL_FOR_FORMS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getRecommendedModelForForms_JsonNullable() {
+    return recommendedModelForForms;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_RECOMMENDED_MODEL_FOR_FORMS)
+  public void setRecommendedModelForForms_JsonNullable(JsonNullable<String> recommendedModelForForms) {
+    this.recommendedModelForForms = recommendedModelForForms;
+  }
+
+  public void setRecommendedModelForForms(@javax.annotation.Nullable String recommendedModelForForms) {
+    this.recommendedModelForForms = JsonNullable.<String>of(recommendedModelForForms);
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -533,7 +568,8 @@ public class AiSettingsDto {
         Objects.equals(this.generateDocxToolName, aiSettingsDto.generateDocxToolName) &&
         Objects.equals(this.generateFormToolName, aiSettingsDto.generateFormToolName) &&
         Objects.equals(this.generatePresentationToolName, aiSettingsDto.generatePresentationToolName) &&
-        Objects.equals(this.systemAiEnabled, aiSettingsDto.systemAiEnabled);
+        Objects.equals(this.systemAiEnabled, aiSettingsDto.systemAiEnabled) &&
+        equalsNullable(this.recommendedModelForForms, aiSettingsDto.recommendedModelForForms);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -542,7 +578,7 @@ public class AiSettingsDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(webSearchEnabled, webSearchNeedReset, vectorizationEnabled, vectorizationNeedReset, aiReady, aiReadyNeedReset, hashCodeNullable(portalMcpServerId), embeddingModel, modelAliases, knowledgeSearchToolName, webSearchToolName, webCrawlingToolName, generateDocxToolName, generateFormToolName, generatePresentationToolName, systemAiEnabled);
+    return Objects.hash(webSearchEnabled, webSearchNeedReset, vectorizationEnabled, vectorizationNeedReset, aiReady, aiReadyNeedReset, hashCodeNullable(portalMcpServerId), embeddingModel, modelAliases, knowledgeSearchToolName, webSearchToolName, webCrawlingToolName, generateDocxToolName, generateFormToolName, generatePresentationToolName, systemAiEnabled, hashCodeNullable(recommendedModelForForms));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -572,6 +608,7 @@ public class AiSettingsDto {
     sb.append("    generateFormToolName: ").append(toIndentedString(generateFormToolName)).append("\n");
     sb.append("    generatePresentationToolName: ").append(toIndentedString(generatePresentationToolName)).append("\n");
     sb.append("    systemAiEnabled: ").append(toIndentedString(systemAiEnabled)).append("\n");
+    sb.append("    recommendedModelForForms: ").append(toIndentedString(recommendedModelForForms)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -777,6 +814,16 @@ public class AiSettingsDto {
     if (getSystemAiEnabled() != null) {
       try {
         joiner.add(String.format("%ssystemAiEnabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSystemAiEnabled()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `recommendedModelForForms` to the URL query string
+    if (getRecommendedModelForForms() != null) {
+      try {
+        joiner.add(String.format("%srecommendedModelForForms%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRecommendedModelForForms()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

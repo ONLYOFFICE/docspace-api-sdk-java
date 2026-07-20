@@ -61,7 +61,9 @@ import java.util.StringJoiner;
   CreateRoomRequestDto.JSON_PROPERTY_ROOM_TYPE,
   CreateRoomRequestDto.JSON_PROPERTY_PRIVATE,
   CreateRoomRequestDto.JSON_PROPERTY_SHARE,
-  CreateRoomRequestDto.JSON_PROPERTY_CHAT_SETTINGS
+  CreateRoomRequestDto.JSON_PROPERTY_CHAT_SETTINGS,
+  CreateRoomRequestDto.JSON_PROPERTY_SEND_FORM_TO_EXTERNAL_D_B,
+  CreateRoomRequestDto.JSON_PROPERTY_SAVE_FORM_AS_X_L_S_X
 })
 
 public class CreateRoomRequestDto {
@@ -106,6 +108,12 @@ public class CreateRoomRequestDto {
 
   public static final String JSON_PROPERTY_CHAT_SETTINGS = "chatSettings";
   @javax.annotation.Nullable  private ChatSettings chatSettings;
+
+  public static final String JSON_PROPERTY_SEND_FORM_TO_EXTERNAL_D_B = "sendFormToExternalDB";
+  @javax.annotation.Nullable  private JsonNullable<Boolean> sendFormToExternalDB = JsonNullable.<Boolean>undefined();
+
+  public static final String JSON_PROPERTY_SAVE_FORM_AS_X_L_S_X = "saveFormAsXLSX";
+  @javax.annotation.Nullable  private JsonNullable<Boolean> saveFormAsXLSX = JsonNullable.<Boolean>undefined();
 
   public CreateRoomRequestDto() {
   }
@@ -520,6 +528,68 @@ public class CreateRoomRequestDto {
     this.chatSettings = chatSettings;
   }
 
+  public CreateRoomRequestDto sendFormToExternalDB(@javax.annotation.Nullable Boolean sendFormToExternalDB) {
+    this.sendFormToExternalDB = JsonNullable.<Boolean>of(sendFormToExternalDB);
+    
+    return this;
+  }
+
+  /**
+   * Specifies whether to send form data to external database.
+   * @return sendFormToExternalDB
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Boolean getSendFormToExternalDB() {
+        return sendFormToExternalDB.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_SEND_FORM_TO_EXTERNAL_D_B, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Boolean> getSendFormToExternalDB_JsonNullable() {
+    return sendFormToExternalDB;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SEND_FORM_TO_EXTERNAL_D_B)
+  public void setSendFormToExternalDB_JsonNullable(JsonNullable<Boolean> sendFormToExternalDB) {
+    this.sendFormToExternalDB = sendFormToExternalDB;
+  }
+
+  public void setSendFormToExternalDB(@javax.annotation.Nullable Boolean sendFormToExternalDB) {
+    this.sendFormToExternalDB = JsonNullable.<Boolean>of(sendFormToExternalDB);
+  }
+
+  public CreateRoomRequestDto saveFormAsXLSX(@javax.annotation.Nullable Boolean saveFormAsXLSX) {
+    this.saveFormAsXLSX = JsonNullable.<Boolean>of(saveFormAsXLSX);
+    
+    return this;
+  }
+
+  /**
+   * Specifies whether to save form data as XLSX file.
+   * @return saveFormAsXLSX
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Boolean getSaveFormAsXLSX() {
+        return saveFormAsXLSX.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_SAVE_FORM_AS_X_L_S_X, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Boolean> getSaveFormAsXLSX_JsonNullable() {
+    return saveFormAsXLSX;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SAVE_FORM_AS_X_L_S_X)
+  public void setSaveFormAsXLSX_JsonNullable(JsonNullable<Boolean> saveFormAsXLSX) {
+    this.saveFormAsXLSX = saveFormAsXLSX;
+  }
+
+  public void setSaveFormAsXLSX(@javax.annotation.Nullable Boolean saveFormAsXLSX) {
+    this.saveFormAsXLSX = JsonNullable.<Boolean>of(saveFormAsXLSX);
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -542,7 +612,9 @@ public class CreateRoomRequestDto {
         Objects.equals(this.roomType, createRoomRequestDto.roomType) &&
         Objects.equals(this._private, createRoomRequestDto._private) &&
         equalsNullable(this.share, createRoomRequestDto.share) &&
-        Objects.equals(this.chatSettings, createRoomRequestDto.chatSettings);
+        Objects.equals(this.chatSettings, createRoomRequestDto.chatSettings) &&
+        equalsNullable(this.sendFormToExternalDB, createRoomRequestDto.sendFormToExternalDB) &&
+        equalsNullable(this.saveFormAsXLSX, createRoomRequestDto.saveFormAsXLSX);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -551,7 +623,7 @@ public class CreateRoomRequestDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, hashCodeNullable(quota), hashCodeNullable(indexing), hashCodeNullable(denyDownload), lifetime, watermark, logo, hashCodeNullable(tags), hashCodeNullable(color), hashCodeNullable(cover), roomType, _private, hashCodeNullable(share), chatSettings);
+    return Objects.hash(title, hashCodeNullable(quota), hashCodeNullable(indexing), hashCodeNullable(denyDownload), lifetime, watermark, logo, hashCodeNullable(tags), hashCodeNullable(color), hashCodeNullable(cover), roomType, _private, hashCodeNullable(share), chatSettings, hashCodeNullable(sendFormToExternalDB), hashCodeNullable(saveFormAsXLSX));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -579,6 +651,8 @@ public class CreateRoomRequestDto {
     sb.append("    _private: ").append(toIndentedString(_private)).append("\n");
     sb.append("    share: ").append(toIndentedString(share)).append("\n");
     sb.append("    chatSettings: ").append(toIndentedString(chatSettings)).append("\n");
+    sb.append("    sendFormToExternalDB: ").append(toIndentedString(sendFormToExternalDB)).append("\n");
+    sb.append("    saveFormAsXLSX: ").append(toIndentedString(saveFormAsXLSX)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -748,6 +822,26 @@ public class CreateRoomRequestDto {
     // add `chatSettings` to the URL query string
     if (getChatSettings() != null) {
       joiner.add(getChatSettings().toUrlQueryString(prefix + "chatSettings" + suffix));
+    }
+
+    // add `sendFormToExternalDB` to the URL query string
+    if (getSendFormToExternalDB() != null) {
+      try {
+        joiner.add(String.format("%ssendFormToExternalDB%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSendFormToExternalDB()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `saveFormAsXLSX` to the URL query string
+    if (getSaveFormAsXLSX() != null) {
+      try {
+        joiner.add(String.format("%ssaveFormAsXLSX%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSaveFormAsXLSX()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     return joiner.toString();

@@ -44,13 +44,12 @@ import java.util.StringJoiner;
  */
 @JsonPropertyOrder({
   CustomerOperationsReportRequestDto.JSON_PROPERTY_SERVICE_NAME,
-  CustomerOperationsReportRequestDto.JSON_PROPERTY_WRITE_OFF_SERVICE_QUOTA,
   CustomerOperationsReportRequestDto.JSON_PROPERTY_START_DATE,
   CustomerOperationsReportRequestDto.JSON_PROPERTY_END_DATE,
   CustomerOperationsReportRequestDto.JSON_PROPERTY_PARTICIPANT_NAME,
   CustomerOperationsReportRequestDto.JSON_PROPERTY_CREDIT,
   CustomerOperationsReportRequestDto.JSON_PROPERTY_DEBIT,
-  CustomerOperationsReportRequestDto.JSON_PROPERTY_TYPES,
+  CustomerOperationsReportRequestDto.JSON_PROPERTY_TYPE,
   CustomerOperationsReportRequestDto.JSON_PROPERTY_STATUS,
   CustomerOperationsReportRequestDto.JSON_PROPERTY_ORDER_BY,
   CustomerOperationsReportRequestDto.JSON_PROPERTY_ORDER_TYPE
@@ -59,9 +58,6 @@ import java.util.StringJoiner;
 public class CustomerOperationsReportRequestDto {
   public static final String JSON_PROPERTY_SERVICE_NAME = "serviceName";
   @javax.annotation.Nullable  private JsonNullable<String> serviceName = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_WRITE_OFF_SERVICE_QUOTA = "writeOffServiceQuota";
-  @javax.annotation.Nullable  private Boolean writeOffServiceQuota;
 
   public static final String JSON_PROPERTY_START_DATE = "startDate";
   @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> startDate = JsonNullable.<OffsetDateTime>undefined();
@@ -78,8 +74,8 @@ public class CustomerOperationsReportRequestDto {
   public static final String JSON_PROPERTY_DEBIT = "debit";
   @javax.annotation.Nullable  private JsonNullable<Boolean> debit = JsonNullable.<Boolean>undefined();
 
-  public static final String JSON_PROPERTY_TYPES = "types";
-  @javax.annotation.Nullable  private OperationType types;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable  private OperationType type;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   @javax.annotation.Nullable  private OperationStatus status;
@@ -123,30 +119,6 @@ public class CustomerOperationsReportRequestDto {
 
   public void setServiceName(@javax.annotation.Nullable String serviceName) {
     this.serviceName = JsonNullable.<String>of(serviceName);
-  }
-
-  public CustomerOperationsReportRequestDto writeOffServiceQuota(@javax.annotation.Nullable Boolean writeOffServiceQuota) {
-    
-    this.writeOffServiceQuota = writeOffServiceQuota;
-    return this;
-  }
-
-  /**
-   * Write-off of the quota for the service
-   * @return writeOffServiceQuota
-   */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WRITE_OFF_SERVICE_QUOTA, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getWriteOffServiceQuota() {
-    return writeOffServiceQuota;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_WRITE_OFF_SERVICE_QUOTA, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWriteOffServiceQuota(@javax.annotation.Nullable Boolean writeOffServiceQuota) {
-    this.writeOffServiceQuota = writeOffServiceQuota;
   }
 
   public CustomerOperationsReportRequestDto startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
@@ -304,28 +276,28 @@ public class CustomerOperationsReportRequestDto {
     this.debit = JsonNullable.<Boolean>of(debit);
   }
 
-  public CustomerOperationsReportRequestDto types(@javax.annotation.Nullable OperationType types) {
+  public CustomerOperationsReportRequestDto type(@javax.annotation.Nullable OperationType type) {
     
-    this.types = types;
+    this.type = type;
     return this;
   }
 
   /**
-   * Get types
-   * @return types
+   * Get type
+   * @return type
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPES, required = false)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OperationType getTypes() {
-    return types;
+  public OperationType getType() {
+    return type;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_TYPES, required = false)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTypes(@javax.annotation.Nullable OperationType types) {
-    this.types = types;
+  public void setType(@javax.annotation.Nullable OperationType type) {
+    this.type = type;
   }
 
   public CustomerOperationsReportRequestDto status(@javax.annotation.Nullable OperationStatus status) {
@@ -417,13 +389,12 @@ public class CustomerOperationsReportRequestDto {
     }
     CustomerOperationsReportRequestDto customerOperationsReportRequestDto = (CustomerOperationsReportRequestDto) o;
     return equalsNullable(this.serviceName, customerOperationsReportRequestDto.serviceName) &&
-        Objects.equals(this.writeOffServiceQuota, customerOperationsReportRequestDto.writeOffServiceQuota) &&
         equalsNullable(this.startDate, customerOperationsReportRequestDto.startDate) &&
         equalsNullable(this.endDate, customerOperationsReportRequestDto.endDate) &&
         equalsNullable(this.participantName, customerOperationsReportRequestDto.participantName) &&
         equalsNullable(this.credit, customerOperationsReportRequestDto.credit) &&
         equalsNullable(this.debit, customerOperationsReportRequestDto.debit) &&
-        Objects.equals(this.types, customerOperationsReportRequestDto.types) &&
+        Objects.equals(this.type, customerOperationsReportRequestDto.type) &&
         Objects.equals(this.status, customerOperationsReportRequestDto.status) &&
         equalsNullable(this.orderBy, customerOperationsReportRequestDto.orderBy) &&
         Objects.equals(this.orderType, customerOperationsReportRequestDto.orderType);
@@ -435,7 +406,7 @@ public class CustomerOperationsReportRequestDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(serviceName), writeOffServiceQuota, hashCodeNullable(startDate), hashCodeNullable(endDate), hashCodeNullable(participantName), hashCodeNullable(credit), hashCodeNullable(debit), types, status, hashCodeNullable(orderBy), orderType);
+    return Objects.hash(hashCodeNullable(serviceName), hashCodeNullable(startDate), hashCodeNullable(endDate), hashCodeNullable(participantName), hashCodeNullable(credit), hashCodeNullable(debit), type, status, hashCodeNullable(orderBy), orderType);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -450,13 +421,12 @@ public class CustomerOperationsReportRequestDto {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomerOperationsReportRequestDto {\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
-    sb.append("    writeOffServiceQuota: ").append(toIndentedString(writeOffServiceQuota)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    participantName: ").append(toIndentedString(participantName)).append("\n");
     sb.append("    credit: ").append(toIndentedString(credit)).append("\n");
     sb.append("    debit: ").append(toIndentedString(debit)).append("\n");
-    sb.append("    types: ").append(toIndentedString(types)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
     sb.append("    orderType: ").append(toIndentedString(orderType)).append("\n");
@@ -517,16 +487,6 @@ public class CustomerOperationsReportRequestDto {
       }
     }
 
-    // add `writeOffServiceQuota` to the URL query string
-    if (getWriteOffServiceQuota() != null) {
-      try {
-        joiner.add(String.format("%swriteOffServiceQuota%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getWriteOffServiceQuota()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
     // add `startDate` to the URL query string
     if (getStartDate() != null) {
       try {
@@ -577,10 +537,10 @@ public class CustomerOperationsReportRequestDto {
       }
     }
 
-    // add `types` to the URL query string
-    if (getTypes() != null) {
+    // add `type` to the URL query string
+    if (getType() != null) {
       try {
-        joiner.add(String.format("%stypes%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTypes()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

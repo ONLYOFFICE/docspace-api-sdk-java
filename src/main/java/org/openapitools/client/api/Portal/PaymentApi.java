@@ -27,8 +27,8 @@ import org.openapitools.client.Pair;
 import org.openapitools.client.model.AiPricesResponseWrapper;
 import org.openapitools.client.model.BalanceWrapper;
 import org.openapitools.client.model.BooleanWrapper;
-import org.openapitools.client.model.BuyWalletServiceRequestDto;
 import org.openapitools.client.model.ChangeWalletServiceStateRequestDto;
+import org.openapitools.client.model.CreditAiBalanceRequestDto;
 import org.openapitools.client.model.CurrenciesArrayWrapper;
 import org.openapitools.client.model.CustomerInfoWrapper;
 import org.openapitools.client.model.CustomerOperationsReportRequestDto;
@@ -53,6 +53,7 @@ import org.openapitools.client.model.TenantWalletService;
 import org.openapitools.client.model.TenantWalletServiceSettingsWrapper;
 import org.openapitools.client.model.TenantWalletSettingsWrapper;
 import org.openapitools.client.model.TopUpDepositRequestDto;
+import java.net.URI;
 import org.openapitools.client.model.WalletQuantityRequestDto;
 import org.openapitools.client.model.WalletServiceArrayWrapper;
 import org.openapitools.client.model.WalletServiceWrapper;
@@ -75,84 +76,6 @@ public class PaymentApi extends BaseApi {
     super(apiClient);
   }
 
-
-  /**
-   * Purchases a wallet service with the specified quantity.
-   * This method processes a payment for a wallet service using the configured payment method.  Requires the tariff service to be configured and a valid payment method to be set for the customer.  Rate limiting is applied according to the payments API policy.
-   *
-   * REST API Reference for buyWalletService Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/buy-wallet-service/
-   *
-   * @param buyWalletServiceRequestDto  (optional)
-   * @return ServicePaymentWrapper
-   * @throws ApiException if fails to make API call
-   */
-  public ServicePaymentWrapper buyWalletService(@javax.annotation.Nullable BuyWalletServiceRequestDto buyWalletServiceRequestDto) throws ApiException {
-    return this.buyWalletService(buyWalletServiceRequestDto, Collections.emptyMap());
-  }
-
-
-  /**
-   * Purchases a wallet service with the specified quantity.
-   * This method processes a payment for a wallet service using the configured payment method.  Requires the tariff service to be configured and a valid payment method to be set for the customer.  Rate limiting is applied according to the payments API policy.
-   *
-   * REST API Reference for buyWalletService Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/buy-wallet-service/
-   *
-   * @param buyWalletServiceRequestDto  (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ServicePaymentWrapper
-   * @throws ApiException if fails to make API call
-   */
-  public ServicePaymentWrapper buyWalletService(@javax.annotation.Nullable BuyWalletServiceRequestDto buyWalletServiceRequestDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = buyWalletServiceRequestDto;
-    
-    // create path and map variables
-    String localVarPath = "/api/2.0/portal/payment/buywalletservice";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-      
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
-
-    TypeReference<ServicePaymentWrapper> localVarReturnType = new TypeReference<ServicePaymentWrapper>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
 
   /**
    * Calculate the wallet payment amount
@@ -389,6 +312,84 @@ public class PaymentApi extends BaseApi {
   }
 
   /**
+   * Credit AI balance
+   * Credits AI quota to the customer AI sub-account from their main balance.  Requires the customer to have a configured payment method.
+   *
+   * REST API Reference for creditAiBalance Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/credit-ai-balance/
+   *
+   * @param creditAiBalanceRequestDto  (optional)
+   * @return ServicePaymentWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ServicePaymentWrapper creditAiBalance(@javax.annotation.Nullable CreditAiBalanceRequestDto creditAiBalanceRequestDto) throws ApiException {
+    return this.creditAiBalance(creditAiBalanceRequestDto, Collections.emptyMap());
+  }
+
+
+  /**
+   * Credit AI balance
+   * Credits AI quota to the customer AI sub-account from their main balance.  Requires the customer to have a configured payment method.
+   *
+   * REST API Reference for creditAiBalance Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/credit-ai-balance/
+   *
+   * @param creditAiBalanceRequestDto  (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ServicePaymentWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ServicePaymentWrapper creditAiBalance(@javax.annotation.Nullable CreditAiBalanceRequestDto creditAiBalanceRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = creditAiBalanceRequestDto;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/portal/payment/creditaibalance";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<ServicePaymentWrapper> localVarReturnType = new TypeReference<ServicePaymentWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Get AI model prices
    * Retrieves the pricing information for AI models including chat, embedding, and web search services.  The prices are returned in the configured currency and normalized per million tokens.  Requires administrator permissions to access.
    *
@@ -471,12 +472,13 @@ public class PaymentApi extends BaseApi {
    * REST API Reference for getCheckoutSetupUrl Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-checkout-setup-url/
    *
-   * @param backUrl The URL where the user will be redirected after completing the setup. (optional)
+   * @param backUrl The URL where the user will be redirected after setup cancellation. (required)
+   * @param successUrl The URL where the user will be redirected after successful payment. (required)
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper getCheckoutSetupUrl(@javax.annotation.Nullable String backUrl) throws ApiException {
-    return this.getCheckoutSetupUrl(backUrl, Collections.emptyMap());
+  public StringWrapper getCheckoutSetupUrl(@javax.annotation.Nonnull URI backUrl, @javax.annotation.Nonnull URI successUrl) throws ApiException {
+    return this.getCheckoutSetupUrl(backUrl, successUrl, Collections.emptyMap());
   }
 
 
@@ -487,13 +489,24 @@ public class PaymentApi extends BaseApi {
    * REST API Reference for getCheckoutSetupUrl Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-checkout-setup-url/
    *
-   * @param backUrl The URL where the user will be redirected after completing the setup. (optional)
+   * @param backUrl The URL where the user will be redirected after setup cancellation. (required)
+   * @param successUrl The URL where the user will be redirected after successful payment. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper getCheckoutSetupUrl(@javax.annotation.Nullable String backUrl, Map<String, String> additionalHeaders) throws ApiException {
+  public StringWrapper getCheckoutSetupUrl(@javax.annotation.Nonnull URI backUrl, @javax.annotation.Nonnull URI successUrl, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
+    
+    // verify the required parameter 'backUrl' is set
+    if (backUrl == null) {
+      throw new ApiException(400, "Missing the required parameter 'backUrl' when calling getCheckoutSetupUrl");
+    }
+    
+    // verify the required parameter 'successUrl' is set
+    if (successUrl == null) {
+      throw new ApiException(400, "Missing the required parameter 'successUrl' when calling getCheckoutSetupUrl");
+    }
     
     // create path and map variables
     String localVarPath = "/api/2.0/portal/payment/checkoutsetupurl";
@@ -507,6 +520,7 @@ public class PaymentApi extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPair("BackUrl", backUrl));
+    localVarQueryParams.addAll(apiClient.parameterToPair("SuccessUrl", successUrl));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -526,6 +540,85 @@ public class PaymentApi extends BaseApi {
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<StringWrapper> localVarReturnType = new TypeReference<StringWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get the customer AI balance
+   * Returns the AI quota balance of a customer from the accounting service.
+   *
+   * REST API Reference for getCustomerAiBalance Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-ai-balance/
+   *
+   * @param refresh Specifies whether to refresh the payment information cache or not. (optional)
+   * @return BalanceWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public BalanceWrapper getCustomerAiBalance(@javax.annotation.Nullable Boolean refresh) throws ApiException {
+    return this.getCustomerAiBalance(refresh, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get the customer AI balance
+   * Returns the AI quota balance of a customer from the accounting service.
+   *
+   * REST API Reference for getCustomerAiBalance Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-ai-balance/
+   *
+   * @param refresh Specifies whether to refresh the payment information cache or not. (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return BalanceWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public BalanceWrapper getCustomerAiBalance(@javax.annotation.Nullable Boolean refresh, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/portal/payment/customer/aibalance";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("refresh", refresh));
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<BalanceWrapper> localVarReturnType = new TypeReference<BalanceWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -711,21 +804,20 @@ public class PaymentApi extends BaseApi {
    * @param offset The number of items to skip for pagination. The default value is 0. (optional)
    * @param limit The maximum number of items to return for pagination. The default value is 25. (optional)
    * @param serviceName The service name. (optional)
-   * @param writeOffServiceQuota Write-off of the quota for the service (optional)
    * @param startDate The report start date. (optional)
    * @param endDate The report end date. (optional)
    * @param participantName The participant name. (optional)
    * @param credit Specifies whether to include credit operations in the report. (optional)
    * @param debit Specifies whether to include debit operations in the report. (optional)
-   * @param types List of operation types to filter by. (optional)
-   * @param status List of operation status to filter by. (optional)
+   * @param type The operation type to filter by. (optional)
+   * @param status The operation status to filter by. (optional)
    * @param orderBy The field to order by. (optional)
    * @param orderType Order direction: Ascending or Descending. (optional)
    * @return ReportWrapper
    * @throws ApiException if fails to make API call
    */
-  public ReportWrapper getCustomerOperations(@javax.annotation.Nullable Integer offset, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String serviceName, @javax.annotation.Nullable Boolean writeOffServiceQuota, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String participantName, @javax.annotation.Nullable Boolean credit, @javax.annotation.Nullable Boolean debit, @javax.annotation.Nullable OperationType types, @javax.annotation.Nullable OperationStatus status, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable OperationOrderType orderType) throws ApiException {
-    return this.getCustomerOperations(offset, limit, serviceName, writeOffServiceQuota, startDate, endDate, participantName, credit, debit, types, status, orderBy, orderType, Collections.emptyMap());
+  public ReportWrapper getCustomerOperations(@javax.annotation.Nullable Integer offset, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String serviceName, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String participantName, @javax.annotation.Nullable Boolean credit, @javax.annotation.Nullable Boolean debit, @javax.annotation.Nullable OperationType type, @javax.annotation.Nullable OperationStatus status, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable OperationOrderType orderType) throws ApiException {
+    return this.getCustomerOperations(offset, limit, serviceName, startDate, endDate, participantName, credit, debit, type, status, orderBy, orderType, Collections.emptyMap());
   }
 
 
@@ -739,21 +831,20 @@ public class PaymentApi extends BaseApi {
    * @param offset The number of items to skip for pagination. The default value is 0. (optional)
    * @param limit The maximum number of items to return for pagination. The default value is 25. (optional)
    * @param serviceName The service name. (optional)
-   * @param writeOffServiceQuota Write-off of the quota for the service (optional)
    * @param startDate The report start date. (optional)
    * @param endDate The report end date. (optional)
    * @param participantName The participant name. (optional)
    * @param credit Specifies whether to include credit operations in the report. (optional)
    * @param debit Specifies whether to include debit operations in the report. (optional)
-   * @param types List of operation types to filter by. (optional)
-   * @param status List of operation status to filter by. (optional)
+   * @param type The operation type to filter by. (optional)
+   * @param status The operation status to filter by. (optional)
    * @param orderBy The field to order by. (optional)
    * @param orderType Order direction: Ascending or Descending. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return ReportWrapper
    * @throws ApiException if fails to make API call
    */
-  public ReportWrapper getCustomerOperations(@javax.annotation.Nullable Integer offset, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String serviceName, @javax.annotation.Nullable Boolean writeOffServiceQuota, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String participantName, @javax.annotation.Nullable Boolean credit, @javax.annotation.Nullable Boolean debit, @javax.annotation.Nullable OperationType types, @javax.annotation.Nullable OperationStatus status, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable OperationOrderType orderType, Map<String, String> additionalHeaders) throws ApiException {
+  public ReportWrapper getCustomerOperations(@javax.annotation.Nullable Integer offset, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String serviceName, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String participantName, @javax.annotation.Nullable Boolean credit, @javax.annotation.Nullable Boolean debit, @javax.annotation.Nullable OperationType type, @javax.annotation.Nullable OperationStatus status, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable OperationOrderType orderType, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -770,13 +861,12 @@ public class PaymentApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
     localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPair("ServiceName", serviceName));
-    localVarQueryParams.addAll(apiClient.parameterToPair("WriteOffServiceQuota", writeOffServiceQuota));
     localVarQueryParams.addAll(apiClient.parameterToPair("StartDate", startDate));
     localVarQueryParams.addAll(apiClient.parameterToPair("EndDate", endDate));
     localVarQueryParams.addAll(apiClient.parameterToPair("ParticipantName", participantName));
     localVarQueryParams.addAll(apiClient.parameterToPair("Credit", credit));
     localVarQueryParams.addAll(apiClient.parameterToPair("Debit", debit));
-    localVarQueryParams.addAll(apiClient.parameterToPair("Types", types));
+    localVarQueryParams.addAll(apiClient.parameterToPair("Type", type));
     localVarQueryParams.addAll(apiClient.parameterToPair("Status", status));
     localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
     localVarQueryParams.addAll(apiClient.parameterToPair("OrderType", orderType));
@@ -893,88 +983,6 @@ public class PaymentApi extends BaseApi {
   }
 
   /**
-   * Get the service quota
-   * Returns the service quota from the accounting service.
-   *
-   * REST API Reference for getCustomerServiceQuota Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-quota/
-   *
-   * @param serviceName The service name. (optional)
-   * @param refresh Specifies whether to refresh the payment information cache or not. (optional)
-   * @return BalanceWrapper
-   * @throws ApiException if fails to make API call
-   */
-  public BalanceWrapper getCustomerServiceQuota(@javax.annotation.Nullable String serviceName, @javax.annotation.Nullable Boolean refresh) throws ApiException {
-    return this.getCustomerServiceQuota(serviceName, refresh, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get the service quota
-   * Returns the service quota from the accounting service.
-   *
-   * REST API Reference for getCustomerServiceQuota Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-quota/
-   *
-   * @param serviceName The service name. (optional)
-   * @param refresh Specifies whether to refresh the payment information cache or not. (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return BalanceWrapper
-   * @throws ApiException if fails to make API call
-   */
-  public BalanceWrapper getCustomerServiceQuota(@javax.annotation.Nullable String serviceName, @javax.annotation.Nullable Boolean refresh, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/2.0/portal/payment/customer/servicequota";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("serviceName", serviceName));
-    localVarQueryParams.addAll(apiClient.parameterToPair("refresh", refresh));
-      
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
-
-    TypeReference<BalanceWrapper> localVarReturnType = new TypeReference<BalanceWrapper>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
    * Get the payment account
    * Returns the URL to the payment account.
    *
@@ -985,7 +993,7 @@ public class PaymentApi extends BaseApi {
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper getPaymentAccount(@javax.annotation.Nullable String backUrl) throws ApiException {
+  public StringWrapper getPaymentAccount(@javax.annotation.Nullable URI backUrl) throws ApiException {
     return this.getPaymentAccount(backUrl, Collections.emptyMap());
   }
 
@@ -1002,7 +1010,7 @@ public class PaymentApi extends BaseApi {
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper getPaymentAccount(@javax.annotation.Nullable String backUrl, Map<String, String> additionalHeaders) throws ApiException {
+  public StringWrapper getPaymentAccount(@javax.annotation.Nullable URI backUrl, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables

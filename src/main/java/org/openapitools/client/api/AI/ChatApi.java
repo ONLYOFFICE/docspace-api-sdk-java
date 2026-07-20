@@ -27,7 +27,9 @@ import org.openapitools.client.Pair;
 import org.openapitools.client.model.ChatArrayWrapper;
 import org.openapitools.client.model.ChatWrapper;
 import org.openapitools.client.model.ContinueChatBody;
+import org.openapitools.client.model.EditorToolDecisionRequestBody;
 import org.openapitools.client.model.ExportChatRequestBody;
+import org.openapitools.client.model.GeneratedFileWrapper;
 import org.openapitools.client.model.MessageArrayWrapper;
 import org.openapitools.client.model.ModelArrayWrapper;
 import org.openapitools.client.model.RenameChatBody;
@@ -905,6 +907,97 @@ public class ChatApi extends BaseApi {
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Resolve a pending editor file-generation tool
+   * Submits the user's approval or denial for a pending editor generation tool call (docx, form, presentation).  On approval the file is created from the original tool arguments and information about it is returned,  while the suspended chat tool is resumed with the same result so the AI session can continue.
+   *
+   * REST API Reference for resolveEditorTool Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/resolve-editor-tool/
+   *
+   * @param callId The unique identifier of the pending tool call awaiting the user's decision. (required)
+   * @param editorToolDecisionRequestBody The decision parameters. (required)
+   * @return GeneratedFileWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public GeneratedFileWrapper resolveEditorTool(@javax.annotation.Nonnull String callId, @javax.annotation.Nonnull EditorToolDecisionRequestBody editorToolDecisionRequestBody) throws ApiException {
+    return this.resolveEditorTool(callId, editorToolDecisionRequestBody, Collections.emptyMap());
+  }
+
+
+  /**
+   * Resolve a pending editor file-generation tool
+   * Submits the user's approval or denial for a pending editor generation tool call (docx, form, presentation).  On approval the file is created from the original tool arguments and information about it is returned,  while the suspended chat tool is resumed with the same result so the AI session can continue.
+   *
+   * REST API Reference for resolveEditorTool Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/resolve-editor-tool/
+   *
+   * @param callId The unique identifier of the pending tool call awaiting the user's decision. (required)
+   * @param editorToolDecisionRequestBody The decision parameters. (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return GeneratedFileWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public GeneratedFileWrapper resolveEditorTool(@javax.annotation.Nonnull String callId, @javax.annotation.Nonnull EditorToolDecisionRequestBody editorToolDecisionRequestBody, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = editorToolDecisionRequestBody;
+    
+    // verify the required parameter 'callId' is set
+    if (callId == null) {
+      throw new ApiException(400, "Missing the required parameter 'callId' when calling resolveEditorTool");
+    }
+    
+    // verify the required parameter 'editorToolDecisionRequestBody' is set
+    if (editorToolDecisionRequestBody == null) {
+      throw new ApiException(400, "Missing the required parameter 'editorToolDecisionRequestBody' when calling resolveEditorTool");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/ai/chats/tool-files/{callId}/decision"
+      .replaceAll("\\{" + "callId" + "\\}", apiClient.escapeString(apiClient.parameterToString(callId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<GeneratedFileWrapper> localVarReturnType = new TypeReference<GeneratedFileWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),

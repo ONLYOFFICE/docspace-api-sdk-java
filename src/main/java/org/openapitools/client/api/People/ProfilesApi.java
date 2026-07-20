@@ -24,7 +24,6 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.Culture;
 import org.openapitools.client.model.EmployeeArrayWrapper;
 import org.openapitools.client.model.EmployeeFullArrayWrapper;
@@ -35,6 +34,7 @@ import org.openapitools.client.model.ObjectWrapper;
 import org.openapitools.client.model.SortOrder;
 import org.openapitools.client.model.UpdateMemberRequestDto;
 import org.openapitools.client.model.UpdateMembersRequestDto;
+import org.openapitools.client.model.UserExistsResponseWrapper;
 
 
 import java.util.ArrayList;
@@ -146,7 +146,7 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * Check if a user exists by email
-   * Returns a boolean indicating whether a user with the specified email exists on the portal.
+   * Returns data indicating whether a user with the specified email exists on the portal.
    *
    * REST API Reference for checkUserExistsByEmail Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/
@@ -154,17 +154,17 @@ public class ProfilesApi extends BaseApi {
    * @param email The user email address. (optional)
    * @param encemail The user encrypted email address. (optional)
    * @param culture Culture (optional)
-   * @return BooleanWrapper
+   * @return UserExistsResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper checkUserExistsByEmail(@javax.annotation.Nullable String email, @javax.annotation.Nullable String encemail, @javax.annotation.Nullable String culture) throws ApiException {
+  public UserExistsResponseWrapper checkUserExistsByEmail(@javax.annotation.Nullable String email, @javax.annotation.Nullable String encemail, @javax.annotation.Nullable String culture) throws ApiException {
     return this.checkUserExistsByEmail(email, encemail, culture, Collections.emptyMap());
   }
 
 
   /**
    * Check if a user exists by email
-   * Returns a boolean indicating whether a user with the specified email exists on the portal.
+   * Returns data indicating whether a user with the specified email exists on the portal.
    *
    * REST API Reference for checkUserExistsByEmail Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/
@@ -173,10 +173,10 @@ public class ProfilesApi extends BaseApi {
    * @param encemail The user encrypted email address. (optional)
    * @param culture Culture (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return BooleanWrapper
+   * @return UserExistsResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper checkUserExistsByEmail(@javax.annotation.Nullable String email, @javax.annotation.Nullable String encemail, @javax.annotation.Nullable String culture, Map<String, String> additionalHeaders) throws ApiException {
+  public UserExistsResponseWrapper checkUserExistsByEmail(@javax.annotation.Nullable String email, @javax.annotation.Nullable String encemail, @javax.annotation.Nullable String culture, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -211,7 +211,7 @@ public class ProfilesApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
+    TypeReference<UserExistsResponseWrapper> localVarReturnType = new TypeReference<UserExistsResponseWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",

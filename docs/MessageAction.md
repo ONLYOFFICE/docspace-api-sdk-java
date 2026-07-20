@@ -641,6 +641,8 @@
 
 * `AIAccessDisabled` (value: `6098`)
 
+* `UserUpdatedAiSettings` (value: `6099`)
+
 * `ContactAdminMailSent` (value: `7000`)
 
 * `RoomInviteLinkUsed` (value: `7001`)

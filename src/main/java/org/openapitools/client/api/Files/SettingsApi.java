@@ -33,6 +33,8 @@ import org.openapitools.client.model.DefaultTemplateSettingsResetRequestDto;
 import org.openapitools.client.model.DefaultTemplateSettingsWrapper;
 import org.openapitools.client.model.DisplayRequestDto;
 import org.openapitools.client.model.DocServiceUrlWrapper;
+import org.openapitools.client.model.ExternalSharingSettingsRequestDto;
+import org.openapitools.client.model.ExternalSharingSettingsWrapper;
 import java.io.File;
 import org.openapitools.client.model.FileShareArrayWrapper;
 import org.openapitools.client.model.FilesSettingsWrapper;
@@ -433,6 +435,84 @@ public class SettingsApi extends BaseApi {
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<ICompressWrapper> localVarReturnType = new TypeReference<ICompressWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Change the Access Control external sharing settings
+   * Changes the Access Control external sharing settings.
+   *
+   * REST API Reference for changeExternalSharingSettings Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-external-sharing-settings/
+   *
+   * @param externalSharingSettingsRequestDto  (optional)
+   * @return ExternalSharingSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ExternalSharingSettingsWrapper changeExternalSharingSettings(@javax.annotation.Nullable ExternalSharingSettingsRequestDto externalSharingSettingsRequestDto) throws ApiException {
+    return this.changeExternalSharingSettings(externalSharingSettingsRequestDto, Collections.emptyMap());
+  }
+
+
+  /**
+   * Change the Access Control external sharing settings
+   * Changes the Access Control external sharing settings.
+   *
+   * REST API Reference for changeExternalSharingSettings Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-external-sharing-settings/
+   *
+   * @param externalSharingSettingsRequestDto  (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ExternalSharingSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ExternalSharingSettingsWrapper changeExternalSharingSettings(@javax.annotation.Nullable ExternalSharingSettingsRequestDto externalSharingSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = externalSharingSettingsRequestDto;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/settings/externalsharingsettings";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<ExternalSharingSettingsWrapper> localVarReturnType = new TypeReference<ExternalSharingSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",

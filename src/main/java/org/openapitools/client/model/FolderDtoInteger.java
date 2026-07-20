@@ -31,11 +31,11 @@ import java.util.List;
 import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.ChatSettingsDto;
 import org.openapitools.client.model.EmployeeDto;
+import org.openapitools.client.model.FileEntryDtoIntegerAllOfAvailableShareRights;
+import org.openapitools.client.model.FileEntryDtoIntegerAllOfSecurity;
+import org.openapitools.client.model.FileEntryDtoIntegerAllOfShareSettings;
 import org.openapitools.client.model.FileEntryType;
 import org.openapitools.client.model.FileShare;
-import org.openapitools.client.model.FolderDtoIntegerAvailableShareRights;
-import org.openapitools.client.model.FolderDtoIntegerSecurity;
-import org.openapitools.client.model.FolderDtoIntegerShareSettings;
 import org.openapitools.client.model.FolderType;
 import org.openapitools.client.model.Logo;
 import org.openapitools.client.model.RoomDataLifetimeDto;
@@ -62,6 +62,7 @@ import java.util.StringJoiner;
   FolderDtoInteger.JSON_PROPERTY_OWNED_BY,
   FolderDtoInteger.JSON_PROPERTY_SHARED,
   FolderDtoInteger.JSON_PROPERTY_SHARED_FOR_USER,
+  FolderDtoInteger.JSON_PROPERTY_SHARED_EXTERNAL,
   FolderDtoInteger.JSON_PROPERTY_PARENT_SHARED,
   FolderDtoInteger.JSON_PROPERTY_SHORT_WEB_URL,
   FolderDtoInteger.JSON_PROPERTY_CREATED,
@@ -76,6 +77,7 @@ import java.util.StringJoiner;
   FolderDtoInteger.JSON_PROPERTY_PROVIDER_ID,
   FolderDtoInteger.JSON_PROPERTY_ORDER,
   FolderDtoInteger.JSON_PROPERTY_IS_FAVORITE,
+  FolderDtoInteger.JSON_PROPERTY_FILE_ENTRY_TYPE,
   FolderDtoInteger.JSON_PROPERTY_ID,
   FolderDtoInteger.JSON_PROPERTY_ROOT_FOLDER_ID,
   FolderDtoInteger.JSON_PROPERTY_ORIGIN_ID,
@@ -112,11 +114,11 @@ import java.util.StringJoiner;
   FolderDtoInteger.JSON_PROPERTY_USED_SPACE,
   FolderDtoInteger.JSON_PROPERTY_PASSWORD_PROTECTED,
   FolderDtoInteger.JSON_PROPERTY_EXPIRED,
-  FolderDtoInteger.JSON_PROPERTY_FILE_ENTRY_TYPE,
   FolderDtoInteger.JSON_PROPERTY_CHAT_SETTINGS,
   FolderDtoInteger.JSON_PROPERTY_ROOT_ROOM_TYPE,
   FolderDtoInteger.JSON_PROPERTY_SAVE_FORM_AS_X_L_S_X,
-  FolderDtoInteger.JSON_PROPERTY_SEND_FORM_TO_EXTERNAL_D_B
+  FolderDtoInteger.JSON_PROPERTY_SEND_FORM_TO_EXTERNAL_D_B,
+  FolderDtoInteger.JSON_PROPERTY_ORIGINAL_FORM_ID
 })
 
 public class FolderDtoInteger {
@@ -137,6 +139,9 @@ public class FolderDtoInteger {
 
   public static final String JSON_PROPERTY_SHARED_FOR_USER = "sharedForUser";
   @javax.annotation.Nullable  private Boolean sharedForUser;
+
+  public static final String JSON_PROPERTY_SHARED_EXTERNAL = "sharedExternal";
+  @javax.annotation.Nullable  private Boolean sharedExternal;
 
   public static final String JSON_PROPERTY_PARENT_SHARED = "parentShared";
   @javax.annotation.Nullable  private Boolean parentShared;
@@ -180,6 +185,9 @@ public class FolderDtoInteger {
   public static final String JSON_PROPERTY_IS_FAVORITE = "isFavorite";
   @javax.annotation.Nullable  private JsonNullable<Boolean> isFavorite = JsonNullable.<Boolean>undefined();
 
+  public static final String JSON_PROPERTY_FILE_ENTRY_TYPE = "fileEntryType";
+  @javax.annotation.Nullable  private FileEntryType fileEntryType;
+
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable  private Integer id;
 
@@ -202,13 +210,13 @@ public class FolderDtoInteger {
   @javax.annotation.Nullable  private Boolean canShare;
 
   public static final String JSON_PROPERTY_SHARE_SETTINGS = "shareSettings";
-  @javax.annotation.Nullable  private JsonNullable<FolderDtoIntegerShareSettings> shareSettings = JsonNullable.<FolderDtoIntegerShareSettings>undefined();
+  @javax.annotation.Nullable  private JsonNullable<FileEntryDtoIntegerAllOfShareSettings> shareSettings = JsonNullable.<FileEntryDtoIntegerAllOfShareSettings>undefined();
 
   public static final String JSON_PROPERTY_SECURITY = "security";
-  @javax.annotation.Nullable  private JsonNullable<FolderDtoIntegerSecurity> security = JsonNullable.<FolderDtoIntegerSecurity>undefined();
+  @javax.annotation.Nullable  private JsonNullable<FileEntryDtoIntegerAllOfSecurity> security = JsonNullable.<FileEntryDtoIntegerAllOfSecurity>undefined();
 
   public static final String JSON_PROPERTY_AVAILABLE_SHARE_RIGHTS = "availableShareRights";
-  @javax.annotation.Nullable  private JsonNullable<FolderDtoIntegerAvailableShareRights> availableShareRights = JsonNullable.<FolderDtoIntegerAvailableShareRights>undefined();
+  @javax.annotation.Nullable  private JsonNullable<FileEntryDtoIntegerAllOfAvailableShareRights> availableShareRights = JsonNullable.<FileEntryDtoIntegerAllOfAvailableShareRights>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_TOKEN = "requestToken";
   @javax.annotation.Nullable  private JsonNullable<String> requestToken = JsonNullable.<String>undefined();
@@ -288,9 +296,6 @@ public class FolderDtoInteger {
   public static final String JSON_PROPERTY_EXPIRED = "expired";
   @javax.annotation.Nullable  private JsonNullable<Boolean> expired = JsonNullable.<Boolean>undefined();
 
-  public static final String JSON_PROPERTY_FILE_ENTRY_TYPE = "fileEntryType";
-  @javax.annotation.Nullable  private FileEntryType fileEntryType;
-
   public static final String JSON_PROPERTY_CHAT_SETTINGS = "chatSettings";
   @javax.annotation.Nullable  private ChatSettingsDto chatSettings;
 
@@ -302,6 +307,9 @@ public class FolderDtoInteger {
 
   public static final String JSON_PROPERTY_SEND_FORM_TO_EXTERNAL_D_B = "sendFormToExternalDB";
   @javax.annotation.Nullable  private JsonNullable<Boolean> sendFormToExternalDB = JsonNullable.<Boolean>undefined();
+
+  public static final String JSON_PROPERTY_ORIGINAL_FORM_ID = "originalFormId";
+  @javax.annotation.Nullable  private JsonNullable<Integer> originalFormId = JsonNullable.<Integer>undefined();
 
   public FolderDtoInteger() {
   }
@@ -456,6 +464,30 @@ public class FolderDtoInteger {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSharedForUser(@javax.annotation.Nullable Boolean sharedForUser) {
     this.sharedForUser = sharedForUser;
+  }
+
+  public FolderDtoInteger sharedExternal(@javax.annotation.Nullable Boolean sharedExternal) {
+    
+    this.sharedExternal = sharedExternal;
+    return this;
+  }
+
+  /**
+   * Specifies if the file entry is shared via a public (non-internal) external link.
+   * @return sharedExternal
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARED_EXTERNAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getSharedExternal() {
+    return sharedExternal;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SHARED_EXTERNAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSharedExternal(@javax.annotation.Nullable Boolean sharedExternal) {
+    this.sharedExternal = sharedExternal;
   }
 
   public FolderDtoInteger parentShared(@javax.annotation.Nullable Boolean parentShared) {
@@ -836,6 +868,30 @@ public class FolderDtoInteger {
     this.isFavorite = JsonNullable.<Boolean>of(isFavorite);
   }
 
+  public FolderDtoInteger fileEntryType(@javax.annotation.Nullable FileEntryType fileEntryType) {
+    
+    this.fileEntryType = fileEntryType;
+    return this;
+  }
+
+  /**
+   * Get fileEntryType
+   * @return fileEntryType
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_ENTRY_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public FileEntryType getFileEntryType() {
+    return fileEntryType;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_FILE_ENTRY_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFileEntryType(@javax.annotation.Nullable FileEntryType fileEntryType) {
+    this.fileEntryType = fileEntryType;
+  }
+
   public FolderDtoInteger id(@javax.annotation.Nullable Integer id) {
     
     this.id = id;
@@ -1018,8 +1074,8 @@ public class FolderDtoInteger {
     this.canShare = canShare;
   }
 
-  public FolderDtoInteger shareSettings(@javax.annotation.Nullable FolderDtoIntegerShareSettings shareSettings) {
-    this.shareSettings = JsonNullable.<FolderDtoIntegerShareSettings>of(shareSettings);
+  public FolderDtoInteger shareSettings(@javax.annotation.Nullable FileEntryDtoIntegerAllOfShareSettings shareSettings) {
+    this.shareSettings = JsonNullable.<FileEntryDtoIntegerAllOfShareSettings>of(shareSettings);
     
     return this;
   }
@@ -1030,27 +1086,27 @@ public class FolderDtoInteger {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public FolderDtoIntegerShareSettings getShareSettings() {
+  public FileEntryDtoIntegerAllOfShareSettings getShareSettings() {
         return shareSettings.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_SHARE_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<FolderDtoIntegerShareSettings> getShareSettings_JsonNullable() {
+  public JsonNullable<FileEntryDtoIntegerAllOfShareSettings> getShareSettings_JsonNullable() {
     return shareSettings;
   }
   
   @JsonProperty(JSON_PROPERTY_SHARE_SETTINGS)
-  public void setShareSettings_JsonNullable(JsonNullable<FolderDtoIntegerShareSettings> shareSettings) {
+  public void setShareSettings_JsonNullable(JsonNullable<FileEntryDtoIntegerAllOfShareSettings> shareSettings) {
     this.shareSettings = shareSettings;
   }
 
-  public void setShareSettings(@javax.annotation.Nullable FolderDtoIntegerShareSettings shareSettings) {
-    this.shareSettings = JsonNullable.<FolderDtoIntegerShareSettings>of(shareSettings);
+  public void setShareSettings(@javax.annotation.Nullable FileEntryDtoIntegerAllOfShareSettings shareSettings) {
+    this.shareSettings = JsonNullable.<FileEntryDtoIntegerAllOfShareSettings>of(shareSettings);
   }
 
-  public FolderDtoInteger security(@javax.annotation.Nullable FolderDtoIntegerSecurity security) {
-    this.security = JsonNullable.<FolderDtoIntegerSecurity>of(security);
+  public FolderDtoInteger security(@javax.annotation.Nullable FileEntryDtoIntegerAllOfSecurity security) {
+    this.security = JsonNullable.<FileEntryDtoIntegerAllOfSecurity>of(security);
     
     return this;
   }
@@ -1061,27 +1117,27 @@ public class FolderDtoInteger {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public FolderDtoIntegerSecurity getSecurity() {
+  public FileEntryDtoIntegerAllOfSecurity getSecurity() {
         return security.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_SECURITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<FolderDtoIntegerSecurity> getSecurity_JsonNullable() {
+  public JsonNullable<FileEntryDtoIntegerAllOfSecurity> getSecurity_JsonNullable() {
     return security;
   }
   
   @JsonProperty(JSON_PROPERTY_SECURITY)
-  public void setSecurity_JsonNullable(JsonNullable<FolderDtoIntegerSecurity> security) {
+  public void setSecurity_JsonNullable(JsonNullable<FileEntryDtoIntegerAllOfSecurity> security) {
     this.security = security;
   }
 
-  public void setSecurity(@javax.annotation.Nullable FolderDtoIntegerSecurity security) {
-    this.security = JsonNullable.<FolderDtoIntegerSecurity>of(security);
+  public void setSecurity(@javax.annotation.Nullable FileEntryDtoIntegerAllOfSecurity security) {
+    this.security = JsonNullable.<FileEntryDtoIntegerAllOfSecurity>of(security);
   }
 
-  public FolderDtoInteger availableShareRights(@javax.annotation.Nullable FolderDtoIntegerAvailableShareRights availableShareRights) {
-    this.availableShareRights = JsonNullable.<FolderDtoIntegerAvailableShareRights>of(availableShareRights);
+  public FolderDtoInteger availableShareRights(@javax.annotation.Nullable FileEntryDtoIntegerAllOfAvailableShareRights availableShareRights) {
+    this.availableShareRights = JsonNullable.<FileEntryDtoIntegerAllOfAvailableShareRights>of(availableShareRights);
     
     return this;
   }
@@ -1092,23 +1148,23 @@ public class FolderDtoInteger {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public FolderDtoIntegerAvailableShareRights getAvailableShareRights() {
+  public FileEntryDtoIntegerAllOfAvailableShareRights getAvailableShareRights() {
         return availableShareRights.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_AVAILABLE_SHARE_RIGHTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<FolderDtoIntegerAvailableShareRights> getAvailableShareRights_JsonNullable() {
+  public JsonNullable<FileEntryDtoIntegerAllOfAvailableShareRights> getAvailableShareRights_JsonNullable() {
     return availableShareRights;
   }
   
   @JsonProperty(JSON_PROPERTY_AVAILABLE_SHARE_RIGHTS)
-  public void setAvailableShareRights_JsonNullable(JsonNullable<FolderDtoIntegerAvailableShareRights> availableShareRights) {
+  public void setAvailableShareRights_JsonNullable(JsonNullable<FileEntryDtoIntegerAllOfAvailableShareRights> availableShareRights) {
     this.availableShareRights = availableShareRights;
   }
 
-  public void setAvailableShareRights(@javax.annotation.Nullable FolderDtoIntegerAvailableShareRights availableShareRights) {
-    this.availableShareRights = JsonNullable.<FolderDtoIntegerAvailableShareRights>of(availableShareRights);
+  public void setAvailableShareRights(@javax.annotation.Nullable FileEntryDtoIntegerAllOfAvailableShareRights availableShareRights) {
+    this.availableShareRights = JsonNullable.<FileEntryDtoIntegerAllOfAvailableShareRights>of(availableShareRights);
   }
 
   public FolderDtoInteger requestToken(@javax.annotation.Nullable String requestToken) {
@@ -1826,30 +1882,6 @@ public class FolderDtoInteger {
     this.expired = JsonNullable.<Boolean>of(expired);
   }
 
-  public FolderDtoInteger fileEntryType(@javax.annotation.Nullable FileEntryType fileEntryType) {
-    
-    this.fileEntryType = fileEntryType;
-    return this;
-  }
-
-  /**
-   * Get fileEntryType
-   * @return fileEntryType
-   */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_ENTRY_TYPE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public FileEntryType getFileEntryType() {
-    return fileEntryType;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_FILE_ENTRY_TYPE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFileEntryType(@javax.annotation.Nullable FileEntryType fileEntryType) {
-    this.fileEntryType = fileEntryType;
-  }
-
   public FolderDtoInteger chatSettings(@javax.annotation.Nullable ChatSettingsDto chatSettings) {
     
     this.chatSettings = chatSettings;
@@ -1960,6 +1992,37 @@ public class FolderDtoInteger {
     this.sendFormToExternalDB = JsonNullable.<Boolean>of(sendFormToExternalDB);
   }
 
+  public FolderDtoInteger originalFormId(@javax.annotation.Nullable Integer originalFormId) {
+    this.originalFormId = JsonNullable.<Integer>of(originalFormId);
+    
+    return this;
+  }
+
+  /**
+   * The original form ID that corresponds to this FormFillingFolderDone folder.
+   * @return originalFormId
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Integer getOriginalFormId() {
+        return originalFormId.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_ORIGINAL_FORM_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Integer> getOriginalFormId_JsonNullable() {
+    return originalFormId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ORIGINAL_FORM_ID)
+  public void setOriginalFormId_JsonNullable(JsonNullable<Integer> originalFormId) {
+    this.originalFormId = originalFormId;
+  }
+
+  public void setOriginalFormId(@javax.annotation.Nullable Integer originalFormId) {
+    this.originalFormId = JsonNullable.<Integer>of(originalFormId);
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -1975,6 +2038,7 @@ public class FolderDtoInteger {
         Objects.equals(this.ownedBy, folderDtoInteger.ownedBy) &&
         Objects.equals(this.shared, folderDtoInteger.shared) &&
         Objects.equals(this.sharedForUser, folderDtoInteger.sharedForUser) &&
+        Objects.equals(this.sharedExternal, folderDtoInteger.sharedExternal) &&
         Objects.equals(this.parentShared, folderDtoInteger.parentShared) &&
         equalsNullable(this.shortWebUrl, folderDtoInteger.shortWebUrl) &&
         Objects.equals(this.created, folderDtoInteger.created) &&
@@ -1989,6 +2053,7 @@ public class FolderDtoInteger {
         equalsNullable(this.providerId, folderDtoInteger.providerId) &&
         equalsNullable(this.order, folderDtoInteger.order) &&
         equalsNullable(this.isFavorite, folderDtoInteger.isFavorite) &&
+        Objects.equals(this.fileEntryType, folderDtoInteger.fileEntryType) &&
         Objects.equals(this.id, folderDtoInteger.id) &&
         Objects.equals(this.rootFolderId, folderDtoInteger.rootFolderId) &&
         Objects.equals(this.originId, folderDtoInteger.originId) &&
@@ -2025,11 +2090,11 @@ public class FolderDtoInteger {
         equalsNullable(this.usedSpace, folderDtoInteger.usedSpace) &&
         equalsNullable(this.passwordProtected, folderDtoInteger.passwordProtected) &&
         equalsNullable(this.expired, folderDtoInteger.expired) &&
-        Objects.equals(this.fileEntryType, folderDtoInteger.fileEntryType) &&
         Objects.equals(this.chatSettings, folderDtoInteger.chatSettings) &&
         Objects.equals(this.rootRoomType, folderDtoInteger.rootRoomType) &&
         equalsNullable(this.saveFormAsXLSX, folderDtoInteger.saveFormAsXLSX) &&
-        equalsNullable(this.sendFormToExternalDB, folderDtoInteger.sendFormToExternalDB);
+        equalsNullable(this.sendFormToExternalDB, folderDtoInteger.sendFormToExternalDB) &&
+        equalsNullable(this.originalFormId, folderDtoInteger.originalFormId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -2038,7 +2103,7 @@ public class FolderDtoInteger {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(title), access, sharedBy, ownedBy, shared, sharedForUser, parentShared, hashCodeNullable(shortWebUrl), created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), id, rootFolderId, originId, originRoomId, hashCodeNullable(originTitle), hashCodeNullable(originRoomTitle), canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), hashCodeNullable(requestToken), hashCodeNullable(external), expirationDate, hashCodeNullable(isLinkExpired), parentId, filesCount, foldersCount, hashCodeNullable(isShareable), _new, mute, hashCodeNullable(tags), logo, pinned, roomType, _private, indexing, denyDownload, lifetime, watermark, type, hashCodeNullable(inRoom), hashCodeNullable(quotaLimit), hashCodeNullable(isCustomQuota), hashCodeNullable(usedSpace), hashCodeNullable(passwordProtected), hashCodeNullable(expired), fileEntryType, chatSettings, rootRoomType, hashCodeNullable(saveFormAsXLSX), hashCodeNullable(sendFormToExternalDB));
+    return Objects.hash(hashCodeNullable(title), access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, hashCodeNullable(shortWebUrl), created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), fileEntryType, id, rootFolderId, originId, originRoomId, hashCodeNullable(originTitle), hashCodeNullable(originRoomTitle), canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), hashCodeNullable(requestToken), hashCodeNullable(external), expirationDate, hashCodeNullable(isLinkExpired), parentId, filesCount, foldersCount, hashCodeNullable(isShareable), _new, mute, hashCodeNullable(tags), logo, pinned, roomType, _private, indexing, denyDownload, lifetime, watermark, type, hashCodeNullable(inRoom), hashCodeNullable(quotaLimit), hashCodeNullable(isCustomQuota), hashCodeNullable(usedSpace), hashCodeNullable(passwordProtected), hashCodeNullable(expired), chatSettings, rootRoomType, hashCodeNullable(saveFormAsXLSX), hashCodeNullable(sendFormToExternalDB), hashCodeNullable(originalFormId));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -2058,6 +2123,7 @@ public class FolderDtoInteger {
     sb.append("    ownedBy: ").append(toIndentedString(ownedBy)).append("\n");
     sb.append("    shared: ").append(toIndentedString(shared)).append("\n");
     sb.append("    sharedForUser: ").append(toIndentedString(sharedForUser)).append("\n");
+    sb.append("    sharedExternal: ").append(toIndentedString(sharedExternal)).append("\n");
     sb.append("    parentShared: ").append(toIndentedString(parentShared)).append("\n");
     sb.append("    shortWebUrl: ").append(toIndentedString(shortWebUrl)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
@@ -2072,6 +2138,7 @@ public class FolderDtoInteger {
     sb.append("    providerId: ").append(toIndentedString(providerId)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    isFavorite: ").append(toIndentedString(isFavorite)).append("\n");
+    sb.append("    fileEntryType: ").append(toIndentedString(fileEntryType)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    rootFolderId: ").append(toIndentedString(rootFolderId)).append("\n");
     sb.append("    originId: ").append(toIndentedString(originId)).append("\n");
@@ -2108,11 +2175,11 @@ public class FolderDtoInteger {
     sb.append("    usedSpace: ").append(toIndentedString(usedSpace)).append("\n");
     sb.append("    passwordProtected: ").append(toIndentedString(passwordProtected)).append("\n");
     sb.append("    expired: ").append(toIndentedString(expired)).append("\n");
-    sb.append("    fileEntryType: ").append(toIndentedString(fileEntryType)).append("\n");
     sb.append("    chatSettings: ").append(toIndentedString(chatSettings)).append("\n");
     sb.append("    rootRoomType: ").append(toIndentedString(rootRoomType)).append("\n");
     sb.append("    saveFormAsXLSX: ").append(toIndentedString(saveFormAsXLSX)).append("\n");
     sb.append("    sendFormToExternalDB: ").append(toIndentedString(sendFormToExternalDB)).append("\n");
+    sb.append("    originalFormId: ").append(toIndentedString(originalFormId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -2204,6 +2271,16 @@ public class FolderDtoInteger {
     if (getSharedForUser() != null) {
       try {
         joiner.add(String.format("%ssharedForUser%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSharedForUser()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `sharedExternal` to the URL query string
+    if (getSharedExternal() != null) {
+      try {
+        joiner.add(String.format("%ssharedExternal%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSharedExternal()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
@@ -2319,6 +2396,16 @@ public class FolderDtoInteger {
     if (getIsFavorite() != null) {
       try {
         joiner.add(String.format("%sisFavorite%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsFavorite()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `fileEntryType` to the URL query string
+    if (getFileEntryType() != null) {
+      try {
+        joiner.add(String.format("%sfileEntryType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFileEntryType()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
@@ -2654,16 +2741,6 @@ public class FolderDtoInteger {
       }
     }
 
-    // add `fileEntryType` to the URL query string
-    if (getFileEntryType() != null) {
-      try {
-        joiner.add(String.format("%sfileEntryType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFileEntryType()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
     // add `chatSettings` to the URL query string
     if (getChatSettings() != null) {
       joiner.add(getChatSettings().toUrlQueryString(prefix + "chatSettings" + suffix));
@@ -2693,6 +2770,16 @@ public class FolderDtoInteger {
     if (getSendFormToExternalDB() != null) {
       try {
         joiner.add(String.format("%ssendFormToExternalDB%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSendFormToExternalDB()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `originalFormId` to the URL query string
+    if (getOriginalFormId() != null) {
+      try {
+        joiner.add(String.format("%soriginalFormId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOriginalFormId()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

@@ -106,6 +106,10 @@ import java.util.StringJoiner;
   FilesSettingsDto.JSON_PROPERTY_CHUNK_UPLOAD_SIZE,
   FilesSettingsDto.JSON_PROPERTY_OPEN_EDITOR_IN_SAME_TAB,
   FilesSettingsDto.JSON_PROPERTY_ORGANIZE_ROOMS_GROUPING,
+  FilesSettingsDto.JSON_PROPERTY_DEFAULT_SHARE_LINK_INTERNAL,
+  FilesSettingsDto.JSON_PROPERTY_EXTERNAL_SHARE_APPLY_TO_DOCUMENTS,
+  FilesSettingsDto.JSON_PROPERTY_EXTERNAL_SHARE_APPLY_TO_ROOMS,
+  FilesSettingsDto.JSON_PROPERTY_BLOCK_EXISTING_LINKS_ON_RESTRICT,
   FilesSettingsDto.JSON_PROPERTY_EXTS_FILES_VECTORIZED,
   FilesSettingsDto.JSON_PROPERTY_MAX_VECTORIZATION_FILE_SIZE
 })
@@ -338,6 +342,18 @@ public class FilesSettingsDto {
 
   public static final String JSON_PROPERTY_ORGANIZE_ROOMS_GROUPING = "organizeRoomsGrouping";
   @javax.annotation.Nullable  private Boolean organizeRoomsGrouping;
+
+  public static final String JSON_PROPERTY_DEFAULT_SHARE_LINK_INTERNAL = "defaultShareLinkInternal";
+  @javax.annotation.Nullable  private Boolean defaultShareLinkInternal;
+
+  public static final String JSON_PROPERTY_EXTERNAL_SHARE_APPLY_TO_DOCUMENTS = "externalShareApplyToDocuments";
+  @javax.annotation.Nullable  private Boolean externalShareApplyToDocuments;
+
+  public static final String JSON_PROPERTY_EXTERNAL_SHARE_APPLY_TO_ROOMS = "externalShareApplyToRooms";
+  @javax.annotation.Nullable  private Boolean externalShareApplyToRooms;
+
+  public static final String JSON_PROPERTY_BLOCK_EXISTING_LINKS_ON_RESTRICT = "blockExistingLinksOnRestrict";
+  @javax.annotation.Nullable  private Boolean blockExistingLinksOnRestrict;
 
   public static final String JSON_PROPERTY_EXTS_FILES_VECTORIZED = "extsFilesVectorized";
   @javax.annotation.Nullable  private JsonNullable<List<String>> extsFilesVectorized = JsonNullable.<List<String>>undefined();
@@ -2236,6 +2252,102 @@ public class FilesSettingsDto {
     this.organizeRoomsGrouping = organizeRoomsGrouping;
   }
 
+  public FilesSettingsDto defaultShareLinkInternal(@javax.annotation.Nullable Boolean defaultShareLinkInternal) {
+    
+    this.defaultShareLinkInternal = defaultShareLinkInternal;
+    return this;
+  }
+
+  /**
+   * Specifies the default sharing link type: true = DocSpace users only (internal), false = Anyone with the link.
+   * @return defaultShareLinkInternal
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEFAULT_SHARE_LINK_INTERNAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getDefaultShareLinkInternal() {
+    return defaultShareLinkInternal;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_DEFAULT_SHARE_LINK_INTERNAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDefaultShareLinkInternal(@javax.annotation.Nullable Boolean defaultShareLinkInternal) {
+    this.defaultShareLinkInternal = defaultShareLinkInternal;
+  }
+
+  public FilesSettingsDto externalShareApplyToDocuments(@javax.annotation.Nullable Boolean externalShareApplyToDocuments) {
+    
+    this.externalShareApplyToDocuments = externalShareApplyToDocuments;
+    return this;
+  }
+
+  /**
+   * When external sharing is restricted, specifies whether the restriction applies to the My Documents section.
+   * @return externalShareApplyToDocuments
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_SHARE_APPLY_TO_DOCUMENTS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getExternalShareApplyToDocuments() {
+    return externalShareApplyToDocuments;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_SHARE_APPLY_TO_DOCUMENTS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setExternalShareApplyToDocuments(@javax.annotation.Nullable Boolean externalShareApplyToDocuments) {
+    this.externalShareApplyToDocuments = externalShareApplyToDocuments;
+  }
+
+  public FilesSettingsDto externalShareApplyToRooms(@javax.annotation.Nullable Boolean externalShareApplyToRooms) {
+    
+    this.externalShareApplyToRooms = externalShareApplyToRooms;
+    return this;
+  }
+
+  /**
+   * When external sharing is restricted, specifies whether the restriction applies to the Rooms section.
+   * @return externalShareApplyToRooms
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_SHARE_APPLY_TO_ROOMS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getExternalShareApplyToRooms() {
+    return externalShareApplyToRooms;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_SHARE_APPLY_TO_ROOMS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setExternalShareApplyToRooms(@javax.annotation.Nullable Boolean externalShareApplyToRooms) {
+    this.externalShareApplyToRooms = externalShareApplyToRooms;
+  }
+
+  public FilesSettingsDto blockExistingLinksOnRestrict(@javax.annotation.Nullable Boolean blockExistingLinksOnRestrict) {
+    
+    this.blockExistingLinksOnRestrict = blockExistingLinksOnRestrict;
+    return this;
+  }
+
+  /**
+   * When external sharing is restricted, specifies whether existing public links are blocked immediately.
+   * @return blockExistingLinksOnRestrict
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_BLOCK_EXISTING_LINKS_ON_RESTRICT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getBlockExistingLinksOnRestrict() {
+    return blockExistingLinksOnRestrict;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_BLOCK_EXISTING_LINKS_ON_RESTRICT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBlockExistingLinksOnRestrict(@javax.annotation.Nullable Boolean blockExistingLinksOnRestrict) {
+    this.blockExistingLinksOnRestrict = blockExistingLinksOnRestrict;
+  }
+
   public FilesSettingsDto extsFilesVectorized(@javax.annotation.Nullable List<String> extsFilesVectorized) {
     this.extsFilesVectorized = JsonNullable.<List<String>>of(extsFilesVectorized);
     
@@ -2370,6 +2482,10 @@ public class FilesSettingsDto {
         Objects.equals(this.chunkUploadSize, filesSettingsDto.chunkUploadSize) &&
         Objects.equals(this.openEditorInSameTab, filesSettingsDto.openEditorInSameTab) &&
         Objects.equals(this.organizeRoomsGrouping, filesSettingsDto.organizeRoomsGrouping) &&
+        Objects.equals(this.defaultShareLinkInternal, filesSettingsDto.defaultShareLinkInternal) &&
+        Objects.equals(this.externalShareApplyToDocuments, filesSettingsDto.externalShareApplyToDocuments) &&
+        Objects.equals(this.externalShareApplyToRooms, filesSettingsDto.externalShareApplyToRooms) &&
+        Objects.equals(this.blockExistingLinksOnRestrict, filesSettingsDto.blockExistingLinksOnRestrict) &&
         equalsNullable(this.extsFilesVectorized, filesSettingsDto.extsFilesVectorized) &&
         Objects.equals(this.maxVectorizationFileSize, filesSettingsDto.maxVectorizationFileSize);
   }
@@ -2380,7 +2496,7 @@ public class FilesSettingsDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(extsImagePreviewed), hashCodeNullable(extsMediaPreviewed), hashCodeNullable(extsWebPreviewed), hashCodeNullable(extsWebEdited), hashCodeNullable(extsWebEncrypt), hashCodeNullable(extsWebReviewed), hashCodeNullable(extsWebCustomFilterEditing), hashCodeNullable(extsWebRestrictedEditing), hashCodeNullable(extsWebCommented), hashCodeNullable(extsWebTemplate), hashCodeNullable(extsMustConvert), hashCodeNullable(extsConvertible), hashCodeNullable(extsUploadable), hashCodeNullable(extsArchive), hashCodeNullable(extsVideo), hashCodeNullable(extsAudio), hashCodeNullable(extsImage), hashCodeNullable(extsSpreadsheet), hashCodeNullable(extsPresentation), hashCodeNullable(extsDocument), hashCodeNullable(extsDiagram), hashCodeNullable(internalFormats), hashCodeNullable(masterFormExtension), hashCodeNullable(paramVersion), hashCodeNullable(paramOutType), hashCodeNullable(fileDownloadUrlString), hashCodeNullable(fileWebViewerUrlString), hashCodeNullable(fileWebViewerExternalUrlString), hashCodeNullable(fileWebEditorUrlString), hashCodeNullable(fileWebEditorExternalUrlString), hashCodeNullable(fileRedirectPreviewUrlString), hashCodeNullable(fileThumbnailUrlString), confirmDelete, enableThirdParty, externalShare, externalShareSocialMedia, storeOriginalFiles, keepNewFileName, displayFileExtension, convertNotify, hideConfirmCancelOperation, hideConfirmConvertSave, hideConfirmConvertOpen, hideConfirmRoomLifetime, defaultOrder, forcesave, storeForcesave, recentSection, favoritesSection, templatesSection, downloadTarGz, automaticallyCleanUp, canSearchByContent, hashCodeNullable(defaultSharingAccessRights), maxUploadThreadCount, chunkUploadSize, openEditorInSameTab, organizeRoomsGrouping, hashCodeNullable(extsFilesVectorized), maxVectorizationFileSize);
+    return Objects.hash(hashCodeNullable(extsImagePreviewed), hashCodeNullable(extsMediaPreviewed), hashCodeNullable(extsWebPreviewed), hashCodeNullable(extsWebEdited), hashCodeNullable(extsWebEncrypt), hashCodeNullable(extsWebReviewed), hashCodeNullable(extsWebCustomFilterEditing), hashCodeNullable(extsWebRestrictedEditing), hashCodeNullable(extsWebCommented), hashCodeNullable(extsWebTemplate), hashCodeNullable(extsMustConvert), hashCodeNullable(extsConvertible), hashCodeNullable(extsUploadable), hashCodeNullable(extsArchive), hashCodeNullable(extsVideo), hashCodeNullable(extsAudio), hashCodeNullable(extsImage), hashCodeNullable(extsSpreadsheet), hashCodeNullable(extsPresentation), hashCodeNullable(extsDocument), hashCodeNullable(extsDiagram), hashCodeNullable(internalFormats), hashCodeNullable(masterFormExtension), hashCodeNullable(paramVersion), hashCodeNullable(paramOutType), hashCodeNullable(fileDownloadUrlString), hashCodeNullable(fileWebViewerUrlString), hashCodeNullable(fileWebViewerExternalUrlString), hashCodeNullable(fileWebEditorUrlString), hashCodeNullable(fileWebEditorExternalUrlString), hashCodeNullable(fileRedirectPreviewUrlString), hashCodeNullable(fileThumbnailUrlString), confirmDelete, enableThirdParty, externalShare, externalShareSocialMedia, storeOriginalFiles, keepNewFileName, displayFileExtension, convertNotify, hideConfirmCancelOperation, hideConfirmConvertSave, hideConfirmConvertOpen, hideConfirmRoomLifetime, defaultOrder, forcesave, storeForcesave, recentSection, favoritesSection, templatesSection, downloadTarGz, automaticallyCleanUp, canSearchByContent, hashCodeNullable(defaultSharingAccessRights), maxUploadThreadCount, chunkUploadSize, openEditorInSameTab, organizeRoomsGrouping, defaultShareLinkInternal, externalShareApplyToDocuments, externalShareApplyToRooms, blockExistingLinksOnRestrict, hashCodeNullable(extsFilesVectorized), maxVectorizationFileSize);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -2452,6 +2568,10 @@ public class FilesSettingsDto {
     sb.append("    chunkUploadSize: ").append(toIndentedString(chunkUploadSize)).append("\n");
     sb.append("    openEditorInSameTab: ").append(toIndentedString(openEditorInSameTab)).append("\n");
     sb.append("    organizeRoomsGrouping: ").append(toIndentedString(organizeRoomsGrouping)).append("\n");
+    sb.append("    defaultShareLinkInternal: ").append(toIndentedString(defaultShareLinkInternal)).append("\n");
+    sb.append("    externalShareApplyToDocuments: ").append(toIndentedString(externalShareApplyToDocuments)).append("\n");
+    sb.append("    externalShareApplyToRooms: ").append(toIndentedString(externalShareApplyToRooms)).append("\n");
+    sb.append("    blockExistingLinksOnRestrict: ").append(toIndentedString(blockExistingLinksOnRestrict)).append("\n");
     sb.append("    extsFilesVectorized: ").append(toIndentedString(extsFilesVectorized)).append("\n");
     sb.append("    maxVectorizationFileSize: ").append(toIndentedString(maxVectorizationFileSize)).append("\n");
     sb.append("}");
@@ -3148,6 +3268,46 @@ public class FilesSettingsDto {
     if (getOrganizeRoomsGrouping() != null) {
       try {
         joiner.add(String.format("%sorganizeRoomsGrouping%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOrganizeRoomsGrouping()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `defaultShareLinkInternal` to the URL query string
+    if (getDefaultShareLinkInternal() != null) {
+      try {
+        joiner.add(String.format("%sdefaultShareLinkInternal%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDefaultShareLinkInternal()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `externalShareApplyToDocuments` to the URL query string
+    if (getExternalShareApplyToDocuments() != null) {
+      try {
+        joiner.add(String.format("%sexternalShareApplyToDocuments%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExternalShareApplyToDocuments()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `externalShareApplyToRooms` to the URL query string
+    if (getExternalShareApplyToRooms() != null) {
+      try {
+        joiner.add(String.format("%sexternalShareApplyToRooms%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExternalShareApplyToRooms()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `blockExistingLinksOnRestrict` to the URL query string
+    if (getBlockExistingLinksOnRestrict() != null) {
+      try {
+        joiner.add(String.format("%sblockExistingLinksOnRestrict%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBlockExistingLinksOnRestrict()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

@@ -14,6 +14,7 @@ The generic file entry information.
 |**ownedBy** | [**EmployeeDto**](EmployeeDto.md) |  |  [optional] |
 |**shared** | **Boolean** | Specifies if the file entry is shared via link or not. |  [optional] |
 |**sharedForUser** | **Boolean** | Specifies if the file entry is shared for user or not. |  [optional] |
+|**sharedExternal** | **Boolean** | Specifies if the file entry is shared via a public (non-internal) external link. |  [optional] |
 |**parentShared** | **Boolean** | Indicates whether the parent entity is shared. |  [optional] |
 |**shortWebUrl** | **URI** | The short Web URL. |  [optional] |
 |**created** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |

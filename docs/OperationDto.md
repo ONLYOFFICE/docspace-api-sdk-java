@@ -21,6 +21,7 @@ Represents an operation.
 |**participantDisplayName** | **String** | The participant display name. |  [optional] |
 |**agentId** | **String** | AI Agent id. |  [optional] |
 |**agentTitle** | **String** | AI Agent name. |  [optional] |
+|**type** | **OperationType** |  |  [optional] |
 
 
 

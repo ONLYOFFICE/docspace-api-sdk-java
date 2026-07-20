@@ -25,6 +25,8 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.AiSettingsWrapper;
+import org.openapitools.client.model.AiUserSettingsWrapper;
+import org.openapitools.client.model.SetAiUserSettingsRequestDto;
 import org.openapitools.client.model.SetEmbeddingConfigRequestBody;
 import org.openapitools.client.model.SetWebSearchSettingsRequestBody;
 import org.openapitools.client.model.VectorizationSettingsWrapper;
@@ -108,6 +110,82 @@ public class SettingsApi extends BaseApi {
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<AiSettingsWrapper> localVarReturnType = new TypeReference<AiSettingsWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get per-user AI settings
+   * Retrieves the current user's AI settings, including the recommended model banner visibility preference.
+   *
+   * REST API Reference for getAiUserSettings Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-user-settings/
+   *
+   * @return AiUserSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public AiUserSettingsWrapper getAiUserSettings() throws ApiException {
+    return this.getAiUserSettings(Collections.emptyMap());
+  }
+
+
+  /**
+   * Get per-user AI settings
+   * Retrieves the current user's AI settings, including the recommended model banner visibility preference.
+   *
+   * REST API Reference for getAiUserSettings Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-user-settings/
+   *
+   * @param additionalHeaders additionalHeaders for this call
+   * @return AiUserSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public AiUserSettingsWrapper getAiUserSettings(Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/ai/config/user";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<AiUserSettingsWrapper> localVarReturnType = new TypeReference<AiUserSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -263,6 +341,84 @@ public class SettingsApi extends BaseApi {
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Update per-user AI settings
+   * Updates the current user's AI recommended model banner visibility preferences.  Each user's settings are stored independently.
+   *
+   * REST API Reference for setAiUserSettings Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-ai-user-settings/
+   *
+   * @param setAiUserSettingsRequestDto  (optional)
+   * @return AiUserSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public AiUserSettingsWrapper setAiUserSettings(@javax.annotation.Nullable SetAiUserSettingsRequestDto setAiUserSettingsRequestDto) throws ApiException {
+    return this.setAiUserSettings(setAiUserSettingsRequestDto, Collections.emptyMap());
+  }
+
+
+  /**
+   * Update per-user AI settings
+   * Updates the current user's AI recommended model banner visibility preferences.  Each user's settings are stored independently.
+   *
+   * REST API Reference for setAiUserSettings Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-ai-user-settings/
+   *
+   * @param setAiUserSettingsRequestDto  (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return AiUserSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public AiUserSettingsWrapper setAiUserSettings(@javax.annotation.Nullable SetAiUserSettingsRequestDto setAiUserSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = setAiUserSettingsRequestDto;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/ai/config/user";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<AiUserSettingsWrapper> localVarReturnType = new TypeReference<AiUserSettingsWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "PUT",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),

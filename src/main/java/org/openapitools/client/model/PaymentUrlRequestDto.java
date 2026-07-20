@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -42,12 +43,16 @@ import java.util.StringJoiner;
  */
 @JsonPropertyOrder({
   PaymentUrlRequestDto.JSON_PROPERTY_BACK_URL,
+  PaymentUrlRequestDto.JSON_PROPERTY_SUCCESS_URL,
   PaymentUrlRequestDto.JSON_PROPERTY_QUANTITY
 })
 
 public class PaymentUrlRequestDto {
   public static final String JSON_PROPERTY_BACK_URL = "backUrl";
-  @javax.annotation.Nullable  private JsonNullable<String> backUrl = JsonNullable.<String>undefined();
+  @javax.annotation.Nonnull  private URI backUrl;
+
+  public static final String JSON_PROPERTY_SUCCESS_URL = "successUrl";
+  @javax.annotation.Nonnull  private URI successUrl;
 
   public static final String JSON_PROPERTY_QUANTITY = "quantity";
   @javax.annotation.Nullable  private JsonNullable<Map<String, Integer>> quantity = JsonNullable.<Map<String, Integer>>undefined();
@@ -56,35 +61,52 @@ public class PaymentUrlRequestDto {
   }
 
 
-  public PaymentUrlRequestDto backUrl(@javax.annotation.Nullable String backUrl) {
-    this.backUrl = JsonNullable.<String>of(backUrl);
+  public PaymentUrlRequestDto backUrl(@javax.annotation.Nonnull URI backUrl) {
     
+    this.backUrl = backUrl;
     return this;
   }
 
   /**
-   * The URL where the user will be redirected after payment processing.
+   * The URL where the user will be redirected after payment cancellation.
    * @return backUrl
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_BACK_URL, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getBackUrl() {
-        return backUrl.orElse(null);
-  }
-
-  @JsonProperty(value = JSON_PROPERTY_BACK_URL, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getBackUrl_JsonNullable() {
+  public URI getBackUrl() {
     return backUrl;
   }
-  
-  @JsonProperty(JSON_PROPERTY_BACK_URL)
-  public void setBackUrl_JsonNullable(JsonNullable<String> backUrl) {
+
+
+  @JsonProperty(value = JSON_PROPERTY_BACK_URL, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setBackUrl(@javax.annotation.Nonnull URI backUrl) {
     this.backUrl = backUrl;
   }
 
-  public void setBackUrl(@javax.annotation.Nullable String backUrl) {
-    this.backUrl = JsonNullable.<String>of(backUrl);
+  public PaymentUrlRequestDto successUrl(@javax.annotation.Nonnull URI successUrl) {
+    
+    this.successUrl = successUrl;
+    return this;
+  }
+
+  /**
+   * The URL where the user will be redirected after successful payment.
+   * @return successUrl
+   */
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SUCCESS_URL, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public URI getSuccessUrl() {
+    return successUrl;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SUCCESS_URL, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setSuccessUrl(@javax.annotation.Nonnull URI successUrl) {
+    this.successUrl = successUrl;
   }
 
   public PaymentUrlRequestDto quantity(@javax.annotation.Nullable Map<String, Integer> quantity) {
@@ -139,7 +161,8 @@ public class PaymentUrlRequestDto {
       return false;
     }
     PaymentUrlRequestDto paymentUrlRequestDto = (PaymentUrlRequestDto) o;
-    return equalsNullable(this.backUrl, paymentUrlRequestDto.backUrl) &&
+    return Objects.equals(this.backUrl, paymentUrlRequestDto.backUrl) &&
+        Objects.equals(this.successUrl, paymentUrlRequestDto.successUrl) &&
         equalsNullable(this.quantity, paymentUrlRequestDto.quantity);
   }
 
@@ -149,7 +172,7 @@ public class PaymentUrlRequestDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(backUrl), hashCodeNullable(quantity));
+    return Objects.hash(backUrl, successUrl, hashCodeNullable(quantity));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -164,6 +187,7 @@ public class PaymentUrlRequestDto {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentUrlRequestDto {\n");
     sb.append("    backUrl: ").append(toIndentedString(backUrl)).append("\n");
+    sb.append("    successUrl: ").append(toIndentedString(successUrl)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -216,6 +240,16 @@ public class PaymentUrlRequestDto {
     if (getBackUrl() != null) {
       try {
         joiner.add(String.format("%sbackUrl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBackUrl()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `successUrl` to the URL query string
+    if (getSuccessUrl() != null) {
+      try {
+        joiner.add(String.format("%ssuccessUrl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSuccessUrl()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

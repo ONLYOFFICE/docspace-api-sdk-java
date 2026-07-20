@@ -35,6 +35,7 @@ import org.openapitools.client.model.CreateTagRequestDto;
 import org.openapitools.client.model.CreateThirdPartyRoom;
 import org.openapitools.client.model.DeleteRoomRequest;
 import org.openapitools.client.model.DocumentBuilderTaskWrapper;
+import org.openapitools.client.model.ExternalDbSyncTaskWrapper;
 import java.io.File;
 import org.openapitools.client.model.FileOperationWrapper;
 import org.openapitools.client.model.FileShareArrayWrapper;
@@ -1177,6 +1178,90 @@ public class RoomsApi extends BaseApi {
     return apiClient.invokeAPI(
         localVarPath,
         "DELETE",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get external DB sync status
+   * Returns the status of the external DB synchronization task for the specified filling forms room.
+   *
+   * REST API Reference for getExternalDbSyncStatus Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-db-sync-status/
+   *
+   * @param id The room ID. (required)
+   * @return ExternalDbSyncTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ExternalDbSyncTaskWrapper getExternalDbSyncStatus(@javax.annotation.Nonnull Integer id) throws ApiException {
+    return this.getExternalDbSyncStatus(id, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get external DB sync status
+   * Returns the status of the external DB synchronization task for the specified filling forms room.
+   *
+   * REST API Reference for getExternalDbSyncStatus Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-db-sync-status/
+   *
+   * @param id The room ID. (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ExternalDbSyncTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ExternalDbSyncTaskWrapper getExternalDbSyncStatus(@javax.annotation.Nonnull Integer id, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getExternalDbSyncStatus");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/rooms/{id}/externaldbsync"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<ExternalDbSyncTaskWrapper> localVarReturnType = new TypeReference<ExternalDbSyncTaskWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),
@@ -2895,6 +2980,90 @@ public class RoomsApi extends BaseApi {
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Start external DB sync
+   * Triggers external DB synchronization for all form templates in the specified filling forms room.
+   *
+   * REST API Reference for startExternalDbSync Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-external-db-sync/
+   *
+   * @param id The room ID. (required)
+   * @return ExternalDbSyncTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ExternalDbSyncTaskWrapper startExternalDbSync(@javax.annotation.Nonnull Integer id) throws ApiException {
+    return this.startExternalDbSync(id, Collections.emptyMap());
+  }
+
+
+  /**
+   * Start external DB sync
+   * Triggers external DB synchronization for all form templates in the specified filling forms room.
+   *
+   * REST API Reference for startExternalDbSync Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-external-db-sync/
+   *
+   * @param id The room ID. (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ExternalDbSyncTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ExternalDbSyncTaskWrapper startExternalDbSync(@javax.annotation.Nonnull Integer id, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling startExternalDbSync");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/rooms/{id}/externaldbsync"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<ExternalDbSyncTaskWrapper> localVarReturnType = new TypeReference<ExternalDbSyncTaskWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),

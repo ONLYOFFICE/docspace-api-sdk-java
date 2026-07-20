@@ -27,11 +27,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.net.URI;
 import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.EmployeeDto;
+import org.openapitools.client.model.FileEntryDtoIntegerAllOfAvailableShareRights;
+import org.openapitools.client.model.FileEntryDtoIntegerAllOfSecurity;
+import org.openapitools.client.model.FileEntryDtoIntegerAllOfShareSettings;
 import org.openapitools.client.model.FileEntryType;
 import org.openapitools.client.model.FileShare;
-import org.openapitools.client.model.FolderDtoIntegerAvailableShareRights;
-import org.openapitools.client.model.FolderDtoIntegerSecurity;
-import org.openapitools.client.model.FolderDtoIntegerShareSettings;
 import org.openapitools.client.model.FolderType;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -54,6 +54,7 @@ import java.util.StringJoiner;
   FileEntryDtoInteger.JSON_PROPERTY_OWNED_BY,
   FileEntryDtoInteger.JSON_PROPERTY_SHARED,
   FileEntryDtoInteger.JSON_PROPERTY_SHARED_FOR_USER,
+  FileEntryDtoInteger.JSON_PROPERTY_SHARED_EXTERNAL,
   FileEntryDtoInteger.JSON_PROPERTY_PARENT_SHARED,
   FileEntryDtoInteger.JSON_PROPERTY_SHORT_WEB_URL,
   FileEntryDtoInteger.JSON_PROPERTY_CREATED,
@@ -103,6 +104,9 @@ public class FileEntryDtoInteger {
 
   public static final String JSON_PROPERTY_SHARED_FOR_USER = "sharedForUser";
   @javax.annotation.Nullable  private Boolean sharedForUser;
+
+  public static final String JSON_PROPERTY_SHARED_EXTERNAL = "sharedExternal";
+  @javax.annotation.Nullable  private Boolean sharedExternal;
 
   public static final String JSON_PROPERTY_PARENT_SHARED = "parentShared";
   @javax.annotation.Nullable  private Boolean parentShared;
@@ -171,13 +175,13 @@ public class FileEntryDtoInteger {
   @javax.annotation.Nullable  private Boolean canShare;
 
   public static final String JSON_PROPERTY_SHARE_SETTINGS = "shareSettings";
-  @javax.annotation.Nullable  private JsonNullable<FolderDtoIntegerShareSettings> shareSettings = JsonNullable.<FolderDtoIntegerShareSettings>undefined();
+  @javax.annotation.Nullable  private JsonNullable<FileEntryDtoIntegerAllOfShareSettings> shareSettings = JsonNullable.<FileEntryDtoIntegerAllOfShareSettings>undefined();
 
   public static final String JSON_PROPERTY_SECURITY = "security";
-  @javax.annotation.Nullable  private JsonNullable<FolderDtoIntegerSecurity> security = JsonNullable.<FolderDtoIntegerSecurity>undefined();
+  @javax.annotation.Nullable  private JsonNullable<FileEntryDtoIntegerAllOfSecurity> security = JsonNullable.<FileEntryDtoIntegerAllOfSecurity>undefined();
 
   public static final String JSON_PROPERTY_AVAILABLE_SHARE_RIGHTS = "availableShareRights";
-  @javax.annotation.Nullable  private JsonNullable<FolderDtoIntegerAvailableShareRights> availableShareRights = JsonNullable.<FolderDtoIntegerAvailableShareRights>undefined();
+  @javax.annotation.Nullable  private JsonNullable<FileEntryDtoIntegerAllOfAvailableShareRights> availableShareRights = JsonNullable.<FileEntryDtoIntegerAllOfAvailableShareRights>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_TOKEN = "requestToken";
   @javax.annotation.Nullable  private JsonNullable<String> requestToken = JsonNullable.<String>undefined();
@@ -344,6 +348,30 @@ public class FileEntryDtoInteger {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSharedForUser(@javax.annotation.Nullable Boolean sharedForUser) {
     this.sharedForUser = sharedForUser;
+  }
+
+  public FileEntryDtoInteger sharedExternal(@javax.annotation.Nullable Boolean sharedExternal) {
+    
+    this.sharedExternal = sharedExternal;
+    return this;
+  }
+
+  /**
+   * Specifies if the file entry is shared via a public (non-internal) external link.
+   * @return sharedExternal
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARED_EXTERNAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getSharedExternal() {
+    return sharedExternal;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SHARED_EXTERNAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSharedExternal(@javax.annotation.Nullable Boolean sharedExternal) {
+    this.sharedExternal = sharedExternal;
   }
 
   public FileEntryDtoInteger parentShared(@javax.annotation.Nullable Boolean parentShared) {
@@ -930,8 +958,8 @@ public class FileEntryDtoInteger {
     this.canShare = canShare;
   }
 
-  public FileEntryDtoInteger shareSettings(@javax.annotation.Nullable FolderDtoIntegerShareSettings shareSettings) {
-    this.shareSettings = JsonNullable.<FolderDtoIntegerShareSettings>of(shareSettings);
+  public FileEntryDtoInteger shareSettings(@javax.annotation.Nullable FileEntryDtoIntegerAllOfShareSettings shareSettings) {
+    this.shareSettings = JsonNullable.<FileEntryDtoIntegerAllOfShareSettings>of(shareSettings);
     
     return this;
   }
@@ -942,27 +970,27 @@ public class FileEntryDtoInteger {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public FolderDtoIntegerShareSettings getShareSettings() {
+  public FileEntryDtoIntegerAllOfShareSettings getShareSettings() {
         return shareSettings.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_SHARE_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<FolderDtoIntegerShareSettings> getShareSettings_JsonNullable() {
+  public JsonNullable<FileEntryDtoIntegerAllOfShareSettings> getShareSettings_JsonNullable() {
     return shareSettings;
   }
   
   @JsonProperty(JSON_PROPERTY_SHARE_SETTINGS)
-  public void setShareSettings_JsonNullable(JsonNullable<FolderDtoIntegerShareSettings> shareSettings) {
+  public void setShareSettings_JsonNullable(JsonNullable<FileEntryDtoIntegerAllOfShareSettings> shareSettings) {
     this.shareSettings = shareSettings;
   }
 
-  public void setShareSettings(@javax.annotation.Nullable FolderDtoIntegerShareSettings shareSettings) {
-    this.shareSettings = JsonNullable.<FolderDtoIntegerShareSettings>of(shareSettings);
+  public void setShareSettings(@javax.annotation.Nullable FileEntryDtoIntegerAllOfShareSettings shareSettings) {
+    this.shareSettings = JsonNullable.<FileEntryDtoIntegerAllOfShareSettings>of(shareSettings);
   }
 
-  public FileEntryDtoInteger security(@javax.annotation.Nullable FolderDtoIntegerSecurity security) {
-    this.security = JsonNullable.<FolderDtoIntegerSecurity>of(security);
+  public FileEntryDtoInteger security(@javax.annotation.Nullable FileEntryDtoIntegerAllOfSecurity security) {
+    this.security = JsonNullable.<FileEntryDtoIntegerAllOfSecurity>of(security);
     
     return this;
   }
@@ -973,27 +1001,27 @@ public class FileEntryDtoInteger {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public FolderDtoIntegerSecurity getSecurity() {
+  public FileEntryDtoIntegerAllOfSecurity getSecurity() {
         return security.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_SECURITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<FolderDtoIntegerSecurity> getSecurity_JsonNullable() {
+  public JsonNullable<FileEntryDtoIntegerAllOfSecurity> getSecurity_JsonNullable() {
     return security;
   }
   
   @JsonProperty(JSON_PROPERTY_SECURITY)
-  public void setSecurity_JsonNullable(JsonNullable<FolderDtoIntegerSecurity> security) {
+  public void setSecurity_JsonNullable(JsonNullable<FileEntryDtoIntegerAllOfSecurity> security) {
     this.security = security;
   }
 
-  public void setSecurity(@javax.annotation.Nullable FolderDtoIntegerSecurity security) {
-    this.security = JsonNullable.<FolderDtoIntegerSecurity>of(security);
+  public void setSecurity(@javax.annotation.Nullable FileEntryDtoIntegerAllOfSecurity security) {
+    this.security = JsonNullable.<FileEntryDtoIntegerAllOfSecurity>of(security);
   }
 
-  public FileEntryDtoInteger availableShareRights(@javax.annotation.Nullable FolderDtoIntegerAvailableShareRights availableShareRights) {
-    this.availableShareRights = JsonNullable.<FolderDtoIntegerAvailableShareRights>of(availableShareRights);
+  public FileEntryDtoInteger availableShareRights(@javax.annotation.Nullable FileEntryDtoIntegerAllOfAvailableShareRights availableShareRights) {
+    this.availableShareRights = JsonNullable.<FileEntryDtoIntegerAllOfAvailableShareRights>of(availableShareRights);
     
     return this;
   }
@@ -1004,23 +1032,23 @@ public class FileEntryDtoInteger {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public FolderDtoIntegerAvailableShareRights getAvailableShareRights() {
+  public FileEntryDtoIntegerAllOfAvailableShareRights getAvailableShareRights() {
         return availableShareRights.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_AVAILABLE_SHARE_RIGHTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<FolderDtoIntegerAvailableShareRights> getAvailableShareRights_JsonNullable() {
+  public JsonNullable<FileEntryDtoIntegerAllOfAvailableShareRights> getAvailableShareRights_JsonNullable() {
     return availableShareRights;
   }
   
   @JsonProperty(JSON_PROPERTY_AVAILABLE_SHARE_RIGHTS)
-  public void setAvailableShareRights_JsonNullable(JsonNullable<FolderDtoIntegerAvailableShareRights> availableShareRights) {
+  public void setAvailableShareRights_JsonNullable(JsonNullable<FileEntryDtoIntegerAllOfAvailableShareRights> availableShareRights) {
     this.availableShareRights = availableShareRights;
   }
 
-  public void setAvailableShareRights(@javax.annotation.Nullable FolderDtoIntegerAvailableShareRights availableShareRights) {
-    this.availableShareRights = JsonNullable.<FolderDtoIntegerAvailableShareRights>of(availableShareRights);
+  public void setAvailableShareRights(@javax.annotation.Nullable FileEntryDtoIntegerAllOfAvailableShareRights availableShareRights) {
+    this.availableShareRights = JsonNullable.<FileEntryDtoIntegerAllOfAvailableShareRights>of(availableShareRights);
   }
 
   public FileEntryDtoInteger requestToken(@javax.annotation.Nullable String requestToken) {
@@ -1155,6 +1183,7 @@ public class FileEntryDtoInteger {
         Objects.equals(this.ownedBy, fileEntryDtoInteger.ownedBy) &&
         Objects.equals(this.shared, fileEntryDtoInteger.shared) &&
         Objects.equals(this.sharedForUser, fileEntryDtoInteger.sharedForUser) &&
+        Objects.equals(this.sharedExternal, fileEntryDtoInteger.sharedExternal) &&
         Objects.equals(this.parentShared, fileEntryDtoInteger.parentShared) &&
         equalsNullable(this.shortWebUrl, fileEntryDtoInteger.shortWebUrl) &&
         Objects.equals(this.created, fileEntryDtoInteger.created) &&
@@ -1192,7 +1221,7 @@ public class FileEntryDtoInteger {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(title), access, sharedBy, ownedBy, shared, sharedForUser, parentShared, hashCodeNullable(shortWebUrl), created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), fileEntryType, id, rootFolderId, originId, originRoomId, hashCodeNullable(originTitle), hashCodeNullable(originRoomTitle), canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), hashCodeNullable(requestToken), hashCodeNullable(external), expirationDate, hashCodeNullable(isLinkExpired));
+    return Objects.hash(hashCodeNullable(title), access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, hashCodeNullable(shortWebUrl), created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), fileEntryType, id, rootFolderId, originId, originRoomId, hashCodeNullable(originTitle), hashCodeNullable(originRoomTitle), canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), hashCodeNullable(requestToken), hashCodeNullable(external), expirationDate, hashCodeNullable(isLinkExpired));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1212,6 +1241,7 @@ public class FileEntryDtoInteger {
     sb.append("    ownedBy: ").append(toIndentedString(ownedBy)).append("\n");
     sb.append("    shared: ").append(toIndentedString(shared)).append("\n");
     sb.append("    sharedForUser: ").append(toIndentedString(sharedForUser)).append("\n");
+    sb.append("    sharedExternal: ").append(toIndentedString(sharedExternal)).append("\n");
     sb.append("    parentShared: ").append(toIndentedString(parentShared)).append("\n");
     sb.append("    shortWebUrl: ").append(toIndentedString(shortWebUrl)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
@@ -1332,6 +1362,16 @@ public class FileEntryDtoInteger {
     if (getSharedForUser() != null) {
       try {
         joiner.add(String.format("%ssharedForUser%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSharedForUser()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `sharedExternal` to the URL query string
+    if (getSharedExternal() != null) {
+      try {
+        joiner.add(String.format("%ssharedExternal%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSharedExternal()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

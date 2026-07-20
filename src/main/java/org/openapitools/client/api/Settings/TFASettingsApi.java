@@ -28,6 +28,7 @@ import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.SetupCodeWrapper;
 import org.openapitools.client.model.StringWrapper;
 import org.openapitools.client.model.TfaAppCodeArrayWrapper;
+import org.openapitools.client.model.TfaConfirmDataWrapper;
 import org.openapitools.client.model.TfaRequestsDto;
 import org.openapitools.client.model.TfaSettingsArrayWrapper;
 import org.openapitools.client.model.TfaValidateRequestsDto;
@@ -128,32 +129,32 @@ public class TFASettingsApi extends BaseApi {
   }
 
   /**
-   * Get TFA confirmation URL
-   * Returns the confirmation URL for authorization via SMS or TFA application.
+   * Get TFA confirmation data
+   * Returns the confirmation data for authorization via SMS or TFA application.
    *
-   * REST API Reference for getTfaConfirmUrl Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/
+   * REST API Reference for getTfaConfirmData Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-data/
    *
-   * @return StringWrapper
+   * @return TfaConfirmDataWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper getTfaConfirmUrl() throws ApiException {
-    return this.getTfaConfirmUrl(Collections.emptyMap());
+  public TfaConfirmDataWrapper getTfaConfirmData() throws ApiException {
+    return this.getTfaConfirmData(Collections.emptyMap());
   }
 
 
   /**
-   * Get TFA confirmation URL
-   * Returns the confirmation URL for authorization via SMS or TFA application.
+   * Get TFA confirmation data
+   * Returns the confirmation data for authorization via SMS or TFA application.
    *
-   * REST API Reference for getTfaConfirmUrl Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/
+   * REST API Reference for getTfaConfirmData Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-data/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return StringWrapper
+   * @return TfaConfirmDataWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper getTfaConfirmUrl(Map<String, String> additionalHeaders) throws ApiException {
+  public TfaConfirmDataWrapper getTfaConfirmData(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -185,7 +186,7 @@ public class TFASettingsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<StringWrapper> localVarReturnType = new TypeReference<StringWrapper>() {};
+    TypeReference<TfaConfirmDataWrapper> localVarReturnType = new TypeReference<TfaConfirmDataWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",

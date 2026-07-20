@@ -25,13 +25,13 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.CreateWebhooksConfigRequestsDto;
-import org.openapitools.client.model.GetWebhookTriggers200Response;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 import org.openapitools.client.model.UpdateWebhooksConfigRequestsDto;
 import org.openapitools.client.model.WebhookGroupStatus;
 import org.openapitools.client.model.WebhookRetryRequestsDto;
 import org.openapitools.client.model.WebhookTrigger;
+import org.openapitools.client.model.WebhookTriggerArrayWrapper;
 import org.openapitools.client.model.WebhooksConfigWithStatusArrayWrapper;
 import org.openapitools.client.model.WebhooksConfigWrapper;
 import org.openapitools.client.model.WebhooksLogArrayWrapper;
@@ -301,31 +301,31 @@ public class WebhooksApi extends BaseApi {
 
   /**
    * Get webhook triggers
-   * Returns a list of triggers for a webhook.
+   * Returns a list of triggers for a webhook with their availability for the current user.
    *
    * REST API Reference for getWebhookTriggers Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/
    *
-   * @return GetWebhookTriggers200Response
+   * @return WebhookTriggerArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public GetWebhookTriggers200Response getWebhookTriggers() throws ApiException {
+  public WebhookTriggerArrayWrapper getWebhookTriggers() throws ApiException {
     return this.getWebhookTriggers(Collections.emptyMap());
   }
 
 
   /**
    * Get webhook triggers
-   * Returns a list of triggers for a webhook.
+   * Returns a list of triggers for a webhook with their availability for the current user.
    *
    * REST API Reference for getWebhookTriggers Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return GetWebhookTriggers200Response
+   * @return WebhookTriggerArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public GetWebhookTriggers200Response getWebhookTriggers(Map<String, String> additionalHeaders) throws ApiException {
+  public WebhookTriggerArrayWrapper getWebhookTriggers(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -357,7 +357,7 @@ public class WebhooksApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<GetWebhookTriggers200Response> localVarReturnType = new TypeReference<GetWebhookTriggers200Response>() {};
+    TypeReference<WebhookTriggerArrayWrapper> localVarReturnType = new TypeReference<WebhookTriggerArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
