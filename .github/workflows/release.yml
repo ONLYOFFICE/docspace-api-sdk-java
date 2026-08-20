@@ -33,6 +33,13 @@ jobs:
           mvn clean package
           cd ./target
           mv ${{ steps.info.outputs.artifact }}-${{ steps.info.outputs.version }}.jar $cwd
+      - name: Publish to the Maven Central Repository
+        run: |
+          mvn --no-transfer-progress --batch-mode deploy -Psign-artifacts
+        env:
+          MAVEN_CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+          MAVEN_CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}
       - name: Generate Changelog
         run: |
           awk 'BEGIN {found=0} /^## [0-9]/ {if (!found) {found=1; next} else exit} found {print}' CHANGELOG.md > RELEASE.md
@@ -43,10 +50,3 @@ jobs:
           artifacts: "${{ steps.info.outputs.artifact }}-${{ steps.info.outputs.version }}.jar"
           bodyFile: RELEASE.md
           tag: v${{ steps.info.outputs.version }}
-      - name: Publish to the Maven Central Repository
-        run: |
-          mvn --no-transfer-progress --batch-mode deploy -Psign-artifacts
-        env:
-          MAVEN_CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
-          MAVEN_CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
-          MAVEN_GPG_PASSPHRASE: ${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}
