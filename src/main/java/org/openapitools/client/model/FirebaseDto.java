@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,36 +47,28 @@ import java.util.StringJoiner;
 
 public class FirebaseDto {
   public static final String JSON_PROPERTY_API_KEY = "apiKey";
-  @javax.annotation.Nullable
-  private String apiKey;
+  @javax.annotation.Nullable  private String apiKey;
 
   public static final String JSON_PROPERTY_AUTH_DOMAIN = "authDomain";
-  @javax.annotation.Nullable
-  private String authDomain;
+  @javax.annotation.Nullable  private String authDomain;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
-  @javax.annotation.Nullable
-  private String projectId;
+  @javax.annotation.Nullable  private String projectId;
 
   public static final String JSON_PROPERTY_STORAGE_BUCKET = "storageBucket";
-  @javax.annotation.Nullable
-  private String storageBucket;
+  @javax.annotation.Nullable  private String storageBucket;
 
   public static final String JSON_PROPERTY_MESSAGING_SENDER_ID = "messagingSenderId";
-  @javax.annotation.Nullable
-  private String messagingSenderId;
+  @javax.annotation.Nullable  private String messagingSenderId;
 
   public static final String JSON_PROPERTY_APP_ID = "appId";
-  @javax.annotation.Nullable
-  private String appId;
+  @javax.annotation.Nullable  private String appId;
 
   public static final String JSON_PROPERTY_MEASUREMENT_ID = "measurementId";
-  @javax.annotation.Nullable
-  private String measurementId;
+  @javax.annotation.Nullable  private String measurementId;
 
   public static final String JSON_PROPERTY_DATABASE_U_R_L = "databaseURL";
-  @javax.annotation.Nullable
-  private String databaseURL;
+  @javax.annotation.Nullable  private String databaseURL;
 
   public FirebaseDto() {
   }
@@ -91,8 +84,7 @@ public class FirebaseDto {
    * The Firebase API key.
    * @return apiKey
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_API_KEY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_API_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getApiKey() {
@@ -100,7 +92,7 @@ public class FirebaseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_API_KEY)
+  @JsonProperty(value = JSON_PROPERTY_API_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setApiKey(@javax.annotation.Nullable String apiKey) {
     this.apiKey = apiKey;
@@ -116,8 +108,7 @@ public class FirebaseDto {
    * The Firebase authentication domain.
    * @return authDomain
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUTH_DOMAIN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTH_DOMAIN, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getAuthDomain() {
@@ -125,7 +116,7 @@ public class FirebaseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AUTH_DOMAIN)
+  @JsonProperty(value = JSON_PROPERTY_AUTH_DOMAIN, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAuthDomain(@javax.annotation.Nullable String authDomain) {
     this.authDomain = authDomain;
@@ -141,8 +132,7 @@ public class FirebaseDto {
    * The Firebase project ID.
    * @return projectId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROJECT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getProjectId() {
@@ -150,7 +140,7 @@ public class FirebaseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+  @JsonProperty(value = JSON_PROPERTY_PROJECT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProjectId(@javax.annotation.Nullable String projectId) {
     this.projectId = projectId;
@@ -166,8 +156,7 @@ public class FirebaseDto {
    * The Firebase storage bucket.
    * @return storageBucket
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STORAGE_BUCKET)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STORAGE_BUCKET, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getStorageBucket() {
@@ -175,7 +164,7 @@ public class FirebaseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STORAGE_BUCKET)
+  @JsonProperty(value = JSON_PROPERTY_STORAGE_BUCKET, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStorageBucket(@javax.annotation.Nullable String storageBucket) {
     this.storageBucket = storageBucket;
@@ -191,8 +180,7 @@ public class FirebaseDto {
    * The Firebase messaging sender ID.
    * @return messagingSenderId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MESSAGING_SENDER_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MESSAGING_SENDER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getMessagingSenderId() {
@@ -200,7 +188,7 @@ public class FirebaseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MESSAGING_SENDER_ID)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGING_SENDER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMessagingSenderId(@javax.annotation.Nullable String messagingSenderId) {
     this.messagingSenderId = messagingSenderId;
@@ -216,8 +204,7 @@ public class FirebaseDto {
    * The Firebase application ID.
    * @return appId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APP_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_APP_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getAppId() {
@@ -225,7 +212,7 @@ public class FirebaseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_APP_ID)
+  @JsonProperty(value = JSON_PROPERTY_APP_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAppId(@javax.annotation.Nullable String appId) {
     this.appId = appId;
@@ -241,8 +228,7 @@ public class FirebaseDto {
    * The Firebase measurement ID.
    * @return measurementId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MEASUREMENT_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MEASUREMENT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getMeasurementId() {
@@ -250,7 +236,7 @@ public class FirebaseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MEASUREMENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_MEASUREMENT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMeasurementId(@javax.annotation.Nullable String measurementId) {
     this.measurementId = measurementId;
@@ -266,8 +252,7 @@ public class FirebaseDto {
    * The Firebase database URL.
    * @return databaseURL
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATABASE_U_R_L)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATABASE_U_R_L, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDatabaseURL() {
@@ -275,7 +260,7 @@ public class FirebaseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATABASE_U_R_L)
+  @JsonProperty(value = JSON_PROPERTY_DATABASE_U_R_L, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDatabaseURL(@javax.annotation.Nullable String databaseURL) {
     this.databaseURL = databaseURL;

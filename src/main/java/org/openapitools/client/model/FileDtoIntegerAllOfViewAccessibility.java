@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -49,44 +50,34 @@ import java.util.StringJoiner;
 
 public class FileDtoIntegerAllOfViewAccessibility {
   public static final String JSON_PROPERTY_IMAGE_VIEW = "ImageView";
-  @javax.annotation.Nullable
-  private Boolean imageView;
+  @javax.annotation.Nullable  private Boolean imageView;
 
   public static final String JSON_PROPERTY_MEDIA_VIEW = "MediaView";
-  @javax.annotation.Nullable
-  private Boolean mediaView;
+  @javax.annotation.Nullable  private Boolean mediaView;
 
   public static final String JSON_PROPERTY_WEB_VIEW = "WebView";
-  @javax.annotation.Nullable
-  private Boolean webView;
+  @javax.annotation.Nullable  private Boolean webView;
 
   public static final String JSON_PROPERTY_WEB_EDIT = "WebEdit";
-  @javax.annotation.Nullable
-  private Boolean webEdit;
+  @javax.annotation.Nullable  private Boolean webEdit;
 
   public static final String JSON_PROPERTY_WEB_REVIEW = "WebReview";
-  @javax.annotation.Nullable
-  private Boolean webReview;
+  @javax.annotation.Nullable  private Boolean webReview;
 
   public static final String JSON_PROPERTY_WEB_CUSTOM_FILTER_EDITING = "WebCustomFilterEditing";
-  @javax.annotation.Nullable
-  private Boolean webCustomFilterEditing;
+  @javax.annotation.Nullable  private Boolean webCustomFilterEditing;
 
   public static final String JSON_PROPERTY_WEB_RESTRICTED_EDITING = "WebRestrictedEditing";
-  @javax.annotation.Nullable
-  private Boolean webRestrictedEditing;
+  @javax.annotation.Nullable  private Boolean webRestrictedEditing;
 
   public static final String JSON_PROPERTY_WEB_COMMENT = "WebComment";
-  @javax.annotation.Nullable
-  private Boolean webComment;
+  @javax.annotation.Nullable  private Boolean webComment;
 
   public static final String JSON_PROPERTY_CAN_CONVERT = "CanConvert";
-  @javax.annotation.Nullable
-  private Boolean canConvert;
+  @javax.annotation.Nullable  private Boolean canConvert;
 
   public static final String JSON_PROPERTY_MUST_CONVERT = "MustConvert";
-  @javax.annotation.Nullable
-  private Boolean mustConvert;
+  @javax.annotation.Nullable  private Boolean mustConvert;
 
   public FileDtoIntegerAllOfViewAccessibility() {
   }
@@ -102,8 +93,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
    * Get imageView
    * @return imageView
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IMAGE_VIEW)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMAGE_VIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getImageView() {
@@ -111,7 +101,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IMAGE_VIEW)
+  @JsonProperty(value = JSON_PROPERTY_IMAGE_VIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImageView(@javax.annotation.Nullable Boolean imageView) {
     this.imageView = imageView;
@@ -127,8 +117,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
    * Get mediaView
    * @return mediaView
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MEDIA_VIEW)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MEDIA_VIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getMediaView() {
@@ -136,7 +125,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MEDIA_VIEW)
+  @JsonProperty(value = JSON_PROPERTY_MEDIA_VIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMediaView(@javax.annotation.Nullable Boolean mediaView) {
     this.mediaView = mediaView;
@@ -152,8 +141,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
    * Get webView
    * @return webView
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WEB_VIEW)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WEB_VIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getWebView() {
@@ -161,7 +149,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WEB_VIEW)
+  @JsonProperty(value = JSON_PROPERTY_WEB_VIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebView(@javax.annotation.Nullable Boolean webView) {
     this.webView = webView;
@@ -177,8 +165,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
    * Get webEdit
    * @return webEdit
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WEB_EDIT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WEB_EDIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getWebEdit() {
@@ -186,7 +173,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WEB_EDIT)
+  @JsonProperty(value = JSON_PROPERTY_WEB_EDIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebEdit(@javax.annotation.Nullable Boolean webEdit) {
     this.webEdit = webEdit;
@@ -202,8 +189,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
    * Get webReview
    * @return webReview
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WEB_REVIEW)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WEB_REVIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getWebReview() {
@@ -211,7 +197,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WEB_REVIEW)
+  @JsonProperty(value = JSON_PROPERTY_WEB_REVIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebReview(@javax.annotation.Nullable Boolean webReview) {
     this.webReview = webReview;
@@ -227,8 +213,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
    * Get webCustomFilterEditing
    * @return webCustomFilterEditing
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WEB_CUSTOM_FILTER_EDITING)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WEB_CUSTOM_FILTER_EDITING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getWebCustomFilterEditing() {
@@ -236,7 +221,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WEB_CUSTOM_FILTER_EDITING)
+  @JsonProperty(value = JSON_PROPERTY_WEB_CUSTOM_FILTER_EDITING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebCustomFilterEditing(@javax.annotation.Nullable Boolean webCustomFilterEditing) {
     this.webCustomFilterEditing = webCustomFilterEditing;
@@ -252,8 +237,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
    * Get webRestrictedEditing
    * @return webRestrictedEditing
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WEB_RESTRICTED_EDITING)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WEB_RESTRICTED_EDITING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getWebRestrictedEditing() {
@@ -261,7 +245,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WEB_RESTRICTED_EDITING)
+  @JsonProperty(value = JSON_PROPERTY_WEB_RESTRICTED_EDITING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebRestrictedEditing(@javax.annotation.Nullable Boolean webRestrictedEditing) {
     this.webRestrictedEditing = webRestrictedEditing;
@@ -277,8 +261,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
    * Get webComment
    * @return webComment
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WEB_COMMENT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WEB_COMMENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getWebComment() {
@@ -286,7 +269,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WEB_COMMENT)
+  @JsonProperty(value = JSON_PROPERTY_WEB_COMMENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebComment(@javax.annotation.Nullable Boolean webComment) {
     this.webComment = webComment;
@@ -302,8 +285,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
    * Get canConvert
    * @return canConvert
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CAN_CONVERT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CAN_CONVERT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCanConvert() {
@@ -311,7 +293,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CAN_CONVERT)
+  @JsonProperty(value = JSON_PROPERTY_CAN_CONVERT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCanConvert(@javax.annotation.Nullable Boolean canConvert) {
     this.canConvert = canConvert;
@@ -327,8 +309,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
    * Get mustConvert
    * @return mustConvert
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MUST_CONVERT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MUST_CONVERT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getMustConvert() {
@@ -336,7 +317,7 @@ public class FileDtoIntegerAllOfViewAccessibility {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MUST_CONVERT)
+  @JsonProperty(value = JSON_PROPERTY_MUST_CONVERT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMustConvert(@javax.annotation.Nullable Boolean mustConvert) {
     this.mustConvert = mustConvert;

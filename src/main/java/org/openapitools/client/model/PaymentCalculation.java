@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,20 +47,16 @@ import java.util.StringJoiner;
 
 public class PaymentCalculation {
   public static final String JSON_PROPERTY_OPERATION_ID = "operationId";
-  @javax.annotation.Nullable
-  private Long operationId;
+  @javax.annotation.Nullable  private Long operationId;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
-  @javax.annotation.Nullable
-  private Double amount;
+  @javax.annotation.Nullable  private Double amount;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
-  @javax.annotation.Nullable
-  private JsonNullable<String> currency = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> currency = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_QUANTITY = "quantity";
-  @javax.annotation.Nullable
-  private Integer quantity;
+  @javax.annotation.Nullable  private Integer quantity;
 
   public PaymentCalculation() {
   }
@@ -75,8 +72,7 @@ public class PaymentCalculation {
    * The operation unique identifier.
    * @return operationId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OPERATION_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OPERATION_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getOperationId() {
@@ -84,7 +80,7 @@ public class PaymentCalculation {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OPERATION_ID)
+  @JsonProperty(value = JSON_PROPERTY_OPERATION_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperationId(@javax.annotation.Nullable Long operationId) {
     this.operationId = operationId;
@@ -100,8 +96,7 @@ public class PaymentCalculation {
    * The calculated payment amount.
    * @return amount
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AMOUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getAmount() {
@@ -109,7 +104,7 @@ public class PaymentCalculation {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonProperty(value = JSON_PROPERTY_AMOUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(@javax.annotation.Nullable Double amount) {
     this.amount = amount;
@@ -125,16 +120,14 @@ public class PaymentCalculation {
    * The three-character ISO 4217 currency symbol used for the payment calculation.
    * @return currency
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCurrency() {
         return currency.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonProperty(value = JSON_PROPERTY_CURRENCY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCurrency_JsonNullable() {
     return currency;
   }
@@ -158,8 +151,7 @@ public class PaymentCalculation {
    * The quantity associated with the payment calculation.
    * @return quantity
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUANTITY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_QUANTITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getQuantity() {
@@ -167,7 +159,7 @@ public class PaymentCalculation {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_QUANTITY)
+  @JsonProperty(value = JSON_PROPERTY_QUANTITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQuantity(@javax.annotation.Nullable Integer quantity) {
     this.quantity = quantity;

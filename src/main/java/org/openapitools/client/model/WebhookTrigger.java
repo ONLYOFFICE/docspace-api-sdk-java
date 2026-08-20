@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -29,154 +30,73 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * [0 - *, 1 - user.created, 2 - user.invited, 4 - user.updated, 8 - user.deleted, 16 - group.created, 32 - group.updated, 64 - group.deleted, 128 - file.created, 256 - file.uploaded, 512 - file.updated, 1024 - file.trashed, 2048 - file.deleted, 4096 - file.restored, 8192 - file.copied, 16384 - file.moved, 32768 - folder.created, 65536 - folder.updated, 131072 - folder.trashed, 262144 - folder.deleted, 524288 - folder.restored, 1048576 - folder.copied, 2097152 - folder.moved, 4194304 - room.created, 8388608 - room.updated, 16777216 - room.archived, 33554432 - room.deleted, 67108864 - room.restored, 134217728 - room.copied]
+ * [0 - *, 1 - user.created, 2 - user.invited, 4 - user.updated, 8 - user.deleted, 16 - group.created, 32 - group.updated, 64 - group.deleted, 128 - file.created, 256 - file.uploaded, 512 - file.updated, 1024 - file.trashed, 2048 - file.deleted, 4096 - file.restored, 8192 - file.copied, 16384 - file.moved, 32768 - folder.created, 65536 - folder.updated, 131072 - folder.trashed, 262144 - folder.deleted, 524288 - folder.restored, 1048576 - folder.copied, 2097152 - folder.moved, 4194304 - room.created, 8388608 - room.updated, 16777216 - room.archived, 33554432 - room.deleted, 67108864 - room.restored, 134217728 - room.copied, 268435456 - form.submit, 536870912 - form.filled.out, 1073741824 - form.stopped]
  */
 public enum WebhookTrigger {
   
-  /**
-   * *
-   */
   All(0),
   
-  /**
-   * user.created
-   */
   UserCreated(1),
   
-  /**
-   * user.invited
-   */
   UserInvited(2),
   
-  /**
-   * user.updated
-   */
   UserUpdated(4),
   
-  /**
-   * user.deleted
-   */
   UserDeleted(8),
   
-  /**
-   * group.created
-   */
   GroupCreated(16),
   
-  /**
-   * group.updated
-   */
   GroupUpdated(32),
   
-  /**
-   * group.deleted
-   */
   GroupDeleted(64),
   
-  /**
-   * file.created
-   */
   FileCreated(128),
   
-  /**
-   * file.uploaded
-   */
   FileUploaded(256),
   
-  /**
-   * file.updated
-   */
   FileUpdated(512),
   
-  /**
-   * file.trashed
-   */
   FileTrashed(1024),
   
-  /**
-   * file.deleted
-   */
   FileDeleted(2048),
   
-  /**
-   * file.restored
-   */
   FileRestored(4096),
   
-  /**
-   * file.copied
-   */
   FileCopied(8192),
   
-  /**
-   * file.moved
-   */
   FileMoved(16384),
   
-  /**
-   * folder.created
-   */
   FolderCreated(32768),
   
-  /**
-   * folder.updated
-   */
   FolderUpdated(65536),
   
-  /**
-   * folder.trashed
-   */
   FolderTrashed(131072),
   
-  /**
-   * folder.deleted
-   */
   FolderDeleted(262144),
   
-  /**
-   * folder.restored
-   */
   FolderRestored(524288),
   
-  /**
-   * folder.copied
-   */
   FolderCopied(1048576),
   
-  /**
-   * folder.moved
-   */
   FolderMoved(2097152),
   
-  /**
-   * room.created
-   */
   RoomCreated(4194304),
   
-  /**
-   * room.updated
-   */
   RoomUpdated(8388608),
   
-  /**
-   * room.archived
-   */
   RoomArchived(16777216),
   
-  /**
-   * room.deleted
-   */
   RoomDeleted(33554432),
   
-  /**
-   * room.restored
-   */
   RoomRestored(67108864),
   
-  /**
-   * room.copied
-   */
-  RoomCopied(134217728);
+  RoomCopied(134217728),
+  
+  FormSubmit(268435456),
+  
+  FormFilledOut(536870912),
+  
+  FormStopped(1073741824);
 
   private Integer value;
 
@@ -215,7 +135,7 @@ public enum WebhookTrigger {
       prefix = "";
     }
 
-    return String.format("%s=%s", prefix, this.toString());
+    return String.format(java.util.Locale.ROOT, "%s=%s", prefix, this.toString());
   }
 }
 

@@ -19,6 +19,9 @@ Represents an operation.
 |**debit** | **Double** | The debit amount of the operation. |  [optional] |
 |**participantName** | **String** | The participant original name. |  [optional] |
 |**participantDisplayName** | **String** | The participant display name. |  [optional] |
+|**agentId** | **String** | AI Agent id. |  [optional] |
+|**agentTitle** | **String** | AI Agent name. |  [optional] |
+|**type** | **OperationType** |  |  [optional] |
 
 
 

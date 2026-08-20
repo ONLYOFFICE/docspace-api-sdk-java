@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -44,12 +45,10 @@ import java.util.StringJoiner;
 
 public class TopUpDepositRequestDto {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
-  @javax.annotation.Nullable
-  private Integer amount;
+  @javax.annotation.Nullable  private Integer amount;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
-  @javax.annotation.Nullable
-  private JsonNullable<String> currency = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> currency = JsonNullable.<String>undefined();
 
   public TopUpDepositRequestDto() {
   }
@@ -67,8 +66,7 @@ public class TopUpDepositRequestDto {
    * maximum: 999999
    * @return amount
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AMOUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getAmount() {
@@ -76,7 +74,7 @@ public class TopUpDepositRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonProperty(value = JSON_PROPERTY_AMOUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(@javax.annotation.Nullable Integer amount) {
     this.amount = amount;
@@ -92,16 +90,14 @@ public class TopUpDepositRequestDto {
    * The three-character ISO 4217 currency symbol.
    * @return currency
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCurrency() {
         return currency.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonProperty(value = JSON_PROPERTY_CURRENCY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCurrency_JsonNullable() {
     return currency;
   }

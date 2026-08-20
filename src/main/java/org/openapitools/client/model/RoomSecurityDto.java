@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -50,16 +51,13 @@ import java.util.StringJoiner;
 
 public class RoomSecurityDto {
   public static final String JSON_PROPERTY_MEMBERS = "members";
-  @javax.annotation.Nullable
-  private JsonNullable<List<FileShareDto>> members = JsonNullable.<List<FileShareDto>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<FileShareDto>> members = JsonNullable.<List<FileShareDto>>undefined();
 
   public static final String JSON_PROPERTY_WARNING = "warning";
-  @javax.annotation.Nullable
-  private JsonNullable<String> warning = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> warning = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ERROR = "error";
-  @javax.annotation.Nullable
-  private RoomSecurityError error;
+  @javax.annotation.Nullable  private RoomSecurityError error;
 
   public RoomSecurityDto() {
   }
@@ -87,16 +85,14 @@ public class RoomSecurityDto {
    * The list of room members.
    * @return members
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<FileShareDto> getMembers() {
         return members.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MEMBERS)
+  @JsonProperty(value = JSON_PROPERTY_MEMBERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<FileShareDto>> getMembers_JsonNullable() {
     return members;
   }
@@ -120,16 +116,14 @@ public class RoomSecurityDto {
    * The warning message.
    * @return warning
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getWarning() {
         return warning.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_WARNING)
+  @JsonProperty(value = JSON_PROPERTY_WARNING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getWarning_JsonNullable() {
     return warning;
   }
@@ -153,8 +147,7 @@ public class RoomSecurityDto {
    * Get error
    * @return error
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public RoomSecurityError getError() {
@@ -162,7 +155,7 @@ public class RoomSecurityDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setError(@javax.annotation.Nullable RoomSecurityError error) {
     this.error = error;

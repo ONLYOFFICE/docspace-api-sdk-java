@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -49,16 +50,13 @@ import java.util.StringJoiner;
 
 public class MentionMessageWrapper {
   public static final String JSON_PROPERTY_ACTION_LINK = "actionLink";
-  @javax.annotation.Nullable
-  private ActionLinkConfig actionLink;
+  @javax.annotation.Nullable  private ActionLinkConfig actionLink;
 
   public static final String JSON_PROPERTY_EMAILS = "emails";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> emails = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> emails = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
-  @javax.annotation.Nullable
-  private JsonNullable<String> message = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> message = JsonNullable.<String>undefined();
 
   public MentionMessageWrapper() {
   }
@@ -74,8 +72,7 @@ public class MentionMessageWrapper {
    * Get actionLink
    * @return actionLink
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACTION_LINK)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTION_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ActionLinkConfig getActionLink() {
@@ -83,7 +80,7 @@ public class MentionMessageWrapper {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACTION_LINK)
+  @JsonProperty(value = JSON_PROPERTY_ACTION_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActionLink(@javax.annotation.Nullable ActionLinkConfig actionLink) {
     this.actionLink = actionLink;
@@ -111,16 +108,14 @@ public class MentionMessageWrapper {
    * A list of emails that will receive the mention message.
    * @return emails
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getEmails() {
         return emails.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EMAILS)
+  @JsonProperty(value = JSON_PROPERTY_EMAILS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getEmails_JsonNullable() {
     return emails;
   }
@@ -144,16 +139,14 @@ public class MentionMessageWrapper {
    * The mention message.
    * @return message
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getMessage() {
         return message.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getMessage_JsonNullable() {
     return message;
   }

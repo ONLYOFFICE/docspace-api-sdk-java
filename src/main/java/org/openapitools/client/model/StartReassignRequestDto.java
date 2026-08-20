@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.UUID;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -42,16 +43,13 @@ import java.util.StringJoiner;
 
 public class StartReassignRequestDto {
   public static final String JSON_PROPERTY_FROM_USER_ID = "fromUserId";
-  @javax.annotation.Nonnull
-  private UUID fromUserId;
+  @javax.annotation.Nonnull  private UUID fromUserId;
 
   public static final String JSON_PROPERTY_TO_USER_ID = "toUserId";
-  @javax.annotation.Nonnull
-  private UUID toUserId;
+  @javax.annotation.Nonnull  private UUID toUserId;
 
   public static final String JSON_PROPERTY_DELETE_PROFILE = "deleteProfile";
-  @javax.annotation.Nullable
-  private Boolean deleteProfile;
+  @javax.annotation.Nullable  private Boolean deleteProfile;
 
   public StartReassignRequestDto() {
   }
@@ -67,8 +65,7 @@ public class StartReassignRequestDto {
    * The user ID whose data will be reassigned to another user.
    * @return fromUserId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FROM_USER_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_FROM_USER_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getFromUserId() {
@@ -76,7 +73,7 @@ public class StartReassignRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FROM_USER_ID)
+  @JsonProperty(value = JSON_PROPERTY_FROM_USER_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFromUserId(@javax.annotation.Nonnull UUID fromUserId) {
     this.fromUserId = fromUserId;
@@ -92,8 +89,7 @@ public class StartReassignRequestDto {
    * The user ID to whom all the data will be reassigned.
    * @return toUserId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TO_USER_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TO_USER_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getToUserId() {
@@ -101,7 +97,7 @@ public class StartReassignRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TO_USER_ID)
+  @JsonProperty(value = JSON_PROPERTY_TO_USER_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setToUserId(@javax.annotation.Nonnull UUID toUserId) {
     this.toUserId = toUserId;
@@ -117,8 +113,7 @@ public class StartReassignRequestDto {
    * Specifies whether to delete a profile when the data reassignment will be finished or not.
    * @return deleteProfile
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DELETE_PROFILE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DELETE_PROFILE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDeleteProfile() {
@@ -126,7 +121,7 @@ public class StartReassignRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DELETE_PROFILE)
+  @JsonProperty(value = JSON_PROPERTY_DELETE_PROFILE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeleteProfile(@javax.annotation.Nullable Boolean deleteProfile) {
     this.deleteProfile = deleteProfile;

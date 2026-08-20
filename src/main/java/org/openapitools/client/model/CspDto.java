@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -43,12 +44,10 @@ import java.util.StringJoiner;
 
 public class CspDto {
   public static final String JSON_PROPERTY_DOMAINS = "domains";
-  @javax.annotation.Nullable
-  private List<String> domains;
+  @javax.annotation.Nullable  private List<String> domains;
 
   public static final String JSON_PROPERTY_HEADER = "header";
-  @javax.annotation.Nullable
-  private String header;
+  @javax.annotation.Nullable  private String header;
 
   public CspDto() {
   }
@@ -72,8 +71,7 @@ public class CspDto {
    * The list of CSP domains.
    * @return domains
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOMAINS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOMAINS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<String> getDomains() {
@@ -81,7 +79,7 @@ public class CspDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOMAINS)
+  @JsonProperty(value = JSON_PROPERTY_DOMAINS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDomains(@javax.annotation.Nullable List<String> domains) {
     this.domains = domains;
@@ -97,8 +95,7 @@ public class CspDto {
    * The CSP header.
    * @return header
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HEADER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HEADER, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getHeader() {
@@ -106,7 +103,7 @@ public class CspDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HEADER)
+  @JsonProperty(value = JSON_PROPERTY_HEADER, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHeader(@javax.annotation.Nullable String header) {
     this.header = header;

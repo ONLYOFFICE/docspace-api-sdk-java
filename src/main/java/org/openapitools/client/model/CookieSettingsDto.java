@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -40,12 +41,10 @@ import java.util.StringJoiner;
 
 public class CookieSettingsDto {
   public static final String JSON_PROPERTY_LIFE_TIME = "lifeTime";
-  @javax.annotation.Nonnull
-  private Integer lifeTime;
+  @javax.annotation.Nonnull  private Integer lifeTime;
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
-  @javax.annotation.Nonnull
-  private Boolean enabled;
+  @javax.annotation.Nonnull  private Boolean enabled;
 
   public CookieSettingsDto() {
   }
@@ -61,8 +60,7 @@ public class CookieSettingsDto {
    * The cookie lifetime value in minutes.
    * @return lifeTime
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LIFE_TIME)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_LIFE_TIME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getLifeTime() {
@@ -70,7 +68,7 @@ public class CookieSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LIFE_TIME)
+  @JsonProperty(value = JSON_PROPERTY_LIFE_TIME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLifeTime(@javax.annotation.Nonnull Integer lifeTime) {
     this.lifeTime = lifeTime;
@@ -86,8 +84,7 @@ public class CookieSettingsDto {
    * Specifies if the cookie settings are enabled or not.
    * @return enabled
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getEnabled() {
@@ -95,7 +92,7 @@ public class CookieSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
     this.enabled = enabled;

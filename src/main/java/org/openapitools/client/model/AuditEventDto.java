@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,6 +38,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -70,76 +71,58 @@ import java.util.StringJoiner;
 
 public class AuditEventDto {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private Integer id;
+  @javax.annotation.Nullable  private Integer id;
 
   public static final String JSON_PROPERTY_DATE = "date";
-  @javax.annotation.Nullable
-  private ApiDateTime date;
+  @javax.annotation.Nullable  private ApiDateTime date;
 
   public static final String JSON_PROPERTY_USER = "user";
-  @javax.annotation.Nullable
-  private JsonNullable<String> user = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> user = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_USER_ID = "userId";
-  @javax.annotation.Nullable
-  private UUID userId;
+  @javax.annotation.Nullable  private UUID userId;
 
   public static final String JSON_PROPERTY_ACTION = "action";
-  @javax.annotation.Nullable
-  private JsonNullable<String> action = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> action = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ACTION_ID = "actionId";
-  @javax.annotation.Nullable
-  private MessageAction actionId;
+  @javax.annotation.Nullable  private MessageAction actionId;
 
   public static final String JSON_PROPERTY_IP = "ip";
-  @javax.annotation.Nullable
-  private JsonNullable<String> ip = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> ip = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_COUNTRY = "country";
-  @javax.annotation.Nullable
-  private JsonNullable<String> country = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> country = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CITY = "city";
-  @javax.annotation.Nullable
-  private JsonNullable<String> city = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> city = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_BROWSER = "browser";
-  @javax.annotation.Nullable
-  private JsonNullable<String> browser = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> browser = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PLATFORM = "platform";
-  @javax.annotation.Nullable
-  private JsonNullable<String> platform = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> platform = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PAGE = "page";
-  @javax.annotation.Nullable
-  private JsonNullable<String> page = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> page = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ACTION_TYPE = "actionType";
-  @javax.annotation.Nullable
-  private ActionType actionType;
+  @javax.annotation.Nullable  private ActionType actionType;
 
   public static final String JSON_PROPERTY_PRODUCT = "product";
-  @javax.annotation.Nullable
-  private ProductType product;
+  @javax.annotation.Nullable  private ProductType product;
 
   public static final String JSON_PROPERTY_LOCATION = "location";
-  @javax.annotation.Nullable
-  private LocationType location;
+  @javax.annotation.Nullable  private LocationType location;
 
   public static final String JSON_PROPERTY_TARGET = "target";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> target = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> target = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_ENTRIES = "entries";
-  @javax.annotation.Nullable
-  private JsonNullable<List<EntryType>> entries = JsonNullable.<List<EntryType>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<EntryType>> entries = JsonNullable.<List<EntryType>>undefined();
 
   public static final String JSON_PROPERTY_CONTEXT = "context";
-  @javax.annotation.Nullable
-  private JsonNullable<String> context = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> context = JsonNullable.<String>undefined();
 
   public AuditEventDto() {
   }
@@ -155,8 +138,7 @@ public class AuditEventDto {
    * The audit event ID.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getId() {
@@ -164,7 +146,7 @@ public class AuditEventDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(@javax.annotation.Nullable Integer id) {
     this.id = id;
@@ -180,8 +162,7 @@ public class AuditEventDto {
    * Get date
    * @return date
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApiDateTime getDate() {
@@ -189,7 +170,7 @@ public class AuditEventDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATE)
+  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDate(@javax.annotation.Nullable ApiDateTime date) {
     this.date = date;
@@ -205,16 +186,14 @@ public class AuditEventDto {
    * The name of the user who triggered the audit event.
    * @return user
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getUser() {
         return user.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_USER)
+  @JsonProperty(value = JSON_PROPERTY_USER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getUser_JsonNullable() {
     return user;
   }
@@ -238,8 +217,7 @@ public class AuditEventDto {
    * The ID of the user who triggered the audit event.
    * @return userId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USER_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getUserId() {
@@ -247,7 +225,7 @@ public class AuditEventDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USER_ID)
+  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUserId(@javax.annotation.Nullable UUID userId) {
     this.userId = userId;
@@ -263,16 +241,14 @@ public class AuditEventDto {
    * The audit event action.
    * @return action
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getAction() {
         return action.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ACTION)
+  @JsonProperty(value = JSON_PROPERTY_ACTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getAction_JsonNullable() {
     return action;
   }
@@ -296,8 +272,7 @@ public class AuditEventDto {
    * Get actionId
    * @return actionId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACTION_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTION_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public MessageAction getActionId() {
@@ -305,7 +280,7 @@ public class AuditEventDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACTION_ID)
+  @JsonProperty(value = JSON_PROPERTY_ACTION_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActionId(@javax.annotation.Nullable MessageAction actionId) {
     this.actionId = actionId;
@@ -321,16 +296,14 @@ public class AuditEventDto {
    * The audit event IP.
    * @return ip
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getIp() {
         return ip.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IP)
+  @JsonProperty(value = JSON_PROPERTY_IP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getIp_JsonNullable() {
     return ip;
   }
@@ -354,16 +327,14 @@ public class AuditEventDto {
    * The audit event country.
    * @return country
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCountry() {
         return country.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_COUNTRY)
+  @JsonProperty(value = JSON_PROPERTY_COUNTRY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCountry_JsonNullable() {
     return country;
   }
@@ -387,16 +358,14 @@ public class AuditEventDto {
    * The audit event city.
    * @return city
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCity() {
         return city.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CITY)
+  @JsonProperty(value = JSON_PROPERTY_CITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCity_JsonNullable() {
     return city;
   }
@@ -420,16 +389,14 @@ public class AuditEventDto {
    * The audit event browser.
    * @return browser
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getBrowser() {
         return browser.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_BROWSER)
+  @JsonProperty(value = JSON_PROPERTY_BROWSER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getBrowser_JsonNullable() {
     return browser;
   }
@@ -453,16 +420,14 @@ public class AuditEventDto {
    * The audit event platform.
    * @return platform
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPlatform() {
         return platform.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PLATFORM)
+  @JsonProperty(value = JSON_PROPERTY_PLATFORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPlatform_JsonNullable() {
     return platform;
   }
@@ -486,16 +451,14 @@ public class AuditEventDto {
    * The audit event page.
    * @return page
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPage() {
         return page.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonProperty(value = JSON_PROPERTY_PAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPage_JsonNullable() {
     return page;
   }
@@ -519,8 +482,7 @@ public class AuditEventDto {
    * Get actionType
    * @return actionType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACTION_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTION_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ActionType getActionType() {
@@ -528,7 +490,7 @@ public class AuditEventDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACTION_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_ACTION_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActionType(@javax.annotation.Nullable ActionType actionType) {
     this.actionType = actionType;
@@ -544,8 +506,7 @@ public class AuditEventDto {
    * Get product
    * @return product
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRODUCT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRODUCT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ProductType getProduct() {
@@ -553,7 +514,7 @@ public class AuditEventDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PRODUCT)
+  @JsonProperty(value = JSON_PROPERTY_PRODUCT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProduct(@javax.annotation.Nullable ProductType product) {
     this.product = product;
@@ -569,8 +530,7 @@ public class AuditEventDto {
    * Get location
    * @return location
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOCATION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOCATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public LocationType getLocation() {
@@ -578,7 +538,7 @@ public class AuditEventDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOCATION)
+  @JsonProperty(value = JSON_PROPERTY_LOCATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocation(@javax.annotation.Nullable LocationType location) {
     this.location = location;
@@ -606,16 +566,14 @@ public class AuditEventDto {
    * The list of target objects affected by the audit event (e.g., document ID, user account).
    * @return target
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getTarget() {
         return target.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TARGET)
+  @JsonProperty(value = JSON_PROPERTY_TARGET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getTarget_JsonNullable() {
     return target;
   }
@@ -651,16 +609,14 @@ public class AuditEventDto {
    * The list of audit entry types (e.g., Folder, User, File).
    * @return entries
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<EntryType> getEntries() {
         return entries.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ENTRIES)
+  @JsonProperty(value = JSON_PROPERTY_ENTRIES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<EntryType>> getEntries_JsonNullable() {
     return entries;
   }
@@ -684,16 +640,14 @@ public class AuditEventDto {
    * The audit event context.
    * @return context
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getContext() {
         return context.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CONTEXT)
+  @JsonProperty(value = JSON_PROPERTY_CONTEXT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getContext_JsonNullable() {
     return context;
   }

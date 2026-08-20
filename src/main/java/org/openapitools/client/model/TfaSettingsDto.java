@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -45,7 +46,7 @@ import java.util.StringJoiner;
   TfaSettingsDto.JSON_PROPERTY_ID,
   TfaSettingsDto.JSON_PROPERTY_TITLE,
   TfaSettingsDto.JSON_PROPERTY_ENABLED,
-  TfaSettingsDto.JSON_PROPERTY_AVALIABLE,
+  TfaSettingsDto.JSON_PROPERTY_AVAILABLE,
   TfaSettingsDto.JSON_PROPERTY_TRUSTED_IPS,
   TfaSettingsDto.JSON_PROPERTY_MANDATORY_USERS,
   TfaSettingsDto.JSON_PROPERTY_MANDATORY_GROUPS
@@ -53,32 +54,25 @@ import java.util.StringJoiner;
 
 public class TfaSettingsDto {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private String id;
+  @javax.annotation.Nullable  private String id;
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private String title;
+  @javax.annotation.Nullable  private String title;
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
-  @javax.annotation.Nonnull
-  private Boolean enabled;
+  @javax.annotation.Nonnull  private Boolean enabled;
 
-  public static final String JSON_PROPERTY_AVALIABLE = "avaliable";
-  @javax.annotation.Nonnull
-  private Boolean avaliable;
+  public static final String JSON_PROPERTY_AVAILABLE = "available";
+  @javax.annotation.Nonnull  private Boolean available;
 
   public static final String JSON_PROPERTY_TRUSTED_IPS = "trustedIps";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> trustedIps = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> trustedIps = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_MANDATORY_USERS = "mandatoryUsers";
-  @javax.annotation.Nullable
-  private JsonNullable<List<UUID>> mandatoryUsers = JsonNullable.<List<UUID>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<UUID>> mandatoryUsers = JsonNullable.<List<UUID>>undefined();
 
   public static final String JSON_PROPERTY_MANDATORY_GROUPS = "mandatoryGroups";
-  @javax.annotation.Nullable
-  private JsonNullable<List<UUID>> mandatoryGroups = JsonNullable.<List<UUID>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<UUID>> mandatoryGroups = JsonNullable.<List<UUID>>undefined();
 
   public TfaSettingsDto() {
   }
@@ -94,8 +88,7 @@ public class TfaSettingsDto {
    * The ID of the TFA configuration.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getId() {
@@ -103,7 +96,7 @@ public class TfaSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@javax.annotation.Nullable String id) {
     this.id = id;
@@ -119,8 +112,7 @@ public class TfaSettingsDto {
    * The display name or description of the TFA configuration.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getTitle() {
@@ -128,7 +120,7 @@ public class TfaSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTitle(@javax.annotation.Nullable String title) {
     this.title = title;
@@ -144,8 +136,7 @@ public class TfaSettingsDto {
    * Indicates whether the TFA configuration is currently active.
    * @return enabled
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getEnabled() {
@@ -153,35 +144,34 @@ public class TfaSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
     this.enabled = enabled;
   }
 
-  public TfaSettingsDto avaliable(@javax.annotation.Nonnull Boolean avaliable) {
+  public TfaSettingsDto available(@javax.annotation.Nonnull Boolean available) {
     
-    this.avaliable = avaliable;
+    this.available = available;
     return this;
   }
 
   /**
    * Indicates whether the TFA configuration can be used.
-   * @return avaliable
+   * @return available
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_AVALIABLE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_AVAILABLE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Boolean getAvaliable() {
-    return avaliable;
+  public Boolean getAvailable() {
+    return available;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AVALIABLE)
+  @JsonProperty(value = JSON_PROPERTY_AVAILABLE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAvaliable(@javax.annotation.Nonnull Boolean avaliable) {
-    this.avaliable = avaliable;
+  public void setAvailable(@javax.annotation.Nonnull Boolean available) {
+    this.available = available;
   }
 
   public TfaSettingsDto trustedIps(@javax.annotation.Nullable List<String> trustedIps) {
@@ -206,16 +196,14 @@ public class TfaSettingsDto {
    * The list of IP addresses that are exempt from TFA requirements.
    * @return trustedIps
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getTrustedIps() {
         return trustedIps.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TRUSTED_IPS)
+  @JsonProperty(value = JSON_PROPERTY_TRUSTED_IPS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getTrustedIps_JsonNullable() {
     return trustedIps;
   }
@@ -251,16 +239,14 @@ public class TfaSettingsDto {
    * The list of user IDs that are required to use TFA.
    * @return mandatoryUsers
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<UUID> getMandatoryUsers() {
         return mandatoryUsers.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MANDATORY_USERS)
+  @JsonProperty(value = JSON_PROPERTY_MANDATORY_USERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<UUID>> getMandatoryUsers_JsonNullable() {
     return mandatoryUsers;
   }
@@ -296,16 +282,14 @@ public class TfaSettingsDto {
    * The list of group IDs whose members are required to use TFA.
    * @return mandatoryGroups
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<UUID> getMandatoryGroups() {
         return mandatoryGroups.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MANDATORY_GROUPS)
+  @JsonProperty(value = JSON_PROPERTY_MANDATORY_GROUPS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<UUID>> getMandatoryGroups_JsonNullable() {
     return mandatoryGroups;
   }
@@ -331,7 +315,7 @@ public class TfaSettingsDto {
     return Objects.equals(this.id, tfaSettingsDto.id) &&
         Objects.equals(this.title, tfaSettingsDto.title) &&
         Objects.equals(this.enabled, tfaSettingsDto.enabled) &&
-        Objects.equals(this.avaliable, tfaSettingsDto.avaliable) &&
+        Objects.equals(this.available, tfaSettingsDto.available) &&
         equalsNullable(this.trustedIps, tfaSettingsDto.trustedIps) &&
         equalsNullable(this.mandatoryUsers, tfaSettingsDto.mandatoryUsers) &&
         equalsNullable(this.mandatoryGroups, tfaSettingsDto.mandatoryGroups);
@@ -343,7 +327,7 @@ public class TfaSettingsDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, enabled, avaliable, hashCodeNullable(trustedIps), hashCodeNullable(mandatoryUsers), hashCodeNullable(mandatoryGroups));
+    return Objects.hash(id, title, enabled, available, hashCodeNullable(trustedIps), hashCodeNullable(mandatoryUsers), hashCodeNullable(mandatoryGroups));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -360,7 +344,7 @@ public class TfaSettingsDto {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    avaliable: ").append(toIndentedString(avaliable)).append("\n");
+    sb.append("    available: ").append(toIndentedString(available)).append("\n");
     sb.append("    trustedIps: ").append(toIndentedString(trustedIps)).append("\n");
     sb.append("    mandatoryUsers: ").append(toIndentedString(mandatoryUsers)).append("\n");
     sb.append("    mandatoryGroups: ").append(toIndentedString(mandatoryGroups)).append("\n");
@@ -441,10 +425,10 @@ public class TfaSettingsDto {
       }
     }
 
-    // add `avaliable` to the URL query string
-    if (getAvaliable() != null) {
+    // add `available` to the URL query string
+    if (getAvailable() != null) {
       try {
-        joiner.add(String.format("%savaliable%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAvaliable()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%savailable%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAvailable()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

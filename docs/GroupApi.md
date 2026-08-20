@@ -108,8 +108,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Newly created group with the detailed information |  -  |
+| **200** | Newly created group with the detailed information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## addMembersTo
@@ -179,7 +182,7 @@ public class Example {
 
 
         GroupApi apiInstance = new GroupApi(defaultClient);
-        UUID id = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The group ID.
+        UUID id = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The group ID.
         MembersRequest membersRequest = new MembersRequest(); // MembersRequest | The member request.
         try {
             GroupWrapper result = apiInstance.addMembersTo(id, membersRequest);
@@ -204,9 +207,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Group with the detailed information |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Group with the detailed information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **404** | Group not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## deleteGroup
@@ -275,7 +281,7 @@ public class Example {
 
 
         GroupApi apiInstance = new GroupApi(defaultClient);
-        UUID id = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The group ID.
+        UUID id = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The group ID.
         try {
             NoContentResultWrapper result = apiInstance.deleteGroup(id);
             System.out.println(result);
@@ -299,16 +305,19 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | No content |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | No content |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **404** | Group not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getGroup
 
 > GroupWrapper getGroup(id, includeMembers)
 
-Get a groupReturns the detailed information about the selected group.   **Note**: This method returns full group information.
+Get a groupReturns the detailed information about the selected group.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group/).
 
@@ -371,7 +380,7 @@ public class Example {
 
 
         GroupApi apiInstance = new GroupApi(defaultClient);
-        UUID id = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The group ID.
+        UUID id = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The group ID.
         Boolean includeMembers = true; // Boolean | Specifies whether to include the group members or not.
         try {
             GroupWrapper result = apiInstance.getGroup(id, includeMembers);
@@ -396,9 +405,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Group with the detailed information |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Group with the detailed information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **404** | Group not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getGroupByUserId
@@ -467,7 +479,7 @@ public class Example {
 
 
         GroupApi apiInstance = new GroupApi(defaultClient);
-        UUID userid = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The user ID.
+        UUID userid = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user ID.
         try {
             GroupSummaryArrayWrapper result = apiInstance.getGroupByUserId(userid);
             System.out.println(result);
@@ -491,15 +503,18 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of groups |  -  |
+| **200** | List of groups |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getGroups
 
 > GroupArrayWrapper getGroups(userId, manager, count, startIndex, sortBy, sortOrder, filterValue)
 
-Get groupsReturns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
+Get groupsReturns the general information about all the groups, such as group ID and group manager.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups/).
 
@@ -567,13 +582,13 @@ public class Example {
 
 
         GroupApi apiInstance = new GroupApi(defaultClient);
-        UUID userId = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The user ID.
-        Boolean manager = true; // Boolean | Specifies if the user is a manager or not.
-        Integer count = 1234; // Integer | The number of records to retrieve.
-        Integer startIndex = 1234; // Integer | The starting index for paginated results.
-        String sortBy = "some text"; // String | Specifies the property used to sort the query results.
+        UUID userId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user ID.
+        Boolean manager = false; // Boolean | Specifies if the user is a manager or not.
+        Integer count = 25; // Integer | The number of records to retrieve.
+        Integer startIndex = 0; // Integer | The starting index for paginated results.
+        String sortBy = "displayName"; // String | Specifies the property used to sort the query results.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterValue = "some text"; // String | The text used for filtering or searching group data.
+        String filterValue = "John"; // String | The text used for filtering or searching group data.
         try {
             GroupArrayWrapper result = apiInstance.getGroups(userId, manager, count, startIndex, sortBy, sortOrder, filterValue);
             System.out.println(result);
@@ -597,8 +612,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of groups |  -  |
+| **200** | List of groups |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## moveMembersTo
@@ -668,8 +686,8 @@ public class Example {
 
 
         GroupApi apiInstance = new GroupApi(defaultClient);
-        UUID fromId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The group ID to move from.
-        UUID toId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The group ID to move to.
+        UUID fromId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The group ID to move from.
+        UUID toId = UUID.fromString("11111111-1111-1111-1111-111111111111"); // UUID | The group ID to move to.
         try {
             GroupWrapper result = apiInstance.moveMembersTo(fromId, toId);
             System.out.println(result);
@@ -693,9 +711,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Group with the detailed information |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Group with the detailed information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **404** | Group not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## removeMembersFrom
@@ -765,7 +786,7 @@ public class Example {
 
 
         GroupApi apiInstance = new GroupApi(defaultClient);
-        UUID id = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The group ID.
+        UUID id = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The group ID.
         MembersRequest membersRequest = new MembersRequest(); // MembersRequest | The member request.
         try {
             GroupWrapper result = apiInstance.removeMembersFrom(id, membersRequest);
@@ -790,9 +811,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Group with the detailed information |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Group with the detailed information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **404** | Group not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## setGroupManager
@@ -862,7 +886,7 @@ public class Example {
 
 
         GroupApi apiInstance = new GroupApi(defaultClient);
-        UUID id = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The group ID.
+        UUID id = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The group ID.
         SetManagerRequest setManagerRequest = new SetManagerRequest(); // SetManagerRequest | The request for setting a group manager.
         try {
             GroupWrapper result = apiInstance.setGroupManager(id, setManagerRequest);
@@ -887,9 +911,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Group with the detailed information |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Group with the detailed information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **404** | User not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## setMembersTo
@@ -959,7 +986,7 @@ public class Example {
 
 
         GroupApi apiInstance = new GroupApi(defaultClient);
-        UUID id = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The group ID.
+        UUID id = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The group ID.
         MembersRequest membersRequest = new MembersRequest(); // MembersRequest | The member request.
         try {
             GroupWrapper result = apiInstance.setMembersTo(id, membersRequest);
@@ -984,8 +1011,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Group with the detailed information |  -  |
+| **200** | Group with the detailed information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## updateGroup
@@ -1055,7 +1085,7 @@ public class Example {
 
 
         GroupApi apiInstance = new GroupApi(defaultClient);
-        UUID id = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The group ID.
+        UUID id = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The group ID.
         UpdateGroupRequest updateGroupRequest = new UpdateGroupRequest(); // UpdateGroupRequest | The request for updating a group.
         try {
             GroupWrapper result = apiInstance.updateGroup(id, updateGroupRequest);
@@ -1080,7 +1110,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Updated group with the detailed information |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Updated group with the detailed information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **404** | Group not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

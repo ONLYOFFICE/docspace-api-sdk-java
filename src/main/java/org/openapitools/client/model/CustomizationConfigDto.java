@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,6 +36,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -61,48 +62,37 @@ import java.util.StringJoiner;
 
 public class CustomizationConfigDto {
   public static final String JSON_PROPERTY_ABOUT = "about";
-  @javax.annotation.Nullable
-  private Boolean about;
+  @javax.annotation.Nullable  private Boolean about;
 
   public static final String JSON_PROPERTY_CUSTOMER = "customer";
-  @javax.annotation.Nullable
-  private CustomerConfigDto customer;
+  @javax.annotation.Nullable  private CustomerConfigDto customer;
 
   public static final String JSON_PROPERTY_ANONYMOUS = "anonymous";
-  @javax.annotation.Nullable
-  private AnonymousConfigDto anonymous;
+  @javax.annotation.Nullable  private AnonymousConfigDto anonymous;
 
   public static final String JSON_PROPERTY_FEEDBACK = "feedback";
-  @javax.annotation.Nullable
-  private FeedbackConfig feedback;
+  @javax.annotation.Nullable  private FeedbackConfig feedback;
 
   public static final String JSON_PROPERTY_FORCESAVE = "forcesave";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> forcesave = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> forcesave = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_GOBACK = "goback";
-  @javax.annotation.Nullable
-  private GobackConfig goback;
+  @javax.annotation.Nullable  private GobackConfig goback;
 
   public static final String JSON_PROPERTY_REVIEW = "review";
-  @javax.annotation.Nullable
-  private ReviewConfig review;
+  @javax.annotation.Nullable  private ReviewConfig review;
 
   public static final String JSON_PROPERTY_LOGO = "logo";
-  @javax.annotation.Nullable
-  private LogoConfigDto logo;
+  @javax.annotation.Nullable  private LogoConfigDto logo;
 
   public static final String JSON_PROPERTY_MENTION_SHARE = "mentionShare";
-  @javax.annotation.Nullable
-  private Boolean mentionShare;
+  @javax.annotation.Nullable  private Boolean mentionShare;
 
   public static final String JSON_PROPERTY_SUBMIT_FORM = "submitForm";
-  @javax.annotation.Nullable
-  private SubmitForm submitForm;
+  @javax.annotation.Nullable  private SubmitForm submitForm;
 
   public static final String JSON_PROPERTY_START_FILLING_FORM = "startFillingForm";
-  @javax.annotation.Nullable
-  private StartFillingForm startFillingForm;
+  @javax.annotation.Nullable  private StartFillingForm startFillingForm;
 
   public CustomizationConfigDto() {
   }
@@ -118,8 +108,7 @@ public class CustomizationConfigDto {
    * Specifies if the customization is about.
    * @return about
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ABOUT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ABOUT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAbout() {
@@ -127,7 +116,7 @@ public class CustomizationConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ABOUT)
+  @JsonProperty(value = JSON_PROPERTY_ABOUT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAbout(@javax.annotation.Nullable Boolean about) {
     this.about = about;
@@ -143,8 +132,7 @@ public class CustomizationConfigDto {
    * Get customer
    * @return customer
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOMER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CUSTOMER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CustomerConfigDto getCustomer() {
@@ -152,7 +140,7 @@ public class CustomizationConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CUSTOMER)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOMER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomer(@javax.annotation.Nullable CustomerConfigDto customer) {
     this.customer = customer;
@@ -168,8 +156,7 @@ public class CustomizationConfigDto {
    * Get anonymous
    * @return anonymous
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ANONYMOUS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ANONYMOUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AnonymousConfigDto getAnonymous() {
@@ -177,7 +164,7 @@ public class CustomizationConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ANONYMOUS)
+  @JsonProperty(value = JSON_PROPERTY_ANONYMOUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAnonymous(@javax.annotation.Nullable AnonymousConfigDto anonymous) {
     this.anonymous = anonymous;
@@ -193,8 +180,7 @@ public class CustomizationConfigDto {
    * Get feedback
    * @return feedback
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FEEDBACK)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FEEDBACK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FeedbackConfig getFeedback() {
@@ -202,7 +188,7 @@ public class CustomizationConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FEEDBACK)
+  @JsonProperty(value = JSON_PROPERTY_FEEDBACK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFeedback(@javax.annotation.Nullable FeedbackConfig feedback) {
     this.feedback = feedback;
@@ -218,16 +204,14 @@ public class CustomizationConfigDto {
    * Specifies if the customization should be force saved.
    * @return forcesave
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getForcesave() {
         return forcesave.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FORCESAVE)
+  @JsonProperty(value = JSON_PROPERTY_FORCESAVE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getForcesave_JsonNullable() {
     return forcesave;
   }
@@ -251,8 +235,7 @@ public class CustomizationConfigDto {
    * Get goback
    * @return goback
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GOBACK)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GOBACK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public GobackConfig getGoback() {
@@ -260,7 +243,7 @@ public class CustomizationConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GOBACK)
+  @JsonProperty(value = JSON_PROPERTY_GOBACK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGoback(@javax.annotation.Nullable GobackConfig goback) {
     this.goback = goback;
@@ -276,8 +259,7 @@ public class CustomizationConfigDto {
    * Get review
    * @return review
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REVIEW)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REVIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ReviewConfig getReview() {
@@ -285,7 +267,7 @@ public class CustomizationConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REVIEW)
+  @JsonProperty(value = JSON_PROPERTY_REVIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReview(@javax.annotation.Nullable ReviewConfig review) {
     this.review = review;
@@ -301,8 +283,7 @@ public class CustomizationConfigDto {
    * Get logo
    * @return logo
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOGO)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public LogoConfigDto getLogo() {
@@ -310,7 +291,7 @@ public class CustomizationConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOGO)
+  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(@javax.annotation.Nullable LogoConfigDto logo) {
     this.logo = logo;
@@ -326,8 +307,7 @@ public class CustomizationConfigDto {
    * Specifies if the share should be mentioned.
    * @return mentionShare
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MENTION_SHARE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MENTION_SHARE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getMentionShare() {
@@ -335,7 +315,7 @@ public class CustomizationConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MENTION_SHARE)
+  @JsonProperty(value = JSON_PROPERTY_MENTION_SHARE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMentionShare(@javax.annotation.Nullable Boolean mentionShare) {
     this.mentionShare = mentionShare;
@@ -351,8 +331,7 @@ public class CustomizationConfigDto {
    * Get submitForm
    * @return submitForm
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUBMIT_FORM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SUBMIT_FORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SubmitForm getSubmitForm() {
@@ -360,7 +339,7 @@ public class CustomizationConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SUBMIT_FORM)
+  @JsonProperty(value = JSON_PROPERTY_SUBMIT_FORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubmitForm(@javax.annotation.Nullable SubmitForm submitForm) {
     this.submitForm = submitForm;
@@ -376,8 +355,7 @@ public class CustomizationConfigDto {
    * Get startFillingForm
    * @return startFillingForm
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_START_FILLING_FORM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_START_FILLING_FORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public StartFillingForm getStartFillingForm() {
@@ -385,7 +363,7 @@ public class CustomizationConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_START_FILLING_FORM)
+  @JsonProperty(value = JSON_PROPERTY_START_FILLING_FORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartFillingForm(@javax.annotation.Nullable StartFillingForm startFillingForm) {
     this.startFillingForm = startFillingForm;

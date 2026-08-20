@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -40,52 +41,24 @@ import java.util.StringJoiner;
  * The collection of file sharing parameters.
  */
 @JsonPropertyOrder({
-  FileShareParams.JSON_PROPERTY_SHARE_TO,
   FileShareParams.JSON_PROPERTY_EMAIL,
+  FileShareParams.JSON_PROPERTY_SHARE_TO,
   FileShareParams.JSON_PROPERTY_ACCESS
 })
 
 public class FileShareParams {
-  public static final String JSON_PROPERTY_SHARE_TO = "shareTo";
-  @javax.annotation.Nullable
-  private UUID shareTo;
-
   public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nullable
-  private JsonNullable<String> email = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> email = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_SHARE_TO = "shareTo";
+  @javax.annotation.Nullable  private UUID shareTo;
 
   public static final String JSON_PROPERTY_ACCESS = "access";
-  @javax.annotation.Nullable
-  private FileShare access;
+  @javax.annotation.Nullable  private FileShare access;
 
   public FileShareParams() {
   }
 
-
-  public FileShareParams shareTo(@javax.annotation.Nullable UUID shareTo) {
-    
-    this.shareTo = shareTo;
-    return this;
-  }
-
-  /**
-   * The ID of the user to whom the file will be shared.
-   * @return shareTo
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHARE_TO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public UUID getShareTo() {
-    return shareTo;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SHARE_TO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShareTo(@javax.annotation.Nullable UUID shareTo) {
-    this.shareTo = shareTo;
-  }
 
   public FileShareParams email(@javax.annotation.Nullable String email) {
     this.email = JsonNullable.<String>of(email);
@@ -94,19 +67,17 @@ public class FileShareParams {
   }
 
   /**
-   * The user email address.
+   * The email address.
    * @return email
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getEmail() {
         return email.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getEmail_JsonNullable() {
     return email;
   }
@@ -120,6 +91,30 @@ public class FileShareParams {
     this.email = JsonNullable.<String>of(email);
   }
 
+  public FileShareParams shareTo(@javax.annotation.Nullable UUID shareTo) {
+    
+    this.shareTo = shareTo;
+    return this;
+  }
+
+  /**
+   * The ID of the user to whom the file will be shared.
+   * @return shareTo
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARE_TO, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public UUID getShareTo() {
+    return shareTo;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SHARE_TO, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setShareTo(@javax.annotation.Nullable UUID shareTo) {
+    this.shareTo = shareTo;
+  }
+
   public FileShareParams access(@javax.annotation.Nullable FileShare access) {
     
     this.access = access;
@@ -130,8 +125,7 @@ public class FileShareParams {
    * Get access
    * @return access
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCESS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FileShare getAccess() {
@@ -139,7 +133,7 @@ public class FileShareParams {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACCESS)
+  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccess(@javax.annotation.Nullable FileShare access) {
     this.access = access;
@@ -154,8 +148,8 @@ public class FileShareParams {
       return false;
     }
     FileShareParams fileShareParams = (FileShareParams) o;
-    return Objects.equals(this.shareTo, fileShareParams.shareTo) &&
-        equalsNullable(this.email, fileShareParams.email) &&
+    return equalsNullable(this.email, fileShareParams.email) &&
+        Objects.equals(this.shareTo, fileShareParams.shareTo) &&
         Objects.equals(this.access, fileShareParams.access);
   }
 
@@ -165,7 +159,7 @@ public class FileShareParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(shareTo, hashCodeNullable(email), access);
+    return Objects.hash(hashCodeNullable(email), shareTo, access);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -179,8 +173,8 @@ public class FileShareParams {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FileShareParams {\n");
-    sb.append("    shareTo: ").append(toIndentedString(shareTo)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    shareTo: ").append(toIndentedString(shareTo)).append("\n");
     sb.append("    access: ").append(toIndentedString(access)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -229,20 +223,20 @@ public class FileShareParams {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `shareTo` to the URL query string
-    if (getShareTo() != null) {
+    // add `email` to the URL query string
+    if (getEmail() != null) {
       try {
-        joiner.add(String.format("%sshareTo%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getShareTo()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmail()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
     }
 
-    // add `email` to the URL query string
-    if (getEmail() != null) {
+    // add `shareTo` to the URL query string
+    if (getShareTo() != null) {
       try {
-        joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmail()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%sshareTo%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getShareTo()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

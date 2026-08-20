@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -52,40 +53,31 @@ import java.util.StringJoiner;
 
 public class Module {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private UUID id;
+  @javax.annotation.Nullable  private UUID id;
 
   public static final String JSON_PROPERTY_APP_NAME = "appName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> appName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> appName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LINK = "link";
-  @javax.annotation.Nullable
-  private JsonNullable<String> link = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> link = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ICON_URL = "iconUrl";
-  @javax.annotation.Nullable
-  private JsonNullable<String> iconUrl = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> iconUrl = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_IMAGE_URL = "imageUrl";
-  @javax.annotation.Nullable
-  private JsonNullable<String> imageUrl = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> imageUrl = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_HELP_URL = "helpUrl";
-  @javax.annotation.Nullable
-  private JsonNullable<String> helpUrl = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> helpUrl = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  @javax.annotation.Nullable
-  private JsonNullable<String> description = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_IS_PRIMARY = "isPrimary";
-  @javax.annotation.Nullable
-  private Boolean isPrimary;
+  @javax.annotation.Nullable  private Boolean isPrimary;
 
   public Module() {
   }
@@ -101,8 +93,7 @@ public class Module {
    * The module ID.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getId() {
@@ -110,7 +101,7 @@ public class Module {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(@javax.annotation.Nullable UUID id) {
     this.id = id;
@@ -126,16 +117,14 @@ public class Module {
    * The module product class name.
    * @return appName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getAppName() {
         return appName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_APP_NAME)
+  @JsonProperty(value = JSON_PROPERTY_APP_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getAppName_JsonNullable() {
     return appName;
   }
@@ -159,16 +148,14 @@ public class Module {
    * The module product class name.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTitle() {
         return title.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
@@ -192,16 +179,14 @@ public class Module {
    * The URL to the module start page.
    * @return link
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLink() {
         return link.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LINK)
+  @JsonProperty(value = JSON_PROPERTY_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLink_JsonNullable() {
     return link;
   }
@@ -225,16 +210,14 @@ public class Module {
    * The module icon URL.
    * @return iconUrl
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getIconUrl() {
         return iconUrl.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ICON_URL)
+  @JsonProperty(value = JSON_PROPERTY_ICON_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getIconUrl_JsonNullable() {
     return iconUrl;
   }
@@ -258,16 +241,14 @@ public class Module {
    * The module large image URL.
    * @return imageUrl
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getImageUrl() {
         return imageUrl.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IMAGE_URL)
+  @JsonProperty(value = JSON_PROPERTY_IMAGE_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getImageUrl_JsonNullable() {
     return imageUrl;
   }
@@ -291,16 +272,14 @@ public class Module {
    * The module help URL.
    * @return helpUrl
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getHelpUrl() {
         return helpUrl.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_HELP_URL)
+  @JsonProperty(value = JSON_PROPERTY_HELP_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getHelpUrl_JsonNullable() {
     return helpUrl;
   }
@@ -324,16 +303,14 @@ public class Module {
    * The module description.
    * @return description
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getDescription() {
         return description.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getDescription_JsonNullable() {
     return description;
   }
@@ -357,8 +334,7 @@ public class Module {
    * Specifies if the module is primary or not.
    * @return isPrimary
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_PRIMARY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_PRIMARY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsPrimary() {
@@ -366,7 +342,7 @@ public class Module {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_PRIMARY)
+  @JsonProperty(value = JSON_PROPERTY_IS_PRIMARY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsPrimary(@javax.annotation.Nullable Boolean isPrimary) {
     this.isPrimary = isPrimary;

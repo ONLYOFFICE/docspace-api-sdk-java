@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -39,8 +40,7 @@ import java.util.StringJoiner;
 
 public class NoContentResult {
   public static final String JSON_PROPERTY_STATUS_CODE = "statusCode";
-  @javax.annotation.Nullable
-  private Integer statusCode;
+  @javax.annotation.Nullable  private Integer statusCode;
 
   public NoContentResult() {
   }
@@ -56,8 +56,7 @@ public class NoContentResult {
    * Get statusCode
    * @return statusCode
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS_CODE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS_CODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getStatusCode() {
@@ -65,7 +64,7 @@ public class NoContentResult {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATUS_CODE)
+  @JsonProperty(value = JSON_PROPERTY_STATUS_CODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatusCode(@javax.annotation.Nullable Integer statusCode) {
     this.statusCode = statusCode;

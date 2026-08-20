@@ -21,6 +21,8 @@ The configuration parameters.
 |**fillingStatus** | **Boolean** | The file filling status. |  [optional] |
 |**startFillingMode** | **StartFillingMode** |  |  [optional] |
 |**fillingSessionId** | **String** | The file filling session ID. |  [optional] |
+|**quotaExceededScope** | **QuotaScope** |  |  [optional] |
+|**generationToolCallState** | [**EditorToolCallStateDto**](EditorToolCallStateDto.md) |  |  [optional] |
 
 
 

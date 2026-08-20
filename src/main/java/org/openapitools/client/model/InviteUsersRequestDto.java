@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,12 +49,10 @@ import java.util.StringJoiner;
 
 public class InviteUsersRequestDto {
   public static final String JSON_PROPERTY_INVITATIONS = "invitations";
-  @javax.annotation.Nonnull
-  private List<UserInvitationRequestDto> invitations = new ArrayList<>();
+  @javax.annotation.Nonnull  private List<UserInvitationRequestDto> invitations = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CULTURE = "culture";
-  @javax.annotation.Nullable
-  private JsonNullable<String> culture = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> culture = JsonNullable.<String>undefined();
 
   public InviteUsersRequestDto() {
   }
@@ -77,8 +76,7 @@ public class InviteUsersRequestDto {
    * The list of user invitations.
    * @return invitations
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INVITATIONS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_INVITATIONS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<UserInvitationRequestDto> getInvitations() {
@@ -86,7 +84,7 @@ public class InviteUsersRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INVITATIONS)
+  @JsonProperty(value = JSON_PROPERTY_INVITATIONS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setInvitations(@javax.annotation.Nonnull List<UserInvitationRequestDto> invitations) {
     this.invitations = invitations;
@@ -102,16 +100,14 @@ public class InviteUsersRequestDto {
    * The culture code of invitations.
    * @return culture
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCulture() {
         return culture.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CULTURE)
+  @JsonProperty(value = JSON_PROPERTY_CULTURE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCulture_JsonNullable() {
     return culture;
   }

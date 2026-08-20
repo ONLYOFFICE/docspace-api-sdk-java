@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.FilesStatisticsFolder;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -44,24 +45,19 @@ import java.util.StringJoiner;
 
 public class FilesStatisticsResultDto {
   public static final String JSON_PROPERTY_MY_DOCUMENTS_USED_SPACE = "myDocumentsUsedSpace";
-  @javax.annotation.Nullable
-  private FilesStatisticsFolder myDocumentsUsedSpace;
+  @javax.annotation.Nullable  private FilesStatisticsFolder myDocumentsUsedSpace;
 
   public static final String JSON_PROPERTY_TRASH_USED_SPACE = "trashUsedSpace";
-  @javax.annotation.Nullable
-  private FilesStatisticsFolder trashUsedSpace;
+  @javax.annotation.Nullable  private FilesStatisticsFolder trashUsedSpace;
 
   public static final String JSON_PROPERTY_ARCHIVE_USED_SPACE = "archiveUsedSpace";
-  @javax.annotation.Nullable
-  private FilesStatisticsFolder archiveUsedSpace;
+  @javax.annotation.Nullable  private FilesStatisticsFolder archiveUsedSpace;
 
   public static final String JSON_PROPERTY_ROOMS_USED_SPACE = "roomsUsedSpace";
-  @javax.annotation.Nullable
-  private FilesStatisticsFolder roomsUsedSpace;
+  @javax.annotation.Nullable  private FilesStatisticsFolder roomsUsedSpace;
 
   public static final String JSON_PROPERTY_AI_AGENTS_USED_SPACE = "aiAgentsUsedSpace";
-  @javax.annotation.Nullable
-  private FilesStatisticsFolder aiAgentsUsedSpace;
+  @javax.annotation.Nullable  private FilesStatisticsFolder aiAgentsUsedSpace;
 
   public FilesStatisticsResultDto() {
   }
@@ -77,8 +73,7 @@ public class FilesStatisticsResultDto {
    * Get myDocumentsUsedSpace
    * @return myDocumentsUsedSpace
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MY_DOCUMENTS_USED_SPACE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MY_DOCUMENTS_USED_SPACE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FilesStatisticsFolder getMyDocumentsUsedSpace() {
@@ -86,7 +81,7 @@ public class FilesStatisticsResultDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MY_DOCUMENTS_USED_SPACE)
+  @JsonProperty(value = JSON_PROPERTY_MY_DOCUMENTS_USED_SPACE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMyDocumentsUsedSpace(@javax.annotation.Nullable FilesStatisticsFolder myDocumentsUsedSpace) {
     this.myDocumentsUsedSpace = myDocumentsUsedSpace;
@@ -102,8 +97,7 @@ public class FilesStatisticsResultDto {
    * Get trashUsedSpace
    * @return trashUsedSpace
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRASH_USED_SPACE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRASH_USED_SPACE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FilesStatisticsFolder getTrashUsedSpace() {
@@ -111,7 +105,7 @@ public class FilesStatisticsResultDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRASH_USED_SPACE)
+  @JsonProperty(value = JSON_PROPERTY_TRASH_USED_SPACE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrashUsedSpace(@javax.annotation.Nullable FilesStatisticsFolder trashUsedSpace) {
     this.trashUsedSpace = trashUsedSpace;
@@ -127,8 +121,7 @@ public class FilesStatisticsResultDto {
    * Get archiveUsedSpace
    * @return archiveUsedSpace
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ARCHIVE_USED_SPACE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ARCHIVE_USED_SPACE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FilesStatisticsFolder getArchiveUsedSpace() {
@@ -136,7 +129,7 @@ public class FilesStatisticsResultDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ARCHIVE_USED_SPACE)
+  @JsonProperty(value = JSON_PROPERTY_ARCHIVE_USED_SPACE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setArchiveUsedSpace(@javax.annotation.Nullable FilesStatisticsFolder archiveUsedSpace) {
     this.archiveUsedSpace = archiveUsedSpace;
@@ -152,8 +145,7 @@ public class FilesStatisticsResultDto {
    * Get roomsUsedSpace
    * @return roomsUsedSpace
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROOMS_USED_SPACE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOMS_USED_SPACE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FilesStatisticsFolder getRoomsUsedSpace() {
@@ -161,7 +153,7 @@ public class FilesStatisticsResultDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROOMS_USED_SPACE)
+  @JsonProperty(value = JSON_PROPERTY_ROOMS_USED_SPACE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoomsUsedSpace(@javax.annotation.Nullable FilesStatisticsFolder roomsUsedSpace) {
     this.roomsUsedSpace = roomsUsedSpace;
@@ -177,8 +169,7 @@ public class FilesStatisticsResultDto {
    * Get aiAgentsUsedSpace
    * @return aiAgentsUsedSpace
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AI_AGENTS_USED_SPACE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AI_AGENTS_USED_SPACE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FilesStatisticsFolder getAiAgentsUsedSpace() {
@@ -186,7 +177,7 @@ public class FilesStatisticsResultDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AI_AGENTS_USED_SPACE)
+  @JsonProperty(value = JSON_PROPERTY_AI_AGENTS_USED_SPACE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAiAgentsUsedSpace(@javax.annotation.Nullable FilesStatisticsFolder aiAgentsUsedSpace) {
     this.aiAgentsUsedSpace = aiAgentsUsedSpace;

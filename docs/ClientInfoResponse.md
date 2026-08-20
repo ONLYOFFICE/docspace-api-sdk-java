@@ -11,10 +11,11 @@ The response containing public client information.
 |**name** | **String** | The client name. |  [optional] |
 |**description** | **String** | The client description. |  [optional] |
 |**scopes** | **Set&lt;String&gt;** | The client scopes. |  [optional] |
+|**_public** | **Boolean** |  |  [optional] |
 |**clientId** | **String** | The client ID. |  [optional] |
-|**websiteUrl** | **String** | The URL to the client&#39;s website |  [optional] |
-|**termsUrl** | **String** | The URL to the client&#39;s terms of service. |  [optional] |
-|**policyUrl** | **String** | The URL to the client&#39;s privacy policy. |  [optional] |
+|**websiteUrl** | **String** | The URL to the client's website |  [optional] |
+|**termsUrl** | **String** | The URL to the client's terms of service. |  [optional] |
+|**policyUrl** | **String** | The URL to the client's privacy policy. |  [optional] |
 |**logo** | **String** | The client logo in base64 format. |  [optional] |
 |**authenticationMethods** | **Set&lt;String&gt;** | The authentication methods supported by the client. |  [optional] |
 |**isPublic** | **Boolean** | Indicates whether the client is accessible by third-party tenants. |  [optional] |

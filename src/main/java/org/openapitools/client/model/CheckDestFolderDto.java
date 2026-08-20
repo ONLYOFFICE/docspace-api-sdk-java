@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -49,12 +50,10 @@ import java.util.StringJoiner;
 
 public class CheckDestFolderDto {
   public static final String JSON_PROPERTY_RESULT = "result";
-  @javax.annotation.Nullable
-  private CheckDestFolderResult result;
+  @javax.annotation.Nullable  private CheckDestFolderResult result;
 
   public static final String JSON_PROPERTY_FILES = "files";
-  @javax.annotation.Nullable
-  private JsonNullable<List<FileEntryBaseDto>> files = JsonNullable.<List<FileEntryBaseDto>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<FileEntryBaseDto>> files = JsonNullable.<List<FileEntryBaseDto>>undefined();
 
   public CheckDestFolderDto() {
   }
@@ -70,8 +69,7 @@ public class CheckDestFolderDto {
    * Get result
    * @return result
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESULT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESULT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CheckDestFolderResult getResult() {
@@ -79,7 +77,7 @@ public class CheckDestFolderDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonProperty(value = JSON_PROPERTY_RESULT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(@javax.annotation.Nullable CheckDestFolderResult result) {
     this.result = result;
@@ -107,16 +105,14 @@ public class CheckDestFolderDto {
    * The list of files in the destination folder.
    * @return files
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<FileEntryBaseDto> getFiles() {
         return files.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<FileEntryBaseDto>> getFiles_JsonNullable() {
     return files;
   }

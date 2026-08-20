@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -41,12 +42,10 @@ import java.util.StringJoiner;
 
 public class IPRestrictionsSettings {
   public static final String JSON_PROPERTY_ENABLE = "enable";
-  @javax.annotation.Nullable
-  private Boolean enable;
+  @javax.annotation.Nullable  private Boolean enable;
 
   public static final String JSON_PROPERTY_LAST_MODIFIED = "lastModified";
-  @javax.annotation.Nullable
-  private OffsetDateTime lastModified;
+  @javax.annotation.Nullable  private OffsetDateTime lastModified;
 
   public IPRestrictionsSettings() {
   }
@@ -62,8 +61,7 @@ public class IPRestrictionsSettings {
    * Get enable
    * @return enable
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEnable() {
@@ -71,7 +69,7 @@ public class IPRestrictionsSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENABLE)
+  @JsonProperty(value = JSON_PROPERTY_ENABLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnable(@javax.annotation.Nullable Boolean enable) {
     this.enable = enable;
@@ -87,8 +85,7 @@ public class IPRestrictionsSettings {
    * Get lastModified
    * @return lastModified
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLastModified() {
@@ -96,7 +93,7 @@ public class IPRestrictionsSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
     this.lastModified = lastModified;

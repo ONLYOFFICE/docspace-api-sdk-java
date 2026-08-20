@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -59,60 +60,46 @@ import java.util.StringJoiner;
 
 public class WebhooksConfigDto {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nonnull
-  private Integer id;
+  @javax.annotation.Nonnull  private Integer id;
 
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_URI = "uri";
-  @javax.annotation.Nullable
-  private JsonNullable<String> uri = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> uri = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
-  @javax.annotation.Nullable
-  private Boolean enabled;
+  @javax.annotation.Nullable  private Boolean enabled;
 
   public static final String JSON_PROPERTY_SSL = "ssl";
-  @javax.annotation.Nullable
-  private Boolean ssl;
+  @javax.annotation.Nullable  private Boolean ssl;
 
   public static final String JSON_PROPERTY_TRIGGERS = "triggers";
-  @javax.annotation.Nullable
-  private WebhookTrigger triggers;
+  @javax.annotation.Nullable  private WebhookTrigger triggers;
 
   public static final String JSON_PROPERTY_TARGET_ID = "targetId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> targetId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> targetId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
-  @javax.annotation.Nullable
-  private EmployeeDto createdBy;
+  @javax.annotation.Nullable  private EmployeeDto createdBy;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
-  @javax.annotation.Nullable
-  private JsonNullable<OffsetDateTime> createdOn = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> createdOn = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_MODIFIED_BY = "modifiedBy";
-  @javax.annotation.Nullable
-  private EmployeeDto modifiedBy;
+  @javax.annotation.Nullable  private EmployeeDto modifiedBy;
 
   public static final String JSON_PROPERTY_MODIFIED_ON = "modifiedOn";
-  @javax.annotation.Nullable
-  private JsonNullable<OffsetDateTime> modifiedOn = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> modifiedOn = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_LAST_FAILURE_ON = "lastFailureOn";
-  @javax.annotation.Nullable
-  private JsonNullable<OffsetDateTime> lastFailureOn = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> lastFailureOn = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_LAST_FAILURE_CONTENT = "lastFailureContent";
-  @javax.annotation.Nullable
-  private JsonNullable<String> lastFailureContent = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> lastFailureContent = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LAST_SUCCESS_ON = "lastSuccessOn";
-  @javax.annotation.Nullable
-  private JsonNullable<OffsetDateTime> lastSuccessOn = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> lastSuccessOn = JsonNullable.<OffsetDateTime>undefined();
 
   public WebhooksConfigDto() {
   }
@@ -128,8 +115,7 @@ public class WebhooksConfigDto {
    * The webhook ID.
    * @return id
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getId() {
@@ -137,7 +123,7 @@ public class WebhooksConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@javax.annotation.Nonnull Integer id) {
     this.id = id;
@@ -153,16 +139,14 @@ public class WebhooksConfigDto {
    * The webhook name.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getName() {
         return name.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
@@ -186,16 +170,14 @@ public class WebhooksConfigDto {
    * The webhook URI.
    * @return uri
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getUri() {
         return uri.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_URI)
+  @JsonProperty(value = JSON_PROPERTY_URI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getUri_JsonNullable() {
     return uri;
   }
@@ -219,8 +201,7 @@ public class WebhooksConfigDto {
    * Specifies if the webhooks are enabled or not.
    * @return enabled
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEnabled() {
@@ -228,7 +209,7 @@ public class WebhooksConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
     this.enabled = enabled;
@@ -244,8 +225,7 @@ public class WebhooksConfigDto {
    * The webhook SSL verification (enabled or not).
    * @return ssl
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SSL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SSL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSsl() {
@@ -253,7 +233,7 @@ public class WebhooksConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SSL)
+  @JsonProperty(value = JSON_PROPERTY_SSL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSsl(@javax.annotation.Nullable Boolean ssl) {
     this.ssl = ssl;
@@ -269,8 +249,7 @@ public class WebhooksConfigDto {
    * Get triggers
    * @return triggers
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRIGGERS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRIGGERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public WebhookTrigger getTriggers() {
@@ -278,7 +257,7 @@ public class WebhooksConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRIGGERS)
+  @JsonProperty(value = JSON_PROPERTY_TRIGGERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTriggers(@javax.annotation.Nullable WebhookTrigger triggers) {
     this.triggers = triggers;
@@ -294,16 +273,14 @@ public class WebhooksConfigDto {
    * The webhook target ID.
    * @return targetId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTargetId() {
         return targetId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TARGET_ID)
+  @JsonProperty(value = JSON_PROPERTY_TARGET_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTargetId_JsonNullable() {
     return targetId;
   }
@@ -327,8 +304,7 @@ public class WebhooksConfigDto {
    * Get createdBy
    * @return createdBy
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_BY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED_BY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EmployeeDto getCreatedBy() {
@@ -336,7 +312,7 @@ public class WebhooksConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATED_BY)
+  @JsonProperty(value = JSON_PROPERTY_CREATED_BY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedBy(@javax.annotation.Nullable EmployeeDto createdBy) {
     this.createdBy = createdBy;
@@ -352,16 +328,14 @@ public class WebhooksConfigDto {
    * The date and time when the webhook was created.
    * @return createdOn
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public OffsetDateTime getCreatedOn() {
         return createdOn.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CREATED_ON)
+  @JsonProperty(value = JSON_PROPERTY_CREATED_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<OffsetDateTime> getCreatedOn_JsonNullable() {
     return createdOn;
   }
@@ -385,8 +359,7 @@ public class WebhooksConfigDto {
    * Get modifiedBy
    * @return modifiedBy
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MODIFIED_BY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EmployeeDto getModifiedBy() {
@@ -394,7 +367,7 @@ public class WebhooksConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY)
+  @JsonProperty(value = JSON_PROPERTY_MODIFIED_BY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModifiedBy(@javax.annotation.Nullable EmployeeDto modifiedBy) {
     this.modifiedBy = modifiedBy;
@@ -410,16 +383,14 @@ public class WebhooksConfigDto {
    * The date and time when the webhook was modified.
    * @return modifiedOn
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public OffsetDateTime getModifiedOn() {
         return modifiedOn.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MODIFIED_ON)
+  @JsonProperty(value = JSON_PROPERTY_MODIFIED_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<OffsetDateTime> getModifiedOn_JsonNullable() {
     return modifiedOn;
   }
@@ -443,16 +414,14 @@ public class WebhooksConfigDto {
    * The date and time of the webhook last failure.
    * @return lastFailureOn
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public OffsetDateTime getLastFailureOn() {
         return lastFailureOn.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LAST_FAILURE_ON)
+  @JsonProperty(value = JSON_PROPERTY_LAST_FAILURE_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<OffsetDateTime> getLastFailureOn_JsonNullable() {
     return lastFailureOn;
   }
@@ -476,16 +445,14 @@ public class WebhooksConfigDto {
    * The webhook last failure content.
    * @return lastFailureContent
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLastFailureContent() {
         return lastFailureContent.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LAST_FAILURE_CONTENT)
+  @JsonProperty(value = JSON_PROPERTY_LAST_FAILURE_CONTENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLastFailureContent_JsonNullable() {
     return lastFailureContent;
   }
@@ -509,16 +476,14 @@ public class WebhooksConfigDto {
    * The date and time of the webhook last success.
    * @return lastSuccessOn
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public OffsetDateTime getLastSuccessOn() {
         return lastSuccessOn.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LAST_SUCCESS_ON)
+  @JsonProperty(value = JSON_PROPERTY_LAST_SUCCESS_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<OffsetDateTime> getLastSuccessOn_JsonNullable() {
     return lastSuccessOn;
   }

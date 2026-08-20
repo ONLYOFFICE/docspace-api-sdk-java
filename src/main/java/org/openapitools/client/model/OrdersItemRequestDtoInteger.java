@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.FileEntryType;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -42,16 +43,13 @@ import java.util.StringJoiner;
 
 public class OrdersItemRequestDtoInteger {
   public static final String JSON_PROPERTY_ENTRY_ID = "entryId";
-  @javax.annotation.Nonnull
-  private Integer entryId;
+  @javax.annotation.Nonnull  private Integer entryId;
 
   public static final String JSON_PROPERTY_ENTRY_TYPE = "entryType";
-  @javax.annotation.Nonnull
-  private FileEntryType entryType;
+  @javax.annotation.Nonnull  private FileEntryType entryType;
 
   public static final String JSON_PROPERTY_ORDER = "order";
-  @javax.annotation.Nonnull
-  private Integer order;
+  @javax.annotation.Nonnull  private Integer order;
 
   public OrdersItemRequestDtoInteger() {
   }
@@ -67,8 +65,7 @@ public class OrdersItemRequestDtoInteger {
    * The entry unique identifier (file or folder).
    * @return entryId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ENTRY_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ENTRY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getEntryId() {
@@ -76,7 +73,7 @@ public class OrdersItemRequestDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENTRY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ENTRY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEntryId(@javax.annotation.Nonnull Integer entryId) {
     this.entryId = entryId;
@@ -92,8 +89,7 @@ public class OrdersItemRequestDtoInteger {
    * Get entryType
    * @return entryType
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ENTRY_TYPE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ENTRY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public FileEntryType getEntryType() {
@@ -101,7 +97,7 @@ public class OrdersItemRequestDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENTRY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_ENTRY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEntryType(@javax.annotation.Nonnull FileEntryType entryType) {
     this.entryType = entryType;
@@ -119,8 +115,7 @@ public class OrdersItemRequestDtoInteger {
    * maximum: 2147483647
    * @return order
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ORDER)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ORDER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getOrder() {
@@ -128,7 +123,7 @@ public class OrdersItemRequestDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonProperty(value = JSON_PROPERTY_ORDER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOrder(@javax.annotation.Nonnull Integer order) {
     this.order = order;

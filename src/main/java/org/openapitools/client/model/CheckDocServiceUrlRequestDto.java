@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,28 +49,22 @@ import java.util.StringJoiner;
 
 public class CheckDocServiceUrlRequestDto {
   public static final String JSON_PROPERTY_DOC_SERVICE_URL = "docServiceUrl";
-  @javax.annotation.Nullable
-  private String docServiceUrl;
+  @javax.annotation.Nullable  private String docServiceUrl;
 
   public static final String JSON_PROPERTY_DOC_SERVICE_URL_INTERNAL = "docServiceUrlInternal";
-  @javax.annotation.Nullable
-  private JsonNullable<String> docServiceUrlInternal = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> docServiceUrlInternal = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DOC_SERVICE_URL_PORTAL = "docServiceUrlPortal";
-  @javax.annotation.Nullable
-  private JsonNullable<String> docServiceUrlPortal = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> docServiceUrlPortal = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DOC_SERVICE_SIGNATURE_SECRET = "docServiceSignatureSecret";
-  @javax.annotation.Nullable
-  private JsonNullable<String> docServiceSignatureSecret = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> docServiceSignatureSecret = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DOC_SERVICE_SIGNATURE_HEADER = "docServiceSignatureHeader";
-  @javax.annotation.Nullable
-  private JsonNullable<String> docServiceSignatureHeader = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> docServiceSignatureHeader = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DOC_SERVICE_SSL_VERIFICATION = "docServiceSslVerification";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> docServiceSslVerification = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> docServiceSslVerification = JsonNullable.<Boolean>undefined();
 
   public CheckDocServiceUrlRequestDto() {
   }
@@ -85,8 +80,7 @@ public class CheckDocServiceUrlRequestDto {
    * The ONLYOFFICE Docs URL address.
    * @return docServiceUrl
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_URL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDocServiceUrl() {
@@ -94,7 +88,7 @@ public class CheckDocServiceUrlRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_URL)
+  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDocServiceUrl(@javax.annotation.Nullable String docServiceUrl) {
     this.docServiceUrl = docServiceUrl;
@@ -110,16 +104,14 @@ public class CheckDocServiceUrlRequestDto {
    * The ONLYOFFICE Docs URL address in the local private network.
    * @return docServiceUrlInternal
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getDocServiceUrlInternal() {
         return docServiceUrlInternal.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_URL_INTERNAL)
+  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_URL_INTERNAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getDocServiceUrlInternal_JsonNullable() {
     return docServiceUrlInternal;
   }
@@ -143,16 +135,14 @@ public class CheckDocServiceUrlRequestDto {
    * The ONLYOFFICE Docs URL address.
    * @return docServiceUrlPortal
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getDocServiceUrlPortal() {
         return docServiceUrlPortal.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_URL_PORTAL)
+  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_URL_PORTAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getDocServiceUrlPortal_JsonNullable() {
     return docServiceUrlPortal;
   }
@@ -176,16 +166,14 @@ public class CheckDocServiceUrlRequestDto {
    * The signature secret of the ONLYOFFICE Docs.
    * @return docServiceSignatureSecret
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getDocServiceSignatureSecret() {
         return docServiceSignatureSecret.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_SIGNATURE_SECRET)
+  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_SIGNATURE_SECRET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getDocServiceSignatureSecret_JsonNullable() {
     return docServiceSignatureSecret;
   }
@@ -209,16 +197,14 @@ public class CheckDocServiceUrlRequestDto {
    * The signature header of the ONLYOFFICE Docs.
    * @return docServiceSignatureHeader
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getDocServiceSignatureHeader() {
         return docServiceSignatureHeader.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_SIGNATURE_HEADER)
+  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_SIGNATURE_HEADER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getDocServiceSignatureHeader_JsonNullable() {
     return docServiceSignatureHeader;
   }
@@ -242,16 +228,14 @@ public class CheckDocServiceUrlRequestDto {
    * Specifies if the SSL verification of the ONLYOFFICE Docs is enabled or not.
    * @return docServiceSslVerification
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getDocServiceSslVerification() {
         return docServiceSslVerification.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DOC_SERVICE_SSL_VERIFICATION)
+  @JsonProperty(value = JSON_PROPERTY_DOC_SERVICE_SSL_VERIFICATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getDocServiceSslVerification_JsonNullable() {
     return docServiceSslVerification;
   }

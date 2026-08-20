@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import java.util.UUID;
 import org.openapitools.client.model.CultureSpecificExternalResources;
 import org.openapitools.client.model.DeepLinkDto;
 import org.openapitools.client.model.FirebaseDto;
+import org.openapitools.client.model.FolderType;
 import org.openapitools.client.model.FormGalleryDto;
 import org.openapitools.client.model.PasswordHasher;
 import org.openapitools.client.model.PluginsDto;
@@ -42,6 +43,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -86,6 +88,7 @@ import java.util.StringJoiner;
   SettingsDto.JSON_PROPERTY_LIMITED_ACCESS_SPACE,
   SettingsDto.JSON_PROPERTY_LIMITED_ACCESS_DEV_TOOLS_FOR_USERS,
   SettingsDto.JSON_PROPERTY_DISPLAY_BANNERS,
+  SettingsDto.JSON_PROPERTY_AI_ENABLED,
   SettingsDto.JSON_PROPERTY_USER_NAME_REGEX,
   SettingsDto.JSON_PROPERTY_INVITATION_LIMIT,
   SettingsDto.JSON_PROPERTY_PLUGINS,
@@ -93,177 +96,146 @@ import java.util.StringJoiner;
   SettingsDto.JSON_PROPERTY_FORM_GALLERY,
   SettingsDto.JSON_PROPERTY_MAX_IMAGE_UPLOAD_SIZE,
   SettingsDto.JSON_PROPERTY_LOGO_TEXT,
-  SettingsDto.JSON_PROPERTY_EXTERNAL_RESOURCES
+  SettingsDto.JSON_PROPERTY_EXTERNAL_RESOURCES,
+  SettingsDto.JSON_PROPERTY_DEFAULT_FOLDER_TYPE,
+  SettingsDto.JSON_PROPERTY_EXTERNAL_DB_ENABLED
 })
 
 public class SettingsDto {
   public static final String JSON_PROPERTY_TIMEZONE = "timezone";
-  @javax.annotation.Nullable
-  private JsonNullable<String> timezone = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> timezone = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TRUSTED_DOMAINS = "trustedDomains";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> trustedDomains = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> trustedDomains = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_TRUSTED_DOMAINS_TYPE = "trustedDomainsType";
-  @javax.annotation.Nullable
-  private TenantTrustedDomainsType trustedDomainsType;
+  @javax.annotation.Nullable  private TenantTrustedDomainsType trustedDomainsType;
 
   public static final String JSON_PROPERTY_CULTURE = "culture";
-  @javax.annotation.Nullable
-  private String culture;
+  @javax.annotation.Nullable  private String culture;
 
   public static final String JSON_PROPERTY_UTC_OFFSET = "utcOffset";
-  @javax.annotation.Nullable
-  private String utcOffset;
+  @javax.annotation.Nullable  private String utcOffset;
 
   public static final String JSON_PROPERTY_UTC_HOURS_OFFSET = "utcHoursOffset";
-  @javax.annotation.Nullable
-  private Double utcHoursOffset;
+  @javax.annotation.Nullable  private Double utcHoursOffset;
 
   public static final String JSON_PROPERTY_GREETING_SETTINGS = "greetingSettings";
-  @javax.annotation.Nullable
-  private JsonNullable<String> greetingSettings = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> greetingSettings = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_OWNER_ID = "ownerId";
-  @javax.annotation.Nullable
-  private UUID ownerId;
+  @javax.annotation.Nullable  private UUID ownerId;
 
   public static final String JSON_PROPERTY_NAME_SCHEMA_ID = "nameSchemaId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> nameSchemaId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> nameSchemaId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ENABLED_JOIN = "enabledJoin";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> enabledJoin = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> enabledJoin = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_ENABLE_ADM_MESS = "enableAdmMess";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> enableAdmMess = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> enableAdmMess = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_THIRDPARTY_ENABLE = "thirdpartyEnable";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> thirdpartyEnable = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> thirdpartyEnable = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_DOC_SPACE = "docSpace";
-  @javax.annotation.Nullable
-  private Boolean docSpace;
+  @javax.annotation.Nullable  private Boolean docSpace;
 
   public static final String JSON_PROPERTY_STANDALONE = "standalone";
-  @javax.annotation.Nullable
-  private Boolean standalone;
+  @javax.annotation.Nullable  private Boolean standalone;
 
   public static final String JSON_PROPERTY_IS_AMI = "isAmi";
-  @javax.annotation.Nullable
-  private Boolean isAmi;
+  @javax.annotation.Nullable  private Boolean isAmi;
 
   public static final String JSON_PROPERTY_BASE_DOMAIN = "baseDomain";
-  @javax.annotation.Nullable
-  private String baseDomain;
+  @javax.annotation.Nullable  private String baseDomain;
 
   public static final String JSON_PROPERTY_WIZARD_TOKEN = "wizardToken";
-  @javax.annotation.Nullable
-  private JsonNullable<String> wizardToken = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> wizardToken = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PASSWORD_HASH = "passwordHash";
-  @javax.annotation.Nullable
-  private PasswordHasher passwordHash;
+  @javax.annotation.Nullable  private PasswordHasher passwordHash;
 
   public static final String JSON_PROPERTY_FIREBASE = "firebase";
-  @javax.annotation.Nullable
-  private FirebaseDto firebase;
+  @javax.annotation.Nullable  private FirebaseDto firebase;
 
   public static final String JSON_PROPERTY_VERSION = "version";
-  @javax.annotation.Nullable
-  private JsonNullable<String> version = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> version = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_RECAPTCHA_TYPE = "recaptchaType";
-  @javax.annotation.Nullable
-  private RecaptchaType recaptchaType;
+  @javax.annotation.Nullable  private RecaptchaType recaptchaType;
 
   public static final String JSON_PROPERTY_RECAPTCHA_PUBLIC_KEY = "recaptchaPublicKey";
-  @javax.annotation.Nullable
-  private JsonNullable<String> recaptchaPublicKey = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> recaptchaPublicKey = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DEBUG_INFO = "debugInfo";
-  @javax.annotation.Nullable
-  private Boolean debugInfo;
+  @javax.annotation.Nullable  private Boolean debugInfo;
 
   public static final String JSON_PROPERTY_SOCKET_URL = "socketUrl";
-  @javax.annotation.Nullable
-  private JsonNullable<String> socketUrl = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> socketUrl = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TENANT_STATUS = "tenantStatus";
-  @javax.annotation.Nullable
-  private TenantStatus tenantStatus;
+  @javax.annotation.Nullable  private TenantStatus tenantStatus;
 
   public static final String JSON_PROPERTY_TENANT_ALIAS = "tenantAlias";
-  @javax.annotation.Nullable
-  private JsonNullable<String> tenantAlias = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> tenantAlias = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DISPLAY_ABOUT = "displayAbout";
-  @javax.annotation.Nullable
-  private Boolean displayAbout;
+  @javax.annotation.Nullable  private Boolean displayAbout;
 
   public static final String JSON_PROPERTY_DOMAIN_VALIDATOR = "domainValidator";
-  @javax.annotation.Nullable
-  private TenantDomainValidator domainValidator;
+  @javax.annotation.Nullable  private TenantDomainValidator domainValidator;
 
   public static final String JSON_PROPERTY_ZENDESK_KEY = "zendeskKey";
-  @javax.annotation.Nullable
-  private JsonNullable<String> zendeskKey = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> zendeskKey = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TAG_MANAGER_ID = "tagManagerId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> tagManagerId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> tagManagerId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_COOKIE_SETTINGS_ENABLED = "cookieSettingsEnabled";
-  @javax.annotation.Nonnull
-  private Boolean cookieSettingsEnabled;
+  @javax.annotation.Nonnull  private Boolean cookieSettingsEnabled;
 
   public static final String JSON_PROPERTY_LIMITED_ACCESS_SPACE = "limitedAccessSpace";
-  @javax.annotation.Nullable
-  private Boolean limitedAccessSpace;
+  @javax.annotation.Nullable  private Boolean limitedAccessSpace;
 
   public static final String JSON_PROPERTY_LIMITED_ACCESS_DEV_TOOLS_FOR_USERS = "limitedAccessDevToolsForUsers";
-  @javax.annotation.Nullable
-  private Boolean limitedAccessDevToolsForUsers;
+  @javax.annotation.Nullable  private Boolean limitedAccessDevToolsForUsers;
 
   public static final String JSON_PROPERTY_DISPLAY_BANNERS = "displayBanners";
-  @javax.annotation.Nullable
-  private Boolean displayBanners;
+  @javax.annotation.Nullable  private Boolean displayBanners;
+
+  public static final String JSON_PROPERTY_AI_ENABLED = "aiEnabled";
+  @javax.annotation.Nullable  private Boolean aiEnabled;
 
   public static final String JSON_PROPERTY_USER_NAME_REGEX = "userNameRegex";
-  @javax.annotation.Nullable
-  private JsonNullable<String> userNameRegex = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> userNameRegex = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_INVITATION_LIMIT = "invitationLimit";
-  @javax.annotation.Nullable
-  private JsonNullable<Integer> invitationLimit = JsonNullable.<Integer>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Integer> invitationLimit = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_PLUGINS = "plugins";
-  @javax.annotation.Nullable
-  private PluginsDto plugins;
+  @javax.annotation.Nullable  private PluginsDto plugins;
 
   public static final String JSON_PROPERTY_DEEP_LINK = "deepLink";
-  @javax.annotation.Nonnull
-  private DeepLinkDto deepLink;
+  @javax.annotation.Nonnull  private DeepLinkDto deepLink;
 
   public static final String JSON_PROPERTY_FORM_GALLERY = "formGallery";
-  @javax.annotation.Nullable
-  private FormGalleryDto formGallery;
+  @javax.annotation.Nullable  private FormGalleryDto formGallery;
 
   public static final String JSON_PROPERTY_MAX_IMAGE_UPLOAD_SIZE = "maxImageUploadSize";
-  @javax.annotation.Nullable
-  private Long maxImageUploadSize;
+  @javax.annotation.Nullable  private Long maxImageUploadSize;
 
   public static final String JSON_PROPERTY_LOGO_TEXT = "logoText";
-  @javax.annotation.Nullable
-  private JsonNullable<String> logoText = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> logoText = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EXTERNAL_RESOURCES = "externalResources";
-  @javax.annotation.Nullable
-  private CultureSpecificExternalResources externalResources;
+  @javax.annotation.Nullable  private CultureSpecificExternalResources externalResources;
+
+  public static final String JSON_PROPERTY_DEFAULT_FOLDER_TYPE = "defaultFolderType";
+  @javax.annotation.Nullable  private FolderType defaultFolderType;
+
+  public static final String JSON_PROPERTY_EXTERNAL_DB_ENABLED = "externalDbEnabled";
+  @javax.annotation.Nullable  private Boolean externalDbEnabled;
 
   public SettingsDto() {
   }
@@ -279,16 +251,14 @@ public class SettingsDto {
    * The time zone.
    * @return timezone
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTimezone() {
         return timezone.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TIMEZONE)
+  @JsonProperty(value = JSON_PROPERTY_TIMEZONE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTimezone_JsonNullable() {
     return timezone;
   }
@@ -324,16 +294,14 @@ public class SettingsDto {
    * The list of the trusted domains.
    * @return trustedDomains
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getTrustedDomains() {
         return trustedDomains.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TRUSTED_DOMAINS)
+  @JsonProperty(value = JSON_PROPERTY_TRUSTED_DOMAINS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getTrustedDomains_JsonNullable() {
     return trustedDomains;
   }
@@ -357,8 +325,7 @@ public class SettingsDto {
    * Get trustedDomainsType
    * @return trustedDomainsType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRUSTED_DOMAINS_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRUSTED_DOMAINS_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TenantTrustedDomainsType getTrustedDomainsType() {
@@ -366,7 +333,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRUSTED_DOMAINS_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TRUSTED_DOMAINS_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrustedDomainsType(@javax.annotation.Nullable TenantTrustedDomainsType trustedDomainsType) {
     this.trustedDomainsType = trustedDomainsType;
@@ -382,8 +349,7 @@ public class SettingsDto {
    * The language.
    * @return culture
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CULTURE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CULTURE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getCulture() {
@@ -391,7 +357,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CULTURE)
+  @JsonProperty(value = JSON_PROPERTY_CULTURE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCulture(@javax.annotation.Nullable String culture) {
     this.culture = culture;
@@ -407,8 +373,7 @@ public class SettingsDto {
    * The UTC offset in the TimeSpan format.
    * @return utcOffset
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UTC_OFFSET)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UTC_OFFSET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getUtcOffset() {
@@ -416,7 +381,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UTC_OFFSET)
+  @JsonProperty(value = JSON_PROPERTY_UTC_OFFSET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUtcOffset(@javax.annotation.Nullable String utcOffset) {
     this.utcOffset = utcOffset;
@@ -432,8 +397,7 @@ public class SettingsDto {
    * The UTC offset in hours.
    * @return utcHoursOffset
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UTC_HOURS_OFFSET)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UTC_HOURS_OFFSET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getUtcHoursOffset() {
@@ -441,7 +405,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UTC_HOURS_OFFSET)
+  @JsonProperty(value = JSON_PROPERTY_UTC_HOURS_OFFSET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUtcHoursOffset(@javax.annotation.Nullable Double utcHoursOffset) {
     this.utcHoursOffset = utcHoursOffset;
@@ -457,16 +421,14 @@ public class SettingsDto {
    * The greeting settings.
    * @return greetingSettings
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getGreetingSettings() {
         return greetingSettings.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_GREETING_SETTINGS)
+  @JsonProperty(value = JSON_PROPERTY_GREETING_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getGreetingSettings_JsonNullable() {
     return greetingSettings;
   }
@@ -490,8 +452,7 @@ public class SettingsDto {
    * The owner ID.
    * @return ownerId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OWNER_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OWNER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getOwnerId() {
@@ -499,7 +460,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OWNER_ID)
+  @JsonProperty(value = JSON_PROPERTY_OWNER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerId(@javax.annotation.Nullable UUID ownerId) {
     this.ownerId = ownerId;
@@ -515,16 +476,14 @@ public class SettingsDto {
    * The team template ID.
    * @return nameSchemaId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getNameSchemaId() {
         return nameSchemaId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_NAME_SCHEMA_ID)
+  @JsonProperty(value = JSON_PROPERTY_NAME_SCHEMA_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getNameSchemaId_JsonNullable() {
     return nameSchemaId;
   }
@@ -548,16 +507,14 @@ public class SettingsDto {
    * Specifies if a user can join the portal or not.
    * @return enabledJoin
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getEnabledJoin() {
         return enabledJoin.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ENABLED_JOIN)
+  @JsonProperty(value = JSON_PROPERTY_ENABLED_JOIN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getEnabledJoin_JsonNullable() {
     return enabledJoin;
   }
@@ -581,16 +538,14 @@ public class SettingsDto {
    * Specifies if a user can send a message to the administrator when accessing the DocSpace portal or not.
    * @return enableAdmMess
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getEnableAdmMess() {
         return enableAdmMess.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ENABLE_ADM_MESS)
+  @JsonProperty(value = JSON_PROPERTY_ENABLE_ADM_MESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getEnableAdmMess_JsonNullable() {
     return enableAdmMess;
   }
@@ -614,16 +569,14 @@ public class SettingsDto {
    * Specifies if a user can connect third-party providers to the portal or not.
    * @return thirdpartyEnable
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getThirdpartyEnable() {
         return thirdpartyEnable.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_THIRDPARTY_ENABLE)
+  @JsonProperty(value = JSON_PROPERTY_THIRDPARTY_ENABLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getThirdpartyEnable_JsonNullable() {
     return thirdpartyEnable;
   }
@@ -647,8 +600,7 @@ public class SettingsDto {
    * Specifies if this portal is a DocSpace portal or not.
    * @return docSpace
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOC_SPACE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOC_SPACE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDocSpace() {
@@ -656,7 +608,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOC_SPACE)
+  @JsonProperty(value = JSON_PROPERTY_DOC_SPACE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocSpace(@javax.annotation.Nullable Boolean docSpace) {
     this.docSpace = docSpace;
@@ -672,8 +624,7 @@ public class SettingsDto {
    * Indicates whether the system is running in standalone mode.
    * @return standalone
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STANDALONE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STANDALONE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getStandalone() {
@@ -681,7 +632,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STANDALONE)
+  @JsonProperty(value = JSON_PROPERTY_STANDALONE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStandalone(@javax.annotation.Nullable Boolean standalone) {
     this.standalone = standalone;
@@ -697,8 +648,7 @@ public class SettingsDto {
    * Specifies if this portal is the AMI instance or not.
    * @return isAmi
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_AMI)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_AMI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsAmi() {
@@ -706,7 +656,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_AMI)
+  @JsonProperty(value = JSON_PROPERTY_IS_AMI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsAmi(@javax.annotation.Nullable Boolean isAmi) {
     this.isAmi = isAmi;
@@ -722,8 +672,7 @@ public class SettingsDto {
    * The base domain.
    * @return baseDomain
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BASE_DOMAIN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_BASE_DOMAIN, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getBaseDomain() {
@@ -731,7 +680,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BASE_DOMAIN)
+  @JsonProperty(value = JSON_PROPERTY_BASE_DOMAIN, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setBaseDomain(@javax.annotation.Nullable String baseDomain) {
     this.baseDomain = baseDomain;
@@ -747,16 +696,14 @@ public class SettingsDto {
    * The wizard token.
    * @return wizardToken
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getWizardToken() {
         return wizardToken.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_WIZARD_TOKEN)
+  @JsonProperty(value = JSON_PROPERTY_WIZARD_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getWizardToken_JsonNullable() {
     return wizardToken;
   }
@@ -780,8 +727,7 @@ public class SettingsDto {
    * Get passwordHash
    * @return passwordHash
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PASSWORD_HASH)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PASSWORD_HASH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public PasswordHasher getPasswordHash() {
@@ -789,7 +735,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PASSWORD_HASH)
+  @JsonProperty(value = JSON_PROPERTY_PASSWORD_HASH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPasswordHash(@javax.annotation.Nullable PasswordHasher passwordHash) {
     this.passwordHash = passwordHash;
@@ -805,8 +751,7 @@ public class SettingsDto {
    * Get firebase
    * @return firebase
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIREBASE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FIREBASE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FirebaseDto getFirebase() {
@@ -814,7 +759,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FIREBASE)
+  @JsonProperty(value = JSON_PROPERTY_FIREBASE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirebase(@javax.annotation.Nullable FirebaseDto firebase) {
     this.firebase = firebase;
@@ -830,16 +775,14 @@ public class SettingsDto {
    * The portal version.
    * @return version
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getVersion() {
         return version.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(value = JSON_PROPERTY_VERSION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getVersion_JsonNullable() {
     return version;
   }
@@ -863,8 +806,7 @@ public class SettingsDto {
    * Get recaptchaType
    * @return recaptchaType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RECAPTCHA_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RECAPTCHA_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public RecaptchaType getRecaptchaType() {
@@ -872,7 +814,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RECAPTCHA_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_RECAPTCHA_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecaptchaType(@javax.annotation.Nullable RecaptchaType recaptchaType) {
     this.recaptchaType = recaptchaType;
@@ -888,16 +830,14 @@ public class SettingsDto {
    * The ReCAPTCHA public key.
    * @return recaptchaPublicKey
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRecaptchaPublicKey() {
         return recaptchaPublicKey.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_RECAPTCHA_PUBLIC_KEY)
+  @JsonProperty(value = JSON_PROPERTY_RECAPTCHA_PUBLIC_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRecaptchaPublicKey_JsonNullable() {
     return recaptchaPublicKey;
   }
@@ -921,8 +861,7 @@ public class SettingsDto {
    * Specifies if the debug information will be sent or not.
    * @return debugInfo
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEBUG_INFO)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEBUG_INFO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDebugInfo() {
@@ -930,7 +869,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DEBUG_INFO)
+  @JsonProperty(value = JSON_PROPERTY_DEBUG_INFO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDebugInfo(@javax.annotation.Nullable Boolean debugInfo) {
     this.debugInfo = debugInfo;
@@ -946,16 +885,14 @@ public class SettingsDto {
    * The socket URL.
    * @return socketUrl
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSocketUrl() {
         return socketUrl.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SOCKET_URL)
+  @JsonProperty(value = JSON_PROPERTY_SOCKET_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSocketUrl_JsonNullable() {
     return socketUrl;
   }
@@ -979,8 +916,7 @@ public class SettingsDto {
    * Get tenantStatus
    * @return tenantStatus
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TENANT_STATUS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TenantStatus getTenantStatus() {
@@ -988,7 +924,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TENANT_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_TENANT_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTenantStatus(@javax.annotation.Nullable TenantStatus tenantStatus) {
     this.tenantStatus = tenantStatus;
@@ -1004,16 +940,14 @@ public class SettingsDto {
    * The tenant alias.
    * @return tenantAlias
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTenantAlias() {
         return tenantAlias.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TENANT_ALIAS)
+  @JsonProperty(value = JSON_PROPERTY_TENANT_ALIAS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTenantAlias_JsonNullable() {
     return tenantAlias;
   }
@@ -1037,8 +971,7 @@ public class SettingsDto {
    * Specifies whether to display the About portal section.
    * @return displayAbout
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DISPLAY_ABOUT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DISPLAY_ABOUT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDisplayAbout() {
@@ -1046,7 +979,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DISPLAY_ABOUT)
+  @JsonProperty(value = JSON_PROPERTY_DISPLAY_ABOUT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayAbout(@javax.annotation.Nullable Boolean displayAbout) {
     this.displayAbout = displayAbout;
@@ -1062,8 +995,7 @@ public class SettingsDto {
    * Get domainValidator
    * @return domainValidator
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOMAIN_VALIDATOR)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOMAIN_VALIDATOR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TenantDomainValidator getDomainValidator() {
@@ -1071,7 +1003,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOMAIN_VALIDATOR)
+  @JsonProperty(value = JSON_PROPERTY_DOMAIN_VALIDATOR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDomainValidator(@javax.annotation.Nullable TenantDomainValidator domainValidator) {
     this.domainValidator = domainValidator;
@@ -1087,16 +1019,14 @@ public class SettingsDto {
    * The Zendesk key.
    * @return zendeskKey
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getZendeskKey() {
         return zendeskKey.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ZENDESK_KEY)
+  @JsonProperty(value = JSON_PROPERTY_ZENDESK_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getZendeskKey_JsonNullable() {
     return zendeskKey;
   }
@@ -1120,16 +1050,14 @@ public class SettingsDto {
    * The tag manager ID.
    * @return tagManagerId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTagManagerId() {
         return tagManagerId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TAG_MANAGER_ID)
+  @JsonProperty(value = JSON_PROPERTY_TAG_MANAGER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTagManagerId_JsonNullable() {
     return tagManagerId;
   }
@@ -1153,8 +1081,7 @@ public class SettingsDto {
    * Specifies whether the cookie settings are enabled.
    * @return cookieSettingsEnabled
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_COOKIE_SETTINGS_ENABLED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_COOKIE_SETTINGS_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getCookieSettingsEnabled() {
@@ -1162,7 +1089,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COOKIE_SETTINGS_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_COOKIE_SETTINGS_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCookieSettingsEnabled(@javax.annotation.Nonnull Boolean cookieSettingsEnabled) {
     this.cookieSettingsEnabled = cookieSettingsEnabled;
@@ -1178,8 +1105,7 @@ public class SettingsDto {
    * Specifies whether the access to the space management is limited or not.
    * @return limitedAccessSpace
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIMITED_ACCESS_SPACE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIMITED_ACCESS_SPACE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getLimitedAccessSpace() {
@@ -1187,7 +1113,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LIMITED_ACCESS_SPACE)
+  @JsonProperty(value = JSON_PROPERTY_LIMITED_ACCESS_SPACE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLimitedAccessSpace(@javax.annotation.Nullable Boolean limitedAccessSpace) {
     this.limitedAccessSpace = limitedAccessSpace;
@@ -1203,8 +1129,7 @@ public class SettingsDto {
    * Specifies whether the access to the Developer Tools is limited for users or not.
    * @return limitedAccessDevToolsForUsers
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIMITED_ACCESS_DEV_TOOLS_FOR_USERS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIMITED_ACCESS_DEV_TOOLS_FOR_USERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getLimitedAccessDevToolsForUsers() {
@@ -1212,7 +1137,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LIMITED_ACCESS_DEV_TOOLS_FOR_USERS)
+  @JsonProperty(value = JSON_PROPERTY_LIMITED_ACCESS_DEV_TOOLS_FOR_USERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLimitedAccessDevToolsForUsers(@javax.annotation.Nullable Boolean limitedAccessDevToolsForUsers) {
     this.limitedAccessDevToolsForUsers = limitedAccessDevToolsForUsers;
@@ -1228,8 +1153,7 @@ public class SettingsDto {
    * Specifies whether to display the promotional banners.
    * @return displayBanners
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DISPLAY_BANNERS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DISPLAY_BANNERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDisplayBanners() {
@@ -1237,10 +1161,34 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DISPLAY_BANNERS)
+  @JsonProperty(value = JSON_PROPERTY_DISPLAY_BANNERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayBanners(@javax.annotation.Nullable Boolean displayBanners) {
     this.displayBanners = displayBanners;
+  }
+
+  public SettingsDto aiEnabled(@javax.annotation.Nullable Boolean aiEnabled) {
+    
+    this.aiEnabled = aiEnabled;
+    return this;
+  }
+
+  /**
+   * Specifies whether AI functionality (chat, agents, vectorization) is enabled for the current tenant.  When `false`, all AI features are disabled and the AI Agents folder is hidden.
+   * @return aiEnabled
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AI_ENABLED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAiEnabled() {
+    return aiEnabled;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_AI_ENABLED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAiEnabled(@javax.annotation.Nullable Boolean aiEnabled) {
+    this.aiEnabled = aiEnabled;
   }
 
   public SettingsDto userNameRegex(@javax.annotation.Nullable String userNameRegex) {
@@ -1253,16 +1201,14 @@ public class SettingsDto {
    * The user name validation regex.
    * @return userNameRegex
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getUserNameRegex() {
         return userNameRegex.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_USER_NAME_REGEX)
+  @JsonProperty(value = JSON_PROPERTY_USER_NAME_REGEX, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getUserNameRegex_JsonNullable() {
     return userNameRegex;
   }
@@ -1286,16 +1232,14 @@ public class SettingsDto {
    * The maximum number of invitations to the portal.
    * @return invitationLimit
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Integer getInvitationLimit() {
         return invitationLimit.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_INVITATION_LIMIT)
+  @JsonProperty(value = JSON_PROPERTY_INVITATION_LIMIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Integer> getInvitationLimit_JsonNullable() {
     return invitationLimit;
   }
@@ -1319,8 +1263,7 @@ public class SettingsDto {
    * Get plugins
    * @return plugins
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PLUGINS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PLUGINS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public PluginsDto getPlugins() {
@@ -1328,7 +1271,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PLUGINS)
+  @JsonProperty(value = JSON_PROPERTY_PLUGINS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlugins(@javax.annotation.Nullable PluginsDto plugins) {
     this.plugins = plugins;
@@ -1344,8 +1287,7 @@ public class SettingsDto {
    * Get deepLink
    * @return deepLink
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DEEP_LINK)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DEEP_LINK, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public DeepLinkDto getDeepLink() {
@@ -1353,7 +1295,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DEEP_LINK)
+  @JsonProperty(value = JSON_PROPERTY_DEEP_LINK, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDeepLink(@javax.annotation.Nonnull DeepLinkDto deepLink) {
     this.deepLink = deepLink;
@@ -1369,8 +1311,7 @@ public class SettingsDto {
    * Get formGallery
    * @return formGallery
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORM_GALLERY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FORM_GALLERY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FormGalleryDto getFormGallery() {
@@ -1378,7 +1319,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORM_GALLERY)
+  @JsonProperty(value = JSON_PROPERTY_FORM_GALLERY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFormGallery(@javax.annotation.Nullable FormGalleryDto formGallery) {
     this.formGallery = formGallery;
@@ -1394,8 +1335,7 @@ public class SettingsDto {
    * The maximum image upload size.
    * @return maxImageUploadSize
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAX_IMAGE_UPLOAD_SIZE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MAX_IMAGE_UPLOAD_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getMaxImageUploadSize() {
@@ -1403,7 +1343,7 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MAX_IMAGE_UPLOAD_SIZE)
+  @JsonProperty(value = JSON_PROPERTY_MAX_IMAGE_UPLOAD_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxImageUploadSize(@javax.annotation.Nullable Long maxImageUploadSize) {
     this.maxImageUploadSize = maxImageUploadSize;
@@ -1419,16 +1359,14 @@ public class SettingsDto {
    * The white label logo text.
    * @return logoText
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLogoText() {
         return logoText.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LOGO_TEXT)
+  @JsonProperty(value = JSON_PROPERTY_LOGO_TEXT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLogoText_JsonNullable() {
     return logoText;
   }
@@ -1452,8 +1390,7 @@ public class SettingsDto {
    * Get externalResources
    * @return externalResources
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXTERNAL_RESOURCES)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_RESOURCES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CultureSpecificExternalResources getExternalResources() {
@@ -1461,10 +1398,58 @@ public class SettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXTERNAL_RESOURCES)
+  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_RESOURCES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalResources(@javax.annotation.Nullable CultureSpecificExternalResources externalResources) {
     this.externalResources = externalResources;
+  }
+
+  public SettingsDto defaultFolderType(@javax.annotation.Nullable FolderType defaultFolderType) {
+    
+    this.defaultFolderType = defaultFolderType;
+    return this;
+  }
+
+  /**
+   * Get defaultFolderType
+   * @return defaultFolderType
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEFAULT_FOLDER_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public FolderType getDefaultFolderType() {
+    return defaultFolderType;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_DEFAULT_FOLDER_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDefaultFolderType(@javax.annotation.Nullable FolderType defaultFolderType) {
+    this.defaultFolderType = defaultFolderType;
+  }
+
+  public SettingsDto externalDbEnabled(@javax.annotation.Nullable Boolean externalDbEnabled) {
+    
+    this.externalDbEnabled = externalDbEnabled;
+    return this;
+  }
+
+  /**
+   * Specifies if an external database is connected for storing form results.
+   * @return externalDbEnabled
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_DB_ENABLED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getExternalDbEnabled() {
+    return externalDbEnabled;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_DB_ENABLED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setExternalDbEnabled(@javax.annotation.Nullable Boolean externalDbEnabled) {
+    this.externalDbEnabled = externalDbEnabled;
   }
 
   @Override
@@ -1510,6 +1495,7 @@ public class SettingsDto {
         Objects.equals(this.limitedAccessSpace, settingsDto.limitedAccessSpace) &&
         Objects.equals(this.limitedAccessDevToolsForUsers, settingsDto.limitedAccessDevToolsForUsers) &&
         Objects.equals(this.displayBanners, settingsDto.displayBanners) &&
+        Objects.equals(this.aiEnabled, settingsDto.aiEnabled) &&
         equalsNullable(this.userNameRegex, settingsDto.userNameRegex) &&
         equalsNullable(this.invitationLimit, settingsDto.invitationLimit) &&
         Objects.equals(this.plugins, settingsDto.plugins) &&
@@ -1517,7 +1503,9 @@ public class SettingsDto {
         Objects.equals(this.formGallery, settingsDto.formGallery) &&
         Objects.equals(this.maxImageUploadSize, settingsDto.maxImageUploadSize) &&
         equalsNullable(this.logoText, settingsDto.logoText) &&
-        Objects.equals(this.externalResources, settingsDto.externalResources);
+        Objects.equals(this.externalResources, settingsDto.externalResources) &&
+        Objects.equals(this.defaultFolderType, settingsDto.defaultFolderType) &&
+        Objects.equals(this.externalDbEnabled, settingsDto.externalDbEnabled);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1526,7 +1514,7 @@ public class SettingsDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(timezone), hashCodeNullable(trustedDomains), trustedDomainsType, culture, utcOffset, utcHoursOffset, hashCodeNullable(greetingSettings), ownerId, hashCodeNullable(nameSchemaId), hashCodeNullable(enabledJoin), hashCodeNullable(enableAdmMess), hashCodeNullable(thirdpartyEnable), docSpace, standalone, isAmi, baseDomain, hashCodeNullable(wizardToken), passwordHash, firebase, hashCodeNullable(version), recaptchaType, hashCodeNullable(recaptchaPublicKey), debugInfo, hashCodeNullable(socketUrl), tenantStatus, hashCodeNullable(tenantAlias), displayAbout, domainValidator, hashCodeNullable(zendeskKey), hashCodeNullable(tagManagerId), cookieSettingsEnabled, limitedAccessSpace, limitedAccessDevToolsForUsers, displayBanners, hashCodeNullable(userNameRegex), hashCodeNullable(invitationLimit), plugins, deepLink, formGallery, maxImageUploadSize, hashCodeNullable(logoText), externalResources);
+    return Objects.hash(hashCodeNullable(timezone), hashCodeNullable(trustedDomains), trustedDomainsType, culture, utcOffset, utcHoursOffset, hashCodeNullable(greetingSettings), ownerId, hashCodeNullable(nameSchemaId), hashCodeNullable(enabledJoin), hashCodeNullable(enableAdmMess), hashCodeNullable(thirdpartyEnable), docSpace, standalone, isAmi, baseDomain, hashCodeNullable(wizardToken), passwordHash, firebase, hashCodeNullable(version), recaptchaType, hashCodeNullable(recaptchaPublicKey), debugInfo, hashCodeNullable(socketUrl), tenantStatus, hashCodeNullable(tenantAlias), displayAbout, domainValidator, hashCodeNullable(zendeskKey), hashCodeNullable(tagManagerId), cookieSettingsEnabled, limitedAccessSpace, limitedAccessDevToolsForUsers, displayBanners, aiEnabled, hashCodeNullable(userNameRegex), hashCodeNullable(invitationLimit), plugins, deepLink, formGallery, maxImageUploadSize, hashCodeNullable(logoText), externalResources, defaultFolderType, externalDbEnabled);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1574,6 +1562,7 @@ public class SettingsDto {
     sb.append("    limitedAccessSpace: ").append(toIndentedString(limitedAccessSpace)).append("\n");
     sb.append("    limitedAccessDevToolsForUsers: ").append(toIndentedString(limitedAccessDevToolsForUsers)).append("\n");
     sb.append("    displayBanners: ").append(toIndentedString(displayBanners)).append("\n");
+    sb.append("    aiEnabled: ").append(toIndentedString(aiEnabled)).append("\n");
     sb.append("    userNameRegex: ").append(toIndentedString(userNameRegex)).append("\n");
     sb.append("    invitationLimit: ").append(toIndentedString(invitationLimit)).append("\n");
     sb.append("    plugins: ").append(toIndentedString(plugins)).append("\n");
@@ -1582,6 +1571,8 @@ public class SettingsDto {
     sb.append("    maxImageUploadSize: ").append(toIndentedString(maxImageUploadSize)).append("\n");
     sb.append("    logoText: ").append(toIndentedString(logoText)).append("\n");
     sb.append("    externalResources: ").append(toIndentedString(externalResources)).append("\n");
+    sb.append("    defaultFolderType: ").append(toIndentedString(defaultFolderType)).append("\n");
+    sb.append("    externalDbEnabled: ").append(toIndentedString(externalDbEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1958,6 +1949,16 @@ public class SettingsDto {
       }
     }
 
+    // add `aiEnabled` to the URL query string
+    if (getAiEnabled() != null) {
+      try {
+        joiner.add(String.format("%saiEnabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAiEnabled()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
     // add `userNameRegex` to the URL query string
     if (getUserNameRegex() != null) {
       try {
@@ -2016,6 +2017,26 @@ public class SettingsDto {
     // add `externalResources` to the URL query string
     if (getExternalResources() != null) {
       joiner.add(getExternalResources().toUrlQueryString(prefix + "externalResources" + suffix));
+    }
+
+    // add `defaultFolderType` to the URL query string
+    if (getDefaultFolderType() != null) {
+      try {
+        joiner.add(String.format("%sdefaultFolderType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDefaultFolderType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `externalDbEnabled` to the URL query string
+    if (getExternalDbEnabled() != null) {
+      try {
+        joiner.add(String.format("%sexternalDbEnabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExternalDbEnabled()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     return joiner.toString();

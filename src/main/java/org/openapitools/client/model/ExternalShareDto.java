@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -58,56 +59,43 @@ import java.util.StringJoiner;
 
 public class ExternalShareDto {
   public static final String JSON_PROPERTY_STATUS = "status";
-  @javax.annotation.Nonnull
-  private Status status;
+  @javax.annotation.Nonnull  private Status status;
 
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private String id;
+  @javax.annotation.Nullable  private JsonNullable<String> id = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private String title;
+  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  @javax.annotation.Nullable
-  private FileEntryType type;
+  @javax.annotation.Nullable  private FileEntryType type;
 
   public static final String JSON_PROPERTY_TENANT_ID = "tenantId";
-  @javax.annotation.Nonnull
-  private Integer tenantId;
+  @javax.annotation.Nonnull  private Integer tenantId;
 
   public static final String JSON_PROPERTY_ENTITY_ID = "entityId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> entityId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> entityId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ENTITY_TITLE = "entityTitle";
-  @javax.annotation.Nullable
-  private JsonNullable<String> entityTitle = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> entityTitle = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ENTITY_TYPE = "entityType";
-  @javax.annotation.Nullable
-  private FileEntryType entityType;
+  @javax.annotation.Nullable  private FileEntryType entityType;
 
   public static final String JSON_PROPERTY_IS_ROOM = "isRoom";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> isRoom = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> isRoom = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_SHARED = "shared";
-  @javax.annotation.Nonnull
-  private Boolean shared;
+  @javax.annotation.Nonnull  private Boolean shared;
 
   public static final String JSON_PROPERTY_LINK_ID = "linkId";
-  @javax.annotation.Nonnull
-  private UUID linkId;
+  @javax.annotation.Nonnull  private UUID linkId;
 
   public static final String JSON_PROPERTY_IS_AUTHENTICATED = "isAuthenticated";
-  @javax.annotation.Nonnull
-  private Boolean isAuthenticated;
+  @javax.annotation.Nonnull  private Boolean isAuthenticated;
 
   public static final String JSON_PROPERTY_IS_ROOM_MEMBER = "isRoomMember";
-  @javax.annotation.Nullable
-  private Boolean isRoomMember;
+  @javax.annotation.Nullable  private Boolean isRoomMember;
 
   public ExternalShareDto() {
   }
@@ -123,8 +111,7 @@ public class ExternalShareDto {
    * Get status
    * @return status
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Status getStatus() {
@@ -132,15 +119,15 @@ public class ExternalShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(@javax.annotation.Nonnull Status status) {
     this.status = status;
   }
 
   public ExternalShareDto id(@javax.annotation.Nullable String id) {
+    this.id = JsonNullable.<String>of(id);
     
-    this.id = id;
     return this;
   }
 
@@ -148,24 +135,30 @@ public class ExternalShareDto {
    * The external data ID.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getId() {
-    return id;
+        return id.orElse(null);
   }
 
-
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getId_JsonNullable() {
+    return id;
+  }
+  
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(@javax.annotation.Nullable String id) {
+  public void setId_JsonNullable(JsonNullable<String> id) {
     this.id = id;
   }
 
+  public void setId(@javax.annotation.Nullable String id) {
+    this.id = JsonNullable.<String>of(id);
+  }
+
   public ExternalShareDto title(@javax.annotation.Nullable String title) {
+    this.title = JsonNullable.<String>of(title);
     
-    this.title = title;
     return this;
   }
 
@@ -173,19 +166,25 @@ public class ExternalShareDto {
    * The external data title.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTitle() {
-    return title;
+        return title.orElse(null);
   }
 
-
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getTitle_JsonNullable() {
+    return title;
+  }
+  
   @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTitle(@javax.annotation.Nullable String title) {
+  public void setTitle_JsonNullable(JsonNullable<String> title) {
     this.title = title;
+  }
+
+  public void setTitle(@javax.annotation.Nullable String title) {
+    this.title = JsonNullable.<String>of(title);
   }
 
   public ExternalShareDto type(@javax.annotation.Nullable FileEntryType type) {
@@ -198,8 +197,7 @@ public class ExternalShareDto {
    * Get type
    * @return type
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FileEntryType getType() {
@@ -207,7 +205,7 @@ public class ExternalShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(@javax.annotation.Nullable FileEntryType type) {
     this.type = type;
@@ -223,8 +221,7 @@ public class ExternalShareDto {
    * The tenant ID.
    * @return tenantId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getTenantId() {
@@ -232,7 +229,7 @@ public class ExternalShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTenantId(@javax.annotation.Nonnull Integer tenantId) {
     this.tenantId = tenantId;
@@ -248,16 +245,14 @@ public class ExternalShareDto {
    * The unique identifier of the shared entity.
    * @return entityId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getEntityId() {
         return entityId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ENTITY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ENTITY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getEntityId_JsonNullable() {
     return entityId;
   }
@@ -281,16 +276,14 @@ public class ExternalShareDto {
    * The title of the shared entity.
    * @return entityTitle
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getEntityTitle() {
         return entityTitle.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ENTITY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_ENTITY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getEntityTitle_JsonNullable() {
     return entityTitle;
   }
@@ -314,8 +307,7 @@ public class ExternalShareDto {
    * Get entityType
    * @return entityType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENTITY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FileEntryType getEntityType() {
@@ -323,7 +315,7 @@ public class ExternalShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_ENTITY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityType(@javax.annotation.Nullable FileEntryType entityType) {
     this.entityType = entityType;
@@ -339,16 +331,14 @@ public class ExternalShareDto {
    * Indicates whether the entity represents a room.
    * @return isRoom
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getIsRoom() {
         return isRoom.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IS_ROOM)
+  @JsonProperty(value = JSON_PROPERTY_IS_ROOM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getIsRoom_JsonNullable() {
     return isRoom;
   }
@@ -372,8 +362,7 @@ public class ExternalShareDto {
    * Specifies whether to share the external data or not.
    * @return shared
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SHARED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SHARED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getShared() {
@@ -381,7 +370,7 @@ public class ExternalShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHARED)
+  @JsonProperty(value = JSON_PROPERTY_SHARED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShared(@javax.annotation.Nonnull Boolean shared) {
     this.shared = shared;
@@ -397,8 +386,7 @@ public class ExternalShareDto {
    * The link ID of the external data.
    * @return linkId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LINK_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_LINK_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getLinkId() {
@@ -406,7 +394,7 @@ public class ExternalShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LINK_ID)
+  @JsonProperty(value = JSON_PROPERTY_LINK_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLinkId(@javax.annotation.Nonnull UUID linkId) {
     this.linkId = linkId;
@@ -422,8 +410,7 @@ public class ExternalShareDto {
    * Specifies whether the user is authenticated or not.
    * @return isAuthenticated
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_AUTHENTICATED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_AUTHENTICATED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getIsAuthenticated() {
@@ -431,7 +418,7 @@ public class ExternalShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_AUTHENTICATED)
+  @JsonProperty(value = JSON_PROPERTY_IS_AUTHENTICATED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsAuthenticated(@javax.annotation.Nonnull Boolean isAuthenticated) {
     this.isAuthenticated = isAuthenticated;
@@ -447,8 +434,7 @@ public class ExternalShareDto {
    * The room ID of the external data.
    * @return isRoomMember
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_ROOM_MEMBER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_ROOM_MEMBER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsRoomMember() {
@@ -456,7 +442,7 @@ public class ExternalShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_ROOM_MEMBER)
+  @JsonProperty(value = JSON_PROPERTY_IS_ROOM_MEMBER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsRoomMember(@javax.annotation.Nullable Boolean isRoomMember) {
     this.isRoomMember = isRoomMember;
@@ -472,8 +458,8 @@ public class ExternalShareDto {
     }
     ExternalShareDto externalShareDto = (ExternalShareDto) o;
     return Objects.equals(this.status, externalShareDto.status) &&
-        Objects.equals(this.id, externalShareDto.id) &&
-        Objects.equals(this.title, externalShareDto.title) &&
+        equalsNullable(this.id, externalShareDto.id) &&
+        equalsNullable(this.title, externalShareDto.title) &&
         Objects.equals(this.type, externalShareDto.type) &&
         Objects.equals(this.tenantId, externalShareDto.tenantId) &&
         equalsNullable(this.entityId, externalShareDto.entityId) &&
@@ -492,7 +478,7 @@ public class ExternalShareDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, id, title, type, tenantId, hashCodeNullable(entityId), hashCodeNullable(entityTitle), entityType, hashCodeNullable(isRoom), shared, linkId, isAuthenticated, isRoomMember);
+    return Objects.hash(status, hashCodeNullable(id), hashCodeNullable(title), type, tenantId, hashCodeNullable(entityId), hashCodeNullable(entityTitle), entityType, hashCodeNullable(isRoom), shared, linkId, isAuthenticated, isRoomMember);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

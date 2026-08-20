@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,7 +47,6 @@ import java.util.StringJoiner;
   AuthRequestsDto.JSON_PROPERTY_PROVIDER,
   AuthRequestsDto.JSON_PROPERTY_ACCESS_TOKEN,
   AuthRequestsDto.JSON_PROPERTY_SERIALIZED_PROFILE,
-  AuthRequestsDto.JSON_PROPERTY_CODE,
   AuthRequestsDto.JSON_PROPERTY_CODE_O_AUTH,
   AuthRequestsDto.JSON_PROPERTY_SESSION,
   AuthRequestsDto.JSON_PROPERTY_CONFIRM_DATA,
@@ -57,56 +57,40 @@ import java.util.StringJoiner;
 
 public class AuthRequestsDto {
   public static final String JSON_PROPERTY_USER_NAME = "userName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> userName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> userName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PASSWORD = "password";
-  @javax.annotation.Nullable
-  private JsonNullable<String> password = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> password = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PASSWORD_HASH = "passwordHash";
-  @javax.annotation.Nullable
-  private JsonNullable<String> passwordHash = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> passwordHash = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PROVIDER = "provider";
-  @javax.annotation.Nullable
-  private JsonNullable<String> provider = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> provider = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ACCESS_TOKEN = "accessToken";
-  @javax.annotation.Nullable
-  private JsonNullable<String> accessToken = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> accessToken = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SERIALIZED_PROFILE = "serializedProfile";
-  @javax.annotation.Nullable
-  private JsonNullable<String> serializedProfile = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_CODE = "code";
-  @javax.annotation.Nullable
-  private JsonNullable<String> code = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> serializedProfile = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CODE_O_AUTH = "codeOAuth";
-  @javax.annotation.Nullable
-  private JsonNullable<String> codeOAuth = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> codeOAuth = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SESSION = "session";
-  @javax.annotation.Nullable
-  private Boolean session;
+  @javax.annotation.Nullable  private Boolean session;
 
   public static final String JSON_PROPERTY_CONFIRM_DATA = "confirmData";
-  @javax.annotation.Nullable
-  private ConfirmData confirmData;
+  @javax.annotation.Nullable  private ConfirmData confirmData;
 
   public static final String JSON_PROPERTY_RECAPTCHA_TYPE = "recaptchaType";
-  @javax.annotation.Nullable
-  private RecaptchaType recaptchaType;
+  @javax.annotation.Nullable  private RecaptchaType recaptchaType;
 
   public static final String JSON_PROPERTY_RECAPTCHA_RESPONSE = "recaptchaResponse";
-  @javax.annotation.Nullable
-  private JsonNullable<String> recaptchaResponse = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> recaptchaResponse = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CULTURE = "culture";
-  @javax.annotation.Nullable
-  private JsonNullable<String> culture = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> culture = JsonNullable.<String>undefined();
 
   public AuthRequestsDto() {
   }
@@ -122,16 +106,14 @@ public class AuthRequestsDto {
    * The username or email used for authentication.
    * @return userName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getUserName() {
         return userName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_USER_NAME)
+  @JsonProperty(value = JSON_PROPERTY_USER_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getUserName_JsonNullable() {
     return userName;
   }
@@ -155,16 +137,14 @@ public class AuthRequestsDto {
    * The password in plain text for user authentication.
    * @return password
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPassword() {
         return password.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PASSWORD)
+  @JsonProperty(value = JSON_PROPERTY_PASSWORD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPassword_JsonNullable() {
     return password;
   }
@@ -188,16 +168,14 @@ public class AuthRequestsDto {
    * The hashed password for secure verification.
    * @return passwordHash
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPasswordHash() {
         return passwordHash.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PASSWORD_HASH)
+  @JsonProperty(value = JSON_PROPERTY_PASSWORD_HASH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPasswordHash_JsonNullable() {
     return passwordHash;
   }
@@ -221,16 +199,14 @@ public class AuthRequestsDto {
    * The type of authentication provider (e.g., internal, Google, Azure).
    * @return provider
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getProvider() {
         return provider.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PROVIDER)
+  @JsonProperty(value = JSON_PROPERTY_PROVIDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getProvider_JsonNullable() {
     return provider;
   }
@@ -254,16 +230,14 @@ public class AuthRequestsDto {
    * The access token used for authentication with external providers.
    * @return accessToken
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getAccessToken() {
         return accessToken.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ACCESS_TOKEN)
+  @JsonProperty(value = JSON_PROPERTY_ACCESS_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getAccessToken_JsonNullable() {
     return accessToken;
   }
@@ -287,16 +261,14 @@ public class AuthRequestsDto {
    * The serialized user profile data, if applicable.
    * @return serializedProfile
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSerializedProfile() {
         return serializedProfile.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SERIALIZED_PROFILE)
+  @JsonProperty(value = JSON_PROPERTY_SERIALIZED_PROFILE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSerializedProfile_JsonNullable() {
     return serializedProfile;
   }
@@ -310,39 +282,6 @@ public class AuthRequestsDto {
     this.serializedProfile = JsonNullable.<String>of(serializedProfile);
   }
 
-  public AuthRequestsDto code(@javax.annotation.Nullable String code) {
-    this.code = JsonNullable.<String>of(code);
-    
-    return this;
-  }
-
-  /**
-   * The code for two-factor authentication.
-   * @return code
-   */
-  @javax.annotation.Nullable
-  @JsonIgnore
-
-  public String getCode() {
-        return code.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getCode_JsonNullable() {
-    return code;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_CODE)
-  public void setCode_JsonNullable(JsonNullable<String> code) {
-    this.code = code;
-  }
-
-  public void setCode(@javax.annotation.Nullable String code) {
-    this.code = JsonNullable.<String>of(code);
-  }
-
   public AuthRequestsDto codeOAuth(@javax.annotation.Nullable String codeOAuth) {
     this.codeOAuth = JsonNullable.<String>of(codeOAuth);
     
@@ -353,16 +292,14 @@ public class AuthRequestsDto {
    * The authorization code used for obtaining OAuth tokens.
    * @return codeOAuth
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCodeOAuth() {
         return codeOAuth.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CODE_O_AUTH)
+  @JsonProperty(value = JSON_PROPERTY_CODE_O_AUTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCodeOAuth_JsonNullable() {
     return codeOAuth;
   }
@@ -386,8 +323,7 @@ public class AuthRequestsDto {
    * Specifies whether the authentication is session-based.
    * @return session
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SESSION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SESSION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSession() {
@@ -395,7 +331,7 @@ public class AuthRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SESSION)
+  @JsonProperty(value = JSON_PROPERTY_SESSION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSession(@javax.annotation.Nullable Boolean session) {
     this.session = session;
@@ -411,8 +347,7 @@ public class AuthRequestsDto {
    * Get confirmData
    * @return confirmData
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONFIRM_DATA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONFIRM_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ConfirmData getConfirmData() {
@@ -420,7 +355,7 @@ public class AuthRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CONFIRM_DATA)
+  @JsonProperty(value = JSON_PROPERTY_CONFIRM_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfirmData(@javax.annotation.Nullable ConfirmData confirmData) {
     this.confirmData = confirmData;
@@ -436,8 +371,7 @@ public class AuthRequestsDto {
    * Get recaptchaType
    * @return recaptchaType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RECAPTCHA_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RECAPTCHA_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public RecaptchaType getRecaptchaType() {
@@ -445,7 +379,7 @@ public class AuthRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RECAPTCHA_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_RECAPTCHA_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecaptchaType(@javax.annotation.Nullable RecaptchaType recaptchaType) {
     this.recaptchaType = recaptchaType;
@@ -458,19 +392,17 @@ public class AuthRequestsDto {
   }
 
   /**
-   * The user&#39;s response to the CAPTCHA challenge.
+   * The user's response to the CAPTCHA challenge.
    * @return recaptchaResponse
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRecaptchaResponse() {
         return recaptchaResponse.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_RECAPTCHA_RESPONSE)
+  @JsonProperty(value = JSON_PROPERTY_RECAPTCHA_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRecaptchaResponse_JsonNullable() {
     return recaptchaResponse;
   }
@@ -494,16 +426,14 @@ public class AuthRequestsDto {
    * The culture code for localization during authentication.
    * @return culture
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCulture() {
         return culture.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CULTURE)
+  @JsonProperty(value = JSON_PROPERTY_CULTURE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCulture_JsonNullable() {
     return culture;
   }
@@ -532,7 +462,6 @@ public class AuthRequestsDto {
         equalsNullable(this.provider, authRequestsDto.provider) &&
         equalsNullable(this.accessToken, authRequestsDto.accessToken) &&
         equalsNullable(this.serializedProfile, authRequestsDto.serializedProfile) &&
-        equalsNullable(this.code, authRequestsDto.code) &&
         equalsNullable(this.codeOAuth, authRequestsDto.codeOAuth) &&
         Objects.equals(this.session, authRequestsDto.session) &&
         Objects.equals(this.confirmData, authRequestsDto.confirmData) &&
@@ -547,7 +476,7 @@ public class AuthRequestsDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(userName), hashCodeNullable(password), hashCodeNullable(passwordHash), hashCodeNullable(provider), hashCodeNullable(accessToken), hashCodeNullable(serializedProfile), hashCodeNullable(code), hashCodeNullable(codeOAuth), session, confirmData, recaptchaType, hashCodeNullable(recaptchaResponse), hashCodeNullable(culture));
+    return Objects.hash(hashCodeNullable(userName), hashCodeNullable(password), hashCodeNullable(passwordHash), hashCodeNullable(provider), hashCodeNullable(accessToken), hashCodeNullable(serializedProfile), hashCodeNullable(codeOAuth), session, confirmData, recaptchaType, hashCodeNullable(recaptchaResponse), hashCodeNullable(culture));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -567,7 +496,6 @@ public class AuthRequestsDto {
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
     sb.append("    serializedProfile: ").append(toIndentedString(serializedProfile)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    codeOAuth: ").append(toIndentedString(codeOAuth)).append("\n");
     sb.append("    session: ").append(toIndentedString(session)).append("\n");
     sb.append("    confirmData: ").append(toIndentedString(confirmData)).append("\n");
@@ -675,16 +603,6 @@ public class AuthRequestsDto {
     if (getSerializedProfile() != null) {
       try {
         joiner.add(String.format("%sserializedProfile%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSerializedProfile()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `code` to the URL query string
-    if (getCode() != null) {
-      try {
-        joiner.add(String.format("%scode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCode()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

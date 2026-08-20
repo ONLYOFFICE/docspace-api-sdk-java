@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -51,32 +52,25 @@ import java.util.StringJoiner;
 
 public class AuthenticationTokenDto {
   public static final String JSON_PROPERTY_TOKEN = "token";
-  @javax.annotation.Nullable
-  private JsonNullable<String> token = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> token = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EXPIRES = "expires";
-  @javax.annotation.Nullable
-  private OffsetDateTime expires;
+  @javax.annotation.Nullable  private OffsetDateTime expires;
 
   public static final String JSON_PROPERTY_SMS = "sms";
-  @javax.annotation.Nullable
-  private Boolean sms;
+  @javax.annotation.Nullable  private Boolean sms;
 
   public static final String JSON_PROPERTY_PHONE_NOISE = "phoneNoise";
-  @javax.annotation.Nullable
-  private JsonNullable<String> phoneNoise = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> phoneNoise = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TFA = "tfa";
-  @javax.annotation.Nullable
-  private Boolean tfa;
+  @javax.annotation.Nullable  private Boolean tfa;
 
   public static final String JSON_PROPERTY_TFA_KEY = "tfaKey";
-  @javax.annotation.Nullable
-  private JsonNullable<String> tfaKey = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> tfaKey = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CONFIRM_URL = "confirmUrl";
-  @javax.annotation.Nullable
-  private JsonNullable<URI> confirmUrl = JsonNullable.<URI>undefined();
+  @javax.annotation.Nullable  private JsonNullable<URI> confirmUrl = JsonNullable.<URI>undefined();
 
   public AuthenticationTokenDto() {
   }
@@ -92,16 +86,14 @@ public class AuthenticationTokenDto {
    * The authentication token.
    * @return token
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getToken() {
         return token.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TOKEN)
+  @JsonProperty(value = JSON_PROPERTY_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getToken_JsonNullable() {
     return token;
   }
@@ -125,8 +117,7 @@ public class AuthenticationTokenDto {
    * The token expiration time.
    * @return expires
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXPIRES)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getExpires() {
@@ -134,7 +125,7 @@ public class AuthenticationTokenDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXPIRES)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpires(@javax.annotation.Nullable OffsetDateTime expires) {
     this.expires = expires;
@@ -150,8 +141,7 @@ public class AuthenticationTokenDto {
    * Specifies if the authentication code is sent by SMS or not.
    * @return sms
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SMS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SMS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSms() {
@@ -159,7 +149,7 @@ public class AuthenticationTokenDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SMS)
+  @JsonProperty(value = JSON_PROPERTY_SMS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSms(@javax.annotation.Nullable Boolean sms) {
     this.sms = sms;
@@ -175,16 +165,14 @@ public class AuthenticationTokenDto {
    * The phone number.
    * @return phoneNoise
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPhoneNoise() {
         return phoneNoise.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PHONE_NOISE)
+  @JsonProperty(value = JSON_PROPERTY_PHONE_NOISE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPhoneNoise_JsonNullable() {
     return phoneNoise;
   }
@@ -208,8 +196,7 @@ public class AuthenticationTokenDto {
    * Specifies if the two-factor application is used or not.
    * @return tfa
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TFA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TFA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getTfa() {
@@ -217,7 +204,7 @@ public class AuthenticationTokenDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TFA)
+  @JsonProperty(value = JSON_PROPERTY_TFA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTfa(@javax.annotation.Nullable Boolean tfa) {
     this.tfa = tfa;
@@ -233,16 +220,14 @@ public class AuthenticationTokenDto {
    * The two-factor authentication key.
    * @return tfaKey
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTfaKey() {
         return tfaKey.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TFA_KEY)
+  @JsonProperty(value = JSON_PROPERTY_TFA_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTfaKey_JsonNullable() {
     return tfaKey;
   }
@@ -266,16 +251,14 @@ public class AuthenticationTokenDto {
    * The confirmation email URL.
    * @return confirmUrl
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public URI getConfirmUrl() {
         return confirmUrl.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CONFIRM_URL)
+  @JsonProperty(value = JSON_PROPERTY_CONFIRM_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<URI> getConfirmUrl_JsonNullable() {
     return confirmUrl;
   }

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,12 +28,14 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.client.model.DistributedTaskStatus;
 import org.openapitools.client.model.FileEntryBaseDto;
 import org.openapitools.client.model.FileOperationType;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -52,45 +54,40 @@ import java.util.StringJoiner;
   FileOperationDto.JSON_PROPERTY_FINISHED,
   FileOperationDto.JSON_PROPERTY_URL,
   FileOperationDto.JSON_PROPERTY_FILES,
-  FileOperationDto.JSON_PROPERTY_FOLDERS
+  FileOperationDto.JSON_PROPERTY_FOLDERS,
+  FileOperationDto.JSON_PROPERTY_STATUS
 })
 
 public class FileOperationDto {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private String id;
+  @javax.annotation.Nullable  private String id;
 
   public static final String JSON_PROPERTY_OPERATION = "Operation";
-  @javax.annotation.Nonnull
-  private FileOperationType operation;
+  @javax.annotation.Nonnull  private FileOperationType operation;
 
   public static final String JSON_PROPERTY_PROGRESS = "progress";
-  @javax.annotation.Nonnull
-  private Integer progress;
+  @javax.annotation.Nonnull  private Integer progress;
 
   public static final String JSON_PROPERTY_ERROR = "error";
-  @javax.annotation.Nullable
-  private String error;
+  @javax.annotation.Nullable  private String error;
 
   public static final String JSON_PROPERTY_PROCESSED = "processed";
-  @javax.annotation.Nullable
-  private String processed;
+  @javax.annotation.Nullable  private String processed;
 
   public static final String JSON_PROPERTY_FINISHED = "finished";
-  @javax.annotation.Nonnull
-  private Boolean finished;
+  @javax.annotation.Nonnull  private Boolean finished;
 
   public static final String JSON_PROPERTY_URL = "url";
-  @javax.annotation.Nullable
-  private JsonNullable<URI> url = JsonNullable.<URI>undefined();
+  @javax.annotation.Nullable  private JsonNullable<URI> url = JsonNullable.<URI>undefined();
 
   public static final String JSON_PROPERTY_FILES = "files";
-  @javax.annotation.Nullable
-  private JsonNullable<List<FileEntryBaseDto>> files = JsonNullable.<List<FileEntryBaseDto>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<FileEntryBaseDto>> files = JsonNullable.<List<FileEntryBaseDto>>undefined();
 
   public static final String JSON_PROPERTY_FOLDERS = "folders";
-  @javax.annotation.Nullable
-  private JsonNullable<List<FileEntryBaseDto>> folders = JsonNullable.<List<FileEntryBaseDto>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<FileEntryBaseDto>> folders = JsonNullable.<List<FileEntryBaseDto>>undefined();
+
+  public static final String JSON_PROPERTY_STATUS = "status";
+  @javax.annotation.Nullable  private DistributedTaskStatus status;
 
   public FileOperationDto() {
   }
@@ -106,8 +103,7 @@ public class FileOperationDto {
    * The file operation ID.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getId() {
@@ -115,7 +111,7 @@ public class FileOperationDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@javax.annotation.Nullable String id) {
     this.id = id;
@@ -131,8 +127,7 @@ public class FileOperationDto {
    * Get operation
    * @return operation
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_OPERATION)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_OPERATION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public FileOperationType getOperation() {
@@ -140,7 +135,7 @@ public class FileOperationDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OPERATION)
+  @JsonProperty(value = JSON_PROPERTY_OPERATION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOperation(@javax.annotation.Nonnull FileOperationType operation) {
     this.operation = operation;
@@ -156,8 +151,7 @@ public class FileOperationDto {
    * The file operation progress in percentage.
    * @return progress
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PROGRESS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PROGRESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getProgress() {
@@ -165,7 +159,7 @@ public class FileOperationDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROGRESS)
+  @JsonProperty(value = JSON_PROPERTY_PROGRESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProgress(@javax.annotation.Nonnull Integer progress) {
     this.progress = progress;
@@ -181,8 +175,7 @@ public class FileOperationDto {
    * The file operation error message.
    * @return error
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getError() {
@@ -190,7 +183,7 @@ public class FileOperationDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setError(@javax.annotation.Nullable String error) {
     this.error = error;
@@ -206,8 +199,7 @@ public class FileOperationDto {
    * The file operation processing status.
    * @return processed
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROCESSED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROCESSED, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getProcessed() {
@@ -215,7 +207,7 @@ public class FileOperationDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROCESSED)
+  @JsonProperty(value = JSON_PROPERTY_PROCESSED, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProcessed(@javax.annotation.Nullable String processed) {
     this.processed = processed;
@@ -231,8 +223,7 @@ public class FileOperationDto {
    * Specifies if the file operation is finished or not.
    * @return finished
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FINISHED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_FINISHED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getFinished() {
@@ -240,7 +231,7 @@ public class FileOperationDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FINISHED)
+  @JsonProperty(value = JSON_PROPERTY_FINISHED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFinished(@javax.annotation.Nonnull Boolean finished) {
     this.finished = finished;
@@ -256,16 +247,14 @@ public class FileOperationDto {
    * The file operation URL.
    * @return url
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public URI getUrl() {
         return url.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonProperty(value = JSON_PROPERTY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<URI> getUrl_JsonNullable() {
     return url;
   }
@@ -301,16 +290,14 @@ public class FileOperationDto {
    * The list of files of the file operation.
    * @return files
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<FileEntryBaseDto> getFiles() {
         return files.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<FileEntryBaseDto>> getFiles_JsonNullable() {
     return files;
   }
@@ -346,16 +333,14 @@ public class FileOperationDto {
    * The list of folders of the file operation.
    * @return folders
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<FileEntryBaseDto> getFolders() {
         return folders.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FOLDERS)
+  @JsonProperty(value = JSON_PROPERTY_FOLDERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<FileEntryBaseDto>> getFolders_JsonNullable() {
     return folders;
   }
@@ -367,6 +352,30 @@ public class FileOperationDto {
 
   public void setFolders(@javax.annotation.Nullable List<FileEntryBaseDto> folders) {
     this.folders = JsonNullable.<List<FileEntryBaseDto>>of(folders);
+  }
+
+  public FileOperationDto status(@javax.annotation.Nullable DistributedTaskStatus status) {
+    
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Get status
+   * @return status
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public DistributedTaskStatus getStatus() {
+    return status;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStatus(@javax.annotation.Nullable DistributedTaskStatus status) {
+    this.status = status;
   }
 
   @Override
@@ -386,7 +395,8 @@ public class FileOperationDto {
         Objects.equals(this.finished, fileOperationDto.finished) &&
         equalsNullable(this.url, fileOperationDto.url) &&
         equalsNullable(this.files, fileOperationDto.files) &&
-        equalsNullable(this.folders, fileOperationDto.folders);
+        equalsNullable(this.folders, fileOperationDto.folders) &&
+        Objects.equals(this.status, fileOperationDto.status);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -395,7 +405,7 @@ public class FileOperationDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, operation, progress, error, processed, finished, hashCodeNullable(url), hashCodeNullable(files), hashCodeNullable(folders));
+    return Objects.hash(id, operation, progress, error, processed, finished, hashCodeNullable(url), hashCodeNullable(files), hashCodeNullable(folders), status);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -418,6 +428,7 @@ public class FileOperationDto {
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    folders: ").append(toIndentedString(folders)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -552,6 +563,16 @@ public class FileOperationDto {
           joiner.add(getFolders().get(i).toUrlQueryString(String.format("%sfolders%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
+      }
+    }
+
+    // add `status` to the URL query string
+    if (getStatus() != null) {
+      try {
+        joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
       }
     }
 

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -40,12 +41,10 @@ import java.util.StringJoiner;
 
 public class IsDefaultWhiteLabelLogosDto {
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private String name;
+  @javax.annotation.Nullable  private String name;
 
   public static final String JSON_PROPERTY_DEFAULT = "default";
-  @javax.annotation.Nonnull
-  private Boolean _default;
+  @javax.annotation.Nonnull  private Boolean _default;
 
   public IsDefaultWhiteLabelLogosDto() {
   }
@@ -61,8 +60,7 @@ public class IsDefaultWhiteLabelLogosDto {
    * The white label logo name.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
@@ -70,7 +68,7 @@ public class IsDefaultWhiteLabelLogosDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
@@ -86,8 +84,7 @@ public class IsDefaultWhiteLabelLogosDto {
    * Specifies if the white label logo is default or not.
    * @return _default
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DEFAULT)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DEFAULT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getDefault() {
@@ -95,7 +92,7 @@ public class IsDefaultWhiteLabelLogosDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DEFAULT)
+  @JsonProperty(value = JSON_PROPERTY_DEFAULT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDefault(@javax.annotation.Nonnull Boolean _default) {
     this._default = _default;

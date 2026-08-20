@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,16 +47,13 @@ import java.util.StringJoiner;
 
 public class TenantEntityQuotaSettings {
   public static final String JSON_PROPERTY_ENABLE_QUOTA = "enableQuota";
-  @javax.annotation.Nullable
-  private Boolean enableQuota;
+  @javax.annotation.Nullable  private Boolean enableQuota;
 
   public static final String JSON_PROPERTY_DEFAULT_QUOTA = "defaultQuota";
-  @javax.annotation.Nullable
-  private Long defaultQuota;
+  @javax.annotation.Nullable  private Long defaultQuota;
 
   public static final String JSON_PROPERTY_LAST_RECALCULATE_DATE = "lastRecalculateDate";
-  @javax.annotation.Nullable
-  private JsonNullable<OffsetDateTime> lastRecalculateDate = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> lastRecalculateDate = JsonNullable.<OffsetDateTime>undefined();
 
   public TenantEntityQuotaSettings() {
   }
@@ -71,8 +69,7 @@ public class TenantEntityQuotaSettings {
    * Specifies if the quota is enabled for the tenant entity or not.
    * @return enableQuota
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLE_QUOTA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLE_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEnableQuota() {
@@ -80,7 +77,7 @@ public class TenantEntityQuotaSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENABLE_QUOTA)
+  @JsonProperty(value = JSON_PROPERTY_ENABLE_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnableQuota(@javax.annotation.Nullable Boolean enableQuota) {
     this.enableQuota = enableQuota;
@@ -96,8 +93,7 @@ public class TenantEntityQuotaSettings {
    * The default quota of the tenant entity.
    * @return defaultQuota
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEFAULT_QUOTA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEFAULT_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getDefaultQuota() {
@@ -105,7 +101,7 @@ public class TenantEntityQuotaSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DEFAULT_QUOTA)
+  @JsonProperty(value = JSON_PROPERTY_DEFAULT_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefaultQuota(@javax.annotation.Nullable Long defaultQuota) {
     this.defaultQuota = defaultQuota;
@@ -121,16 +117,14 @@ public class TenantEntityQuotaSettings {
    * The date of the last quota recalculation.
    * @return lastRecalculateDate
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public OffsetDateTime getLastRecalculateDate() {
         return lastRecalculateDate.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LAST_RECALCULATE_DATE)
+  @JsonProperty(value = JSON_PROPERTY_LAST_RECALCULATE_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<OffsetDateTime> getLastRecalculateDate_JsonNullable() {
     return lastRecalculateDate;
   }

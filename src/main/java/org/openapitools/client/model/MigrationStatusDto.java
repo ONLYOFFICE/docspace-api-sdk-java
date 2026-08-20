@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -47,20 +48,16 @@ import java.util.StringJoiner;
 
 public class MigrationStatusDto {
   public static final String JSON_PROPERTY_PROGRESS = "progress";
-  @javax.annotation.Nullable
-  private Double progress;
+  @javax.annotation.Nullable  private Double progress;
 
   public static final String JSON_PROPERTY_ERROR = "error";
-  @javax.annotation.Nullable
-  private JsonNullable<String> error = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> error = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PARSE_RESULT = "parseResult";
-  @javax.annotation.Nullable
-  private MigrationApiInfo parseResult;
+  @javax.annotation.Nullable  private MigrationApiInfo parseResult;
 
   public static final String JSON_PROPERTY_IS_COMPLETED = "isCompleted";
-  @javax.annotation.Nullable
-  private Boolean isCompleted;
+  @javax.annotation.Nullable  private Boolean isCompleted;
 
   public MigrationStatusDto() {
   }
@@ -76,8 +73,7 @@ public class MigrationStatusDto {
    * The migration progress.
    * @return progress
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROGRESS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROGRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getProgress() {
@@ -85,7 +81,7 @@ public class MigrationStatusDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROGRESS)
+  @JsonProperty(value = JSON_PROPERTY_PROGRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProgress(@javax.annotation.Nullable Double progress) {
     this.progress = progress;
@@ -101,16 +97,14 @@ public class MigrationStatusDto {
    * The migration error.
    * @return error
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getError() {
         return error.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getError_JsonNullable() {
     return error;
   }
@@ -134,8 +128,7 @@ public class MigrationStatusDto {
    * Get parseResult
    * @return parseResult
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PARSE_RESULT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PARSE_RESULT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public MigrationApiInfo getParseResult() {
@@ -143,7 +136,7 @@ public class MigrationStatusDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PARSE_RESULT)
+  @JsonProperty(value = JSON_PROPERTY_PARSE_RESULT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setParseResult(@javax.annotation.Nullable MigrationApiInfo parseResult) {
     this.parseResult = parseResult;
@@ -159,8 +152,7 @@ public class MigrationStatusDto {
    * Specifies whether the migration is completed or not.
    * @return isCompleted
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_COMPLETED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_COMPLETED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsCompleted() {
@@ -168,7 +160,7 @@ public class MigrationStatusDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_COMPLETED)
+  @JsonProperty(value = JSON_PROPERTY_IS_COMPLETED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsCompleted(@javax.annotation.Nullable Boolean isCompleted) {
     this.isCompleted = isCompleted;

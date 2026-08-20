@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -52,24 +53,19 @@ import java.util.StringJoiner;
 
 public class DeleteBatchRequestDto {
   public static final String JSON_PROPERTY_RETURN_SINGLE_OPERATION = "returnSingleOperation";
-  @javax.annotation.Nullable
-  private Boolean returnSingleOperation;
+  @javax.annotation.Nullable  private Boolean returnSingleOperation;
 
   public static final String JSON_PROPERTY_FOLDER_IDS = "folderIds";
-  @javax.annotation.Nullable
-  private JsonNullable<List<DeleteBatchRequestDtoAllOfFolderIds>> folderIds = JsonNullable.<List<DeleteBatchRequestDtoAllOfFolderIds>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<DeleteBatchRequestDtoAllOfFolderIds>> folderIds = JsonNullable.<List<DeleteBatchRequestDtoAllOfFolderIds>>undefined();
 
   public static final String JSON_PROPERTY_FILE_IDS = "fileIds";
-  @javax.annotation.Nullable
-  private JsonNullable<List<DeleteBatchRequestDtoAllOfFileIds>> fileIds = JsonNullable.<List<DeleteBatchRequestDtoAllOfFileIds>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<DeleteBatchRequestDtoAllOfFileIds>> fileIds = JsonNullable.<List<DeleteBatchRequestDtoAllOfFileIds>>undefined();
 
   public static final String JSON_PROPERTY_DELETE_AFTER = "deleteAfter";
-  @javax.annotation.Nullable
-  private Boolean deleteAfter;
+  @javax.annotation.Nullable  private Boolean deleteAfter;
 
   public static final String JSON_PROPERTY_IMMEDIATELY = "immediately";
-  @javax.annotation.Nullable
-  private Boolean immediately;
+  @javax.annotation.Nullable  private Boolean immediately;
 
   public DeleteBatchRequestDto() {
   }
@@ -85,8 +81,7 @@ public class DeleteBatchRequestDto {
    * Specifies whether to return only the current operation
    * @return returnSingleOperation
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RETURN_SINGLE_OPERATION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RETURN_SINGLE_OPERATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getReturnSingleOperation() {
@@ -94,7 +89,7 @@ public class DeleteBatchRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RETURN_SINGLE_OPERATION)
+  @JsonProperty(value = JSON_PROPERTY_RETURN_SINGLE_OPERATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReturnSingleOperation(@javax.annotation.Nullable Boolean returnSingleOperation) {
     this.returnSingleOperation = returnSingleOperation;
@@ -122,16 +117,14 @@ public class DeleteBatchRequestDto {
    * The list of folder IDs to be deleted.
    * @return folderIds
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<DeleteBatchRequestDtoAllOfFolderIds> getFolderIds() {
         return folderIds.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FOLDER_IDS)
+  @JsonProperty(value = JSON_PROPERTY_FOLDER_IDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<DeleteBatchRequestDtoAllOfFolderIds>> getFolderIds_JsonNullable() {
     return folderIds;
   }
@@ -167,16 +160,14 @@ public class DeleteBatchRequestDto {
    * The list of file IDs to be deleted.
    * @return fileIds
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<DeleteBatchRequestDtoAllOfFileIds> getFileIds() {
         return fileIds.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE_IDS)
+  @JsonProperty(value = JSON_PROPERTY_FILE_IDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<DeleteBatchRequestDtoAllOfFileIds>> getFileIds_JsonNullable() {
     return fileIds;
   }
@@ -200,8 +191,7 @@ public class DeleteBatchRequestDto {
    * Specifies whether to delete a file after the editing session is finished or not
    * @return deleteAfter
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DELETE_AFTER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DELETE_AFTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDeleteAfter() {
@@ -209,7 +199,7 @@ public class DeleteBatchRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DELETE_AFTER)
+  @JsonProperty(value = JSON_PROPERTY_DELETE_AFTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeleteAfter(@javax.annotation.Nullable Boolean deleteAfter) {
     this.deleteAfter = deleteAfter;
@@ -225,8 +215,7 @@ public class DeleteBatchRequestDto {
    * Specifies whether to move a file to the \\Trash\\ folder or delete it immediately.
    * @return immediately
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IMMEDIATELY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMMEDIATELY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getImmediately() {
@@ -234,7 +223,7 @@ public class DeleteBatchRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IMMEDIATELY)
+  @JsonProperty(value = JSON_PROPERTY_IMMEDIATELY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImmediately(@javax.annotation.Nullable Boolean immediately) {
     this.immediately = immediately;

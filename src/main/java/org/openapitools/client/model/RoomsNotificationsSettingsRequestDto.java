@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -44,12 +45,10 @@ import java.util.StringJoiner;
 
 public class RoomsNotificationsSettingsRequestDto {
   public static final String JSON_PROPERTY_ROOMS_ID = "roomsId";
-  @javax.annotation.Nullable
-  private JsonNullable<Object> roomsId = JsonNullable.<Object>of(null);
+  @javax.annotation.Nullable  private JsonNullable<Object> roomsId = JsonNullable.<Object>of(null);
 
   public static final String JSON_PROPERTY_MUTE = "mute";
-  @javax.annotation.Nullable
-  private Boolean mute;
+  @javax.annotation.Nullable  private Boolean mute;
 
   public RoomsNotificationsSettingsRequestDto() {
   }
@@ -65,16 +64,14 @@ public class RoomsNotificationsSettingsRequestDto {
    * The target room identifier.
    * @return roomsId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Object getRoomsId() {
         return roomsId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ROOMS_ID)
+  @JsonProperty(value = JSON_PROPERTY_ROOMS_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Object> getRoomsId_JsonNullable() {
     return roomsId;
   }
@@ -98,8 +95,7 @@ public class RoomsNotificationsSettingsRequestDto {
    * Specifies whether the notifications will be delivered to the specified room or not.
    * @return mute
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MUTE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MUTE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getMute() {
@@ -107,7 +103,7 @@ public class RoomsNotificationsSettingsRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MUTE)
+  @JsonProperty(value = JSON_PROPERTY_MUTE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMute(@javax.annotation.Nullable Boolean mute) {
     this.mute = mute;

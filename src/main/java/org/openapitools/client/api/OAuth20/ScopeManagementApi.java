@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.ErrorResponse;
+import org.openapitools.client.model.ProblemDetail;
 import org.openapitools.client.model.ScopeResponse;
 
 
@@ -47,8 +47,8 @@ public class ScopeManagementApi extends BaseApi {
 
 
   /**
-   * Get available OAuth2 scopes
-   * Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the &#39;openid&#39; scope always appearing first.
+   * List available OAuth2 scopes
+   * Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
    *
    * REST API Reference for getScopes Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/
@@ -62,8 +62,8 @@ public class ScopeManagementApi extends BaseApi {
 
 
   /**
-   * Get available OAuth2 scopes
-   * Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the &#39;openid&#39; scope always appearing first.
+   * List available OAuth2 scopes
+   * Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
    *
    * REST API Reference for getScopes Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/
@@ -102,7 +102,7 @@ public class ScopeManagementApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "asc_auth_key" };
+    String[] localVarAuthNames = new String[] { "x-signature" };
 
     TypeReference<ScopeResponse> localVarReturnType = new TypeReference<ScopeResponse>() {};
     return apiClient.invokeAPI(
@@ -144,7 +144,7 @@ public class ScopeManagementApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "asc_auth_key" };
+    String[] localVarAuthNames = new String[] { "x-signature" };
 
     return apiClient.invokeAPI(
       localVarPath,

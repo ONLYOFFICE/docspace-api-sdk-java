@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -49,48 +50,37 @@ import java.util.StringJoiner;
 
 public class IMagickGeometry {
   public static final String JSON_PROPERTY_ASPECT_RATIO = "aspectRatio";
-  @javax.annotation.Nullable
-  private Boolean aspectRatio;
+  @javax.annotation.Nullable  private Boolean aspectRatio;
 
   public static final String JSON_PROPERTY_FILL_AREA = "fillArea";
-  @javax.annotation.Nullable
-  private Boolean fillArea;
+  @javax.annotation.Nullable  private Boolean fillArea;
 
   public static final String JSON_PROPERTY_GREATER = "greater";
-  @javax.annotation.Nullable
-  private Boolean greater;
+  @javax.annotation.Nullable  private Boolean greater;
 
   public static final String JSON_PROPERTY_HEIGHT = "height";
-  @javax.annotation.Nullable
-  private Integer height;
+  @javax.annotation.Nullable  private Integer height;
 
   public static final String JSON_PROPERTY_IGNORE_ASPECT_RATIO = "ignoreAspectRatio";
-  @javax.annotation.Nullable
-  private Boolean ignoreAspectRatio;
+  @javax.annotation.Nullable  private Boolean ignoreAspectRatio;
 
   public static final String JSON_PROPERTY_IS_PERCENTAGE = "isPercentage";
-  @javax.annotation.Nullable
-  private Boolean isPercentage;
+  @javax.annotation.Nullable  private Boolean isPercentage;
 
   public static final String JSON_PROPERTY_LESS = "less";
-  @javax.annotation.Nullable
-  private Boolean less;
+  @javax.annotation.Nullable  private Boolean less;
 
   public static final String JSON_PROPERTY_LIMIT_PIXELS = "limitPixels";
-  @javax.annotation.Nullable
-  private Boolean limitPixels;
+  @javax.annotation.Nullable  private Boolean limitPixels;
 
   public static final String JSON_PROPERTY_WIDTH = "width";
-  @javax.annotation.Nullable
-  private Integer width;
+  @javax.annotation.Nullable  private Integer width;
 
   public static final String JSON_PROPERTY_X = "x";
-  @javax.annotation.Nullable
-  private Integer x;
+  @javax.annotation.Nullable  private Integer x;
 
   public static final String JSON_PROPERTY_Y = "y";
-  @javax.annotation.Nullable
-  private Integer y;
+  @javax.annotation.Nullable  private Integer y;
 
   public IMagickGeometry() {
   }
@@ -110,8 +100,7 @@ public class IMagickGeometry {
    * Get aspectRatio
    * @return aspectRatio
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ASPECT_RATIO)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ASPECT_RATIO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAspectRatio() {
@@ -130,8 +119,7 @@ public class IMagickGeometry {
    * Get fillArea
    * @return fillArea
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILL_AREA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILL_AREA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getFillArea() {
@@ -139,7 +127,7 @@ public class IMagickGeometry {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILL_AREA)
+  @JsonProperty(value = JSON_PROPERTY_FILL_AREA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFillArea(@javax.annotation.Nullable Boolean fillArea) {
     this.fillArea = fillArea;
@@ -155,8 +143,7 @@ public class IMagickGeometry {
    * Get greater
    * @return greater
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GREATER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GREATER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getGreater() {
@@ -164,7 +151,7 @@ public class IMagickGeometry {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GREATER)
+  @JsonProperty(value = JSON_PROPERTY_GREATER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGreater(@javax.annotation.Nullable Boolean greater) {
     this.greater = greater;
@@ -180,8 +167,7 @@ public class IMagickGeometry {
    * Get height
    * @return height
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HEIGHT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getHeight() {
@@ -189,7 +175,7 @@ public class IMagickGeometry {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHeight(@javax.annotation.Nullable Integer height) {
     this.height = height;
@@ -205,8 +191,7 @@ public class IMagickGeometry {
    * Get ignoreAspectRatio
    * @return ignoreAspectRatio
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IGNORE_ASPECT_RATIO)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IGNORE_ASPECT_RATIO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIgnoreAspectRatio() {
@@ -214,7 +199,7 @@ public class IMagickGeometry {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IGNORE_ASPECT_RATIO)
+  @JsonProperty(value = JSON_PROPERTY_IGNORE_ASPECT_RATIO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIgnoreAspectRatio(@javax.annotation.Nullable Boolean ignoreAspectRatio) {
     this.ignoreAspectRatio = ignoreAspectRatio;
@@ -230,8 +215,7 @@ public class IMagickGeometry {
    * Get isPercentage
    * @return isPercentage
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_PERCENTAGE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_PERCENTAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsPercentage() {
@@ -239,7 +223,7 @@ public class IMagickGeometry {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_PERCENTAGE)
+  @JsonProperty(value = JSON_PROPERTY_IS_PERCENTAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsPercentage(@javax.annotation.Nullable Boolean isPercentage) {
     this.isPercentage = isPercentage;
@@ -255,8 +239,7 @@ public class IMagickGeometry {
    * Get less
    * @return less
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LESS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getLess() {
@@ -264,7 +247,7 @@ public class IMagickGeometry {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LESS)
+  @JsonProperty(value = JSON_PROPERTY_LESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLess(@javax.annotation.Nullable Boolean less) {
     this.less = less;
@@ -280,8 +263,7 @@ public class IMagickGeometry {
    * Get limitPixels
    * @return limitPixels
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIMIT_PIXELS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIMIT_PIXELS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getLimitPixels() {
@@ -289,7 +271,7 @@ public class IMagickGeometry {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LIMIT_PIXELS)
+  @JsonProperty(value = JSON_PROPERTY_LIMIT_PIXELS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLimitPixels(@javax.annotation.Nullable Boolean limitPixels) {
     this.limitPixels = limitPixels;
@@ -305,8 +287,7 @@ public class IMagickGeometry {
    * Get width
    * @return width
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WIDTH)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getWidth() {
@@ -314,7 +295,7 @@ public class IMagickGeometry {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WIDTH)
+  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWidth(@javax.annotation.Nullable Integer width) {
     this.width = width;
@@ -330,8 +311,7 @@ public class IMagickGeometry {
    * Get x
    * @return x
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_X)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_X, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getX() {
@@ -339,7 +319,7 @@ public class IMagickGeometry {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_X)
+  @JsonProperty(value = JSON_PROPERTY_X, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setX(@javax.annotation.Nullable Integer x) {
     this.x = x;
@@ -355,8 +335,7 @@ public class IMagickGeometry {
    * Get y
    * @return y
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_Y)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_Y, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getY() {
@@ -364,7 +343,7 @@ public class IMagickGeometry {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_Y)
+  @JsonProperty(value = JSON_PROPERTY_Y, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setY(@javax.annotation.Nullable Integer y) {
     this.y = y;

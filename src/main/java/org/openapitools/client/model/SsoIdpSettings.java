@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,28 +49,22 @@ import java.util.StringJoiner;
 
 public class SsoIdpSettings {
   public static final String JSON_PROPERTY_ENTITY_ID = "entityId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> entityId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> entityId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SSO_URL = "ssoUrl";
-  @javax.annotation.Nullable
-  private JsonNullable<String> ssoUrl = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> ssoUrl = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SSO_BINDING = "ssoBinding";
-  @javax.annotation.Nullable
-  private JsonNullable<String> ssoBinding = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> ssoBinding = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SLO_URL = "sloUrl";
-  @javax.annotation.Nullable
-  private JsonNullable<String> sloUrl = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> sloUrl = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SLO_BINDING = "sloBinding";
-  @javax.annotation.Nullable
-  private JsonNullable<String> sloBinding = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> sloBinding = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NAME_ID_FORMAT = "nameIdFormat";
-  @javax.annotation.Nullable
-  private JsonNullable<String> nameIdFormat = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> nameIdFormat = JsonNullable.<String>undefined();
 
   public SsoIdpSettings() {
   }
@@ -85,16 +80,14 @@ public class SsoIdpSettings {
    * The entity ID.
    * @return entityId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getEntityId() {
         return entityId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ENTITY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ENTITY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getEntityId_JsonNullable() {
     return entityId;
   }
@@ -118,16 +111,14 @@ public class SsoIdpSettings {
    * The SSO URL.
    * @return ssoUrl
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSsoUrl() {
         return ssoUrl.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SSO_URL)
+  @JsonProperty(value = JSON_PROPERTY_SSO_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSsoUrl_JsonNullable() {
     return ssoUrl;
   }
@@ -151,16 +142,14 @@ public class SsoIdpSettings {
    * The SSO binding.
    * @return ssoBinding
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSsoBinding() {
         return ssoBinding.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SSO_BINDING)
+  @JsonProperty(value = JSON_PROPERTY_SSO_BINDING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSsoBinding_JsonNullable() {
     return ssoBinding;
   }
@@ -184,16 +173,14 @@ public class SsoIdpSettings {
    * The SLO URL.
    * @return sloUrl
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSloUrl() {
         return sloUrl.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SLO_URL)
+  @JsonProperty(value = JSON_PROPERTY_SLO_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSloUrl_JsonNullable() {
     return sloUrl;
   }
@@ -217,16 +204,14 @@ public class SsoIdpSettings {
    * The SLO binding.
    * @return sloBinding
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSloBinding() {
         return sloBinding.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SLO_BINDING)
+  @JsonProperty(value = JSON_PROPERTY_SLO_BINDING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSloBinding_JsonNullable() {
     return sloBinding;
   }
@@ -250,16 +235,14 @@ public class SsoIdpSettings {
    * The name ID format.
    * @return nameIdFormat
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getNameIdFormat() {
         return nameIdFormat.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_NAME_ID_FORMAT)
+  @JsonProperty(value = JSON_PROPERTY_NAME_ID_FORMAT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getNameIdFormat_JsonNullable() {
     return nameIdFormat;
   }

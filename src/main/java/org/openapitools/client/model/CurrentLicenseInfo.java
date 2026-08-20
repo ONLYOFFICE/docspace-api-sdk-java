@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -41,12 +42,10 @@ import java.util.StringJoiner;
 
 public class CurrentLicenseInfo {
   public static final String JSON_PROPERTY_TRIAL = "trial";
-  @javax.annotation.Nonnull
-  private Boolean trial;
+  @javax.annotation.Nonnull  private Boolean trial;
 
   public static final String JSON_PROPERTY_DUE_DATE = "dueDate";
-  @javax.annotation.Nonnull
-  private OffsetDateTime dueDate;
+  @javax.annotation.Nonnull  private OffsetDateTime dueDate;
 
   public CurrentLicenseInfo() {
   }
@@ -62,8 +61,7 @@ public class CurrentLicenseInfo {
    * Specifies whether the license is trial or not.
    * @return trial
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TRIAL)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TRIAL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getTrial() {
@@ -71,7 +69,7 @@ public class CurrentLicenseInfo {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRIAL)
+  @JsonProperty(value = JSON_PROPERTY_TRIAL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTrial(@javax.annotation.Nonnull Boolean trial) {
     this.trial = trial;
@@ -87,8 +85,7 @@ public class CurrentLicenseInfo {
    * The date when the license expires.
    * @return dueDate
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DUE_DATE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DUE_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getDueDate() {
@@ -96,7 +93,7 @@ public class CurrentLicenseInfo {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DUE_DATE)
+  @JsonProperty(value = JSON_PROPERTY_DUE_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDueDate(@javax.annotation.Nonnull OffsetDateTime dueDate) {
     this.dueDate = dueDate;

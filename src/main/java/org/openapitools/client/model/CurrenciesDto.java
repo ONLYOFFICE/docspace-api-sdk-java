@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -45,16 +46,13 @@ import java.util.StringJoiner;
 
 public class CurrenciesDto {
   public static final String JSON_PROPERTY_ISO_COUNTRY_CODE = "isoCountryCode";
-  @javax.annotation.Nullable
-  private JsonNullable<String> isoCountryCode = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> isoCountryCode = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ISO_CURRENCY_SYMBOL = "isoCurrencySymbol";
-  @javax.annotation.Nullable
-  private JsonNullable<String> isoCurrencySymbol = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> isoCurrencySymbol = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CURRENCY_NATIVE_NAME = "currencyNativeName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> currencyNativeName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> currencyNativeName = JsonNullable.<String>undefined();
 
   public CurrenciesDto() {
   }
@@ -70,16 +68,14 @@ public class CurrenciesDto {
    * The ISO country code.
    * @return isoCountryCode
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getIsoCountryCode() {
         return isoCountryCode.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ISO_COUNTRY_CODE)
+  @JsonProperty(value = JSON_PROPERTY_ISO_COUNTRY_CODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getIsoCountryCode_JsonNullable() {
     return isoCountryCode;
   }
@@ -103,16 +99,14 @@ public class CurrenciesDto {
    * The ISO currency symbol.
    * @return isoCurrencySymbol
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getIsoCurrencySymbol() {
         return isoCurrencySymbol.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ISO_CURRENCY_SYMBOL)
+  @JsonProperty(value = JSON_PROPERTY_ISO_CURRENCY_SYMBOL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getIsoCurrencySymbol_JsonNullable() {
     return isoCurrencySymbol;
   }
@@ -136,16 +130,14 @@ public class CurrenciesDto {
    * The currency native name.
    * @return currencyNativeName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCurrencyNativeName() {
         return currencyNativeName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CURRENCY_NATIVE_NAME)
+  @JsonProperty(value = JSON_PROPERTY_CURRENCY_NATIVE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCurrencyNativeName_JsonNullable() {
     return currencyNativeName;
   }

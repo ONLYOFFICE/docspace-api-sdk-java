@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -42,20 +43,16 @@ import java.util.StringJoiner;
 
 public class PasswordSettingsRequestsDto {
   public static final String JSON_PROPERTY_MIN_LENGTH = "minLength";
-  @javax.annotation.Nonnull
-  private Integer minLength;
+  @javax.annotation.Nonnull  private Integer minLength;
 
   public static final String JSON_PROPERTY_UPPER_CASE = "upperCase";
-  @javax.annotation.Nullable
-  private Boolean upperCase;
+  @javax.annotation.Nullable  private Boolean upperCase;
 
   public static final String JSON_PROPERTY_DIGITS = "digits";
-  @javax.annotation.Nullable
-  private Boolean digits;
+  @javax.annotation.Nullable  private Boolean digits;
 
   public static final String JSON_PROPERTY_SPEC_SYMBOLS = "specSymbols";
-  @javax.annotation.Nullable
-  private Boolean specSymbols;
+  @javax.annotation.Nullable  private Boolean specSymbols;
 
   public PasswordSettingsRequestsDto() {
   }
@@ -71,8 +68,7 @@ public class PasswordSettingsRequestsDto {
    * The minimum number of characters required for valid passwords.
    * @return minLength
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_MIN_LENGTH)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_MIN_LENGTH, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getMinLength() {
@@ -80,7 +76,7 @@ public class PasswordSettingsRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MIN_LENGTH)
+  @JsonProperty(value = JSON_PROPERTY_MIN_LENGTH, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMinLength(@javax.annotation.Nonnull Integer minLength) {
     this.minLength = minLength;
@@ -96,8 +92,7 @@ public class PasswordSettingsRequestsDto {
    * Specifies whether the password should contain the uppercase letters or not.
    * @return upperCase
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPPER_CASE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPPER_CASE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getUpperCase() {
@@ -105,7 +100,7 @@ public class PasswordSettingsRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UPPER_CASE)
+  @JsonProperty(value = JSON_PROPERTY_UPPER_CASE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpperCase(@javax.annotation.Nullable Boolean upperCase) {
     this.upperCase = upperCase;
@@ -121,8 +116,7 @@ public class PasswordSettingsRequestsDto {
    * Specifies whether the password should contain the digits or not.
    * @return digits
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DIGITS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DIGITS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDigits() {
@@ -130,7 +124,7 @@ public class PasswordSettingsRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DIGITS)
+  @JsonProperty(value = JSON_PROPERTY_DIGITS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDigits(@javax.annotation.Nullable Boolean digits) {
     this.digits = digits;
@@ -146,8 +140,7 @@ public class PasswordSettingsRequestsDto {
    * Specifies whether the password should contain the special symbols or not.
    * @return specSymbols
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SPEC_SYMBOLS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SPEC_SYMBOLS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSpecSymbols() {
@@ -155,7 +148,7 @@ public class PasswordSettingsRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SPEC_SYMBOLS)
+  @JsonProperty(value = JSON_PROPERTY_SPEC_SYMBOLS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSpecSymbols(@javax.annotation.Nullable Boolean specSymbols) {
     this.specSymbols = specSymbols;

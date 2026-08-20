@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -39,8 +40,7 @@ import java.util.StringJoiner;
 
 public class TurnOnAdminMessageSettingsRequestDto {
   public static final String JSON_PROPERTY_TURN_ON = "turnOn";
-  @javax.annotation.Nullable
-  private Boolean turnOn;
+  @javax.annotation.Nullable  private Boolean turnOn;
 
   public TurnOnAdminMessageSettingsRequestDto() {
   }
@@ -56,8 +56,7 @@ public class TurnOnAdminMessageSettingsRequestDto {
    * The global switch for the administrator messaging functionality.
    * @return turnOn
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TURN_ON)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TURN_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getTurnOn() {
@@ -65,7 +64,7 @@ public class TurnOnAdminMessageSettingsRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TURN_ON)
+  @JsonProperty(value = JSON_PROPERTY_TURN_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTurnOn(@javax.annotation.Nullable Boolean turnOn) {
     this.turnOn = turnOn;

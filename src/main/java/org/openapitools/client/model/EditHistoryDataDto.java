@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -51,32 +52,25 @@ import java.util.StringJoiner;
 
 public class EditHistoryDataDto {
   public static final String JSON_PROPERTY_CHANGES_URL = "changesUrl";
-  @javax.annotation.Nullable
-  private JsonNullable<URI> changesUrl = JsonNullable.<URI>undefined();
+  @javax.annotation.Nullable  private JsonNullable<URI> changesUrl = JsonNullable.<URI>undefined();
 
   public static final String JSON_PROPERTY_KEY = "key";
-  @javax.annotation.Nullable
-  private String key;
+  @javax.annotation.Nullable  private String key;
 
   public static final String JSON_PROPERTY_PREVIOUS = "previous";
-  @javax.annotation.Nullable
-  private EditHistoryUrl previous;
+  @javax.annotation.Nullable  private EditHistoryUrl previous;
 
   public static final String JSON_PROPERTY_TOKEN = "token";
-  @javax.annotation.Nullable
-  private JsonNullable<String> token = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> token = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_URL = "url";
-  @javax.annotation.Nullable
-  private URI url;
+  @javax.annotation.Nullable  private URI url;
 
   public static final String JSON_PROPERTY_VERSION = "version";
-  @javax.annotation.Nonnull
-  private Integer version;
+  @javax.annotation.Nonnull  private Integer version;
 
   public static final String JSON_PROPERTY_FILE_TYPE = "fileType";
-  @javax.annotation.Nullable
-  private String fileType;
+  @javax.annotation.Nullable  private String fileType;
 
   public EditHistoryDataDto() {
   }
@@ -92,16 +86,14 @@ public class EditHistoryDataDto {
    * The URL address of the file with the document changes data.
    * @return changesUrl
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public URI getChangesUrl() {
         return changesUrl.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CHANGES_URL)
+  @JsonProperty(value = JSON_PROPERTY_CHANGES_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<URI> getChangesUrl_JsonNullable() {
     return changesUrl;
   }
@@ -125,8 +117,7 @@ public class EditHistoryDataDto {
    * The document identifier used to unambiguously identify the document file.
    * @return key
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KEY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getKey() {
@@ -134,7 +125,7 @@ public class EditHistoryDataDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KEY)
+  @JsonProperty(value = JSON_PROPERTY_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setKey(@javax.annotation.Nullable String key) {
     this.key = key;
@@ -150,8 +141,7 @@ public class EditHistoryDataDto {
    * Get previous
    * @return previous
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PREVIOUS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PREVIOUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EditHistoryUrl getPrevious() {
@@ -159,7 +149,7 @@ public class EditHistoryDataDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PREVIOUS)
+  @JsonProperty(value = JSON_PROPERTY_PREVIOUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrevious(@javax.annotation.Nullable EditHistoryUrl previous) {
     this.previous = previous;
@@ -175,16 +165,14 @@ public class EditHistoryDataDto {
    * The encrypted signature added to the parameter in the form of a token.
    * @return token
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getToken() {
         return token.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TOKEN)
+  @JsonProperty(value = JSON_PROPERTY_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getToken_JsonNullable() {
     return token;
   }
@@ -208,8 +196,7 @@ public class EditHistoryDataDto {
    * The URL address of the current document version.
    * @return url
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_URL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public URI getUrl() {
@@ -217,7 +204,7 @@ public class EditHistoryDataDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonProperty(value = JSON_PROPERTY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUrl(@javax.annotation.Nullable URI url) {
     this.url = url;
@@ -233,8 +220,7 @@ public class EditHistoryDataDto {
    * The document version number.
    * @return version
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_VERSION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getVersion() {
@@ -242,7 +228,7 @@ public class EditHistoryDataDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(value = JSON_PROPERTY_VERSION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
@@ -258,8 +244,7 @@ public class EditHistoryDataDto {
    * The document extension.
    * @return fileType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILE_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getFileType() {
@@ -267,7 +252,7 @@ public class EditHistoryDataDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_FILE_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFileType(@javax.annotation.Nullable String fileType) {
     this.fileType = fileType;

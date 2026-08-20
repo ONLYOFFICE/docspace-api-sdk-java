@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,10 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.EmployeeType;
 import org.openapitools.client.model.Int64Wrapper;
+import org.openapitools.client.model.InvitationLinkCreateRequestDto;
+import org.openapitools.client.model.InvitationLinkDeleteRequestDto;
+import org.openapitools.client.model.InvitationLinkUpdateRequestDto;
+import org.openapitools.client.model.InvitationLinkWrapper;
 import org.openapitools.client.model.StringWrapper;
 import java.util.UUID;
 import org.openapitools.client.model.UserInfoWrapper;
@@ -50,16 +54,174 @@ public class UsersApi extends BaseApi {
 
 
   /**
+   * Create an invitation link
+   * Returns an invitation link for joining the portal.
+   *
+   * REST API Reference for createInvitationLink Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-invitation-link/
+   *
+   * @param invitationLinkCreateRequestDto  (optional)
+   * @return InvitationLinkWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public InvitationLinkWrapper createInvitationLink(@javax.annotation.Nullable InvitationLinkCreateRequestDto invitationLinkCreateRequestDto) throws ApiException {
+    return this.createInvitationLink(invitationLinkCreateRequestDto, Collections.emptyMap());
+  }
+
+
+  /**
+   * Create an invitation link
+   * Returns an invitation link for joining the portal.
+   *
+   * REST API Reference for createInvitationLink Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-invitation-link/
+   *
+   * @param invitationLinkCreateRequestDto  (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return InvitationLinkWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public InvitationLinkWrapper createInvitationLink(@javax.annotation.Nullable InvitationLinkCreateRequestDto invitationLinkCreateRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = invitationLinkCreateRequestDto;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/portal/users/invitationlink";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<InvitationLinkWrapper> localVarReturnType = new TypeReference<InvitationLinkWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Deletes an invitation link.
+   * Ensures that the current user has permission to delete the specified invitation link.  Throws security or not-found exceptions if required conditions are not met.
+   *
+   * REST API Reference for deleteInvitationLink Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-invitation-link/
+   *
+   * @param invitationLinkDeleteRequestDto The data transfer object containing the details of the invitation link to be deleted. (optional)
+   * @return StringWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public StringWrapper deleteInvitationLink(@javax.annotation.Nullable InvitationLinkDeleteRequestDto invitationLinkDeleteRequestDto) throws ApiException {
+    return this.deleteInvitationLink(invitationLinkDeleteRequestDto, Collections.emptyMap());
+  }
+
+
+  /**
+   * Deletes an invitation link.
+   * Ensures that the current user has permission to delete the specified invitation link.  Throws security or not-found exceptions if required conditions are not met.
+   *
+   * REST API Reference for deleteInvitationLink Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-invitation-link/
+   *
+   * @param invitationLinkDeleteRequestDto The data transfer object containing the details of the invitation link to be deleted. (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return StringWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public StringWrapper deleteInvitationLink(@javax.annotation.Nullable InvitationLinkDeleteRequestDto invitationLinkDeleteRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = invitationLinkDeleteRequestDto;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/portal/users/invitationlink";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<StringWrapper> localVarReturnType = new TypeReference<StringWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Get an invitation link
    * Returns an invitation link for joining the portal.
    *
    * REST API Reference for getInvitationLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/
    *
-   * @param employeeType The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User). (required)
+   * @param employeeType The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User). (required)
    * @return StringWrapper
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public StringWrapper getInvitationLink(@javax.annotation.Nonnull EmployeeType employeeType) throws ApiException {
     return this.getInvitationLink(employeeType, Collections.emptyMap());
   }
@@ -72,11 +234,13 @@ public class UsersApi extends BaseApi {
    * REST API Reference for getInvitationLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/
    *
-   * @param employeeType The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User). (required)
+   * @param employeeType The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User). (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return StringWrapper
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public StringWrapper getInvitationLink(@javax.annotation.Nonnull EmployeeType employeeType, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
@@ -116,6 +280,90 @@ public class UsersApi extends BaseApi {
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<StringWrapper> localVarReturnType = new TypeReference<StringWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get an invitation link
+   * Returns an invitation link for joining the portal.
+   *
+   * REST API Reference for getInvitationLinkByEmployeeType Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link-by-employee-type/
+   *
+   * @param employeeType The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User). (required)
+   * @return InvitationLinkWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public InvitationLinkWrapper getInvitationLinkByEmployeeType(@javax.annotation.Nonnull EmployeeType employeeType) throws ApiException {
+    return this.getInvitationLinkByEmployeeType(employeeType, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get an invitation link
+   * Returns an invitation link for joining the portal.
+   *
+   * REST API Reference for getInvitationLinkByEmployeeType Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link-by-employee-type/
+   *
+   * @param employeeType The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User). (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return InvitationLinkWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public InvitationLinkWrapper getInvitationLinkByEmployeeType(@javax.annotation.Nonnull EmployeeType employeeType, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'employeeType' is set
+    if (employeeType == null) {
+      throw new ApiException(400, "Missing the required parameter 'employeeType' when calling getInvitationLinkByEmployeeType");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/portal/users/invitationlink/{employeeType}"
+      .replaceAll("\\{" + "employeeType" + "\\}", apiClient.escapeString(apiClient.parameterToString(employeeType)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<InvitationLinkWrapper> localVarReturnType = new TypeReference<InvitationLinkWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -455,6 +703,84 @@ public class UsersApi extends BaseApi {
     );
   }
 
+  /**
+   * Update an invitation link
+   * Returns an invitation link for joining the portal.
+   *
+   * REST API Reference for updateInvitationLink Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-link/
+   *
+   * @param invitationLinkUpdateRequestDto  (optional)
+   * @return InvitationLinkWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public InvitationLinkWrapper updateInvitationLink(@javax.annotation.Nullable InvitationLinkUpdateRequestDto invitationLinkUpdateRequestDto) throws ApiException {
+    return this.updateInvitationLink(invitationLinkUpdateRequestDto, Collections.emptyMap());
+  }
+
+
+  /**
+   * Update an invitation link
+   * Returns an invitation link for joining the portal.
+   *
+   * REST API Reference for updateInvitationLink Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-link/
+   *
+   * @param invitationLinkUpdateRequestDto  (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return InvitationLinkWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public InvitationLinkWrapper updateInvitationLink(@javax.annotation.Nullable InvitationLinkUpdateRequestDto invitationLinkUpdateRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = invitationLinkUpdateRequestDto;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/portal/users/invitationlink";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<InvitationLinkWrapper> localVarReturnType = new TypeReference<InvitationLinkWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
   @Override
   public <T> T invokeAPI(String url, String method, Object request, TypeReference<T> returnType, Map<String, String> additionalHeaders) throws ApiException {
     String localVarPath = url.replace(apiClient.getBaseURL(), "");
@@ -468,16 +794,16 @@ public class UsersApi extends BaseApi {
     localVarHeaderParams.putAll(additionalHeaders);
 
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     return apiClient.invokeAPI(
       localVarPath,

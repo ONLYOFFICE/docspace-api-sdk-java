@@ -9,8 +9,8 @@ The external sharing information and validation data.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **Status** |  |  |
-|**id** | **String** | The external data ID. |  |
-|**title** | **String** | The external data title. |  |
+|**id** | **String** | The external data ID. |  [optional] |
+|**title** | **String** | The external data title. |  [optional] |
 |**type** | **FileEntryType** |  |  [optional] |
 |**tenantId** | **Integer** | The tenant ID. |  |
 |**entityId** | **String** | The unique identifier of the shared entity. |  [optional] |

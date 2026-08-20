@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -53,32 +54,25 @@ import java.util.StringJoiner;
 
 public class AuthServiceRequestsDto {
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  @javax.annotation.Nullable
-  private JsonNullable<String> description = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_INSTRUCTION = "instruction";
-  @javax.annotation.Nullable
-  private JsonNullable<String> instruction = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> instruction = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CAN_SET = "canSet";
-  @javax.annotation.Nullable
-  private Boolean canSet;
+  @javax.annotation.Nullable  private Boolean canSet;
 
   public static final String JSON_PROPERTY_PAID = "paid";
-  @javax.annotation.Nullable
-  private Boolean paid;
+  @javax.annotation.Nullable  private Boolean paid;
 
   public static final String JSON_PROPERTY_PROPS = "props";
-  @javax.annotation.Nullable
-  private JsonNullable<List<AuthKey>> props = JsonNullable.<List<AuthKey>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<AuthKey>> props = JsonNullable.<List<AuthKey>>undefined();
 
   public AuthServiceRequestsDto() {
   }
@@ -94,16 +88,14 @@ public class AuthServiceRequestsDto {
    * The name of the authorization service.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getName() {
         return name.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
@@ -127,16 +119,14 @@ public class AuthServiceRequestsDto {
    * The user-friendly display title of the authorization service.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTitle() {
         return title.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
@@ -160,16 +150,14 @@ public class AuthServiceRequestsDto {
    * The brief description of the authorization service.
    * @return description
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getDescription() {
         return description.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getDescription_JsonNullable() {
     return description;
   }
@@ -193,16 +181,14 @@ public class AuthServiceRequestsDto {
    * The detailed instructions for configuring or using the authorization service.
    * @return instruction
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getInstruction() {
         return instruction.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_INSTRUCTION)
+  @JsonProperty(value = JSON_PROPERTY_INSTRUCTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getInstruction_JsonNullable() {
     return instruction;
   }
@@ -226,8 +212,7 @@ public class AuthServiceRequestsDto {
    * Specifies whether the authorization service can be configured by the user.
    * @return canSet
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CAN_SET)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CAN_SET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCanSet() {
@@ -235,7 +220,7 @@ public class AuthServiceRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CAN_SET)
+  @JsonProperty(value = JSON_PROPERTY_CAN_SET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCanSet(@javax.annotation.Nullable Boolean canSet) {
     this.canSet = canSet;
@@ -251,8 +236,7 @@ public class AuthServiceRequestsDto {
    * Specifies whether the authorization service is paid or not.
    * @return paid
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PAID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PAID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getPaid() {
@@ -260,7 +244,7 @@ public class AuthServiceRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PAID)
+  @JsonProperty(value = JSON_PROPERTY_PAID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaid(@javax.annotation.Nullable Boolean paid) {
     this.paid = paid;
@@ -288,16 +272,14 @@ public class AuthServiceRequestsDto {
    * The collection of authorization keys associated with the authorization service.
    * @return props
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<AuthKey> getProps() {
         return props.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PROPS)
+  @JsonProperty(value = JSON_PROPERTY_PROPS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<AuthKey>> getProps_JsonNullable() {
     return props;
   }

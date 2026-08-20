@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -42,20 +43,16 @@ import java.util.StringJoiner;
 
 public class IPRestriction {
   public static final String JSON_PROPERTY_IP = "ip";
-  @javax.annotation.Nullable
-  private String ip;
+  @javax.annotation.Nullable  private String ip;
 
   public static final String JSON_PROPERTY_FOR_ADMIN = "forAdmin";
-  @javax.annotation.Nullable
-  private Boolean forAdmin;
+  @javax.annotation.Nullable  private Boolean forAdmin;
 
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private Integer id;
+  @javax.annotation.Nullable  private Integer id;
 
   public static final String JSON_PROPERTY_TENANT_ID = "tenantId";
-  @javax.annotation.Nullable
-  private Integer tenantId;
+  @javax.annotation.Nullable  private Integer tenantId;
 
   public IPRestriction() {
   }
@@ -71,8 +68,7 @@ public class IPRestriction {
    * Get ip
    * @return ip
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IP)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IP, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getIp() {
@@ -80,7 +76,7 @@ public class IPRestriction {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IP)
+  @JsonProperty(value = JSON_PROPERTY_IP, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIp(@javax.annotation.Nullable String ip) {
     this.ip = ip;
@@ -96,8 +92,7 @@ public class IPRestriction {
    * Get forAdmin
    * @return forAdmin
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FOR_ADMIN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FOR_ADMIN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getForAdmin() {
@@ -105,7 +100,7 @@ public class IPRestriction {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FOR_ADMIN)
+  @JsonProperty(value = JSON_PROPERTY_FOR_ADMIN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setForAdmin(@javax.annotation.Nullable Boolean forAdmin) {
     this.forAdmin = forAdmin;
@@ -121,8 +116,7 @@ public class IPRestriction {
    * Get id
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getId() {
@@ -130,7 +124,7 @@ public class IPRestriction {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(@javax.annotation.Nullable Integer id) {
     this.id = id;
@@ -146,8 +140,7 @@ public class IPRestriction {
    * Get tenantId
    * @return tenantId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getTenantId() {
@@ -155,7 +148,7 @@ public class IPRestriction {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTenantId(@javax.annotation.Nullable Integer tenantId) {
     this.tenantId = tenantId;

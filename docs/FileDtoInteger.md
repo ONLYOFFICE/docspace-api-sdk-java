@@ -14,6 +14,7 @@ The file parameters.
 |**ownedBy** | [**EmployeeDto**](EmployeeDto.md) |  |  [optional] |
 |**shared** | **Boolean** | Specifies if the file entry is shared via link or not. |  [optional] |
 |**sharedForUser** | **Boolean** | Specifies if the file entry is shared for user or not. |  [optional] |
+|**sharedExternal** | **Boolean** | Specifies if the file entry is shared via a public (non-internal) external link. |  [optional] |
 |**parentShared** | **Boolean** | Indicates whether the parent entity is shared. |  [optional] |
 |**shortWebUrl** | **URI** | The short Web URL. |  [optional] |
 |**created** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
@@ -49,6 +50,7 @@ The file parameters.
 |**contentLength** | **String** | The content length of the file. |  [optional] |
 |**pureContentLength** | **Long** | The pure content length of the file. |  [optional] |
 |**fileStatus** | **FileStatus** |  |  [optional] |
+|**editingBy** | **Map&lt;String, String&gt;** | The list of users editing the file. |  [optional] |
 |**mute** | **Boolean** | Specifies if the file is muted or not. |  [optional] |
 |**viewUrl** | **URI** | The URL link to view the file. |  [optional] |
 |**webUrl** | **URI** | The Web URL link to the file. |  [optional] |
@@ -66,13 +68,16 @@ The file parameters.
 |**customFilterEnabled** | **Boolean** | Specifies if the Custom Filter editing mode is enabled for a file or not. |  [optional] |
 |**customFilterEnabledBy** | **String** | The name of the user who enabled a Custom Filter editing mode for a file. |  [optional] |
 |**startFilling** | **Boolean** | Specifies if the filling has started or not. |  [optional] |
+|**isFillingPreparing** | **Boolean** | Specifies if the form filling has started but the file is still being saved by the document editor. Filling and editing are not allowed. |  [optional] |
 |**inProcessFolderId** | **Integer** | The InProcess folder ID of the file. |  [optional] |
 |**inProcessFolderTitle** | **String** | The InProcess folder title of the file. |  [optional] |
+|**resultsFolderId** | **Integer** | The ID of the FormFillingFolderDone folder that corresponds to this original form. |  [optional] |
 |**draftLocation** | [**DraftLocationInteger**](DraftLocationInteger.md) |  |  [optional] |
 |**viewAccessibility** | [**FileDtoIntegerAllOfViewAccessibility**](FileDtoIntegerAllOfViewAccessibility.md) |  |  [optional] |
 |**lastOpened** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
 |**expired** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
 |**vectorizationStatus** | **VectorizationStatus** |  |  [optional] |
+|**externalDbTableName** | **String** | The name of the table in the external database that corresponds to this form. |  [optional] |
 |**dimensions** | [**Size**](Size.md) |  |  [optional] |
 
 

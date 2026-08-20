@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import org.openapitools.client.Pair;
 import org.openapitools.client.model.CustomColorThemesSettingsRequestsDto;
 import org.openapitools.client.model.CustomColorThemesSettingsWrapper;
 import org.openapitools.client.model.DeepLinkConfigurationRequestsDto;
+import org.openapitools.client.model.DefaultProductRequestDto;
 import org.openapitools.client.model.DnsSettingsRequestsDto;
 import org.openapitools.client.model.EmailActivationSettings;
 import org.openapitools.client.model.EmailActivationSettingsWrapper;
@@ -36,6 +37,9 @@ import org.openapitools.client.model.PaymentSettingsWrapper;
 import org.openapitools.client.model.STRINGArrayWrapper;
 import org.openapitools.client.model.SettingsWrapper;
 import org.openapitools.client.model.StringWrapper;
+import org.openapitools.client.model.StudioDefaultPageSettingsWrapper;
+import org.openapitools.client.model.TenantAiAccessSettingsDto;
+import org.openapitools.client.model.TenantAiAccessSettingsWrapper;
 import org.openapitools.client.model.TenantDeepLinkSettingsWrapper;
 import org.openapitools.client.model.TenantUserInvitationSettingsRequestDto;
 import org.openapitools.client.model.TenantUserInvitationSettingsWrapper;
@@ -987,6 +991,82 @@ public class CommonSettingsApi extends BaseApi {
   }
 
   /**
+   * Get the AI access settings for the portal
+   * Returns the current portal-level AI access settings that control whether all AI functionality  (chat, agents, vectorization) is available for the portal. AI is enabled by default.
+   *
+   * REST API Reference for getTenantAiAccessSettings Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-ai-access-settings/
+   *
+   * @return TenantAiAccessSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public TenantAiAccessSettingsWrapper getTenantAiAccessSettings() throws ApiException {
+    return this.getTenantAiAccessSettings(Collections.emptyMap());
+  }
+
+
+  /**
+   * Get the AI access settings for the portal
+   * Returns the current portal-level AI access settings that control whether all AI functionality  (chat, agents, vectorization) is available for the portal. AI is enabled by default.
+   *
+   * REST API Reference for getTenantAiAccessSettings Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-ai-access-settings/
+   *
+   * @param additionalHeaders additionalHeaders for this call
+   * @return TenantAiAccessSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public TenantAiAccessSettingsWrapper getTenantAiAccessSettings(Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/settings/ai-access";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<TenantAiAccessSettingsWrapper> localVarReturnType = new TypeReference<TenantAiAccessSettingsWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Get the user invitation settings
    * Returns the portal user invitation settings.
    *
@@ -1124,6 +1204,84 @@ public class CommonSettingsApi extends BaseApi {
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Set the default folder
+   * Sets the default folder.
+   *
+   * REST API Reference for saveDefaultFolder Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-default-folder/
+   *
+   * @param defaultProductRequestDto  (optional)
+   * @return StudioDefaultPageSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public StudioDefaultPageSettingsWrapper saveDefaultFolder(@javax.annotation.Nullable DefaultProductRequestDto defaultProductRequestDto) throws ApiException {
+    return this.saveDefaultFolder(defaultProductRequestDto, Collections.emptyMap());
+  }
+
+
+  /**
+   * Set the default folder
+   * Sets the default folder.
+   *
+   * REST API Reference for saveDefaultFolder Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-default-folder/
+   *
+   * @param defaultProductRequestDto  (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return StudioDefaultPageSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public StudioDefaultPageSettingsWrapper saveDefaultFolder(@javax.annotation.Nullable DefaultProductRequestDto defaultProductRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = defaultProductRequestDto;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/settings/defaultfolder";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<StudioDefaultPageSettingsWrapper> localVarReturnType = new TypeReference<StudioDefaultPageSettingsWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "PUT",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),
@@ -1358,6 +1516,84 @@ public class CommonSettingsApi extends BaseApi {
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Set the AI access for the portal
+   * Updates the portal-level AI access settings. When AI is disabled, all AI features are turned off:  the AI Agents folder is hidden from root folder listings, AI status checks immediately return disabled,  and AI chat endpoints become inaccessible. Only users with the DocSpaceAdmin role  (EditPortalSettings permission) can change this setting.
+   *
+   * REST API Reference for setTenantAiAccessSettings Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/
+   *
+   * @param tenantAiAccessSettingsDto  (optional)
+   * @return TenantAiAccessSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public TenantAiAccessSettingsWrapper setTenantAiAccessSettings(@javax.annotation.Nullable TenantAiAccessSettingsDto tenantAiAccessSettingsDto) throws ApiException {
+    return this.setTenantAiAccessSettings(tenantAiAccessSettingsDto, Collections.emptyMap());
+  }
+
+
+  /**
+   * Set the AI access for the portal
+   * Updates the portal-level AI access settings. When AI is disabled, all AI features are turned off:  the AI Agents folder is hidden from root folder listings, AI status checks immediately return disabled,  and AI chat endpoints become inaccessible. Only users with the DocSpaceAdmin role  (EditPortalSettings permission) can change this setting.
+   *
+   * REST API Reference for setTenantAiAccessSettings Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/
+   *
+   * @param tenantAiAccessSettingsDto  (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return TenantAiAccessSettingsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public TenantAiAccessSettingsWrapper setTenantAiAccessSettings(@javax.annotation.Nullable TenantAiAccessSettingsDto tenantAiAccessSettingsDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = tenantAiAccessSettingsDto;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/settings/ai-access";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<TenantAiAccessSettingsWrapper> localVarReturnType = new TypeReference<TenantAiAccessSettingsWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),

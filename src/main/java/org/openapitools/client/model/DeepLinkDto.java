@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -41,16 +42,13 @@ import java.util.StringJoiner;
 
 public class DeepLinkDto {
   public static final String JSON_PROPERTY_ANDROID_PACKAGE_NAME = "androidPackageName";
-  @javax.annotation.Nullable
-  private String androidPackageName;
+  @javax.annotation.Nullable  private String androidPackageName;
 
   public static final String JSON_PROPERTY_URL = "url";
-  @javax.annotation.Nullable
-  private String url;
+  @javax.annotation.Nullable  private String url;
 
   public static final String JSON_PROPERTY_IOS_PACKAGE_ID = "iosPackageId";
-  @javax.annotation.Nullable
-  private String iosPackageId;
+  @javax.annotation.Nullable  private String iosPackageId;
 
   public DeepLinkDto() {
   }
@@ -66,8 +64,7 @@ public class DeepLinkDto {
    * The Android package name.
    * @return androidPackageName
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ANDROID_PACKAGE_NAME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ANDROID_PACKAGE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getAndroidPackageName() {
@@ -75,7 +72,7 @@ public class DeepLinkDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ANDROID_PACKAGE_NAME)
+  @JsonProperty(value = JSON_PROPERTY_ANDROID_PACKAGE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAndroidPackageName(@javax.annotation.Nullable String androidPackageName) {
     this.androidPackageName = androidPackageName;
@@ -91,8 +88,7 @@ public class DeepLinkDto {
    * The deep link URL.
    * @return url
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_URL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getUrl() {
@@ -100,7 +96,7 @@ public class DeepLinkDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonProperty(value = JSON_PROPERTY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUrl(@javax.annotation.Nullable String url) {
     this.url = url;
@@ -116,8 +112,7 @@ public class DeepLinkDto {
    * The deep link IOS package ID.
    * @return iosPackageId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IOS_PACKAGE_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IOS_PACKAGE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getIosPackageId() {
@@ -125,7 +120,7 @@ public class DeepLinkDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IOS_PACKAGE_ID)
+  @JsonProperty(value = JSON_PROPERTY_IOS_PACKAGE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIosPackageId(@javax.annotation.Nullable String iosPackageId) {
     this.iosPackageId = iosPackageId;

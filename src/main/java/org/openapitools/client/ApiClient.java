@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -86,6 +86,7 @@ import org.openapitools.client.auth.HttpBasicAuth;
 import org.openapitools.client.auth.HttpBearerAuth;
 import org.openapitools.client.auth.ApiKeyAuth;
 import org.openapitools.client.auth.OAuth;
+import org.openapitools.client.auth.OpenIdAuth;
 
 public class ApiClient extends JavaTimeFormatter {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
@@ -140,7 +141,7 @@ public class ApiClient extends JavaTimeFormatter {
     dateFormat = ApiClient.buildDefaultDateFormat();
 
     // Set default User-Agent.
-    setUserAgent("OpenAPI-Generator/3.6.0/java");
+    setUserAgent("OpenAPI-Generator/3.7.0/java");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
@@ -150,6 +151,7 @@ public class ApiClient extends JavaTimeFormatter {
     authentications.put("ApiKeyBearer", new ApiKeyAuth("header", "ApiKeyBearer"));
     authentications.put("OAuth2", new OAuth());
     authentications.put("x-signature", new ApiKeyAuth("query", "x-signature"));
+    authentications.put("OpenId", new OpenIdAuth());
     // Prevent the authentications from being modified.
     authentications = Collections.unmodifiableMap(authentications);
 

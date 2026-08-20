@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -53,32 +54,25 @@ import java.util.StringJoiner;
 
 public class CapabilitiesDto {
   public static final String JSON_PROPERTY_LDAP_ENABLED = "ldapEnabled";
-  @javax.annotation.Nonnull
-  private Boolean ldapEnabled;
+  @javax.annotation.Nonnull  private Boolean ldapEnabled;
 
   public static final String JSON_PROPERTY_LDAP_DOMAIN = "ldapDomain";
-  @javax.annotation.Nullable
-  private JsonNullable<String> ldapDomain = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> ldapDomain = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PROVIDERS = "providers";
-  @javax.annotation.Nullable
-  private List<String> providers;
+  @javax.annotation.Nullable  private List<String> providers;
 
   public static final String JSON_PROPERTY_SSO_LABEL = "ssoLabel";
-  @javax.annotation.Nullable
-  private String ssoLabel;
+  @javax.annotation.Nullable  private String ssoLabel;
 
   public static final String JSON_PROPERTY_OAUTH_ENABLED = "oauthEnabled";
-  @javax.annotation.Nonnull
-  private Boolean oauthEnabled;
+  @javax.annotation.Nonnull  private Boolean oauthEnabled;
 
   public static final String JSON_PROPERTY_SSO_URL = "ssoUrl";
-  @javax.annotation.Nullable
-  private URI ssoUrl;
+  @javax.annotation.Nullable  private URI ssoUrl;
 
   public static final String JSON_PROPERTY_IDENTITY_SERVER_ENABLED = "identityServerEnabled";
-  @javax.annotation.Nonnull
-  private Boolean identityServerEnabled;
+  @javax.annotation.Nonnull  private Boolean identityServerEnabled;
 
   public CapabilitiesDto() {
   }
@@ -94,8 +88,7 @@ public class CapabilitiesDto {
    * Specifies if the LDAP settings are enabled or not.
    * @return ldapEnabled
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LDAP_ENABLED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_LDAP_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getLdapEnabled() {
@@ -103,7 +96,7 @@ public class CapabilitiesDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LDAP_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_LDAP_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLdapEnabled(@javax.annotation.Nonnull Boolean ldapEnabled) {
     this.ldapEnabled = ldapEnabled;
@@ -119,16 +112,14 @@ public class CapabilitiesDto {
    * The LDAP domain.
    * @return ldapDomain
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLdapDomain() {
         return ldapDomain.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LDAP_DOMAIN)
+  @JsonProperty(value = JSON_PROPERTY_LDAP_DOMAIN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLdapDomain_JsonNullable() {
     return ldapDomain;
   }
@@ -160,8 +151,7 @@ public class CapabilitiesDto {
    * The list of providers.
    * @return providers
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROVIDERS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROVIDERS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<String> getProviders() {
@@ -169,7 +159,7 @@ public class CapabilitiesDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROVIDERS)
+  @JsonProperty(value = JSON_PROPERTY_PROVIDERS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProviders(@javax.annotation.Nullable List<String> providers) {
     this.providers = providers;
@@ -185,8 +175,7 @@ public class CapabilitiesDto {
    * The SP login label.
    * @return ssoLabel
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SSO_LABEL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SSO_LABEL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getSsoLabel() {
@@ -194,7 +183,7 @@ public class CapabilitiesDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SSO_LABEL)
+  @JsonProperty(value = JSON_PROPERTY_SSO_LABEL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSsoLabel(@javax.annotation.Nullable String ssoLabel) {
     this.ssoLabel = ssoLabel;
@@ -210,8 +199,7 @@ public class CapabilitiesDto {
    * Specifies if OAuth is enabled or not.
    * @return oauthEnabled
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_OAUTH_ENABLED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_OAUTH_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getOauthEnabled() {
@@ -219,7 +207,7 @@ public class CapabilitiesDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OAUTH_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_OAUTH_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOauthEnabled(@javax.annotation.Nonnull Boolean oauthEnabled) {
     this.oauthEnabled = oauthEnabled;
@@ -235,8 +223,7 @@ public class CapabilitiesDto {
    * The SSO URL. If this parameter is empty, then the SSO settings are disabled.
    * @return ssoUrl
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SSO_URL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SSO_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public URI getSsoUrl() {
@@ -244,7 +231,7 @@ public class CapabilitiesDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SSO_URL)
+  @JsonProperty(value = JSON_PROPERTY_SSO_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSsoUrl(@javax.annotation.Nullable URI ssoUrl) {
     this.ssoUrl = ssoUrl;
@@ -257,11 +244,10 @@ public class CapabilitiesDto {
   }
 
   /**
-   * Specifies if identity server is enabled or not
+   * Specifies if an identity server is enabled or not.
    * @return identityServerEnabled
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IDENTITY_SERVER_ENABLED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IDENTITY_SERVER_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getIdentityServerEnabled() {
@@ -269,7 +255,7 @@ public class CapabilitiesDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IDENTITY_SERVER_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_IDENTITY_SERVER_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIdentityServerEnabled(@javax.annotation.Nonnull Boolean identityServerEnabled) {
     this.identityServerEnabled = identityServerEnabled;

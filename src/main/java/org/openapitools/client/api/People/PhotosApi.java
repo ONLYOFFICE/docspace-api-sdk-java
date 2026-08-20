@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,8 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
+import java.io.File;
 import org.openapitools.client.model.FileUploadResultWrapper;
-import org.openapitools.client.model.KeyValuePairStringStringValues;
 import org.openapitools.client.model.ThumbnailsDataWrapper;
 import org.openapitools.client.model.ThumbnailsRequest;
 import org.openapitools.client.model.UpdatePhotoMemberRequest;
@@ -407,12 +407,13 @@ public class PhotosApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/
    *
    * @param userid The user ID. (required)
-   * @param formCollection The image data. (required)
+   * @param _file The image data. (required)
+   * @param autosave Specifies whether to autosave a photo or not. (optional)
    * @return FileUploadResultWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileUploadResultWrapper uploadMemberPhoto(@javax.annotation.Nonnull String userid, @javax.annotation.Nonnull List<KeyValuePairStringStringValues> formCollection) throws ApiException {
-    return this.uploadMemberPhoto(userid, formCollection, Collections.emptyMap());
+  public FileUploadResultWrapper uploadMemberPhoto(@javax.annotation.Nonnull String userid, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable Boolean autosave) throws ApiException {
+    return this.uploadMemberPhoto(userid, _file, autosave, Collections.emptyMap());
   }
 
 
@@ -424,12 +425,13 @@ public class PhotosApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/
    *
    * @param userid The user ID. (required)
-   * @param formCollection The image data. (required)
+   * @param _file The image data. (required)
+   * @param autosave Specifies whether to autosave a photo or not. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileUploadResultWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileUploadResultWrapper uploadMemberPhoto(@javax.annotation.Nonnull String userid, @javax.annotation.Nonnull List<KeyValuePairStringStringValues> formCollection, Map<String, String> additionalHeaders) throws ApiException {
+  public FileUploadResultWrapper uploadMemberPhoto(@javax.annotation.Nonnull String userid, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable Boolean autosave, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userid' is set
@@ -437,9 +439,9 @@ public class PhotosApi extends BaseApi {
       throw new ApiException(400, "Missing the required parameter 'userid' when calling uploadMemberPhoto");
     }
     
-    // verify the required parameter 'formCollection' is set
-    if (formCollection == null) {
-      throw new ApiException(400, "Missing the required parameter 'formCollection' when calling uploadMemberPhoto");
+    // verify the required parameter '_file' is set
+    if (_file == null) {
+      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadMemberPhoto");
     }
     
     // create path and map variables
@@ -459,8 +461,10 @@ public class PhotosApi extends BaseApi {
     localVarHeaderParams.putAll(additionalHeaders);
 
     
-    if (formCollection != null)
-      localVarFormParams.put("formCollection", formCollection);
+    if (_file != null)
+      localVarFormParams.put("File", _file);
+if (autosave != null)
+      localVarFormParams.put("Autosave", autosave);
 
     final String[] localVarAccepts = {
       "application/json"

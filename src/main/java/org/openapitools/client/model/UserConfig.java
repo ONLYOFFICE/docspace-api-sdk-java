@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -50,24 +51,19 @@ import java.util.StringJoiner;
 
 public class UserConfig {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private JsonNullable<String> id = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> id = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_IMAGE = "image";
-  @javax.annotation.Nullable
-  private JsonNullable<String> image = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> image = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ROLES = "roles";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> roles = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> roles = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_CUSTOMER_ID = "customerId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> customerId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> customerId = JsonNullable.<String>undefined();
 
   public UserConfig() {
   }
@@ -83,16 +79,14 @@ public class UserConfig {
    * The user ID.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getId() {
         return id.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getId_JsonNullable() {
     return id;
   }
@@ -116,16 +110,14 @@ public class UserConfig {
    * The full name of the user.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getName() {
         return name.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
@@ -146,19 +138,17 @@ public class UserConfig {
   }
 
   /**
-   * The path to the user&#39;s avatar.
+   * The path to the user's avatar.
    * @return image
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getImage() {
         return image.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IMAGE)
+  @JsonProperty(value = JSON_PROPERTY_IMAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getImage_JsonNullable() {
     return image;
   }
@@ -194,16 +184,14 @@ public class UserConfig {
    * Roles
    * @return roles
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getRoles() {
         return roles.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ROLES)
+  @JsonProperty(value = JSON_PROPERTY_ROLES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getRoles_JsonNullable() {
     return roles;
   }
@@ -224,19 +212,17 @@ public class UserConfig {
   }
 
   /**
-   * Get customerId
+   * Customer identifier associated with the user.
    * @return customerId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCustomerId() {
         return customerId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CUSTOMER_ID)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOMER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCustomerId_JsonNullable() {
     return customerId;
   }

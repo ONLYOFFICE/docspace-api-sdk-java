@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,8 +47,7 @@ import java.util.StringJoiner;
 
 public class TemplatesRequestDto {
   public static final String JSON_PROPERTY_FILE_IDS = "fileIds";
-  @javax.annotation.Nullable
-  private JsonNullable<List<Integer>> fileIds = JsonNullable.<List<Integer>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<Integer>> fileIds = JsonNullable.<List<Integer>>undefined();
 
   public TemplatesRequestDto() {
   }
@@ -75,16 +75,14 @@ public class TemplatesRequestDto {
    * The list of file IDs.
    * @return fileIds
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<Integer> getFileIds() {
         return fileIds.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE_IDS)
+  @JsonProperty(value = JSON_PROPERTY_FILE_IDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<Integer>> getFileIds_JsonNullable() {
     return fileIds;
   }

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,12 +49,10 @@ import java.util.StringJoiner;
 
 public class RoomNewItemsDto {
   public static final String JSON_PROPERTY_ROOM = "room";
-  @javax.annotation.Nullable
-  private FileEntryBaseDto room;
+  @javax.annotation.Nullable  private FileEntryBaseDto room;
 
   public static final String JSON_PROPERTY_ITEMS = "items";
-  @javax.annotation.Nullable
-  private JsonNullable<List<FileEntryBaseDto>> items = JsonNullable.<List<FileEntryBaseDto>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<FileEntryBaseDto>> items = JsonNullable.<List<FileEntryBaseDto>>undefined();
 
   public RoomNewItemsDto() {
   }
@@ -69,8 +68,7 @@ public class RoomNewItemsDto {
    * Get room
    * @return room
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROOM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FileEntryBaseDto getRoom() {
@@ -78,7 +76,7 @@ public class RoomNewItemsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROOM)
+  @JsonProperty(value = JSON_PROPERTY_ROOM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoom(@javax.annotation.Nullable FileEntryBaseDto room) {
     this.room = room;
@@ -106,16 +104,14 @@ public class RoomNewItemsDto {
    * The list of file entry items.
    * @return items
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<FileEntryBaseDto> getItems() {
         return items.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ITEMS)
+  @JsonProperty(value = JSON_PROPERTY_ITEMS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<FileEntryBaseDto>> getItems_JsonNullable() {
     return items;
   }

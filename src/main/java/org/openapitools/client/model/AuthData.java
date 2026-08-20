@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -50,28 +51,22 @@ import java.util.StringJoiner;
 
 public class AuthData {
   public static final String JSON_PROPERTY_LOGIN = "login";
-  @javax.annotation.Nullable
-  private JsonNullable<String> login = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> login = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PASSWORD = "password";
-  @javax.annotation.Nullable
-  private JsonNullable<String> password = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> password = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_RAW_TOKEN = "rawToken";
-  @javax.annotation.Nullable
-  private JsonNullable<String> rawToken = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> rawToken = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_URL = "url";
-  @javax.annotation.Nullable
-  private JsonNullable<URI> url = JsonNullable.<URI>undefined();
+  @javax.annotation.Nullable  private JsonNullable<URI> url = JsonNullable.<URI>undefined();
 
   public static final String JSON_PROPERTY_PROVIDER = "provider";
-  @javax.annotation.Nullable
-  private JsonNullable<String> provider = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> provider = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TOKEN = "token";
-  @javax.annotation.Nullable
-  private OAuth20Token token;
+  @javax.annotation.Nullable  private OAuth20Token token;
 
   public AuthData() {
   }
@@ -87,16 +82,14 @@ public class AuthData {
    * The authentication login.
    * @return login
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLogin() {
         return login.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LOGIN)
+  @JsonProperty(value = JSON_PROPERTY_LOGIN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLogin_JsonNullable() {
     return login;
   }
@@ -120,16 +113,14 @@ public class AuthData {
    * The authentication password.
    * @return password
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPassword() {
         return password.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PASSWORD)
+  @JsonProperty(value = JSON_PROPERTY_PASSWORD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPassword_JsonNullable() {
     return password;
   }
@@ -153,16 +144,14 @@ public class AuthData {
    * The authentication raw token.
    * @return rawToken
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRawToken() {
         return rawToken.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_RAW_TOKEN)
+  @JsonProperty(value = JSON_PROPERTY_RAW_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRawToken_JsonNullable() {
     return rawToken;
   }
@@ -186,16 +175,14 @@ public class AuthData {
    * The authentication URL.
    * @return url
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public URI getUrl() {
         return url.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonProperty(value = JSON_PROPERTY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<URI> getUrl_JsonNullable() {
     return url;
   }
@@ -219,16 +206,14 @@ public class AuthData {
    * The authentication provider.
    * @return provider
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getProvider() {
         return provider.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PROVIDER)
+  @JsonProperty(value = JSON_PROPERTY_PROVIDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getProvider_JsonNullable() {
     return provider;
   }
@@ -252,8 +237,7 @@ public class AuthData {
    * Get token
    * @return token
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TOKEN)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OAuth20Token getToken() {
@@ -261,7 +245,7 @@ public class AuthData {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TOKEN)
+  @JsonProperty(value = JSON_PROPERTY_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(@javax.annotation.Nullable OAuth20Token token) {
     this.token = token;

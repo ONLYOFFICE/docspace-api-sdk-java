@@ -4,7 +4,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getScopes**](OAuth20ScopeManagementApi.md#getScopes) | **GET** /api/2.0/scopes | Get available OAuth2 scopes |
+| [**getScopes**](OAuth20ScopeManagementApi.md#getScopes) | **GET** /api/2.0/scopes | List available OAuth2 scopes |
 
 
 
@@ -12,7 +12,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > ScopeResponse getScopes()
 
-Get available OAuth2 scopesRetrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
+List available OAuth2 scopesRetrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/).
 
@@ -26,7 +26,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[x-signature](../README.md#x-signature)
 
 ### Example
 
@@ -44,11 +44,11 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost:8092");
         
-        // Configure API key authorization: asc_auth_key
-        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
-        asc_auth_key.setApiKey("YOUR API KEY");
+        // Configure API key authorization: x-signature
+        ApiKeyAuth x-signature = (ApiKeyAuth) defaultClient.getAuthentication("x-signature");
+        x-signature.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //asc_auth_key.setApiKeyPrefix("Token");
+        //x-signature.setApiKeyPrefix("Token");
 
         ScopeManagementApi apiInstance = new ScopeManagementApi(defaultClient);
         try {
@@ -76,7 +76,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Scopes successfully retrieved |  -  |
 | **400** | Invalid request parameters |  -  |
-| **403** | Insufficient permissions to get a list of scopes |  -  |
+| **403** | Insufficient permissions to list scopes |  -  |
 | **429** | Too many requests - rate limit exceeded |  -  |
 | **500** | Internal server error occurred |  -  |
 

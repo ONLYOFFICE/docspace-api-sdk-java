@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -40,12 +41,10 @@ import java.util.StringJoiner;
 
 public class ChangeHistory {
   public static final String JSON_PROPERTY_VERSION = "version";
-  @javax.annotation.Nonnull
-  private Integer version;
+  @javax.annotation.Nonnull  private Integer version;
 
   public static final String JSON_PROPERTY_CONTINUE_VERSION = "continueVersion";
-  @javax.annotation.Nullable
-  private Boolean continueVersion;
+  @javax.annotation.Nullable  private Boolean continueVersion;
 
   public ChangeHistory() {
   }
@@ -61,8 +60,7 @@ public class ChangeHistory {
    * The file version of the change history.
    * @return version
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_VERSION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getVersion() {
@@ -70,7 +68,7 @@ public class ChangeHistory {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(value = JSON_PROPERTY_VERSION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
@@ -86,8 +84,7 @@ public class ChangeHistory {
    * Specifies whether to start a new version or continue revision of the change history.
    * @return continueVersion
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONTINUE_VERSION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONTINUE_VERSION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getContinueVersion() {
@@ -95,7 +92,7 @@ public class ChangeHistory {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CONTINUE_VERSION)
+  @JsonProperty(value = JSON_PROPERTY_CONTINUE_VERSION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContinueVersion(@javax.annotation.Nullable Boolean continueVersion) {
     this.continueVersion = continueVersion;

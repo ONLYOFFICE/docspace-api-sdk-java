@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,19 +35,19 @@ import org.openapitools.client.model.CreateTagRequestDto;
 import org.openapitools.client.model.CreateThirdPartyRoom;
 import org.openapitools.client.model.DeleteRoomRequest;
 import org.openapitools.client.model.DocumentBuilderTaskWrapper;
+import org.openapitools.client.model.ExternalDbSyncTaskWrapper;
+import java.io.File;
 import org.openapitools.client.model.FileOperationWrapper;
 import org.openapitools.client.model.FileShareArrayWrapper;
 import org.openapitools.client.model.FileShareWrapper;
 import org.openapitools.client.model.FolderContentIntegerWrapper;
 import org.openapitools.client.model.FolderIntegerWrapper;
 import org.openapitools.client.model.FolderStringWrapper;
-import org.openapitools.client.model.KeyValuePairStringStringValues;
 import org.openapitools.client.model.LinkType;
 import org.openapitools.client.model.LogoRequest;
 import org.openapitools.client.model.NewItemsFileEntryBaseArrayWrapper;
 import org.openapitools.client.model.NewItemsRoomNewItemsArrayWrapper;
 import org.openapitools.client.model.ObjectArrayWrapper;
-import org.openapitools.client.model.ObjectWrapper;
 import org.openapitools.client.model.ProviderFilter;
 import org.openapitools.client.model.QuotaFilter;
 import org.openapitools.client.model.RoomFromTemplateStatusWrapper;
@@ -62,8 +62,10 @@ import org.openapitools.client.model.SetPublicDto;
 import org.openapitools.client.model.ShareFilterType;
 import org.openapitools.client.model.SortOrder;
 import org.openapitools.client.model.StorageFilter;
+import org.openapitools.client.model.StringWrapper;
 import org.openapitools.client.model.SubjectFilter;
 import org.openapitools.client.model.UpdateRoomRequest;
+import org.openapitools.client.model.UpdateTagRequestDto;
 import org.openapitools.client.model.UploadResultWrapper;
 import org.openapitools.client.model.UserInvitation;
 
@@ -615,10 +617,10 @@ public class RoomsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-tag/
    *
    * @param createTagRequestDto  (optional)
-   * @return ObjectWrapper
+   * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public ObjectWrapper createRoomTag(@javax.annotation.Nullable CreateTagRequestDto createTagRequestDto) throws ApiException {
+  public StringWrapper createRoomTag(@javax.annotation.Nullable CreateTagRequestDto createTagRequestDto) throws ApiException {
     return this.createRoomTag(createTagRequestDto, Collections.emptyMap());
   }
 
@@ -632,10 +634,10 @@ public class RoomsApi extends BaseApi {
    *
    * @param createTagRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return ObjectWrapper
+   * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public ObjectWrapper createRoomTag(@javax.annotation.Nullable CreateTagRequestDto createTagRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+  public StringWrapper createRoomTag(@javax.annotation.Nullable CreateTagRequestDto createTagRequestDto, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = createTagRequestDto;
     
     // create path and map variables
@@ -667,7 +669,7 @@ public class RoomsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ObjectWrapper> localVarReturnType = new TypeReference<ObjectWrapper>() {};
+    TypeReference<StringWrapper> localVarReturnType = new TypeReference<StringWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -856,7 +858,7 @@ public class RoomsApi extends BaseApi {
 
   /**
    * Delete the custom room tags
-   * Deletes a bunch of custom room tags specified in the request.
+   * Deletes a bunch of custom tags specified in the request.
    *
    * REST API Reference for deleteCustomTags Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-tags/
@@ -871,7 +873,7 @@ public class RoomsApi extends BaseApi {
 
   /**
    * Delete the custom room tags
-   * Deletes a bunch of custom room tags specified in the request.
+   * Deletes a bunch of custom tags specified in the request.
    *
    * REST API Reference for deleteCustomTags Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-tags/
@@ -1176,6 +1178,90 @@ public class RoomsApi extends BaseApi {
     return apiClient.invokeAPI(
         localVarPath,
         "DELETE",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get external DB sync status
+   * Returns the status of the external DB synchronization task for the specified filling forms room.
+   *
+   * REST API Reference for getExternalDbSyncStatus Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-db-sync-status/
+   *
+   * @param id The room ID. (required)
+   * @return ExternalDbSyncTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ExternalDbSyncTaskWrapper getExternalDbSyncStatus(@javax.annotation.Nonnull Integer id) throws ApiException {
+    return this.getExternalDbSyncStatus(id, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get external DB sync status
+   * Returns the status of the external DB synchronization task for the specified filling forms room.
+   *
+   * REST API Reference for getExternalDbSyncStatus Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-db-sync-status/
+   *
+   * @param id The room ID. (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ExternalDbSyncTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ExternalDbSyncTaskWrapper getExternalDbSyncStatus(@javax.annotation.Nonnull Integer id, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getExternalDbSyncStatus");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/rooms/{id}/externaldbsync"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<ExternalDbSyncTaskWrapper> localVarReturnType = new TypeReference<ExternalDbSyncTaskWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),
@@ -1855,13 +1941,13 @@ public class RoomsApi extends BaseApi {
 
   /**
    * Get the room tags
-   * Returns a list of custom room tags.
+   * Returns a list of custom tags.
    *
    * REST API Reference for getRoomTagsInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/
    *
    * @param count Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)
-   * @param startIndex Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)
+   * @param startIndex Represents the starting index from which the tags' information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)
    * @param filterValue Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)
    * @return ObjectArrayWrapper
    * @throws ApiException if fails to make API call
@@ -1873,13 +1959,13 @@ public class RoomsApi extends BaseApi {
 
   /**
    * Get the room tags
-   * Returns a list of custom room tags.
+   * Returns a list of custom tags.
    *
    * REST API Reference for getRoomTagsInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/
    *
    * @param count Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)
-   * @param startIndex Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)
+   * @param startIndex Represents the starting index from which the tags' information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)
    * @param filterValue Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return ObjectArrayWrapper
@@ -2025,6 +2111,7 @@ public class RoomsApi extends BaseApi {
    *
    * @param type The filter by room type. (optional)
    * @param subjectId The filter by user ID. (optional)
+   * @param subjectOwnerId The filter by room owner ID. (optional)
    * @param searchArea The room search area (Active, Archive, Any, Recent by links). (optional)
    * @param withoutTags Specifies whether to search by tags or not. (optional)
    * @param tags The tags in the serialized format. (optional)
@@ -2038,11 +2125,12 @@ public class RoomsApi extends BaseApi {
    * @param sortBy Specifies the field by which the room content should be sorted. (optional)
    * @param sortOrder The order in which the results are sorted. (optional)
    * @param filterValue The text filter value used to refine search or query operations. (optional)
+   * @param groupId The group ID (optional)
    * @return FolderContentIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentIntegerWrapper getRoomsFolder(@javax.annotation.Nullable List<RoomType> type, @javax.annotation.Nullable String subjectId, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ProviderFilter provider, @javax.annotation.Nullable SubjectFilter subjectFilter, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable StorageFilter storageFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue) throws ApiException {
-    return this.getRoomsFolder(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, Collections.emptyMap());
+  public FolderContentIntegerWrapper getRoomsFolder(@javax.annotation.Nullable List<RoomType> type, @javax.annotation.Nullable String subjectId, @javax.annotation.Nullable String subjectOwnerId, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ProviderFilter provider, @javax.annotation.Nullable SubjectFilter subjectFilter, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable StorageFilter storageFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer groupId) throws ApiException {
+    return this.getRoomsFolder(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId, Collections.emptyMap());
   }
 
 
@@ -2055,6 +2143,7 @@ public class RoomsApi extends BaseApi {
    *
    * @param type The filter by room type. (optional)
    * @param subjectId The filter by user ID. (optional)
+   * @param subjectOwnerId The filter by room owner ID. (optional)
    * @param searchArea The room search area (Active, Archive, Any, Recent by links). (optional)
    * @param withoutTags Specifies whether to search by tags or not. (optional)
    * @param tags The tags in the serialized format. (optional)
@@ -2068,11 +2157,12 @@ public class RoomsApi extends BaseApi {
    * @param sortBy Specifies the field by which the room content should be sorted. (optional)
    * @param sortOrder The order in which the results are sorted. (optional)
    * @param filterValue The text filter value used to refine search or query operations. (optional)
+   * @param groupId The group ID (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FolderContentIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentIntegerWrapper getRoomsFolder(@javax.annotation.Nullable List<RoomType> type, @javax.annotation.Nullable String subjectId, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ProviderFilter provider, @javax.annotation.Nullable SubjectFilter subjectFilter, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable StorageFilter storageFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public FolderContentIntegerWrapper getRoomsFolder(@javax.annotation.Nullable List<RoomType> type, @javax.annotation.Nullable String subjectId, @javax.annotation.Nullable String subjectOwnerId, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ProviderFilter provider, @javax.annotation.Nullable SubjectFilter subjectFilter, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable StorageFilter storageFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer groupId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -2091,6 +2181,7 @@ public class RoomsApi extends BaseApi {
       localVarQueryStringJoiner.add(String.format(java.util.Locale.ROOT, "type[%d]=%s", i, apiClient.parameterToString(type.get(i))));
     }
     localVarQueryParams.addAll(apiClient.parameterToPair("subjectId", subjectId));
+    localVarQueryParams.addAll(apiClient.parameterToPair("subjectOwnerId", subjectOwnerId));
     localVarQueryParams.addAll(apiClient.parameterToPair("searchArea", searchArea));
     localVarQueryParams.addAll(apiClient.parameterToPair("withoutTags", withoutTags));
     localVarQueryParams.addAll(apiClient.parameterToPair("tags", tags));
@@ -2104,6 +2195,7 @@ public class RoomsApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("sortBy", sortBy));
     localVarQueryParams.addAll(apiClient.parameterToPair("sortOrder", sortOrder));
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
+    localVarQueryParams.addAll(apiClient.parameterToPair("groupId", groupId));
       
     if (this.fields != null)
       localVarHeaderParams.put("fields", this.fields);
@@ -2285,6 +2377,93 @@ public class RoomsApi extends BaseApi {
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FileShareWrapper> localVarReturnType = new TypeReference<FileShareWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Has tag links
+   * Checks if a specific custom tag has linked items.
+   *
+   * REST API Reference for hasTagLinks Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/
+   *
+   * @param tagName2  (required)
+   * @param tagName Represents the name of a tag (optional)
+   * @return BooleanWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public BooleanWrapper hasTagLinks(@javax.annotation.Nonnull String tagName2, @javax.annotation.Nullable String tagName) throws ApiException {
+    return this.hasTagLinks(tagName2, tagName, Collections.emptyMap());
+  }
+
+
+  /**
+   * Has tag links
+   * Checks if a specific custom tag has linked items.
+   *
+   * REST API Reference for hasTagLinks Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/
+   *
+   * @param tagName2  (required)
+   * @param tagName Represents the name of a tag (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return BooleanWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public BooleanWrapper hasTagLinks(@javax.annotation.Nonnull String tagName2, @javax.annotation.Nullable String tagName, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'tagName2' is set
+    if (tagName2 == null) {
+      throw new ApiException(400, "Missing the required parameter 'tagName2' when calling hasTagLinks");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/tags/{tagName}/haslinks"
+      .replaceAll("\\{" + "tagName" + "\\}", apiClient.escapeString(apiClient.parameterToString(tagName2)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("tagName", tagName));
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -2816,6 +2995,90 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
+   * Start external DB sync
+   * Triggers external DB synchronization for all form templates in the specified filling forms room.
+   *
+   * REST API Reference for startExternalDbSync Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-external-db-sync/
+   *
+   * @param id The room ID. (required)
+   * @return ExternalDbSyncTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ExternalDbSyncTaskWrapper startExternalDbSync(@javax.annotation.Nonnull Integer id) throws ApiException {
+    return this.startExternalDbSync(id, Collections.emptyMap());
+  }
+
+
+  /**
+   * Start external DB sync
+   * Triggers external DB synchronization for all form templates in the specified filling forms room.
+   *
+   * REST API Reference for startExternalDbSync Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-external-db-sync/
+   *
+   * @param id The room ID. (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ExternalDbSyncTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ExternalDbSyncTaskWrapper startExternalDbSync(@javax.annotation.Nonnull Integer id, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling startExternalDbSync");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/rooms/{id}/externaldbsync"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<ExternalDbSyncTaskWrapper> localVarReturnType = new TypeReference<ExternalDbSyncTaskWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Start the room index export
    * Starts the index export of a room with the ID specified in the request.
    *
@@ -3234,18 +3497,96 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
+   * Update tag
+   * Updates the name of a custom tag.
+   *
+   * REST API Reference for updateRoomTag Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room-tag/
+   *
+   * @param updateTagRequestDto  (optional)
+   * @return StringWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public StringWrapper updateRoomTag(@javax.annotation.Nullable UpdateTagRequestDto updateTagRequestDto) throws ApiException {
+    return this.updateRoomTag(updateTagRequestDto, Collections.emptyMap());
+  }
+
+
+  /**
+   * Update tag
+   * Updates the name of a custom tag.
+   *
+   * REST API Reference for updateRoomTag Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room-tag/
+   *
+   * @param updateTagRequestDto  (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return StringWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public StringWrapper updateRoomTag(@javax.annotation.Nullable UpdateTagRequestDto updateTagRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = updateTagRequestDto;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/tags";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<StringWrapper> localVarReturnType = new TypeReference<StringWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Upload a room logo image
    * Uploads a temporary image to create a room logo.
    *
    * REST API Reference for uploadRoomLogo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-room-logo/
    *
-   * @param formCollection The image data. (optional)
+   * @param _file The image data. (optional)
    * @return UploadResultWrapper
    * @throws ApiException if fails to make API call
    */
-  public UploadResultWrapper uploadRoomLogo(@javax.annotation.Nullable List<KeyValuePairStringStringValues> formCollection) throws ApiException {
-    return this.uploadRoomLogo(formCollection, Collections.emptyMap());
+  public UploadResultWrapper uploadRoomLogo(@javax.annotation.Nullable File _file) throws ApiException {
+    return this.uploadRoomLogo(_file, Collections.emptyMap());
   }
 
 
@@ -3256,12 +3597,12 @@ public class RoomsApi extends BaseApi {
    * REST API Reference for uploadRoomLogo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-room-logo/
    *
-   * @param formCollection The image data. (optional)
+   * @param _file The image data. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return UploadResultWrapper
    * @throws ApiException if fails to make API call
    */
-  public UploadResultWrapper uploadRoomLogo(@javax.annotation.Nullable List<KeyValuePairStringStringValues> formCollection, Map<String, String> additionalHeaders) throws ApiException {
+  public UploadResultWrapper uploadRoomLogo(@javax.annotation.Nullable File _file, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -3280,8 +3621,8 @@ public class RoomsApi extends BaseApi {
     localVarHeaderParams.putAll(additionalHeaders);
 
     
-    if (formCollection != null)
-      localVarFormParams.put("FormCollection", formCollection);
+    if (_file != null)
+      localVarFormParams.put("File", _file);
 
     final String[] localVarAccepts = {
       "application/json"

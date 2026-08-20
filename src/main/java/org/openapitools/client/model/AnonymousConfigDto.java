@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -39,8 +40,7 @@ import java.util.StringJoiner;
 
 public class AnonymousConfigDto {
   public static final String JSON_PROPERTY_REQUEST = "request";
-  @javax.annotation.Nonnull
-  private Boolean request;
+  @javax.annotation.Nonnull  private Boolean request;
 
   public AnonymousConfigDto() {
   }
@@ -56,8 +56,7 @@ public class AnonymousConfigDto {
    * Specifies if the anonymous is a request.
    * @return request
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_REQUEST)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_REQUEST, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getRequest() {
@@ -65,7 +64,7 @@ public class AnonymousConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REQUEST)
+  @JsonProperty(value = JSON_PROPERTY_REQUEST, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRequest(@javax.annotation.Nonnull Boolean request) {
     this.request = request;

@@ -11,7 +11,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 ## changeUserPassword
 
-> EmployeeFullWrapper changeUserPassword(userid, memberBaseRequestDto)
+> EmployeeFullWrapper changeUserPassword(userid, changePasswordRequest)
 
 Change a user passwordSets a new password to the user with the ID specified in the request.
 
@@ -23,7 +23,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **userid** | **UUID**| The user ID. | |
-| **memberBaseRequestDto** | [**MemberBaseRequestDto**](MemberBaseRequestDto.md)| The request parameters for the user generic information. | |
+| **changePasswordRequest** | [**ChangePasswordRequest**](ChangePasswordRequest.md)| The request parameters for updating a user password. | |
 
 ### Return type
 
@@ -76,10 +76,10 @@ public class Example {
 
 
         PasswordApi apiInstance = new PasswordApi(defaultClient);
-        UUID userid = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The user ID.
-        MemberBaseRequestDto memberBaseRequestDto = new MemberBaseRequestDto(); // MemberBaseRequestDto | The request parameters for the user generic information.
+        UUID userid = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user ID.
+        ChangePasswordRequest changePasswordRequest = new ChangePasswordRequest(); // ChangePasswordRequest | The request parameters for updating a user password.
         try {
-            EmployeeFullWrapper result = apiInstance.changeUserPassword(userid, memberBaseRequestDto);
+            EmployeeFullWrapper result = apiInstance.changeUserPassword(userid, changePasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling PasswordApi#changeUserPassword");
@@ -101,18 +101,21 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Detailed user information |  -  |
-| **400** | Incorrect email |  -  |
+| **200** | Detailed user information |  * X-RateLimit-Limit - Rate limit: 5 requests per 15 minutes per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **400** | Incorrect userId or password |  -  |
+| **403** | The link is invalid or no permissions to perform this action |  -  |
+| **404** | The user could not be found |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | The invitation link is invalid or its validity has expired |  -  |
-| **404** | User not found |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## sendUserPassword
 
 > StringWrapper sendUserPassword(emailMemberRequestDto)
 
-Remind a user passwordReminds a password to the user using the email address specified in the request.
+Remind a user passwordSends a password recovery email to the specified user address.  For unauthenticated requests, CAPTCHA validation is required when CAPTCHA is enabled in the configuration.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-user-password/).
 
@@ -171,6 +174,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Email with the password |  -  |
+| **200** | Email with the password |  * X-RateLimit-Limit - Rate limit: 5 requests per 15 minutes per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

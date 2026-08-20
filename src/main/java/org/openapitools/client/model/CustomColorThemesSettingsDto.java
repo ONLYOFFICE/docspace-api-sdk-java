@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -49,16 +50,13 @@ import java.util.StringJoiner;
 
 public class CustomColorThemesSettingsDto {
   public static final String JSON_PROPERTY_THEMES = "themes";
-  @javax.annotation.Nullable
-  private JsonNullable<List<CustomColorThemesSettingsItem>> themes = JsonNullable.<List<CustomColorThemesSettingsItem>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<CustomColorThemesSettingsItem>> themes = JsonNullable.<List<CustomColorThemesSettingsItem>>undefined();
 
   public static final String JSON_PROPERTY_SELECTED = "selected";
-  @javax.annotation.Nullable
-  private Integer selected;
+  @javax.annotation.Nullable  private Integer selected;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
-  @javax.annotation.Nullable
-  private Integer limit;
+  @javax.annotation.Nullable  private Integer limit;
 
   public CustomColorThemesSettingsDto() {
   }
@@ -86,16 +84,14 @@ public class CustomColorThemesSettingsDto {
    * The list of the custom color themes.
    * @return themes
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<CustomColorThemesSettingsItem> getThemes() {
         return themes.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_THEMES)
+  @JsonProperty(value = JSON_PROPERTY_THEMES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<CustomColorThemesSettingsItem>> getThemes_JsonNullable() {
     return themes;
   }
@@ -119,8 +115,7 @@ public class CustomColorThemesSettingsDto {
    * Specifies whether the custom color theme is selected.
    * @return selected
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SELECTED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SELECTED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getSelected() {
@@ -128,7 +123,7 @@ public class CustomColorThemesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SELECTED)
+  @JsonProperty(value = JSON_PROPERTY_SELECTED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelected(@javax.annotation.Nullable Integer selected) {
     this.selected = selected;
@@ -144,8 +139,7 @@ public class CustomColorThemesSettingsDto {
    * The maximum number of the custom color themes.
    * @return limit
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIMIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getLimit() {
@@ -153,7 +147,7 @@ public class CustomColorThemesSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonProperty(value = JSON_PROPERTY_LIMIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLimit(@javax.annotation.Nullable Integer limit) {
     this.limit = limit;

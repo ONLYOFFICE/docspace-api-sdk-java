@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,36 +47,28 @@ import java.util.StringJoiner;
 
 public class PasswordSettingsDto {
   public static final String JSON_PROPERTY_MIN_LENGTH = "minLength";
-  @javax.annotation.Nonnull
-  private Integer minLength;
+  @javax.annotation.Nonnull  private Integer minLength;
 
   public static final String JSON_PROPERTY_UPPER_CASE = "upperCase";
-  @javax.annotation.Nonnull
-  private Boolean upperCase;
+  @javax.annotation.Nonnull  private Boolean upperCase;
 
   public static final String JSON_PROPERTY_DIGITS = "digits";
-  @javax.annotation.Nonnull
-  private Boolean digits;
+  @javax.annotation.Nonnull  private Boolean digits;
 
   public static final String JSON_PROPERTY_SPEC_SYMBOLS = "specSymbols";
-  @javax.annotation.Nonnull
-  private Boolean specSymbols;
+  @javax.annotation.Nonnull  private Boolean specSymbols;
 
   public static final String JSON_PROPERTY_ALLOWED_CHARACTERS_REGEX_STR = "allowedCharactersRegexStr";
-  @javax.annotation.Nullable
-  private String allowedCharactersRegexStr;
+  @javax.annotation.Nullable  private String allowedCharactersRegexStr;
 
   public static final String JSON_PROPERTY_DIGITS_REGEX_STR = "digitsRegexStr";
-  @javax.annotation.Nullable
-  private String digitsRegexStr;
+  @javax.annotation.Nullable  private String digitsRegexStr;
 
   public static final String JSON_PROPERTY_UPPER_CASE_REGEX_STR = "upperCaseRegexStr";
-  @javax.annotation.Nullable
-  private String upperCaseRegexStr;
+  @javax.annotation.Nullable  private String upperCaseRegexStr;
 
   public static final String JSON_PROPERTY_SPEC_SYMBOLS_REGEX_STR = "specSymbolsRegexStr";
-  @javax.annotation.Nullable
-  private String specSymbolsRegexStr;
+  @javax.annotation.Nullable  private String specSymbolsRegexStr;
 
   public PasswordSettingsDto() {
   }
@@ -91,8 +84,7 @@ public class PasswordSettingsDto {
    * The minimum number of characters required for valid passwords.
    * @return minLength
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_MIN_LENGTH)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_MIN_LENGTH, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getMinLength() {
@@ -100,7 +92,7 @@ public class PasswordSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MIN_LENGTH)
+  @JsonProperty(value = JSON_PROPERTY_MIN_LENGTH, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMinLength(@javax.annotation.Nonnull Integer minLength) {
     this.minLength = minLength;
@@ -116,8 +108,7 @@ public class PasswordSettingsDto {
    * Specifies whether the password should contain the uppercase letters or not.
    * @return upperCase
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_UPPER_CASE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_UPPER_CASE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getUpperCase() {
@@ -125,7 +116,7 @@ public class PasswordSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UPPER_CASE)
+  @JsonProperty(value = JSON_PROPERTY_UPPER_CASE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUpperCase(@javax.annotation.Nonnull Boolean upperCase) {
     this.upperCase = upperCase;
@@ -141,8 +132,7 @@ public class PasswordSettingsDto {
    * Specifies whether the password should contain the digits or not.
    * @return digits
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DIGITS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DIGITS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getDigits() {
@@ -150,7 +140,7 @@ public class PasswordSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DIGITS)
+  @JsonProperty(value = JSON_PROPERTY_DIGITS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDigits(@javax.annotation.Nonnull Boolean digits) {
     this.digits = digits;
@@ -166,8 +156,7 @@ public class PasswordSettingsDto {
    * Specifies whether the password should contain the special symbols or not.
    * @return specSymbols
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SPEC_SYMBOLS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SPEC_SYMBOLS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getSpecSymbols() {
@@ -175,7 +164,7 @@ public class PasswordSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SPEC_SYMBOLS)
+  @JsonProperty(value = JSON_PROPERTY_SPEC_SYMBOLS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSpecSymbols(@javax.annotation.Nonnull Boolean specSymbols) {
     this.specSymbols = specSymbols;
@@ -191,8 +180,7 @@ public class PasswordSettingsDto {
    * The allowed password characters in the regex string format.
    * @return allowedCharactersRegexStr
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOWED_CHARACTERS_REGEX_STR)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ALLOWED_CHARACTERS_REGEX_STR, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getAllowedCharactersRegexStr() {
@@ -200,7 +188,7 @@ public class PasswordSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ALLOWED_CHARACTERS_REGEX_STR)
+  @JsonProperty(value = JSON_PROPERTY_ALLOWED_CHARACTERS_REGEX_STR, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAllowedCharactersRegexStr(@javax.annotation.Nullable String allowedCharactersRegexStr) {
     this.allowedCharactersRegexStr = allowedCharactersRegexStr;
@@ -216,8 +204,7 @@ public class PasswordSettingsDto {
    * The password digits in the regex string format.
    * @return digitsRegexStr
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DIGITS_REGEX_STR)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DIGITS_REGEX_STR, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDigitsRegexStr() {
@@ -225,7 +212,7 @@ public class PasswordSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DIGITS_REGEX_STR)
+  @JsonProperty(value = JSON_PROPERTY_DIGITS_REGEX_STR, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDigitsRegexStr(@javax.annotation.Nullable String digitsRegexStr) {
     this.digitsRegexStr = digitsRegexStr;
@@ -241,8 +228,7 @@ public class PasswordSettingsDto {
    * The password uppercase letters in the regex string format.
    * @return upperCaseRegexStr
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPPER_CASE_REGEX_STR)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPPER_CASE_REGEX_STR, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getUpperCaseRegexStr() {
@@ -250,7 +236,7 @@ public class PasswordSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UPPER_CASE_REGEX_STR)
+  @JsonProperty(value = JSON_PROPERTY_UPPER_CASE_REGEX_STR, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUpperCaseRegexStr(@javax.annotation.Nullable String upperCaseRegexStr) {
     this.upperCaseRegexStr = upperCaseRegexStr;
@@ -266,8 +252,7 @@ public class PasswordSettingsDto {
    * The passaword special symbols in the regex string format.
    * @return specSymbolsRegexStr
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SPEC_SYMBOLS_REGEX_STR)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SPEC_SYMBOLS_REGEX_STR, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getSpecSymbolsRegexStr() {
@@ -275,7 +260,7 @@ public class PasswordSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SPEC_SYMBOLS_REGEX_STR)
+  @JsonProperty(value = JSON_PROPERTY_SPEC_SYMBOLS_REGEX_STR, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSpecSymbolsRegexStr(@javax.annotation.Nullable String specSymbolsRegexStr) {
     this.specSymbolsRegexStr = specSymbolsRegexStr;

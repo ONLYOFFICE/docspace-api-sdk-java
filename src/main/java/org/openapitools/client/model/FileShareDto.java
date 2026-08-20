@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -60,56 +61,43 @@ import java.util.StringJoiner;
 
 public class FileShareDto {
   public static final String JSON_PROPERTY_ACCESS = "access";
-  @javax.annotation.Nullable
-  private FileShare access;
+  @javax.annotation.Nullable  private FileShare access;
 
   public static final String JSON_PROPERTY_SHARED_TO = "sharedTo";
-  @javax.annotation.Nullable
-  private JsonNullable<Object> sharedTo = JsonNullable.<Object>of(null);
+  @javax.annotation.Nullable  private JsonNullable<Object> sharedTo = JsonNullable.<Object>of(null);
 
   public static final String JSON_PROPERTY_SHARED_TO_USER = "sharedToUser";
-  @javax.annotation.Nullable
-  private EmployeeFullDto sharedToUser;
+  @javax.annotation.Nullable  private EmployeeFullDto sharedToUser;
 
   public static final String JSON_PROPERTY_SHARED_TO_GROUP = "sharedToGroup";
-  @javax.annotation.Nullable
-  private GroupSummaryDto sharedToGroup;
+  @javax.annotation.Nullable  private GroupSummaryDto sharedToGroup;
 
   public static final String JSON_PROPERTY_SHARED_LINK = "sharedLink";
-  @javax.annotation.Nullable
-  private FileShareLink sharedLink;
+  @javax.annotation.Nullable  private FileShareLink sharedLink;
 
   public static final String JSON_PROPERTY_IS_LOCKED = "isLocked";
-  @javax.annotation.Nonnull
-  private Boolean isLocked;
+  @javax.annotation.Nonnull  private Boolean isLocked;
 
   public static final String JSON_PROPERTY_IS_OWNER = "isOwner";
-  @javax.annotation.Nonnull
-  private Boolean isOwner;
+  @javax.annotation.Nonnull  private Boolean isOwner;
 
   public static final String JSON_PROPERTY_CAN_EDIT_ACCESS = "canEditAccess";
-  @javax.annotation.Nonnull
-  private Boolean canEditAccess;
+  @javax.annotation.Nonnull  private Boolean canEditAccess;
 
   public static final String JSON_PROPERTY_CAN_EDIT_INTERNAL = "canEditInternal";
-  @javax.annotation.Nonnull
-  private Boolean canEditInternal;
+  @javax.annotation.Nonnull  private Boolean canEditInternal;
 
   public static final String JSON_PROPERTY_CAN_EDIT_DENY_DOWNLOAD = "canEditDenyDownload";
-  @javax.annotation.Nonnull
-  private Boolean canEditDenyDownload;
+  @javax.annotation.Nonnull  private Boolean canEditDenyDownload;
 
   public static final String JSON_PROPERTY_CAN_EDIT_EXPIRATION_DATE = "canEditExpirationDate";
-  @javax.annotation.Nonnull
-  private Boolean canEditExpirationDate;
+  @javax.annotation.Nonnull  private Boolean canEditExpirationDate;
 
   public static final String JSON_PROPERTY_CAN_REVOKE = "canRevoke";
-  @javax.annotation.Nonnull
-  private Boolean canRevoke;
+  @javax.annotation.Nonnull  private Boolean canRevoke;
 
   public static final String JSON_PROPERTY_SUBJECT_TYPE = "subjectType";
-  @javax.annotation.Nonnull
-  private SubjectType subjectType;
+  @javax.annotation.Nonnull  private SubjectType subjectType;
 
   public FileShareDto() {
   }
@@ -125,8 +113,7 @@ public class FileShareDto {
    * Get access
    * @return access
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCESS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FileShare getAccess() {
@@ -134,7 +121,7 @@ public class FileShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACCESS)
+  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccess(@javax.annotation.Nullable FileShare access) {
     this.access = access;
@@ -152,16 +139,14 @@ public class FileShareDto {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Object getSharedTo() {
         return sharedTo.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SHARED_TO)
+  @JsonProperty(value = JSON_PROPERTY_SHARED_TO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Object> getSharedTo_JsonNullable() {
     return sharedTo;
   }
@@ -185,8 +170,7 @@ public class FileShareDto {
    * Get sharedToUser
    * @return sharedToUser
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHARED_TO_USER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARED_TO_USER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EmployeeFullDto getSharedToUser() {
@@ -194,7 +178,7 @@ public class FileShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHARED_TO_USER)
+  @JsonProperty(value = JSON_PROPERTY_SHARED_TO_USER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSharedToUser(@javax.annotation.Nullable EmployeeFullDto sharedToUser) {
     this.sharedToUser = sharedToUser;
@@ -210,8 +194,7 @@ public class FileShareDto {
    * Get sharedToGroup
    * @return sharedToGroup
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHARED_TO_GROUP)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARED_TO_GROUP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public GroupSummaryDto getSharedToGroup() {
@@ -219,7 +202,7 @@ public class FileShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHARED_TO_GROUP)
+  @JsonProperty(value = JSON_PROPERTY_SHARED_TO_GROUP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSharedToGroup(@javax.annotation.Nullable GroupSummaryDto sharedToGroup) {
     this.sharedToGroup = sharedToGroup;
@@ -235,8 +218,7 @@ public class FileShareDto {
    * Get sharedLink
    * @return sharedLink
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHARED_LINK)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARED_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FileShareLink getSharedLink() {
@@ -244,7 +226,7 @@ public class FileShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHARED_LINK)
+  @JsonProperty(value = JSON_PROPERTY_SHARED_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSharedLink(@javax.annotation.Nullable FileShareLink sharedLink) {
     this.sharedLink = sharedLink;
@@ -260,8 +242,7 @@ public class FileShareDto {
    * Specifies if the access right is locked or not.
    * @return isLocked
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_LOCKED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getIsLocked() {
@@ -269,7 +250,7 @@ public class FileShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+  @JsonProperty(value = JSON_PROPERTY_IS_LOCKED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsLocked(@javax.annotation.Nonnull Boolean isLocked) {
     this.isLocked = isLocked;
@@ -285,8 +266,7 @@ public class FileShareDto {
    * Specifies if the user is an owner of the specified file or not.
    * @return isOwner
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_OWNER)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_OWNER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getIsOwner() {
@@ -294,7 +274,7 @@ public class FileShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_OWNER)
+  @JsonProperty(value = JSON_PROPERTY_IS_OWNER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsOwner(@javax.annotation.Nonnull Boolean isOwner) {
     this.isOwner = isOwner;
@@ -310,8 +290,7 @@ public class FileShareDto {
    * Specifies if the user can edit the access to the specified file or not.
    * @return canEditAccess
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CAN_EDIT_ACCESS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CAN_EDIT_ACCESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getCanEditAccess() {
@@ -319,7 +298,7 @@ public class FileShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CAN_EDIT_ACCESS)
+  @JsonProperty(value = JSON_PROPERTY_CAN_EDIT_ACCESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCanEditAccess(@javax.annotation.Nonnull Boolean canEditAccess) {
     this.canEditAccess = canEditAccess;
@@ -335,8 +314,7 @@ public class FileShareDto {
    * Indicates whether internal editing permissions are granted.
    * @return canEditInternal
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CAN_EDIT_INTERNAL)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CAN_EDIT_INTERNAL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getCanEditInternal() {
@@ -344,7 +322,7 @@ public class FileShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CAN_EDIT_INTERNAL)
+  @JsonProperty(value = JSON_PROPERTY_CAN_EDIT_INTERNAL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCanEditInternal(@javax.annotation.Nonnull Boolean canEditInternal) {
     this.canEditInternal = canEditInternal;
@@ -360,8 +338,7 @@ public class FileShareDto {
    * Determines whether the user has permission to modify the deny download setting for the file share.
    * @return canEditDenyDownload
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CAN_EDIT_DENY_DOWNLOAD)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CAN_EDIT_DENY_DOWNLOAD, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getCanEditDenyDownload() {
@@ -369,7 +346,7 @@ public class FileShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CAN_EDIT_DENY_DOWNLOAD)
+  @JsonProperty(value = JSON_PROPERTY_CAN_EDIT_DENY_DOWNLOAD, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCanEditDenyDownload(@javax.annotation.Nonnull Boolean canEditDenyDownload) {
     this.canEditDenyDownload = canEditDenyDownload;
@@ -385,8 +362,7 @@ public class FileShareDto {
    * Indicates whether the expiration date of access permissions can be edited.
    * @return canEditExpirationDate
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CAN_EDIT_EXPIRATION_DATE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CAN_EDIT_EXPIRATION_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getCanEditExpirationDate() {
@@ -394,7 +370,7 @@ public class FileShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CAN_EDIT_EXPIRATION_DATE)
+  @JsonProperty(value = JSON_PROPERTY_CAN_EDIT_EXPIRATION_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCanEditExpirationDate(@javax.annotation.Nonnull Boolean canEditExpirationDate) {
     this.canEditExpirationDate = canEditExpirationDate;
@@ -410,8 +386,7 @@ public class FileShareDto {
    * Specifies whether the file sharing access can be revoked by the current user.
    * @return canRevoke
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CAN_REVOKE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CAN_REVOKE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getCanRevoke() {
@@ -419,7 +394,7 @@ public class FileShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CAN_REVOKE)
+  @JsonProperty(value = JSON_PROPERTY_CAN_REVOKE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCanRevoke(@javax.annotation.Nonnull Boolean canRevoke) {
     this.canRevoke = canRevoke;
@@ -435,8 +410,7 @@ public class FileShareDto {
    * Get subjectType
    * @return subjectType
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SUBJECT_TYPE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SUBJECT_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SubjectType getSubjectType() {
@@ -444,7 +418,7 @@ public class FileShareDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SUBJECT_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_SUBJECT_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSubjectType(@javax.annotation.Nonnull SubjectType subjectType) {
     this.subjectType = subjectType;

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -49,16 +50,13 @@ import java.util.StringJoiner;
 
 public class GroupRequestDto {
   public static final String JSON_PROPERTY_MEMBERS = "members";
-  @javax.annotation.Nullable
-  private JsonNullable<List<UUID>> members = JsonNullable.<List<UUID>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<UUID>> members = JsonNullable.<List<UUID>>undefined();
 
   public static final String JSON_PROPERTY_GROUP_MANAGER = "groupManager";
-  @javax.annotation.Nonnull
-  private UUID groupManager;
+  @javax.annotation.Nullable  private UUID groupManager;
 
   public static final String JSON_PROPERTY_GROUP_NAME = "groupName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> groupName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String groupName;
 
   public GroupRequestDto() {
   }
@@ -86,16 +84,14 @@ public class GroupRequestDto {
    * The list of group member IDs.
    * @return members
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<UUID> getMembers() {
         return members.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MEMBERS)
+  @JsonProperty(value = JSON_PROPERTY_MEMBERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<UUID>> getMembers_JsonNullable() {
     return members;
   }
@@ -109,7 +105,7 @@ public class GroupRequestDto {
     this.members = JsonNullable.<List<UUID>>of(members);
   }
 
-  public GroupRequestDto groupManager(@javax.annotation.Nonnull UUID groupManager) {
+  public GroupRequestDto groupManager(@javax.annotation.Nullable UUID groupManager) {
     
     this.groupManager = groupManager;
     return this;
@@ -119,24 +115,23 @@ public class GroupRequestDto {
    * The group manager ID.
    * @return groupManager
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_GROUP_MANAGER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GROUP_MANAGER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getGroupManager() {
     return groupManager;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GROUP_MANAGER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGroupManager(@javax.annotation.Nonnull UUID groupManager) {
+  @JsonProperty(value = JSON_PROPERTY_GROUP_MANAGER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGroupManager(@javax.annotation.Nullable UUID groupManager) {
     this.groupManager = groupManager;
   }
 
   public GroupRequestDto groupName(@javax.annotation.Nullable String groupName) {
-    this.groupName = JsonNullable.<String>of(groupName);
     
+    this.groupName = groupName;
     return this;
   }
 
@@ -144,27 +139,18 @@ public class GroupRequestDto {
    * The group name.
    * @return groupName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GROUP_NAME, required = false)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getGroupName() {
-        return groupName.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_GROUP_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getGroupName_JsonNullable() {
     return groupName;
   }
-  
-  @JsonProperty(JSON_PROPERTY_GROUP_NAME)
-  public void setGroupName_JsonNullable(JsonNullable<String> groupName) {
-    this.groupName = groupName;
-  }
 
+
+  @JsonProperty(value = JSON_PROPERTY_GROUP_NAME, required = false)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setGroupName(@javax.annotation.Nullable String groupName) {
-    this.groupName = JsonNullable.<String>of(groupName);
+    this.groupName = groupName;
   }
 
   @Override
@@ -178,7 +164,7 @@ public class GroupRequestDto {
     GroupRequestDto groupRequestDto = (GroupRequestDto) o;
     return equalsNullable(this.members, groupRequestDto.members) &&
         Objects.equals(this.groupManager, groupRequestDto.groupManager) &&
-        equalsNullable(this.groupName, groupRequestDto.groupName);
+        Objects.equals(this.groupName, groupRequestDto.groupName);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -187,7 +173,7 @@ public class GroupRequestDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(members), groupManager, hashCodeNullable(groupName));
+    return Objects.hash(hashCodeNullable(members), groupManager, groupName);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

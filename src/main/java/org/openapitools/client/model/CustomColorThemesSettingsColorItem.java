@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -44,12 +45,10 @@ import java.util.StringJoiner;
 
 public class CustomColorThemesSettingsColorItem {
   public static final String JSON_PROPERTY_ACCENT = "accent";
-  @javax.annotation.Nullable
-  private JsonNullable<String> accent = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> accent = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_BUTTONS = "buttons";
-  @javax.annotation.Nullable
-  private JsonNullable<String> buttons = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> buttons = JsonNullable.<String>undefined();
 
   public CustomColorThemesSettingsColorItem() {
   }
@@ -65,16 +64,14 @@ public class CustomColorThemesSettingsColorItem {
    * The accent color.
    * @return accent
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getAccent() {
         return accent.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ACCENT)
+  @JsonProperty(value = JSON_PROPERTY_ACCENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getAccent_JsonNullable() {
     return accent;
   }
@@ -98,16 +95,14 @@ public class CustomColorThemesSettingsColorItem {
    * The button color.
    * @return buttons
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getButtons() {
         return buttons.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_BUTTONS)
+  @JsonProperty(value = JSON_PROPERTY_BUTTONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getButtons_JsonNullable() {
     return buttons;
   }

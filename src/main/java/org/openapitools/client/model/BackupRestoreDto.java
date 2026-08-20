@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -52,24 +53,19 @@ import java.util.StringJoiner;
 
 public class BackupRestoreDto {
   public static final String JSON_PROPERTY_BACKUP_ID = "backupId";
-  @javax.annotation.Nullable
-  private String backupId;
+  @javax.annotation.Nullable  private String backupId;
 
   public static final String JSON_PROPERTY_STORAGE_TYPE = "storageType";
-  @javax.annotation.Nullable
-  private BackupStorageType storageType;
+  @javax.annotation.Nullable  private BackupStorageType storageType;
 
   public static final String JSON_PROPERTY_STORAGE_PARAMS = "storageParams";
-  @javax.annotation.Nullable
-  private JsonNullable<List<ItemKeyValuePairObjectObject>> storageParams = JsonNullable.<List<ItemKeyValuePairObjectObject>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<ItemKeyValuePairObjectObject>> storageParams = JsonNullable.<List<ItemKeyValuePairObjectObject>>undefined();
 
   public static final String JSON_PROPERTY_NOTIFY = "notify";
-  @javax.annotation.Nullable
-  private Boolean notify;
+  @javax.annotation.Nullable  private Boolean notify;
 
   public static final String JSON_PROPERTY_DUMP = "dump";
-  @javax.annotation.Nullable
-  private Boolean dump;
+  @javax.annotation.Nullable  private Boolean dump;
 
   public BackupRestoreDto() {
   }
@@ -85,8 +81,7 @@ public class BackupRestoreDto {
    * The backup ID.
    * @return backupId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BACKUP_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_BACKUP_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getBackupId() {
@@ -94,7 +89,7 @@ public class BackupRestoreDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BACKUP_ID)
+  @JsonProperty(value = JSON_PROPERTY_BACKUP_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setBackupId(@javax.annotation.Nullable String backupId) {
     this.backupId = backupId;
@@ -110,8 +105,7 @@ public class BackupRestoreDto {
    * Get storageType
    * @return storageType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STORAGE_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STORAGE_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public BackupStorageType getStorageType() {
@@ -119,7 +113,7 @@ public class BackupRestoreDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STORAGE_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_STORAGE_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStorageType(@javax.annotation.Nullable BackupStorageType storageType) {
     this.storageType = storageType;
@@ -147,16 +141,14 @@ public class BackupRestoreDto {
    * The backup storage parameters.
    * @return storageParams
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<ItemKeyValuePairObjectObject> getStorageParams() {
         return storageParams.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_STORAGE_PARAMS)
+  @JsonProperty(value = JSON_PROPERTY_STORAGE_PARAMS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<ItemKeyValuePairObjectObject>> getStorageParams_JsonNullable() {
     return storageParams;
   }
@@ -180,8 +172,7 @@ public class BackupRestoreDto {
    * Notifies users about the portal restoring process or not.
    * @return notify
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NOTIFY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NOTIFY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getNotify() {
@@ -189,7 +180,7 @@ public class BackupRestoreDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NOTIFY)
+  @JsonProperty(value = JSON_PROPERTY_NOTIFY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotify(@javax.annotation.Nullable Boolean notify) {
     this.notify = notify;
@@ -205,8 +196,7 @@ public class BackupRestoreDto {
    * Specifies if a dump will be created or not.
    * @return dump
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DUMP)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DUMP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDump() {
@@ -214,7 +204,7 @@ public class BackupRestoreDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DUMP)
+  @JsonProperty(value = JSON_PROPERTY_DUMP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDump(@javax.annotation.Nullable Boolean dump) {
     this.dump = dump;

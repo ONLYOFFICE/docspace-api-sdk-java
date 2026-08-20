@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -45,16 +46,13 @@ import java.util.StringJoiner;
 
 public class EncryptionKeysConfig {
   public static final String JSON_PROPERTY_CRYPTO_ENGINE_ID = "cryptoEngineId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> cryptoEngineId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> cryptoEngineId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PRIVATE_KEY_ENC = "privateKeyEnc";
-  @javax.annotation.Nullable
-  private JsonNullable<String> privateKeyEnc = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> privateKeyEnc = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PUBLIC_KEY = "publicKey";
-  @javax.annotation.Nullable
-  private JsonNullable<String> publicKey = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> publicKey = JsonNullable.<String>undefined();
 
   public EncryptionKeysConfig() {
   }
@@ -74,8 +72,7 @@ public class EncryptionKeysConfig {
    * The crypto engine ID of the encryption key.
    * @return cryptoEngineId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCryptoEngineId() {
     
@@ -85,9 +82,8 @@ public class EncryptionKeysConfig {
     return cryptoEngineId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CRYPTO_ENGINE_ID)
+  @JsonProperty(value = JSON_PROPERTY_CRYPTO_ENGINE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCryptoEngineId_JsonNullable() {
     return cryptoEngineId;
   }
@@ -108,16 +104,14 @@ public class EncryptionKeysConfig {
    * The private key.
    * @return privateKeyEnc
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPrivateKeyEnc() {
         return privateKeyEnc.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PRIVATE_KEY_ENC)
+  @JsonProperty(value = JSON_PROPERTY_PRIVATE_KEY_ENC, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPrivateKeyEnc_JsonNullable() {
     return privateKeyEnc;
   }
@@ -141,16 +135,14 @@ public class EncryptionKeysConfig {
    * The public key.
    * @return publicKey
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPublicKey() {
         return publicKey.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PUBLIC_KEY)
+  @JsonProperty(value = JSON_PROPERTY_PUBLIC_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPublicKey_JsonNullable() {
     return publicKey;
   }

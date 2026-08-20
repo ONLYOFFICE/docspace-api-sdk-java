@@ -23,7 +23,10 @@ The web plugin information.
 |**enabled** | **Boolean** | Specifies if the web plugin is enabled or not. |  |
 |**system** | **Boolean** | Specifies if the web plugin is system or not. |  |
 |**url** | **String** | The web plugin URL. |  |
+|**cssUrl** | **String** | The web plugin css URL. |  |
 |**settings** | **String** | The web plugin settings. |  |
+|**nameLocale** | **Map&lt;String, String&gt;** | The web plugin localized name. |  [optional] |
+|**descriptionLocale** | **Map&lt;String, String&gt;** | The web plugin localized description. |  [optional] |
 
 
 

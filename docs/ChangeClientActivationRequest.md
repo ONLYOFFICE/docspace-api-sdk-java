@@ -2,13 +2,13 @@
 
 # ChangeClientActivationRequest
 
-The request parameters for changing the client activation status.
+Client activation change request
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **Boolean** | The client activation status. |  |
+|**status** | **Boolean** | The activation status of the client |  |
 
 
 

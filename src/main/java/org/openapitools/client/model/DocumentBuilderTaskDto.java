@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.DistributedTaskStatus;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -47,36 +48,28 @@ import java.util.StringJoiner;
 
 public class DocumentBuilderTaskDto {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private String id;
+  @javax.annotation.Nullable  private String id;
 
   public static final String JSON_PROPERTY_ERROR = "error";
-  @javax.annotation.Nullable
-  private String error;
+  @javax.annotation.Nullable  private String error;
 
   public static final String JSON_PROPERTY_PERCENTAGE = "percentage";
-  @javax.annotation.Nonnull
-  private Integer percentage;
+  @javax.annotation.Nonnull  private Integer percentage;
 
   public static final String JSON_PROPERTY_IS_COMPLETED = "isCompleted";
-  @javax.annotation.Nonnull
-  private Boolean isCompleted;
+  @javax.annotation.Nonnull  private Boolean isCompleted;
 
   public static final String JSON_PROPERTY_STATUS = "status";
-  @javax.annotation.Nonnull
-  private DistributedTaskStatus status;
+  @javax.annotation.Nonnull  private DistributedTaskStatus status;
 
   public static final String JSON_PROPERTY_RESULT_FILE_ID = "resultFileId";
-  @javax.annotation.Nullable
-  private Object resultFileId = null;
+  @javax.annotation.Nullable  private Object resultFileId = null;
 
   public static final String JSON_PROPERTY_RESULT_FILE_NAME = "resultFileName";
-  @javax.annotation.Nullable
-  private String resultFileName;
+  @javax.annotation.Nullable  private String resultFileName;
 
   public static final String JSON_PROPERTY_RESULT_FILE_URL = "resultFileUrl";
-  @javax.annotation.Nullable
-  private String resultFileUrl;
+  @javax.annotation.Nullable  private String resultFileUrl;
 
   public DocumentBuilderTaskDto() {
   }
@@ -92,8 +85,7 @@ public class DocumentBuilderTaskDto {
    * The Document Builder task ID.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getId() {
@@ -101,7 +93,7 @@ public class DocumentBuilderTaskDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@javax.annotation.Nullable String id) {
     this.id = id;
@@ -117,8 +109,7 @@ public class DocumentBuilderTaskDto {
    * The error message occurred during the document building process.
    * @return error
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getError() {
@@ -126,7 +117,7 @@ public class DocumentBuilderTaskDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setError(@javax.annotation.Nullable String error) {
     this.error = error;
@@ -142,8 +133,7 @@ public class DocumentBuilderTaskDto {
    * The progress percentage of the document building process.
    * @return percentage
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PERCENTAGE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PERCENTAGE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getPercentage() {
@@ -151,7 +141,7 @@ public class DocumentBuilderTaskDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PERCENTAGE)
+  @JsonProperty(value = JSON_PROPERTY_PERCENTAGE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPercentage(@javax.annotation.Nonnull Integer percentage) {
     this.percentage = percentage;
@@ -167,8 +157,7 @@ public class DocumentBuilderTaskDto {
    * Specifies whether the document building process is completed or not.
    * @return isCompleted
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_COMPLETED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_COMPLETED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getIsCompleted() {
@@ -176,7 +165,7 @@ public class DocumentBuilderTaskDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_COMPLETED)
+  @JsonProperty(value = JSON_PROPERTY_IS_COMPLETED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsCompleted(@javax.annotation.Nonnull Boolean isCompleted) {
     this.isCompleted = isCompleted;
@@ -192,8 +181,7 @@ public class DocumentBuilderTaskDto {
    * Get status
    * @return status
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public DistributedTaskStatus getStatus() {
@@ -201,7 +189,7 @@ public class DocumentBuilderTaskDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(@javax.annotation.Nonnull DistributedTaskStatus status) {
     this.status = status;
@@ -217,8 +205,7 @@ public class DocumentBuilderTaskDto {
    * The result file ID.
    * @return resultFileId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESULT_FILE_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESULT_FILE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Object getResultFileId() {
@@ -226,7 +213,7 @@ public class DocumentBuilderTaskDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RESULT_FILE_ID)
+  @JsonProperty(value = JSON_PROPERTY_RESULT_FILE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setResultFileId(@javax.annotation.Nullable Object resultFileId) {
     this.resultFileId = resultFileId;
@@ -242,8 +229,7 @@ public class DocumentBuilderTaskDto {
    * The result file name.
    * @return resultFileName
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESULT_FILE_NAME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESULT_FILE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getResultFileName() {
@@ -251,7 +237,7 @@ public class DocumentBuilderTaskDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RESULT_FILE_NAME)
+  @JsonProperty(value = JSON_PROPERTY_RESULT_FILE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setResultFileName(@javax.annotation.Nullable String resultFileName) {
     this.resultFileName = resultFileName;
@@ -267,8 +253,7 @@ public class DocumentBuilderTaskDto {
    * The result file URL.
    * @return resultFileUrl
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESULT_FILE_URL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESULT_FILE_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getResultFileUrl() {
@@ -276,7 +261,7 @@ public class DocumentBuilderTaskDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RESULT_FILE_URL)
+  @JsonProperty(value = JSON_PROPERTY_RESULT_FILE_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setResultFileUrl(@javax.annotation.Nullable String resultFileUrl) {
     this.resultFileUrl = resultFileUrl;

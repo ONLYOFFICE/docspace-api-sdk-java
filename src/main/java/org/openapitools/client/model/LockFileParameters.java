@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -39,8 +40,7 @@ import java.util.StringJoiner;
 
 public class LockFileParameters {
   public static final String JSON_PROPERTY_LOCK_FILE = "lockFile";
-  @javax.annotation.Nullable
-  private Boolean lockFile;
+  @javax.annotation.Nullable  private Boolean lockFile;
 
   public LockFileParameters() {
   }
@@ -56,8 +56,7 @@ public class LockFileParameters {
    * Specifies whether to lock a file or not.
    * @return lockFile
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOCK_FILE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOCK_FILE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getLockFile() {
@@ -65,7 +64,7 @@ public class LockFileParameters {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOCK_FILE)
+  @JsonProperty(value = JSON_PROPERTY_LOCK_FILE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLockFile(@javax.annotation.Nullable Boolean lockFile) {
     this.lockFile = lockFile;

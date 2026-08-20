@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.CultureSpecificExternalResource;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,40 +49,31 @@ import java.util.StringJoiner;
 
 public class CultureSpecificExternalResources {
   public static final String JSON_PROPERTY_API = "api";
-  @javax.annotation.Nullable
-  private CultureSpecificExternalResource api;
+  @javax.annotation.Nullable  private CultureSpecificExternalResource api;
 
   public static final String JSON_PROPERTY_COMMON = "common";
-  @javax.annotation.Nullable
-  private CultureSpecificExternalResource common;
+  @javax.annotation.Nullable  private CultureSpecificExternalResource common;
 
   public static final String JSON_PROPERTY_FORUM = "forum";
-  @javax.annotation.Nullable
-  private CultureSpecificExternalResource forum;
+  @javax.annotation.Nullable  private CultureSpecificExternalResource forum;
 
   public static final String JSON_PROPERTY_HELPCENTER = "helpcenter";
-  @javax.annotation.Nullable
-  private CultureSpecificExternalResource helpcenter;
+  @javax.annotation.Nullable  private CultureSpecificExternalResource helpcenter;
 
   public static final String JSON_PROPERTY_INTEGRATIONS = "integrations";
-  @javax.annotation.Nullable
-  private CultureSpecificExternalResource integrations;
+  @javax.annotation.Nullable  private CultureSpecificExternalResource integrations;
 
   public static final String JSON_PROPERTY_SITE = "site";
-  @javax.annotation.Nullable
-  private CultureSpecificExternalResource site;
+  @javax.annotation.Nullable  private CultureSpecificExternalResource site;
 
   public static final String JSON_PROPERTY_SOCIAL_NETWORKS = "socialNetworks";
-  @javax.annotation.Nullable
-  private CultureSpecificExternalResource socialNetworks;
+  @javax.annotation.Nullable  private CultureSpecificExternalResource socialNetworks;
 
   public static final String JSON_PROPERTY_SUPPORT = "support";
-  @javax.annotation.Nullable
-  private CultureSpecificExternalResource support;
+  @javax.annotation.Nullable  private CultureSpecificExternalResource support;
 
   public static final String JSON_PROPERTY_VIDEOGUIDES = "videoguides";
-  @javax.annotation.Nullable
-  private CultureSpecificExternalResource videoguides;
+  @javax.annotation.Nullable  private CultureSpecificExternalResource videoguides;
 
   public CultureSpecificExternalResources() {
   }
@@ -97,8 +89,7 @@ public class CultureSpecificExternalResources {
    * Get api
    * @return api
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_API)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_API, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CultureSpecificExternalResource getApi() {
@@ -106,7 +97,7 @@ public class CultureSpecificExternalResources {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_API)
+  @JsonProperty(value = JSON_PROPERTY_API, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApi(@javax.annotation.Nullable CultureSpecificExternalResource api) {
     this.api = api;
@@ -122,8 +113,7 @@ public class CultureSpecificExternalResources {
    * Get common
    * @return common
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMMON)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COMMON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CultureSpecificExternalResource getCommon() {
@@ -131,7 +121,7 @@ public class CultureSpecificExternalResources {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COMMON)
+  @JsonProperty(value = JSON_PROPERTY_COMMON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommon(@javax.annotation.Nullable CultureSpecificExternalResource common) {
     this.common = common;
@@ -147,8 +137,7 @@ public class CultureSpecificExternalResources {
    * Get forum
    * @return forum
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORUM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FORUM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CultureSpecificExternalResource getForum() {
@@ -156,7 +145,7 @@ public class CultureSpecificExternalResources {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORUM)
+  @JsonProperty(value = JSON_PROPERTY_FORUM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setForum(@javax.annotation.Nullable CultureSpecificExternalResource forum) {
     this.forum = forum;
@@ -172,8 +161,7 @@ public class CultureSpecificExternalResources {
    * Get helpcenter
    * @return helpcenter
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HELPCENTER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HELPCENTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CultureSpecificExternalResource getHelpcenter() {
@@ -181,7 +169,7 @@ public class CultureSpecificExternalResources {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HELPCENTER)
+  @JsonProperty(value = JSON_PROPERTY_HELPCENTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHelpcenter(@javax.annotation.Nullable CultureSpecificExternalResource helpcenter) {
     this.helpcenter = helpcenter;
@@ -197,8 +185,7 @@ public class CultureSpecificExternalResources {
    * Get integrations
    * @return integrations
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INTEGRATIONS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INTEGRATIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CultureSpecificExternalResource getIntegrations() {
@@ -206,7 +193,7 @@ public class CultureSpecificExternalResources {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INTEGRATIONS)
+  @JsonProperty(value = JSON_PROPERTY_INTEGRATIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIntegrations(@javax.annotation.Nullable CultureSpecificExternalResource integrations) {
     this.integrations = integrations;
@@ -222,8 +209,7 @@ public class CultureSpecificExternalResources {
    * Get site
    * @return site
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SITE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SITE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CultureSpecificExternalResource getSite() {
@@ -231,7 +217,7 @@ public class CultureSpecificExternalResources {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SITE)
+  @JsonProperty(value = JSON_PROPERTY_SITE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSite(@javax.annotation.Nullable CultureSpecificExternalResource site) {
     this.site = site;
@@ -247,8 +233,7 @@ public class CultureSpecificExternalResources {
    * Get socialNetworks
    * @return socialNetworks
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SOCIAL_NETWORKS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SOCIAL_NETWORKS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CultureSpecificExternalResource getSocialNetworks() {
@@ -256,7 +241,7 @@ public class CultureSpecificExternalResources {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SOCIAL_NETWORKS)
+  @JsonProperty(value = JSON_PROPERTY_SOCIAL_NETWORKS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSocialNetworks(@javax.annotation.Nullable CultureSpecificExternalResource socialNetworks) {
     this.socialNetworks = socialNetworks;
@@ -272,8 +257,7 @@ public class CultureSpecificExternalResources {
    * Get support
    * @return support
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUPPORT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SUPPORT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CultureSpecificExternalResource getSupport() {
@@ -281,7 +265,7 @@ public class CultureSpecificExternalResources {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SUPPORT)
+  @JsonProperty(value = JSON_PROPERTY_SUPPORT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupport(@javax.annotation.Nullable CultureSpecificExternalResource support) {
     this.support = support;
@@ -297,8 +281,7 @@ public class CultureSpecificExternalResources {
    * Get videoguides
    * @return videoguides
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VIDEOGUIDES)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VIDEOGUIDES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public CultureSpecificExternalResource getVideoguides() {
@@ -306,7 +289,7 @@ public class CultureSpecificExternalResources {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VIDEOGUIDES)
+  @JsonProperty(value = JSON_PROPERTY_VIDEOGUIDES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVideoguides(@javax.annotation.Nullable CultureSpecificExternalResource videoguides) {
     this.videoguides = videoguides;

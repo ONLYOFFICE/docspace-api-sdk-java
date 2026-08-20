@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -52,24 +53,19 @@ import java.util.StringJoiner;
 
 public class SecurityDto {
   public static final String JSON_PROPERTY_WEB_ITEM_ID = "webItemId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> webItemId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> webItemId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_USERS = "users";
-  @javax.annotation.Nullable
-  private JsonNullable<List<EmployeeDto>> users = JsonNullable.<List<EmployeeDto>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<EmployeeDto>> users = JsonNullable.<List<EmployeeDto>>undefined();
 
   public static final String JSON_PROPERTY_GROUPS = "groups";
-  @javax.annotation.Nullable
-  private JsonNullable<List<GroupSummaryDto>> groups = JsonNullable.<List<GroupSummaryDto>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<GroupSummaryDto>> groups = JsonNullable.<List<GroupSummaryDto>>undefined();
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
-  @javax.annotation.Nullable
-  private Boolean enabled;
+  @javax.annotation.Nullable  private Boolean enabled;
 
   public static final String JSON_PROPERTY_IS_SUB_ITEM = "isSubItem";
-  @javax.annotation.Nullable
-  private Boolean isSubItem;
+  @javax.annotation.Nullable  private Boolean isSubItem;
 
   public SecurityDto() {
   }
@@ -85,16 +81,14 @@ public class SecurityDto {
    * The module ID.
    * @return webItemId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getWebItemId() {
         return webItemId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_WEB_ITEM_ID)
+  @JsonProperty(value = JSON_PROPERTY_WEB_ITEM_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getWebItemId_JsonNullable() {
     return webItemId;
   }
@@ -130,16 +124,14 @@ public class SecurityDto {
    * The list of users with the access to the module.
    * @return users
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<EmployeeDto> getUsers() {
         return users.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_USERS)
+  @JsonProperty(value = JSON_PROPERTY_USERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<EmployeeDto>> getUsers_JsonNullable() {
     return users;
   }
@@ -175,16 +167,14 @@ public class SecurityDto {
    * The list of groups with the access to the module.
    * @return groups
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<GroupSummaryDto> getGroups() {
         return groups.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_GROUPS)
+  @JsonProperty(value = JSON_PROPERTY_GROUPS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<GroupSummaryDto>> getGroups_JsonNullable() {
     return groups;
   }
@@ -208,8 +198,7 @@ public class SecurityDto {
    * Specifies if the security settings are enabled or not.
    * @return enabled
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEnabled() {
@@ -217,7 +206,7 @@ public class SecurityDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
     this.enabled = enabled;
@@ -233,8 +222,7 @@ public class SecurityDto {
    * Specifies if the module is a subitem or not.
    * @return isSubItem
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_SUB_ITEM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_SUB_ITEM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsSubItem() {
@@ -242,7 +230,7 @@ public class SecurityDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_SUB_ITEM)
+  @JsonProperty(value = JSON_PROPERTY_IS_SUB_ITEM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsSubItem(@javax.annotation.Nullable Boolean isSubItem) {
     this.isSubItem = isSubItem;

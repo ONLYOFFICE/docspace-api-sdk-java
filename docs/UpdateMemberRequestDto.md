@@ -15,11 +15,7 @@ The request parameters for updating the user information.
 |**firstName** | **String** | The user first name. |  [optional] |
 |**lastName** | **String** | The user last name. |  [optional] |
 |**department** | **List&lt;UUID&gt;** | The list of the user departments. |  [optional] |
-|**title** | **String** | The user title. |  [optional] |
 |**location** | **String** | The user location. |  [optional] |
-|**sex** | **SexEnum** |  |  [optional] |
-|**birthday** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
-|**worksfrom** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
 |**comment** | **String** | The user comment. |  [optional] |
 |**contacts** | [**List&lt;Contact&gt;**](Contact.md) | The list of the user contacts. |  [optional] |
 |**files** | **String** | The user avatar photo URL. |  [optional] |

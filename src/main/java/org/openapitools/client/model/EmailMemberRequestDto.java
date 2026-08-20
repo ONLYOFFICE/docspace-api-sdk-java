@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,16 +47,13 @@ import java.util.StringJoiner;
 
 public class EmailMemberRequestDto {
   public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nonnull
-  private String email;
+  @javax.annotation.Nonnull  private String email;
 
   public static final String JSON_PROPERTY_RECAPTCHA_TYPE = "recaptchaType";
-  @javax.annotation.Nullable
-  private RecaptchaType recaptchaType;
+  @javax.annotation.Nullable  private RecaptchaType recaptchaType;
 
   public static final String JSON_PROPERTY_RECAPTCHA_RESPONSE = "recaptchaResponse";
-  @javax.annotation.Nullable
-  private JsonNullable<String> recaptchaResponse = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> recaptchaResponse = JsonNullable.<String>undefined();
 
   public EmailMemberRequestDto() {
   }
@@ -71,8 +69,7 @@ public class EmailMemberRequestDto {
    * The user email address.
    * @return email
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getEmail() {
@@ -80,7 +77,7 @@ public class EmailMemberRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEmail(@javax.annotation.Nonnull String email) {
     this.email = email;
@@ -96,8 +93,7 @@ public class EmailMemberRequestDto {
    * Get recaptchaType
    * @return recaptchaType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RECAPTCHA_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RECAPTCHA_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public RecaptchaType getRecaptchaType() {
@@ -105,7 +101,7 @@ public class EmailMemberRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RECAPTCHA_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_RECAPTCHA_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecaptchaType(@javax.annotation.Nullable RecaptchaType recaptchaType) {
     this.recaptchaType = recaptchaType;
@@ -118,19 +114,17 @@ public class EmailMemberRequestDto {
   }
 
   /**
-   * The user&#39;s response to the CAPTCHA challenge.
+   * The user's response to the CAPTCHA challenge.
    * @return recaptchaResponse
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRecaptchaResponse() {
         return recaptchaResponse.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_RECAPTCHA_RESPONSE)
+  @JsonProperty(value = JSON_PROPERTY_RECAPTCHA_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRecaptchaResponse_JsonNullable() {
     return recaptchaResponse;
   }

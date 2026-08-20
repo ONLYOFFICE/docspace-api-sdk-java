@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.ActiveConnectionsWrapperLinksInner;
+import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -47,24 +48,19 @@ import java.util.StringJoiner;
 
 public class ObjectArrayWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable
-  private List<Object> response = new ArrayList<>();
+  @javax.annotation.Nullable  private List<Object> response = new ArrayList<>();
 
   public static final String JSON_PROPERTY_COUNT = "count";
-  @javax.annotation.Nullable
-  private Integer count;
+  @javax.annotation.Nullable  private Integer count;
 
   public static final String JSON_PROPERTY_LINKS = "links";
-  @javax.annotation.Nullable
-  private List<ActiveConnectionsWrapperLinksInner> links = new ArrayList<>();
+  @javax.annotation.Nullable  private List<GetPortalPrices200ResponseLinksInner> links = new ArrayList<>();
 
   public static final String JSON_PROPERTY_STATUS = "status";
-  @javax.annotation.Nullable
-  private Integer status;
+  @javax.annotation.Nullable  private Integer status;
 
   public static final String JSON_PROPERTY_STATUS_CODE = "statusCode";
-  @javax.annotation.Nullable
-  private Integer statusCode;
+  @javax.annotation.Nullable  private Integer statusCode;
 
   public ObjectArrayWrapper() {
   }
@@ -88,8 +84,7 @@ public class ObjectArrayWrapper {
    * Get response
    * @return response
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESPONSE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Object> getResponse() {
@@ -97,7 +92,7 @@ public class ObjectArrayWrapper {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RESPONSE)
+  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponse(@javax.annotation.Nullable List<Object> response) {
     this.response = response;
@@ -110,11 +105,10 @@ public class ObjectArrayWrapper {
   }
 
   /**
-   * Get count
+   * The total number of items in the response
    * @return count
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COUNT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getCount() {
@@ -122,19 +116,19 @@ public class ObjectArrayWrapper {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COUNT)
+  @JsonProperty(value = JSON_PROPERTY_COUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCount(@javax.annotation.Nullable Integer count) {
     this.count = count;
   }
 
-  public ObjectArrayWrapper links(@javax.annotation.Nullable List<ActiveConnectionsWrapperLinksInner> links) {
+  public ObjectArrayWrapper links(@javax.annotation.Nullable List<GetPortalPrices200ResponseLinksInner> links) {
     
     this.links = links;
     return this;
   }
 
-  public ObjectArrayWrapper addLinksItem(ActiveConnectionsWrapperLinksInner linksItem) {
+  public ObjectArrayWrapper addLinksItem(GetPortalPrices200ResponseLinksInner linksItem) {
     if (this.links == null) {
       this.links = new ArrayList<>();
     }
@@ -143,21 +137,20 @@ public class ObjectArrayWrapper {
   }
 
   /**
-   * Get links
+   * List of links related to the response
    * @return links
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINKS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LINKS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<ActiveConnectionsWrapperLinksInner> getLinks() {
+  public List<GetPortalPrices200ResponseLinksInner> getLinks() {
     return links;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonProperty(value = JSON_PROPERTY_LINKS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLinks(@javax.annotation.Nullable List<ActiveConnectionsWrapperLinksInner> links) {
+  public void setLinks(@javax.annotation.Nullable List<GetPortalPrices200ResponseLinksInner> links) {
     this.links = links;
   }
 
@@ -168,11 +161,10 @@ public class ObjectArrayWrapper {
   }
 
   /**
-   * Get status
+   * HTTP status code of the response
    * @return status
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getStatus() {
@@ -180,7 +172,7 @@ public class ObjectArrayWrapper {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(@javax.annotation.Nullable Integer status) {
     this.status = status;
@@ -193,11 +185,10 @@ public class ObjectArrayWrapper {
   }
 
   /**
-   * Get statusCode
+   * HTTP status code of the response (duplicate of status)
    * @return statusCode
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS_CODE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS_CODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getStatusCode() {
@@ -205,7 +196,7 @@ public class ObjectArrayWrapper {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATUS_CODE)
+  @JsonProperty(value = JSON_PROPERTY_STATUS_CODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatusCode(@javax.annotation.Nullable Integer statusCode) {
     this.statusCode = statusCode;

@@ -9,6 +9,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**createFolderPrimaryExternalLink**](FilesFoldersApi.md#createFolderPrimaryExternalLink) | **POST** /api/2.0/files/folder/{id}/link | Create primary external link |
 | [**createReportFolderHistory**](FilesFoldersApi.md#createReportFolderHistory) | **POST** /api/2.0/files/folder/{folderId}/log/report | Generates folder history |
 | [**deleteFolder**](FilesFoldersApi.md#deleteFolder) | **DELETE** /api/2.0/files/folder/{folderId} | Delete a folder |
+| [**generateXlsxByFolder**](FilesFoldersApi.md#generateXlsxByFolder) | **POST** /api/2.0/files/folder/{folderId}/xlsx | Generate XLSX report by folder |
 | [**getFavoritesFolder**](FilesFoldersApi.md#getFavoritesFolder) | **GET** /api/2.0/files/@favorites | Get the Favorites section |
 | [**getFilesUsedSpace**](FilesFoldersApi.md#getFilesUsedSpace) | **GET** /api/2.0/files/filesusedspace | Get used space of files |
 | [**getFolder**](FilesFoldersApi.md#getFolder) | **GET** /api/2.0/files/{folderId}/formfilter | Get folder form filter |
@@ -102,7 +103,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder ID.
+        Integer folderId = 1; // Integer | The folder ID.
         CheckUploadRequest checkUploadRequest = new CheckUploadRequest(); // CheckUploadRequest | The request parameters for checking file uploads.
         try {
             STRINGArrayWrapper result = apiInstance.checkUpload(folderId, checkUploadRequest);
@@ -127,8 +128,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Inserted file |  -  |
+| **200** | Inserted file |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## createFolder
@@ -198,7 +202,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder ID for the folder creation.
+        Integer folderId = 1; // Integer | The folder ID for the folder creation.
         CreateFolder createFolder = new CreateFolder(); // CreateFolder | The parameters for creating a folder.
         try {
             FolderIntegerWrapper result = apiInstance.createFolder(folderId, createFolder);
@@ -223,8 +227,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | New folder parameters |  -  |
+| **200** | New folder parameters |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## createFolderPrimaryExternalLink
@@ -294,7 +301,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer id = 9846; // Integer | The folder ID.
+        Integer id = 1; // Integer | The folder ID.
         FolderLinkRequest folderLinkRequest = new FolderLinkRequest(); // FolderLinkRequest | The folder link parameters.
         try {
             FileShareWrapper result = apiInstance.createFolderPrimaryExternalLink(id, folderLinkRequest);
@@ -319,9 +326,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Folders security information |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Folders security information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **404** | Not Found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## createReportFolderHistory
@@ -414,10 +425,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | URL to the report file |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **200** | URL to the report file |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## deleteFolder
@@ -487,7 +501,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder ID to delete.
+        Integer folderId = 10; // Integer | The folder ID to delete.
         DeleteFolder deleteFolder = new DeleteFolder(); // DeleteFolder | The parameters for deleting a folder.
         try {
             FileOperationArrayWrapper result = apiInstance.deleteFolder(folderId, deleteFolder);
@@ -512,8 +526,110 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of file operations |  -  |
+| **200** | List of file operations |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+
+## generateXlsxByFolder
+
+> XlsxReportResponseWrapper generateXlsxByFolder(folderId)
+
+Generate XLSX report by folderTriggers asynchronous XLSX report generation for the specified form results folder.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/).
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **folderId** | **Integer**| The folder unique identifier. | |
+
+### Return type
+
+[**XlsxReportResponseWrapper**](XlsxReportResponseWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.FoldersApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        FoldersApi apiInstance = new FoldersApi(defaultClient);
+        Integer folderId = 1; // Integer | The folder unique identifier.
+        try {
+            XlsxReportResponseWrapper result = apiInstance.generateXlsxByFolder(folderId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FoldersApi#generateXlsxByFolder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You do not have enough permissions to perform this action |  -  |
+| **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFavoritesFolder
@@ -588,13 +704,13 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
+        UUID userIdOrGroupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user or group ID.
         FilterType filterType = FilterType.fromValue("0"); // FilterType | The filter type.
-        Integer count = 1234; // Integer | The maximum number of items to retrieve in the request.
-        Integer startIndex = 1234; // Integer | The zero-based index of the first item to retrieve in a paginated list.
-        String sortBy = "some text"; // String | Specifies the field by which the folder content should be sorted.
+        Integer count = 25; // Integer | The maximum number of items to retrieve in the request.
+        Integer startIndex = 0; // Integer | The zero-based index of the first item to retrieve in a paginated list.
+        String sortBy = "DateAndTime"; // String | Specifies the field by which the folder content should be sorted.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterValue = "some text"; // String | The text used as a filter or search criterion for folder content queries.
+        String filterValue = "My Document"; // String | The text used as a filter or search criterion for folder content queries.
         try {
             FolderContentIntegerWrapper result = apiInstance.getFavoritesFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
             System.out.println(result);
@@ -618,10 +734,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The Favorites section contents |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to view the folder content |  -  |
+| **200** | The Favorites section contents |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFilesUsedSpace
@@ -710,8 +829,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Used space of files in the root folders |  -  |
+| **200** | Used space of files in the root folders |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFolder
@@ -753,7 +875,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder unique identifier.
+        Integer folderId = 1; // Integer | The folder unique identifier.
         try {
             FormsItemArrayWrapper result = apiInstance.getFolder(folderId);
             System.out.println(result);
@@ -777,12 +899,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  -  |
+| **200** | Ok |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFolderByFolderId
 
-> FolderContentIntegerWrapper getFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location)
+> FolderContentIntegerWrapper getFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location)
 
 Get a folder by IDReturns the detailed list of files and folders located in the folder with the ID specified in the request.
 
@@ -800,6 +925,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **roomId** | **Integer**| The room ID. | [optional] |
 | **excludeSubject** | **Boolean**| Specifies whether to exclude search by user or group ID. | [optional] |
 | **applyFilterOption** | [**ApplyFilterOption**](.md)| Specifies whether to return only files, only folders, or all elements from the specified folder. | [optional] [enum: 0, 1, 2] |
+| **withSubFolders** | **Boolean**| Specifies whether to include files from subfolders in the results. | [optional] |
 | **extension** | **String**| Specifies whether to search for the specific file extension. | [optional] |
 | **searchArea** | [**SearchArea**](.md)| The search area. | [optional] [enum: 0, 1, 2, 3, 4, 5, 6, 7] |
 | **formsItemKey** | **String**| The forms item key. | [optional] |
@@ -835,25 +961,26 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder ID.
-        UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
-        UUID sharedBy = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The identifier of the user who shared the folder or file.
+        Integer folderId = 1; // Integer | The folder ID.
+        UUID userIdOrGroupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user or group ID.
+        UUID sharedBy = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The identifier of the user who shared the folder or file.
         FilterType filterType = FilterType.fromValue("0"); // FilterType | The filter type.
-        Integer roomId = 9846; // Integer | The room ID.
-        Boolean excludeSubject = true; // Boolean | Specifies whether to exclude search by user or group ID.
+        Integer roomId = 1; // Integer | The room ID.
+        Boolean excludeSubject = false; // Boolean | Specifies whether to exclude search by user or group ID.
         ApplyFilterOption applyFilterOption = ApplyFilterOption.fromValue("0"); // ApplyFilterOption | Specifies whether to return only files, only folders, or all elements from the specified folder.
-        String extension = ".txt"; // String | Specifies whether to search for the specific file extension.
+        Boolean withSubFolders = true; // Boolean | Specifies whether to include files from subfolders in the results.
+        String extension = ".docx"; // String | Specifies whether to search for the specific file extension.
         SearchArea searchArea = SearchArea.fromValue("0"); // SearchArea | The search area.
-        String formsItemKey = "some text"; // String | The forms item key.
-        String formsItemType = "some text"; // String | The forms item type.
-        Integer count = 1234; // Integer | The maximum number of items to retrieve in the request.
-        Integer startIndex = 1234; // Integer | The zero-based index of the first item to retrieve in a paginated request.
-        String sortBy = "some text"; // String | The property used for sorting the folder request results.
+        String formsItemKey = "doc_key_123"; // String | The forms item key.
+        String formsItemType = "text"; // String | The forms item type.
+        Integer count = 25; // Integer | The maximum number of items to retrieve in the request.
+        Integer startIndex = 0; // Integer | The zero-based index of the first item to retrieve in a paginated request.
+        String sortBy = "DateAndTime"; // String | The property used for sorting the folder request results.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterValue = "some text"; // String | The text value used as a filter parameter for folder content queries.
+        String filterValue = "My Document"; // String | The text value used as a filter parameter for folder content queries.
         Location location = Location.fromValue("1"); // Location | The location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link.
         try {
-            FolderContentIntegerWrapper result = apiInstance.getFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location);
+            FolderContentIntegerWrapper result = apiInstance.getFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling FoldersApi#getFolderByFolderId");
@@ -875,9 +1002,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Folder contents |  -  |
-| **403** | You don&#39;t have enough permission to view the folder content |  -  |
+| **200** | Folder contents |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFolderHistory
@@ -950,11 +1080,11 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder ID of the history request.
+        Integer folderId = 1; // Integer | The folder ID of the history request.
         ApiDateTime fromDate = new ApiDateTime(); // ApiDateTime | The start date of the history request.
         ApiDateTime toDate = new ApiDateTime(); // ApiDateTime | The end date of the history request.
-        Integer count = 1234; // Integer | The number of records to retrieve for the folder history.
-        Integer startIndex = 1234; // Integer | The starting index from which the history records are retrieved in the request.
+        Integer count = 25; // Integer | The number of records to retrieve for the folder history.
+        Integer startIndex = 0; // Integer | The starting index from which the history records are retrieved in the request.
         try {
             HistoryArrayWrapper result = apiInstance.getFolderHistory(folderId, fromDate, toDate, count, startIndex);
             System.out.println(result);
@@ -978,10 +1108,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of actions in the folder |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **200** | List of actions in the folder |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFolderInfo
@@ -1023,7 +1156,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder unique identifier.
+        Integer folderId = 1; // Integer | The folder unique identifier.
         try {
             FolderIntegerWrapper result = apiInstance.getFolderInfo(folderId);
             System.out.println(result);
@@ -1047,7 +1180,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Folder parameters |  -  |
+| **200** | Folder parameters |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFolderLinks
@@ -1116,7 +1252,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer id = 9846; // Integer | The folder ID.
+        Integer id = 1; // Integer | The folder ID.
         try {
             FileShareArrayWrapper result = apiInstance.getFolderLinks(id);
             System.out.println(result);
@@ -1140,8 +1276,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Folder security information |  -  |
+| **200** | Folder security information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFolderPath
@@ -1210,7 +1349,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder unique identifier.
+        Integer folderId = 1; // Integer | The folder unique identifier.
         try {
             FileEntryBaseArrayWrapper result = apiInstance.getFolderPath(folderId);
             System.out.println(result);
@@ -1234,9 +1373,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of file entry information |  -  |
+| **200** | List of file entry information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to view the folder content |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to view the folder content |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFolderPrimaryExternalLink
@@ -1280,9 +1422,9 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer id = 9846; // Integer | The folder unique identifier.
-        Integer count = 1234; // Integer | The number of items to retrieve in the request.
-        Integer startIndex = 1234; // Integer | The starting index for the query results.
+        Integer id = 10; // Integer | The folder unique identifier.
+        Integer count = 25; // Integer | The number of items to retrieve in the request.
+        Integer startIndex = 0; // Integer | The starting index for the query results.
         try {
             FileShareWrapper result = apiInstance.getFolderPrimaryExternalLink(id, count, startIndex);
             System.out.println(result);
@@ -1306,8 +1448,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Folder security information |  -  |
+| **200** | Folder security information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFolders
@@ -1376,7 +1522,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder unique identifier.
+        Integer folderId = 1; // Integer | The folder unique identifier.
         try {
             FileEntryBaseArrayWrapper result = apiInstance.getFolders(folderId);
             System.out.println(result);
@@ -1400,9 +1546,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of file entry information |  -  |
+| **200** | List of file entry information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to view the folder content |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to view the folder content |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getMyFolder
@@ -1478,14 +1627,14 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
+        UUID userIdOrGroupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user or group ID.
         FilterType filterType = FilterType.fromValue("0"); // FilterType | The filter type.
         ApplyFilterOption applyFilterOption = ApplyFilterOption.fromValue("0"); // ApplyFilterOption | Specifies whether to return only files, only folders or all elements.
-        Integer count = 1234; // Integer | The maximum number of items to retrieve in the response.
-        Integer startIndex = 1234; // Integer | The starting position of the items to be retrieved.
-        String sortBy = "some text"; // String | The property used to specify the sorting criteria for folder contents.
+        Integer count = 25; // Integer | The maximum number of items to retrieve in the response.
+        Integer startIndex = 0; // Integer | The starting position of the items to be retrieved.
+        String sortBy = "DateAndTime"; // String | The property used to specify the sorting criteria for folder contents.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterValue = "some text"; // String | The text used for filtering or searching folder contents.
+        String filterValue = "My Document"; // String | The text used for filtering or searching folder contents.
         try {
             FolderContentIntegerWrapper result = apiInstance.getMyFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
             System.out.println(result);
@@ -1509,10 +1658,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The My documents section contents |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to view the folder content |  -  |
+| **200** | The My documents section contents |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getNewFolderItems
@@ -1581,7 +1733,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder unique identifier.
+        Integer folderId = 1; // Integer | The folder unique identifier.
         try {
             FileEntryBaseArrayWrapper result = apiInstance.getNewFolderItems(folderId);
             System.out.println(result);
@@ -1605,9 +1757,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of file entry information |  -  |
+| **200** | List of file entry information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to view the folder content |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to view the folder content |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getPrivacyFolder
@@ -1682,13 +1837,13 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
+        UUID userIdOrGroupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user or group ID.
         FilterType filterType = FilterType.fromValue("0"); // FilterType | The filter type.
-        Integer count = 1234; // Integer | The maximum number of items to retrieve in the request.
-        Integer startIndex = 1234; // Integer | The zero-based index of the first item to retrieve in a paginated list.
-        String sortBy = "some text"; // String | Specifies the field by which the folder content should be sorted.
+        Integer count = 25; // Integer | The maximum number of items to retrieve in the request.
+        Integer startIndex = 0; // Integer | The zero-based index of the first item to retrieve in a paginated list.
+        String sortBy = "DateAndTime"; // String | Specifies the field by which the folder content should be sorted.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterValue = "some text"; // String | The text used as a filter or search criterion for folder content queries.
+        String filterValue = "My Document"; // String | The text used as a filter or search criterion for folder content queries.
         try {
             FolderContentIntegerWrapper result = apiInstance.getPrivacyFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
             System.out.println(result);
@@ -1712,10 +1867,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The Private Room section contents |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to view the folder content |  -  |
+| **200** | The Private Room section contents |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getRecentFolder
@@ -1794,17 +1952,17 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
+        UUID userIdOrGroupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user or group ID.
         FilterType filterType = FilterType.fromValue("0"); // FilterType | The filter type.
-        Boolean excludeSubject = true; // Boolean | Specifies whether to exclude search by user or group ID.
+        Boolean excludeSubject = false; // Boolean | Specifies whether to exclude search by user or group ID.
         ApplyFilterOption applyFilterOption = ApplyFilterOption.fromValue("0"); // ApplyFilterOption | Specifies whether to return only files, only folders or all elements.
         SearchArea searchArea = SearchArea.fromValue("0"); // SearchArea | The search area.
         List<String> extension = Arrays.asList(new ArrayList<>()); // List<String> | Specifies whether to search for a specific file extension in the Recent folder.
-        Integer count = 1234; // Integer | The maximum number of items to return.
-        Integer startIndex = 1234; // Integer | The starting position of the results to be returned in the query response.
-        String sortBy = "some text"; // String | Specifies the sorting criteria for the folder request.
+        Integer count = 25; // Integer | The maximum number of items to return.
+        Integer startIndex = 0; // Integer | The starting position of the results to be returned in the query response.
+        String sortBy = "DateAndTime"; // String | Specifies the sorting criteria for the folder request.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterValue = "some text"; // String | The text used for filtering or searching folder contents.
+        String filterValue = "My Document"; // String | The text used for filtering or searching folder contents.
         try {
             FolderContentIntegerWrapper result = apiInstance.getRecentFolder(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue);
             System.out.println(result);
@@ -1828,10 +1986,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The Recent section contents |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to view the folder content |  -  |
+| **200** | The Recent section contents |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getRootFolders
@@ -1907,14 +2068,14 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
+        UUID userIdOrGroupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user or group ID.
         FilterType filterType = FilterType.fromValue("0"); // FilterType | The filter type.
-        Boolean withoutTrash = true; // Boolean | Specifies whether to return the Trash section or not.
-        Integer count = 1234; // Integer | The maximum number of items to retrieve in the response.
-        Integer startIndex = 1234; // Integer | The starting position of the items to be retrieved.
-        String sortBy = "some text"; // String | Specifies the field by which the folder content should be sorted.
+        Boolean withoutTrash = false; // Boolean | Specifies whether to return the Trash section or not.
+        Integer count = 25; // Integer | The maximum number of items to retrieve in the response.
+        Integer startIndex = 0; // Integer | The starting position of the items to be retrieved.
+        String sortBy = "DateAndTime"; // String | Specifies the field by which the folder content should be sorted.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterValue = "some text"; // String | The text used as a filter for searching or retrieving folder contents.
+        String filterValue = "My Document"; // String | The text used as a filter for searching or retrieving folder contents.
         try {
             FolderContentIntegerArrayWrapper result = apiInstance.getRootFolders(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue);
             System.out.println(result);
@@ -1938,10 +2099,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of section contents with the following parameters |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to view the folder content |  -  |
+| **200** | List of section contents with the following parameters |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getTrashFolder
@@ -2017,14 +2181,14 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        UUID userIdOrGroupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The user or group ID.
+        UUID userIdOrGroupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user or group ID.
         FilterType filterType = FilterType.fromValue("0"); // FilterType | The filter type.
         ApplyFilterOption applyFilterOption = ApplyFilterOption.fromValue("0"); // ApplyFilterOption | Specifies whether to return only files, only folders or all elements.
-        Integer count = 1234; // Integer | The maximum number of items to retrieve in the response.
-        Integer startIndex = 1234; // Integer | The starting position of the items to be retrieved.
-        String sortBy = "some text"; // String | The property used to specify the sorting criteria for folder contents.
+        Integer count = 25; // Integer | The maximum number of items to retrieve in the response.
+        Integer startIndex = 0; // Integer | The starting position of the items to be retrieved.
+        String sortBy = "DateAndTime"; // String | The property used to specify the sorting criteria for folder contents.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterValue = "some text"; // String | The text used for filtering or searching folder contents.
+        String filterValue = "My Document"; // String | The text used for filtering or searching folder contents.
         try {
             FolderContentIntegerWrapper result = apiInstance.getTrashFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
             System.out.println(result);
@@ -2048,10 +2212,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The Trash section contents |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to view the folder content |  -  |
+| **200** | The Trash section contents |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## insertFile
@@ -2132,7 +2299,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder ID for inserting a file.
+        Integer folderId = 1; // Integer | The folder ID for inserting a file.
         File insertFileFile = new File("/path/to/file"); // File | The file to be inserted.
         String insertFileTitle = "insertFileTitle_example"; // String | The file title to be inserted.
         Boolean insertFileCreateNewIfExist = true; // Boolean | Specifies whether to create a new file if it already exists or not.
@@ -2168,10 +2335,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Inserted file |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to create |  -  |
+| **200** | Inserted file |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to create |  -  |
 | **404** | Folder not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## insertFileToMyFromBody
@@ -2286,10 +2456,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Inserted file |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to create |  -  |
+| **200** | Inserted file |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to create |  -  |
 | **404** | Folder not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## renameFolder
@@ -2359,7 +2532,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder ID for the folder creation.
+        Integer folderId = 1; // Integer | The folder ID for the folder creation.
         CreateFolder createFolder = new CreateFolder(); // CreateFolder | The parameters for creating a folder.
         try {
             FolderIntegerWrapper result = apiInstance.renameFolder(folderId, createFolder);
@@ -2384,9 +2557,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Folder parameters |  -  |
+| **200** | Folder parameters |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to rename the folder |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to rename the folder |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## setFolderOrder
@@ -2456,7 +2632,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder unique identifier.
+        Integer folderId = 1; // Integer | The folder unique identifier.
         OrderRequestDto orderRequestDto = new OrderRequestDto(); // OrderRequestDto | The folder order information.
         try {
             FolderIntegerWrapper result = apiInstance.setFolderOrder(folderId, orderRequestDto);
@@ -2481,8 +2657,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of file operations |  -  |
+| **200** | List of file operations |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## setFolderPrimaryExternalLink
@@ -2552,7 +2731,7 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer id = 9846; // Integer | The folder ID.
+        Integer id = 1; // Integer | The folder ID.
         FolderLinkRequest folderLinkRequest = new FolderLinkRequest(); // FolderLinkRequest | The folder link parameters.
         try {
             FileShareWrapper result = apiInstance.setFolderPrimaryExternalLink(id, folderLinkRequest);
@@ -2577,15 +2756,18 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Folder information |  -  |
+| **200** | Folder information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## uploadFile
 
-> ObjectWrapper uploadFile(folderId, uploadRequestDto)
+> FileIntegerArrayWrapper uploadFile(folderId, createNewIfExist, storeOriginalFile, keepConvertStatus, _file)
 
-Upload a fileUploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   <ol>  <li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>  <li>Using standart multipart/form-data method.</li>  </ol>
+Upload a fileUploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/).
 
@@ -2595,11 +2777,14 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **folderId** | **Integer**| The folder ID to upload a file. | |
-| **uploadRequestDto** | [**UploadRequestDto**](UploadRequestDto.md)| The request parameters for uploading a file. | [optional] |
+| **createNewIfExist** | **Boolean**| Specifies whether to create the new file if it already exists or not. | [optional] |
+| **storeOriginalFile** | **Boolean**| Specifies whether to upload documents in the original formats as well or not. | [optional] |
+| **keepConvertStatus** | **Boolean**| Specifies whether to keep the file converting status or not. | [optional] |
+| **_file** | **File**| The file to be uploaded. | [optional] |
 
 ### Return type
 
-[**ObjectWrapper**](ObjectWrapper.md)
+[**FileIntegerArrayWrapper**](FileIntegerArrayWrapper.md)
 
 ### Authorization
 
@@ -2648,10 +2833,13 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder ID to upload a file.
-        UploadRequestDto uploadRequestDto = new UploadRequestDto(); // UploadRequestDto | The request parameters for uploading a file.
+        Integer folderId = 1; // Integer | The folder ID to upload a file.
+        Boolean createNewIfExist = true; // Boolean | Specifies whether to create the new file if it already exists or not.
+        Boolean storeOriginalFile = true; // Boolean | Specifies whether to upload documents in the original formats as well or not.
+        Boolean keepConvertStatus = false; // Boolean | Specifies whether to keep the file converting status or not.
+        File _file = new File("/path/to/file"); // File | The file to be uploaded.
         try {
-            ObjectWrapper result = apiInstance.uploadFile(folderId, uploadRequestDto);
+            FileIntegerArrayWrapper result = apiInstance.uploadFile(folderId, createNewIfExist, storeOriginalFile, keepConvertStatus, _file);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling FoldersApi#uploadFile");
@@ -2666,24 +2854,27 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Inserted file |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to create |  -  |
+| **200** | Inserted file |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to create |  -  |
 | **404** | Folder not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## uploadFileToMy
 
-> ObjectWrapper uploadFileToMy(inDto)
+> FileIntegerArrayWrapper uploadFileToMy(createNewIfExist, storeOriginalFile, keepConvertStatus, _file)
 
-Upload a file to the My documents sectionUploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   <ol>  <li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>  <li>Using standart multipart/form-data method.</li>  </ol>
+Upload a file to the My documents sectionUploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/).
 
@@ -2692,11 +2883,14 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **inDto** | [**UploadRequestDto**](.md)| The request parameters for uploading a file. | [optional] |
+| **createNewIfExist** | **Boolean**| Specifies whether to create the new file if it already exists or not. | [optional] |
+| **storeOriginalFile** | **Boolean**| Specifies whether to upload documents in the original formats as well or not. | [optional] |
+| **keepConvertStatus** | **Boolean**| Specifies whether to keep the file converting status or not. | [optional] |
+| **_file** | **File**| The file to be uploaded. | [optional] |
 
 ### Return type
 
-[**ObjectWrapper**](ObjectWrapper.md)
+[**FileIntegerArrayWrapper**](FileIntegerArrayWrapper.md)
 
 ### Authorization
 
@@ -2745,9 +2939,12 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        UploadRequestDto inDto = new UploadRequestDto(); // UploadRequestDto | The request parameters for uploading a file.
+        Boolean createNewIfExist = true; // Boolean | Specifies whether to create the new file if it already exists or not.
+        Boolean storeOriginalFile = true; // Boolean | Specifies whether to upload documents in the original formats as well or not.
+        Boolean keepConvertStatus = false; // Boolean | Specifies whether to keep the file converting status or not.
+        File _file = new File("/path/to/file"); // File | The file to be uploaded.
         try {
-            ObjectWrapper result = apiInstance.uploadFileToMy(inDto);
+            FileIntegerArrayWrapper result = apiInstance.uploadFileToMy(createNewIfExist, storeOriginalFile, keepConvertStatus, _file);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling FoldersApi#uploadFileToMy");
@@ -2762,15 +2959,18 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Uploaded file(s) |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to create |  -  |
+| **200** | Uploaded file(s) |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to create |  -  |
 | **404** | File not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

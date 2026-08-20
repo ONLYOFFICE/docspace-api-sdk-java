@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -52,24 +53,19 @@ import java.util.StringJoiner;
 
 public class TfaRequestsDto {
   public static final String JSON_PROPERTY_TYPE = "type";
-  @javax.annotation.Nullable
-  private TfaRequestsDtoType type;
+  @javax.annotation.Nullable  private TfaRequestsDtoType type;
 
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private UUID id;
+  @javax.annotation.Nullable  private UUID id;
 
   public static final String JSON_PROPERTY_TRUSTED_IPS = "trustedIps";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> trustedIps = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> trustedIps = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_MANDATORY_USERS = "mandatoryUsers";
-  @javax.annotation.Nullable
-  private JsonNullable<List<UUID>> mandatoryUsers = JsonNullable.<List<UUID>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<UUID>> mandatoryUsers = JsonNullable.<List<UUID>>undefined();
 
   public static final String JSON_PROPERTY_MANDATORY_GROUPS = "mandatoryGroups";
-  @javax.annotation.Nullable
-  private JsonNullable<List<UUID>> mandatoryGroups = JsonNullable.<List<UUID>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<UUID>> mandatoryGroups = JsonNullable.<List<UUID>>undefined();
 
   public TfaRequestsDto() {
   }
@@ -85,8 +81,7 @@ public class TfaRequestsDto {
    * Get type
    * @return type
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TfaRequestsDtoType getType() {
@@ -94,7 +89,7 @@ public class TfaRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(@javax.annotation.Nullable TfaRequestsDtoType type) {
     this.type = type;
@@ -110,8 +105,7 @@ public class TfaRequestsDto {
    * The ID of the user for whom the TFA settings are being configured.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getId() {
@@ -119,7 +113,7 @@ public class TfaRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(@javax.annotation.Nullable UUID id) {
     this.id = id;
@@ -147,16 +141,14 @@ public class TfaRequestsDto {
    * The list of IP addresses that bypass TFA verification.
    * @return trustedIps
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getTrustedIps() {
         return trustedIps.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TRUSTED_IPS)
+  @JsonProperty(value = JSON_PROPERTY_TRUSTED_IPS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getTrustedIps_JsonNullable() {
     return trustedIps;
   }
@@ -192,16 +184,14 @@ public class TfaRequestsDto {
    * The list of user IDs for whom TFA is mandatory.
    * @return mandatoryUsers
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<UUID> getMandatoryUsers() {
         return mandatoryUsers.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MANDATORY_USERS)
+  @JsonProperty(value = JSON_PROPERTY_MANDATORY_USERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<UUID>> getMandatoryUsers_JsonNullable() {
     return mandatoryUsers;
   }
@@ -237,16 +227,14 @@ public class TfaRequestsDto {
    * The list group IDs whose members must use TFA.
    * @return mandatoryGroups
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<UUID> getMandatoryGroups() {
         return mandatoryGroups.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MANDATORY_GROUPS)
+  @JsonProperty(value = JSON_PROPERTY_MANDATORY_GROUPS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<UUID>> getMandatoryGroups_JsonNullable() {
     return mandatoryGroups;
   }

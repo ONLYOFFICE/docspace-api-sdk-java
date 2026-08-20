@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,24 +49,19 @@ import java.util.StringJoiner;
 
 public class TaskProgressResponseDto {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private String id;
+  @javax.annotation.Nullable  private String id;
 
   public static final String JSON_PROPERTY_ERROR = "error";
-  @javax.annotation.Nullable
-  private JsonNullable<String> error = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> error = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PERCENTAGE = "percentage";
-  @javax.annotation.Nonnull
-  private Integer percentage;
+  @javax.annotation.Nonnull  private Integer percentage;
 
   public static final String JSON_PROPERTY_IS_COMPLETED = "isCompleted";
-  @javax.annotation.Nonnull
-  private Boolean isCompleted;
+  @javax.annotation.Nonnull  private Boolean isCompleted;
 
   public static final String JSON_PROPERTY_STATUS = "status";
-  @javax.annotation.Nonnull
-  private DistributedTaskStatus status;
+  @javax.annotation.Nonnull  private DistributedTaskStatus status;
 
   public TaskProgressResponseDto() {
   }
@@ -81,8 +77,7 @@ public class TaskProgressResponseDto {
    * The task progress ID.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getId() {
@@ -90,7 +85,7 @@ public class TaskProgressResponseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@javax.annotation.Nullable String id) {
     this.id = id;
@@ -106,16 +101,14 @@ public class TaskProgressResponseDto {
    * The task progress error message.
    * @return error
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getError() {
         return error.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getError_JsonNullable() {
     return error;
   }
@@ -139,8 +132,7 @@ public class TaskProgressResponseDto {
    * The percentage of the task progress.
    * @return percentage
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PERCENTAGE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PERCENTAGE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getPercentage() {
@@ -148,7 +140,7 @@ public class TaskProgressResponseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PERCENTAGE)
+  @JsonProperty(value = JSON_PROPERTY_PERCENTAGE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPercentage(@javax.annotation.Nonnull Integer percentage) {
     this.percentage = percentage;
@@ -164,8 +156,7 @@ public class TaskProgressResponseDto {
    * Specifies if the task peogress is completed or not.
    * @return isCompleted
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_COMPLETED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_COMPLETED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getIsCompleted() {
@@ -173,7 +164,7 @@ public class TaskProgressResponseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_COMPLETED)
+  @JsonProperty(value = JSON_PROPERTY_IS_COMPLETED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsCompleted(@javax.annotation.Nonnull Boolean isCompleted) {
     this.isCompleted = isCompleted;
@@ -189,8 +180,7 @@ public class TaskProgressResponseDto {
    * Get status
    * @return status
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public DistributedTaskStatus getStatus() {
@@ -198,7 +188,7 @@ public class TaskProgressResponseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(@javax.annotation.Nonnull DistributedTaskStatus status) {
     this.status = status;

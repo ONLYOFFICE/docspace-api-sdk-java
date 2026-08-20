@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,13 +19,15 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.time.ZoneOffset;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
+
+import java.time.ZoneOffset;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -42,12 +44,10 @@ import java.util.StringJoiner;
 
 public class ApiDateTime {
   public static final String JSON_PROPERTY_UTC_TIME = "utcTime";
-  @javax.annotation.Nullable
-  private OffsetDateTime utcTime;
+  @javax.annotation.Nullable  private OffsetDateTime utcTime;
 
   public static final String JSON_PROPERTY_TIME_ZONE_OFFSET = "timeZoneOffset";
-  @javax.annotation.Nullable
-  private String timeZoneOffset;
+  @javax.annotation.Nullable  private String timeZoneOffset;
 
   public ApiDateTime() {
   }
@@ -90,8 +90,7 @@ public class ApiDateTime {
    * The time in UTC format.
    * @return utcTime
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UTC_TIME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UTC_TIME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getUtcTime() {
@@ -99,7 +98,7 @@ public class ApiDateTime {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UTC_TIME)
+  @JsonProperty(value = JSON_PROPERTY_UTC_TIME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUtcTime(@javax.annotation.Nullable OffsetDateTime utcTime) {
     this.utcTime = utcTime;
@@ -115,8 +114,7 @@ public class ApiDateTime {
    * The time zone offset.
    * @return timeZoneOffset
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIME_ZONE_OFFSET)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TIME_ZONE_OFFSET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTimeZoneOffset() {
@@ -124,7 +122,7 @@ public class ApiDateTime {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TIME_ZONE_OFFSET)
+  @JsonProperty(value = JSON_PROPERTY_TIME_ZONE_OFFSET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZoneOffset(@javax.annotation.Nullable String timeZoneOffset) {
     this.timeZoneOffset = timeZoneOffset;

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -45,16 +46,13 @@ import java.util.StringJoiner;
 
 public class PasswordHasher {
   public static final String JSON_PROPERTY_SIZE = "size";
-  @javax.annotation.Nullable
-  private Integer size;
+  @javax.annotation.Nullable  private Integer size;
 
   public static final String JSON_PROPERTY_ITERATIONS = "iterations";
-  @javax.annotation.Nullable
-  private Integer iterations;
+  @javax.annotation.Nullable  private Integer iterations;
 
   public static final String JSON_PROPERTY_SALT = "salt";
-  @javax.annotation.Nullable
-  private JsonNullable<String> salt = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> salt = JsonNullable.<String>undefined();
 
   public PasswordHasher() {
   }
@@ -78,8 +76,7 @@ public class PasswordHasher {
    * Get size
    * @return size
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIZE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getSize() {
@@ -92,8 +89,7 @@ public class PasswordHasher {
    * Get iterations
    * @return iterations
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ITERATIONS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ITERATIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getIterations() {
@@ -106,8 +102,7 @@ public class PasswordHasher {
    * Get salt
    * @return salt
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSalt() {
     
@@ -117,9 +112,8 @@ public class PasswordHasher {
     return salt.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SALT)
+  @JsonProperty(value = JSON_PROPERTY_SALT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSalt_JsonNullable() {
     return salt;
   }

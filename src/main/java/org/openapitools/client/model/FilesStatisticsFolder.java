@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -44,12 +45,10 @@ import java.util.StringJoiner;
 
 public class FilesStatisticsFolder {
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_USED_SPACE = "usedSpace";
-  @javax.annotation.Nullable
-  private Long usedSpace;
+  @javax.annotation.Nullable  private Long usedSpace;
 
   public FilesStatisticsFolder() {
   }
@@ -65,16 +64,14 @@ public class FilesStatisticsFolder {
    * The folder title.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTitle() {
         return title.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
@@ -98,8 +95,7 @@ public class FilesStatisticsFolder {
    * The used space in the folder.
    * @return usedSpace
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USED_SPACE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USED_SPACE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getUsedSpace() {
@@ -107,7 +103,7 @@ public class FilesStatisticsFolder {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USED_SPACE)
+  @JsonProperty(value = JSON_PROPERTY_USED_SPACE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsedSpace(@javax.annotation.Nullable Long usedSpace) {
     this.usedSpace = usedSpace;

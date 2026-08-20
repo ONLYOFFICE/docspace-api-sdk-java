@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -39,8 +40,7 @@ import java.util.StringJoiner;
 
 public class SsoSettingsRequestsDto {
   public static final String JSON_PROPERTY_SERIALIZE_SETTINGS = "serializeSettings";
-  @javax.annotation.Nullable
-  private String serializeSettings;
+  @javax.annotation.Nullable  private String serializeSettings;
 
   public SsoSettingsRequestsDto() {
   }
@@ -56,8 +56,7 @@ public class SsoSettingsRequestsDto {
    * The JSON-serialized SSO configuration settings.
    * @return serializeSettings
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERIALIZE_SETTINGS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SERIALIZE_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getSerializeSettings() {
@@ -65,7 +64,7 @@ public class SsoSettingsRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SERIALIZE_SETTINGS)
+  @JsonProperty(value = JSON_PROPERTY_SERIALIZE_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSerializeSettings(@javax.annotation.Nullable String serializeSettings) {
     this.serializeSettings = serializeSettings;

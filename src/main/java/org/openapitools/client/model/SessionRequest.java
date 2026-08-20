@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -49,28 +50,22 @@ import java.util.StringJoiner;
 
 public class SessionRequest {
   public static final String JSON_PROPERTY_FILE_NAME = "fileName";
-  @javax.annotation.Nullable
-  private String fileName;
+  @javax.annotation.Nullable  private String fileName;
 
   public static final String JSON_PROPERTY_FILE_SIZE = "fileSize";
-  @javax.annotation.Nullable
-  private Long fileSize;
+  @javax.annotation.Nullable  private Long fileSize;
 
   public static final String JSON_PROPERTY_RELATIVE_PATH = "relativePath";
-  @javax.annotation.Nullable
-  private JsonNullable<String> relativePath = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> relativePath = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CREATE_ON = "createOn";
-  @javax.annotation.Nullable
-  private ApiDateTime createOn;
+  @javax.annotation.Nullable  private ApiDateTime createOn;
 
   public static final String JSON_PROPERTY_ENCRYPTED = "encrypted";
-  @javax.annotation.Nullable
-  private Boolean encrypted;
+  @javax.annotation.Nullable  private Boolean encrypted;
 
   public static final String JSON_PROPERTY_CREATE_NEW_IF_EXIST = "createNewIfExist";
-  @javax.annotation.Nullable
-  private Boolean createNewIfExist;
+  @javax.annotation.Nullable  private Boolean createNewIfExist;
 
   public SessionRequest() {
   }
@@ -86,8 +81,7 @@ public class SessionRequest {
    * The file name.
    * @return fileName
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILE_NAME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getFileName() {
@@ -95,7 +89,7 @@ public class SessionRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE_NAME)
+  @JsonProperty(value = JSON_PROPERTY_FILE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFileName(@javax.annotation.Nullable String fileName) {
     this.fileName = fileName;
@@ -111,8 +105,7 @@ public class SessionRequest {
    * The file size.
    * @return fileSize
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILE_SIZE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getFileSize() {
@@ -120,7 +113,7 @@ public class SessionRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE_SIZE)
+  @JsonProperty(value = JSON_PROPERTY_FILE_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileSize(@javax.annotation.Nullable Long fileSize) {
     this.fileSize = fileSize;
@@ -136,16 +129,14 @@ public class SessionRequest {
    * The relative path to the file.
    * @return relativePath
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRelativePath() {
         return relativePath.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_RELATIVE_PATH)
+  @JsonProperty(value = JSON_PROPERTY_RELATIVE_PATH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRelativePath_JsonNullable() {
     return relativePath;
   }
@@ -169,8 +160,7 @@ public class SessionRequest {
    * Get createOn
    * @return createOn
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATE_ON)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApiDateTime getCreateOn() {
@@ -178,7 +168,7 @@ public class SessionRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATE_ON)
+  @JsonProperty(value = JSON_PROPERTY_CREATE_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreateOn(@javax.annotation.Nullable ApiDateTime createOn) {
     this.createOn = createOn;
@@ -194,8 +184,7 @@ public class SessionRequest {
    * Specifies whether the file is encrypted or not.
    * @return encrypted
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENCRYPTED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENCRYPTED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEncrypted() {
@@ -203,7 +192,7 @@ public class SessionRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENCRYPTED)
+  @JsonProperty(value = JSON_PROPERTY_ENCRYPTED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncrypted(@javax.annotation.Nullable Boolean encrypted) {
     this.encrypted = encrypted;
@@ -219,8 +208,7 @@ public class SessionRequest {
    * Specifies whether to create a new file if it already exists.
    * @return createNewIfExist
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATE_NEW_IF_EXIST)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_NEW_IF_EXIST, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCreateNewIfExist() {
@@ -228,7 +216,7 @@ public class SessionRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATE_NEW_IF_EXIST)
+  @JsonProperty(value = JSON_PROPERTY_CREATE_NEW_IF_EXIST, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreateNewIfExist(@javax.annotation.Nullable Boolean createNewIfExist) {
     this.createNewIfExist = createNewIfExist;

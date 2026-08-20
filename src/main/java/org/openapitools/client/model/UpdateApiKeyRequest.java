@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,16 +49,13 @@ import java.util.StringJoiner;
 
 public class UpdateApiKeyRequest {
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PERMISSIONS = "permissions";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> permissions = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> permissions = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_IS_ACTIVE = "isActive";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> isActive = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> isActive = JsonNullable.<Boolean>undefined();
 
   public UpdateApiKeyRequest() {
   }
@@ -73,16 +71,14 @@ public class UpdateApiKeyRequest {
    * The new name for the API key.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getName() {
         return name.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
@@ -118,16 +114,14 @@ public class UpdateApiKeyRequest {
    * The new list of permissions for the API key.
    * @return permissions
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getPermissions() {
         return permissions.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PERMISSIONS)
+  @JsonProperty(value = JSON_PROPERTY_PERMISSIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getPermissions_JsonNullable() {
     return permissions;
   }
@@ -151,16 +145,14 @@ public class UpdateApiKeyRequest {
    * Indicates whether the API key should be active or not.
    * @return isActive
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getIsActive() {
         return isActive.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IS_ACTIVE)
+  @JsonProperty(value = JSON_PROPERTY_IS_ACTIVE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getIsActive_JsonNullable() {
     return isActive;
   }

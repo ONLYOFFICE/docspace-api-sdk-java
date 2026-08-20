@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,32 +47,25 @@ import java.util.StringJoiner;
 
 public class AdditionalWhiteLabelSettings {
   public static final String JSON_PROPERTY_START_DOCS_ENABLED = "startDocsEnabled";
-  @javax.annotation.Nullable
-  private Boolean startDocsEnabled;
+  @javax.annotation.Nullable  private Boolean startDocsEnabled;
 
   public static final String JSON_PROPERTY_HELP_CENTER_ENABLED = "helpCenterEnabled";
-  @javax.annotation.Nullable
-  private Boolean helpCenterEnabled;
+  @javax.annotation.Nullable  private Boolean helpCenterEnabled;
 
   public static final String JSON_PROPERTY_FEEDBACK_AND_SUPPORT_ENABLED = "feedbackAndSupportEnabled";
-  @javax.annotation.Nullable
-  private Boolean feedbackAndSupportEnabled;
+  @javax.annotation.Nullable  private Boolean feedbackAndSupportEnabled;
 
   public static final String JSON_PROPERTY_USER_FORUM_ENABLED = "userForumEnabled";
-  @javax.annotation.Nullable
-  private Boolean userForumEnabled;
+  @javax.annotation.Nullable  private Boolean userForumEnabled;
 
   public static final String JSON_PROPERTY_VIDEO_GUIDES_ENABLED = "videoGuidesEnabled";
-  @javax.annotation.Nullable
-  private Boolean videoGuidesEnabled;
+  @javax.annotation.Nullable  private Boolean videoGuidesEnabled;
 
   public static final String JSON_PROPERTY_LICENSE_AGREEMENTS_ENABLED = "licenseAgreementsEnabled";
-  @javax.annotation.Nullable
-  private Boolean licenseAgreementsEnabled;
+  @javax.annotation.Nullable  private Boolean licenseAgreementsEnabled;
 
   public static final String JSON_PROPERTY_LAST_MODIFIED = "lastModified";
-  @javax.annotation.Nullable
-  private OffsetDateTime lastModified;
+  @javax.annotation.Nullable  private OffsetDateTime lastModified;
 
   public AdditionalWhiteLabelSettings() {
   }
@@ -87,8 +81,7 @@ public class AdditionalWhiteLabelSettings {
    * Specifies if the sample documents are displayed or hidden.
    * @return startDocsEnabled
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_START_DOCS_ENABLED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_START_DOCS_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getStartDocsEnabled() {
@@ -96,7 +89,7 @@ public class AdditionalWhiteLabelSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_START_DOCS_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_START_DOCS_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartDocsEnabled(@javax.annotation.Nullable Boolean startDocsEnabled) {
     this.startDocsEnabled = startDocsEnabled;
@@ -112,8 +105,7 @@ public class AdditionalWhiteLabelSettings {
    * Specifies if the Help Center link is available or not.
    * @return helpCenterEnabled
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HELP_CENTER_ENABLED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HELP_CENTER_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getHelpCenterEnabled() {
@@ -121,7 +113,7 @@ public class AdditionalWhiteLabelSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HELP_CENTER_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_HELP_CENTER_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHelpCenterEnabled(@javax.annotation.Nullable Boolean helpCenterEnabled) {
     this.helpCenterEnabled = helpCenterEnabled;
@@ -134,11 +126,10 @@ public class AdditionalWhiteLabelSettings {
   }
 
   /**
-   * Specifies if the Feedback &amp; Support link is available or not.
+   * Specifies if the Feedback & Support link is available or not.
    * @return feedbackAndSupportEnabled
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FEEDBACK_AND_SUPPORT_ENABLED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FEEDBACK_AND_SUPPORT_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getFeedbackAndSupportEnabled() {
@@ -146,7 +137,7 @@ public class AdditionalWhiteLabelSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FEEDBACK_AND_SUPPORT_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_FEEDBACK_AND_SUPPORT_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFeedbackAndSupportEnabled(@javax.annotation.Nullable Boolean feedbackAndSupportEnabled) {
     this.feedbackAndSupportEnabled = feedbackAndSupportEnabled;
@@ -162,8 +153,7 @@ public class AdditionalWhiteLabelSettings {
    * Specifies if the user forum is available or not.
    * @return userForumEnabled
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USER_FORUM_ENABLED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER_FORUM_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getUserForumEnabled() {
@@ -171,7 +161,7 @@ public class AdditionalWhiteLabelSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USER_FORUM_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_USER_FORUM_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUserForumEnabled(@javax.annotation.Nullable Boolean userForumEnabled) {
     this.userForumEnabled = userForumEnabled;
@@ -187,8 +177,7 @@ public class AdditionalWhiteLabelSettings {
    * Specifies if the Video Guides link is available or not.
    * @return videoGuidesEnabled
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VIDEO_GUIDES_ENABLED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VIDEO_GUIDES_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getVideoGuidesEnabled() {
@@ -196,7 +185,7 @@ public class AdditionalWhiteLabelSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VIDEO_GUIDES_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_VIDEO_GUIDES_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVideoGuidesEnabled(@javax.annotation.Nullable Boolean videoGuidesEnabled) {
     this.videoGuidesEnabled = videoGuidesEnabled;
@@ -212,8 +201,7 @@ public class AdditionalWhiteLabelSettings {
    * Specifies if the License Agreements link is available or not.
    * @return licenseAgreementsEnabled
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LICENSE_AGREEMENTS_ENABLED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LICENSE_AGREEMENTS_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getLicenseAgreementsEnabled() {
@@ -221,7 +209,7 @@ public class AdditionalWhiteLabelSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LICENSE_AGREEMENTS_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_LICENSE_AGREEMENTS_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLicenseAgreementsEnabled(@javax.annotation.Nullable Boolean licenseAgreementsEnabled) {
     this.licenseAgreementsEnabled = licenseAgreementsEnabled;
@@ -234,11 +222,10 @@ public class AdditionalWhiteLabelSettings {
   }
 
   /**
-   * Get lastModified
+   * The timestamp indicating when the settings were last modified.
    * @return lastModified
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLastModified() {
@@ -246,7 +233,7 @@ public class AdditionalWhiteLabelSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
     this.lastModified = lastModified;

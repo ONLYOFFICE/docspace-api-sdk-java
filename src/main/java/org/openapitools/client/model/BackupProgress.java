@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,10 +25,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.BackupProgressEnum;
+import org.openapitools.client.model.DistributedTaskStatus;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -36,7 +38,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * BackupProgress
+ * The backup progress parameters.
  */
 @JsonPropertyOrder({
   BackupProgress.JSON_PROPERTY_IS_COMPLETED,
@@ -46,41 +48,37 @@ import java.util.StringJoiner;
   BackupProgress.JSON_PROPERTY_LINK,
   BackupProgress.JSON_PROPERTY_TENANT_ID,
   BackupProgress.JSON_PROPERTY_BACKUP_PROGRESS_ENUM,
+  BackupProgress.JSON_PROPERTY_STATUS,
   BackupProgress.JSON_PROPERTY_TASK_ID
 })
 
 public class BackupProgress {
   public static final String JSON_PROPERTY_IS_COMPLETED = "isCompleted";
-  @javax.annotation.Nullable
-  private Boolean isCompleted;
+  @javax.annotation.Nullable  private Boolean isCompleted;
 
   public static final String JSON_PROPERTY_PROGRESS = "progress";
-  @javax.annotation.Nullable
-  private Integer progress;
+  @javax.annotation.Nullable  private Integer progress;
 
   public static final String JSON_PROPERTY_ERROR = "error";
-  @javax.annotation.Nullable
-  private JsonNullable<String> error = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> error = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_WARNING = "warning";
-  @javax.annotation.Nullable
-  private JsonNullable<String> warning = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> warning = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LINK = "link";
-  @javax.annotation.Nullable
-  private JsonNullable<String> link = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> link = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TENANT_ID = "tenantId";
-  @javax.annotation.Nullable
-  private Integer tenantId;
+  @javax.annotation.Nullable  private Integer tenantId;
 
   public static final String JSON_PROPERTY_BACKUP_PROGRESS_ENUM = "backupProgressEnum";
-  @javax.annotation.Nullable
-  private BackupProgressEnum backupProgressEnum;
+  @javax.annotation.Nullable  private BackupProgressEnum backupProgressEnum;
+
+  public static final String JSON_PROPERTY_STATUS = "status";
+  @javax.annotation.Nullable  private DistributedTaskStatus status;
 
   public static final String JSON_PROPERTY_TASK_ID = "taskId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> taskId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> taskId = JsonNullable.<String>undefined();
 
   public BackupProgress() {
   }
@@ -93,11 +91,10 @@ public class BackupProgress {
   }
 
   /**
-   * Get isCompleted
+   * Specifies if the backup is completed or not.
    * @return isCompleted
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_COMPLETED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_COMPLETED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsCompleted() {
@@ -105,7 +102,7 @@ public class BackupProgress {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_COMPLETED)
+  @JsonProperty(value = JSON_PROPERTY_IS_COMPLETED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsCompleted(@javax.annotation.Nullable Boolean isCompleted) {
     this.isCompleted = isCompleted;
@@ -118,11 +115,10 @@ public class BackupProgress {
   }
 
   /**
-   * Get progress
+   * The backup progress in percentage.
    * @return progress
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROGRESS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROGRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getProgress() {
@@ -130,7 +126,7 @@ public class BackupProgress {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROGRESS)
+  @JsonProperty(value = JSON_PROPERTY_PROGRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProgress(@javax.annotation.Nullable Integer progress) {
     this.progress = progress;
@@ -143,19 +139,17 @@ public class BackupProgress {
   }
 
   /**
-   * Get error
+   * The backup error message.
    * @return error
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getError() {
         return error.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getError_JsonNullable() {
     return error;
   }
@@ -176,19 +170,17 @@ public class BackupProgress {
   }
 
   /**
-   * Get warning
+   * The backup warning message.
    * @return warning
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getWarning() {
         return warning.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_WARNING)
+  @JsonProperty(value = JSON_PROPERTY_WARNING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getWarning_JsonNullable() {
     return warning;
   }
@@ -209,19 +201,17 @@ public class BackupProgress {
   }
 
   /**
-   * Get link
+   * The backup link.
    * @return link
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLink() {
         return link.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LINK)
+  @JsonProperty(value = JSON_PROPERTY_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLink_JsonNullable() {
     return link;
   }
@@ -242,11 +232,10 @@ public class BackupProgress {
   }
 
   /**
-   * Get tenantId
+   * The tenant ID.
    * @return tenantId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getTenantId() {
@@ -254,7 +243,7 @@ public class BackupProgress {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTenantId(@javax.annotation.Nullable Integer tenantId) {
     this.tenantId = tenantId;
@@ -270,8 +259,7 @@ public class BackupProgress {
    * Get backupProgressEnum
    * @return backupProgressEnum
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BACKUP_PROGRESS_ENUM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_BACKUP_PROGRESS_ENUM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public BackupProgressEnum getBackupProgressEnum() {
@@ -279,10 +267,34 @@ public class BackupProgress {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BACKUP_PROGRESS_ENUM)
+  @JsonProperty(value = JSON_PROPERTY_BACKUP_PROGRESS_ENUM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBackupProgressEnum(@javax.annotation.Nullable BackupProgressEnum backupProgressEnum) {
     this.backupProgressEnum = backupProgressEnum;
+  }
+
+  public BackupProgress status(@javax.annotation.Nullable DistributedTaskStatus status) {
+    
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Get status
+   * @return status
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public DistributedTaskStatus getStatus() {
+    return status;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStatus(@javax.annotation.Nullable DistributedTaskStatus status) {
+    this.status = status;
   }
 
   public BackupProgress taskId(@javax.annotation.Nullable String taskId) {
@@ -292,19 +304,17 @@ public class BackupProgress {
   }
 
   /**
-   * Get taskId
+   * The task ID.
    * @return taskId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTaskId() {
         return taskId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TASK_ID)
+  @JsonProperty(value = JSON_PROPERTY_TASK_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTaskId_JsonNullable() {
     return taskId;
   }
@@ -334,6 +344,7 @@ public class BackupProgress {
         equalsNullable(this.link, backupProgress.link) &&
         Objects.equals(this.tenantId, backupProgress.tenantId) &&
         Objects.equals(this.backupProgressEnum, backupProgress.backupProgressEnum) &&
+        Objects.equals(this.status, backupProgress.status) &&
         equalsNullable(this.taskId, backupProgress.taskId);
   }
 
@@ -343,7 +354,7 @@ public class BackupProgress {
 
   @Override
   public int hashCode() {
-    return Objects.hash(isCompleted, progress, hashCodeNullable(error), hashCodeNullable(warning), hashCodeNullable(link), tenantId, backupProgressEnum, hashCodeNullable(taskId));
+    return Objects.hash(isCompleted, progress, hashCodeNullable(error), hashCodeNullable(warning), hashCodeNullable(link), tenantId, backupProgressEnum, status, hashCodeNullable(taskId));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -364,6 +375,7 @@ public class BackupProgress {
     sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    backupProgressEnum: ").append(toIndentedString(backupProgressEnum)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -476,6 +488,16 @@ public class BackupProgress {
     if (getBackupProgressEnum() != null) {
       try {
         joiner.add(String.format("%sbackupProgressEnum%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBackupProgressEnum()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `status` to the URL query string
+    if (getStatus() != null) {
+      try {
+        joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

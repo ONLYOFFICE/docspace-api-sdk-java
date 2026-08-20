@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,6 +36,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -74,100 +75,76 @@ import java.util.StringJoiner;
 
 public class TenantDto {
   public static final String JSON_PROPERTY_AFFILIATE_ID = "affiliateId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> affiliateId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> affiliateId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TENANT_ALIAS = "tenantAlias";
-  @javax.annotation.Nullable
-  private JsonNullable<String> tenantAlias = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> tenantAlias = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CALLS = "calls";
-  @javax.annotation.Nullable
-  private Boolean calls;
+  @javax.annotation.Nullable  private Boolean calls;
 
   public static final String JSON_PROPERTY_CAMPAIGN = "campaign";
-  @javax.annotation.Nullable
-  private JsonNullable<String> campaign = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> campaign = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CREATION_DATE_TIME = "creationDateTime";
-  @javax.annotation.Nullable
-  private OffsetDateTime creationDateTime;
+  @javax.annotation.Nullable  private OffsetDateTime creationDateTime;
 
   public static final String JSON_PROPERTY_HOSTED_REGION = "hostedRegion";
-  @javax.annotation.Nullable
-  private JsonNullable<String> hostedRegion = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> hostedRegion = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TENANT_ID = "tenantId";
-  @javax.annotation.Nullable
-  private Integer tenantId;
+  @javax.annotation.Nullable  private Integer tenantId;
 
   public static final String JSON_PROPERTY_INDUSTRY = "industry";
-  @javax.annotation.Nullable
-  private TenantIndustry industry;
+  @javax.annotation.Nullable  private TenantIndustry industry;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
-  @javax.annotation.Nullable
-  private JsonNullable<String> language = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> language = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LAST_MODIFIED = "lastModified";
-  @javax.annotation.Nullable
-  private OffsetDateTime lastModified;
+  @javax.annotation.Nullable  private OffsetDateTime lastModified;
 
   public static final String JSON_PROPERTY_MAPPED_DOMAIN = "mappedDomain";
-  @javax.annotation.Nullable
-  private JsonNullable<String> mappedDomain = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> mappedDomain = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_OWNER_ID = "ownerId";
-  @javax.annotation.Nullable
-  private UUID ownerId;
+  @javax.annotation.Nullable  private UUID ownerId;
 
   public static final String JSON_PROPERTY_PAYMENT_ID = "paymentId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> paymentId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> paymentId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SPAM = "spam";
-  @javax.annotation.Nullable
-  private Boolean spam;
+  @javax.annotation.Nullable  private Boolean spam;
 
   public static final String JSON_PROPERTY_STATUS = "status";
-  @javax.annotation.Nullable
-  private TenantStatus status;
+  @javax.annotation.Nullable  private TenantStatus status;
 
   public static final String JSON_PROPERTY_STATUS_CHANGE_DATE = "statusChangeDate";
-  @javax.annotation.Nullable
-  private OffsetDateTime statusChangeDate;
+  @javax.annotation.Nullable  private OffsetDateTime statusChangeDate;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
-  @javax.annotation.Nullable
-  private JsonNullable<String> timeZone = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> timeZone = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TRUSTED_DOMAINS = "trustedDomains";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> trustedDomains = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> trustedDomains = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_TRUSTED_DOMAINS_RAW = "trustedDomainsRaw";
-  @javax.annotation.Nullable
-  private JsonNullable<String> trustedDomainsRaw = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> trustedDomainsRaw = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TRUSTED_DOMAINS_TYPE = "trustedDomainsType";
-  @javax.annotation.Nullable
-  private TenantTrustedDomainsType trustedDomainsType;
+  @javax.annotation.Nullable  private TenantTrustedDomainsType trustedDomainsType;
 
   public static final String JSON_PROPERTY_VERSION = "version";
-  @javax.annotation.Nullable
-  private Integer version;
+  @javax.annotation.Nullable  private Integer version;
 
   public static final String JSON_PROPERTY_VERSION_CHANGED = "versionChanged";
-  @javax.annotation.Nullable
-  private OffsetDateTime versionChanged;
+  @javax.annotation.Nullable  private OffsetDateTime versionChanged;
 
   public static final String JSON_PROPERTY_REGION = "region";
-  @javax.annotation.Nullable
-  private JsonNullable<String> region = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> region = JsonNullable.<String>undefined();
 
   public TenantDto() {
   }
@@ -197,16 +174,14 @@ public class TenantDto {
    * The affiliate ID.
    * @return affiliateId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getAffiliateId() {
         return affiliateId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_AFFILIATE_ID)
+  @JsonProperty(value = JSON_PROPERTY_AFFILIATE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getAffiliateId_JsonNullable() {
     return affiliateId;
   }
@@ -230,16 +205,14 @@ public class TenantDto {
    * The tenant alias.
    * @return tenantAlias
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTenantAlias() {
         return tenantAlias.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TENANT_ALIAS)
+  @JsonProperty(value = JSON_PROPERTY_TENANT_ALIAS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTenantAlias_JsonNullable() {
     return tenantAlias;
   }
@@ -263,8 +236,7 @@ public class TenantDto {
    * Specifies if the calls are available for this tenant or not.
    * @return calls
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CALLS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CALLS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCalls() {
@@ -272,7 +244,7 @@ public class TenantDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CALLS)
+  @JsonProperty(value = JSON_PROPERTY_CALLS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCalls(@javax.annotation.Nullable Boolean calls) {
     this.calls = calls;
@@ -288,16 +260,14 @@ public class TenantDto {
    * The tenant campaign.
    * @return campaign
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCampaign() {
         return campaign.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CAMPAIGN)
+  @JsonProperty(value = JSON_PROPERTY_CAMPAIGN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCampaign_JsonNullable() {
     return campaign;
   }
@@ -315,8 +285,7 @@ public class TenantDto {
    * The tenant creation date and time.
    * @return creationDateTime
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATION_DATE_TIME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATION_DATE_TIME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getCreationDateTime() {
@@ -335,16 +304,14 @@ public class TenantDto {
    * The hosted region.
    * @return hostedRegion
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getHostedRegion() {
         return hostedRegion.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_HOSTED_REGION)
+  @JsonProperty(value = JSON_PROPERTY_HOSTED_REGION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getHostedRegion_JsonNullable() {
     return hostedRegion;
   }
@@ -362,8 +329,7 @@ public class TenantDto {
    * The tenant ID.
    * @return tenantId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getTenantId() {
@@ -382,8 +348,7 @@ public class TenantDto {
    * Get industry
    * @return industry
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDUSTRY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INDUSTRY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TenantIndustry getIndustry() {
@@ -391,7 +356,7 @@ public class TenantDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INDUSTRY)
+  @JsonProperty(value = JSON_PROPERTY_INDUSTRY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndustry(@javax.annotation.Nullable TenantIndustry industry) {
     this.industry = industry;
@@ -407,16 +372,14 @@ public class TenantDto {
    * The tenant language.
    * @return language
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLanguage() {
         return language.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LANGUAGE)
+  @JsonProperty(value = JSON_PROPERTY_LANGUAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLanguage_JsonNullable() {
     return language;
   }
@@ -440,8 +403,7 @@ public class TenantDto {
    * The date and time when the tenant was last modified.
    * @return lastModified
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLastModified() {
@@ -449,7 +411,7 @@ public class TenantDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
     this.lastModified = lastModified;
@@ -465,16 +427,14 @@ public class TenantDto {
    * The tenant mapped domain.
    * @return mappedDomain
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getMappedDomain() {
         return mappedDomain.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MAPPED_DOMAIN)
+  @JsonProperty(value = JSON_PROPERTY_MAPPED_DOMAIN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getMappedDomain_JsonNullable() {
     return mappedDomain;
   }
@@ -498,16 +458,14 @@ public class TenantDto {
    * The tenant name.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getName() {
         return name.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
@@ -531,8 +489,7 @@ public class TenantDto {
    * The tenant owner ID.
    * @return ownerId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OWNER_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OWNER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getOwnerId() {
@@ -540,7 +497,7 @@ public class TenantDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OWNER_ID)
+  @JsonProperty(value = JSON_PROPERTY_OWNER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerId(@javax.annotation.Nullable UUID ownerId) {
     this.ownerId = ownerId;
@@ -556,16 +513,14 @@ public class TenantDto {
    * The tenant payment ID.
    * @return paymentId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPaymentId() {
         return paymentId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PAYMENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_PAYMENT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPaymentId_JsonNullable() {
     return paymentId;
   }
@@ -589,8 +544,7 @@ public class TenantDto {
    * Specifies if the ONLYOFFICE newsletter is allowed or not.
    * @return spam
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SPAM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SPAM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSpam() {
@@ -598,7 +552,7 @@ public class TenantDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SPAM)
+  @JsonProperty(value = JSON_PROPERTY_SPAM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSpam(@javax.annotation.Nullable Boolean spam) {
     this.spam = spam;
@@ -614,8 +568,7 @@ public class TenantDto {
    * Get status
    * @return status
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TenantStatus getStatus() {
@@ -623,7 +576,7 @@ public class TenantDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(@javax.annotation.Nullable TenantStatus status) {
     this.status = status;
@@ -633,8 +586,7 @@ public class TenantDto {
    * The date and time when the tenant status was changed.
    * @return statusChangeDate
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS_CHANGE_DATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS_CHANGE_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getStatusChangeDate() {
@@ -653,16 +605,14 @@ public class TenantDto {
    * The tenant time zone.
    * @return timeZone
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTimeZone() {
         return timeZone.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TIME_ZONE)
+  @JsonProperty(value = JSON_PROPERTY_TIME_ZONE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTimeZone_JsonNullable() {
     return timeZone;
   }
@@ -698,16 +648,14 @@ public class TenantDto {
    * The list of tenant trusted domains.
    * @return trustedDomains
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getTrustedDomains() {
         return trustedDomains.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TRUSTED_DOMAINS)
+  @JsonProperty(value = JSON_PROPERTY_TRUSTED_DOMAINS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getTrustedDomains_JsonNullable() {
     return trustedDomains;
   }
@@ -731,16 +679,14 @@ public class TenantDto {
    * The tenant trusted domains in the string format.
    * @return trustedDomainsRaw
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTrustedDomainsRaw() {
         return trustedDomainsRaw.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TRUSTED_DOMAINS_RAW)
+  @JsonProperty(value = JSON_PROPERTY_TRUSTED_DOMAINS_RAW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTrustedDomainsRaw_JsonNullable() {
     return trustedDomainsRaw;
   }
@@ -764,8 +710,7 @@ public class TenantDto {
    * Get trustedDomainsType
    * @return trustedDomainsType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRUSTED_DOMAINS_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRUSTED_DOMAINS_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TenantTrustedDomainsType getTrustedDomainsType() {
@@ -773,7 +718,7 @@ public class TenantDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRUSTED_DOMAINS_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TRUSTED_DOMAINS_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrustedDomainsType(@javax.annotation.Nullable TenantTrustedDomainsType trustedDomainsType) {
     this.trustedDomainsType = trustedDomainsType;
@@ -789,8 +734,7 @@ public class TenantDto {
    * The tenant version
    * @return version
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VERSION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getVersion() {
@@ -798,7 +742,7 @@ public class TenantDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(value = JSON_PROPERTY_VERSION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersion(@javax.annotation.Nullable Integer version) {
     this.version = version;
@@ -814,8 +758,7 @@ public class TenantDto {
    * The date and time when the tenant version was changed.
    * @return versionChanged
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION_CHANGED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VERSION_CHANGED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getVersionChanged() {
@@ -823,7 +766,7 @@ public class TenantDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSION_CHANGED)
+  @JsonProperty(value = JSON_PROPERTY_VERSION_CHANGED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersionChanged(@javax.annotation.Nullable OffsetDateTime versionChanged) {
     this.versionChanged = versionChanged;
@@ -839,16 +782,14 @@ public class TenantDto {
    * The tenant AWS region.
    * @return region
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRegion() {
         return region.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_REGION)
+  @JsonProperty(value = JSON_PROPERTY_REGION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRegion_JsonNullable() {
     return region;
   }

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -51,24 +52,19 @@ import java.util.StringJoiner;
 
 public class StorageDto {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private String id;
+  @javax.annotation.Nullable  private String id;
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private String title;
+  @javax.annotation.Nullable  private String title;
 
   public static final String JSON_PROPERTY_PROPERTIES = "properties";
-  @javax.annotation.Nullable
-  private JsonNullable<List<AuthKey>> properties = JsonNullable.<List<AuthKey>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<AuthKey>> properties = JsonNullable.<List<AuthKey>>undefined();
 
   public static final String JSON_PROPERTY_CURRENT = "current";
-  @javax.annotation.Nonnull
-  private Boolean current;
+  @javax.annotation.Nonnull  private Boolean current;
 
   public static final String JSON_PROPERTY_IS_SET = "isSet";
-  @javax.annotation.Nonnull
-  private Boolean isSet;
+  @javax.annotation.Nonnull  private Boolean isSet;
 
   public StorageDto() {
   }
@@ -84,8 +80,7 @@ public class StorageDto {
    * The storage ID.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getId() {
@@ -93,7 +88,7 @@ public class StorageDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@javax.annotation.Nullable String id) {
     this.id = id;
@@ -109,8 +104,7 @@ public class StorageDto {
    * The storage title.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getTitle() {
@@ -118,7 +112,7 @@ public class StorageDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTitle(@javax.annotation.Nullable String title) {
     this.title = title;
@@ -146,16 +140,14 @@ public class StorageDto {
    * The list of storage authentication keys.
    * @return properties
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<AuthKey> getProperties() {
         return properties.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PROPERTIES)
+  @JsonProperty(value = JSON_PROPERTY_PROPERTIES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<AuthKey>> getProperties_JsonNullable() {
     return properties;
   }
@@ -179,8 +171,7 @@ public class StorageDto {
    * Specifies if this is the current portal storage or not.
    * @return current
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CURRENT)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CURRENT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getCurrent() {
@@ -188,7 +179,7 @@ public class StorageDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CURRENT)
+  @JsonProperty(value = JSON_PROPERTY_CURRENT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCurrent(@javax.annotation.Nonnull Boolean current) {
     this.current = current;
@@ -204,8 +195,7 @@ public class StorageDto {
    * Specifies if this storage can be set or not.
    * @return isSet
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_SET)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_SET, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getIsSet() {
@@ -213,7 +203,7 @@ public class StorageDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_SET)
+  @JsonProperty(value = JSON_PROPERTY_IS_SET, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsSet(@javax.annotation.Nonnull Boolean isSet) {
     this.isSet = isSet;

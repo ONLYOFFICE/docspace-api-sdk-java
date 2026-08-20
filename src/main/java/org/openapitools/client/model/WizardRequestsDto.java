@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,28 +49,22 @@ import java.util.StringJoiner;
 
 public class WizardRequestsDto {
   public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nullable
-  private String email;
+  @javax.annotation.Nullable  private String email;
 
   public static final String JSON_PROPERTY_PASSWORD_HASH = "passwordHash";
-  @javax.annotation.Nullable
-  private String passwordHash;
+  @javax.annotation.Nullable  private String passwordHash;
 
   public static final String JSON_PROPERTY_LNG = "lng";
-  @javax.annotation.Nullable
-  private JsonNullable<String> lng = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> lng = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
-  @javax.annotation.Nullable
-  private JsonNullable<String> timeZone = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> timeZone = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_AMI_ID = "amiId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> amiId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> amiId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SUBSCRIBE_FROM_SITE = "subscribeFromSite";
-  @javax.annotation.Nullable
-  private Boolean subscribeFromSite;
+  @javax.annotation.Nullable  private Boolean subscribeFromSite;
 
   public WizardRequestsDto() {
   }
@@ -82,11 +77,10 @@ public class WizardRequestsDto {
   }
 
   /**
-   * The user&#39;s email address for authentication and communication.
+   * The user's email address for authentication and communication.
    * @return email
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getEmail() {
@@ -94,7 +88,7 @@ public class WizardRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEmail(@javax.annotation.Nullable String email) {
     this.email = email;
@@ -107,11 +101,10 @@ public class WizardRequestsDto {
   }
 
   /**
-   * The hashed representation of the user&#39;s password.
+   * The hashed representation of the user's password.
    * @return passwordHash
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PASSWORD_HASH)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PASSWORD_HASH, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getPasswordHash() {
@@ -119,7 +112,7 @@ public class WizardRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PASSWORD_HASH)
+  @JsonProperty(value = JSON_PROPERTY_PASSWORD_HASH, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPasswordHash(@javax.annotation.Nullable String passwordHash) {
     this.passwordHash = passwordHash;
@@ -132,19 +125,17 @@ public class WizardRequestsDto {
   }
 
   /**
-   * The user&#39;s preferred interface language code.
+   * The user's preferred interface language code.
    * @return lng
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLng() {
         return lng.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LNG)
+  @JsonProperty(value = JSON_PROPERTY_LNG, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLng_JsonNullable() {
     return lng;
   }
@@ -165,19 +156,17 @@ public class WizardRequestsDto {
   }
 
   /**
-   * The user&#39;s time zone identifier.
+   * The user's time zone identifier.
    * @return timeZone
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTimeZone() {
         return timeZone.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TIME_ZONE)
+  @JsonProperty(value = JSON_PROPERTY_TIME_ZONE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTimeZone_JsonNullable() {
     return timeZone;
   }
@@ -201,16 +190,14 @@ public class WizardRequestsDto {
    * The Amazon Machine Image (AMI) identifier.
    * @return amiId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getAmiId() {
         return amiId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_AMI_ID)
+  @JsonProperty(value = JSON_PROPERTY_AMI_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getAmiId_JsonNullable() {
     return amiId;
   }
@@ -234,8 +221,7 @@ public class WizardRequestsDto {
    * Specifies whether the user opted in for site communications.
    * @return subscribeFromSite
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUBSCRIBE_FROM_SITE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SUBSCRIBE_FROM_SITE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSubscribeFromSite() {
@@ -243,7 +229,7 @@ public class WizardRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SUBSCRIBE_FROM_SITE)
+  @JsonProperty(value = JSON_PROPERTY_SUBSCRIBE_FROM_SITE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubscribeFromSite(@javax.annotation.Nullable Boolean subscribeFromSite) {
     this.subscribeFromSite = subscribeFromSite;

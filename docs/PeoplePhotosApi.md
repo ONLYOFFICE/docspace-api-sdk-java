@@ -79,7 +79,7 @@ public class Example {
 
 
         PhotosApi apiInstance = new PhotosApi(defaultClient);
-        String userid = "9846"; // String | The user ID.
+        String userid = "00000000-0000-0000-0000-000000000000"; // String | The user ID.
         ThumbnailsRequest thumbnailsRequest = new ThumbnailsRequest(); // ThumbnailsRequest | The thumbnail request.
         try {
             ThumbnailsDataWrapper result = apiInstance.createMemberPhotoThumbnails(userid, thumbnailsRequest);
@@ -104,10 +104,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Thumbnail parameters |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Thumbnail parameters |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | User not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## deleteMemberPhoto
@@ -176,7 +179,7 @@ public class Example {
 
 
         PhotosApi apiInstance = new PhotosApi(defaultClient);
-        String userid = "9846"; // String | The user ID.
+        String userid = "00000000-0000-0000-0000-000000000000"; // String | The user ID.
         try {
             ThumbnailsDataWrapper result = apiInstance.deleteMemberPhoto(userid);
             System.out.println(result);
@@ -200,10 +203,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Thumbnail parameters: original photo, retina, maximum size photo, big, medium, small |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Thumbnail parameters: original photo, retina, maximum size photo, big, medium, small |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | User not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getMemberPhoto
@@ -272,7 +278,7 @@ public class Example {
 
 
         PhotosApi apiInstance = new PhotosApi(defaultClient);
-        String userid = "9846"; // String | The user ID.
+        String userid = "00000000-0000-0000-0000-000000000000"; // String | The user ID.
         try {
             ThumbnailsDataWrapper result = apiInstance.getMemberPhoto(userid);
             System.out.println(result);
@@ -296,10 +302,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Thumbnail parameters: original photo, retina, maximum size photo, big, medium, small |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Thumbnail parameters: original photo, retina, maximum size photo, big, medium, small |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | User not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## updateMemberPhoto
@@ -369,7 +378,7 @@ public class Example {
 
 
         PhotosApi apiInstance = new PhotosApi(defaultClient);
-        String userid = "9846"; // String | The user ID.
+        String userid = "00000000-0000-0000-0000-000000000000"; // String | The user ID.
         UpdatePhotoMemberRequest updatePhotoMemberRequest = new UpdatePhotoMemberRequest(); // UpdatePhotoMemberRequest | The request parameters for updating a photo.
         try {
             ThumbnailsDataWrapper result = apiInstance.updateMemberPhoto(userid, updatePhotoMemberRequest);
@@ -394,15 +403,18 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Updated thumbnail parameters: original photo, retina, maximum size photo, big, medium, small |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Updated thumbnail parameters: original photo, retina, maximum size photo, big, medium, small |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | User not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## uploadMemberPhoto
 
-> FileUploadResultWrapper uploadMemberPhoto(userid, formCollection)
+> FileUploadResultWrapper uploadMemberPhoto(userid, _file, autosave)
 
 Upload a user photoUploads a photo of the user with the ID specified in the request.
 
@@ -414,7 +426,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **userid** | **String**| The user ID. | |
-| **formCollection** | [**List&lt;KeyValuePairStringStringValues&gt;**](KeyValuePairStringStringValues.md)| The image data. | |
+| **_file** | **File**| The image data. | |
+| **autosave** | **Boolean**| Specifies whether to autosave a photo or not. | [optional] |
 
 ### Return type
 
@@ -467,10 +480,11 @@ public class Example {
 
 
         PhotosApi apiInstance = new PhotosApi(defaultClient);
-        String userid = "9846"; // String | The user ID.
-        List<KeyValuePairStringStringValues> formCollection = Arrays.asList(); // List<KeyValuePairStringStringValues> | The image data.
+        String userid = "00000000-0000-0000-0000-000000000000"; // String | The user ID.
+        File _file = new File("/path/to/file"); // File | The image data.
+        Boolean autosave = true; // Boolean | Specifies whether to autosave a photo or not.
         try {
-            FileUploadResultWrapper result = apiInstance.uploadMemberPhoto(userid, formCollection);
+            FileUploadResultWrapper result = apiInstance.uploadMemberPhoto(userid, _file, autosave);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling PhotosApi#uploadMemberPhoto");
@@ -492,10 +506,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Result of file uploading |  -  |
+| **200** | Result of file uploading |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **400** | The uploaded file could not be found |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **413** | Image size is too large |  -  |
 | **415** | Unknown image file type |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

@@ -84,13 +84,13 @@ public class Example {
 
         UserStatusApi apiInstance = new UserStatusApi(defaultClient);
         EmployeeStatus status = EmployeeStatus.fromValue("1"); // EmployeeStatus | The user status.
-        String filterBy = "some text"; // String | Specifies the criteria used to filter the profiles in the request.
-        Integer count = 1234; // Integer | The maximum number of user profiles to retrieve.
-        Integer startIndex = 1234; // Integer | The starting index for retrieving data in a paginated request.
-        String sortBy = "some text"; // String | Specifies the property or field name by which the results should be sorted.
+        String filterBy = "displayName"; // String | Specifies the criteria used to filter the profiles in the request.
+        Integer count = 25; // Integer | The maximum number of user profiles to retrieve.
+        Integer startIndex = 0; // Integer | The starting index for retrieving data in a paginated request.
+        String sortBy = "displayName"; // String | Specifies the property or field name by which the results should be sorted.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterSeparator = "some text"; // String | Represents the separator used to split multiple filter criteria in a query string.
-        String filterValue = "some text"; // String | A string value representing additional filter criteria used in query parameters.
+        String filterSeparator = ","; // String | Represents the separator used to split multiple filter criteria in a query string.
+        String filterValue = "John"; // String | A string value representing additional filter criteria used in query parameters.
         try {
             EmployeeFullArrayWrapper result = apiInstance.getByStatus(status, filterBy, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
             System.out.println(result);
@@ -114,8 +114,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of users with the detailed information |  -  |
+| **200** | List of users with the detailed information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## updateUserActivationStatus
@@ -210,8 +213,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of users with the detailed information |  -  |
+| **200** | List of users with the detailed information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## updateUserStatus
@@ -306,6 +312,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of users with the detailed information |  -  |
+| **200** | List of users with the detailed information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **400** | Incorrect status |  -  |
+| **403** | No permissions to perform this action or cannot change status for a specific user (yourself, owner, LDAP ...) |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

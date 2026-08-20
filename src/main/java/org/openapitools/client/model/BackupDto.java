@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -50,16 +51,13 @@ import java.util.StringJoiner;
 
 public class BackupDto {
   public static final String JSON_PROPERTY_STORAGE_TYPE = "storageType";
-  @javax.annotation.Nullable
-  private BackupStorageType storageType;
+  @javax.annotation.Nullable  private BackupStorageType storageType;
 
   public static final String JSON_PROPERTY_STORAGE_PARAMS = "storageParams";
-  @javax.annotation.Nullable
-  private JsonNullable<List<ItemKeyValuePairObjectObject>> storageParams = JsonNullable.<List<ItemKeyValuePairObjectObject>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<ItemKeyValuePairObjectObject>> storageParams = JsonNullable.<List<ItemKeyValuePairObjectObject>>undefined();
 
   public static final String JSON_PROPERTY_DUMP = "dump";
-  @javax.annotation.Nullable
-  private Boolean dump;
+  @javax.annotation.Nullable  private Boolean dump;
 
   public BackupDto() {
   }
@@ -75,8 +73,7 @@ public class BackupDto {
    * Get storageType
    * @return storageType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STORAGE_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STORAGE_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public BackupStorageType getStorageType() {
@@ -84,7 +81,7 @@ public class BackupDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STORAGE_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_STORAGE_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStorageType(@javax.annotation.Nullable BackupStorageType storageType) {
     this.storageType = storageType;
@@ -112,16 +109,14 @@ public class BackupDto {
    * The backup storage parameters.
    * @return storageParams
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<ItemKeyValuePairObjectObject> getStorageParams() {
         return storageParams.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_STORAGE_PARAMS)
+  @JsonProperty(value = JSON_PROPERTY_STORAGE_PARAMS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<ItemKeyValuePairObjectObject>> getStorageParams_JsonNullable() {
     return storageParams;
   }
@@ -145,8 +140,7 @@ public class BackupDto {
    * Specifies if a dump will be created or not.
    * @return dump
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DUMP)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DUMP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDump() {
@@ -154,7 +148,7 @@ public class BackupDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DUMP)
+  @JsonProperty(value = JSON_PROPERTY_DUMP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDump(@javax.annotation.Nullable Boolean dump) {
     this.dump = dump;

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -53,32 +54,25 @@ import java.util.StringJoiner;
 
 public class WatermarkOnDraw {
   public static final String JSON_PROPERTY_WIDTH = "width";
-  @javax.annotation.Nullable
-  private Double width;
+  @javax.annotation.Nullable  private Double width;
 
   public static final String JSON_PROPERTY_HEIGHT = "height";
-  @javax.annotation.Nullable
-  private Double height;
+  @javax.annotation.Nullable  private Double height;
 
   public static final String JSON_PROPERTY_MARGINS = "margins";
-  @javax.annotation.Nullable
-  private JsonNullable<List<Integer>> margins = JsonNullable.<List<Integer>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<Integer>> margins = JsonNullable.<List<Integer>>undefined();
 
   public static final String JSON_PROPERTY_FILL = "fill";
-  @javax.annotation.Nullable
-  private JsonNullable<String> fill = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> fill = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ROTATE = "rotate";
-  @javax.annotation.Nullable
-  private Integer rotate;
+  @javax.annotation.Nullable  private Integer rotate;
 
   public static final String JSON_PROPERTY_TRANSPARENT = "transparent";
-  @javax.annotation.Nullable
-  private Double transparent;
+  @javax.annotation.Nullable  private Double transparent;
 
   public static final String JSON_PROPERTY_PARAGRAPHS = "paragraphs";
-  @javax.annotation.Nullable
-  private JsonNullable<List<Paragraph>> paragraphs = JsonNullable.<List<Paragraph>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<Paragraph>> paragraphs = JsonNullable.<List<Paragraph>>undefined();
 
   public WatermarkOnDraw() {
   }
@@ -94,8 +88,7 @@ public class WatermarkOnDraw {
    * Defines the watermark width measured in millimeters.
    * @return width
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WIDTH)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getWidth() {
@@ -103,7 +96,7 @@ public class WatermarkOnDraw {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WIDTH)
+  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWidth(@javax.annotation.Nullable Double width) {
     this.width = width;
@@ -119,8 +112,7 @@ public class WatermarkOnDraw {
    * Defines the watermark height measured in millimeters.
    * @return height
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HEIGHT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getHeight() {
@@ -128,7 +120,7 @@ public class WatermarkOnDraw {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHeight(@javax.annotation.Nullable Double height) {
     this.height = height;
@@ -156,16 +148,14 @@ public class WatermarkOnDraw {
    * Defines the watermark margins measured in millimeters.
    * @return margins
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<Integer> getMargins() {
         return margins.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MARGINS)
+  @JsonProperty(value = JSON_PROPERTY_MARGINS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<Integer>> getMargins_JsonNullable() {
     return margins;
   }
@@ -189,16 +179,14 @@ public class WatermarkOnDraw {
    * Defines the watermark fill color.
    * @return fill
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFill() {
         return fill.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILL)
+  @JsonProperty(value = JSON_PROPERTY_FILL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFill_JsonNullable() {
     return fill;
   }
@@ -222,8 +210,7 @@ public class WatermarkOnDraw {
    * Defines the watermark rotation angle.
    * @return rotate
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROTATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROTATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getRotate() {
@@ -231,7 +218,7 @@ public class WatermarkOnDraw {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROTATE)
+  @JsonProperty(value = JSON_PROPERTY_ROTATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRotate(@javax.annotation.Nullable Integer rotate) {
     this.rotate = rotate;
@@ -247,8 +234,7 @@ public class WatermarkOnDraw {
    * Defines the watermark transparency percentage.
    * @return transparent
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRANSPARENT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRANSPARENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getTransparent() {
@@ -256,7 +242,7 @@ public class WatermarkOnDraw {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRANSPARENT)
+  @JsonProperty(value = JSON_PROPERTY_TRANSPARENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransparent(@javax.annotation.Nullable Double transparent) {
     this.transparent = transparent;
@@ -284,16 +270,14 @@ public class WatermarkOnDraw {
    * The list of paragraphs of the watermark.
    * @return paragraphs
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<Paragraph> getParagraphs() {
         return paragraphs.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PARAGRAPHS)
+  @JsonProperty(value = JSON_PROPERTY_PARAGRAPHS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<Paragraph>> getParagraphs_JsonNullable() {
     return paragraphs;
   }

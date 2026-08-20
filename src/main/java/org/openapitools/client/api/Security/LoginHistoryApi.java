@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -266,10 +266,10 @@ public class LoginHistoryApi extends BaseApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPair("userId", userId));
     localVarQueryParams.addAll(apiClient.parameterToPair("action", action));
-    localVarQueryParams.addAll(apiClient.parameterToPair("utcTime", from.getUtcTime()));
-    localVarQueryParams.addAll(apiClient.parameterToPair("timeZoneOffset", from.getTimeZoneOffset()));
-    localVarQueryParams.addAll(apiClient.parameterToPair("utcTime", to.getUtcTime()));
-    localVarQueryParams.addAll(apiClient.parameterToPair("timeZoneOffset", to.getTimeZoneOffset()));
+    localVarQueryParameterBaseName = "from";
+    localVarQueryStringJoiner.add(from.toUrlQueryString("from"));
+    localVarQueryParameterBaseName = "to";
+    localVarQueryStringJoiner.add(to.toUrlQueryString("to"));
     localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
     localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
       

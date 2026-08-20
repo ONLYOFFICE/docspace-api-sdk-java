@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,11 +26,11 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.ClientInfoResponse;
 import org.openapitools.client.model.ClientResponse;
-import org.openapitools.client.model.ErrorResponse;
 import java.time.OffsetDateTime;
 import org.openapitools.client.model.PageableModificationResponse;
 import org.openapitools.client.model.PageableResponse;
 import org.openapitools.client.model.PageableResponseClientInfoResponse;
+import org.openapitools.client.model.ProblemDetail;
 
 
 import java.util.ArrayList;
@@ -58,7 +58,7 @@ public class ClientQueryingApi extends BaseApi {
    * REST API Reference for getClient Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/
    *
-   * @param clientId The client identifier. (required)
+   * @param clientId ID of the client to retrieve (required)
    * @return ClientResponse
    * @throws ApiException if fails to make API call
    */
@@ -74,7 +74,7 @@ public class ClientQueryingApi extends BaseApi {
    * REST API Reference for getClient Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/
    *
-   * @param clientId The client identifier. (required)
+   * @param clientId ID of the client to retrieve (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ClientResponse
    * @throws ApiException if fails to make API call
@@ -115,7 +115,7 @@ public class ClientQueryingApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "asc_auth_key" };
+    String[] localVarAuthNames = new String[] { "x-signature" };
 
     TypeReference<ClientResponse> localVarReturnType = new TypeReference<ClientResponse>() {};
     return apiClient.invokeAPI(
@@ -136,13 +136,13 @@ public class ClientQueryingApi extends BaseApi {
   }
 
   /**
-   * Get detailed client information
+   * Retrieves detailed information for a specific client
    * Retrieves the detailed information for a client with the ID specified in the request.
    *
    * REST API Reference for getClientInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/
    *
-   * @param clientId The client identifier. (required)
+   * @param clientId ID of the client to retrieve (required)
    * @return ClientInfoResponse
    * @throws ApiException if fails to make API call
    */
@@ -152,13 +152,13 @@ public class ClientQueryingApi extends BaseApi {
 
 
   /**
-   * Get detailed client information
+   * Retrieves detailed information for a specific client
    * Retrieves the detailed information for a client with the ID specified in the request.
    *
    * REST API Reference for getClientInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/
    *
-   * @param clientId The client identifier. (required)
+   * @param clientId ID of the client to retrieve (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ClientInfoResponse
    * @throws ApiException if fails to make API call
@@ -199,7 +199,7 @@ public class ClientQueryingApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "asc_auth_key" };
+    String[] localVarAuthNames = new String[] { "x-signature" };
 
     TypeReference<ClientInfoResponse> localVarReturnType = new TypeReference<ClientInfoResponse>() {};
     return apiClient.invokeAPI(
@@ -220,15 +220,15 @@ public class ClientQueryingApi extends BaseApi {
   }
 
   /**
-   * Get clients
-   * Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
+   * List clients
+   * Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
    *
    * REST API Reference for getClients Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/
    *
-   * @param limit The maximum number of results returned per page. (required)
-   * @param lastClientId The ID of the last retrieved client. (optional)
-   * @param lastCreatedOn The creation date of the last retrieved client. (optional)
+   * @param limit Pagination limit (required)
+   * @param lastClientId ID of the last retrieved client (optional)
+   * @param lastCreatedOn Date of the last retrieved client (optional)
    * @return PageableResponse
    * @throws ApiException if fails to make API call
    */
@@ -238,15 +238,15 @@ public class ClientQueryingApi extends BaseApi {
 
 
   /**
-   * Get clients
-   * Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
+   * List clients
+   * Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
    *
    * REST API Reference for getClients Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/
    *
-   * @param limit The maximum number of results returned per page. (required)
-   * @param lastClientId The ID of the last retrieved client. (optional)
-   * @param lastCreatedOn The creation date of the last retrieved client. (optional)
+   * @param limit Pagination limit (required)
+   * @param lastClientId ID of the last retrieved client (optional)
+   * @param lastCreatedOn Date of the last retrieved client (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return PageableResponse
    * @throws ApiException if fails to make API call
@@ -289,7 +289,7 @@ public class ClientQueryingApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "asc_auth_key" };
+    String[] localVarAuthNames = new String[] { "x-signature" };
 
     TypeReference<PageableResponse> localVarReturnType = new TypeReference<PageableResponse>() {};
     return apiClient.invokeAPI(
@@ -310,15 +310,15 @@ public class ClientQueryingApi extends BaseApi {
   }
 
   /**
-   * Get detailed information of clients
+   * Retrieves a pageable list of client information
    * Retrieves a paginated list of information for all clients.
    *
    * REST API Reference for getClientsInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/
    *
-   * @param limit The maximum number of results returned per page. (required)
-   * @param lastClientId The identifier of the last retrieved client. (optional)
-   * @param lastCreatedOn The creation date of the last retrieved client. (optional)
+   * @param limit Pagination limit (required)
+   * @param lastClientId ID of the last retrieved client (optional)
+   * @param lastCreatedOn Date of the last retrieved client (optional)
    * @return PageableResponseClientInfoResponse
    * @throws ApiException if fails to make API call
    */
@@ -328,15 +328,15 @@ public class ClientQueryingApi extends BaseApi {
 
 
   /**
-   * Get detailed information of clients
+   * Retrieves a pageable list of client information
    * Retrieves a paginated list of information for all clients.
    *
    * REST API Reference for getClientsInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/
    *
-   * @param limit The maximum number of results returned per page. (required)
-   * @param lastClientId The identifier of the last retrieved client. (optional)
-   * @param lastCreatedOn The creation date of the last retrieved client. (optional)
+   * @param limit Pagination limit (required)
+   * @param lastClientId ID of the last retrieved client (optional)
+   * @param lastCreatedOn Date of the last retrieved client (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return PageableResponseClientInfoResponse
    * @throws ApiException if fails to make API call
@@ -379,7 +379,7 @@ public class ClientQueryingApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "asc_auth_key" };
+    String[] localVarAuthNames = new String[] { "x-signature" };
 
     TypeReference<PageableResponseClientInfoResponse> localVarReturnType = new TypeReference<PageableResponseClientInfoResponse>() {};
     return apiClient.invokeAPI(
@@ -400,14 +400,14 @@ public class ClientQueryingApi extends BaseApi {
   }
 
   /**
-   * Get user consents
+   * Retrieves a pageable list of consents
    * Retrieves a paginated list of user consents.
    *
    * REST API Reference for getConsents Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/
    *
-   * @param limit The maximum number of results returned per page. (required)
-   * @param lastModifiedOn The date when the user consent was last modified. (optional)
+   * @param limit Pagination limit (required)
+   * @param lastModifiedOn Date of the last retrieved consent (optional)
    * @return PageableModificationResponse
    * @throws ApiException if fails to make API call
    */
@@ -417,14 +417,14 @@ public class ClientQueryingApi extends BaseApi {
 
 
   /**
-   * Get user consents
+   * Retrieves a pageable list of consents
    * Retrieves a paginated list of user consents.
    *
    * REST API Reference for getConsents Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/
    *
-   * @param limit The maximum number of results returned per page. (required)
-   * @param lastModifiedOn The date when the user consent was last modified. (optional)
+   * @param limit Pagination limit (required)
+   * @param lastModifiedOn Date of the last retrieved consent (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return PageableModificationResponse
    * @throws ApiException if fails to make API call
@@ -466,7 +466,7 @@ public class ClientQueryingApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "asc_auth_key" };
+    String[] localVarAuthNames = new String[] { "x-signature" };
 
     TypeReference<PageableModificationResponse> localVarReturnType = new TypeReference<PageableModificationResponse>() {};
     return apiClient.invokeAPI(
@@ -487,13 +487,13 @@ public class ClientQueryingApi extends BaseApi {
   }
 
   /**
-   * Get public client information
-   * Returns the public information for a client with the ID secified din the request.
+   * Handles the GET request for public client information
+   * 
    *
    * REST API Reference for getPublicClientInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/
    *
-   * @param clientId The client identifier. (required)
+   * @param clientId ID of the client to retrieve (required)
    * @return ClientInfoResponse
    * @throws ApiException if fails to make API call
    */
@@ -503,13 +503,13 @@ public class ClientQueryingApi extends BaseApi {
 
 
   /**
-   * Get public client information
-   * Returns the public information for a client with the ID secified din the request.
+   * Handles the GET request for public client information
+   * 
    *
    * REST API Reference for getPublicClientInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/
    *
-   * @param clientId The client identifier. (required)
+   * @param clientId ID of the client to retrieve (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ClientInfoResponse
    * @throws ApiException if fails to make API call

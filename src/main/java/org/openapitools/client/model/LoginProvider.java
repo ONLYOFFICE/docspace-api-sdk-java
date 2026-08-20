@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -29,79 +30,39 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * [0 - Facebook, 1 - Google, 2 - Dropbox, 3 - Docusign, 4 - Box, 5 - OneDrive, 6 - GosUslugi, 7 - LinkedIn, 8 - MailRu, 9 - VK, 10 - Wordpress, 11 - Yahoo, 12 - Yandex, 13 - Github]
+ * [0 - Facebook, 1 - Google, 2 - Dropbox, 3 - Docusign, 4 - Box, 5 - OneDrive, 6 - GosUslugi, 7 - LinkedIn, 8 - MailRu, 9 - VK, 10 - Wordpress, 11 - Yahoo, 12 - Yandex, 13 - Github, 14 - Nextcloud]
  */
 public enum LoginProvider {
   
-  /**
-   * Facebook
-   */
   Facebook(0),
   
-  /**
-   * Google
-   */
   Google(1),
   
-  /**
-   * Dropbox
-   */
   Dropbox(2),
   
-  /**
-   * Docusign
-   */
   Docusign(3),
   
-  /**
-   * Box
-   */
   Box(4),
   
-  /**
-   * OneDrive
-   */
   OneDrive(5),
   
-  /**
-   * GosUslugi
-   */
   GosUslugi(6),
   
-  /**
-   * LinkedIn
-   */
   LinkedIn(7),
   
-  /**
-   * MailRu
-   */
   MailRu(8),
   
-  /**
-   * VK
-   */
   VK(9),
   
-  /**
-   * Wordpress
-   */
   Wordpress(10),
   
-  /**
-   * Yahoo
-   */
   Yahoo(11),
   
-  /**
-   * Yandex
-   */
   Yandex(12),
   
-  /**
-   * Github
-   */
-  Github(13);
+  Github(13),
+  
+  Nextcloud(14);
 
   private Integer value;
 
@@ -140,7 +101,7 @@ public enum LoginProvider {
       prefix = "";
     }
 
-    return String.format("%s=%s", prefix, this.toString());
+    return String.format(java.util.Locale.ROOT, "%s=%s", prefix, this.toString());
   }
 }
 

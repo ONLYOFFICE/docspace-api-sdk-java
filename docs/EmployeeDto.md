@@ -9,8 +9,7 @@ The user parameters.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** | The user ID. |  [optional] |
-|**displayName** | **String** | The user display name. |  [optional] |
-|**title** | **String** | The user title. |  [optional] |
+|**displayName** | **String** | The HTML-encoded user's display name formatted according to the default format for the current culture. |  [optional] |
 |**avatar** | **String** | The user avatar. |  [optional] |
 |**avatarOriginal** | **String** | The user original size avatar. |  [optional] |
 |**avatarMax** | **String** | The user maximum size avatar. |  [optional] |

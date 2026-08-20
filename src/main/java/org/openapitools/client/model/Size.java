@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -31,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Size
+ * Represents dimensions with width and height values.
  */
 @JsonPropertyOrder({
   Size.JSON_PROPERTY_HEIGHT,
@@ -40,12 +41,10 @@ import java.util.StringJoiner;
 
 public class Size {
   public static final String JSON_PROPERTY_HEIGHT = "height";
-  @javax.annotation.Nullable
-  private Integer height;
+  @javax.annotation.Nullable  private Integer height;
 
   public static final String JSON_PROPERTY_WIDTH = "width";
-  @javax.annotation.Nullable
-  private Integer width;
+  @javax.annotation.Nullable  private Integer width;
 
   public Size() {
   }
@@ -58,11 +57,10 @@ public class Size {
   }
 
   /**
-   * Get height
+   * Gets or sets the height dimension of an object, typically measured in pixels or other unit.  It defines the vertical size of the object.
    * @return height
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HEIGHT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getHeight() {
@@ -70,7 +68,7 @@ public class Size {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHeight(@javax.annotation.Nullable Integer height) {
     this.height = height;
@@ -83,11 +81,10 @@ public class Size {
   }
 
   /**
-   * Get width
+   * Gets or sets the width dimension of an object, typically measured in pixels or other unit.
    * @return width
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WIDTH)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getWidth() {
@@ -95,7 +92,7 @@ public class Size {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WIDTH)
+  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWidth(@javax.annotation.Nullable Integer width) {
     this.width = width;

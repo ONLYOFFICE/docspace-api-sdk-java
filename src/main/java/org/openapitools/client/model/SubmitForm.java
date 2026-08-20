@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -35,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The Complete &amp; Submit button settings.
+ * The Complete & Submit button settings.
  */
 @JsonPropertyOrder({
   SubmitForm.JSON_PROPERTY_VISIBLE,
@@ -44,12 +45,10 @@ import java.util.StringJoiner;
 
 public class SubmitForm {
   public static final String JSON_PROPERTY_VISIBLE = "visible";
-  @javax.annotation.Nullable
-  private Boolean visible;
+  @javax.annotation.Nullable  private Boolean visible;
 
   public static final String JSON_PROPERTY_RESULT_MESSAGE = "resultMessage";
-  @javax.annotation.Nullable
-  private JsonNullable<String> resultMessage = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> resultMessage = JsonNullable.<String>undefined();
 
   public SubmitForm() {
   }
@@ -62,11 +61,10 @@ public class SubmitForm {
   }
 
   /**
-   * Specifies whether the Complete  &amp; Submit button will be displayed or hidden on the top toolbar.
+   * Specifies whether the Complete  & Submit button will be displayed or hidden on the top toolbar.
    * @return visible
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VISIBLE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VISIBLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getVisible() {
@@ -74,7 +72,7 @@ public class SubmitForm {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VISIBLE)
+  @JsonProperty(value = JSON_PROPERTY_VISIBLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVisible(@javax.annotation.Nullable Boolean visible) {
     this.visible = visible;
@@ -90,16 +88,14 @@ public class SubmitForm {
    * A message displayed after forms are submitted.
    * @return resultMessage
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getResultMessage() {
         return resultMessage.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_RESULT_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_RESULT_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getResultMessage_JsonNullable() {
     return resultMessage;
   }

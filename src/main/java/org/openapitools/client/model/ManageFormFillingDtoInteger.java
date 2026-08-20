@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.FormFillingManageAction;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -41,12 +42,10 @@ import java.util.StringJoiner;
 
 public class ManageFormFillingDtoInteger {
   public static final String JSON_PROPERTY_FORM_ID = "formId";
-  @javax.annotation.Nonnull
-  private Integer formId;
+  @javax.annotation.Nonnull  private Integer formId;
 
   public static final String JSON_PROPERTY_ACTION = "action";
-  @javax.annotation.Nullable
-  private FormFillingManageAction action;
+  @javax.annotation.Nullable  private FormFillingManageAction action;
 
   public ManageFormFillingDtoInteger() {
   }
@@ -62,8 +61,7 @@ public class ManageFormFillingDtoInteger {
    * The ID of the form to manage.
    * @return formId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FORM_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_FORM_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getFormId() {
@@ -71,7 +69,7 @@ public class ManageFormFillingDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORM_ID)
+  @JsonProperty(value = JSON_PROPERTY_FORM_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFormId(@javax.annotation.Nonnull Integer formId) {
     this.formId = formId;
@@ -87,8 +85,7 @@ public class ManageFormFillingDtoInteger {
    * Get action
    * @return action
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACTION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FormFillingManageAction getAction() {
@@ -96,7 +93,7 @@ public class ManageFormFillingDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACTION)
+  @JsonProperty(value = JSON_PROPERTY_ACTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAction(@javax.annotation.Nullable FormFillingManageAction action) {
     this.action = action;

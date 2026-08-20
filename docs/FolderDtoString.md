@@ -14,6 +14,7 @@ The folder parameters.
 |**ownedBy** | [**EmployeeDto**](EmployeeDto.md) |  |  [optional] |
 |**shared** | **Boolean** | Specifies if the file entry is shared via link or not. |  [optional] |
 |**sharedForUser** | **Boolean** | Specifies if the file entry is shared for user or not. |  [optional] |
+|**sharedExternal** | **Boolean** | Specifies if the file entry is shared via a public (non-internal) external link. |  [optional] |
 |**parentShared** | **Boolean** | Indicates whether the parent entity is shared. |  [optional] |
 |**shortWebUrl** | **URI** | The short Web URL. |  [optional] |
 |**created** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
@@ -65,8 +66,11 @@ The folder parameters.
 |**usedSpace** | **Long** | How much folder space is used (counter). |  [optional] |
 |**passwordProtected** | **Boolean** | Specifies if the folder is password protected or not. |  [optional] |
 |**expired** | **Boolean** | Specifies if an external link to the folder is expired or not. |  [optional] |
-|**chatSettings** | [**ChatSettings**](ChatSettings.md) |  |  [optional] |
+|**chatSettings** | [**ChatSettingsDto**](ChatSettingsDto.md) |  |  [optional] |
 |**rootRoomType** | **RoomType** |  |  [optional] |
+|**saveFormAsXLSX** | **Boolean** | Specifies whether to save form data as XLSX file. |  [optional] |
+|**sendFormToExternalDB** | **Boolean** | Specifies whether to send form data to external database. |  [optional] |
+|**originalFormId** | **Integer** | The original form ID that corresponds to this FormFillingFolderDone folder. |  [optional] |
 
 
 

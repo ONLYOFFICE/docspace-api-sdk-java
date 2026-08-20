@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -51,36 +52,28 @@ import java.util.StringJoiner;
 
 public class UpdateWebhooksConfigRequestsDto {
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nonnull
-  private String name;
+  @javax.annotation.Nonnull  private String name;
 
   public static final String JSON_PROPERTY_URI = "uri";
-  @javax.annotation.Nonnull
-  private String uri;
+  @javax.annotation.Nonnull  private String uri;
 
   public static final String JSON_PROPERTY_SECRET_KEY = "secretKey";
-  @javax.annotation.Nullable
-  private JsonNullable<String> secretKey = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> secretKey = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
-  @javax.annotation.Nullable
-  private Boolean enabled;
+  @javax.annotation.Nullable  private Boolean enabled;
 
   public static final String JSON_PROPERTY_SSL = "ssl";
-  @javax.annotation.Nullable
-  private Boolean ssl;
+  @javax.annotation.Nullable  private Boolean ssl;
 
   public static final String JSON_PROPERTY_TRIGGERS = "triggers";
-  @javax.annotation.Nullable
-  private WebhookTrigger triggers;
+  @javax.annotation.Nullable  private WebhookTrigger triggers;
 
   public static final String JSON_PROPERTY_TARGET_ID = "targetId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> targetId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> targetId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nonnull
-  private Integer id;
+  @javax.annotation.Nonnull  private Integer id;
 
   public UpdateWebhooksConfigRequestsDto() {
   }
@@ -96,8 +89,7 @@ public class UpdateWebhooksConfigRequestsDto {
    * The human-readable name of the webhook configuration.
    * @return name
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
@@ -105,7 +97,7 @@ public class UpdateWebhooksConfigRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
@@ -121,8 +113,7 @@ public class UpdateWebhooksConfigRequestsDto {
    * The destination URL where the webhook events will be sent.
    * @return uri
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_URI)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_URI, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getUri() {
@@ -130,7 +121,7 @@ public class UpdateWebhooksConfigRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_URI)
+  @JsonProperty(value = JSON_PROPERTY_URI, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUri(@javax.annotation.Nonnull String uri) {
     this.uri = uri;
@@ -146,16 +137,14 @@ public class UpdateWebhooksConfigRequestsDto {
    * The webhook secret key used to sign the webhook payloads for the security verification.
    * @return secretKey
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSecretKey() {
         return secretKey.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SECRET_KEY)
+  @JsonProperty(value = JSON_PROPERTY_SECRET_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSecretKey_JsonNullable() {
     return secretKey;
   }
@@ -179,8 +168,7 @@ public class UpdateWebhooksConfigRequestsDto {
    * Specifies whether the webhook configuration is active or not.
    * @return enabled
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEnabled() {
@@ -188,7 +176,7 @@ public class UpdateWebhooksConfigRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
     this.enabled = enabled;
@@ -204,8 +192,7 @@ public class UpdateWebhooksConfigRequestsDto {
    * Specifies whether the SSL certificate verification is required or not.
    * @return ssl
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SSL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SSL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSsl() {
@@ -213,7 +200,7 @@ public class UpdateWebhooksConfigRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SSL)
+  @JsonProperty(value = JSON_PROPERTY_SSL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSsl(@javax.annotation.Nullable Boolean ssl) {
     this.ssl = ssl;
@@ -229,8 +216,7 @@ public class UpdateWebhooksConfigRequestsDto {
    * Get triggers
    * @return triggers
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRIGGERS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRIGGERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public WebhookTrigger getTriggers() {
@@ -238,7 +224,7 @@ public class UpdateWebhooksConfigRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRIGGERS)
+  @JsonProperty(value = JSON_PROPERTY_TRIGGERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTriggers(@javax.annotation.Nullable WebhookTrigger triggers) {
     this.triggers = triggers;
@@ -254,16 +240,14 @@ public class UpdateWebhooksConfigRequestsDto {
    * Target ID
    * @return targetId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTargetId() {
         return targetId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TARGET_ID)
+  @JsonProperty(value = JSON_PROPERTY_TARGET_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTargetId_JsonNullable() {
     return targetId;
   }
@@ -287,8 +271,7 @@ public class UpdateWebhooksConfigRequestsDto {
    * The webhook configuration ID.
    * @return id
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getId() {
@@ -296,7 +279,7 @@ public class UpdateWebhooksConfigRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@javax.annotation.Nonnull Integer id) {
     this.id = id;

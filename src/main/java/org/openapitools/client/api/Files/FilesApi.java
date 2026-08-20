@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,12 +29,14 @@ import org.openapitools.client.model.BaseBatchRequestDto;
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.ChangeHistory;
 import org.openapitools.client.model.CheckFillFormDraft;
+import org.openapitools.client.model.ChunkedUploadSessionResponseWrapperIntegerWrapper;
 import org.openapitools.client.model.ConfigurationIntegerWrapper;
 import org.openapitools.client.model.CopyAsJsonElement;
 import org.openapitools.client.model.CreateFileJsonElement;
 import org.openapitools.client.model.CreateTextOrHtmlFile;
 import org.openapitools.client.model.CustomFilterParameters;
 import org.openapitools.client.model.Delete;
+import org.openapitools.client.model.DocumentBuilderTaskWrapper;
 import org.openapitools.client.model.EditHistoryArrayWrapper;
 import org.openapitools.client.model.EditHistoryDataWrapper;
 import org.openapitools.client.model.EditorType;
@@ -51,6 +53,7 @@ import org.openapitools.client.model.FileShareArrayWrapper;
 import org.openapitools.client.model.FileShareWrapper;
 import org.openapitools.client.model.FillingFormResultIntegerWrapper;
 import org.openapitools.client.model.FormRoleArrayWrapper;
+import org.openapitools.client.model.FormSubmissionsWrapper;
 import org.openapitools.client.model.GetReferenceDataDtoInteger;
 import org.openapitools.client.model.HistoryArrayWrapper;
 import org.openapitools.client.model.KeyValuePairBooleanStringWrapper;
@@ -59,7 +62,6 @@ import org.openapitools.client.model.ManageFormFillingDtoInteger;
 import org.openapitools.client.model.MentionWrapperArrayWrapper;
 import org.openapitools.client.model.NoContentResultWrapper;
 import org.openapitools.client.model.ObjectArrayWrapper;
-import org.openapitools.client.model.ObjectWrapper;
 import org.openapitools.client.model.OrderRequestDto;
 import org.openapitools.client.model.OrdersRequestDtoInteger;
 import org.openapitools.client.model.SaveAsPdfInteger;
@@ -69,6 +71,7 @@ import org.openapitools.client.model.StringWrapper;
 import org.openapitools.client.model.TemplatesRequestDto;
 import java.util.UUID;
 import org.openapitools.client.model.UpdateFile;
+import org.openapitools.client.model.XlsxReportResponseWrapper;
 
 
 import java.util.ArrayList;
@@ -526,24 +529,24 @@ public class FilesApi extends BaseApi {
 
   /**
    * Create the editing session
-   * Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+   * Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
    *
    * REST API Reference for createEditSession Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/
    *
    * @param fileId The file ID. (required)
    * @param fileSize The file size in bytes. (optional)
-   * @return ObjectWrapper
+   * @return ChunkedUploadSessionResponseWrapperIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public ObjectWrapper createEditSession(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable Long fileSize) throws ApiException {
+  public ChunkedUploadSessionResponseWrapperIntegerWrapper createEditSession(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable Long fileSize) throws ApiException {
     return this.createEditSession(fileId, fileSize, Collections.emptyMap());
   }
 
 
   /**
    * Create the editing session
-   * Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+   * Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
    *
    * REST API Reference for createEditSession Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/
@@ -551,10 +554,10 @@ public class FilesApi extends BaseApi {
    * @param fileId The file ID. (required)
    * @param fileSize The file size in bytes. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return ObjectWrapper
+   * @return ChunkedUploadSessionResponseWrapperIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public ObjectWrapper createEditSession(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable Long fileSize, Map<String, String> additionalHeaders) throws ApiException {
+  public ChunkedUploadSessionResponseWrapperIntegerWrapper createEditSession(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable Long fileSize, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'fileId' is set
@@ -593,7 +596,7 @@ public class FilesApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ObjectWrapper> localVarReturnType = new TypeReference<ObjectWrapper>() {};
+    TypeReference<ChunkedUploadSessionResponseWrapperIntegerWrapper> localVarReturnType = new TypeReference<ChunkedUploadSessionResponseWrapperIntegerWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -613,7 +616,7 @@ public class FilesApi extends BaseApi {
 
   /**
    * Create a file
-   * Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+   * Creates a new file in the specified folder with the title specified in the request.
    *
    * REST API Reference for createFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/
@@ -630,7 +633,7 @@ public class FilesApi extends BaseApi {
 
   /**
    * Create a file
-   * Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+   * Creates a new file in the specified folder with the title specified in the request.
    *
    * REST API Reference for createFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/
@@ -704,7 +707,7 @@ public class FilesApi extends BaseApi {
 
   /**
    * Create a file in the My documents section
-   * Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+   * Creates a new file in the My documents section with the title specified in the request.
    *
    * REST API Reference for createFileInMyDocuments Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/
@@ -720,7 +723,7 @@ public class FilesApi extends BaseApi {
 
   /**
    * Create a file in the My documents section
-   * Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+   * Creates a new file in the My documents section with the title specified in the request.
    *
    * REST API Reference for createFileInMyDocuments Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/
@@ -1296,11 +1299,12 @@ public class FilesApi extends BaseApi {
    *
    * @param fileId The file ID to delete. (required)
    * @param delete The parameters for deleting a file. (required)
+   * @param returnSingleOperation Specifies whether to return only the current operation (optional)
    * @return FileOperationArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileOperationArrayWrapper deleteFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull Delete delete) throws ApiException {
-    return this.deleteFile(fileId, delete, Collections.emptyMap());
+  public FileOperationArrayWrapper deleteFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull Delete delete, @javax.annotation.Nullable Boolean returnSingleOperation) throws ApiException {
+    return this.deleteFile(fileId, delete, returnSingleOperation, Collections.emptyMap());
   }
 
 
@@ -1313,11 +1317,12 @@ public class FilesApi extends BaseApi {
    *
    * @param fileId The file ID to delete. (required)
    * @param delete The parameters for deleting a file. (required)
+   * @param returnSingleOperation Specifies whether to return only the current operation (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileOperationArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileOperationArrayWrapper deleteFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull Delete delete, Map<String, String> additionalHeaders) throws ApiException {
+  public FileOperationArrayWrapper deleteFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull Delete delete, @javax.annotation.Nullable Boolean returnSingleOperation, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = delete;
     
     // verify the required parameter 'fileId' is set
@@ -1342,6 +1347,7 @@ public class FilesApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPair("ReturnSingleOperation", returnSingleOperation));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -1520,6 +1526,90 @@ public class FilesApi extends BaseApi {
     return apiClient.invokeAPI(
         localVarPath,
         "DELETE",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Generate XLSX report
+   * Triggers asynchronous XLSX report generation for the specified form file.
+   *
+   * REST API Reference for generateXlsx Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/
+   *
+   * @param fileId The file unique identifier. (required)
+   * @return XlsxReportResponseWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public XlsxReportResponseWrapper generateXlsx(@javax.annotation.Nonnull Integer fileId) throws ApiException {
+    return this.generateXlsx(fileId, Collections.emptyMap());
+  }
+
+
+  /**
+   * Generate XLSX report
+   * Triggers asynchronous XLSX report generation for the specified form file.
+   *
+   * REST API Reference for generateXlsx Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/
+   *
+   * @param fileId The file unique identifier. (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return XlsxReportResponseWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public XlsxReportResponseWrapper generateXlsx(@javax.annotation.Nonnull Integer fileId, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'fileId' is set
+    if (fileId == null) {
+      throw new ApiException(400, "Missing the required parameter 'fileId' when calling generateXlsx");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/file/{fileId}/xlsx"
+      .replaceAll("\\{" + "fileId" + "\\}", apiClient.escapeString(apiClient.parameterToString(fileId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<XlsxReportResponseWrapper> localVarReturnType = new TypeReference<XlsxReportResponseWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),
@@ -1845,10 +1935,10 @@ public class FilesApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("utcTime", fromDate.getUtcTime()));
-    localVarQueryParams.addAll(apiClient.parameterToPair("timeZoneOffset", fromDate.getTimeZoneOffset()));
-    localVarQueryParams.addAll(apiClient.parameterToPair("utcTime", toDate.getUtcTime()));
-    localVarQueryParams.addAll(apiClient.parameterToPair("timeZoneOffset", toDate.getTimeZoneOffset()));
+    localVarQueryParameterBaseName = "fromDate";
+    localVarQueryStringJoiner.add(fromDate.toUrlQueryString("fromDate"));
+    localVarQueryParameterBaseName = "toDate";
+    localVarQueryStringJoiner.add(toDate.toUrlQueryString("toDate"));
     localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
     localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
       
@@ -2318,6 +2408,90 @@ public class FilesApi extends BaseApi {
   }
 
   /**
+   * Get form submission results
+   * Returns the results of form submissions.
+   *
+   * REST API Reference for getFormSubmissions Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-form-submissions/
+   *
+   * @param fileId The file unique identifier. (required)
+   * @return FormSubmissionsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public FormSubmissionsWrapper getFormSubmissions(@javax.annotation.Nonnull Integer fileId) throws ApiException {
+    return this.getFormSubmissions(fileId, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get form submission results
+   * Returns the results of form submissions.
+   *
+   * REST API Reference for getFormSubmissions Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-form-submissions/
+   *
+   * @param fileId The file unique identifier. (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return FormSubmissionsWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public FormSubmissionsWrapper getFormSubmissions(@javax.annotation.Nonnull Integer fileId, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'fileId' is set
+    if (fileId == null) {
+      throw new ApiException(400, "Missing the required parameter 'fileId' when calling getFormSubmissions");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/file/{fileId}/submissions"
+      .replaceAll("\\{" + "fileId" + "\\}", apiClient.escapeString(apiClient.parameterToString(fileId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<FormSubmissionsWrapper> localVarReturnType = new TypeReference<FormSubmissionsWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Get file download link asynchronously
    * Returns a link to download a file with the ID specified in the request asynchronously.
    *
@@ -2633,6 +2807,90 @@ public class FilesApi extends BaseApi {
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get XLSX report generation status
+   * Returns the status of the XLSX report generation task for the specified form.
+   *
+   * REST API Reference for getXlsx Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/
+   *
+   * @param fileId The file unique identifier. (required)
+   * @return DocumentBuilderTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentBuilderTaskWrapper getXlsx(@javax.annotation.Nonnull Integer fileId) throws ApiException {
+    return this.getXlsx(fileId, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get XLSX report generation status
+   * Returns the status of the XLSX report generation task for the specified form.
+   *
+   * REST API Reference for getXlsx Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/
+   *
+   * @param fileId The file unique identifier. (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return DocumentBuilderTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentBuilderTaskWrapper getXlsx(@javax.annotation.Nonnull Integer fileId, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'fileId' is set
+    if (fileId == null) {
+      throw new ApiException(400, "Missing the required parameter 'fileId' when calling getXlsx");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/file/{fileId}/xlsx"
+      .replaceAll("\\{" + "fileId" + "\\}", apiClient.escapeString(apiClient.parameterToString(fileId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<DocumentBuilderTaskWrapper> localVarReturnType = new TypeReference<DocumentBuilderTaskWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),
@@ -3102,15 +3360,15 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/
    *
    * @param fileId The editing file ID from the request. (required)
-   * @param fileExtension The editing file extension from the request. (optional)
    * @param downloadUri The URI to download the editing file. (optional)
-   * @param _file The request file stream. (optional)
+   * @param fileExtension The editing file extension from the request. (optional)
+   * @param _file The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)
    * @param forcesave Specifies whether to force save the file or not. (optional)
    * @return FileIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileIntegerWrapper saveEditingFileFromForm(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable String fileExtension, @javax.annotation.Nullable String downloadUri, @javax.annotation.Nullable File _file, @javax.annotation.Nullable Boolean forcesave) throws ApiException {
-    return this.saveEditingFileFromForm(fileId, fileExtension, downloadUri, _file, forcesave, Collections.emptyMap());
+  public FileIntegerWrapper saveEditingFileFromForm(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable String downloadUri, @javax.annotation.Nullable String fileExtension, @javax.annotation.Nullable File _file, @javax.annotation.Nullable Boolean forcesave) throws ApiException {
+    return this.saveEditingFileFromForm(fileId, downloadUri, fileExtension, _file, forcesave, Collections.emptyMap());
   }
 
 
@@ -3122,15 +3380,15 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/
    *
    * @param fileId The editing file ID from the request. (required)
-   * @param fileExtension The editing file extension from the request. (optional)
    * @param downloadUri The URI to download the editing file. (optional)
-   * @param _file The request file stream. (optional)
+   * @param fileExtension The editing file extension from the request. (optional)
+   * @param _file The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)
    * @param forcesave Specifies whether to force save the file or not. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileIntegerWrapper saveEditingFileFromForm(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable String fileExtension, @javax.annotation.Nullable String downloadUri, @javax.annotation.Nullable File _file, @javax.annotation.Nullable Boolean forcesave, Map<String, String> additionalHeaders) throws ApiException {
+  public FileIntegerWrapper saveEditingFileFromForm(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable String downloadUri, @javax.annotation.Nullable String fileExtension, @javax.annotation.Nullable File _file, @javax.annotation.Nullable Boolean forcesave, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'fileId' is set
@@ -3150,6 +3408,7 @@ public class FilesApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPair("DownloadUri", downloadUri));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -3157,8 +3416,6 @@ public class FilesApi extends BaseApi {
     
     if (fileExtension != null)
       localVarFormParams.put("FileExtension", fileExtension);
-if (downloadUri != null)
-      localVarFormParams.put("DownloadUri", downloadUri);
 if (_file != null)
       localVarFormParams.put("File", _file);
 if (forcesave != null)

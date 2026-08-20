@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,7 +57,7 @@ public class StorageApi extends BaseApi {
    * REST API Reference for getAllBackupStorages Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-backup-storages/
    *
-   * @param dump  (optional)
+   * @param dump Indicates whether the operation should perform a dump of backup storage data.  This property is used as a parameter in backup-related API requests to specify  if additional details or data dumping is required during the process. (optional)
    * @return StorageArrayWrapper
    * @throws ApiException if fails to make API call
    */
@@ -73,7 +73,7 @@ public class StorageApi extends BaseApi {
    * REST API Reference for getAllBackupStorages Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-backup-storages/
    *
-   * @param dump  (optional)
+   * @param dump Indicates whether the operation should perform a dump of backup storage data.  This property is used as a parameter in backup-related API requests to specify  if additional details or data dumping is required during the process. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return StorageArrayWrapper
    * @throws ApiException if fails to make API call

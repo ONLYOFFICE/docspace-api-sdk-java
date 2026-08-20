@@ -10,7 +10,7 @@ The request parameters for the user email.
 |------------ | ------------- | ------------- | -------------|
 |**email** | **String** | The user email address. |  |
 |**recaptchaType** | **RecaptchaType** |  |  [optional] |
-|**recaptchaResponse** | **String** | The user&#39;s response to the CAPTCHA challenge. |  [optional] |
+|**recaptchaResponse** | **String** | The user's response to the CAPTCHA challenge. |  [optional] |
 
 
 

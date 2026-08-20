@@ -2,13 +2,13 @@
 
 # Culture
 
-The culture code parameters.
+The culture name parameters.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**cultureName** | **String** | The user language. |  [optional] |
+|**cultureName** | **String** | The user culture name (en-US, de, fr, es, ...). |  |
 
 
 

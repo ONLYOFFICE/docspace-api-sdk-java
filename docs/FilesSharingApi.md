@@ -61,7 +61,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         SharingApi apiInstance = new SharingApi(defaultClient);
-        String key = "some text"; // String | The unique document identifier.
+        String key = "doc_key_123"; // String | The unique document identifier.
         ExternalShareRequestParam externalShareRequestParam = new ExternalShareRequestParam(); // ExternalShareRequestParam | The external data share request parameters.
         try {
             ExternalShareWrapper result = apiInstance.applyExternalSharePassword(key, externalShareRequestParam);
@@ -86,8 +86,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | External data |  -  |
-| **429** | Too many requests |  -  |
+| **200** | External data |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **429** | Too many requests |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## changeFileOwner
@@ -180,8 +182,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | File entry information |  -  |
+| **200** | File entry information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getExternalShareData
@@ -225,9 +230,9 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         SharingApi apiInstance = new SharingApi(defaultClient);
-        String key = "some text"; // String | The unique key of the external shared data.
-        String fileId = "9846"; // String | The unique document identifier.
-        String folderId = "9846"; // String | The unique folder identifier.
+        String key = "doc_key_123"; // String | The unique key of the external shared data.
+        String fileId = "1"; // String | The unique document identifier.
+        String folderId = "1"; // String | The unique folder identifier.
         try {
             ExternalShareWrapper result = apiInstance.getExternalShareData(key, fileId, folderId);
             System.out.println(result);
@@ -251,7 +256,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | External data |  -  |
+| **200** | External data |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFileSecurityInfo
@@ -322,9 +330,9 @@ public class Example {
 
 
         SharingApi apiInstance = new SharingApi(defaultClient);
-        Integer id = 9846; // Integer | The file unique identifier.
-        Integer count = 1234; // Integer | The number of items to retrieve in the request.
-        Integer startIndex = 1234; // Integer | The starting index for the query results.
+        Integer id = 10; // Integer | The file unique identifier.
+        Integer count = 25; // Integer | The number of items to retrieve in the request.
+        Integer startIndex = 0; // Integer | The starting index for the query results.
         try {
             FileShareArrayWrapper result = apiInstance.getFileSecurityInfo(id, count, startIndex);
             System.out.println(result);
@@ -348,8 +356,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of shared file information |  -  |
+| **200** | List of shared file information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getFolderSecurityInfo
@@ -420,9 +431,9 @@ public class Example {
 
 
         SharingApi apiInstance = new SharingApi(defaultClient);
-        Integer id = 9846; // Integer | The folder unique identifier.
-        Integer count = 1234; // Integer | The number of items to retrieve in the request.
-        Integer startIndex = 1234; // Integer | The starting index for the query results.
+        Integer id = 10; // Integer | The folder unique identifier.
+        Integer count = 25; // Integer | The number of items to retrieve in the request.
+        Integer startIndex = 0; // Integer | The starting index for the query results.
         try {
             FileShareArrayWrapper result = apiInstance.getFolderSecurityInfo(id, count, startIndex);
             System.out.println(result);
@@ -446,8 +457,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of shared file information |  -  |
+| **200** | List of shared file information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getGroupsMembersWithFileSecurity
@@ -520,11 +534,11 @@ public class Example {
 
 
         SharingApi apiInstance = new SharingApi(defaultClient);
-        Integer fileId = 9846; // Integer | The file ID.
-        UUID groupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The group ID.
-        Integer count = 1234; // Integer | The number of items to be retrieved in the current query.
-        Integer startIndex = 1234; // Integer | The starting index for the query result set.
-        String filterValue = "some text"; // String | The filter value used for searching or querying group members based on text input.
+        Integer fileId = 1; // Integer | The file ID.
+        UUID groupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The group ID.
+        Integer count = 25; // Integer | The number of items to be retrieved in the current query.
+        Integer startIndex = 0; // Integer | The starting index for the query result set.
+        String filterValue = "My Document"; // String | The filter value used for searching or querying group members based on text input.
         try {
             GroupMemberSecurityRequestArrayWrapper result = apiInstance.getGroupsMembersWithFileSecurity(fileId, groupId, count, startIndex, filterValue);
             System.out.println(result);
@@ -548,8 +562,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  -  |
+| **200** | Ok |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getGroupsMembersWithFolderSecurity
@@ -622,11 +639,11 @@ public class Example {
 
 
         SharingApi apiInstance = new SharingApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder ID.
-        UUID groupId = UUID.fromString("75a5f745-f697-4418-b38d-0fe0d277e258"); // UUID | The group ID.
-        Integer count = 1234; // Integer | The number of items to be retrieved in the current query.
-        Integer startIndex = 1234; // Integer | The starting index for the query result set.
-        String filterValue = "some text"; // String | The filter value used for searching or querying group members based on text input.
+        Integer folderId = 1; // Integer | The folder ID.
+        UUID groupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The group ID.
+        Integer count = 25; // Integer | The number of items to be retrieved in the current query.
+        Integer startIndex = 0; // Integer | The starting index for the query result set.
+        String filterValue = "My Document"; // String | The filter value used for searching or querying group members based on text input.
         try {
             GroupMemberSecurityRequestArrayWrapper result = apiInstance.getGroupsMembersWithFolderSecurity(folderId, groupId, count, startIndex, filterValue);
             System.out.println(result);
@@ -650,8 +667,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  -  |
+| **200** | Ok |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getSecurityInfo
@@ -744,8 +764,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of shared files and folders information |  -  |
+| **200** | List of shared files and folders information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getSharedUsers
@@ -814,7 +837,7 @@ public class Example {
 
 
         SharingApi apiInstance = new SharingApi(defaultClient);
-        Integer fileId = 9846; // Integer | The file unique identifier.
+        Integer fileId = 1; // Integer | The file unique identifier.
         try {
             MentionWrapperArrayWrapper result = apiInstance.getSharedUsers(fileId);
             System.out.println(result);
@@ -838,8 +861,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of users with their access rights to the file |  -  |
+| **200** | List of users with their access rights to the file |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## removeSecurityInfo
@@ -932,8 +958,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Boolean value: true if the operation is successful |  -  |
+| **200** | Boolean value: true if the operation is successful |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## sendEditorNotify
@@ -1003,7 +1032,7 @@ public class Example {
 
 
         SharingApi apiInstance = new SharingApi(defaultClient);
-        Integer fileId = 9846; // Integer | The file ID with the mention message.
+        Integer fileId = 56; // Integer | The file ID with the mention message.
         MentionMessageWrapper mentionMessageWrapper = new MentionMessageWrapper(); // MentionMessageWrapper | The mention message.
         try {
             AceShortWrapperArrayWrapper result = apiInstance.sendEditorNotify(fileId, mentionMessageWrapper);
@@ -1028,8 +1057,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of access rights information |  -  |
+| **200** | List of access rights information |  * X-RateLimit-Limit - Rate limit: 5 requests per 15 minutes per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **400** | The list of email addresses is empty |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
+| **404** | The required file was not found |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## setFileSecurityInfo
@@ -1099,7 +1134,7 @@ public class Example {
 
 
         SharingApi apiInstance = new SharingApi(defaultClient);
-        Integer fileId = 9846; // Integer | The file ID.
+        Integer fileId = 1; // Integer | The file ID.
         SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto = new SecurityInfoSimpleRequestDto(); // SecurityInfoSimpleRequestDto | The parameters of the security information simple request.
         try {
             FileShareArrayWrapper result = apiInstance.setFileSecurityInfo(fileId, securityInfoSimpleRequestDto);
@@ -1124,8 +1159,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of shared file information: sharing rights, a user who has the access to the specified file, the file is locked by this user or not, this user is an owner of the specified file or not, this user can edit the access to the specified file or not |  -  |
+| **200** | List of shared file information: sharing rights, a user who has the access to the specified file, the file is locked by this user or not, this user is an owner of the specified file or not, this user can edit the access to the specified file or not |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## setFolderSecurityInfo
@@ -1195,7 +1233,7 @@ public class Example {
 
 
         SharingApi apiInstance = new SharingApi(defaultClient);
-        Integer folderId = 9846; // Integer | The folder ID.
+        Integer folderId = 1; // Integer | The folder ID.
         SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto = new SecurityInfoSimpleRequestDto(); // SecurityInfoSimpleRequestDto | The parameters of the security information simple request.
         try {
             FileShareArrayWrapper result = apiInstance.setFolderSecurityInfo(folderId, securityInfoSimpleRequestDto);
@@ -1220,8 +1258,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of shared folder information: sharing rights, a user who has the access to the specified folder, the folder is locked by this user or not, this user is an owner of the specified folder or not, this user can edit the access to the specified folder or not |  -  |
+| **200** | List of shared folder information: sharing rights, a user who has the access to the specified folder, the folder is locked by this user or not, this user is an owner of the specified folder or not, this user can edit the access to the specified folder or not |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## setSecurityInfo
@@ -1314,6 +1355,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of shared files and folders information: sharing rights, a user who has the access to the specified folder, the folder is locked by this user or not, this user is an owner of the specified folder or not, this user can edit the access to the specified folder or not |  -  |
+| **200** | List of shared files and folders information: sharing rights, a user who has the access to the specified folder, the folder is locked by this user or not, this user is an owner of the specified folder or not, this user can edit the access to the specified folder or not |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

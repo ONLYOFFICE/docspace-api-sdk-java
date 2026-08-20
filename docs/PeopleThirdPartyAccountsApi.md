@@ -53,10 +53,10 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         ThirdPartyAccountsApi apiInstance = new ThirdPartyAccountsApi(defaultClient);
-        Boolean inviteView = true; // Boolean | Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers.
-        Boolean settingsView = true; // Boolean | Specifies whether to display the provider settings in a pop-up window (true) or redirect them to the desktop application (false).
-        String clientCallback = "some text"; // String | The method that is called after authentication.
-        String fromOnly = "some text"; // String | The provider name if a response is required only from this provider.
+        Boolean inviteView = false; // Boolean | Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers.
+        Boolean settingsView = false; // Boolean | Specifies whether to display the provider settings in a pop-up window (true) or redirect them to the desktop application (false).
+        String clientCallback = "onAuthCallback"; // String | The method that is called after authentication.
+        String fromOnly = "Google"; // String | The provider name if a response is required only from this provider.
         try {
             AccountInfoArrayWrapper result = apiInstance.getThirdPartyAuthProviders(inviteView, settingsView, clientCallback, fromOnly);
             System.out.println(result);
@@ -80,7 +80,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of third-party accounts |  -  |
+| **200** | List of third-party accounts |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## linkThirdPartyAccount
@@ -172,9 +175,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Ok |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **405** | Error not allowed option |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## signupThirdPartyAccount
@@ -240,9 +246,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  -  |
+| **200** | Ok |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **400** | Incorrect email |  -  |
 | **403** | The invitation link is invalid or its validity has expired |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## unlinkThirdPartyAccount
@@ -311,7 +320,7 @@ public class Example {
 
 
         ThirdPartyAccountsApi apiInstance = new ThirdPartyAccountsApi(defaultClient);
-        String provider = "some text"; // String | The provider name.
+        String provider = "Google"; // String | The provider name.
         try {
             apiInstance.unlinkThirdPartyAccount(provider);
         } catch (ApiException e) {
@@ -334,6 +343,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | OK |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

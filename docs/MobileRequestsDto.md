@@ -8,7 +8,7 @@ The parameters required for the mobile phone verification.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**mobilePhone** | **String** | The user&#39;s mobile phone number. |  [optional] |
+|**mobilePhone** | **String** | The user's mobile phone number. |  [optional] |
 
 
 

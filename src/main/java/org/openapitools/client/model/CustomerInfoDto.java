@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,20 +49,16 @@ import java.util.StringJoiner;
 
 public class CustomerInfoDto {
   public static final String JSON_PROPERTY_PORTAL_ID = "portalId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> portalId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> portalId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD_STATUS = "paymentMethodStatus";
-  @javax.annotation.Nullable
-  private PaymentMethodStatus paymentMethodStatus;
+  @javax.annotation.Nullable  private PaymentMethodStatus paymentMethodStatus;
 
   public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nullable
-  private JsonNullable<String> email = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> email = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PAYER = "payer";
-  @javax.annotation.Nullable
-  private EmployeeDto payer;
+  @javax.annotation.Nullable  private EmployeeDto payer;
 
   public CustomerInfoDto() {
   }
@@ -83,8 +80,7 @@ public class CustomerInfoDto {
    * The portal ID.
    * @return portalId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPortalId() {
     
@@ -94,9 +90,8 @@ public class CustomerInfoDto {
     return portalId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PORTAL_ID)
+  @JsonProperty(value = JSON_PROPERTY_PORTAL_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPortalId_JsonNullable() {
     return portalId;
   }
@@ -117,8 +112,7 @@ public class CustomerInfoDto {
    * Get paymentMethodStatus
    * @return paymentMethodStatus
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_STATUS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PAYMENT_METHOD_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public PaymentMethodStatus getPaymentMethodStatus() {
@@ -126,7 +120,7 @@ public class CustomerInfoDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_PAYMENT_METHOD_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodStatus(@javax.annotation.Nullable PaymentMethodStatus paymentMethodStatus) {
     this.paymentMethodStatus = paymentMethodStatus;
@@ -136,8 +130,7 @@ public class CustomerInfoDto {
    * The customer email address.
    * @return email
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getEmail() {
     
@@ -147,9 +140,8 @@ public class CustomerInfoDto {
     return email.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getEmail_JsonNullable() {
     return email;
   }
@@ -170,8 +162,7 @@ public class CustomerInfoDto {
    * Get payer
    * @return payer
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PAYER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PAYER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EmployeeDto getPayer() {
@@ -179,7 +170,7 @@ public class CustomerInfoDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PAYER)
+  @JsonProperty(value = JSON_PROPERTY_PAYER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayer(@javax.annotation.Nullable EmployeeDto payer) {
     this.payer = payer;

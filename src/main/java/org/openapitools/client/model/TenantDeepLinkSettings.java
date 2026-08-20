@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import org.openapitools.client.model.DeepLinkHandlingMode;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -42,12 +43,10 @@ import java.util.StringJoiner;
 
 public class TenantDeepLinkSettings {
   public static final String JSON_PROPERTY_HANDLING_MODE = "handlingMode";
-  @javax.annotation.Nullable
-  private DeepLinkHandlingMode handlingMode;
+  @javax.annotation.Nullable  private DeepLinkHandlingMode handlingMode;
 
   public static final String JSON_PROPERTY_LAST_MODIFIED = "lastModified";
-  @javax.annotation.Nullable
-  private OffsetDateTime lastModified;
+  @javax.annotation.Nullable  private OffsetDateTime lastModified;
 
   public TenantDeepLinkSettings() {
   }
@@ -63,8 +62,7 @@ public class TenantDeepLinkSettings {
    * Get handlingMode
    * @return handlingMode
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HANDLING_MODE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HANDLING_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public DeepLinkHandlingMode getHandlingMode() {
@@ -72,7 +70,7 @@ public class TenantDeepLinkSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HANDLING_MODE)
+  @JsonProperty(value = JSON_PROPERTY_HANDLING_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHandlingMode(@javax.annotation.Nullable DeepLinkHandlingMode handlingMode) {
     this.handlingMode = handlingMode;
@@ -85,11 +83,10 @@ public class TenantDeepLinkSettings {
   }
 
   /**
-   * Get lastModified
+   * The timestamp indicating when the settings were last modified.
    * @return lastModified
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLastModified() {
@@ -97,7 +94,7 @@ public class TenantDeepLinkSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
     this.lastModified = lastModified;

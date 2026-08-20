@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -59,52 +60,40 @@ import java.util.StringJoiner;
 
 public class DocumentConfigDto {
   public static final String JSON_PROPERTY_FILE_TYPE = "fileType";
-  @javax.annotation.Nullable
-  private JsonNullable<String> fileType = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> fileType = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_INFO = "info";
-  @javax.annotation.Nullable
-  private InfoConfigDto info;
+  @javax.annotation.Nullable  private InfoConfigDto info;
 
   public static final String JSON_PROPERTY_IS_LINKED_FOR_ME = "isLinkedForMe";
-  @javax.annotation.Nullable
-  private Boolean isLinkedForMe;
+  @javax.annotation.Nullable  private Boolean isLinkedForMe;
 
   public static final String JSON_PROPERTY_KEY = "key";
-  @javax.annotation.Nullable
-  private JsonNullable<String> key = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> key = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PERMISSIONS = "permissions";
-  @javax.annotation.Nullable
-  private PermissionsConfig permissions;
+  @javax.annotation.Nullable  private PermissionsConfig permissions;
 
   public static final String JSON_PROPERTY_SHARED_LINK_PARAM = "sharedLinkParam";
-  @javax.annotation.Nullable
-  private JsonNullable<String> sharedLinkParam = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> sharedLinkParam = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SHARED_LINK_KEY = "sharedLinkKey";
-  @javax.annotation.Nullable
-  private JsonNullable<String> sharedLinkKey = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> sharedLinkKey = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REFERENCE_DATA = "referenceData";
-  @javax.annotation.Nullable
-  private FileReferenceData referenceData;
+  @javax.annotation.Nullable  private FileReferenceData referenceData;
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_URL = "url";
-  @javax.annotation.Nullable
-  private JsonNullable<URI> url = JsonNullable.<URI>undefined();
+  @javax.annotation.Nullable  private JsonNullable<URI> url = JsonNullable.<URI>undefined();
 
   public static final String JSON_PROPERTY_IS_FORM = "isForm";
-  @javax.annotation.Nullable
-  private Boolean isForm;
+  @javax.annotation.Nullable  private Boolean isForm;
 
   public static final String JSON_PROPERTY_OPTIONS = "options";
-  @javax.annotation.Nullable
-  private Options options;
+  @javax.annotation.Nullable  private Options options;
 
   public DocumentConfigDto() {
   }
@@ -120,16 +109,14 @@ public class DocumentConfigDto {
    * The file type of the document.
    * @return fileType
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFileType() {
         return fileType.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_FILE_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFileType_JsonNullable() {
     return fileType;
   }
@@ -153,8 +140,7 @@ public class DocumentConfigDto {
    * Get info
    * @return info
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFO)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INFO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public InfoConfigDto getInfo() {
@@ -162,7 +148,7 @@ public class DocumentConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INFO)
+  @JsonProperty(value = JSON_PROPERTY_INFO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInfo(@javax.annotation.Nullable InfoConfigDto info) {
     this.info = info;
@@ -178,8 +164,7 @@ public class DocumentConfigDto {
    * Specifies if the documnet is linked for current user.
    * @return isLinkedForMe
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_LINKED_FOR_ME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_LINKED_FOR_ME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsLinkedForMe() {
@@ -187,7 +172,7 @@ public class DocumentConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_LINKED_FOR_ME)
+  @JsonProperty(value = JSON_PROPERTY_IS_LINKED_FOR_ME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsLinkedForMe(@javax.annotation.Nullable Boolean isLinkedForMe) {
     this.isLinkedForMe = isLinkedForMe;
@@ -203,16 +188,14 @@ public class DocumentConfigDto {
    * The document key.
    * @return key
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getKey() {
         return key.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_KEY)
+  @JsonProperty(value = JSON_PROPERTY_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getKey_JsonNullable() {
     return key;
   }
@@ -236,8 +219,7 @@ public class DocumentConfigDto {
    * Get permissions
    * @return permissions
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PERMISSIONS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PERMISSIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public PermissionsConfig getPermissions() {
@@ -245,7 +227,7 @@ public class DocumentConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PERMISSIONS)
+  @JsonProperty(value = JSON_PROPERTY_PERMISSIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPermissions(@javax.annotation.Nullable PermissionsConfig permissions) {
     this.permissions = permissions;
@@ -261,16 +243,14 @@ public class DocumentConfigDto {
    * The shared link parameter of the document.
    * @return sharedLinkParam
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSharedLinkParam() {
         return sharedLinkParam.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SHARED_LINK_PARAM)
+  @JsonProperty(value = JSON_PROPERTY_SHARED_LINK_PARAM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSharedLinkParam_JsonNullable() {
     return sharedLinkParam;
   }
@@ -294,16 +274,14 @@ public class DocumentConfigDto {
    * The shared link key of the document.
    * @return sharedLinkKey
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSharedLinkKey() {
         return sharedLinkKey.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SHARED_LINK_KEY)
+  @JsonProperty(value = JSON_PROPERTY_SHARED_LINK_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSharedLinkKey_JsonNullable() {
     return sharedLinkKey;
   }
@@ -327,8 +305,7 @@ public class DocumentConfigDto {
    * Get referenceData
    * @return referenceData
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REFERENCE_DATA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REFERENCE_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FileReferenceData getReferenceData() {
@@ -336,7 +313,7 @@ public class DocumentConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REFERENCE_DATA)
+  @JsonProperty(value = JSON_PROPERTY_REFERENCE_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReferenceData(@javax.annotation.Nullable FileReferenceData referenceData) {
     this.referenceData = referenceData;
@@ -352,16 +329,14 @@ public class DocumentConfigDto {
    * The document title.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTitle() {
         return title.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
@@ -385,16 +360,14 @@ public class DocumentConfigDto {
    * The document url.
    * @return url
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public URI getUrl() {
         return url.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonProperty(value = JSON_PROPERTY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<URI> getUrl_JsonNullable() {
     return url;
   }
@@ -418,8 +391,7 @@ public class DocumentConfigDto {
    * Indicates whether this is a form.
    * @return isForm
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_FORM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_FORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsForm() {
@@ -427,7 +399,7 @@ public class DocumentConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_FORM)
+  @JsonProperty(value = JSON_PROPERTY_IS_FORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsForm(@javax.annotation.Nullable Boolean isForm) {
     this.isForm = isForm;
@@ -443,8 +415,7 @@ public class DocumentConfigDto {
    * Get options
    * @return options
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Options getOptions() {
@@ -452,7 +423,7 @@ public class DocumentConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOptions(@javax.annotation.Nullable Options options) {
     this.options = options;

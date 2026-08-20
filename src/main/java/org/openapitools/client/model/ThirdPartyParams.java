@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -49,28 +50,22 @@ import java.util.StringJoiner;
 
 public class ThirdPartyParams {
   public static final String JSON_PROPERTY_AUTH_DATA = "auth_data";
-  @javax.annotation.Nullable
-  private AuthData authData;
+  @javax.annotation.Nullable  private AuthData authData;
 
   public static final String JSON_PROPERTY_CORPORATE = "corporate";
-  @javax.annotation.Nullable
-  private Boolean corporate;
+  @javax.annotation.Nullable  private Boolean corporate;
 
   public static final String JSON_PROPERTY_ROOMS_STORAGE = "roomsStorage";
-  @javax.annotation.Nullable
-  private Boolean roomsStorage;
+  @javax.annotation.Nullable  private Boolean roomsStorage;
 
   public static final String JSON_PROPERTY_CUSTOMER_TITLE = "customer_title";
-  @javax.annotation.Nullable
-  private JsonNullable<String> customerTitle = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> customerTitle = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PROVIDER_ID = "provider_id";
-  @javax.annotation.Nullable
-  private JsonNullable<Integer> providerId = JsonNullable.<Integer>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Integer> providerId = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_PROVIDER_KEY = "provider_key";
-  @javax.annotation.Nullable
-  private JsonNullable<String> providerKey = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> providerKey = JsonNullable.<String>undefined();
 
   public ThirdPartyParams() {
   }
@@ -86,8 +81,7 @@ public class ThirdPartyParams {
    * Get authData
    * @return authData
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUTH_DATA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTH_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AuthData getAuthData() {
@@ -95,7 +89,7 @@ public class ThirdPartyParams {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AUTH_DATA)
+  @JsonProperty(value = JSON_PROPERTY_AUTH_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthData(@javax.annotation.Nullable AuthData authData) {
     this.authData = authData;
@@ -111,8 +105,7 @@ public class ThirdPartyParams {
    * Specifies if this is a corporate account or not.
    * @return corporate
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CORPORATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CORPORATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCorporate() {
@@ -120,7 +113,7 @@ public class ThirdPartyParams {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CORPORATE)
+  @JsonProperty(value = JSON_PROPERTY_CORPORATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCorporate(@javax.annotation.Nullable Boolean corporate) {
     this.corporate = corporate;
@@ -136,8 +129,7 @@ public class ThirdPartyParams {
    * Specifies if this is a room storage or not.
    * @return roomsStorage
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROOMS_STORAGE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOMS_STORAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getRoomsStorage() {
@@ -145,7 +137,7 @@ public class ThirdPartyParams {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROOMS_STORAGE)
+  @JsonProperty(value = JSON_PROPERTY_ROOMS_STORAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoomsStorage(@javax.annotation.Nullable Boolean roomsStorage) {
     this.roomsStorage = roomsStorage;
@@ -161,16 +153,14 @@ public class ThirdPartyParams {
    * The customer title.
    * @return customerTitle
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCustomerTitle() {
         return customerTitle.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CUSTOMER_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOMER_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCustomerTitle_JsonNullable() {
     return customerTitle;
   }
@@ -194,16 +184,14 @@ public class ThirdPartyParams {
    * The provider ID.
    * @return providerId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Integer getProviderId() {
         return providerId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PROVIDER_ID)
+  @JsonProperty(value = JSON_PROPERTY_PROVIDER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Integer> getProviderId_JsonNullable() {
     return providerId;
   }
@@ -227,16 +215,14 @@ public class ThirdPartyParams {
    * The provider key.
    * @return providerKey
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getProviderKey() {
         return providerKey.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PROVIDER_KEY)
+  @JsonProperty(value = JSON_PROPERTY_PROVIDER_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getProviderKey_JsonNullable() {
     return providerKey;
   }

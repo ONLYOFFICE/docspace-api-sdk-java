@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,6 +36,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -81,128 +82,97 @@ import java.util.StringJoiner;
 
 public class UserInfo {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private UUID id;
+  @javax.annotation.Nullable  private UUID id;
 
   public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> firstName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> firstName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LAST_NAME = "lastName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> lastName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> lastName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_USER_NAME = "userName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> userName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> userName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_BIRTH_DATE = "birthDate";
-  @javax.annotation.Nullable
-  private JsonNullable<OffsetDateTime> birthDate = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> birthDate = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_SEX = "sex";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> sex = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> sex = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_STATUS = "status";
-  @javax.annotation.Nullable
-  private EmployeeStatus status;
+  @javax.annotation.Nullable  private EmployeeStatus status;
 
   public static final String JSON_PROPERTY_ACTIVATION_STATUS = "activationStatus";
-  @javax.annotation.Nullable
-  private EmployeeActivationStatus activationStatus;
+  @javax.annotation.Nullable  private EmployeeActivationStatus activationStatus;
 
   public static final String JSON_PROPERTY_TERMINATED_DATE = "terminatedDate";
-  @javax.annotation.Nullable
-  private JsonNullable<OffsetDateTime> terminatedDate = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> terminatedDate = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_WORK_FROM_DATE = "workFromDate";
-  @javax.annotation.Nullable
-  private JsonNullable<OffsetDateTime> workFromDate = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> workFromDate = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nullable
-  private JsonNullable<String> email = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> email = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CONTACTS = "contacts";
-  @javax.annotation.Nullable
-  private JsonNullable<String> contacts = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> contacts = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CONTACTS_LIST = "contactsList";
-  @javax.annotation.Nullable
-  private JsonNullable<List<String>> contactsList = JsonNullable.<List<String>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> contactsList = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_LOCATION = "location";
-  @javax.annotation.Nullable
-  private JsonNullable<String> location = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> location = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NOTES = "notes";
-  @javax.annotation.Nullable
-  private JsonNullable<String> notes = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> notes = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REMOVED = "removed";
-  @javax.annotation.Nullable
-  private Boolean removed;
+  @javax.annotation.Nullable  private Boolean removed;
 
   public static final String JSON_PROPERTY_LAST_MODIFIED = "lastModified";
-  @javax.annotation.Nullable
-  private OffsetDateTime lastModified;
+  @javax.annotation.Nullable  private OffsetDateTime lastModified;
 
   public static final String JSON_PROPERTY_TENANT_ID = "tenantId";
-  @javax.annotation.Nullable
-  private Integer tenantId;
+  @javax.annotation.Nullable  private Integer tenantId;
 
   public static final String JSON_PROPERTY_IS_ACTIVE = "isActive";
-  @javax.annotation.Nullable
-  private Boolean isActive;
+  @javax.annotation.Nullable  private Boolean isActive;
 
   public static final String JSON_PROPERTY_CULTURE_NAME = "cultureName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> cultureName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> cultureName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_MOBILE_PHONE = "mobilePhone";
-  @javax.annotation.Nullable
-  private JsonNullable<String> mobilePhone = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> mobilePhone = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_MOBILE_PHONE_ACTIVATION_STATUS = "mobilePhoneActivationStatus";
-  @javax.annotation.Nullable
-  private MobilePhoneActivationStatus mobilePhoneActivationStatus;
+  @javax.annotation.Nullable  private MobilePhoneActivationStatus mobilePhoneActivationStatus;
 
   public static final String JSON_PROPERTY_SID = "sid";
-  @javax.annotation.Nullable
-  private JsonNullable<String> sid = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> sid = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LDAP_QOUTA = "ldapQouta";
-  @javax.annotation.Nullable
-  private Long ldapQouta;
+  @javax.annotation.Nullable  private Long ldapQouta;
 
   public static final String JSON_PROPERTY_SSO_NAME_ID = "ssoNameId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> ssoNameId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> ssoNameId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SSO_SESSION_ID = "ssoSessionId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> ssoSessionId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> ssoSessionId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CREATE_DATE = "createDate";
-  @javax.annotation.Nullable
-  private OffsetDateTime createDate;
+  @javax.annotation.Nullable  private OffsetDateTime createDate;
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
-  @javax.annotation.Nullable
-  private JsonNullable<UUID> createdBy = JsonNullable.<UUID>undefined();
+  @javax.annotation.Nullable  private JsonNullable<UUID> createdBy = JsonNullable.<UUID>undefined();
 
   public static final String JSON_PROPERTY_SPAM = "spam";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> spam = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> spam = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_CHECK_ACTIVATION = "checkActivation";
-  @javax.annotation.Nullable
-  private Boolean checkActivation;
+  @javax.annotation.Nullable  private Boolean checkActivation;
 
   public UserInfo() {
   }
@@ -230,8 +200,7 @@ public class UserInfo {
    * The user ID.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getId() {
@@ -239,7 +208,7 @@ public class UserInfo {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(@javax.annotation.Nullable UUID id) {
     this.id = id;
@@ -252,19 +221,17 @@ public class UserInfo {
   }
 
   /**
-   * The user first name.
+   * The user's first name.
    * @return firstName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFirstName() {
         return firstName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FIRST_NAME)
+  @JsonProperty(value = JSON_PROPERTY_FIRST_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFirstName_JsonNullable() {
     return firstName;
   }
@@ -285,19 +252,17 @@ public class UserInfo {
   }
 
   /**
-   * The user last name.
+   * The user's last name.
    * @return lastName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLastName() {
         return lastName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LAST_NAME)
+  @JsonProperty(value = JSON_PROPERTY_LAST_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLastName_JsonNullable() {
     return lastName;
   }
@@ -321,16 +286,14 @@ public class UserInfo {
    * The user username.
    * @return userName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getUserName() {
         return userName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_USER_NAME)
+  @JsonProperty(value = JSON_PROPERTY_USER_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getUserName_JsonNullable() {
     return userName;
   }
@@ -354,16 +317,14 @@ public class UserInfo {
    * The user birthday.
    * @return birthDate
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public OffsetDateTime getBirthDate() {
         return birthDate.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_BIRTH_DATE)
+  @JsonProperty(value = JSON_PROPERTY_BIRTH_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<OffsetDateTime> getBirthDate_JsonNullable() {
     return birthDate;
   }
@@ -387,16 +348,14 @@ public class UserInfo {
    * The user sex (male or female).
    * @return sex
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getSex() {
         return sex.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SEX)
+  @JsonProperty(value = JSON_PROPERTY_SEX, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getSex_JsonNullable() {
     return sex;
   }
@@ -420,8 +379,7 @@ public class UserInfo {
    * Get status
    * @return status
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EmployeeStatus getStatus() {
@@ -429,7 +387,7 @@ public class UserInfo {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(@javax.annotation.Nullable EmployeeStatus status) {
     this.status = status;
@@ -445,8 +403,7 @@ public class UserInfo {
    * Get activationStatus
    * @return activationStatus
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACTIVATION_STATUS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTIVATION_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EmployeeActivationStatus getActivationStatus() {
@@ -454,7 +411,7 @@ public class UserInfo {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACTIVATION_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_ACTIVATION_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActivationStatus(@javax.annotation.Nullable EmployeeActivationStatus activationStatus) {
     this.activationStatus = activationStatus;
@@ -470,16 +427,14 @@ public class UserInfo {
    * The date and time when the user account was terminated.
    * @return terminatedDate
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public OffsetDateTime getTerminatedDate() {
         return terminatedDate.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TERMINATED_DATE)
+  @JsonProperty(value = JSON_PROPERTY_TERMINATED_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<OffsetDateTime> getTerminatedDate_JsonNullable() {
     return terminatedDate;
   }
@@ -503,16 +458,14 @@ public class UserInfo {
    * The user title.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTitle() {
         return title.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
@@ -536,16 +489,14 @@ public class UserInfo {
    * The user registration date.
    * @return workFromDate
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public OffsetDateTime getWorkFromDate() {
         return workFromDate.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_WORK_FROM_DATE)
+  @JsonProperty(value = JSON_PROPERTY_WORK_FROM_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<OffsetDateTime> getWorkFromDate_JsonNullable() {
     return workFromDate;
   }
@@ -569,16 +520,14 @@ public class UserInfo {
    * The user email address.
    * @return email
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getEmail() {
         return email.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getEmail_JsonNullable() {
     return email;
   }
@@ -602,16 +551,14 @@ public class UserInfo {
    * The list of user contacts in the string format.
    * @return contacts
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getContacts() {
         return contacts.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CONTACTS)
+  @JsonProperty(value = JSON_PROPERTY_CONTACTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getContacts_JsonNullable() {
     return contacts;
   }
@@ -647,16 +594,14 @@ public class UserInfo {
    * The list of user contacts.
    * @return contactsList
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<String> getContactsList() {
         return contactsList.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CONTACTS_LIST)
+  @JsonProperty(value = JSON_PROPERTY_CONTACTS_LIST, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<String>> getContactsList_JsonNullable() {
     return contactsList;
   }
@@ -680,16 +625,14 @@ public class UserInfo {
    * The user location.
    * @return location
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLocation() {
         return location.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LOCATION)
+  @JsonProperty(value = JSON_PROPERTY_LOCATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLocation_JsonNullable() {
     return location;
   }
@@ -713,16 +656,14 @@ public class UserInfo {
    * The user notes.
    * @return notes
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getNotes() {
         return notes.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_NOTES)
+  @JsonProperty(value = JSON_PROPERTY_NOTES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getNotes_JsonNullable() {
     return notes;
   }
@@ -746,8 +687,7 @@ public class UserInfo {
    * Specifies if the user account was removed or not.
    * @return removed
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REMOVED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REMOVED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getRemoved() {
@@ -755,7 +695,7 @@ public class UserInfo {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REMOVED)
+  @JsonProperty(value = JSON_PROPERTY_REMOVED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemoved(@javax.annotation.Nullable Boolean removed) {
     this.removed = removed;
@@ -771,8 +711,7 @@ public class UserInfo {
    * The date and time when the user account was last modified.
    * @return lastModified
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLastModified() {
@@ -780,7 +719,7 @@ public class UserInfo {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
     this.lastModified = lastModified;
@@ -796,8 +735,7 @@ public class UserInfo {
    * The tenant ID.
    * @return tenantId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getTenantId() {
@@ -805,7 +743,7 @@ public class UserInfo {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTenantId(@javax.annotation.Nullable Integer tenantId) {
     this.tenantId = tenantId;
@@ -815,8 +753,7 @@ public class UserInfo {
    * Specifies if the user is active or not.
    * @return isActive
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_ACTIVE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_ACTIVE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsActive() {
@@ -835,16 +772,14 @@ public class UserInfo {
    * The user culture code.
    * @return cultureName
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCultureName() {
         return cultureName.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CULTURE_NAME)
+  @JsonProperty(value = JSON_PROPERTY_CULTURE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCultureName_JsonNullable() {
     return cultureName;
   }
@@ -868,16 +803,14 @@ public class UserInfo {
    * The user mobile phone.
    * @return mobilePhone
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getMobilePhone() {
         return mobilePhone.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MOBILE_PHONE)
+  @JsonProperty(value = JSON_PROPERTY_MOBILE_PHONE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getMobilePhone_JsonNullable() {
     return mobilePhone;
   }
@@ -901,8 +834,7 @@ public class UserInfo {
    * Get mobilePhoneActivationStatus
    * @return mobilePhoneActivationStatus
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MOBILE_PHONE_ACTIVATION_STATUS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MOBILE_PHONE_ACTIVATION_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public MobilePhoneActivationStatus getMobilePhoneActivationStatus() {
@@ -910,7 +842,7 @@ public class UserInfo {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MOBILE_PHONE_ACTIVATION_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_MOBILE_PHONE_ACTIVATION_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMobilePhoneActivationStatus(@javax.annotation.Nullable MobilePhoneActivationStatus mobilePhoneActivationStatus) {
     this.mobilePhoneActivationStatus = mobilePhoneActivationStatus;
@@ -923,19 +855,17 @@ public class UserInfo {
   }
 
   /**
-   * The LDAP user identificator.
+   * The LDAP user identifier.
    * @return sid
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSid() {
         return sid.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SID)
+  @JsonProperty(value = JSON_PROPERTY_SID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSid_JsonNullable() {
     return sid;
   }
@@ -959,8 +889,7 @@ public class UserInfo {
    * The LDAP user quota attribute.
    * @return ldapQouta
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LDAP_QOUTA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LDAP_QOUTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getLdapQouta() {
@@ -968,7 +897,7 @@ public class UserInfo {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LDAP_QOUTA)
+  @JsonProperty(value = JSON_PROPERTY_LDAP_QOUTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLdapQouta(@javax.annotation.Nullable Long ldapQouta) {
     this.ldapQouta = ldapQouta;
@@ -981,19 +910,17 @@ public class UserInfo {
   }
 
   /**
-   * The SSO SAML user identificator.
+   * The SSO SAML user identifier.
    * @return ssoNameId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSsoNameId() {
         return ssoNameId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SSO_NAME_ID)
+  @JsonProperty(value = JSON_PROPERTY_SSO_NAME_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSsoNameId_JsonNullable() {
     return ssoNameId;
   }
@@ -1014,19 +941,17 @@ public class UserInfo {
   }
 
   /**
-   * The SSO SAML user session identificator.
+   * The SSO SAML user session identifier.
    * @return ssoSessionId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSsoSessionId() {
         return ssoSessionId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SSO_SESSION_ID)
+  @JsonProperty(value = JSON_PROPERTY_SSO_SESSION_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSsoSessionId_JsonNullable() {
     return ssoSessionId;
   }
@@ -1050,8 +975,7 @@ public class UserInfo {
    * The date and time when the user account was created.
    * @return createDate
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATE_DATE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getCreateDate() {
@@ -1059,7 +983,7 @@ public class UserInfo {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATE_DATE)
+  @JsonProperty(value = JSON_PROPERTY_CREATE_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreateDate(@javax.annotation.Nullable OffsetDateTime createDate) {
     this.createDate = createDate;
@@ -1075,16 +999,14 @@ public class UserInfo {
    * The ID of the user who created the current user account.
    * @return createdBy
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public UUID getCreatedBy() {
         return createdBy.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CREATED_BY)
+  @JsonProperty(value = JSON_PROPERTY_CREATED_BY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<UUID> getCreatedBy_JsonNullable() {
     return createdBy;
   }
@@ -1108,16 +1030,14 @@ public class UserInfo {
    * Specifies if tips, updates and offers are allowed to be sent to the user or not.
    * @return spam
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getSpam() {
         return spam.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SPAM)
+  @JsonProperty(value = JSON_PROPERTY_SPAM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getSpam_JsonNullable() {
     return spam;
   }
@@ -1132,11 +1052,10 @@ public class UserInfo {
   }
 
   /**
-   * Get checkActivation
+   * Indicates whether the activation status of the employee or recipient is unchecked or inactive.  Depending on the context, this property evaluates the activation or eligibility status accordingly.
    * @return checkActivation
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHECK_ACTIVATION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CHECK_ACTIVATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCheckActivation() {

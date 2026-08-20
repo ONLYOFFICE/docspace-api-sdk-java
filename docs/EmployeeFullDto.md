@@ -9,8 +9,7 @@ The full list of user parameters.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** | The user ID. |  [optional] |
-|**displayName** | **String** | The user display name. |  [optional] |
-|**title** | **String** | The user title. |  [optional] |
+|**displayName** | **String** | The HTML-encoded user's display name formatted according to the default format for the current culture. |  [optional] |
 |**avatar** | **String** | The user avatar. |  [optional] |
 |**avatarOriginal** | **String** | The user original size avatar. |  [optional] |
 |**avatarMax** | **String** | The user maximum size avatar. |  [optional] |
@@ -24,13 +23,10 @@ The full list of user parameters.
 |**userName** | **String** | The user username. |  [optional] |
 |**email** | **String** | The user email. |  [optional] |
 |**contacts** | [**List&lt;Contact&gt;**](Contact.md) | The list of user contacts. |  [optional] |
-|**birthday** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
-|**sex** | **String** | The user sex. |  [optional] |
 |**status** | **EmployeeStatus** |  |  [optional] |
 |**activationStatus** | **EmployeeActivationStatus** |  |  [optional] |
 |**terminated** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
 |**department** | **String** | The user department. |  [optional] |
-|**workFrom** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
 |**groups** | [**List&lt;GroupSummaryDto&gt;**](GroupSummaryDto.md) | The list of user groups. |  [optional] |
 |**location** | **String** | The user location. |  [optional] |
 |**notes** | **String** | The user notes. |  [optional] |

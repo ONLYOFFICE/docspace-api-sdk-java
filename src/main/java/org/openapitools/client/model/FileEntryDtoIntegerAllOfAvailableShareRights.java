@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -47,24 +48,19 @@ import java.util.StringJoiner;
 
 public class FileEntryDtoIntegerAllOfAvailableShareRights {
   public static final String JSON_PROPERTY_USER = "User";
-  @javax.annotation.Nullable
-  private List<String> user = new ArrayList<>();
+  @javax.annotation.Nullable  private List<String> user = new ArrayList<>();
 
   public static final String JSON_PROPERTY_EXTERNAL_LINK = "ExternalLink";
-  @javax.annotation.Nullable
-  private List<String> externalLink = new ArrayList<>();
+  @javax.annotation.Nullable  private List<String> externalLink = new ArrayList<>();
 
   public static final String JSON_PROPERTY_GROUP = "Group";
-  @javax.annotation.Nullable
-  private List<String> group = new ArrayList<>();
+  @javax.annotation.Nullable  private List<String> group = new ArrayList<>();
 
   public static final String JSON_PROPERTY_INVITATION_LINK = "InvitationLink";
-  @javax.annotation.Nullable
-  private List<String> invitationLink = new ArrayList<>();
+  @javax.annotation.Nullable  private List<String> invitationLink = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PRIMARY_EXTERNAL_LINK = "PrimaryExternalLink";
-  @javax.annotation.Nullable
-  private List<String> primaryExternalLink = new ArrayList<>();
+  @javax.annotation.Nullable  private List<String> primaryExternalLink = new ArrayList<>();
 
   public FileEntryDtoIntegerAllOfAvailableShareRights() {
   }
@@ -88,8 +84,7 @@ public class FileEntryDtoIntegerAllOfAvailableShareRights {
    * Get user
    * @return user
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getUser() {
@@ -97,7 +92,7 @@ public class FileEntryDtoIntegerAllOfAvailableShareRights {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USER)
+  @JsonProperty(value = JSON_PROPERTY_USER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUser(@javax.annotation.Nullable List<String> user) {
     this.user = user;
@@ -121,8 +116,7 @@ public class FileEntryDtoIntegerAllOfAvailableShareRights {
    * Get externalLink
    * @return externalLink
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXTERNAL_LINK)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getExternalLink() {
@@ -130,7 +124,7 @@ public class FileEntryDtoIntegerAllOfAvailableShareRights {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXTERNAL_LINK)
+  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalLink(@javax.annotation.Nullable List<String> externalLink) {
     this.externalLink = externalLink;
@@ -154,8 +148,7 @@ public class FileEntryDtoIntegerAllOfAvailableShareRights {
    * Get group
    * @return group
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GROUP)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GROUP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getGroup() {
@@ -163,7 +156,7 @@ public class FileEntryDtoIntegerAllOfAvailableShareRights {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonProperty(value = JSON_PROPERTY_GROUP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGroup(@javax.annotation.Nullable List<String> group) {
     this.group = group;
@@ -187,8 +180,7 @@ public class FileEntryDtoIntegerAllOfAvailableShareRights {
    * Get invitationLink
    * @return invitationLink
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INVITATION_LINK)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INVITATION_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getInvitationLink() {
@@ -196,7 +188,7 @@ public class FileEntryDtoIntegerAllOfAvailableShareRights {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INVITATION_LINK)
+  @JsonProperty(value = JSON_PROPERTY_INVITATION_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInvitationLink(@javax.annotation.Nullable List<String> invitationLink) {
     this.invitationLink = invitationLink;
@@ -220,8 +212,7 @@ public class FileEntryDtoIntegerAllOfAvailableShareRights {
    * Get primaryExternalLink
    * @return primaryExternalLink
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRIMARY_EXTERNAL_LINK)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRIMARY_EXTERNAL_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getPrimaryExternalLink() {
@@ -229,7 +220,7 @@ public class FileEntryDtoIntegerAllOfAvailableShareRights {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PRIMARY_EXTERNAL_LINK)
+  @JsonProperty(value = JSON_PROPERTY_PRIMARY_EXTERNAL_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrimaryExternalLink(@javax.annotation.Nullable List<String> primaryExternalLink) {
     this.primaryExternalLink = primaryExternalLink;

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.UUID;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -42,16 +43,13 @@ import java.util.StringJoiner;
 
 public class ProductAdministratorDto {
   public static final String JSON_PROPERTY_PRODUCT_ID = "productId";
-  @javax.annotation.Nonnull
-  private UUID productId;
+  @javax.annotation.Nonnull  private UUID productId;
 
   public static final String JSON_PROPERTY_USER_ID = "userId";
-  @javax.annotation.Nonnull
-  private UUID userId;
+  @javax.annotation.Nonnull  private UUID userId;
 
   public static final String JSON_PROPERTY_ADMINISTRATOR = "administrator";
-  @javax.annotation.Nonnull
-  private Boolean administrator;
+  @javax.annotation.Nonnull  private Boolean administrator;
 
   public ProductAdministratorDto() {
   }
@@ -67,8 +65,7 @@ public class ProductAdministratorDto {
    * The product ID.
    * @return productId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PRODUCT_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PRODUCT_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getProductId() {
@@ -76,7 +73,7 @@ public class ProductAdministratorDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PRODUCT_ID)
+  @JsonProperty(value = JSON_PROPERTY_PRODUCT_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProductId(@javax.annotation.Nonnull UUID productId) {
     this.productId = productId;
@@ -92,8 +89,7 @@ public class ProductAdministratorDto {
    * The user unique identifier.
    * @return userId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_USER_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getUserId() {
@@ -101,7 +97,7 @@ public class ProductAdministratorDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USER_ID)
+  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUserId(@javax.annotation.Nonnull UUID userId) {
     this.userId = userId;
@@ -117,8 +113,7 @@ public class ProductAdministratorDto {
    * Indicates whether the user has administrator privileges for the product.
    * @return administrator
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ADMINISTRATOR)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ADMINISTRATOR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getAdministrator() {
@@ -126,7 +121,7 @@ public class ProductAdministratorDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ADMINISTRATOR)
+  @JsonProperty(value = JSON_PROPERTY_ADMINISTRATOR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAdministrator(@javax.annotation.Nonnull Boolean administrator) {
     this.administrator = administrator;

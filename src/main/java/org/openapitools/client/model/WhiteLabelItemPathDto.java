@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -44,12 +45,10 @@ import java.util.StringJoiner;
 
 public class WhiteLabelItemPathDto {
   public static final String JSON_PROPERTY_LIGHT = "light";
-  @javax.annotation.Nullable
-  private JsonNullable<String> light = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> light = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DARK = "dark";
-  @javax.annotation.Nullable
-  private JsonNullable<String> dark = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> dark = JsonNullable.<String>undefined();
 
   public WhiteLabelItemPathDto() {
   }
@@ -65,16 +64,14 @@ public class WhiteLabelItemPathDto {
    * The path to the light theme logo.
    * @return light
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLight() {
         return light.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LIGHT)
+  @JsonProperty(value = JSON_PROPERTY_LIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLight_JsonNullable() {
     return light;
   }
@@ -98,16 +95,14 @@ public class WhiteLabelItemPathDto {
    * The path to the dark theme logo.
    * @return dark
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getDark() {
         return dark.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DARK)
+  @JsonProperty(value = JSON_PROPERTY_DARK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getDark_JsonNullable() {
     return dark;
   }

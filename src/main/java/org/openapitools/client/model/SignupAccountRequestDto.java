@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -40,10 +41,6 @@ import java.util.StringJoiner;
  */
 @JsonPropertyOrder({
   SignupAccountRequestDto.JSON_PROPERTY_EMPLOYEE_TYPE,
-  SignupAccountRequestDto.JSON_PROPERTY_FIRST_NAME,
-  SignupAccountRequestDto.JSON_PROPERTY_LAST_NAME,
-  SignupAccountRequestDto.JSON_PROPERTY_EMAIL,
-  SignupAccountRequestDto.JSON_PROPERTY_PASSWORD_HASH,
   SignupAccountRequestDto.JSON_PROPERTY_KEY,
   SignupAccountRequestDto.JSON_PROPERTY_CULTURE,
   SignupAccountRequestDto.JSON_PROPERTY_SERIALIZED_PROFILE
@@ -51,36 +48,16 @@ import java.util.StringJoiner;
 
 public class SignupAccountRequestDto {
   public static final String JSON_PROPERTY_EMPLOYEE_TYPE = "employeeType";
-  @javax.annotation.Nullable
-  private EmployeeType employeeType;
-
-  public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> firstName = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_LAST_NAME = "lastName";
-  @javax.annotation.Nullable
-  private JsonNullable<String> lastName = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nullable
-  private JsonNullable<String> email = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_PASSWORD_HASH = "passwordHash";
-  @javax.annotation.Nullable
-  private JsonNullable<String> passwordHash = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private EmployeeType employeeType;
 
   public static final String JSON_PROPERTY_KEY = "key";
-  @javax.annotation.Nullable
-  private String key;
+  @javax.annotation.Nullable  private String key;
 
   public static final String JSON_PROPERTY_CULTURE = "culture";
-  @javax.annotation.Nullable
-  private JsonNullable<String> culture = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> culture = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SERIALIZED_PROFILE = "serializedProfile";
-  @javax.annotation.Nullable
-  private String serializedProfile;
+  @javax.annotation.Nullable  private String serializedProfile;
 
   public SignupAccountRequestDto() {
   }
@@ -96,8 +73,7 @@ public class SignupAccountRequestDto {
    * Get employeeType
    * @return employeeType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMPLOYEE_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMPLOYEE_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EmployeeType getEmployeeType() {
@@ -105,142 +81,10 @@ public class SignupAccountRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMPLOYEE_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_EMPLOYEE_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmployeeType(@javax.annotation.Nullable EmployeeType employeeType) {
     this.employeeType = employeeType;
-  }
-
-  public SignupAccountRequestDto firstName(@javax.annotation.Nullable String firstName) {
-    this.firstName = JsonNullable.<String>of(firstName);
-    
-    return this;
-  }
-
-  /**
-   * The user first name.
-   * @return firstName
-   */
-  @javax.annotation.Nullable
-  @JsonIgnore
-
-  public String getFirstName() {
-        return firstName.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_FIRST_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getFirstName_JsonNullable() {
-    return firstName;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_FIRST_NAME)
-  public void setFirstName_JsonNullable(JsonNullable<String> firstName) {
-    this.firstName = firstName;
-  }
-
-  public void setFirstName(@javax.annotation.Nullable String firstName) {
-    this.firstName = JsonNullable.<String>of(firstName);
-  }
-
-  public SignupAccountRequestDto lastName(@javax.annotation.Nullable String lastName) {
-    this.lastName = JsonNullable.<String>of(lastName);
-    
-    return this;
-  }
-
-  /**
-   * The user last name.
-   * @return lastName
-   */
-  @javax.annotation.Nullable
-  @JsonIgnore
-
-  public String getLastName() {
-        return lastName.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_LAST_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getLastName_JsonNullable() {
-    return lastName;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_LAST_NAME)
-  public void setLastName_JsonNullable(JsonNullable<String> lastName) {
-    this.lastName = lastName;
-  }
-
-  public void setLastName(@javax.annotation.Nullable String lastName) {
-    this.lastName = JsonNullable.<String>of(lastName);
-  }
-
-  public SignupAccountRequestDto email(@javax.annotation.Nullable String email) {
-    this.email = JsonNullable.<String>of(email);
-    
-    return this;
-  }
-
-  /**
-   * The user email address.
-   * @return email
-   */
-  @javax.annotation.Nullable
-  @JsonIgnore
-
-  public String getEmail() {
-        return email.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getEmail_JsonNullable() {
-    return email;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_EMAIL)
-  public void setEmail_JsonNullable(JsonNullable<String> email) {
-    this.email = email;
-  }
-
-  public void setEmail(@javax.annotation.Nullable String email) {
-    this.email = JsonNullable.<String>of(email);
-  }
-
-  public SignupAccountRequestDto passwordHash(@javax.annotation.Nullable String passwordHash) {
-    this.passwordHash = JsonNullable.<String>of(passwordHash);
-    
-    return this;
-  }
-
-  /**
-   * The user password hash.
-   * @return passwordHash
-   */
-  @javax.annotation.Nullable
-  @JsonIgnore
-
-  public String getPasswordHash() {
-        return passwordHash.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PASSWORD_HASH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getPasswordHash_JsonNullable() {
-    return passwordHash;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_PASSWORD_HASH)
-  public void setPasswordHash_JsonNullable(JsonNullable<String> passwordHash) {
-    this.passwordHash = passwordHash;
-  }
-
-  public void setPasswordHash(@javax.annotation.Nullable String passwordHash) {
-    this.passwordHash = JsonNullable.<String>of(passwordHash);
   }
 
   public SignupAccountRequestDto key(@javax.annotation.Nullable String key) {
@@ -253,8 +97,7 @@ public class SignupAccountRequestDto {
    * The user link key.
    * @return key
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KEY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getKey() {
@@ -262,7 +105,7 @@ public class SignupAccountRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KEY)
+  @JsonProperty(value = JSON_PROPERTY_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setKey(@javax.annotation.Nullable String key) {
     this.key = key;
@@ -278,16 +121,14 @@ public class SignupAccountRequestDto {
    * The user culture code.
    * @return culture
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCulture() {
         return culture.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CULTURE)
+  @JsonProperty(value = JSON_PROPERTY_CULTURE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCulture_JsonNullable() {
     return culture;
   }
@@ -311,8 +152,7 @@ public class SignupAccountRequestDto {
    * The third-party profile in the serialized format
    * @return serializedProfile
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERIALIZED_PROFILE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SERIALIZED_PROFILE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getSerializedProfile() {
@@ -320,7 +160,7 @@ public class SignupAccountRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SERIALIZED_PROFILE)
+  @JsonProperty(value = JSON_PROPERTY_SERIALIZED_PROFILE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSerializedProfile(@javax.annotation.Nullable String serializedProfile) {
     this.serializedProfile = serializedProfile;
@@ -336,10 +176,6 @@ public class SignupAccountRequestDto {
     }
     SignupAccountRequestDto signupAccountRequestDto = (SignupAccountRequestDto) o;
     return Objects.equals(this.employeeType, signupAccountRequestDto.employeeType) &&
-        equalsNullable(this.firstName, signupAccountRequestDto.firstName) &&
-        equalsNullable(this.lastName, signupAccountRequestDto.lastName) &&
-        equalsNullable(this.email, signupAccountRequestDto.email) &&
-        equalsNullable(this.passwordHash, signupAccountRequestDto.passwordHash) &&
         Objects.equals(this.key, signupAccountRequestDto.key) &&
         equalsNullable(this.culture, signupAccountRequestDto.culture) &&
         Objects.equals(this.serializedProfile, signupAccountRequestDto.serializedProfile);
@@ -351,7 +187,7 @@ public class SignupAccountRequestDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(employeeType, hashCodeNullable(firstName), hashCodeNullable(lastName), hashCodeNullable(email), hashCodeNullable(passwordHash), key, hashCodeNullable(culture), serializedProfile);
+    return Objects.hash(employeeType, key, hashCodeNullable(culture), serializedProfile);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -366,10 +202,6 @@ public class SignupAccountRequestDto {
     StringBuilder sb = new StringBuilder();
     sb.append("class SignupAccountRequestDto {\n");
     sb.append("    employeeType: ").append(toIndentedString(employeeType)).append("\n");
-    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
-    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    passwordHash: ").append(toIndentedString(passwordHash)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    culture: ").append(toIndentedString(culture)).append("\n");
     sb.append("    serializedProfile: ").append(toIndentedString(serializedProfile)).append("\n");
@@ -424,46 +256,6 @@ public class SignupAccountRequestDto {
     if (getEmployeeType() != null) {
       try {
         joiner.add(String.format("%semployeeType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmployeeType()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `firstName` to the URL query string
-    if (getFirstName() != null) {
-      try {
-        joiner.add(String.format("%sfirstName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFirstName()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `lastName` to the URL query string
-    if (getLastName() != null) {
-      try {
-        joiner.add(String.format("%slastName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLastName()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `email` to the URL query string
-    if (getEmail() != null) {
-      try {
-        joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmail()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `passwordHash` to the URL query string
-    if (getPasswordHash() != null) {
-      try {
-        joiner.add(String.format("%spasswordHash%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPasswordHash()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

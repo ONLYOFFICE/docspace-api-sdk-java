@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -40,12 +41,10 @@ import java.util.StringJoiner;
 
 public class Delete {
   public static final String JSON_PROPERTY_DELETE_AFTER = "deleteAfter";
-  @javax.annotation.Nullable
-  private Boolean deleteAfter;
+  @javax.annotation.Nullable  private Boolean deleteAfter;
 
   public static final String JSON_PROPERTY_IMMEDIATELY = "immediately";
-  @javax.annotation.Nullable
-  private Boolean immediately;
+  @javax.annotation.Nullable  private Boolean immediately;
 
   public Delete() {
   }
@@ -61,8 +60,7 @@ public class Delete {
    * Specifies whether to delete a file after the editing session is finished or not.
    * @return deleteAfter
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DELETE_AFTER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DELETE_AFTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDeleteAfter() {
@@ -70,7 +68,7 @@ public class Delete {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DELETE_AFTER)
+  @JsonProperty(value = JSON_PROPERTY_DELETE_AFTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeleteAfter(@javax.annotation.Nullable Boolean deleteAfter) {
     this.deleteAfter = deleteAfter;
@@ -86,8 +84,7 @@ public class Delete {
    * Specifies whether to move a file to the \\Trash\\ folder or delete it immediately.
    * @return immediately
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IMMEDIATELY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMMEDIATELY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getImmediately() {
@@ -95,7 +92,7 @@ public class Delete {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IMMEDIATELY)
+  @JsonProperty(value = JSON_PROPERTY_IMMEDIATELY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImmediately(@javax.annotation.Nullable Boolean immediately) {
     this.immediately = immediately;

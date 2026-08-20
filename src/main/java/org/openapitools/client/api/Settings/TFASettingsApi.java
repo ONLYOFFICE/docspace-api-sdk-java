@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,9 +25,10 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.BooleanWrapper;
-import org.openapitools.client.model.ObjectArrayWrapper;
 import org.openapitools.client.model.SetupCodeWrapper;
 import org.openapitools.client.model.StringWrapper;
+import org.openapitools.client.model.TfaAppCodeArrayWrapper;
+import org.openapitools.client.model.TfaConfirmDataWrapper;
 import org.openapitools.client.model.TfaRequestsDto;
 import org.openapitools.client.model.TfaSettingsArrayWrapper;
 import org.openapitools.client.model.TfaValidateRequestsDto;
@@ -58,10 +59,10 @@ public class TFASettingsApi extends BaseApi {
    * REST API Reference for getTfaAppCodes Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/
    *
-   * @return ObjectArrayWrapper
+   * @return TfaAppCodeArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public ObjectArrayWrapper getTfaAppCodes() throws ApiException {
+  public TfaAppCodeArrayWrapper getTfaAppCodes() throws ApiException {
     return this.getTfaAppCodes(Collections.emptyMap());
   }
 
@@ -74,10 +75,10 @@ public class TFASettingsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return ObjectArrayWrapper
+   * @return TfaAppCodeArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public ObjectArrayWrapper getTfaAppCodes(Map<String, String> additionalHeaders) throws ApiException {
+  public TfaAppCodeArrayWrapper getTfaAppCodes(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -109,7 +110,7 @@ public class TFASettingsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ObjectArrayWrapper> localVarReturnType = new TypeReference<ObjectArrayWrapper>() {};
+    TypeReference<TfaAppCodeArrayWrapper> localVarReturnType = new TypeReference<TfaAppCodeArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -128,32 +129,32 @@ public class TFASettingsApi extends BaseApi {
   }
 
   /**
-   * Get confirmation email
-   * Returns the confirmation email URL for authorization via SMS or TFA application.
+   * Get TFA confirmation data
+   * Returns the confirmation data for authorization via SMS or TFA application.
    *
-   * REST API Reference for getTfaConfirmUrl Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/
+   * REST API Reference for getTfaConfirmData Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-data/
    *
-   * @return StringWrapper
+   * @return TfaConfirmDataWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper getTfaConfirmUrl() throws ApiException {
-    return this.getTfaConfirmUrl(Collections.emptyMap());
+  public TfaConfirmDataWrapper getTfaConfirmData() throws ApiException {
+    return this.getTfaConfirmData(Collections.emptyMap());
   }
 
 
   /**
-   * Get confirmation email
-   * Returns the confirmation email URL for authorization via SMS or TFA application.
+   * Get TFA confirmation data
+   * Returns the confirmation data for authorization via SMS or TFA application.
    *
-   * REST API Reference for getTfaConfirmUrl Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/
+   * REST API Reference for getTfaConfirmData Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-data/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return StringWrapper
+   * @return TfaConfirmDataWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper getTfaConfirmUrl(Map<String, String> additionalHeaders) throws ApiException {
+  public TfaConfirmDataWrapper getTfaConfirmData(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -185,7 +186,7 @@ public class TFASettingsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<StringWrapper> localVarReturnType = new TypeReference<StringWrapper>() {};
+    TypeReference<TfaConfirmDataWrapper> localVarReturnType = new TypeReference<TfaConfirmDataWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -518,10 +519,10 @@ public class TFASettingsApi extends BaseApi {
    * REST API Reference for updateTfaAppCodes Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/
    *
-   * @return ObjectArrayWrapper
+   * @return TfaAppCodeArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public ObjectArrayWrapper updateTfaAppCodes() throws ApiException {
+  public TfaAppCodeArrayWrapper updateTfaAppCodes() throws ApiException {
     return this.updateTfaAppCodes(Collections.emptyMap());
   }
 
@@ -534,10 +535,10 @@ public class TFASettingsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return ObjectArrayWrapper
+   * @return TfaAppCodeArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public ObjectArrayWrapper updateTfaAppCodes(Map<String, String> additionalHeaders) throws ApiException {
+  public TfaAppCodeArrayWrapper updateTfaAppCodes(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -569,7 +570,7 @@ public class TFASettingsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ObjectArrayWrapper> localVarReturnType = new TypeReference<ObjectArrayWrapper>() {};
+    TypeReference<TfaAppCodeArrayWrapper> localVarReturnType = new TypeReference<TfaAppCodeArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
@@ -666,8 +667,8 @@ public class TFASettingsApi extends BaseApi {
   }
 
   /**
-   * Get a confirmation email for updating TFA settings
-   * Returns the confirmation email URL for updating TFA settings.
+   * Updates TFA settings
+   * Updates TFA settings and returns the confirmation URL for authorization via SMS or TFA application.
    *
    * REST API Reference for updateTfaSettingsLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/
@@ -682,8 +683,8 @@ public class TFASettingsApi extends BaseApi {
 
 
   /**
-   * Get a confirmation email for updating TFA settings
-   * Returns the confirmation email URL for updating TFA settings.
+   * Updates TFA settings
+   * Updates TFA settings and returns the confirmation URL for authorization via SMS or TFA application.
    *
    * REST API Reference for updateTfaSettingsLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -83,10 +83,10 @@ public class sample {
         FolderContentIntegerWrapper rooms = roomsApi
             .withFields("current.security,folders.id")
             .getRoomsFolder(
-                Collections.emptyList(), null, SearchArea.Active, null, null,
+                Collections.emptyList(), null, null, SearchArea.Active, null,
                 null, null, null, null, null,
-                100, 0, "DateAndTime", SortOrder.Descending,
-                null
+                null, 100, 0, "DateAndTime", SortOrder.Descending,
+                null, null
             );
 
         System.out.println("Rooms status: " + rooms.getStatusCode());

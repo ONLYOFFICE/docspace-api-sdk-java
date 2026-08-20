@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -45,20 +46,16 @@ import java.util.StringJoiner;
 
 public class DeleteVersionBatchRequestDto {
   public static final String JSON_PROPERTY_RETURN_SINGLE_OPERATION = "returnSingleOperation";
-  @javax.annotation.Nullable
-  private Boolean returnSingleOperation;
+  @javax.annotation.Nullable  private Boolean returnSingleOperation;
 
   public static final String JSON_PROPERTY_DELETE_AFTER = "deleteAfter";
-  @javax.annotation.Nullable
-  private Boolean deleteAfter;
+  @javax.annotation.Nullable  private Boolean deleteAfter;
 
   public static final String JSON_PROPERTY_FILE_ID = "fileId";
-  @javax.annotation.Nonnull
-  private Integer fileId;
+  @javax.annotation.Nonnull  private Integer fileId;
 
   public static final String JSON_PROPERTY_VERSIONS = "versions";
-  @javax.annotation.Nullable
-  private List<Integer> versions;
+  @javax.annotation.Nullable  private List<Integer> versions;
 
   public DeleteVersionBatchRequestDto() {
   }
@@ -74,8 +71,7 @@ public class DeleteVersionBatchRequestDto {
    * Specifies whether to return only the current operation
    * @return returnSingleOperation
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RETURN_SINGLE_OPERATION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RETURN_SINGLE_OPERATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getReturnSingleOperation() {
@@ -83,7 +79,7 @@ public class DeleteVersionBatchRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RETURN_SINGLE_OPERATION)
+  @JsonProperty(value = JSON_PROPERTY_RETURN_SINGLE_OPERATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReturnSingleOperation(@javax.annotation.Nullable Boolean returnSingleOperation) {
     this.returnSingleOperation = returnSingleOperation;
@@ -99,8 +95,7 @@ public class DeleteVersionBatchRequestDto {
    * Specifies whether to delete a file after the editing session is finished or not.
    * @return deleteAfter
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DELETE_AFTER)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DELETE_AFTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDeleteAfter() {
@@ -108,7 +103,7 @@ public class DeleteVersionBatchRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DELETE_AFTER)
+  @JsonProperty(value = JSON_PROPERTY_DELETE_AFTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeleteAfter(@javax.annotation.Nullable Boolean deleteAfter) {
     this.deleteAfter = deleteAfter;
@@ -124,8 +119,7 @@ public class DeleteVersionBatchRequestDto {
    * The file ID to delete.
    * @return fileId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FILE_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_FILE_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getFileId() {
@@ -133,7 +127,7 @@ public class DeleteVersionBatchRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE_ID)
+  @JsonProperty(value = JSON_PROPERTY_FILE_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFileId(@javax.annotation.Nonnull Integer fileId) {
     this.fileId = fileId;
@@ -157,8 +151,7 @@ public class DeleteVersionBatchRequestDto {
    * The collection of file versions to be deleted.
    * @return versions
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSIONS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VERSIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<Integer> getVersions() {
@@ -166,7 +159,7 @@ public class DeleteVersionBatchRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSIONS)
+  @JsonProperty(value = JSON_PROPERTY_VERSIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVersions(@javax.annotation.Nullable List<Integer> versions) {
     this.versions = versions;

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -47,20 +48,16 @@ import java.util.StringJoiner;
 
 public class RoomDataLifetimeDto {
   public static final String JSON_PROPERTY_DELETE_PERMANENTLY = "deletePermanently";
-  @javax.annotation.Nullable
-  private Boolean deletePermanently;
+  @javax.annotation.Nullable  private Boolean deletePermanently;
 
   public static final String JSON_PROPERTY_PERIOD = "period";
-  @javax.annotation.Nullable
-  private RoomDataLifetimePeriod period;
+  @javax.annotation.Nullable  private RoomDataLifetimePeriod period;
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  @javax.annotation.Nullable
-  private JsonNullable<Integer> value = JsonNullable.<Integer>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Integer> value = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> enabled = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> enabled = JsonNullable.<Boolean>undefined();
 
   public RoomDataLifetimeDto() {
   }
@@ -76,8 +73,7 @@ public class RoomDataLifetimeDto {
    * Specifies whether to permanently delete the room data or not.
    * @return deletePermanently
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DELETE_PERMANENTLY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DELETE_PERMANENTLY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDeletePermanently() {
@@ -85,7 +81,7 @@ public class RoomDataLifetimeDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DELETE_PERMANENTLY)
+  @JsonProperty(value = JSON_PROPERTY_DELETE_PERMANENTLY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeletePermanently(@javax.annotation.Nullable Boolean deletePermanently) {
     this.deletePermanently = deletePermanently;
@@ -101,8 +97,7 @@ public class RoomDataLifetimeDto {
    * Get period
    * @return period
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PERIOD)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PERIOD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public RoomDataLifetimePeriod getPeriod() {
@@ -110,7 +105,7 @@ public class RoomDataLifetimeDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PERIOD)
+  @JsonProperty(value = JSON_PROPERTY_PERIOD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPeriod(@javax.annotation.Nullable RoomDataLifetimePeriod period) {
     this.period = period;
@@ -128,16 +123,14 @@ public class RoomDataLifetimeDto {
    * maximum: 999
    * @return value
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Integer getValue() {
         return value.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Integer> getValue_JsonNullable() {
     return value;
   }
@@ -161,16 +154,14 @@ public class RoomDataLifetimeDto {
    * Specifies whether the room data lifetime setting is enabled or not.
    * @return enabled
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getEnabled() {
         return enabled.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getEnabled_JsonNullable() {
     return enabled;
   }

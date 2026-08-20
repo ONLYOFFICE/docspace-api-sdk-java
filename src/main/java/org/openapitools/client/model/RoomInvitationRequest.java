@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -51,24 +52,19 @@ import java.util.StringJoiner;
 
 public class RoomInvitationRequest {
   public static final String JSON_PROPERTY_INVITATIONS = "invitations";
-  @javax.annotation.Nullable
-  private JsonNullable<List<RoomInvitation>> invitations = JsonNullable.<List<RoomInvitation>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<RoomInvitation>> invitations = JsonNullable.<List<RoomInvitation>>undefined();
 
   public static final String JSON_PROPERTY_NOTIFY = "notify";
-  @javax.annotation.Nullable
-  private Boolean notify;
+  @javax.annotation.Nullable  private Boolean notify;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
-  @javax.annotation.Nullable
-  private JsonNullable<String> message = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> message = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CULTURE = "culture";
-  @javax.annotation.Nullable
-  private JsonNullable<String> culture = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> culture = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FORCE = "force";
-  @javax.annotation.Nullable
-  private Boolean force;
+  @javax.annotation.Nullable  private Boolean force;
 
   public RoomInvitationRequest() {
   }
@@ -96,16 +92,14 @@ public class RoomInvitationRequest {
    * The collection of invitation parameters.
    * @return invitations
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<RoomInvitation> getInvitations() {
         return invitations.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_INVITATIONS)
+  @JsonProperty(value = JSON_PROPERTY_INVITATIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<RoomInvitation>> getInvitations_JsonNullable() {
     return invitations;
   }
@@ -129,8 +123,7 @@ public class RoomInvitationRequest {
    * Specifies whether to notify users about the shared room or not.
    * @return notify
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NOTIFY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NOTIFY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getNotify() {
@@ -138,7 +131,7 @@ public class RoomInvitationRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NOTIFY)
+  @JsonProperty(value = JSON_PROPERTY_NOTIFY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotify(@javax.annotation.Nullable Boolean notify) {
     this.notify = notify;
@@ -154,16 +147,14 @@ public class RoomInvitationRequest {
    * The message to send when notifying about the shared room.
    * @return message
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getMessage() {
         return message.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getMessage_JsonNullable() {
     return message;
   }
@@ -187,16 +178,14 @@ public class RoomInvitationRequest {
    * The language of the room invitation.
    * @return culture
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getCulture() {
         return culture.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CULTURE)
+  @JsonProperty(value = JSON_PROPERTY_CULTURE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getCulture_JsonNullable() {
     return culture;
   }
@@ -220,8 +209,7 @@ public class RoomInvitationRequest {
    * Specifies whether to forcibly delete a user with form roles from the room.
    * @return force
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORCE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FORCE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getForce() {
@@ -229,7 +217,7 @@ public class RoomInvitationRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORCE)
+  @JsonProperty(value = JSON_PROPERTY_FORCE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setForce(@javax.annotation.Nullable Boolean force) {
     this.force = force;

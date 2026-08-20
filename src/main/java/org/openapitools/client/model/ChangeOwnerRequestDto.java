@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -50,16 +51,13 @@ import java.util.StringJoiner;
 
 public class ChangeOwnerRequestDto {
   public static final String JSON_PROPERTY_FOLDER_IDS = "folderIds";
-  @javax.annotation.Nullable
-  private JsonNullable<List<BatchRequestDtoAllOfFileIds>> folderIds = JsonNullable.<List<BatchRequestDtoAllOfFileIds>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<BatchRequestDtoAllOfFileIds>> folderIds = JsonNullable.<List<BatchRequestDtoAllOfFileIds>>undefined();
 
   public static final String JSON_PROPERTY_FILE_IDS = "fileIds";
-  @javax.annotation.Nullable
-  private JsonNullable<List<BatchRequestDtoAllOfFileIds>> fileIds = JsonNullable.<List<BatchRequestDtoAllOfFileIds>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<BatchRequestDtoAllOfFileIds>> fileIds = JsonNullable.<List<BatchRequestDtoAllOfFileIds>>undefined();
 
   public static final String JSON_PROPERTY_USER_ID = "userId";
-  @javax.annotation.Nonnull
-  private UUID userId;
+  @javax.annotation.Nonnull  private UUID userId;
 
   public ChangeOwnerRequestDto() {
   }
@@ -87,16 +85,14 @@ public class ChangeOwnerRequestDto {
    * The list of folder IDs to change the owner.
    * @return folderIds
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<BatchRequestDtoAllOfFileIds> getFolderIds() {
         return folderIds.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FOLDER_IDS)
+  @JsonProperty(value = JSON_PROPERTY_FOLDER_IDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<BatchRequestDtoAllOfFileIds>> getFolderIds_JsonNullable() {
     return folderIds;
   }
@@ -132,16 +128,14 @@ public class ChangeOwnerRequestDto {
    * The list of file IDs to change the owner.
    * @return fileIds
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<BatchRequestDtoAllOfFileIds> getFileIds() {
         return fileIds.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE_IDS)
+  @JsonProperty(value = JSON_PROPERTY_FILE_IDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<BatchRequestDtoAllOfFileIds>> getFileIds_JsonNullable() {
     return fileIds;
   }
@@ -165,8 +159,7 @@ public class ChangeOwnerRequestDto {
    * The new file owner ID.
    * @return userId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_USER_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getUserId() {
@@ -174,7 +167,7 @@ public class ChangeOwnerRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USER_ID)
+  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUserId(@javax.annotation.Nonnull UUID userId) {
     this.userId = userId;

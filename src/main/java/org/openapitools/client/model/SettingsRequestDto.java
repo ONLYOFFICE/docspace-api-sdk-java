@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -39,8 +40,7 @@ import java.util.StringJoiner;
 
 public class SettingsRequestDto {
   public static final String JSON_PROPERTY_SET = "set";
-  @javax.annotation.Nullable
-  private Boolean set;
+  @javax.annotation.Nullable  private Boolean set;
 
   public SettingsRequestDto() {
   }
@@ -56,8 +56,7 @@ public class SettingsRequestDto {
    * Specifies whether to set the specified settings or not.
    * @return set
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SET)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSet() {
@@ -65,7 +64,7 @@ public class SettingsRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SET)
+  @JsonProperty(value = JSON_PROPERTY_SET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSet(@javax.annotation.Nullable Boolean set) {
     this.set = set;

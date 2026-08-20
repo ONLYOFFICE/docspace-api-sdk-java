@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -208,10 +208,10 @@ public class AuditTrailDataApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("action", action));
     localVarQueryParams.addAll(apiClient.parameterToPair("entryType", entryType));
     localVarQueryParams.addAll(apiClient.parameterToPair("target", target));
-    localVarQueryParams.addAll(apiClient.parameterToPair("utcTime", from.getUtcTime()));
-    localVarQueryParams.addAll(apiClient.parameterToPair("timeZoneOffset", from.getTimeZoneOffset()));
-    localVarQueryParams.addAll(apiClient.parameterToPair("utcTime", to.getUtcTime()));
-    localVarQueryParams.addAll(apiClient.parameterToPair("timeZoneOffset", to.getTimeZoneOffset()));
+    localVarQueryParameterBaseName = "from";
+    localVarQueryStringJoiner.add(from.toUrlQueryString("from"));
+    localVarQueryParameterBaseName = "to";
+    localVarQueryStringJoiner.add(to.toUrlQueryString("to"));
     localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
     localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
       
@@ -390,7 +390,7 @@ public class AuditTrailDataApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<ObjectWrapper> localVarReturnType = new TypeReference<ObjectWrapper>() {};
     return apiClient.invokeAPI(
@@ -466,7 +466,7 @@ public class AuditTrailDataApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<ObjectWrapper> localVarReturnType = new TypeReference<ObjectWrapper>() {};
     return apiClient.invokeAPI(

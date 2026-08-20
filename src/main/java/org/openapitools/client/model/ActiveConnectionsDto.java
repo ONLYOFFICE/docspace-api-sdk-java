@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,12 +49,10 @@ import java.util.StringJoiner;
 
 public class ActiveConnectionsDto {
   public static final String JSON_PROPERTY_LOGIN_EVENT = "loginEvent";
-  @javax.annotation.Nonnull
-  private Integer loginEvent;
+  @javax.annotation.Nonnull  private Integer loginEvent;
 
   public static final String JSON_PROPERTY_ITEMS = "items";
-  @javax.annotation.Nullable
-  private JsonNullable<List<ActiveConnectionsItemDto>> items = JsonNullable.<List<ActiveConnectionsItemDto>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<ActiveConnectionsItemDto>> items = JsonNullable.<List<ActiveConnectionsItemDto>>undefined();
 
   public ActiveConnectionsDto() {
   }
@@ -69,8 +68,7 @@ public class ActiveConnectionsDto {
    * The login event.
    * @return loginEvent
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LOGIN_EVENT)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_LOGIN_EVENT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getLoginEvent() {
@@ -78,7 +76,7 @@ public class ActiveConnectionsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOGIN_EVENT)
+  @JsonProperty(value = JSON_PROPERTY_LOGIN_EVENT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLoginEvent(@javax.annotation.Nonnull Integer loginEvent) {
     this.loginEvent = loginEvent;
@@ -106,16 +104,14 @@ public class ActiveConnectionsDto {
    * The list of active connection items.
    * @return items
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<ActiveConnectionsItemDto> getItems() {
         return items.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ITEMS)
+  @JsonProperty(value = JSON_PROPERTY_ITEMS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<ActiveConnectionsItemDto>> getItems_JsonNullable() {
     return items;
   }

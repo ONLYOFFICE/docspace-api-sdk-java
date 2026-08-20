@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,9 +24,9 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
+import org.openapitools.client.model.ChangePasswordRequest;
 import org.openapitools.client.model.EmailMemberRequestDto;
 import org.openapitools.client.model.EmployeeFullWrapper;
-import org.openapitools.client.model.MemberBaseRequestDto;
 import org.openapitools.client.model.StringWrapper;
 import java.util.UUID;
 
@@ -57,12 +57,12 @@ public class PasswordApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/
    *
    * @param userid The user ID. (required)
-   * @param memberBaseRequestDto The request parameters for the user generic information. (required)
+   * @param changePasswordRequest The request parameters for updating a user password. (required)
    * @return EmployeeFullWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullWrapper changeUserPassword(@javax.annotation.Nonnull UUID userid, @javax.annotation.Nonnull MemberBaseRequestDto memberBaseRequestDto) throws ApiException {
-    return this.changeUserPassword(userid, memberBaseRequestDto, Collections.emptyMap());
+  public EmployeeFullWrapper changeUserPassword(@javax.annotation.Nonnull UUID userid, @javax.annotation.Nonnull ChangePasswordRequest changePasswordRequest) throws ApiException {
+    return this.changeUserPassword(userid, changePasswordRequest, Collections.emptyMap());
   }
 
 
@@ -74,22 +74,22 @@ public class PasswordApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/
    *
    * @param userid The user ID. (required)
-   * @param memberBaseRequestDto The request parameters for the user generic information. (required)
+   * @param changePasswordRequest The request parameters for updating a user password. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return EmployeeFullWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullWrapper changeUserPassword(@javax.annotation.Nonnull UUID userid, @javax.annotation.Nonnull MemberBaseRequestDto memberBaseRequestDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = memberBaseRequestDto;
+  public EmployeeFullWrapper changeUserPassword(@javax.annotation.Nonnull UUID userid, @javax.annotation.Nonnull ChangePasswordRequest changePasswordRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = changePasswordRequest;
     
     // verify the required parameter 'userid' is set
     if (userid == null) {
       throw new ApiException(400, "Missing the required parameter 'userid' when calling changeUserPassword");
     }
     
-    // verify the required parameter 'memberBaseRequestDto' is set
-    if (memberBaseRequestDto == null) {
-      throw new ApiException(400, "Missing the required parameter 'memberBaseRequestDto' when calling changeUserPassword");
+    // verify the required parameter 'changePasswordRequest' is set
+    if (changePasswordRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'changePasswordRequest' when calling changeUserPassword");
     }
     
     // create path and map variables
@@ -142,7 +142,7 @@ public class PasswordApi extends BaseApi {
 
   /**
    * Remind a user password
-   * Reminds a password to the user using the email address specified in the request.
+   * Sends a password recovery email to the specified user address.  For unauthenticated requests, CAPTCHA validation is required when CAPTCHA is enabled in the configuration.
    *
    * REST API Reference for sendUserPassword Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-user-password/
@@ -158,7 +158,7 @@ public class PasswordApi extends BaseApi {
 
   /**
    * Remind a user password
-   * Reminds a password to the user using the email address specified in the request.
+   * Sends a password recovery email to the specified user address.  For unauthenticated requests, CAPTCHA validation is required when CAPTCHA is enabled in the configuration.
    *
    * REST API Reference for sendUserPassword Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-user-password/

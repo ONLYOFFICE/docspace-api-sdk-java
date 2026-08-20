@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -41,16 +42,13 @@ import java.util.StringJoiner;
 
 public class PluginsDto {
   public static final String JSON_PROPERTY_ENABLED = "enabled";
-  @javax.annotation.Nullable
-  private Boolean enabled;
+  @javax.annotation.Nullable  private Boolean enabled;
 
   public static final String JSON_PROPERTY_UPLOAD = "upload";
-  @javax.annotation.Nullable
-  private Boolean upload;
+  @javax.annotation.Nullable  private Boolean upload;
 
   public static final String JSON_PROPERTY_DELETE = "delete";
-  @javax.annotation.Nullable
-  private Boolean delete;
+  @javax.annotation.Nullable  private Boolean delete;
 
   public PluginsDto() {
   }
@@ -66,8 +64,7 @@ public class PluginsDto {
    * Specifies if the plugins are enabled or not.
    * @return enabled
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEnabled() {
@@ -75,7 +72,7 @@ public class PluginsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
     this.enabled = enabled;
@@ -91,8 +88,7 @@ public class PluginsDto {
    * Specifies if the plugins can be uploaded or not.
    * @return upload
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPLOAD)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPLOAD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getUpload() {
@@ -100,7 +96,7 @@ public class PluginsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UPLOAD)
+  @JsonProperty(value = JSON_PROPERTY_UPLOAD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpload(@javax.annotation.Nullable Boolean upload) {
     this.upload = upload;
@@ -116,8 +112,7 @@ public class PluginsDto {
    * Specifies if the plugins can be deleted or not.
    * @return delete
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DELETE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DELETE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDelete() {
@@ -125,7 +120,7 @@ public class PluginsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DELETE)
+  @JsonProperty(value = JSON_PROPERTY_DELETE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDelete(@javax.annotation.Nullable Boolean delete) {
     this.delete = delete;

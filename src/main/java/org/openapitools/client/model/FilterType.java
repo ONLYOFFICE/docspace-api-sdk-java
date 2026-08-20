@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -33,109 +34,46 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum FilterType {
   
-  /**
-   * None
-   */
   None(0),
   
-  /**
-   * Files  only
-   */
   FilesOnly(1),
   
-  /**
-   * Folders only
-   */
   FoldersOnly(2),
   
-  /**
-   * Documents only
-   */
   DocumentsOnly(3),
   
-  /**
-   * Presentations only
-   */
   PresentationsOnly(4),
   
-  /**
-   * Spreadsheets only
-   */
   SpreadsheetsOnly(5),
   
-  /**
-   * Images only
-   */
   ImagesOnly(7),
   
-  /**
-   * By user
-   */
   ByUser(8),
   
-  /**
-   * By department
-   */
   ByDepartment(9),
   
-  /**
-   * Archive only
-   */
   ArchiveOnly(10),
   
-  /**
-   * By extension
-   */
   ByExtension(11),
   
-  /**
-   * Media only
-   */
   MediaOnly(12),
   
-  /**
-   * Filling forms rooms
-   */
   FillingFormsRooms(13),
   
-  /**
-   * Editing rooms
-   */
   EditingRooms(14),
   
-  /**
-   * Custom rooms
-   */
   CustomRooms(17),
   
-  /**
-   * Public rooms
-   */
   PublicRooms(20),
   
-  /**
-   * Pdf
-   */
   Pdf(22),
   
-  /**
-   * Pdf form
-   */
   PdfForm(23),
   
-  /**
-   * Virtual data rooms
-   */
   VirtualDataRooms(24),
   
-  /**
-   * Diagrams only
-   */
   DiagramsOnly(25),
   
-  /**
-   * Ai rooms
-   */
   AiRooms(26);
 
   private Integer value;
@@ -175,7 +113,7 @@ public enum FilterType {
       prefix = "";
     }
 
-    return String.format("%s=%s", prefix, this.toString());
+    return String.format(java.util.Locale.ROOT, "%s=%s", prefix, this.toString());
   }
 }
 

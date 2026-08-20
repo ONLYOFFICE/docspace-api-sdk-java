@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -44,12 +45,10 @@ import java.util.StringJoiner;
 
 public class FirebaseRequestsDto {
   public static final String JSON_PROPERTY_FIREBASE_DEVICE_TOKEN = "firebaseDeviceToken";
-  @javax.annotation.Nullable
-  private JsonNullable<String> firebaseDeviceToken = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> firebaseDeviceToken = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_IS_SUBSCRIBED = "isSubscribed";
-  @javax.annotation.Nullable
-  private Boolean isSubscribed;
+  @javax.annotation.Nullable  private Boolean isSubscribed;
 
   public FirebaseRequestsDto() {
   }
@@ -65,16 +64,14 @@ public class FirebaseRequestsDto {
    * The Firebase device token.
    * @return firebaseDeviceToken
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFirebaseDeviceToken() {
         return firebaseDeviceToken.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FIREBASE_DEVICE_TOKEN)
+  @JsonProperty(value = JSON_PROPERTY_FIREBASE_DEVICE_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFirebaseDeviceToken_JsonNullable() {
     return firebaseDeviceToken;
   }
@@ -98,8 +95,7 @@ public class FirebaseRequestsDto {
    * Specifies whether the user is subscribed to the push notifications or not.
    * @return isSubscribed
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_SUBSCRIBED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_SUBSCRIBED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsSubscribed() {
@@ -107,7 +103,7 @@ public class FirebaseRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_SUBSCRIBED)
+  @JsonProperty(value = JSON_PROPERTY_IS_SUBSCRIBED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsSubscribed(@javax.annotation.Nullable Boolean isSubscribed) {
     this.isSubscribed = isSubscribed;

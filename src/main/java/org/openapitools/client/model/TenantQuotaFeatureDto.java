@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -50,32 +51,25 @@ import java.util.StringJoiner;
 
 public class TenantQuotaFeatureDto {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private JsonNullable<String> id = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> id = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable
-  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_IMAGE = "image";
-  @javax.annotation.Nullable
-  private JsonNullable<String> image = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> image = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  @javax.annotation.Nullable
-  private JsonNullable<Object> value = JsonNullable.<Object>of(null);
+  @javax.annotation.Nullable  private JsonNullable<Object> value = JsonNullable.<Object>of(null);
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  @javax.annotation.Nullable
-  private JsonNullable<String> type = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> type = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_USED = "used";
-  @javax.annotation.Nullable
-  private FeatureUsedDto used;
+  @javax.annotation.Nullable  private FeatureUsedDto used;
 
   public static final String JSON_PROPERTY_PRICE_TITLE = "priceTitle";
-  @javax.annotation.Nullable
-  private JsonNullable<String> priceTitle = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> priceTitle = JsonNullable.<String>undefined();
 
   public TenantQuotaFeatureDto() {
   }
@@ -91,16 +85,14 @@ public class TenantQuotaFeatureDto {
    * The ID of the tenant quota feature.
    * @return id
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getId() {
         return id.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getId_JsonNullable() {
     return id;
   }
@@ -124,16 +116,14 @@ public class TenantQuotaFeatureDto {
    * The title of the tenant quota feature.
    * @return title
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTitle() {
         return title.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
@@ -157,16 +147,14 @@ public class TenantQuotaFeatureDto {
    * The image URL of the tenant quota feature.
    * @return image
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getImage() {
         return image.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IMAGE)
+  @JsonProperty(value = JSON_PROPERTY_IMAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getImage_JsonNullable() {
     return image;
   }
@@ -190,16 +178,14 @@ public class TenantQuotaFeatureDto {
    * The value of the tenant quota feature.
    * @return value
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Object getValue() {
         return value.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Object> getValue_JsonNullable() {
     return value;
   }
@@ -223,16 +209,14 @@ public class TenantQuotaFeatureDto {
    * The type of the tenant quota feature.
    * @return type
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getType() {
         return type.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getType_JsonNullable() {
     return type;
   }
@@ -256,8 +240,7 @@ public class TenantQuotaFeatureDto {
    * Get used
    * @return used
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FeatureUsedDto getUsed() {
@@ -265,7 +248,7 @@ public class TenantQuotaFeatureDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USED)
+  @JsonProperty(value = JSON_PROPERTY_USED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsed(@javax.annotation.Nullable FeatureUsedDto used) {
     this.used = used;
@@ -281,16 +264,14 @@ public class TenantQuotaFeatureDto {
    * The price title of the tenant quota feature.
    * @return priceTitle
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPriceTitle() {
         return priceTitle.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PRICE_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_PRICE_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPriceTitle_JsonNullable() {
     return priceTitle;
   }

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -44,12 +45,10 @@ import java.util.StringJoiner;
 
 public class OwnerChangeInstructionsDto {
   public static final String JSON_PROPERTY_STATUS = "status";
-  @javax.annotation.Nullable
-  private Integer status;
+  @javax.annotation.Nullable  private Integer status;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
-  @javax.annotation.Nullable
-  private JsonNullable<String> message = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> message = JsonNullable.<String>undefined();
 
   public OwnerChangeInstructionsDto() {
   }
@@ -65,8 +64,7 @@ public class OwnerChangeInstructionsDto {
    * The owner change instructions status.
    * @return status
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getStatus() {
@@ -74,7 +72,7 @@ public class OwnerChangeInstructionsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(@javax.annotation.Nullable Integer status) {
     this.status = status;
@@ -90,16 +88,14 @@ public class OwnerChangeInstructionsDto {
    * The owner change instructions message.
    * @return message
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getMessage() {
         return message.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getMessage_JsonNullable() {
     return message;
   }

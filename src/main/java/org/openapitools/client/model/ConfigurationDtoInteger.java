@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,13 +27,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.net.URI;
 import org.openapitools.client.model.DocumentConfigDto;
 import org.openapitools.client.model.EditorConfigurationDto;
+import org.openapitools.client.model.EditorToolCallStateDto;
 import org.openapitools.client.model.EditorType;
 import org.openapitools.client.model.FileDtoInteger;
+import org.openapitools.client.model.QuotaScope;
 import org.openapitools.client.model.StartFillingMode;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -56,61 +59,56 @@ import java.util.StringJoiner;
   ConfigurationDtoInteger.JSON_PROPERTY_START_FILLING,
   ConfigurationDtoInteger.JSON_PROPERTY_FILLING_STATUS,
   ConfigurationDtoInteger.JSON_PROPERTY_START_FILLING_MODE,
-  ConfigurationDtoInteger.JSON_PROPERTY_FILLING_SESSION_ID
+  ConfigurationDtoInteger.JSON_PROPERTY_FILLING_SESSION_ID,
+  ConfigurationDtoInteger.JSON_PROPERTY_QUOTA_EXCEEDED_SCOPE,
+  ConfigurationDtoInteger.JSON_PROPERTY_GENERATION_TOOL_CALL_STATE
 })
 
 public class ConfigurationDtoInteger {
   public static final String JSON_PROPERTY_DOCUMENT = "document";
-  @javax.annotation.Nonnull
-  private DocumentConfigDto document;
+  @javax.annotation.Nonnull  private DocumentConfigDto document;
 
   public static final String JSON_PROPERTY_DOCUMENT_TYPE = "documentType";
-  @javax.annotation.Nullable
-  private String documentType;
+  @javax.annotation.Nullable  private String documentType;
 
   public static final String JSON_PROPERTY_EDITOR_CONFIG = "editorConfig";
-  @javax.annotation.Nonnull
-  private EditorConfigurationDto editorConfig;
+  @javax.annotation.Nonnull  private EditorConfigurationDto editorConfig;
 
   public static final String JSON_PROPERTY_EDITOR_TYPE = "editorType";
-  @javax.annotation.Nonnull
-  private EditorType editorType;
+  @javax.annotation.Nonnull  private EditorType editorType;
 
   public static final String JSON_PROPERTY_EDITOR_URL = "editorUrl";
-  @javax.annotation.Nullable
-  private URI editorUrl;
+  @javax.annotation.Nullable  private URI editorUrl;
 
   public static final String JSON_PROPERTY_TOKEN = "token";
-  @javax.annotation.Nullable
-  private JsonNullable<String> token = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> token = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  @javax.annotation.Nullable
-  private JsonNullable<String> type = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> type = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FILE = "file";
-  @javax.annotation.Nonnull
-  private FileDtoInteger _file;
+  @javax.annotation.Nonnull  private FileDtoInteger _file;
 
   public static final String JSON_PROPERTY_ERROR_MESSAGE = "errorMessage";
-  @javax.annotation.Nullable
-  private JsonNullable<String> errorMessage = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> errorMessage = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_START_FILLING = "startFilling";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> startFilling = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> startFilling = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_FILLING_STATUS = "fillingStatus";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> fillingStatus = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> fillingStatus = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_START_FILLING_MODE = "startFillingMode";
-  @javax.annotation.Nullable
-  private StartFillingMode startFillingMode;
+  @javax.annotation.Nullable  private StartFillingMode startFillingMode;
 
   public static final String JSON_PROPERTY_FILLING_SESSION_ID = "fillingSessionId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> fillingSessionId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> fillingSessionId = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_QUOTA_EXCEEDED_SCOPE = "quotaExceededScope";
+  @javax.annotation.Nullable  private QuotaScope quotaExceededScope;
+
+  public static final String JSON_PROPERTY_GENERATION_TOOL_CALL_STATE = "generationToolCallState";
+  @javax.annotation.Nullable  private EditorToolCallStateDto generationToolCallState;
 
   public ConfigurationDtoInteger() {
   }
@@ -126,8 +124,7 @@ public class ConfigurationDtoInteger {
    * Get document
    * @return document
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DOCUMENT)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DOCUMENT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public DocumentConfigDto getDocument() {
@@ -135,7 +132,7 @@ public class ConfigurationDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOCUMENT)
+  @JsonProperty(value = JSON_PROPERTY_DOCUMENT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDocument(@javax.annotation.Nonnull DocumentConfigDto document) {
     this.document = document;
@@ -151,8 +148,7 @@ public class ConfigurationDtoInteger {
    * The document type.
    * @return documentType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOCUMENT_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOCUMENT_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDocumentType() {
@@ -160,7 +156,7 @@ public class ConfigurationDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOCUMENT_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_DOCUMENT_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDocumentType(@javax.annotation.Nullable String documentType) {
     this.documentType = documentType;
@@ -176,8 +172,7 @@ public class ConfigurationDtoInteger {
    * Get editorConfig
    * @return editorConfig
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EDITOR_CONFIG)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_EDITOR_CONFIG, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public EditorConfigurationDto getEditorConfig() {
@@ -185,7 +180,7 @@ public class ConfigurationDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EDITOR_CONFIG)
+  @JsonProperty(value = JSON_PROPERTY_EDITOR_CONFIG, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEditorConfig(@javax.annotation.Nonnull EditorConfigurationDto editorConfig) {
     this.editorConfig = editorConfig;
@@ -201,8 +196,7 @@ public class ConfigurationDtoInteger {
    * Get editorType
    * @return editorType
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EDITOR_TYPE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_EDITOR_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public EditorType getEditorType() {
@@ -210,7 +204,7 @@ public class ConfigurationDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EDITOR_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_EDITOR_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEditorType(@javax.annotation.Nonnull EditorType editorType) {
     this.editorType = editorType;
@@ -226,8 +220,7 @@ public class ConfigurationDtoInteger {
    * The editor URL.
    * @return editorUrl
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EDITOR_URL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EDITOR_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public URI getEditorUrl() {
@@ -235,7 +228,7 @@ public class ConfigurationDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EDITOR_URL)
+  @JsonProperty(value = JSON_PROPERTY_EDITOR_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEditorUrl(@javax.annotation.Nullable URI editorUrl) {
     this.editorUrl = editorUrl;
@@ -251,16 +244,14 @@ public class ConfigurationDtoInteger {
    * The token of the file configuration.
    * @return token
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getToken() {
         return token.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TOKEN)
+  @JsonProperty(value = JSON_PROPERTY_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getToken_JsonNullable() {
     return token;
   }
@@ -284,16 +275,14 @@ public class ConfigurationDtoInteger {
    * The platform type.
    * @return type
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getType() {
         return type.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getType_JsonNullable() {
     return type;
   }
@@ -317,8 +306,7 @@ public class ConfigurationDtoInteger {
    * Get _file
    * @return _file
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FILE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_FILE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public FileDtoInteger getFile() {
@@ -326,7 +314,7 @@ public class ConfigurationDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE)
+  @JsonProperty(value = JSON_PROPERTY_FILE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFile(@javax.annotation.Nonnull FileDtoInteger _file) {
     this._file = _file;
@@ -342,16 +330,14 @@ public class ConfigurationDtoInteger {
    * The error message.
    * @return errorMessage
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getErrorMessage() {
         return errorMessage.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_ERROR_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getErrorMessage_JsonNullable() {
     return errorMessage;
   }
@@ -375,16 +361,14 @@ public class ConfigurationDtoInteger {
    * Specifies if the file filling has started or not.
    * @return startFilling
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getStartFilling() {
         return startFilling.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_START_FILLING)
+  @JsonProperty(value = JSON_PROPERTY_START_FILLING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getStartFilling_JsonNullable() {
     return startFilling;
   }
@@ -408,16 +392,14 @@ public class ConfigurationDtoInteger {
    * The file filling status.
    * @return fillingStatus
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getFillingStatus() {
         return fillingStatus.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILLING_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_FILLING_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getFillingStatus_JsonNullable() {
     return fillingStatus;
   }
@@ -441,8 +423,7 @@ public class ConfigurationDtoInteger {
    * Get startFillingMode
    * @return startFillingMode
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_START_FILLING_MODE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_START_FILLING_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public StartFillingMode getStartFillingMode() {
@@ -450,7 +431,7 @@ public class ConfigurationDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_START_FILLING_MODE)
+  @JsonProperty(value = JSON_PROPERTY_START_FILLING_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartFillingMode(@javax.annotation.Nullable StartFillingMode startFillingMode) {
     this.startFillingMode = startFillingMode;
@@ -466,16 +447,14 @@ public class ConfigurationDtoInteger {
    * The file filling session ID.
    * @return fillingSessionId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFillingSessionId() {
         return fillingSessionId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILLING_SESSION_ID)
+  @JsonProperty(value = JSON_PROPERTY_FILLING_SESSION_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFillingSessionId_JsonNullable() {
     return fillingSessionId;
   }
@@ -487,6 +466,54 @@ public class ConfigurationDtoInteger {
 
   public void setFillingSessionId(@javax.annotation.Nullable String fillingSessionId) {
     this.fillingSessionId = JsonNullable.<String>of(fillingSessionId);
+  }
+
+  public ConfigurationDtoInteger quotaExceededScope(@javax.annotation.Nullable QuotaScope quotaExceededScope) {
+    
+    this.quotaExceededScope = quotaExceededScope;
+    return this;
+  }
+
+  /**
+   * Get quotaExceededScope
+   * @return quotaExceededScope
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_QUOTA_EXCEEDED_SCOPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public QuotaScope getQuotaExceededScope() {
+    return quotaExceededScope;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_QUOTA_EXCEEDED_SCOPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setQuotaExceededScope(@javax.annotation.Nullable QuotaScope quotaExceededScope) {
+    this.quotaExceededScope = quotaExceededScope;
+  }
+
+  public ConfigurationDtoInteger generationToolCallState(@javax.annotation.Nullable EditorToolCallStateDto generationToolCallState) {
+    
+    this.generationToolCallState = generationToolCallState;
+    return this;
+  }
+
+  /**
+   * Get generationToolCallState
+   * @return generationToolCallState
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GENERATION_TOOL_CALL_STATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public EditorToolCallStateDto getGenerationToolCallState() {
+    return generationToolCallState;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_GENERATION_TOOL_CALL_STATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGenerationToolCallState(@javax.annotation.Nullable EditorToolCallStateDto generationToolCallState) {
+    this.generationToolCallState = generationToolCallState;
   }
 
   @Override
@@ -510,7 +537,9 @@ public class ConfigurationDtoInteger {
         equalsNullable(this.startFilling, configurationDtoInteger.startFilling) &&
         equalsNullable(this.fillingStatus, configurationDtoInteger.fillingStatus) &&
         Objects.equals(this.startFillingMode, configurationDtoInteger.startFillingMode) &&
-        equalsNullable(this.fillingSessionId, configurationDtoInteger.fillingSessionId);
+        equalsNullable(this.fillingSessionId, configurationDtoInteger.fillingSessionId) &&
+        Objects.equals(this.quotaExceededScope, configurationDtoInteger.quotaExceededScope) &&
+        Objects.equals(this.generationToolCallState, configurationDtoInteger.generationToolCallState);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -519,7 +548,7 @@ public class ConfigurationDtoInteger {
 
   @Override
   public int hashCode() {
-    return Objects.hash(document, documentType, editorConfig, editorType, editorUrl, hashCodeNullable(token), hashCodeNullable(type), _file, hashCodeNullable(errorMessage), hashCodeNullable(startFilling), hashCodeNullable(fillingStatus), startFillingMode, hashCodeNullable(fillingSessionId));
+    return Objects.hash(document, documentType, editorConfig, editorType, editorUrl, hashCodeNullable(token), hashCodeNullable(type), _file, hashCodeNullable(errorMessage), hashCodeNullable(startFilling), hashCodeNullable(fillingStatus), startFillingMode, hashCodeNullable(fillingSessionId), quotaExceededScope, generationToolCallState);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -546,6 +575,8 @@ public class ConfigurationDtoInteger {
     sb.append("    fillingStatus: ").append(toIndentedString(fillingStatus)).append("\n");
     sb.append("    startFillingMode: ").append(toIndentedString(startFillingMode)).append("\n");
     sb.append("    fillingSessionId: ").append(toIndentedString(fillingSessionId)).append("\n");
+    sb.append("    quotaExceededScope: ").append(toIndentedString(quotaExceededScope)).append("\n");
+    sb.append("    generationToolCallState: ").append(toIndentedString(generationToolCallState)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -706,6 +737,21 @@ public class ConfigurationDtoInteger {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
+    }
+
+    // add `quotaExceededScope` to the URL query string
+    if (getQuotaExceededScope() != null) {
+      try {
+        joiner.add(String.format("%squotaExceededScope%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getQuotaExceededScope()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `generationToolCallState` to the URL query string
+    if (getGenerationToolCallState() != null) {
+      joiner.add(getGenerationToolCallState().toUrlQueryString(prefix + "generationToolCallState" + suffix));
     }
 
     return joiner.toString();

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -33,44 +34,20 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum SearchArea {
   
-  /**
-   * Active
-   */
   Active(0),
   
-  /**
-   * Archive
-   */
   Archive(1),
   
-  /**
-   * Any
-   */
   Any(2),
   
-  /**
-   * Recent by links
-   */
   RecentByLinks(3),
   
-  /**
-   * Template
-   */
   Templates(4),
   
-  /**
-   * Knowledge
-   */
   Knowledge(5),
   
-  /**
-   * Result storage
-   */
   ResultStorage(6),
   
-  /**
-   * AiAgents
-   */
   AiAgents(7);
 
   private Integer value;
@@ -110,7 +87,7 @@ public enum SearchArea {
       prefix = "";
     }
 
-    return String.format("%s=%s", prefix, this.toString());
+    return String.format(java.util.Locale.ROOT, "%s=%s", prefix, this.toString());
   }
 }
 

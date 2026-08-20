@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,6 +54,82 @@ public class BackupApi extends BaseApi {
     super(apiClient);
   }
 
+
+  /**
+   * Cancel current backup
+   * Cancel current backup.
+   *
+   * REST API Reference for cancelBackup Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/cancel-backup/
+   *
+   * @return BooleanWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public BooleanWrapper cancelBackup() throws ApiException {
+    return this.cancelBackup(Collections.emptyMap());
+  }
+
+
+  /**
+   * Cancel current backup
+   * Cancel current backup.
+   *
+   * REST API Reference for cancelBackup Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/cancel-backup/
+   *
+   * @param additionalHeaders additionalHeaders for this call
+   * @return BooleanWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public BooleanWrapper cancelBackup(Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/backup/cancelbackup";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
 
   /**
    * Create the backup schedule
@@ -614,7 +690,7 @@ public class BackupApi extends BaseApi {
 
   /**
    * Get the number of backups
-   * Returns the number of backups for a period of time. The default is one month.
+   * Returns the number of backups for a period of time. The default is the current calendar month.
    *
    * REST API Reference for getBackupsCount Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backups-count/
@@ -632,7 +708,7 @@ public class BackupApi extends BaseApi {
 
   /**
    * Get the number of backups
-   * Returns the number of backups for a period of time. The default is one month.
+   * Returns the number of backups for a period of time. The default is the current calendar month.
    *
    * REST API Reference for getBackupsCount Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backups-count/

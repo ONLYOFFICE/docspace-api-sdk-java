@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -40,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ScheduleDto
+ * The backup schedule parameters.
  */
 @JsonPropertyOrder({
   ScheduleDto.JSON_PROPERTY_STORAGE_TYPE,
@@ -53,28 +54,22 @@ import java.util.StringJoiner;
 
 public class ScheduleDto {
   public static final String JSON_PROPERTY_STORAGE_TYPE = "storageType";
-  @javax.annotation.Nonnull
-  private BackupStorageType storageType;
+  @javax.annotation.Nonnull  private BackupStorageType storageType;
 
   public static final String JSON_PROPERTY_STORAGE_PARAMS = "storageParams";
-  @javax.annotation.Nullable
-  private Map<String, String> storageParams;
+  @javax.annotation.Nullable  private Map<String, String> storageParams;
 
   public static final String JSON_PROPERTY_CRON_PARAMS = "cronParams";
-  @javax.annotation.Nonnull
-  private CronParams cronParams;
+  @javax.annotation.Nonnull  private CronParams cronParams;
 
   public static final String JSON_PROPERTY_BACKUPS_STORED = "backupsStored";
-  @javax.annotation.Nullable
-  private JsonNullable<Integer> backupsStored = JsonNullable.<Integer>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Integer> backupsStored = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_LAST_BACKUP_TIME = "lastBackupTime";
-  @javax.annotation.Nonnull
-  private OffsetDateTime lastBackupTime;
+  @javax.annotation.Nonnull  private OffsetDateTime lastBackupTime;
 
   public static final String JSON_PROPERTY_DUMP = "dump";
-  @javax.annotation.Nonnull
-  private Boolean dump;
+  @javax.annotation.Nonnull  private Boolean dump;
 
   public ScheduleDto() {
   }
@@ -90,8 +85,7 @@ public class ScheduleDto {
    * Get storageType
    * @return storageType
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STORAGE_TYPE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STORAGE_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public BackupStorageType getStorageType() {
@@ -99,7 +93,7 @@ public class ScheduleDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STORAGE_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_STORAGE_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStorageType(@javax.annotation.Nonnull BackupStorageType storageType) {
     this.storageType = storageType;
@@ -117,11 +111,10 @@ public class ScheduleDto {
   }
 
   /**
-   * Get storageParams
+   * The backup storage parameters.
    * @return storageParams
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STORAGE_PARAMS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STORAGE_PARAMS, required = false)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
 
   public Map<String, String> getStorageParams() {
@@ -129,7 +122,7 @@ public class ScheduleDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STORAGE_PARAMS)
+  @JsonProperty(value = JSON_PROPERTY_STORAGE_PARAMS, required = false)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
   public void setStorageParams(@javax.annotation.Nullable Map<String, String> storageParams) {
     this.storageParams = storageParams;
@@ -145,8 +138,7 @@ public class ScheduleDto {
    * Get cronParams
    * @return cronParams
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CRON_PARAMS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CRON_PARAMS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public CronParams getCronParams() {
@@ -154,7 +146,7 @@ public class ScheduleDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CRON_PARAMS)
+  @JsonProperty(value = JSON_PROPERTY_CRON_PARAMS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCronParams(@javax.annotation.Nonnull CronParams cronParams) {
     this.cronParams = cronParams;
@@ -167,19 +159,17 @@ public class ScheduleDto {
   }
 
   /**
-   * Get backupsStored
+   * The maximum number of the stored backup copies.
    * @return backupsStored
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Integer getBackupsStored() {
         return backupsStored.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_BACKUPS_STORED)
+  @JsonProperty(value = JSON_PROPERTY_BACKUPS_STORED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Integer> getBackupsStored_JsonNullable() {
     return backupsStored;
   }
@@ -200,11 +190,10 @@ public class ScheduleDto {
   }
 
   /**
-   * Get lastBackupTime
+   * The date and time when the last backup was reated.
    * @return lastBackupTime
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LAST_BACKUP_TIME)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_LAST_BACKUP_TIME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getLastBackupTime() {
@@ -212,7 +201,7 @@ public class ScheduleDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LAST_BACKUP_TIME)
+  @JsonProperty(value = JSON_PROPERTY_LAST_BACKUP_TIME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLastBackupTime(@javax.annotation.Nonnull OffsetDateTime lastBackupTime) {
     this.lastBackupTime = lastBackupTime;
@@ -225,11 +214,10 @@ public class ScheduleDto {
   }
 
   /**
-   * Get dump
+   * Specifies if a dump will be created or not.
    * @return dump
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DUMP)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DUMP, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getDump() {
@@ -237,7 +225,7 @@ public class ScheduleDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DUMP)
+  @JsonProperty(value = JSON_PROPERTY_DUMP, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDump(@javax.annotation.Nonnull Boolean dump) {
     this.dump = dump;

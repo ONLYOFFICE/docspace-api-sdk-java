@@ -16,6 +16,8 @@ The room link parameters.
 |**linkType** | **LinkType** |  |  [optional] |
 |**password** | **String** | The link password. |  [optional] |
 |**denyDownload** | **Boolean** | Specifies if downloading the file from the link is disabled or not. |  [optional] |
+|**maxUseCount** | **Integer** | The maximum number of times the invitation link can be used. |  [optional] |
+|**currentUseCount** | **Integer** | The current number of times the invitation link has been used. |  [optional] |
 
 
 

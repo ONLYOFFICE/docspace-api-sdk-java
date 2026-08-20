@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -55,36 +56,28 @@ import java.util.StringJoiner;
 
 public class FolderContentDtoInteger {
   public static final String JSON_PROPERTY_FILES = "files";
-  @javax.annotation.Nullable
-  private JsonNullable<List<FileEntryBaseDto>> files = JsonNullable.<List<FileEntryBaseDto>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<FileEntryBaseDto>> files = JsonNullable.<List<FileEntryBaseDto>>undefined();
 
   public static final String JSON_PROPERTY_FOLDERS = "folders";
-  @javax.annotation.Nullable
-  private JsonNullable<List<FileEntryBaseDto>> folders = JsonNullable.<List<FileEntryBaseDto>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<FileEntryBaseDto>> folders = JsonNullable.<List<FileEntryBaseDto>>undefined();
 
   public static final String JSON_PROPERTY_CURRENT = "current";
-  @javax.annotation.Nullable
-  private FolderDtoInteger current;
+  @javax.annotation.Nullable  private FolderDtoInteger current;
 
   public static final String JSON_PROPERTY_PATH_PARTS = "pathParts";
-  @javax.annotation.Nullable
-  private Object pathParts = null;
+  @javax.annotation.Nullable  private Object pathParts = null;
 
   public static final String JSON_PROPERTY_START_INDEX = "startIndex";
-  @javax.annotation.Nullable
-  private Integer startIndex;
+  @javax.annotation.Nullable  private Integer startIndex;
 
   public static final String JSON_PROPERTY_COUNT = "count";
-  @javax.annotation.Nullable
-  private Integer count;
+  @javax.annotation.Nullable  private Integer count;
 
   public static final String JSON_PROPERTY_TOTAL = "total";
-  @javax.annotation.Nonnull
-  private Integer total;
+  @javax.annotation.Nonnull  private Integer total;
 
   public static final String JSON_PROPERTY_NEW = "new";
-  @javax.annotation.Nullable
-  private Integer _new;
+  @javax.annotation.Nullable  private Integer _new;
 
   public FolderContentDtoInteger() {
   }
@@ -112,16 +105,14 @@ public class FolderContentDtoInteger {
    * The list of files in the folder.
    * @return files
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<FileEntryBaseDto> getFiles() {
         return files.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<FileEntryBaseDto>> getFiles_JsonNullable() {
     return files;
   }
@@ -157,16 +148,14 @@ public class FolderContentDtoInteger {
    * The list of folders in the folder.
    * @return folders
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<FileEntryBaseDto> getFolders() {
         return folders.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FOLDERS)
+  @JsonProperty(value = JSON_PROPERTY_FOLDERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<FileEntryBaseDto>> getFolders_JsonNullable() {
     return folders;
   }
@@ -190,8 +179,7 @@ public class FolderContentDtoInteger {
    * Get current
    * @return current
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CURRENT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CURRENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FolderDtoInteger getCurrent() {
@@ -199,7 +187,7 @@ public class FolderContentDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CURRENT)
+  @JsonProperty(value = JSON_PROPERTY_CURRENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrent(@javax.annotation.Nullable FolderDtoInteger current) {
     this.current = current;
@@ -215,8 +203,7 @@ public class FolderContentDtoInteger {
    * The folder path.
    * @return pathParts
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PATH_PARTS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PATH_PARTS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Object getPathParts() {
@@ -224,7 +211,7 @@ public class FolderContentDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PATH_PARTS)
+  @JsonProperty(value = JSON_PROPERTY_PATH_PARTS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPathParts(@javax.annotation.Nullable Object pathParts) {
     this.pathParts = pathParts;
@@ -240,8 +227,7 @@ public class FolderContentDtoInteger {
    * The folder start index.
    * @return startIndex
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_START_INDEX)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_START_INDEX, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getStartIndex() {
@@ -249,7 +235,7 @@ public class FolderContentDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_START_INDEX)
+  @JsonProperty(value = JSON_PROPERTY_START_INDEX, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartIndex(@javax.annotation.Nullable Integer startIndex) {
     this.startIndex = startIndex;
@@ -265,8 +251,7 @@ public class FolderContentDtoInteger {
    * The number of folder elements.
    * @return count
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COUNT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getCount() {
@@ -274,7 +259,7 @@ public class FolderContentDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COUNT)
+  @JsonProperty(value = JSON_PROPERTY_COUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCount(@javax.annotation.Nullable Integer count) {
     this.count = count;
@@ -290,8 +275,7 @@ public class FolderContentDtoInteger {
    * The total number of elements in the folder.
    * @return total
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TOTAL)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TOTAL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getTotal() {
@@ -299,7 +283,7 @@ public class FolderContentDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TOTAL)
+  @JsonProperty(value = JSON_PROPERTY_TOTAL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTotal(@javax.annotation.Nonnull Integer total) {
     this.total = total;
@@ -315,8 +299,7 @@ public class FolderContentDtoInteger {
    * The new element index in the folder.
    * @return _new
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NEW)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getNew() {
@@ -324,7 +307,7 @@ public class FolderContentDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NEW)
+  @JsonProperty(value = JSON_PROPERTY_NEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNew(@javax.annotation.Nullable Integer _new) {
     this._new = _new;

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,20 +47,16 @@ import java.util.StringJoiner;
 
 public class FileReferenceData {
   public static final String JSON_PROPERTY_FILE_KEY = "fileKey";
-  @javax.annotation.Nullable
-  private JsonNullable<String> fileKey = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> fileKey = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_INSTANCE_ID = "instanceId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> instanceId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> instanceId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ROOM_ID = "roomId";
-  @javax.annotation.Nullable
-  private JsonNullable<String> roomId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> roomId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CAN_EDIT_ROOM = "canEditRoom";
-  @javax.annotation.Nullable
-  private Boolean canEditRoom;
+  @javax.annotation.Nullable  private Boolean canEditRoom;
 
   public FileReferenceData() {
   }
@@ -75,16 +72,14 @@ public class FileReferenceData {
    * The unique document identifier used by the service to get a link to the file.
    * @return fileKey
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFileKey() {
         return fileKey.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE_KEY)
+  @JsonProperty(value = JSON_PROPERTY_FILE_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFileKey_JsonNullable() {
     return fileKey;
   }
@@ -108,16 +103,14 @@ public class FileReferenceData {
    * The unique system identifier.
    * @return instanceId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getInstanceId() {
         return instanceId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_INSTANCE_ID)
+  @JsonProperty(value = JSON_PROPERTY_INSTANCE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getInstanceId_JsonNullable() {
     return instanceId;
   }
@@ -141,16 +134,14 @@ public class FileReferenceData {
    * Room ID
    * @return roomId
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getRoomId() {
         return roomId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ROOM_ID)
+  @JsonProperty(value = JSON_PROPERTY_ROOM_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRoomId_JsonNullable() {
     return roomId;
   }
@@ -174,8 +165,7 @@ public class FileReferenceData {
    * Specifies if the room can be edited out or not.
    * @return canEditRoom
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CAN_EDIT_ROOM)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CAN_EDIT_ROOM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCanEditRoom() {
@@ -183,7 +173,7 @@ public class FileReferenceData {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CAN_EDIT_ROOM)
+  @JsonProperty(value = JSON_PROPERTY_CAN_EDIT_ROOM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCanEditRoom(@javax.annotation.Nullable Boolean canEditRoom) {
     this.canEditRoom = canEditRoom;

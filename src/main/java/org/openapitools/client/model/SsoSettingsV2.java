@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,6 +37,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -63,52 +64,40 @@ import java.util.StringJoiner;
 
 public class SsoSettingsV2 {
   public static final String JSON_PROPERTY_LAST_MODIFIED = "lastModified";
-  @javax.annotation.Nullable
-  private OffsetDateTime lastModified;
+  @javax.annotation.Nullable  private OffsetDateTime lastModified;
 
   public static final String JSON_PROPERTY_ENABLE_SSO = "enableSso";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> enableSso = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> enableSso = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_IDP_SETTINGS = "idpSettings";
-  @javax.annotation.Nullable
-  private SsoIdpSettings idpSettings;
+  @javax.annotation.Nullable  private SsoIdpSettings idpSettings;
 
   public static final String JSON_PROPERTY_IDP_CERTIFICATES = "idpCertificates";
-  @javax.annotation.Nullable
-  private JsonNullable<List<SsoCertificate>> idpCertificates = JsonNullable.<List<SsoCertificate>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<SsoCertificate>> idpCertificates = JsonNullable.<List<SsoCertificate>>undefined();
 
   public static final String JSON_PROPERTY_IDP_CERTIFICATE_ADVANCED = "idpCertificateAdvanced";
-  @javax.annotation.Nullable
-  private SsoIdpCertificateAdvanced idpCertificateAdvanced;
+  @javax.annotation.Nullable  private SsoIdpCertificateAdvanced idpCertificateAdvanced;
 
   public static final String JSON_PROPERTY_SP_LOGIN_LABEL = "spLoginLabel";
-  @javax.annotation.Nullable
-  private JsonNullable<String> spLoginLabel = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> spLoginLabel = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SP_CERTIFICATES = "spCertificates";
-  @javax.annotation.Nullable
-  private JsonNullable<List<SsoCertificate>> spCertificates = JsonNullable.<List<SsoCertificate>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<SsoCertificate>> spCertificates = JsonNullable.<List<SsoCertificate>>undefined();
 
   public static final String JSON_PROPERTY_SP_CERTIFICATE_ADVANCED = "spCertificateAdvanced";
-  @javax.annotation.Nullable
-  private SsoSpCertificateAdvanced spCertificateAdvanced;
+  @javax.annotation.Nullable  private SsoSpCertificateAdvanced spCertificateAdvanced;
 
   public static final String JSON_PROPERTY_FIELD_MAPPING = "fieldMapping";
-  @javax.annotation.Nullable
-  private SsoFieldMapping fieldMapping;
+  @javax.annotation.Nullable  private SsoFieldMapping fieldMapping;
 
   public static final String JSON_PROPERTY_HIDE_AUTH_PAGE = "hideAuthPage";
-  @javax.annotation.Nullable
-  private Boolean hideAuthPage;
+  @javax.annotation.Nullable  private Boolean hideAuthPage;
 
   public static final String JSON_PROPERTY_USERS_TYPE = "usersType";
-  @javax.annotation.Nullable
-  private Integer usersType;
+  @javax.annotation.Nullable  private Integer usersType;
 
   public static final String JSON_PROPERTY_DISABLE_EMAIL_VERIFICATION = "disableEmailVerification";
-  @javax.annotation.Nullable
-  private Boolean disableEmailVerification;
+  @javax.annotation.Nullable  private Boolean disableEmailVerification;
 
   public SsoSettingsV2() {
   }
@@ -121,11 +110,10 @@ public class SsoSettingsV2 {
   }
 
   /**
-   * Get lastModified
+   * The timestamp indicating when the settings were last modified.
    * @return lastModified
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLastModified() {
@@ -133,7 +121,7 @@ public class SsoSettingsV2 {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
     this.lastModified = lastModified;
@@ -149,16 +137,14 @@ public class SsoSettingsV2 {
    * Specifies if the SSO settings are enabled or not.
    * @return enableSso
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getEnableSso() {
         return enableSso.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ENABLE_SSO)
+  @JsonProperty(value = JSON_PROPERTY_ENABLE_SSO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getEnableSso_JsonNullable() {
     return enableSso;
   }
@@ -182,8 +168,7 @@ public class SsoSettingsV2 {
    * Get idpSettings
    * @return idpSettings
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IDP_SETTINGS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IDP_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SsoIdpSettings getIdpSettings() {
@@ -191,7 +176,7 @@ public class SsoSettingsV2 {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IDP_SETTINGS)
+  @JsonProperty(value = JSON_PROPERTY_IDP_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdpSettings(@javax.annotation.Nullable SsoIdpSettings idpSettings) {
     this.idpSettings = idpSettings;
@@ -219,16 +204,14 @@ public class SsoSettingsV2 {
    * The list of the IdP certificates.
    * @return idpCertificates
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<SsoCertificate> getIdpCertificates() {
         return idpCertificates.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IDP_CERTIFICATES)
+  @JsonProperty(value = JSON_PROPERTY_IDP_CERTIFICATES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<SsoCertificate>> getIdpCertificates_JsonNullable() {
     return idpCertificates;
   }
@@ -252,8 +235,7 @@ public class SsoSettingsV2 {
    * Get idpCertificateAdvanced
    * @return idpCertificateAdvanced
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IDP_CERTIFICATE_ADVANCED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IDP_CERTIFICATE_ADVANCED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SsoIdpCertificateAdvanced getIdpCertificateAdvanced() {
@@ -261,7 +243,7 @@ public class SsoSettingsV2 {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IDP_CERTIFICATE_ADVANCED)
+  @JsonProperty(value = JSON_PROPERTY_IDP_CERTIFICATE_ADVANCED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdpCertificateAdvanced(@javax.annotation.Nullable SsoIdpCertificateAdvanced idpCertificateAdvanced) {
     this.idpCertificateAdvanced = idpCertificateAdvanced;
@@ -277,16 +259,14 @@ public class SsoSettingsV2 {
    * The SP login label.
    * @return spLoginLabel
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSpLoginLabel() {
         return spLoginLabel.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SP_LOGIN_LABEL)
+  @JsonProperty(value = JSON_PROPERTY_SP_LOGIN_LABEL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSpLoginLabel_JsonNullable() {
     return spLoginLabel;
   }
@@ -322,16 +302,14 @@ public class SsoSettingsV2 {
    * The list of the SP certificates.
    * @return spCertificates
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<SsoCertificate> getSpCertificates() {
         return spCertificates.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SP_CERTIFICATES)
+  @JsonProperty(value = JSON_PROPERTY_SP_CERTIFICATES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<SsoCertificate>> getSpCertificates_JsonNullable() {
     return spCertificates;
   }
@@ -355,8 +333,7 @@ public class SsoSettingsV2 {
    * Get spCertificateAdvanced
    * @return spCertificateAdvanced
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SP_CERTIFICATE_ADVANCED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SP_CERTIFICATE_ADVANCED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SsoSpCertificateAdvanced getSpCertificateAdvanced() {
@@ -364,7 +341,7 @@ public class SsoSettingsV2 {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SP_CERTIFICATE_ADVANCED)
+  @JsonProperty(value = JSON_PROPERTY_SP_CERTIFICATE_ADVANCED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSpCertificateAdvanced(@javax.annotation.Nullable SsoSpCertificateAdvanced spCertificateAdvanced) {
     this.spCertificateAdvanced = spCertificateAdvanced;
@@ -380,8 +357,7 @@ public class SsoSettingsV2 {
    * Get fieldMapping
    * @return fieldMapping
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIELD_MAPPING)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FIELD_MAPPING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SsoFieldMapping getFieldMapping() {
@@ -389,7 +365,7 @@ public class SsoSettingsV2 {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FIELD_MAPPING)
+  @JsonProperty(value = JSON_PROPERTY_FIELD_MAPPING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFieldMapping(@javax.annotation.Nullable SsoFieldMapping fieldMapping) {
     this.fieldMapping = fieldMapping;
@@ -405,8 +381,7 @@ public class SsoSettingsV2 {
    * Specifies if the authentication page will be hidden or not.
    * @return hideAuthPage
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HIDE_AUTH_PAGE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HIDE_AUTH_PAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getHideAuthPage() {
@@ -414,7 +389,7 @@ public class SsoSettingsV2 {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HIDE_AUTH_PAGE)
+  @JsonProperty(value = JSON_PROPERTY_HIDE_AUTH_PAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHideAuthPage(@javax.annotation.Nullable Boolean hideAuthPage) {
     this.hideAuthPage = hideAuthPage;
@@ -430,8 +405,7 @@ public class SsoSettingsV2 {
    * The user type.
    * @return usersType
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USERS_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USERS_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getUsersType() {
@@ -439,7 +413,7 @@ public class SsoSettingsV2 {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USERS_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_USERS_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsersType(@javax.annotation.Nullable Integer usersType) {
     this.usersType = usersType;
@@ -455,8 +429,7 @@ public class SsoSettingsV2 {
    * Specifies if the email verification is disabled or not.
    * @return disableEmailVerification
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DISABLE_EMAIL_VERIFICATION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DISABLE_EMAIL_VERIFICATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDisableEmailVerification() {
@@ -464,7 +437,7 @@ public class SsoSettingsV2 {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DISABLE_EMAIL_VERIFICATION)
+  @JsonProperty(value = JSON_PROPERTY_DISABLE_EMAIL_VERIFICATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisableEmailVerification(@javax.annotation.Nullable Boolean disableEmailVerification) {
     this.disableEmailVerification = disableEmailVerification;

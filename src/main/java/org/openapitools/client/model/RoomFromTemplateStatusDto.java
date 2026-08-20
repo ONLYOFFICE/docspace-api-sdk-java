@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -42,20 +43,16 @@ import java.util.StringJoiner;
 
 public class RoomFromTemplateStatusDto {
   public static final String JSON_PROPERTY_ROOM_ID = "roomId";
-  @javax.annotation.Nonnull
-  private Integer roomId;
+  @javax.annotation.Nonnull  private Integer roomId;
 
   public static final String JSON_PROPERTY_PROGRESS = "progress";
-  @javax.annotation.Nonnull
-  private Double progress;
+  @javax.annotation.Nonnull  private Double progress;
 
   public static final String JSON_PROPERTY_ERROR = "error";
-  @javax.annotation.Nullable
-  private String error;
+  @javax.annotation.Nullable  private String error;
 
   public static final String JSON_PROPERTY_IS_COMPLETED = "isCompleted";
-  @javax.annotation.Nonnull
-  private Boolean isCompleted;
+  @javax.annotation.Nonnull  private Boolean isCompleted;
 
   public RoomFromTemplateStatusDto() {
   }
@@ -71,8 +68,7 @@ public class RoomFromTemplateStatusDto {
    * The room ID.
    * @return roomId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ROOM_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ROOM_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getRoomId() {
@@ -80,7 +76,7 @@ public class RoomFromTemplateStatusDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROOM_ID)
+  @JsonProperty(value = JSON_PROPERTY_ROOM_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRoomId(@javax.annotation.Nonnull Integer roomId) {
     this.roomId = roomId;
@@ -96,8 +92,7 @@ public class RoomFromTemplateStatusDto {
    * The progress of creating a room from the template.
    * @return progress
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PROGRESS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PROGRESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Double getProgress() {
@@ -105,7 +100,7 @@ public class RoomFromTemplateStatusDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROGRESS)
+  @JsonProperty(value = JSON_PROPERTY_PROGRESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProgress(@javax.annotation.Nonnull Double progress) {
     this.progress = progress;
@@ -121,8 +116,7 @@ public class RoomFromTemplateStatusDto {
    * The error message that is sent when a room is not created successfully from the template.
    * @return error
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getError() {
@@ -130,7 +124,7 @@ public class RoomFromTemplateStatusDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setError(@javax.annotation.Nullable String error) {
     this.error = error;
@@ -146,8 +140,7 @@ public class RoomFromTemplateStatusDto {
    * Specifies whether the process of creating a room from the template is completed.
    * @return isCompleted
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_COMPLETED)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_COMPLETED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getIsCompleted() {
@@ -155,7 +148,7 @@ public class RoomFromTemplateStatusDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_COMPLETED)
+  @JsonProperty(value = JSON_PROPERTY_IS_COMPLETED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsCompleted(@javax.annotation.Nonnull Boolean isCompleted) {
     this.isCompleted = isCompleted;

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -320,7 +320,7 @@ public class GroupApi extends BaseApi {
 
   /**
    * Get a group
-   * Returns the detailed information about the selected group.   **Note**: This method returns full group information.
+   * Returns the detailed information about the selected group.
    *
    * REST API Reference for getGroup Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group/
@@ -337,7 +337,7 @@ public class GroupApi extends BaseApi {
 
   /**
    * Get a group
-   * Returns the detailed information about the selected group.   **Note**: This method returns full group information.
+   * Returns the detailed information about the selected group.
    *
    * REST API Reference for getGroup Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group/
@@ -491,7 +491,7 @@ public class GroupApi extends BaseApi {
 
   /**
    * Get groups
-   * Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
+   * Returns the general information about all the groups, such as group ID and group manager.
    *
    * REST API Reference for getGroups Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups/
@@ -513,7 +513,7 @@ public class GroupApi extends BaseApi {
 
   /**
    * Get groups
-   * Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
+   * Returns the general information about all the groups, such as group ID and group manager.
    *
    * REST API Reference for getGroups Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups/

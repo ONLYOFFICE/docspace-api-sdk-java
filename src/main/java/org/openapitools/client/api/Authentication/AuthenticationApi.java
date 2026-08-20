@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.AuthRequestsDto;
+import org.openapitools.client.model.AuthWithCodeRequestsDto;
 import org.openapitools.client.model.AuthenticationTokenWrapper;
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.ConfirmWrapper;
@@ -137,12 +138,12 @@ public class AuthenticationApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/
    *
    * @param code  (required)
-   * @param authRequestsDto  (optional)
+   * @param authWithCodeRequestsDto  (optional)
    * @return AuthenticationTokenWrapper
    * @throws ApiException if fails to make API call
    */
-  public AuthenticationTokenWrapper authenticateMeFromBodyWithCode(@javax.annotation.Nonnull String code, @javax.annotation.Nullable AuthRequestsDto authRequestsDto) throws ApiException {
-    return this.authenticateMeFromBodyWithCode(code, authRequestsDto, Collections.emptyMap());
+  public AuthenticationTokenWrapper authenticateMeFromBodyWithCode(@javax.annotation.Nonnull String code, @javax.annotation.Nullable AuthWithCodeRequestsDto authWithCodeRequestsDto) throws ApiException {
+    return this.authenticateMeFromBodyWithCode(code, authWithCodeRequestsDto, Collections.emptyMap());
   }
 
 
@@ -154,13 +155,13 @@ public class AuthenticationApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/
    *
    * @param code  (required)
-   * @param authRequestsDto  (optional)
+   * @param authWithCodeRequestsDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return AuthenticationTokenWrapper
    * @throws ApiException if fails to make API call
    */
-  public AuthenticationTokenWrapper authenticateMeFromBodyWithCode(@javax.annotation.Nonnull String code, @javax.annotation.Nullable AuthRequestsDto authRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = authRequestsDto;
+  public AuthenticationTokenWrapper authenticateMeFromBodyWithCode(@javax.annotation.Nonnull String code, @javax.annotation.Nullable AuthWithCodeRequestsDto authWithCodeRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = authWithCodeRequestsDto;
     
     // verify the required parameter 'code' is set
     if (code == null) {

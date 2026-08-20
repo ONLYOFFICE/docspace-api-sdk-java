@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -47,24 +48,19 @@ import java.util.StringJoiner;
 
 public class GetReferenceDataDtoInteger {
   public static final String JSON_PROPERTY_FILE_KEY = "fileKey";
-  @javax.annotation.Nullable
-  private String fileKey;
+  @javax.annotation.Nullable  private String fileKey;
 
   public static final String JSON_PROPERTY_INSTANCE_ID = "instanceId";
-  @javax.annotation.Nullable
-  private String instanceId;
+  @javax.annotation.Nullable  private String instanceId;
 
   public static final String JSON_PROPERTY_SOURCE_FILE_ID = "sourceFileId";
-  @javax.annotation.Nullable
-  private Integer sourceFileId;
+  @javax.annotation.Nullable  private Integer sourceFileId;
 
   public static final String JSON_PROPERTY_PATH = "path";
-  @javax.annotation.Nullable
-  private JsonNullable<String> path = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> path = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LINK = "link";
-  @javax.annotation.Nullable
-  private JsonNullable<String> link = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> link = JsonNullable.<String>undefined();
 
   public GetReferenceDataDtoInteger() {
   }
@@ -80,8 +76,7 @@ public class GetReferenceDataDtoInteger {
    * The unique document identifier used by the service to get a link to the file.
    * @return fileKey
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILE_KEY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getFileKey() {
@@ -89,7 +84,7 @@ public class GetReferenceDataDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE_KEY)
+  @JsonProperty(value = JSON_PROPERTY_FILE_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFileKey(@javax.annotation.Nullable String fileKey) {
     this.fileKey = fileKey;
@@ -105,8 +100,7 @@ public class GetReferenceDataDtoInteger {
    * The unique system identifier.
    * @return instanceId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INSTANCE_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INSTANCE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getInstanceId() {
@@ -114,7 +108,7 @@ public class GetReferenceDataDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INSTANCE_ID)
+  @JsonProperty(value = JSON_PROPERTY_INSTANCE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setInstanceId(@javax.annotation.Nullable String instanceId) {
     this.instanceId = instanceId;
@@ -130,8 +124,7 @@ public class GetReferenceDataDtoInteger {
    * The source file ID.
    * @return sourceFileId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SOURCE_FILE_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SOURCE_FILE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getSourceFileId() {
@@ -139,7 +132,7 @@ public class GetReferenceDataDtoInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SOURCE_FILE_ID)
+  @JsonProperty(value = JSON_PROPERTY_SOURCE_FILE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSourceFileId(@javax.annotation.Nullable Integer sourceFileId) {
     this.sourceFileId = sourceFileId;
@@ -155,16 +148,14 @@ public class GetReferenceDataDtoInteger {
    * The file name or relative path for the formula editor.
    * @return path
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getPath() {
         return path.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PATH)
+  @JsonProperty(value = JSON_PROPERTY_PATH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPath_JsonNullable() {
     return path;
   }
@@ -188,16 +179,14 @@ public class GetReferenceDataDtoInteger {
    * The file link.
    * @return link
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getLink() {
         return link.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LINK)
+  @JsonProperty(value = JSON_PROPERTY_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getLink_JsonNullable() {
     return link;
   }

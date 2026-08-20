@@ -15,6 +15,7 @@ The current tenant quota.
 |**priceISOCurrencySymbol** | **String** | The tenant price three-character ISO 4217 currency symbol. |  [optional] |
 |**productId** | **String** | The tenant product ID. |  [optional] |
 |**serviceName** | **String** | The service name. |  [optional] |
+|**serviceGroup** | **String** | The service group. |  [optional] |
 |**visible** | **Boolean** | Specifies if the tenant quota is visible or not. |  [optional] |
 |**wallet** | **Boolean** | Specifies if the tenant quota applies to the wallet or not |  [optional] |
 |**dueDate** | **OffsetDateTime** | The quota due date. |  [optional] |
@@ -37,6 +38,7 @@ The current tenant quota.
 |**branding** | **Boolean** | Specifies if the branding settings are available or not. |  [optional] |
 |**customization** | **Boolean** | Specifies if the customization settings are available or not. |  [optional] |
 |**lifetime** | **Boolean** | Specifies if the license has the lifetime settings or not. |  [optional] |
+|**automationApi** | **Boolean** | Specifies if the Automation API is available or not. |  [optional] |
 |**custom** | **Boolean** | Specifies if the custom domain URL is available or not. |  [optional] |
 |**restore** | **Boolean** | Specifies if the restore is enabled or not. |  [optional] |
 |**oauth** | **Boolean** | Specifies if Oauth is available or not. |  [optional] |
@@ -44,8 +46,9 @@ The current tenant quota.
 |**thirdParty** | **Boolean** | Specifies if the third-party accounts linking is available or not. |  [optional] |
 |**year** | **Boolean** | Specifies if the tenant quota is yearly subscription or not. |  [optional] |
 |**countFreeBackup** | **Integer** | The number of free backups within a month. |  [optional] |
-|**backup** | **Boolean** | Specifies if the backup anabled as a wallet service or not. |  [optional] |
+|**backup** | **Boolean** | Specifies if the backup enabled as a wallet service or not. |  [optional] |
 |**countAIAgent** | **Integer** | The number of AI agents. |  [optional] |
+|**aiTools** | **Boolean** | Specifies if the AI tools enabled as a wallet service or not. |  [optional] |
 
 
 

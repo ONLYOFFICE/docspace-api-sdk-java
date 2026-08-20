@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -58,44 +59,34 @@ import java.util.StringJoiner;
 
 public class ApiKeyResponseDto {
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nonnull
-  private UUID id;
+  @javax.annotation.Nonnull  private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private String name;
+  @javax.annotation.Nullable  private String name;
 
   public static final String JSON_PROPERTY_KEY = "key";
-  @javax.annotation.Nullable
-  private String key;
+  @javax.annotation.Nullable  private String key;
 
   public static final String JSON_PROPERTY_KEY_POSTFIX = "keyPostfix";
-  @javax.annotation.Nullable
-  private JsonNullable<String> keyPostfix = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> keyPostfix = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PERMISSIONS = "permissions";
-  @javax.annotation.Nullable
-  private List<String> permissions;
+  @javax.annotation.Nullable  private List<String> permissions;
 
   public static final String JSON_PROPERTY_LAST_USED = "lastUsed";
-  @javax.annotation.Nullable
-  private ApiDateTime lastUsed;
+  @javax.annotation.Nullable  private ApiDateTime lastUsed;
 
   public static final String JSON_PROPERTY_CREATE_ON = "createOn";
-  @javax.annotation.Nullable
-  private ApiDateTime createOn;
+  @javax.annotation.Nullable  private ApiDateTime createOn;
 
   public static final String JSON_PROPERTY_CREATE_BY = "createBy";
-  @javax.annotation.Nullable
-  private EmployeeDto createBy;
+  @javax.annotation.Nullable  private EmployeeDto createBy;
 
   public static final String JSON_PROPERTY_EXPIRES_AT = "expiresAt";
-  @javax.annotation.Nullable
-  private ApiDateTime expiresAt;
+  @javax.annotation.Nullable  private ApiDateTime expiresAt;
 
   public static final String JSON_PROPERTY_IS_ACTIVE = "isActive";
-  @javax.annotation.Nonnull
-  private Boolean isActive;
+  @javax.annotation.Nonnull  private Boolean isActive;
 
   public ApiKeyResponseDto() {
   }
@@ -111,8 +102,7 @@ public class ApiKeyResponseDto {
    * The API key unique identifier.
    * @return id
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getId() {
@@ -120,7 +110,7 @@ public class ApiKeyResponseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@javax.annotation.Nonnull UUID id) {
     this.id = id;
@@ -136,8 +126,7 @@ public class ApiKeyResponseDto {
    * The API key name.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
@@ -145,7 +134,7 @@ public class ApiKeyResponseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
@@ -161,8 +150,7 @@ public class ApiKeyResponseDto {
    * The full API key value (only returned when creating a new key).
    * @return key
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KEY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getKey() {
@@ -170,7 +158,7 @@ public class ApiKeyResponseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KEY)
+  @JsonProperty(value = JSON_PROPERTY_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setKey(@javax.annotation.Nullable String key) {
     this.key = key;
@@ -186,16 +174,14 @@ public class ApiKeyResponseDto {
    * The API key postfix (used for identification).
    * @return keyPostfix
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getKeyPostfix() {
         return keyPostfix.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_KEY_POSTFIX)
+  @JsonProperty(value = JSON_PROPERTY_KEY_POSTFIX, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getKeyPostfix_JsonNullable() {
     return keyPostfix;
   }
@@ -227,8 +213,7 @@ public class ApiKeyResponseDto {
    * The list of permissions granted to the API key.
    * @return permissions
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PERMISSIONS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PERMISSIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<String> getPermissions() {
@@ -236,7 +221,7 @@ public class ApiKeyResponseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PERMISSIONS)
+  @JsonProperty(value = JSON_PROPERTY_PERMISSIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPermissions(@javax.annotation.Nullable List<String> permissions) {
     this.permissions = permissions;
@@ -252,8 +237,7 @@ public class ApiKeyResponseDto {
    * Get lastUsed
    * @return lastUsed
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_USED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_USED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApiDateTime getLastUsed() {
@@ -261,7 +245,7 @@ public class ApiKeyResponseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LAST_USED)
+  @JsonProperty(value = JSON_PROPERTY_LAST_USED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastUsed(@javax.annotation.Nullable ApiDateTime lastUsed) {
     this.lastUsed = lastUsed;
@@ -277,8 +261,7 @@ public class ApiKeyResponseDto {
    * Get createOn
    * @return createOn
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATE_ON)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApiDateTime getCreateOn() {
@@ -286,7 +269,7 @@ public class ApiKeyResponseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATE_ON)
+  @JsonProperty(value = JSON_PROPERTY_CREATE_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreateOn(@javax.annotation.Nullable ApiDateTime createOn) {
     this.createOn = createOn;
@@ -302,8 +285,7 @@ public class ApiKeyResponseDto {
    * Get createBy
    * @return createBy
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATE_BY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_BY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EmployeeDto getCreateBy() {
@@ -311,7 +293,7 @@ public class ApiKeyResponseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATE_BY)
+  @JsonProperty(value = JSON_PROPERTY_CREATE_BY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreateBy(@javax.annotation.Nullable EmployeeDto createBy) {
     this.createBy = createBy;
@@ -327,8 +309,7 @@ public class ApiKeyResponseDto {
    * Get expiresAt
    * @return expiresAt
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApiDateTime getExpiresAt() {
@@ -336,7 +317,7 @@ public class ApiKeyResponseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(@javax.annotation.Nullable ApiDateTime expiresAt) {
     this.expiresAt = expiresAt;
@@ -352,8 +333,7 @@ public class ApiKeyResponseDto {
    * Indicates whether the API key is active or not.
    * @return isActive
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_ACTIVE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_ACTIVE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getIsActive() {
@@ -361,7 +341,7 @@ public class ApiKeyResponseDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_ACTIVE)
+  @JsonProperty(value = JSON_PROPERTY_IS_ACTIVE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsActive(@javax.annotation.Nonnull Boolean isActive) {
     this.isActive = isActive;

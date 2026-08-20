@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -52,24 +53,19 @@ import java.util.StringJoiner;
 
 public class SecurityInfoRequestDto {
   public static final String JSON_PROPERTY_FOLDER_IDS = "folderIds";
-  @javax.annotation.Nullable
-  private JsonNullable<List<DuplicateRequestDtoAllOfFileIds>> folderIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<DuplicateRequestDtoAllOfFileIds>> folderIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>undefined();
 
   public static final String JSON_PROPERTY_FILE_IDS = "fileIds";
-  @javax.annotation.Nullable
-  private JsonNullable<List<DuplicateRequestDtoAllOfFileIds>> fileIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<DuplicateRequestDtoAllOfFileIds>> fileIds = JsonNullable.<List<DuplicateRequestDtoAllOfFileIds>>undefined();
 
   public static final String JSON_PROPERTY_SHARE = "share";
-  @javax.annotation.Nullable
-  private JsonNullable<List<FileShareParams>> share = JsonNullable.<List<FileShareParams>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<FileShareParams>> share = JsonNullable.<List<FileShareParams>>undefined();
 
   public static final String JSON_PROPERTY_NOTIFY = "notify";
-  @javax.annotation.Nullable
-  private Boolean notify;
+  @javax.annotation.Nullable  private Boolean notify;
 
   public static final String JSON_PROPERTY_SHARING_MESSAGE = "sharingMessage";
-  @javax.annotation.Nullable
-  private JsonNullable<String> sharingMessage = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> sharingMessage = JsonNullable.<String>undefined();
 
   public SecurityInfoRequestDto() {
   }
@@ -97,16 +93,14 @@ public class SecurityInfoRequestDto {
    * The list of the shared folder IDs.
    * @return folderIds
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<DuplicateRequestDtoAllOfFileIds> getFolderIds() {
         return folderIds.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FOLDER_IDS)
+  @JsonProperty(value = JSON_PROPERTY_FOLDER_IDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<DuplicateRequestDtoAllOfFileIds>> getFolderIds_JsonNullable() {
     return folderIds;
   }
@@ -142,16 +136,14 @@ public class SecurityInfoRequestDto {
    * The list of the shared file IDs.
    * @return fileIds
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<DuplicateRequestDtoAllOfFileIds> getFileIds() {
         return fileIds.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE_IDS)
+  @JsonProperty(value = JSON_PROPERTY_FILE_IDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<DuplicateRequestDtoAllOfFileIds>> getFileIds_JsonNullable() {
     return fileIds;
   }
@@ -187,16 +179,14 @@ public class SecurityInfoRequestDto {
    * The collection of sharing parameters.
    * @return share
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<FileShareParams> getShare() {
         return share.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SHARE)
+  @JsonProperty(value = JSON_PROPERTY_SHARE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<FileShareParams>> getShare_JsonNullable() {
     return share;
   }
@@ -220,8 +210,7 @@ public class SecurityInfoRequestDto {
    * Specifies whether to notify users about the shared file or not.
    * @return notify
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NOTIFY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NOTIFY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getNotify() {
@@ -229,7 +218,7 @@ public class SecurityInfoRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NOTIFY)
+  @JsonProperty(value = JSON_PROPERTY_NOTIFY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotify(@javax.annotation.Nullable Boolean notify) {
     this.notify = notify;
@@ -245,16 +234,14 @@ public class SecurityInfoRequestDto {
    * The message to send when notifying about the shared file.
    * @return sharingMessage
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getSharingMessage() {
         return sharingMessage.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SHARING_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_SHARING_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getSharingMessage_JsonNullable() {
     return sharingMessage;
   }

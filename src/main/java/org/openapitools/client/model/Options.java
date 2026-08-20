@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.WatermarkOnDraw;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -40,8 +41,7 @@ import java.util.StringJoiner;
 
 public class Options {
   public static final String JSON_PROPERTY_WATERMARK_ON_DRAW = "watermark_on_draw";
-  @javax.annotation.Nullable
-  private WatermarkOnDraw watermarkOnDraw;
+  @javax.annotation.Nullable  private WatermarkOnDraw watermarkOnDraw;
 
   public Options() {
   }
@@ -57,8 +57,7 @@ public class Options {
    * Get watermarkOnDraw
    * @return watermarkOnDraw
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WATERMARK_ON_DRAW)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WATERMARK_ON_DRAW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public WatermarkOnDraw getWatermarkOnDraw() {
@@ -66,7 +65,7 @@ public class Options {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WATERMARK_ON_DRAW)
+  @JsonProperty(value = JSON_PROPERTY_WATERMARK_ON_DRAW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWatermarkOnDraw(@javax.annotation.Nullable WatermarkOnDraw watermarkOnDraw) {
     this.watermarkOnDraw = watermarkOnDraw;

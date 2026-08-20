@@ -74,7 +74,7 @@ public class Example {
 
 
         StatisticsApi apiInstance = new StatisticsApi(defaultClient);
-        UUID id = UUID.fromString("aae1e103-bca5-9fa1-ba8c-42058b4abf28"); // UUID | The ID extracted from the route parameters.
+        UUID id = UUID.randomUUID(); // UUID | The ID extracted from the route parameters.
         try {
             UsageSpaceStatItemArrayWrapper result = apiInstance.getSpaceUsageStatistics(id);
             System.out.println(result);
@@ -98,6 +98,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Module space usage statistics |  -  |
+| **200** | Module space usage statistics |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

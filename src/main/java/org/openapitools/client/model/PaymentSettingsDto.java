@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -49,28 +50,22 @@ import java.util.StringJoiner;
 
 public class PaymentSettingsDto {
   public static final String JSON_PROPERTY_SALES_EMAIL = "salesEmail";
-  @javax.annotation.Nullable
-  private String salesEmail;
+  @javax.annotation.Nullable  private String salesEmail;
 
   public static final String JSON_PROPERTY_FEEDBACK_AND_SUPPORT_URL = "feedbackAndSupportUrl";
-  @javax.annotation.Nullable
-  private JsonNullable<String> feedbackAndSupportUrl = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> feedbackAndSupportUrl = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_BUY_URL = "buyUrl";
-  @javax.annotation.Nullable
-  private String buyUrl;
+  @javax.annotation.Nullable  private String buyUrl;
 
   public static final String JSON_PROPERTY_STANDALONE = "standalone";
-  @javax.annotation.Nonnull
-  private Boolean standalone;
+  @javax.annotation.Nonnull  private Boolean standalone;
 
   public static final String JSON_PROPERTY_CURRENT_LICENSE = "currentLicense";
-  @javax.annotation.Nonnull
-  private CurrentLicenseInfo currentLicense;
+  @javax.annotation.Nonnull  private CurrentLicenseInfo currentLicense;
 
   public static final String JSON_PROPERTY_MAX = "max";
-  @javax.annotation.Nonnull
-  private Integer max;
+  @javax.annotation.Nonnull  private Integer max;
 
   public PaymentSettingsDto() {
   }
@@ -86,8 +81,7 @@ public class PaymentSettingsDto {
    * The email address for sales inquiries and support.
    * @return salesEmail
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SALES_EMAIL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SALES_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getSalesEmail() {
@@ -95,7 +89,7 @@ public class PaymentSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SALES_EMAIL)
+  @JsonProperty(value = JSON_PROPERTY_SALES_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSalesEmail(@javax.annotation.Nullable String salesEmail) {
     this.salesEmail = salesEmail;
@@ -111,16 +105,14 @@ public class PaymentSettingsDto {
    * The URL for accessing the feedback and support resources.
    * @return feedbackAndSupportUrl
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFeedbackAndSupportUrl() {
         return feedbackAndSupportUrl.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FEEDBACK_AND_SUPPORT_URL)
+  @JsonProperty(value = JSON_PROPERTY_FEEDBACK_AND_SUPPORT_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFeedbackAndSupportUrl_JsonNullable() {
     return feedbackAndSupportUrl;
   }
@@ -144,8 +136,7 @@ public class PaymentSettingsDto {
    * The URL for purchasing or upgrading the product.
    * @return buyUrl
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BUY_URL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_BUY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getBuyUrl() {
@@ -153,7 +144,7 @@ public class PaymentSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BUY_URL)
+  @JsonProperty(value = JSON_PROPERTY_BUY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setBuyUrl(@javax.annotation.Nullable String buyUrl) {
     this.buyUrl = buyUrl;
@@ -169,8 +160,7 @@ public class PaymentSettingsDto {
    * Indicates whether the system is running in standalone mode.
    * @return standalone
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STANDALONE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STANDALONE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getStandalone() {
@@ -178,7 +168,7 @@ public class PaymentSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STANDALONE)
+  @JsonProperty(value = JSON_PROPERTY_STANDALONE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStandalone(@javax.annotation.Nonnull Boolean standalone) {
     this.standalone = standalone;
@@ -194,8 +184,7 @@ public class PaymentSettingsDto {
    * Get currentLicense
    * @return currentLicense
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CURRENT_LICENSE)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CURRENT_LICENSE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public CurrentLicenseInfo getCurrentLicense() {
@@ -203,7 +192,7 @@ public class PaymentSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CURRENT_LICENSE)
+  @JsonProperty(value = JSON_PROPERTY_CURRENT_LICENSE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCurrentLicense(@javax.annotation.Nonnull CurrentLicenseInfo currentLicense) {
     this.currentLicense = currentLicense;
@@ -219,8 +208,7 @@ public class PaymentSettingsDto {
    * The maximum quota quantity.
    * @return max
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_MAX)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_MAX, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getMax() {
@@ -228,7 +216,7 @@ public class PaymentSettingsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MAX)
+  @JsonProperty(value = JSON_PROPERTY_MAX, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMax(@javax.annotation.Nonnull Integer max) {
     this.max = max;

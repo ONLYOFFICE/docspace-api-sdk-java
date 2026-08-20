@@ -10,7 +10,7 @@ The tenant audit settings parameters.
 |------------ | ------------- | ------------- | -------------|
 |**loginHistoryLifeTime** | **Integer** | The login history lifetime. |  [optional] |
 |**auditTrailLifeTime** | **Integer** | The audit trail lifetime. |  [optional] |
-|**lastModified** | **OffsetDateTime** |  |  [optional] |
+|**lastModified** | **OffsetDateTime** | The timestamp indicating when the settings were last modified. |  [optional] |
 
 
 

@@ -51,6 +51,8 @@ The actions that can be performed with the file entry.
 |**vectorization** | **Boolean** |  |  [optional] |
 |**askAi** | **Boolean** |  |  [optional] |
 |**useChat** | **Boolean** |  |  [optional] |
+|**updateXlsx** | **Boolean** |  |  [optional] |
+|**analyzeResponses** | **Boolean** |  |  [optional] |
 
 
 

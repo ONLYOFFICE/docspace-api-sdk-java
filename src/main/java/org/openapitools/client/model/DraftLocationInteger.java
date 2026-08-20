@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,20 +47,16 @@ import java.util.StringJoiner;
 
 public class DraftLocationInteger {
   public static final String JSON_PROPERTY_FOLDER_ID = "folderId";
-  @javax.annotation.Nullable
-  private Integer folderId;
+  @javax.annotation.Nullable  private Integer folderId;
 
   public static final String JSON_PROPERTY_FOLDER_TITLE = "folderTitle";
-  @javax.annotation.Nullable
-  private JsonNullable<String> folderTitle = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> folderTitle = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FILE_ID = "fileId";
-  @javax.annotation.Nullable
-  private Integer fileId;
+  @javax.annotation.Nullable  private Integer fileId;
 
   public static final String JSON_PROPERTY_FILE_TITLE = "fileTitle";
-  @javax.annotation.Nullable
-  private JsonNullable<String> fileTitle = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> fileTitle = JsonNullable.<String>undefined();
 
   public DraftLocationInteger() {
   }
@@ -75,8 +72,7 @@ public class DraftLocationInteger {
    * The InProcess folder ID of the draft.
    * @return folderId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FOLDER_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FOLDER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getFolderId() {
@@ -84,7 +80,7 @@ public class DraftLocationInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FOLDER_ID)
+  @JsonProperty(value = JSON_PROPERTY_FOLDER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFolderId(@javax.annotation.Nullable Integer folderId) {
     this.folderId = folderId;
@@ -100,16 +96,14 @@ public class DraftLocationInteger {
    * The InProcess folder title of the draft.
    * @return folderTitle
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFolderTitle() {
         return folderTitle.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FOLDER_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_FOLDER_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFolderTitle_JsonNullable() {
     return folderTitle;
   }
@@ -133,8 +127,7 @@ public class DraftLocationInteger {
    * The draft ID.
    * @return fileId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILE_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getFileId() {
@@ -142,7 +135,7 @@ public class DraftLocationInteger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE_ID)
+  @JsonProperty(value = JSON_PROPERTY_FILE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileId(@javax.annotation.Nullable Integer fileId) {
     this.fileId = fileId;
@@ -158,16 +151,14 @@ public class DraftLocationInteger {
    * The draft title.
    * @return fileTitle
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFileTitle() {
         return fileTitle.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_FILE_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFileTitle_JsonNullable() {
     return fileTitle;
   }

@@ -10,11 +10,11 @@ The additional white label settings.
 |------------ | ------------- | ------------- | -------------|
 |**startDocsEnabled** | **Boolean** | Specifies if the sample documents are displayed or hidden. |  [optional] |
 |**helpCenterEnabled** | **Boolean** | Specifies if the Help Center link is available or not. |  [optional] |
-|**feedbackAndSupportEnabled** | **Boolean** | Specifies if the Feedback &amp; Support link is available or not. |  [optional] |
+|**feedbackAndSupportEnabled** | **Boolean** | Specifies if the Feedback & Support link is available or not. |  [optional] |
 |**userForumEnabled** | **Boolean** | Specifies if the user forum is available or not. |  [optional] |
 |**videoGuidesEnabled** | **Boolean** | Specifies if the Video Guides link is available or not. |  [optional] |
 |**licenseAgreementsEnabled** | **Boolean** | Specifies if the License Agreements link is available or not. |  [optional] |
-|**lastModified** | **OffsetDateTime** |  |  [optional] |
+|**lastModified** | **OffsetDateTime** | The timestamp indicating when the settings were last modified. |  [optional] |
 
 
 

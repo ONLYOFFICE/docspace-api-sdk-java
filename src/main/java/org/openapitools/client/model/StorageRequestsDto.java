@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,12 +49,10 @@ import java.util.StringJoiner;
 
 public class StorageRequestsDto {
   public static final String JSON_PROPERTY_MODULE = "module";
-  @javax.annotation.Nullable
-  private String module;
+  @javax.annotation.Nullable  private String module;
 
   public static final String JSON_PROPERTY_PROPS = "props";
-  @javax.annotation.Nullable
-  private JsonNullable<List<ItemKeyValuePairStringString>> props = JsonNullable.<List<ItemKeyValuePairStringString>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<ItemKeyValuePairStringString>> props = JsonNullable.<List<ItemKeyValuePairStringString>>undefined();
 
   public StorageRequestsDto() {
   }
@@ -69,8 +68,7 @@ public class StorageRequestsDto {
    * The name for the storage module to be configured.
    * @return module
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODULE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MODULE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getModule() {
@@ -78,7 +76,7 @@ public class StorageRequestsDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MODULE)
+  @JsonProperty(value = JSON_PROPERTY_MODULE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setModule(@javax.annotation.Nullable String module) {
     this.module = module;
@@ -106,16 +104,14 @@ public class StorageRequestsDto {
    * The list of configuration key-value pairs for the storage module.
    * @return props
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<ItemKeyValuePairStringString> getProps() {
         return props.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_PROPS)
+  @JsonProperty(value = JSON_PROPERTY_PROPS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<ItemKeyValuePairStringString>> getProps_JsonNullable() {
     return props;
   }

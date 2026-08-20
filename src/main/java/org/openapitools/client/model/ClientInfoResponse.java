@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,8 +26,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -41,6 +43,7 @@ import java.util.StringJoiner;
   ClientInfoResponse.JSON_PROPERTY_NAME,
   ClientInfoResponse.JSON_PROPERTY_DESCRIPTION,
   ClientInfoResponse.JSON_PROPERTY_SCOPES,
+  ClientInfoResponse.JSON_PROPERTY_PUBLIC,
   ClientInfoResponse.JSON_PROPERTY_CLIENT_ID,
   ClientInfoResponse.JSON_PROPERTY_WEBSITE_URL,
   ClientInfoResponse.JSON_PROPERTY_TERMS_URL,
@@ -56,60 +59,49 @@ import java.util.StringJoiner;
 
 public class ClientInfoResponse {
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private String name;
+  @javax.annotation.Nullable  private String name;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  @javax.annotation.Nullable
-  private String description;
+  @javax.annotation.Nullable  private String description;
 
   public static final String JSON_PROPERTY_SCOPES = "scopes";
-  @javax.annotation.Nullable
-  private Set<String> scopes = new LinkedHashSet<>();
+  @javax.annotation.Nullable  private Set<String> scopes = new LinkedHashSet<>();
+
+  public static final String JSON_PROPERTY_PUBLIC = "public";
+  @javax.annotation.Nullable  private Boolean _public;
 
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
-  @javax.annotation.Nullable
-  private String clientId;
+  @javax.annotation.Nullable  private String clientId;
 
   public static final String JSON_PROPERTY_WEBSITE_URL = "website_url";
-  @javax.annotation.Nullable
-  private String websiteUrl;
+  @javax.annotation.Nullable  private String websiteUrl;
 
   public static final String JSON_PROPERTY_TERMS_URL = "terms_url";
-  @javax.annotation.Nullable
-  private String termsUrl;
+  @javax.annotation.Nullable  private String termsUrl;
 
   public static final String JSON_PROPERTY_POLICY_URL = "policy_url";
-  @javax.annotation.Nullable
-  private String policyUrl;
+  @javax.annotation.Nullable  private String policyUrl;
 
   public static final String JSON_PROPERTY_LOGO = "logo";
-  @javax.annotation.Nullable
-  private String logo;
+  @javax.annotation.Nullable  private String logo;
 
   public static final String JSON_PROPERTY_AUTHENTICATION_METHODS = "authentication_methods";
-  @javax.annotation.Nullable
-  private Set<String> authenticationMethods = new LinkedHashSet<>();
+  @javax.annotation.Nullable  private Set<String> authenticationMethods = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_IS_PUBLIC = "is_public";
-  @javax.annotation.Nullable
-  private Boolean isPublic;
+  @javax.annotation.Nullable  private Boolean isPublic;
 
   public static final String JSON_PROPERTY_CREATED_ON = "created_on";
-  @javax.annotation.Nullable
-  private OffsetDateTime createdOn;
+  @javax.annotation.Nullable  private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_CREATED_BY = "created_by";
-  @javax.annotation.Nullable
-  private String createdBy;
+  @javax.annotation.Nullable  private String createdBy;
 
   public static final String JSON_PROPERTY_MODIFIED_ON = "modified_on";
-  @javax.annotation.Nullable
-  private OffsetDateTime modifiedOn;
+  @javax.annotation.Nullable  private OffsetDateTime modifiedOn;
 
   public static final String JSON_PROPERTY_MODIFIED_BY = "modified_by";
-  @javax.annotation.Nullable
-  private String modifiedBy;
+  @javax.annotation.Nullable  private String modifiedBy;
 
   public ClientInfoResponse() {
   }
@@ -125,8 +117,7 @@ public class ClientInfoResponse {
    * The client name.
    * @return name
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getName() {
@@ -134,7 +125,7 @@ public class ClientInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
@@ -150,8 +141,7 @@ public class ClientInfoResponse {
    * The client description.
    * @return description
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDescription() {
@@ -159,7 +149,7 @@ public class ClientInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
@@ -183,8 +173,7 @@ public class ClientInfoResponse {
    * The client scopes.
    * @return scopes
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCOPES)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SCOPES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Set<String> getScopes() {
@@ -193,10 +182,34 @@ public class ClientInfoResponse {
 
 
   @JsonDeserialize(as = LinkedHashSet.class)
-  @JsonProperty(JSON_PROPERTY_SCOPES)
+  @JsonProperty(value = JSON_PROPERTY_SCOPES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScopes(@javax.annotation.Nullable Set<String> scopes) {
     this.scopes = scopes;
+  }
+
+  public ClientInfoResponse _public(@javax.annotation.Nullable Boolean _public) {
+    
+    this._public = _public;
+    return this;
+  }
+
+  /**
+   * Get _public
+   * @return _public
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PUBLIC, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getPublic() {
+    return _public;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PUBLIC, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPublic(@javax.annotation.Nullable Boolean _public) {
+    this._public = _public;
   }
 
   public ClientInfoResponse clientId(@javax.annotation.Nullable String clientId) {
@@ -209,8 +222,7 @@ public class ClientInfoResponse {
    * The client ID.
    * @return clientId
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getClientId() {
@@ -218,7 +230,7 @@ public class ClientInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientId(@javax.annotation.Nullable String clientId) {
     this.clientId = clientId;
@@ -231,11 +243,10 @@ public class ClientInfoResponse {
   }
 
   /**
-   * The URL to the client&#39;s website
+   * The URL to the client's website
    * @return websiteUrl
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WEBSITE_URL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WEBSITE_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getWebsiteUrl() {
@@ -243,7 +254,7 @@ public class ClientInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WEBSITE_URL)
+  @JsonProperty(value = JSON_PROPERTY_WEBSITE_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebsiteUrl(@javax.annotation.Nullable String websiteUrl) {
     this.websiteUrl = websiteUrl;
@@ -256,11 +267,10 @@ public class ClientInfoResponse {
   }
 
   /**
-   * The URL to the client&#39;s terms of service.
+   * The URL to the client's terms of service.
    * @return termsUrl
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TERMS_URL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TERMS_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTermsUrl() {
@@ -268,7 +278,7 @@ public class ClientInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TERMS_URL)
+  @JsonProperty(value = JSON_PROPERTY_TERMS_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsUrl(@javax.annotation.Nullable String termsUrl) {
     this.termsUrl = termsUrl;
@@ -281,11 +291,10 @@ public class ClientInfoResponse {
   }
 
   /**
-   * The URL to the client&#39;s privacy policy.
+   * The URL to the client's privacy policy.
    * @return policyUrl
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POLICY_URL)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_POLICY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPolicyUrl() {
@@ -293,7 +302,7 @@ public class ClientInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_POLICY_URL)
+  @JsonProperty(value = JSON_PROPERTY_POLICY_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPolicyUrl(@javax.annotation.Nullable String policyUrl) {
     this.policyUrl = policyUrl;
@@ -309,8 +318,7 @@ public class ClientInfoResponse {
    * The client logo in base64 format.
    * @return logo
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOGO)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLogo() {
@@ -318,7 +326,7 @@ public class ClientInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOGO)
+  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(@javax.annotation.Nullable String logo) {
     this.logo = logo;
@@ -342,8 +350,7 @@ public class ClientInfoResponse {
    * The authentication methods supported by the client.
    * @return authenticationMethods
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUTHENTICATION_METHODS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTHENTICATION_METHODS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Set<String> getAuthenticationMethods() {
@@ -352,7 +359,7 @@ public class ClientInfoResponse {
 
 
   @JsonDeserialize(as = LinkedHashSet.class)
-  @JsonProperty(JSON_PROPERTY_AUTHENTICATION_METHODS)
+  @JsonProperty(value = JSON_PROPERTY_AUTHENTICATION_METHODS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationMethods(@javax.annotation.Nullable Set<String> authenticationMethods) {
     this.authenticationMethods = authenticationMethods;
@@ -368,8 +375,7 @@ public class ClientInfoResponse {
    * Indicates whether the client is accessible by third-party tenants.
    * @return isPublic
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_PUBLIC)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_PUBLIC, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsPublic() {
@@ -377,7 +383,7 @@ public class ClientInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_PUBLIC)
+  @JsonProperty(value = JSON_PROPERTY_IS_PUBLIC, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsPublic(@javax.annotation.Nullable Boolean isPublic) {
     this.isPublic = isPublic;
@@ -393,8 +399,7 @@ public class ClientInfoResponse {
    * The date and time when the client was created.
    * @return createdOn
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_ON)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getCreatedOn() {
@@ -402,7 +407,7 @@ public class ClientInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATED_ON)
+  @JsonProperty(value = JSON_PROPERTY_CREATED_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedOn(@javax.annotation.Nullable OffsetDateTime createdOn) {
     this.createdOn = createdOn;
@@ -418,8 +423,7 @@ public class ClientInfoResponse {
    * The user who created the client.
    * @return createdBy
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_BY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED_BY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCreatedBy() {
@@ -427,7 +431,7 @@ public class ClientInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATED_BY)
+  @JsonProperty(value = JSON_PROPERTY_CREATED_BY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedBy(@javax.annotation.Nullable String createdBy) {
     this.createdBy = createdBy;
@@ -443,8 +447,7 @@ public class ClientInfoResponse {
    * The date and time when the client was last modified.
    * @return modifiedOn
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFIED_ON)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MODIFIED_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getModifiedOn() {
@@ -452,7 +455,7 @@ public class ClientInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MODIFIED_ON)
+  @JsonProperty(value = JSON_PROPERTY_MODIFIED_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModifiedOn(@javax.annotation.Nullable OffsetDateTime modifiedOn) {
     this.modifiedOn = modifiedOn;
@@ -468,8 +471,7 @@ public class ClientInfoResponse {
    * The user who last modified the client.
    * @return modifiedBy
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MODIFIED_BY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getModifiedBy() {
@@ -477,7 +479,7 @@ public class ClientInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY)
+  @JsonProperty(value = JSON_PROPERTY_MODIFIED_BY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModifiedBy(@javax.annotation.Nullable String modifiedBy) {
     this.modifiedBy = modifiedBy;
@@ -495,6 +497,7 @@ public class ClientInfoResponse {
     return Objects.equals(this.name, clientInfoResponse.name) &&
         Objects.equals(this.description, clientInfoResponse.description) &&
         Objects.equals(this.scopes, clientInfoResponse.scopes) &&
+        Objects.equals(this._public, clientInfoResponse._public) &&
         Objects.equals(this.clientId, clientInfoResponse.clientId) &&
         Objects.equals(this.websiteUrl, clientInfoResponse.websiteUrl) &&
         Objects.equals(this.termsUrl, clientInfoResponse.termsUrl) &&
@@ -510,7 +513,7 @@ public class ClientInfoResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, scopes, clientId, websiteUrl, termsUrl, policyUrl, logo, authenticationMethods, isPublic, createdOn, createdBy, modifiedOn, modifiedBy);
+    return Objects.hash(name, description, scopes, _public, clientId, websiteUrl, termsUrl, policyUrl, logo, authenticationMethods, isPublic, createdOn, createdBy, modifiedOn, modifiedBy);
   }
 
   @Override
@@ -520,6 +523,7 @@ public class ClientInfoResponse {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
+    sb.append("    _public: ").append(toIndentedString(_public)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    websiteUrl: ").append(toIndentedString(websiteUrl)).append("\n");
     sb.append("    termsUrl: ").append(toIndentedString(termsUrl)).append("\n");
@@ -612,6 +616,16 @@ public class ClientInfoResponse {
         }
       }
       i++;
+    }
+
+    // add `public` to the URL query string
+    if (getPublic() != null) {
+      try {
+        joiner.add(String.format("%spublic%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPublic()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `client_id` to the URL query string

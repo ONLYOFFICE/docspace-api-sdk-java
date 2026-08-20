@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -53,28 +54,22 @@ import java.util.StringJoiner;
 
 public class InfoConfigDto {
   public static final String JSON_PROPERTY_FAVORITE = "favorite";
-  @javax.annotation.Nullable
-  private JsonNullable<Boolean> favorite = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private JsonNullable<Boolean> favorite = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_FOLDER = "folder";
-  @javax.annotation.Nullable
-  private JsonNullable<String> folder = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> folder = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_OWNER = "owner";
-  @javax.annotation.Nullable
-  private JsonNullable<String> owner = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> owner = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SHARING_SETTINGS = "sharingSettings";
-  @javax.annotation.Nullable
-  private JsonNullable<List<AceShortWrapper>> sharingSettings = JsonNullable.<List<AceShortWrapper>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<AceShortWrapper>> sharingSettings = JsonNullable.<List<AceShortWrapper>>undefined();
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  @javax.annotation.Nullable
-  private EditorType type;
+  @javax.annotation.Nullable  private EditorType type;
 
   public static final String JSON_PROPERTY_UPLOADED = "uploaded";
-  @javax.annotation.Nullable
-  private JsonNullable<String> uploaded = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<String> uploaded = JsonNullable.<String>undefined();
 
   public InfoConfigDto() {
   }
@@ -90,16 +85,14 @@ public class InfoConfigDto {
    * Specifies if the file is favorite or not.
    * @return favorite
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getFavorite() {
         return favorite.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FAVORITE)
+  @JsonProperty(value = JSON_PROPERTY_FAVORITE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Boolean> getFavorite_JsonNullable() {
     return favorite;
   }
@@ -123,16 +116,14 @@ public class InfoConfigDto {
    * The folder of the file.
    * @return folder
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getFolder() {
         return folder.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_FOLDER)
+  @JsonProperty(value = JSON_PROPERTY_FOLDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getFolder_JsonNullable() {
     return folder;
   }
@@ -156,16 +147,14 @@ public class InfoConfigDto {
    * The file owner.
    * @return owner
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getOwner() {
         return owner.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_OWNER)
+  @JsonProperty(value = JSON_PROPERTY_OWNER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getOwner_JsonNullable() {
     return owner;
   }
@@ -201,16 +190,14 @@ public class InfoConfigDto {
    * The sharing settings of the file.
    * @return sharingSettings
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public List<AceShortWrapper> getSharingSettings() {
         return sharingSettings.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SHARING_SETTINGS)
+  @JsonProperty(value = JSON_PROPERTY_SHARING_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<List<AceShortWrapper>> getSharingSettings_JsonNullable() {
     return sharingSettings;
   }
@@ -234,8 +221,7 @@ public class InfoConfigDto {
    * Get type
    * @return type
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EditorType getType() {
@@ -243,7 +229,7 @@ public class InfoConfigDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(@javax.annotation.Nullable EditorType type) {
     this.type = type;
@@ -259,16 +245,14 @@ public class InfoConfigDto {
    * The uploaded file.
    * @return uploaded
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getUploaded() {
         return uploaded.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_UPLOADED)
+  @JsonProperty(value = JSON_PROPERTY_UPLOADED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getUploaded_JsonNullable() {
     return uploaded;
   }

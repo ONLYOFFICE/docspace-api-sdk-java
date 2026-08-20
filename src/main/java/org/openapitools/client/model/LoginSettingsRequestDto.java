@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -41,16 +42,13 @@ import java.util.StringJoiner;
 
 public class LoginSettingsRequestDto {
   public static final String JSON_PROPERTY_ATTEMPT_COUNT = "attemptCount";
-  @javax.annotation.Nullable
-  private Integer attemptCount;
+  @javax.annotation.Nullable  private Integer attemptCount;
 
   public static final String JSON_PROPERTY_BLOCK_TIME = "blockTime";
-  @javax.annotation.Nullable
-  private Integer blockTime;
+  @javax.annotation.Nullable  private Integer blockTime;
 
   public static final String JSON_PROPERTY_CHECK_PERIOD = "checkPeriod";
-  @javax.annotation.Nullable
-  private Integer checkPeriod;
+  @javax.annotation.Nullable  private Integer checkPeriod;
 
   public LoginSettingsRequestDto() {
   }
@@ -68,8 +66,7 @@ public class LoginSettingsRequestDto {
    * maximum: 9999
    * @return attemptCount
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTEMPT_COUNT)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ATTEMPT_COUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getAttemptCount() {
@@ -77,7 +74,7 @@ public class LoginSettingsRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ATTEMPT_COUNT)
+  @JsonProperty(value = JSON_PROPERTY_ATTEMPT_COUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAttemptCount(@javax.annotation.Nullable Integer attemptCount) {
     this.attemptCount = attemptCount;
@@ -95,8 +92,7 @@ public class LoginSettingsRequestDto {
    * maximum: 9999
    * @return blockTime
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BLOCK_TIME)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_BLOCK_TIME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getBlockTime() {
@@ -104,7 +100,7 @@ public class LoginSettingsRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BLOCK_TIME)
+  @JsonProperty(value = JSON_PROPERTY_BLOCK_TIME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBlockTime(@javax.annotation.Nullable Integer blockTime) {
     this.blockTime = blockTime;
@@ -122,8 +118,7 @@ public class LoginSettingsRequestDto {
    * maximum: 9999
    * @return checkPeriod
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHECK_PERIOD)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CHECK_PERIOD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getCheckPeriod() {
@@ -131,7 +126,7 @@ public class LoginSettingsRequestDto {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CHECK_PERIOD)
+  @JsonProperty(value = JSON_PROPERTY_CHECK_PERIOD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckPeriod(@javax.annotation.Nullable Integer checkPeriod) {
     this.checkPeriod = checkPeriod;

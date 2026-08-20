@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -47,20 +48,16 @@ import java.util.StringJoiner;
 
 public class TenantQuotaSettings {
   public static final String JSON_PROPERTY_ENABLE_QUOTA = "enableQuota";
-  @javax.annotation.Nullable
-  private Boolean enableQuota;
+  @javax.annotation.Nullable  private Boolean enableQuota;
 
   public static final String JSON_PROPERTY_QUOTA = "quota";
-  @javax.annotation.Nullable
-  private Long quota;
+  @javax.annotation.Nullable  private Long quota;
 
   public static final String JSON_PROPERTY_LAST_RECALCULATE_DATE = "lastRecalculateDate";
-  @javax.annotation.Nullable
-  private JsonNullable<OffsetDateTime> lastRecalculateDate = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> lastRecalculateDate = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_LAST_MODIFIED = "lastModified";
-  @javax.annotation.Nullable
-  private OffsetDateTime lastModified;
+  @javax.annotation.Nullable  private OffsetDateTime lastModified;
 
   public TenantQuotaSettings() {
   }
@@ -76,8 +73,7 @@ public class TenantQuotaSettings {
    * Specifies if the tenant quota is enabled or not.
    * @return enableQuota
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLE_QUOTA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLE_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEnableQuota() {
@@ -85,7 +81,7 @@ public class TenantQuotaSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENABLE_QUOTA)
+  @JsonProperty(value = JSON_PROPERTY_ENABLE_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnableQuota(@javax.annotation.Nullable Boolean enableQuota) {
     this.enableQuota = enableQuota;
@@ -101,8 +97,7 @@ public class TenantQuotaSettings {
    * The tenant quota.
    * @return quota
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUOTA)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getQuota() {
@@ -110,7 +105,7 @@ public class TenantQuotaSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_QUOTA)
+  @JsonProperty(value = JSON_PROPERTY_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQuota(@javax.annotation.Nullable Long quota) {
     this.quota = quota;
@@ -126,16 +121,14 @@ public class TenantQuotaSettings {
    * The date of the last tenant quota recalculation.
    * @return lastRecalculateDate
    */
-  @javax.annotation.Nullable
-  @JsonIgnore
+  @javax.annotation.Nullable  @JsonIgnore
 
   public OffsetDateTime getLastRecalculateDate() {
         return lastRecalculateDate.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LAST_RECALCULATE_DATE)
+  @JsonProperty(value = JSON_PROPERTY_LAST_RECALCULATE_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<OffsetDateTime> getLastRecalculateDate_JsonNullable() {
     return lastRecalculateDate;
   }
@@ -156,11 +149,10 @@ public class TenantQuotaSettings {
   }
 
   /**
-   * Get lastModified
+   * The timestamp indicating when the settings were last modified.
    * @return lastModified
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLastModified() {
@@ -168,7 +160,7 @@ public class TenantQuotaSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
+  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
     this.lastModified = lastModified;

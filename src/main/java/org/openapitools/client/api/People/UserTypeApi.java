@@ -1,5 +1,5 @@
 /*
- * (c) Copyright Ascensio System SIA 2025
+ * (c) Copyright Ascensio System SIA 2026
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -139,15 +139,15 @@ public class UserTypeApi extends BaseApi {
    * Start updating user type
    * Starts updating the type of the user or guest when reassigning rooms and shared files.
    *
-   * REST API Reference for starUserTypetUpdate Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/
+   * REST API Reference for startUserTypeUpdate Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-user-type-update/
    *
    * @param startUpdateUserTypeDto  (optional)
    * @return TaskProgressResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public TaskProgressResponseWrapper starUserTypetUpdate(@javax.annotation.Nullable StartUpdateUserTypeDto startUpdateUserTypeDto) throws ApiException {
-    return this.starUserTypetUpdate(startUpdateUserTypeDto, Collections.emptyMap());
+  public TaskProgressResponseWrapper startUserTypeUpdate(@javax.annotation.Nullable StartUpdateUserTypeDto startUpdateUserTypeDto) throws ApiException {
+    return this.startUserTypeUpdate(startUpdateUserTypeDto, Collections.emptyMap());
   }
 
 
@@ -155,15 +155,15 @@ public class UserTypeApi extends BaseApi {
    * Start updating user type
    * Starts updating the type of the user or guest when reassigning rooms and shared files.
    *
-   * REST API Reference for starUserTypetUpdate Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/
+   * REST API Reference for startUserTypeUpdate Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-user-type-update/
    *
    * @param startUpdateUserTypeDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return TaskProgressResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public TaskProgressResponseWrapper starUserTypetUpdate(@javax.annotation.Nullable StartUpdateUserTypeDto startUpdateUserTypeDto, Map<String, String> additionalHeaders) throws ApiException {
+  public TaskProgressResponseWrapper startUserTypeUpdate(@javax.annotation.Nullable StartUpdateUserTypeDto startUpdateUserTypeDto, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = startUpdateUserTypeDto;
     
     // create path and map variables
