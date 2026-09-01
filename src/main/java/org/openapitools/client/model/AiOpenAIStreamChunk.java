@@ -56,7 +56,7 @@ public class AiOpenAIStreamChunk {
   @javax.annotation.Nonnull  private String id;
 
   /**
-   * Gets or Sets _object
+   * Always &#x60;chat.completion.chunk&#x60;.
    */
   public enum ObjectEnum {
     CHAT_COMPLETION_CHUNK(String.valueOf("chat.completion.chunk"));
@@ -113,7 +113,7 @@ public class AiOpenAIStreamChunk {
   }
 
   /**
-   * Get id
+   * The completion identifier, stable across every chunk of one response.
    * @return id
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
@@ -137,7 +137,7 @@ public class AiOpenAIStreamChunk {
   }
 
   /**
-   * Get _object
+   * Always `chat.completion.chunk`.
    * @return _object
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_OBJECT, required = true)
@@ -161,7 +161,7 @@ public class AiOpenAIStreamChunk {
   }
 
   /**
-   * Get created
+   * When the completion started, in Unix seconds.
    * @return created
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CREATED, required = true)
@@ -185,7 +185,7 @@ public class AiOpenAIStreamChunk {
   }
 
   /**
-   * Get model
+   * The model that produced the completion - the resolved profile's model.
    * @return model
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_MODEL, required = true)
@@ -217,7 +217,7 @@ public class AiOpenAIStreamChunk {
   }
 
   /**
-   * Get choices
+   * The choices carried by this chunk. This service emits exactly one.
    * @return choices
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CHOICES, required = true)

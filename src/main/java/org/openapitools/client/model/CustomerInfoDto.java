@@ -109,7 +109,7 @@ public class CustomerInfoDto {
   }
 
   /**
-   * The payment method status.
+   * The customer's payment method.
    * @return paymentMethodStatus
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PAYMENT_METHOD_STATUS, required = false)
@@ -159,7 +159,7 @@ public class CustomerInfoDto {
   }
 
   /**
-   * The user parameters.
+   * The paying user.
    * @return payer
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PAYER, required = false)

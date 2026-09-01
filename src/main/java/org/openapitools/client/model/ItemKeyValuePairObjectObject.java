@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ItemKeyValuePairObjectObject
+ * A key-value pair of a list item.
  */
 @JsonPropertyOrder({
   ItemKeyValuePairObjectObject.JSON_PROPERTY_KEY,

@@ -177,7 +177,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * The settings for the Feedback & Support menu button.
+   * The feedback configuration of the customization.
    * @return feedback
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FEEDBACK, required = false)
@@ -232,7 +232,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * The settings for the Open file location menu button and upper right corner button.
+   * The go back configuration of the customization.
    * @return goback
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GOBACK, required = false)
@@ -256,7 +256,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * Configuration for review display settings.
+   * The review configuration of the customization.
    * @return review
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REVIEW, required = false)

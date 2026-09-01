@@ -25,6 +25,7 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.DoubleWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.TariffWrapper;
 import org.openapitools.client.model.TenantQuotaWrapper;
 import org.openapitools.client.model.UpcomingPaymentArrayWrapper;

@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ProductAdministratorWrapper
+ * The successful API response containing the ProductAdministratorDto object.
  */
 @JsonPropertyOrder({
   ProductAdministratorWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class ProductAdministratorWrapper {
   }
 
   /**
-   * Get response
+   * The ProductAdministratorDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

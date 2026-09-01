@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * TariffWrapper
+ * The successful API response containing the Tariff object.
  */
 @JsonPropertyOrder({
   TariffWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class TariffWrapper {
   }
 
   /**
-   * Get response
+   * The Tariff object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

@@ -63,7 +63,7 @@ public class XlsxReportResponseDto {
   }
 
   /**
-   * The file parameters.
+   * The original form file information.
    * @return form
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FORM, required = false)
@@ -87,7 +87,7 @@ public class XlsxReportResponseDto {
   }
 
   /**
-   * The Document Builder task parameters.
+   * The Document Builder task information.
    * @return task
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TASK, required = false)

@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * STRINGArrayWrapper
+ * The successful API response.
  */
 @JsonPropertyOrder({
   STRINGArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -81,7 +81,7 @@ public class STRINGArrayWrapper {
   }
 
   /**
-   * Get response
+   * The response payload.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

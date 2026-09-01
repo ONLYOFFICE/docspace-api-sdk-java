@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * LoginEventArrayWrapper
+ * The successful API response containing the list of LoginEventDto objects.
  */
 @JsonPropertyOrder({
   LoginEventArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class LoginEventArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of LoginEventDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

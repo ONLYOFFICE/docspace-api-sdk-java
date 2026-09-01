@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.net.URI;
-import org.openapitools.client.model.ApiDateTime;
+import java.time.OffsetDateTime;
 import org.openapitools.client.model.EmployeeDto;
 import org.openapitools.client.model.FileEntryType;
 import org.openapitools.client.model.FileShare;
@@ -98,16 +98,16 @@ public class FileEntryBaseDto {
   @javax.annotation.Nullable  private JsonNullable<URI> shortWebUrl = JsonNullable.<URI>undefined();
 
   public static final String JSON_PROPERTY_CREATED = "created";
-  @javax.annotation.Nullable  private ApiDateTime created;
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> created = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
   @javax.annotation.Nullable  private EmployeeDto createdBy;
 
   public static final String JSON_PROPERTY_UPDATED = "updated";
-  @javax.annotation.Nullable  private ApiDateTime updated;
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> updated = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_AUTO_DELETE = "autoDelete";
-  @javax.annotation.Nullable  private ApiDateTime autoDelete;
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> autoDelete = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_ROOT_FOLDER_TYPE = "rootFolderType";
   @javax.annotation.Nullable  private FolderType rootFolderType;
@@ -370,9 +370,9 @@ public class FileEntryBaseDto {
     this.shortWebUrl = JsonNullable.<URI>of(shortWebUrl);
   }
 
-  public FileEntryBaseDto created(@javax.annotation.Nullable ApiDateTime created) {
+  public FileEntryBaseDto created(@javax.annotation.Nullable OffsetDateTime created) {
+    this.created = JsonNullable.<OffsetDateTime>of(created);
     
-    this.created = created;
     return this;
   }
 
@@ -380,18 +380,25 @@ public class FileEntryBaseDto {
    * The creation date and time of the file entry.
    * @return created
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public ApiDateTime getCreated() {
-    return created;
+  public OffsetDateTime getCreated() {
+        return created.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_CREATED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreated(@javax.annotation.Nullable ApiDateTime created) {
+  public JsonNullable<OffsetDateTime> getCreated_JsonNullable() {
+    return created;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED)
+  public void setCreated_JsonNullable(JsonNullable<OffsetDateTime> created) {
     this.created = created;
+  }
+
+  public void setCreated(@javax.annotation.Nullable OffsetDateTime created) {
+    this.created = JsonNullable.<OffsetDateTime>of(created);
   }
 
   public FileEntryBaseDto createdBy(@javax.annotation.Nullable EmployeeDto createdBy) {
@@ -418,9 +425,9 @@ public class FileEntryBaseDto {
     this.createdBy = createdBy;
   }
 
-  public FileEntryBaseDto updated(@javax.annotation.Nullable ApiDateTime updated) {
+  public FileEntryBaseDto updated(@javax.annotation.Nullable OffsetDateTime updated) {
+    this.updated = JsonNullable.<OffsetDateTime>of(updated);
     
-    this.updated = updated;
     return this;
   }
 
@@ -428,23 +435,30 @@ public class FileEntryBaseDto {
    * The last date and time when the file entry was updated.
    * @return updated
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPDATED, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public ApiDateTime getUpdated() {
-    return updated;
+  public OffsetDateTime getUpdated() {
+        return updated.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_UPDATED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUpdated(@javax.annotation.Nullable ApiDateTime updated) {
+  public JsonNullable<OffsetDateTime> getUpdated_JsonNullable() {
+    return updated;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UPDATED)
+  public void setUpdated_JsonNullable(JsonNullable<OffsetDateTime> updated) {
     this.updated = updated;
   }
 
-  public FileEntryBaseDto autoDelete(@javax.annotation.Nullable ApiDateTime autoDelete) {
+  public void setUpdated(@javax.annotation.Nullable OffsetDateTime updated) {
+    this.updated = JsonNullable.<OffsetDateTime>of(updated);
+  }
+
+  public FileEntryBaseDto autoDelete(@javax.annotation.Nullable OffsetDateTime autoDelete) {
+    this.autoDelete = JsonNullable.<OffsetDateTime>of(autoDelete);
     
-    this.autoDelete = autoDelete;
     return this;
   }
 
@@ -452,18 +466,25 @@ public class FileEntryBaseDto {
    * The date and time when the file entry will be automatically deleted.
    * @return autoDelete
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTO_DELETE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public ApiDateTime getAutoDelete() {
-    return autoDelete;
+  public OffsetDateTime getAutoDelete() {
+        return autoDelete.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_AUTO_DELETE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAutoDelete(@javax.annotation.Nullable ApiDateTime autoDelete) {
+  public JsonNullable<OffsetDateTime> getAutoDelete_JsonNullable() {
+    return autoDelete;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AUTO_DELETE)
+  public void setAutoDelete_JsonNullable(JsonNullable<OffsetDateTime> autoDelete) {
     this.autoDelete = autoDelete;
+  }
+
+  public void setAutoDelete(@javax.annotation.Nullable OffsetDateTime autoDelete) {
+    this.autoDelete = JsonNullable.<OffsetDateTime>of(autoDelete);
   }
 
   public FileEntryBaseDto rootFolderType(@javax.annotation.Nullable FolderType rootFolderType) {
@@ -735,10 +756,10 @@ public class FileEntryBaseDto {
         Objects.equals(this.sharedExternal, fileEntryBaseDto.sharedExternal) &&
         Objects.equals(this.parentShared, fileEntryBaseDto.parentShared) &&
         equalsNullable(this.shortWebUrl, fileEntryBaseDto.shortWebUrl) &&
-        Objects.equals(this.created, fileEntryBaseDto.created) &&
+        equalsNullable(this.created, fileEntryBaseDto.created) &&
         Objects.equals(this.createdBy, fileEntryBaseDto.createdBy) &&
-        Objects.equals(this.updated, fileEntryBaseDto.updated) &&
-        Objects.equals(this.autoDelete, fileEntryBaseDto.autoDelete) &&
+        equalsNullable(this.updated, fileEntryBaseDto.updated) &&
+        equalsNullable(this.autoDelete, fileEntryBaseDto.autoDelete) &&
         Objects.equals(this.rootFolderType, fileEntryBaseDto.rootFolderType) &&
         Objects.equals(this.parentRoomType, fileEntryBaseDto.parentRoomType) &&
         Objects.equals(this.updatedBy, fileEntryBaseDto.updatedBy) &&
@@ -756,7 +777,7 @@ public class FileEntryBaseDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(title), access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, hashCodeNullable(shortWebUrl), created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), fileEntryType);
+    return Objects.hash(hashCodeNullable(title), access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, hashCodeNullable(shortWebUrl), hashCodeNullable(created), createdBy, hashCodeNullable(updated), hashCodeNullable(autoDelete), rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), fileEntryType);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -921,7 +942,12 @@ public class FileEntryBaseDto {
 
     // add `created` to the URL query string
     if (getCreated() != null) {
-      joiner.add(getCreated().toUrlQueryString(prefix + "created" + suffix));
+      try {
+        joiner.add(String.format("%screated%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreated()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `createdBy` to the URL query string
@@ -931,12 +957,22 @@ public class FileEntryBaseDto {
 
     // add `updated` to the URL query string
     if (getUpdated() != null) {
-      joiner.add(getUpdated().toUrlQueryString(prefix + "updated" + suffix));
+      try {
+        joiner.add(String.format("%supdated%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdated()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `autoDelete` to the URL query string
     if (getAutoDelete() != null) {
-      joiner.add(getAutoDelete().toUrlQueryString(prefix + "autoDelete" + suffix));
+      try {
+        joiner.add(String.format("%sautoDelete%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAutoDelete()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `rootFolderType` to the URL query string

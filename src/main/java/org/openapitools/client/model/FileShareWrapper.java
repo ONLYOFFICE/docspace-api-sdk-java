@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * FileShareWrapper
+ * The successful API response containing the FileShareDto object.
  */
 @JsonPropertyOrder({
   FileShareWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class FileShareWrapper {
   }
 
   /**
-   * Get response
+   * The FileShareDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

@@ -26,6 +26,7 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.AppArrayWrapper;
 import org.openapitools.client.model.AppWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.ObjectWrapper;
 import org.openapitools.client.model.SetAppEnabledBody;
 import org.openapitools.client.model.SetAppSettingsBody;

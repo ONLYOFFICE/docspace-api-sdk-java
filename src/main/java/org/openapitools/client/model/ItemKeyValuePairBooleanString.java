@@ -36,32 +36,32 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * KeyValuePairBooleanString
+ * A key-value pair of a list item.
  */
 @JsonPropertyOrder({
-  KeyValuePairBooleanString.JSON_PROPERTY_KEY,
-  KeyValuePairBooleanString.JSON_PROPERTY_VALUE
+  ItemKeyValuePairBooleanString.JSON_PROPERTY_KEY,
+  ItemKeyValuePairBooleanString.JSON_PROPERTY_VALUE
 })
 
-public class KeyValuePairBooleanString {
+public class ItemKeyValuePairBooleanString {
   public static final String JSON_PROPERTY_KEY = "key";
   @javax.annotation.Nullable  private Boolean key;
 
   public static final String JSON_PROPERTY_VALUE = "value";
   @javax.annotation.Nullable  private JsonNullable<String> value = JsonNullable.<String>undefined();
 
-  public KeyValuePairBooleanString() {
+  public ItemKeyValuePairBooleanString() {
   }
 
 
-  public KeyValuePairBooleanString key(@javax.annotation.Nullable Boolean key) {
+  public ItemKeyValuePairBooleanString key(@javax.annotation.Nullable Boolean key) {
     
     this.key = key;
     return this;
   }
 
   /**
-   * Get key
+   * The key that identifies the item within the list.
    * @return key
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_KEY, required = false)
@@ -78,14 +78,14 @@ public class KeyValuePairBooleanString {
     this.key = key;
   }
 
-  public KeyValuePairBooleanString value(@javax.annotation.Nullable String value) {
+  public ItemKeyValuePairBooleanString value(@javax.annotation.Nullable String value) {
     this.value = JsonNullable.<String>of(value);
     
     return this;
   }
 
   /**
-   * Get value
+   * The value associated with the key.
    * @return value
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -117,9 +117,9 @@ public class KeyValuePairBooleanString {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    KeyValuePairBooleanString keyValuePairBooleanString = (KeyValuePairBooleanString) o;
-    return Objects.equals(this.key, keyValuePairBooleanString.key) &&
-        equalsNullable(this.value, keyValuePairBooleanString.value);
+    ItemKeyValuePairBooleanString itemKeyValuePairBooleanString = (ItemKeyValuePairBooleanString) o;
+    return Objects.equals(this.key, itemKeyValuePairBooleanString.key) &&
+        equalsNullable(this.value, itemKeyValuePairBooleanString.value);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -141,7 +141,7 @@ public class KeyValuePairBooleanString {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class KeyValuePairBooleanString {\n");
+    sb.append("class ItemKeyValuePairBooleanString {\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");

@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ActiveServiceArrayWrapper
+ * The successful API response containing the list of ActiveServiceDto objects.
  */
 @JsonPropertyOrder({
   ActiveServiceArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class ActiveServiceArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of ActiveServiceDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

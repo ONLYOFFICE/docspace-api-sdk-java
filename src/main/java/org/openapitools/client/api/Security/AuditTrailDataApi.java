@@ -25,15 +25,17 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.ActionType;
-import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.AuditEventArrayWrapper;
 import org.openapitools.client.model.AuditReportFormat;
 import org.openapitools.client.model.DocumentBuilderTaskWrapper;
 import org.openapitools.client.model.EntryType;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.LocationType;
 import org.openapitools.client.model.MessageAction;
 import org.openapitools.client.model.ObjectWrapper;
+import java.time.OffsetDateTime;
 import org.openapitools.client.model.ProductType;
+import org.openapitools.client.model.TenantAuditSettingsResponseWrapper;
 import org.openapitools.client.model.TenantAuditSettingsWrapper;
 import java.util.UUID;
 
@@ -166,7 +168,7 @@ public class AuditTrailDataApi extends BaseApi {
    * @return AuditEventArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public AuditEventArrayWrapper getAuditEventsByFilter(@javax.annotation.Nullable UUID userId, @javax.annotation.Nullable LocationType moduleType, @javax.annotation.Nullable ActionType actionType, @javax.annotation.Nullable MessageAction action, @javax.annotation.Nullable EntryType entryType, @javax.annotation.Nullable String target, @javax.annotation.Nullable ApiDateTime from, @javax.annotation.Nullable ApiDateTime to, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex) throws ApiException {
+  public AuditEventArrayWrapper getAuditEventsByFilter(@javax.annotation.Nullable UUID userId, @javax.annotation.Nullable LocationType moduleType, @javax.annotation.Nullable ActionType actionType, @javax.annotation.Nullable MessageAction action, @javax.annotation.Nullable EntryType entryType, @javax.annotation.Nullable String target, @javax.annotation.Nullable OffsetDateTime from, @javax.annotation.Nullable OffsetDateTime to, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex) throws ApiException {
     return this.getAuditEventsByFilter(userId, moduleType, actionType, action, entryType, target, from, to, count, startIndex, Collections.emptyMap());
   }
 
@@ -192,7 +194,7 @@ public class AuditTrailDataApi extends BaseApi {
    * @return AuditEventArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public AuditEventArrayWrapper getAuditEventsByFilter(@javax.annotation.Nullable UUID userId, @javax.annotation.Nullable LocationType moduleType, @javax.annotation.Nullable ActionType actionType, @javax.annotation.Nullable MessageAction action, @javax.annotation.Nullable EntryType entryType, @javax.annotation.Nullable String target, @javax.annotation.Nullable ApiDateTime from, @javax.annotation.Nullable ApiDateTime to, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, Map<String, String> additionalHeaders) throws ApiException {
+  public AuditEventArrayWrapper getAuditEventsByFilter(@javax.annotation.Nullable UUID userId, @javax.annotation.Nullable LocationType moduleType, @javax.annotation.Nullable ActionType actionType, @javax.annotation.Nullable MessageAction action, @javax.annotation.Nullable EntryType entryType, @javax.annotation.Nullable String target, @javax.annotation.Nullable OffsetDateTime from, @javax.annotation.Nullable OffsetDateTime to, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -212,10 +214,8 @@ public class AuditTrailDataApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("action", action));
     localVarQueryParams.addAll(apiClient.parameterToPair("entryType", entryType));
     localVarQueryParams.addAll(apiClient.parameterToPair("target", target));
-    localVarQueryParameterBaseName = "from";
-    localVarQueryStringJoiner.add(from.toUrlQueryString("from"));
-    localVarQueryParameterBaseName = "to";
-    localVarQueryStringJoiner.add(to.toUrlQueryString("to"));
+    localVarQueryParams.addAll(apiClient.parameterToPair("from", from));
+    localVarQueryParams.addAll(apiClient.parameterToPair("to", to));
     localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
     localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
       
@@ -263,10 +263,10 @@ public class AuditTrailDataApi extends BaseApi {
    * REST API Reference for getAuditSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/
    *
-   * @return TenantAuditSettingsWrapper
+   * @return TenantAuditSettingsResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantAuditSettingsWrapper getAuditSettings() throws ApiException {
+  public TenantAuditSettingsResponseWrapper getAuditSettings() throws ApiException {
     return this.getAuditSettings(Collections.emptyMap());
   }
 
@@ -279,10 +279,10 @@ public class AuditTrailDataApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return TenantAuditSettingsWrapper
+   * @return TenantAuditSettingsResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantAuditSettingsWrapper getAuditSettings(Map<String, String> additionalHeaders) throws ApiException {
+  public TenantAuditSettingsResponseWrapper getAuditSettings(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -314,7 +314,7 @@ public class AuditTrailDataApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<TenantAuditSettingsWrapper> localVarReturnType = new TypeReference<TenantAuditSettingsWrapper>() {};
+    TypeReference<TenantAuditSettingsResponseWrapper> localVarReturnType = new TypeReference<TenantAuditSettingsResponseWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -650,10 +650,10 @@ public class AuditTrailDataApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/
    *
    * @param tenantAuditSettingsWrapper  (optional)
-   * @return TenantAuditSettingsWrapper
+   * @return TenantAuditSettingsResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantAuditSettingsWrapper setAuditSettings(@javax.annotation.Nullable TenantAuditSettingsWrapper tenantAuditSettingsWrapper) throws ApiException {
+  public TenantAuditSettingsResponseWrapper setAuditSettings(@javax.annotation.Nullable TenantAuditSettingsWrapper tenantAuditSettingsWrapper) throws ApiException {
     return this.setAuditSettings(tenantAuditSettingsWrapper, Collections.emptyMap());
   }
 
@@ -667,10 +667,10 @@ public class AuditTrailDataApi extends BaseApi {
    *
    * @param tenantAuditSettingsWrapper  (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return TenantAuditSettingsWrapper
+   * @return TenantAuditSettingsResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantAuditSettingsWrapper setAuditSettings(@javax.annotation.Nullable TenantAuditSettingsWrapper tenantAuditSettingsWrapper, Map<String, String> additionalHeaders) throws ApiException {
+  public TenantAuditSettingsResponseWrapper setAuditSettings(@javax.annotation.Nullable TenantAuditSettingsWrapper tenantAuditSettingsWrapper, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = tenantAuditSettingsWrapper;
     
     // create path and map variables
@@ -702,7 +702,7 @@ public class AuditTrailDataApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<TenantAuditSettingsWrapper> localVarReturnType = new TypeReference<TenantAuditSettingsWrapper>() {};
+    TypeReference<TenantAuditSettingsResponseWrapper> localVarReturnType = new TypeReference<TenantAuditSettingsResponseWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -765,7 +765,7 @@ public class AuditTrailDataApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -806,7 +806,7 @@ public class AuditTrailDataApi extends BaseApi {
     localVarHeaderParams.putAll(additionalHeaders);
 
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

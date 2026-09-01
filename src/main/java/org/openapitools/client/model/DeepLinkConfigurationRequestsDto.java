@@ -54,7 +54,7 @@ public class DeepLinkConfigurationRequestsDto {
   }
 
   /**
-   * The deep link settings.
+   * The deep link settings for the specified tenant.
    * @return deepLinkSettings
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEEP_LINK_SETTINGS, required = false)

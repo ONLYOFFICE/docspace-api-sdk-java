@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * FireBaseUserWrapper
+ * The successful API response containing the FireBaseUser object.
  */
 @JsonPropertyOrder({
   FireBaseUserWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class FireBaseUserWrapper {
   }
 
   /**
-   * Get response
+   * The FireBaseUser object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

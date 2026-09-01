@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ItemKeyValuePairStringBoolean
+ * A key-value pair of a list item.
  */
 @JsonPropertyOrder({
   ItemKeyValuePairStringBoolean.JSON_PROPERTY_KEY,
@@ -61,7 +61,7 @@ public class ItemKeyValuePairStringBoolean {
   }
 
   /**
-   * Get key
+   * The key that identifies the item within the list.
    * @return key
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -92,7 +92,7 @@ public class ItemKeyValuePairStringBoolean {
   }
 
   /**
-   * Get value
+   * The value associated with the key.
    * @return value
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)

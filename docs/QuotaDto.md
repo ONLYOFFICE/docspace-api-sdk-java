@@ -15,10 +15,10 @@ The quota information.
 |**free** | **Boolean** | Specifies if the quota is free or not. |  |
 |**trial** | **Boolean** | Specifies if the quota is trial or not. |  |
 |**features** | [**List&lt;TenantQuotaFeatureDto&gt;**](TenantQuotaFeatureDto.md) | The list of tenant quota features. |  |
-|**usersQuota** | [**TenantEntityQuotaSettings**](TenantEntityQuotaSettings.md) | The tenant entity quota settings. |  [optional] |
-|**roomsQuota** | [**TenantEntityQuotaSettings**](TenantEntityQuotaSettings.md) | The tenant entity quota settings. |  [optional] |
-|**aiAgentsQuota** | [**TenantEntityQuotaSettings**](TenantEntityQuotaSettings.md) | The tenant entity quota settings. |  [optional] |
-|**tenantCustomQuota** | [**TenantQuotaSettings**](TenantQuotaSettings.md) | The tenant quota settings. |  [optional] |
+|**usersQuota** | [**TenantEntityQuotaSettings**](TenantEntityQuotaSettings.md) | The user quota. |  [optional] |
+|**roomsQuota** | [**TenantEntityQuotaSettings**](TenantEntityQuotaSettings.md) | The room quota. |  [optional] |
+|**aiAgentsQuota** | [**TenantEntityQuotaSettings**](TenantEntityQuotaSettings.md) | The ai agent quota. |  [optional] |
+|**tenantCustomQuota** | [**TenantQuotaSettings**](TenantQuotaSettings.md) | The tenant custom quota. |  [optional] |
 |**dueDate** | **OffsetDateTime** | The due date. |  [optional] |
 
 

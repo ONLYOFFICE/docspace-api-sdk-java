@@ -26,6 +26,7 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.ActiveConnectionsWrapper;
 import org.openapitools.client.model.BooleanWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.StringWrapper;
 import java.util.UUID;
 
@@ -337,7 +338,7 @@ public class ActiveConnectionsApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

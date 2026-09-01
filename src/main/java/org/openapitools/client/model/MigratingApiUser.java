@@ -38,7 +38,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * MigratingApiUser
+ * The migrating user parameters.
  */
 @JsonPropertyOrder({
   MigratingApiUser.JSON_PROPERTY_SHOULD_IMPORT,
@@ -87,7 +87,7 @@ public class MigratingApiUser {
   }
 
   /**
-   * Get shouldImport
+   * Specifies whether the API entity should be imported.
    * @return shouldImport
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHOULD_IMPORT, required = false)
@@ -111,7 +111,7 @@ public class MigratingApiUser {
   }
 
   /**
-   * Get key
+   * The user key.
    * @return key
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -142,7 +142,7 @@ public class MigratingApiUser {
   }
 
   /**
-   * Get email
+   * The user email.
    * @return email
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -173,7 +173,7 @@ public class MigratingApiUser {
   }
 
   /**
-   * Get displayName
+   * The user display name.
    * @return displayName
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -204,7 +204,7 @@ public class MigratingApiUser {
   }
 
   /**
-   * Get firstName
+   * The user first name.
    * @return firstName
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -235,7 +235,7 @@ public class MigratingApiUser {
   }
 
   /**
-   * Get lastName
+   * The user last name.
    * @return lastName
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -290,7 +290,7 @@ public class MigratingApiUser {
   }
 
   /**
-   * Get migratingFiles
+   * The user's migrating files.
    * @return migratingFiles
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MIGRATING_FILES, required = false)

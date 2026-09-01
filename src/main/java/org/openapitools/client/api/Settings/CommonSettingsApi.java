@@ -31,6 +31,7 @@ import org.openapitools.client.model.DefaultProductRequestDto;
 import org.openapitools.client.model.DnsSettingsRequestsDto;
 import org.openapitools.client.model.EmailActivationSettings;
 import org.openapitools.client.model.EmailActivationSettingsWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.MailDomainSettingsRequestsDto;
 import org.openapitools.client.model.ObjectWrapper;
 import org.openapitools.client.model.PaymentSettingsWrapper;
@@ -111,7 +112,7 @@ public class CommonSettingsApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

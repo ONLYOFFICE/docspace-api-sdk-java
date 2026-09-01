@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AutoCleanUpDataWrapper
+ * The successful API response containing the AutoCleanUpData object.
  */
 @JsonPropertyOrder({
   AutoCleanUpDataWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class AutoCleanUpDataWrapper {
   }
 
   /**
-   * Get response
+   * The AutoCleanUpData object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

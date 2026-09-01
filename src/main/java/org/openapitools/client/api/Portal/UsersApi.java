@@ -25,6 +25,7 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.EmployeeType;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.Int64Wrapper;
 import org.openapitools.client.model.InvitationLinkCreateRequestDto;
 import org.openapitools.client.model.InvitationLinkDeleteRequestDto;
@@ -586,7 +587,7 @@ public class UsersApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -675,7 +676,7 @@ public class UsersApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

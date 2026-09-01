@@ -429,7 +429,7 @@ public class CreateRoomFromTemplateDto {
   }
 
   /**
-   * The request parameters for adding watermarks.
+   * The watermark settings.
    * @return watermark
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WATERMARK, required = false)

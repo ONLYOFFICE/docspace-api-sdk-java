@@ -2,13 +2,14 @@
 
 # AiTErrorData
 
+A field-scoped validation error: which form field was rejected, and why.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**field** | [**FieldEnum**](#FieldEnum) |  |  |
-|**message** | **String** |  |  |
+|**field** | [**FieldEnum**](#FieldEnum) | The rejected field. |  |
+|**message** | **String** | The human-readable reason the field was rejected. |  |
 
 
 

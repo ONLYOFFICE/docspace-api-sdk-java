@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ProviderArrayWrapper
+ * The successful API response containing the list of ProviderDto objects.
  */
 @JsonPropertyOrder({
   ProviderArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class ProviderArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of ProviderDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

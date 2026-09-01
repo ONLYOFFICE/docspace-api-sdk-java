@@ -50,7 +50,7 @@ public class SettingsApi extends BaseApi {
 
   /**
    * Get AI settings
-   * 
+   * Reports the portal's combined AI configuration and readiness.
    *
    * REST API Reference for aiSettingsGet Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/
@@ -65,7 +65,7 @@ public class SettingsApi extends BaseApi {
 
   /**
    * Get AI settings
-   * 
+   * Reports the portal's combined AI configuration and readiness.
    *
    * REST API Reference for aiSettingsGet Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/
@@ -126,7 +126,7 @@ public class SettingsApi extends BaseApi {
 
   /**
    * Get user AI settings
-   * 
+   * Returns the current user's AI settings.
    *
    * REST API Reference for aiSettingsGetUser Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/
@@ -141,7 +141,7 @@ public class SettingsApi extends BaseApi {
 
   /**
    * Get user AI settings
-   * 
+   * Returns the current user's AI settings.
    *
    * REST API Reference for aiSettingsGetUser Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/
@@ -202,7 +202,7 @@ public class SettingsApi extends BaseApi {
 
   /**
    * Get vectorization settings
-   * 
+   * Returns the portal's vectorization settings.
    *
    * REST API Reference for aiSettingsGetVectorization Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/
@@ -217,7 +217,7 @@ public class SettingsApi extends BaseApi {
 
   /**
    * Get vectorization settings
-   * 
+   * Returns the portal's vectorization settings.
    *
    * REST API Reference for aiSettingsGetVectorization Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/
@@ -278,7 +278,7 @@ public class SettingsApi extends BaseApi {
 
   /**
    * Update user AI settings
-   * 
+   * Updates the current user's AI settings.
    *
    * REST API Reference for aiSettingsSetUser Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/
@@ -294,7 +294,7 @@ public class SettingsApi extends BaseApi {
 
   /**
    * Update user AI settings
-   * 
+   * Updates the current user's AI settings.
    *
    * REST API Reference for aiSettingsSetUser Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/
@@ -361,7 +361,7 @@ public class SettingsApi extends BaseApi {
 
   /**
    * Update vectorization settings
-   * 
+   * Updates the portal's vectorization settings.
    *
    * REST API Reference for aiSettingsSetVectorization Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/
@@ -377,7 +377,7 @@ public class SettingsApi extends BaseApi {
 
   /**
    * Update vectorization settings
-   * 
+   * Updates the portal's vectorization settings.
    *
    * REST API Reference for aiSettingsSetVectorization Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/

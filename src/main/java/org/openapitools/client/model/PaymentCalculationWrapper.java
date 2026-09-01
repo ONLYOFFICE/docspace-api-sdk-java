@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * PaymentCalculationWrapper
+ * The successful API response containing the PaymentCalculation object.
  */
 @JsonPropertyOrder({
   PaymentCalculationWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class PaymentCalculationWrapper {
   }
 
   /**
-   * Get response
+   * The PaymentCalculation object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

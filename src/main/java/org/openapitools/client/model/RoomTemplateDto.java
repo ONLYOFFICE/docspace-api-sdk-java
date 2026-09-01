@@ -150,7 +150,7 @@ public class RoomTemplateDto {
   }
 
   /**
-   * The logo request parameters.
+   * The room template logo.
    * @return logo
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)

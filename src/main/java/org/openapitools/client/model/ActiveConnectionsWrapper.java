@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ActiveConnectionsWrapper
+ * The successful API response containing the ActiveConnectionsDto object.
  */
 @JsonPropertyOrder({
   ActiveConnectionsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class ActiveConnectionsWrapper {
   }
 
   /**
-   * Get response
+   * The ActiveConnectionsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

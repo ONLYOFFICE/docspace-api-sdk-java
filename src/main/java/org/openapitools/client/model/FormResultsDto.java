@@ -41,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * FormResultsDto
+ * A single filled-in form submission.
  */
 @JsonPropertyOrder({
   FormResultsDto.JSON_PROPERTY_CREATE_ON,

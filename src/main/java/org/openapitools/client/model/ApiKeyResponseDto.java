@@ -24,11 +24,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.EmployeeDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -74,16 +74,16 @@ public class ApiKeyResponseDto {
   @javax.annotation.Nullable  private List<String> permissions;
 
   public static final String JSON_PROPERTY_LAST_USED = "lastUsed";
-  @javax.annotation.Nullable  private ApiDateTime lastUsed;
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> lastUsed = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_CREATE_ON = "createOn";
-  @javax.annotation.Nullable  private ApiDateTime createOn;
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> createOn = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_CREATE_BY = "createBy";
   @javax.annotation.Nullable  private EmployeeDto createBy;
 
   public static final String JSON_PROPERTY_EXPIRES_AT = "expiresAt";
-  @javax.annotation.Nullable  private ApiDateTime expiresAt;
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> expiresAt = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_IS_ACTIVE = "isActive";
   @javax.annotation.Nonnull  private Boolean isActive;
@@ -227,52 +227,66 @@ public class ApiKeyResponseDto {
     this.permissions = permissions;
   }
 
-  public ApiKeyResponseDto lastUsed(@javax.annotation.Nullable ApiDateTime lastUsed) {
+  public ApiKeyResponseDto lastUsed(@javax.annotation.Nullable OffsetDateTime lastUsed) {
+    this.lastUsed = JsonNullable.<OffsetDateTime>of(lastUsed);
     
-    this.lastUsed = lastUsed;
     return this;
   }
 
   /**
-   * The API date and time parameters.
+   * The date and time when the API key was last used.
    * @return lastUsed
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_USED, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public ApiDateTime getLastUsed() {
-    return lastUsed;
+  public OffsetDateTime getLastUsed() {
+        return lastUsed.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_LAST_USED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLastUsed(@javax.annotation.Nullable ApiDateTime lastUsed) {
+  public JsonNullable<OffsetDateTime> getLastUsed_JsonNullable() {
+    return lastUsed;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LAST_USED)
+  public void setLastUsed_JsonNullable(JsonNullable<OffsetDateTime> lastUsed) {
     this.lastUsed = lastUsed;
   }
 
-  public ApiKeyResponseDto createOn(@javax.annotation.Nullable ApiDateTime createOn) {
+  public void setLastUsed(@javax.annotation.Nullable OffsetDateTime lastUsed) {
+    this.lastUsed = JsonNullable.<OffsetDateTime>of(lastUsed);
+  }
+
+  public ApiKeyResponseDto createOn(@javax.annotation.Nullable OffsetDateTime createOn) {
+    this.createOn = JsonNullable.<OffsetDateTime>of(createOn);
     
-    this.createOn = createOn;
     return this;
   }
 
   /**
-   * The API date and time parameters.
+   * The date and time when the API key was created.
    * @return createOn
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_ON, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public ApiDateTime getCreateOn() {
-    return createOn;
+  public OffsetDateTime getCreateOn() {
+        return createOn.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_CREATE_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreateOn(@javax.annotation.Nullable ApiDateTime createOn) {
+  public JsonNullable<OffsetDateTime> getCreateOn_JsonNullable() {
+    return createOn;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATE_ON)
+  public void setCreateOn_JsonNullable(JsonNullable<OffsetDateTime> createOn) {
     this.createOn = createOn;
+  }
+
+  public void setCreateOn(@javax.annotation.Nullable OffsetDateTime createOn) {
+    this.createOn = JsonNullable.<OffsetDateTime>of(createOn);
   }
 
   public ApiKeyResponseDto createBy(@javax.annotation.Nullable EmployeeDto createBy) {
@@ -282,7 +296,7 @@ public class ApiKeyResponseDto {
   }
 
   /**
-   * The user parameters.
+   * The identifier of the user who created the API key.
    * @return createBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_BY, required = false)
@@ -299,28 +313,35 @@ public class ApiKeyResponseDto {
     this.createBy = createBy;
   }
 
-  public ApiKeyResponseDto expiresAt(@javax.annotation.Nullable ApiDateTime expiresAt) {
+  public ApiKeyResponseDto expiresAt(@javax.annotation.Nullable OffsetDateTime expiresAt) {
+    this.expiresAt = JsonNullable.<OffsetDateTime>of(expiresAt);
     
-    this.expiresAt = expiresAt;
     return this;
   }
 
   /**
-   * The API date and time parameters.
+   * The date and time when the API key expires.
    * @return expiresAt
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public ApiDateTime getExpiresAt() {
-    return expiresAt;
+  public OffsetDateTime getExpiresAt() {
+        return expiresAt.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpiresAt(@javax.annotation.Nullable ApiDateTime expiresAt) {
+  public JsonNullable<OffsetDateTime> getExpiresAt_JsonNullable() {
+    return expiresAt;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  public void setExpiresAt_JsonNullable(JsonNullable<OffsetDateTime> expiresAt) {
     this.expiresAt = expiresAt;
+  }
+
+  public void setExpiresAt(@javax.annotation.Nullable OffsetDateTime expiresAt) {
+    this.expiresAt = JsonNullable.<OffsetDateTime>of(expiresAt);
   }
 
   public ApiKeyResponseDto isActive(@javax.annotation.Nonnull Boolean isActive) {
@@ -361,10 +382,10 @@ public class ApiKeyResponseDto {
         Objects.equals(this.key, apiKeyResponseDto.key) &&
         equalsNullable(this.keyPostfix, apiKeyResponseDto.keyPostfix) &&
         Objects.equals(this.permissions, apiKeyResponseDto.permissions) &&
-        Objects.equals(this.lastUsed, apiKeyResponseDto.lastUsed) &&
-        Objects.equals(this.createOn, apiKeyResponseDto.createOn) &&
+        equalsNullable(this.lastUsed, apiKeyResponseDto.lastUsed) &&
+        equalsNullable(this.createOn, apiKeyResponseDto.createOn) &&
         Objects.equals(this.createBy, apiKeyResponseDto.createBy) &&
-        Objects.equals(this.expiresAt, apiKeyResponseDto.expiresAt) &&
+        equalsNullable(this.expiresAt, apiKeyResponseDto.expiresAt) &&
         Objects.equals(this.isActive, apiKeyResponseDto.isActive);
   }
 
@@ -374,7 +395,7 @@ public class ApiKeyResponseDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, key, hashCodeNullable(keyPostfix), permissions, lastUsed, createOn, createBy, expiresAt, isActive);
+    return Objects.hash(id, name, key, hashCodeNullable(keyPostfix), permissions, hashCodeNullable(lastUsed), hashCodeNullable(createOn), createBy, hashCodeNullable(expiresAt), isActive);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -501,12 +522,22 @@ public class ApiKeyResponseDto {
 
     // add `lastUsed` to the URL query string
     if (getLastUsed() != null) {
-      joiner.add(getLastUsed().toUrlQueryString(prefix + "lastUsed" + suffix));
+      try {
+        joiner.add(String.format("%slastUsed%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLastUsed()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `createOn` to the URL query string
     if (getCreateOn() != null) {
-      joiner.add(getCreateOn().toUrlQueryString(prefix + "createOn" + suffix));
+      try {
+        joiner.add(String.format("%screateOn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreateOn()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `createBy` to the URL query string
@@ -516,7 +547,12 @@ public class ApiKeyResponseDto {
 
     // add `expiresAt` to the URL query string
     if (getExpiresAt() != null) {
-      joiner.add(getExpiresAt().toUrlQueryString(prefix + "expiresAt" + suffix));
+      try {
+        joiner.add(String.format("%sexpiresAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpiresAt()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `isActive` to the URL query string

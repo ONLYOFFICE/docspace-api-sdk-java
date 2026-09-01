@@ -61,7 +61,7 @@ public class AiAgentNewItemsDto {
   }
 
   /**
-   * The file entry information.
+   * The agent file entry.
    * @return agent
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_AGENT, required = true)

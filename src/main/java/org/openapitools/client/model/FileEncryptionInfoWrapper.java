@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * FileEncryptionInfoWrapper
+ * The successful API response containing the FileEncryptionInfoDto object.
  */
 @JsonPropertyOrder({
   FileEncryptionInfoWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class FileEncryptionInfoWrapper {
   }
 
   /**
-   * Get response
+   * The FileEncryptionInfoDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

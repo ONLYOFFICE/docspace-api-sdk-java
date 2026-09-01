@@ -39,7 +39,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * StorageSettings
+ * The storage settings.
  */
 @JsonPropertyOrder({
   StorageSettings.JSON_PROPERTY_MODULE,
@@ -68,7 +68,7 @@ public class StorageSettings {
   }
 
   /**
-   * Get module
+   * The storage name.
    * @return module
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -107,7 +107,7 @@ public class StorageSettings {
   }
 
   /**
-   * Get props
+   * The storage properties.
    * @return props
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROPS, required = false)
@@ -131,7 +131,7 @@ public class StorageSettings {
   }
 
   /**
-   * Get lastModified
+   * The date and time when the storage settings were last modified.
    * @return lastModified
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)

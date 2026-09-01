@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * CompanyWhiteLabelSettingsArrayWrapper
+ * The successful API response containing the list of CompanyWhiteLabelSettings objects.
  */
 @JsonPropertyOrder({
   CompanyWhiteLabelSettingsArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class CompanyWhiteLabelSettingsArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of CompanyWhiteLabelSettings objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

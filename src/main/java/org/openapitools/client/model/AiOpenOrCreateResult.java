@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Resolved thread state returned by  {@link  ThreadsEngine.openOrCreate } .
+ * Resolved thread state returned by `ThreadsEngine.openOrCreate`.
  */
 @JsonPropertyOrder({
   AiOpenOrCreateResult.JSON_PROPERTY_THREAD_ID,
@@ -65,7 +65,7 @@ public class AiOpenOrCreateResult {
   }
 
   /**
-   * Get threadId
+   * The thread that was opened, or the one just created.
    * @return threadId
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_THREAD_ID, required = true)
@@ -121,7 +121,7 @@ public class AiOpenOrCreateResult {
   }
 
   /**
-   * Get priorMessages
+   * The messages already in the thread - empty for a thread that was just created.
    * @return priorMessages
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PRIOR_MESSAGES, required = true)

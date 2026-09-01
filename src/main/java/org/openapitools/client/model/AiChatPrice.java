@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiChatPrice
+ * The price of a chat model, per token.
  */
 @JsonPropertyOrder({
   AiChatPrice.JSON_PROPERTY_PROMPT,
@@ -57,7 +57,7 @@ public class AiChatPrice {
   }
 
   /**
-   * Get prompt
+   * The price of a single prompt token.
    * @return prompt
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROMPT, required = false)
@@ -81,7 +81,7 @@ public class AiChatPrice {
   }
 
   /**
-   * Get completion
+   * The price of a single completion token.
    * @return completion
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COMPLETION, required = false)

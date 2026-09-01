@@ -26,6 +26,7 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.ChangeEmailRequest;
 import org.openapitools.client.model.EmployeeFullWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.StringWrapper;
 import java.util.UUID;
 import org.openapitools.client.model.UpdateMemberRequestDto;

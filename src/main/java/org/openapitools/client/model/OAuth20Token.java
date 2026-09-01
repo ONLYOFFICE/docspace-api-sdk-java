@@ -38,7 +38,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * OAuth20Token
+ * The OAuth 2.0 token issued by a third-party provider.
  */
 @JsonPropertyOrder({
   OAuth20Token.JSON_PROPERTY_ACCESS_TOKEN,
@@ -97,7 +97,7 @@ public class OAuth20Token {
   }
 
   /**
-   * Get accessToken
+   * Access token
    * @return accessToken
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -128,7 +128,7 @@ public class OAuth20Token {
   }
 
   /**
-   * Get refreshToken
+   * Refresh token
    * @return refreshToken
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -159,7 +159,7 @@ public class OAuth20Token {
   }
 
   /**
-   * Get expiresIn
+   * Expires in
    * @return expiresIn
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRES_IN, required = false)
@@ -183,7 +183,7 @@ public class OAuth20Token {
   }
 
   /**
-   * Get clientId
+   * Client id
    * @return clientId
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -214,7 +214,7 @@ public class OAuth20Token {
   }
 
   /**
-   * Get clientSecret
+   * Client secret
    * @return clientSecret
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -245,7 +245,7 @@ public class OAuth20Token {
   }
 
   /**
-   * Get redirectUri
+   * Redirect uri
    * @return redirectUri
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -276,7 +276,7 @@ public class OAuth20Token {
   }
 
   /**
-   * Get timestamp
+   * Timestamp
    * @return timestamp
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TIMESTAMP, required = false)
@@ -294,7 +294,7 @@ public class OAuth20Token {
   }
 
   /**
-   * Get isExpired
+   * Is expired
    * @return isExpired
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_EXPIRED, required = false)

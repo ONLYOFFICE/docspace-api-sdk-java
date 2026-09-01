@@ -17,10 +17,10 @@ The folder parameters.
 |**sharedExternal** | **Boolean** | Specifies if the file entry is shared via a public (non-internal) external link. |  [optional] |
 |**parentShared** | **Boolean** | Indicates whether the parent entity is shared. |  [optional] |
 |**shortWebUrl** | **URI** | The short Web URL. |  [optional] |
-|**created** | [**AiApiDateTime**](AiApiDateTime.md) | The creation date and time of the file entry. |  [optional] |
+|**created** | **OffsetDateTime** | The creation date and time of the file entry. |  [optional] |
 |**createdBy** | [**AiEmployeeDto**](AiEmployeeDto.md) | The file entry author. |  [optional] |
-|**updated** | [**AiApiDateTime**](AiApiDateTime.md) | The last date and time when the file entry was updated. |  [optional] |
-|**autoDelete** | [**AiApiDateTime**](AiApiDateTime.md) | The date and time when the file entry will be automatically deleted. |  [optional] |
+|**updated** | **OffsetDateTime** | The last date and time when the file entry was updated. |  [optional] |
+|**autoDelete** | **OffsetDateTime** | The date and time when the file entry will be automatically deleted. |  [optional] |
 |**rootFolderType** | **AiFolderType** | The root folder type of the file entry. |  [optional] |
 |**parentRoomType** | **AiFolderType** | The parent room type of the file entry. |  [optional] |
 |**updatedBy** | [**AiEmployeeDto**](AiEmployeeDto.md) | The user who updated the file entry. |  [optional] |
@@ -42,7 +42,7 @@ The folder parameters.
 |**availableShareRights** | [**FileEntryDtoIntegerAllOfAvailableShareRights**](FileEntryDtoIntegerAllOfAvailableShareRights.md) |  |  [optional] |
 |**requestToken** | **String** | The request token of the file entry. |  [optional] |
 |**external** | **Boolean** | Specifies if the folder can be accessed via an external link or not. |  [optional] |
-|**expirationDate** | [**AiApiDateTime**](AiApiDateTime.md) | Represents the expiration date of the file entry. |  [optional] |
+|**expirationDate** | **OffsetDateTime** | Represents the expiration date of the file entry. |  [optional] |
 |**isLinkExpired** | **Boolean** | Indicates whether the shareable link associated with the file or folder has expired. |  [optional] |
 |**parentId** | **Integer** | The parent folder ID of the folder. |  [optional] |
 |**filesCount** | **Integer** | The number of files that the folder contains. |  [optional] |

@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * EmailActivationSettingsWrapper
+ * The successful API response containing the EmailActivationSettings object.
  */
 @JsonPropertyOrder({
   EmailActivationSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class EmailActivationSettingsWrapper {
   }
 
   /**
-   * Get response
+   * The EmailActivationSettings object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ConnectionTestResult
+ * The outcome of a connection test against an external database.
  */
 @JsonPropertyOrder({
   ConnectionTestResult.JSON_PROPERTY_SUCCESS,
@@ -61,7 +61,7 @@ public class ConnectionTestResult {
   }
 
   /**
-   * Get success
+   * Specifies whether the connection to the database succeeded.
    * @return success
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SUCCESS, required = false)
@@ -85,7 +85,7 @@ public class ConnectionTestResult {
   }
 
   /**
-   * Get error
+   * The reason the connection failed, or null when it succeeded.
    * @return error
    */
   @javax.annotation.Nullable  @JsonIgnore

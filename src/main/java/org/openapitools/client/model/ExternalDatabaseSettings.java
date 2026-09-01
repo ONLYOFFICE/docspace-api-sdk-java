@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ExternalDatabaseSettings
+ * The connection parameters of an external database.
  */
 @JsonPropertyOrder({
   ExternalDatabaseSettings.JSON_PROPERTY_DATABASE_TYPE,
@@ -90,7 +90,7 @@ public class ExternalDatabaseSettings {
   }
 
   /**
-   * Get databaseType
+   * The engine of the external database.
    * @return databaseType
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -121,7 +121,7 @@ public class ExternalDatabaseSettings {
   }
 
   /**
-   * Get databaseTypeEnum
+   * The engine of an external database.
    * @return databaseTypeEnum
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATABASE_TYPE_ENUM, required = false)
@@ -145,7 +145,7 @@ public class ExternalDatabaseSettings {
   }
 
   /**
-   * Get dbHost
+   * The host name or the IP address of the database server.
    * @return dbHost
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -176,7 +176,7 @@ public class ExternalDatabaseSettings {
   }
 
   /**
-   * Get dbPort
+   * The port the database server listens on.
    * @return dbPort
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DB_PORT, required = false)
@@ -200,7 +200,7 @@ public class ExternalDatabaseSettings {
   }
 
   /**
-   * Get dbName
+   * The name of the database to connect to.
    * @return dbName
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -231,7 +231,7 @@ public class ExternalDatabaseSettings {
   }
 
   /**
-   * Get dbUser
+   * The user name to connect with.
    * @return dbUser
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -262,7 +262,7 @@ public class ExternalDatabaseSettings {
   }
 
   /**
-   * Get dbPassword
+   * The password to connect with.
    * @return dbPassword
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -293,7 +293,7 @@ public class ExternalDatabaseSettings {
   }
 
   /**
-   * Get dbSsl
+   * Specifies whether the connection to the database is secured with SSL.
    * @return dbSsl
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DB_SSL, required = false)
@@ -317,7 +317,7 @@ public class ExternalDatabaseSettings {
   }
 
   /**
-   * Get sqliteFilePath
+   * The path to the database file, used by the SQLite engine only.
    * @return sqliteFilePath
    */
   @javax.annotation.Nullable  @JsonIgnore

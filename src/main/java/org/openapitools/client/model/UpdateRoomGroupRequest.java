@@ -40,7 +40,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * UpdateRoomGroupRequest
+ * The changes to apply to a room group: its name and the rooms to add or remove.
  */
 @JsonPropertyOrder({
   UpdateRoomGroupRequest.JSON_PROPERTY_ROOMS_TO_ADD,

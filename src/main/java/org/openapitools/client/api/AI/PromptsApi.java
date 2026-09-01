@@ -59,7 +59,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Create
-   * 
+   * Saves a new prompt. The name must be non-empty and unique inside its folder, and `folderId` must point at an existing folder - omit it for the root.
    *
    * REST API Reference for aiPromptsCreate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create/
@@ -75,7 +75,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Create
-   * 
+   * Saves a new prompt. The name must be non-empty and unique inside its folder, and `folderId` must point at an existing folder - omit it for the root.
    *
    * REST API Reference for aiPromptsCreate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create/
@@ -142,7 +142,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Create folder
-   * 
+   * Creates a prompt folder. The name must be non-empty and unique across the portal - prompt folders do not nest.
    *
    * REST API Reference for aiPromptsCreateFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/
@@ -158,7 +158,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Create folder
-   * 
+   * Creates a prompt folder. The name must be non-empty and unique across the portal - prompt folders do not nest.
    *
    * REST API Reference for aiPromptsCreateFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/
@@ -225,7 +225,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Delete
-   * 
+   * Deletes a saved prompt. Does nothing when it no longer exists.
    *
    * REST API Reference for aiPromptsDelete Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/
@@ -241,7 +241,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Delete
-   * 
+   * Deletes a saved prompt. Does nothing when it no longer exists.
    *
    * REST API Reference for aiPromptsDelete Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/
@@ -308,7 +308,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Delete folder
-   * 
+   * Deletes a prompt folder together with the prompts inside it.
    *
    * REST API Reference for aiPromptsDeleteFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/
@@ -324,7 +324,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Delete folder
-   * 
+   * Deletes a prompt folder together with the prompts inside it.
    *
    * REST API Reference for aiPromptsDeleteFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/
@@ -391,7 +391,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Export
-   * 
+   * Builds a self-contained, versioned bundle of every saved prompt and folder, ready for `import-bundle`.
    *
    * REST API Reference for aiPromptsExport Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-export/
@@ -406,7 +406,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Export
-   * 
+   * Builds a self-contained, versioned bundle of every saved prompt and folder, ready for `import-bundle`.
    *
    * REST API Reference for aiPromptsExport Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-export/
@@ -467,12 +467,12 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Get by id
-   * 
+   * Returns one saved prompt, or an empty result when the identifier is unknown.
    *
    * REST API Reference for aiPromptsGetById Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-by-id/
    *
-   * @param id  (required)
+   * @param id The saved prompt identifier. (required)
    * @return AiPrompt
    * @throws ApiException if fails to make API call
    */
@@ -483,12 +483,12 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Get by id
-   * 
+   * Returns one saved prompt, or an empty result when the identifier is unknown.
    *
    * REST API Reference for aiPromptsGetById Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-by-id/
    *
-   * @param id  (required)
+   * @param id The saved prompt identifier. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiPrompt
    * @throws ApiException if fails to make API call
@@ -551,12 +551,12 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Get folder by id
-   * 
+   * Returns one prompt folder, or an empty result when the identifier is unknown.
    *
    * REST API Reference for aiPromptsGetFolderById Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-folder-by-id/
    *
-   * @param id  (required)
+   * @param id The prompt folder identifier. (required)
    * @return AiPromptFolder
    * @throws ApiException if fails to make API call
    */
@@ -567,12 +567,12 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Get folder by id
-   * 
+   * Returns one prompt folder, or an empty result when the identifier is unknown.
    *
    * REST API Reference for aiPromptsGetFolderById Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-folder-by-id/
    *
-   * @param id  (required)
+   * @param id The prompt folder identifier. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiPromptFolder
    * @throws ApiException if fails to make API call
@@ -635,7 +635,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Import bundle
-   * 
+   * Restores a prompt bundle. `replace` wipes the current prompts and folders before writing the bundle, `merge` writes the bundle on top of what is already there; both validate the folder references inside the bundle before any write, so a corrupt bundle is rejected whole.
    *
    * REST API Reference for aiPromptsImportBundle Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-import-bundle/
@@ -651,7 +651,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Import bundle
-   * 
+   * Restores a prompt bundle. `replace` wipes the current prompts and folders before writing the bundle, `merge` writes the bundle on top of what is already there; both validate the folder references inside the bundle before any write, so a corrupt bundle is rejected whole.
    *
    * REST API Reference for aiPromptsImportBundle Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-import-bundle/
@@ -718,39 +718,34 @@ public class PromptsApi extends BaseApi {
 
   /**
    * List
-   * 
+   * Lists saved prompts. Scope the answer to one folder, ask for the root-level prompts only, or omit the folder to get every prompt newest first.
    *
    * REST API Reference for aiPromptsList Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/
    *
-   * @param folderId  (required)
+   * @param folderId The prompt folder identifier. Omit to list the prompts that sit outside any folder. (optional)
    * @return List&lt;AiPrompt&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<AiPrompt> aiPromptsList(@javax.annotation.Nonnull String folderId) throws ApiException {
+  public List<AiPrompt> aiPromptsList(@javax.annotation.Nullable String folderId) throws ApiException {
     return this.aiPromptsList(folderId, Collections.emptyMap());
   }
 
 
   /**
    * List
-   * 
+   * Lists saved prompts. Scope the answer to one folder, ask for the root-level prompts only, or omit the folder to get every prompt newest first.
    *
    * REST API Reference for aiPromptsList Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/
    *
-   * @param folderId  (required)
+   * @param folderId The prompt folder identifier. Omit to list the prompts that sit outside any folder. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return List&lt;AiPrompt&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<AiPrompt> aiPromptsList(@javax.annotation.Nonnull String folderId, Map<String, String> additionalHeaders) throws ApiException {
+  public List<AiPrompt> aiPromptsList(@javax.annotation.Nullable String folderId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
-    
-    // verify the required parameter 'folderId' is set
-    if (folderId == null) {
-      throw new ApiException(400, "Missing the required parameter 'folderId' when calling aiPromptsList");
-    }
     
     // create path and map variables
     String localVarPath = "/api/2.0/ai/prompts/list";
@@ -802,7 +797,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * List folders
-   * 
+   * Lists the prompt folders, newest first.
    *
    * REST API Reference for aiPromptsListFolders Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list-folders/
@@ -817,7 +812,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * List folders
-   * 
+   * Lists the prompt folders, newest first.
    *
    * REST API Reference for aiPromptsListFolders Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list-folders/
@@ -878,7 +873,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Move
-   * 
+   * Moves a saved prompt into another folder, or to the root. The name is re-validated in the target folder, so the move fails when a prompt of that name is already there.
    *
    * REST API Reference for aiPromptsMove Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-move/
@@ -894,7 +889,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Move
-   * 
+   * Moves a saved prompt into another folder, or to the root. The name is re-validated in the target folder, so the move fails when a prompt of that name is already there.
    *
    * REST API Reference for aiPromptsMove Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-move/
@@ -961,7 +956,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Rename folder
-   * 
+   * Renames a prompt folder, validating the new name against the existing folders.
    *
    * REST API Reference for aiPromptsRenameFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-rename-folder/
@@ -977,7 +972,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Rename folder
-   * 
+   * Renames a prompt folder, validating the new name against the existing folders.
    *
    * REST API Reference for aiPromptsRenameFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-rename-folder/
@@ -1044,7 +1039,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Update
-   * 
+   * Updates a saved prompt. The name and the folder reference are re-validated whenever either of them changes.
    *
    * REST API Reference for aiPromptsUpdate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-update/
@@ -1060,7 +1055,7 @@ public class PromptsApi extends BaseApi {
 
   /**
    * Update
-   * 
+   * Updates a saved prompt. The name and the folder reference are re-validated whenever either of them changes.
    *
    * REST API Reference for aiPromptsUpdate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-update/

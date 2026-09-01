@@ -26,6 +26,7 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.CookieSettingsRequestsDto;
 import org.openapitools.client.model.CookieSettingsWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.StringWrapper;
 
 

@@ -63,7 +63,7 @@ public class AiPromptMutationResult {
   }
 
   /**
-   * Get success
+   * True when the prompt was persisted.
    * @return success
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SUCCESS, required = true)
@@ -87,7 +87,7 @@ public class AiPromptMutationResult {
   }
 
   /**
-   * Get prompt
+   * The persisted prompt. Present on success.
    * @return prompt
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROMPT, required = false)
@@ -111,7 +111,7 @@ public class AiPromptMutationResult {
   }
 
   /**
-   * Get error
+   * Why the prompt was rejected. Present on failure.
    * @return error
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)

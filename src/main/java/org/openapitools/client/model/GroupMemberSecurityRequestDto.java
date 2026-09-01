@@ -75,7 +75,7 @@ public class GroupMemberSecurityRequestDto {
   }
 
   /**
-   * The full list of user parameters.
+   * The group member parameters.
    * @return user
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_USER, required = true)
@@ -99,7 +99,7 @@ public class GroupMemberSecurityRequestDto {
   }
 
   /**
-   * The access rights type.
+   * The group access rights to the files.
    * @return groupAccess
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_GROUP_ACCESS, required = true)

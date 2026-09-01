@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiFileOperationWrapper
+ * The successful API response containing the FileOperationDto object.
  */
 @JsonPropertyOrder({
   AiFileOperationWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class AiFileOperationWrapper {
   }
 
   /**
-   * Get response
+   * The FileOperationDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

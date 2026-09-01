@@ -8,7 +8,7 @@ The action performed on the file.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **MessageAction** | The event action ID. |  [optional] |
+|**id** | **MessageAction** | The action performed on the file. |  [optional] |
 |**key** | **String** | The action performed on the file. |  [optional] |
 
 

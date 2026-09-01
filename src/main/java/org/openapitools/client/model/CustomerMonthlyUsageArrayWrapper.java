@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * CustomerMonthlyUsageArrayWrapper
+ * The successful API response containing the list of CustomerMonthlyUsageDto objects.
  */
 @JsonPropertyOrder({
   CustomerMonthlyUsageArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class CustomerMonthlyUsageArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of CustomerMonthlyUsageDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

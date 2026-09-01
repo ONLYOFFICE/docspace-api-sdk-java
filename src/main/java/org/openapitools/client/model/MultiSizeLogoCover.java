@@ -34,7 +34,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * MultiSizeLogoCover
+ * The logo cover information, with the cover data in every available size.
  */
 @JsonPropertyOrder({
   MultiSizeLogoCover.JSON_PROPERTY_ID,

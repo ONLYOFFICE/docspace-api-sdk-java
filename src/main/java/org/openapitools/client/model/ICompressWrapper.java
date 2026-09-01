@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ICompressWrapper
+ * The successful API response containing the ICompress object.
  */
 @JsonPropertyOrder({
   ICompressWrapper.JSON_PROPERTY_RESPONSE,
@@ -73,7 +73,7 @@ public class ICompressWrapper {
   }
 
   /**
-   * The archiving class unification interface.
+   * The ICompress object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

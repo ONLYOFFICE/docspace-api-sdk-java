@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * UserInfoWrapper
+ * The successful API response containing the UserInfo object.
  */
 @JsonPropertyOrder({
   UserInfoWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class UserInfoWrapper {
   }
 
   /**
-   * Get response
+   * The UserInfo object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

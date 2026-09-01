@@ -165,7 +165,7 @@ public class FileShareDto {
   }
 
   /**
-   * The full list of user parameters.
+   * The user who has the access to the specified file.
    * @return sharedToUser
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARED_TO_USER, required = false)
@@ -189,7 +189,7 @@ public class FileShareDto {
   }
 
   /**
-   * The group summary parameters.
+   * The user who has the access to the specified file.
    * @return sharedToGroup
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARED_TO_GROUP, required = false)
@@ -405,7 +405,7 @@ public class FileShareDto {
   }
 
   /**
-   * The subject type of the access right.
+   * The subject type.
    * @return subjectType
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SUBJECT_TYPE, required = true)

@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * CurrencyAmount
+ * An amount of money together with its currency.
  */
 @JsonPropertyOrder({
   CurrencyAmount.JSON_PROPERTY_CURRENCY,

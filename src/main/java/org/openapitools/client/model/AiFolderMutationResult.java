@@ -63,7 +63,7 @@ public class AiFolderMutationResult {
   }
 
   /**
-   * Get success
+   * True when the folder was persisted.
    * @return success
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SUCCESS, required = true)
@@ -87,7 +87,7 @@ public class AiFolderMutationResult {
   }
 
   /**
-   * Get folder
+   * The persisted folder. Present on success.
    * @return folder
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FOLDER, required = false)
@@ -111,7 +111,7 @@ public class AiFolderMutationResult {
   }
 
   /**
-   * Get error
+   * Why the folder was rejected. Present on failure.
    * @return error
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)

@@ -24,6 +24,7 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.IPRestrictionArrayWrapper;
 import org.openapitools.client.model.IPRestrictionsSettingsWrapper;
 import org.openapitools.client.model.IpRestrictionsDto;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapitools.client.api.Privacyroom;
+package org.openapitools.client.api.Rooms;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -26,6 +26,7 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.EncryptionKeyArrayWrapper;
 import org.openapitools.client.model.EncryptionKeyRequestDto;
+import org.openapitools.client.model.ErrorApiResponse;
 import java.util.UUID;
 
 
@@ -36,13 +37,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-public class PrivacyroomApi extends BaseApi {
+public class PrivacyRoomApi extends BaseApi {
 
-  public PrivacyroomApi() {
+  public PrivacyRoomApi() {
     super(Configuration.getDefaultApiClient());
   }
 
-  public PrivacyroomApi(ApiClient apiClient) {
+  public PrivacyRoomApi(ApiClient apiClient) {
     super(apiClient);
   }
 
@@ -100,7 +101,7 @@ public class PrivacyroomApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

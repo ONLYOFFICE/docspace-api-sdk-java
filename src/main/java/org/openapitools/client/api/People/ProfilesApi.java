@@ -28,6 +28,7 @@ import org.openapitools.client.model.Culture;
 import org.openapitools.client.model.EmployeeArrayWrapper;
 import org.openapitools.client.model.EmployeeFullArrayWrapper;
 import org.openapitools.client.model.EmployeeFullWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.InviteUsersRequestDto;
 import org.openapitools.client.model.MemberRequestDto;
 import org.openapitools.client.model.ObjectWrapper;

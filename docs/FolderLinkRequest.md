@@ -9,8 +9,8 @@ The folder link parameters.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**linkId** | **UUID** | The folder link ID. |  [optional] |
-|**access** | **FileShare** | The access rights type. |  [optional] |
-|**expirationDate** | [**ApiDateTime**](ApiDateTime.md) | The API date and time parameters. |  [optional] |
+|**access** | **FileShare** | The link sharing rights. |  [optional] |
+|**expirationDate** | **OffsetDateTime** | The link expiration date. |  [optional] |
 |**title** | **String** | The link name. |  [optional] |
 |**password** | **String** | The link password. |  [optional] |
 |**denyDownload** | **Boolean** | Specifies if downloading the file from the link is disabled or not. |  [optional] |

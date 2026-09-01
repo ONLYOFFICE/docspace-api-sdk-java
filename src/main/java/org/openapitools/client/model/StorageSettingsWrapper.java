@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * StorageSettingsWrapper
+ * The successful API response containing the StorageSettings object.
  */
 @JsonPropertyOrder({
   StorageSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class StorageSettingsWrapper {
   }
 
   /**
-   * Get response
+   * The StorageSettings object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

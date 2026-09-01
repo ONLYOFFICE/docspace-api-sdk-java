@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * CurrenciesArrayWrapper
+ * The successful API response containing the list of CurrenciesDto objects.
  */
 @JsonPropertyOrder({
   CurrenciesArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class CurrenciesArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of CurrenciesDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

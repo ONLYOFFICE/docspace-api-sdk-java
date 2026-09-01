@@ -196,7 +196,7 @@ public class AiThread {
   }
 
   /**
-   * ID of the profile used for this thread. Links to  {@link  Profile.id } .
+   * ID of the profile used for this thread. Links to `Profile.id`.
    * @return profileId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROFILE_ID, required = false)

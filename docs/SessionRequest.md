@@ -11,7 +11,7 @@ The session request parameters.
 |**fileName** | **String** | The file name. |  |
 |**fileSize** | **Long** | The file size. |  [optional] |
 |**relativePath** | **String** | The relative path to the file. |  [optional] |
-|**createOn** | [**ApiDateTime**](ApiDateTime.md) | The API date and time parameters. |  [optional] |
+|**createOn** | **OffsetDateTime** | The date and time when the file was created. |  [optional] |
 |**encrypted** | **Boolean** | Specifies whether the file is encrypted or not. |  [optional] |
 |**createNewIfExist** | **Boolean** | Specifies whether to create a new file if it already exists. |  [optional] |
 

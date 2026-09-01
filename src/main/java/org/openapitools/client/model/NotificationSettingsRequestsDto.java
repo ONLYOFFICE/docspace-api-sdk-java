@@ -58,7 +58,7 @@ public class NotificationSettingsRequestsDto {
   }
 
   /**
-   * The notification type.
+   * The notification to be configured.
    * @return type
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)

@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * FillingFormResultIntegerWrapper
+ * The successful API response containing the FillingFormResultDtoInteger object.
  */
 @JsonPropertyOrder({
   FillingFormResultIntegerWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class FillingFormResultIntegerWrapper {
   }
 
   /**
-   * Get response
+   * The FillingFormResultDtoInteger object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

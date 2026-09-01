@@ -24,8 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 import java.util.UUID;
-import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.FileShare;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -60,7 +60,7 @@ public class FolderLinkRequest {
   @javax.annotation.Nullable  private FileShare access;
 
   public static final String JSON_PROPERTY_EXPIRATION_DATE = "expirationDate";
-  @javax.annotation.Nullable  private ApiDateTime expirationDate;
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> expirationDate = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_TITLE = "title";
   @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
@@ -112,7 +112,7 @@ public class FolderLinkRequest {
   }
 
   /**
-   * The access rights type.
+   * The link sharing rights.
    * @return access
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
@@ -129,28 +129,35 @@ public class FolderLinkRequest {
     this.access = access;
   }
 
-  public FolderLinkRequest expirationDate(@javax.annotation.Nullable ApiDateTime expirationDate) {
+  public FolderLinkRequest expirationDate(@javax.annotation.Nullable OffsetDateTime expirationDate) {
+    this.expirationDate = JsonNullable.<OffsetDateTime>of(expirationDate);
     
-    this.expirationDate = expirationDate;
     return this;
   }
 
   /**
-   * The API date and time parameters.
+   * The link expiration date.
    * @return expirationDate
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public ApiDateTime getExpirationDate() {
-    return expirationDate;
+  public OffsetDateTime getExpirationDate() {
+        return expirationDate.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpirationDate(@javax.annotation.Nullable ApiDateTime expirationDate) {
+  public JsonNullable<OffsetDateTime> getExpirationDate_JsonNullable() {
+    return expirationDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
+  public void setExpirationDate_JsonNullable(JsonNullable<OffsetDateTime> expirationDate) {
     this.expirationDate = expirationDate;
+  }
+
+  public void setExpirationDate(@javax.annotation.Nullable OffsetDateTime expirationDate) {
+    this.expirationDate = JsonNullable.<OffsetDateTime>of(expirationDate);
   }
 
   public FolderLinkRequest title(@javax.annotation.Nullable String title) {
@@ -298,7 +305,7 @@ public class FolderLinkRequest {
     FolderLinkRequest folderLinkRequest = (FolderLinkRequest) o;
     return Objects.equals(this.linkId, folderLinkRequest.linkId) &&
         Objects.equals(this.access, folderLinkRequest.access) &&
-        Objects.equals(this.expirationDate, folderLinkRequest.expirationDate) &&
+        equalsNullable(this.expirationDate, folderLinkRequest.expirationDate) &&
         equalsNullable(this.title, folderLinkRequest.title) &&
         equalsNullable(this.password, folderLinkRequest.password) &&
         Objects.equals(this.denyDownload, folderLinkRequest.denyDownload) &&
@@ -312,7 +319,7 @@ public class FolderLinkRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(linkId, access, expirationDate, hashCodeNullable(title), hashCodeNullable(password), denyDownload, internal, primary);
+    return Objects.hash(linkId, access, hashCodeNullable(expirationDate), hashCodeNullable(title), hashCodeNullable(password), denyDownload, internal, primary);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -403,7 +410,12 @@ public class FolderLinkRequest {
 
     // add `expirationDate` to the URL query string
     if (getExpirationDate() != null) {
-      joiner.add(getExpirationDate().toUrlQueryString(prefix + "expirationDate" + suffix));
+      try {
+        joiner.add(String.format("%sexpirationDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpirationDate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `title` to the URL query string

@@ -18,7 +18,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > AiSuccessResponse aiAttachmentsDelete(body)
 
-Delete
+DeletePermanently deletes one attachment, whether it is still a draft or already linked to a message.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete/).
 
@@ -85,7 +85,7 @@ public class Example {
 
 > AiSuccessResponse aiAttachmentsDeleteMany(requestBody)
 
-Delete many
+Delete manyPermanently deletes a batch of attachments in a single round trip.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete-many/).
 
@@ -152,7 +152,7 @@ public class Example {
 
 > AiAttachment aiAttachmentsGet(body)
 
-Get
+GetReturns one attachment by identifier.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get/).
 
@@ -219,7 +219,7 @@ public class Example {
 
 > List&lt;AiAttachment&gt; aiAttachmentsGetMany(requestBody)
 
-Get many
+Get manyReturns a batch of attachments, preserving the requested order; an identifier that no longer exists comes back empty.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-many/).
 
@@ -286,7 +286,7 @@ public class Example {
 
 > AiSuccessResponse aiAttachmentsLinkToMessage(aiAttachmentsLinkToMessageRequest)
 
-Link to message
+Link to messageBinds draft attachments to the chat message that owns them, once that message has been persisted, so deleting the message removes them too. Identifiers that no longer exist are skipped.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-link-to-message/).
 
@@ -353,7 +353,7 @@ public class Example {
 
 > AiAttachment aiAttachmentsSaveFile(aiAttachmentsSaveFileRequest)
 
-Save file
+Save fileStores one file attachment as a draft, carrying the host-extracted text of the file. Prefer `save-files-many` when adding several files at once so they land as one round trip.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-file/).
 
@@ -420,7 +420,7 @@ public class Example {
 
 > List&lt;AiAttachment&gt; aiAttachmentsSaveFilesMany(aiAttachmentsSaveFilesManyRequest)
 
-Save files many
+Save files manyStores a batch of file attachments as drafts in a single round trip. The returned records keep the order of the input.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-files-many/).
 

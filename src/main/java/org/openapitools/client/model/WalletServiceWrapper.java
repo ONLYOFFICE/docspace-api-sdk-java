@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * WalletServiceWrapper
+ * The successful API response containing the WalletServiceDto object.
  */
 @JsonPropertyOrder({
   WalletServiceWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class WalletServiceWrapper {
   }
 
   /**
-   * Get response
+   * The WalletServiceDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

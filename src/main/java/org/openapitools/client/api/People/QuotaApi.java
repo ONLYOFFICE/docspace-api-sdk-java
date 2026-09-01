@@ -25,6 +25,7 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.EmployeeFullArrayWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.UpdateMembersQuotaRequestDto;
 
 

@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiOpenAIToolCallDeltaFunction
+ * The call itself: the function name and its JSON-encoded arguments.
  */
 @JsonPropertyOrder({
   AiOpenAIToolCallDeltaFunction.JSON_PROPERTY_NAME,

@@ -27,8 +27,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.client.model.AdditionalWhiteLabelSettingsDto;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
-import org.openapitools.client.model.NoContentResult;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -37,19 +37,19 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * NoContentResultWrapper
+ * The successful API response containing the AdditionalWhiteLabelSettingsDto object.
  */
 @JsonPropertyOrder({
-  NoContentResultWrapper.JSON_PROPERTY_RESPONSE,
-  NoContentResultWrapper.JSON_PROPERTY_COUNT,
-  NoContentResultWrapper.JSON_PROPERTY_LINKS,
-  NoContentResultWrapper.JSON_PROPERTY_STATUS,
-  NoContentResultWrapper.JSON_PROPERTY_STATUS_CODE
+  AdditionalWhiteLabelSettingsDtoWrapper.JSON_PROPERTY_RESPONSE,
+  AdditionalWhiteLabelSettingsDtoWrapper.JSON_PROPERTY_COUNT,
+  AdditionalWhiteLabelSettingsDtoWrapper.JSON_PROPERTY_LINKS,
+  AdditionalWhiteLabelSettingsDtoWrapper.JSON_PROPERTY_STATUS,
+  AdditionalWhiteLabelSettingsDtoWrapper.JSON_PROPERTY_STATUS_CODE
 })
 
-public class NoContentResultWrapper {
+public class AdditionalWhiteLabelSettingsDtoWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private NoContentResult response;
+  @javax.annotation.Nullable  private AdditionalWhiteLabelSettingsDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -63,35 +63,35 @@ public class NoContentResultWrapper {
   public static final String JSON_PROPERTY_STATUS_CODE = "statusCode";
   @javax.annotation.Nullable  private Integer statusCode;
 
-  public NoContentResultWrapper() {
+  public AdditionalWhiteLabelSettingsDtoWrapper() {
   }
 
 
-  public NoContentResultWrapper response(@javax.annotation.Nullable NoContentResult response) {
+  public AdditionalWhiteLabelSettingsDtoWrapper response(@javax.annotation.Nullable AdditionalWhiteLabelSettingsDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * Get response
+   * The AdditionalWhiteLabelSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public NoContentResult getResponse() {
+  public AdditionalWhiteLabelSettingsDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable NoContentResult response) {
+  public void setResponse(@javax.annotation.Nullable AdditionalWhiteLabelSettingsDto response) {
     this.response = response;
   }
 
-  public NoContentResultWrapper count(@javax.annotation.Nullable Integer count) {
+  public AdditionalWhiteLabelSettingsDtoWrapper count(@javax.annotation.Nullable Integer count) {
     
     this.count = count;
     return this;
@@ -115,13 +115,13 @@ public class NoContentResultWrapper {
     this.count = count;
   }
 
-  public NoContentResultWrapper links(@javax.annotation.Nullable List<GetPortalPrices200ResponseLinksInner> links) {
+  public AdditionalWhiteLabelSettingsDtoWrapper links(@javax.annotation.Nullable List<GetPortalPrices200ResponseLinksInner> links) {
     
     this.links = links;
     return this;
   }
 
-  public NoContentResultWrapper addLinksItem(GetPortalPrices200ResponseLinksInner linksItem) {
+  public AdditionalWhiteLabelSettingsDtoWrapper addLinksItem(GetPortalPrices200ResponseLinksInner linksItem) {
     if (this.links == null) {
       this.links = new ArrayList<>();
     }
@@ -147,7 +147,7 @@ public class NoContentResultWrapper {
     this.links = links;
   }
 
-  public NoContentResultWrapper status(@javax.annotation.Nullable Integer status) {
+  public AdditionalWhiteLabelSettingsDtoWrapper status(@javax.annotation.Nullable Integer status) {
     
     this.status = status;
     return this;
@@ -171,7 +171,7 @@ public class NoContentResultWrapper {
     this.status = status;
   }
 
-  public NoContentResultWrapper statusCode(@javax.annotation.Nullable Integer statusCode) {
+  public AdditionalWhiteLabelSettingsDtoWrapper statusCode(@javax.annotation.Nullable Integer statusCode) {
     
     this.statusCode = statusCode;
     return this;
@@ -203,12 +203,12 @@ public class NoContentResultWrapper {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NoContentResultWrapper noContentResultWrapper = (NoContentResultWrapper) o;
-    return Objects.equals(this.response, noContentResultWrapper.response) &&
-        Objects.equals(this.count, noContentResultWrapper.count) &&
-        Objects.equals(this.links, noContentResultWrapper.links) &&
-        Objects.equals(this.status, noContentResultWrapper.status) &&
-        Objects.equals(this.statusCode, noContentResultWrapper.statusCode);
+    AdditionalWhiteLabelSettingsDtoWrapper additionalWhiteLabelSettingsDtoWrapper = (AdditionalWhiteLabelSettingsDtoWrapper) o;
+    return Objects.equals(this.response, additionalWhiteLabelSettingsDtoWrapper.response) &&
+        Objects.equals(this.count, additionalWhiteLabelSettingsDtoWrapper.count) &&
+        Objects.equals(this.links, additionalWhiteLabelSettingsDtoWrapper.links) &&
+        Objects.equals(this.status, additionalWhiteLabelSettingsDtoWrapper.status) &&
+        Objects.equals(this.statusCode, additionalWhiteLabelSettingsDtoWrapper.statusCode);
   }
 
   @Override
@@ -219,7 +219,7 @@ public class NoContentResultWrapper {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NoContentResultWrapper {\n");
+    sb.append("class AdditionalWhiteLabelSettingsDtoWrapper {\n");
     sb.append("    response: ").append(toIndentedString(response)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");

@@ -40,7 +40,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiOpenAIChoiceDelta
+ * The incremental part of one choice - what this chunk adds to the assistant message.
  */
 @JsonPropertyOrder({
   AiOpenAIChoiceDelta.JSON_PROPERTY_ROLE,
@@ -50,7 +50,7 @@ import java.util.StringJoiner;
 
 public class AiOpenAIChoiceDelta {
   /**
-   * Gets or Sets role
+   * Sent on the first chunk only, always &#x60;assistant&#x60;.
    */
   public enum RoleEnum {
     ASSISTANT(String.valueOf("assistant"));
@@ -101,7 +101,7 @@ public class AiOpenAIChoiceDelta {
   }
 
   /**
-   * Get role
+   * Sent on the first chunk only, always `assistant`.
    * @return role
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROLE, required = false)
@@ -125,7 +125,7 @@ public class AiOpenAIChoiceDelta {
   }
 
   /**
-   * Get content
+   * The text this chunk appends. Null when the chunk carries no text.
    * @return content
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -164,7 +164,7 @@ public class AiOpenAIChoiceDelta {
   }
 
   /**
-   * Get toolCalls
+   * The tool calls the model requested, emitted in place of text.
    * @return toolCalls
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOOL_CALLS, required = false)

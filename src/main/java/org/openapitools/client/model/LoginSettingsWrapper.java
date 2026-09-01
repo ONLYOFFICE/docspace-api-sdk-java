@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * LoginSettingsWrapper
+ * The successful API response containing the LoginSettingsDto object.
  */
 @JsonPropertyOrder({
   LoginSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class LoginSettingsWrapper {
   }
 
   /**
-   * Get response
+   * The LoginSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

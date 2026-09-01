@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * FormRoleArrayWrapper
+ * The successful API response containing the list of FormRoleDto objects.
  */
 @JsonPropertyOrder({
   FormRoleArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class FormRoleArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of FormRoleDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

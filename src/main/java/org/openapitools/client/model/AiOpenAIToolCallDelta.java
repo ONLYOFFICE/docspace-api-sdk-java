@@ -34,7 +34,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiOpenAIToolCallDelta
+ * The incremental part of one tool call the model requested.
  */
 @JsonPropertyOrder({
   AiOpenAIToolCallDelta.JSON_PROPERTY_INDEX,
@@ -51,7 +51,7 @@ public class AiOpenAIToolCallDelta {
   @javax.annotation.Nullable  private String id;
 
   /**
-   * Gets or Sets type
+   * Always &#x60;function&#x60; - the only tool kind the API defines.
    */
   public enum TypeEnum {
     FUNCTION(String.valueOf("function"));
@@ -99,7 +99,7 @@ public class AiOpenAIToolCallDelta {
   }
 
   /**
-   * Get index
+   * The zero-based position of the tool call within the message.
    * @return index
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_INDEX, required = true)
@@ -123,7 +123,7 @@ public class AiOpenAIToolCallDelta {
   }
 
   /**
-   * Get id
+   * The tool call identifier, quoted back when its result is submitted.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -147,7 +147,7 @@ public class AiOpenAIToolCallDelta {
   }
 
   /**
-   * Get type
+   * Always `function` - the only tool kind the API defines.
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)

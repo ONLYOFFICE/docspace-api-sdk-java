@@ -2,6 +2,7 @@
 
 # StudioDefaultPageSettings
 
+The settings that define the folder opened by default after sign-in.
 
 ## Properties
 

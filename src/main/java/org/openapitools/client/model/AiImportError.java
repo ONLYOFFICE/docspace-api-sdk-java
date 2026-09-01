@@ -33,7 +33,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Per-entry error reported by  {@link  PromptsEngine.importBundle } .
+ * Per-entry error reported by `PromptsEngine.importBundle`.
  */
 @JsonPropertyOrder({
   AiImportError.JSON_PROPERTY_KIND,
@@ -120,7 +120,7 @@ public class AiImportError {
   }
 
   /**
-   * Get ref
+   * The offending entry - its name or its id.
    * @return ref
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_REF, required = true)
@@ -144,7 +144,7 @@ public class AiImportError {
   }
 
   /**
-   * Get error
+   * Why the entry was rejected.
    * @return error
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ERROR, required = true)

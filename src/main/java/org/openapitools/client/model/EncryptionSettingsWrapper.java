@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * EncryptionSettingsWrapper
+ * The successful API response containing the EncryptionSettings object.
  */
 @JsonPropertyOrder({
   EncryptionSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class EncryptionSettingsWrapper {
   }
 
   /**
-   * Get response
+   * The EncryptionSettings object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

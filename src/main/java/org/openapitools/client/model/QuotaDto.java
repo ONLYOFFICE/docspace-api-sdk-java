@@ -292,7 +292,7 @@ public class QuotaDto {
   }
 
   /**
-   * The tenant entity quota settings.
+   * The user quota.
    * @return usersQuota
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USERS_QUOTA, required = false)
@@ -316,7 +316,7 @@ public class QuotaDto {
   }
 
   /**
-   * The tenant entity quota settings.
+   * The room quota.
    * @return roomsQuota
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOMS_QUOTA, required = false)
@@ -340,7 +340,7 @@ public class QuotaDto {
   }
 
   /**
-   * The tenant entity quota settings.
+   * The ai agent quota.
    * @return aiAgentsQuota
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AI_AGENTS_QUOTA, required = false)
@@ -364,7 +364,7 @@ public class QuotaDto {
   }
 
   /**
-   * The tenant quota settings.
+   * The tenant custom quota.
    * @return tenantCustomQuota
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT_CUSTOM_QUOTA, required = false)

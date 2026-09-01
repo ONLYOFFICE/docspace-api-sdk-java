@@ -24,6 +24,7 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.OwnerChangeInstructionsWrapper;
 import org.openapitools.client.model.OwnerIdSettingsRequestDto;
 
@@ -171,7 +172,7 @@ public class OwnerApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -212,7 +213,7 @@ public class OwnerApi extends BaseApi {
     localVarHeaderParams.putAll(additionalHeaders);
 
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

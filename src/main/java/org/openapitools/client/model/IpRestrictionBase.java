@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * IpRestrictionBase
+ * The IP restiction base parameters.
  */
 @JsonPropertyOrder({
   IpRestrictionBase.JSON_PROPERTY_IP,
@@ -57,7 +57,7 @@ public class IpRestrictionBase {
   }
 
   /**
-   * Get ip
+   * The IP address.
    * @return ip
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IP, required = false)
@@ -81,7 +81,7 @@ public class IpRestrictionBase {
   }
 
   /**
-   * Get forAdmin
+   * Specifies if the IP address is for administrator users only or not.
    * @return forAdmin
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FOR_ADMIN, required = false)

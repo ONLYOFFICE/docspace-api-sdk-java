@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * TimezonesRequestsArrayWrapper
+ * The successful API response containing the list of TimezonesRequestsDto objects.
  */
 @JsonPropertyOrder({
   TimezonesRequestsArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class TimezonesRequestsArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of TimezonesRequestsDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

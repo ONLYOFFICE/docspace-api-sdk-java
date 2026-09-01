@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * CurrencyInfo
+ * The currency the AI prices are quoted in.
  */
 @JsonPropertyOrder({
   CurrencyInfo.JSON_PROPERTY_CODE,
@@ -57,7 +57,7 @@ public class CurrencyInfo {
   }
 
   /**
-   * Get code
+   * The ISO 4217 code of the currency the prices are quoted in.
    * @return code
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CODE, required = false)
@@ -81,7 +81,7 @@ public class CurrencyInfo {
   }
 
   /**
-   * Get symbol
+   * The display symbol of the currency.
    * @return symbol
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SYMBOL, required = false)

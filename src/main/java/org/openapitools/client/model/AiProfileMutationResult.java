@@ -63,7 +63,7 @@ public class AiProfileMutationResult {
   }
 
   /**
-   * Get success
+   * True when the profile was persisted.
    * @return success
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SUCCESS, required = true)
@@ -87,7 +87,7 @@ public class AiProfileMutationResult {
   }
 
   /**
-   * Get profile
+   * The persisted profile. Present on success.
    * @return profile
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROFILE, required = false)
@@ -111,7 +111,7 @@ public class AiProfileMutationResult {
   }
 
   /**
-   * Get error
+   * Why the profile was rejected - the name check or the provider credential check. Present on failure.
    * @return error
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)

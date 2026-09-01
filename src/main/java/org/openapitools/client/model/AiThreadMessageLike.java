@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiThreadMessageLike
+ * A single chat message as it travels on the wire.
  */
 @JsonPropertyOrder({
   AiThreadMessageLike.JSON_PROPERTY_ID,

@@ -2,6 +2,7 @@
 
 # CurrencyAmount
 
+An amount of money together with its currency.
 
 ## Properties
 

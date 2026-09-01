@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * EditHistoryArrayWrapper
+ * The successful API response containing the list of EditHistoryDto objects.
  */
 @JsonPropertyOrder({
   EditHistoryArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class EditHistoryArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of EditHistoryDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

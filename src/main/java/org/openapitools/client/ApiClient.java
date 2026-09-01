@@ -95,7 +95,7 @@ public class ApiClient extends JavaTimeFormatter {
   protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
       "{baseUrl}",
-      "Server configuration",
+      "The production DocSpace portal, at the customer's own domain.",
       new HashMap<String, ServerVariable>() {{
         put("baseUrl", new ServerVariable(
           "Default URL",

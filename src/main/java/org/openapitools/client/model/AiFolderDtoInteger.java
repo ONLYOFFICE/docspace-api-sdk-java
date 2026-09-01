@@ -25,10 +25,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.net.URI;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.AiApiDateTime;
 import org.openapitools.client.model.AiChatSettingsDto;
 import org.openapitools.client.model.AiEmployeeDto;
 import org.openapitools.client.model.AiFileEntryType;
@@ -150,16 +150,16 @@ public class AiFolderDtoInteger {
   @javax.annotation.Nullable  private URI shortWebUrl;
 
   public static final String JSON_PROPERTY_CREATED = "created";
-  @javax.annotation.Nullable  private AiApiDateTime created;
+  @javax.annotation.Nullable  private OffsetDateTime created;
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
   @javax.annotation.Nullable  private AiEmployeeDto createdBy;
 
   public static final String JSON_PROPERTY_UPDATED = "updated";
-  @javax.annotation.Nullable  private AiApiDateTime updated;
+  @javax.annotation.Nullable  private OffsetDateTime updated;
 
   public static final String JSON_PROPERTY_AUTO_DELETE = "autoDelete";
-  @javax.annotation.Nullable  private AiApiDateTime autoDelete;
+  @javax.annotation.Nullable  private OffsetDateTime autoDelete;
 
   public static final String JSON_PROPERTY_ROOT_FOLDER_TYPE = "rootFolderType";
   @javax.annotation.Nullable  private AiFolderType rootFolderType;
@@ -225,7 +225,7 @@ public class AiFolderDtoInteger {
   @javax.annotation.Nullable  private Boolean external;
 
   public static final String JSON_PROPERTY_EXPIRATION_DATE = "expirationDate";
-  @javax.annotation.Nullable  private AiApiDateTime expirationDate;
+  @javax.annotation.Nullable  private OffsetDateTime expirationDate;
 
   public static final String JSON_PROPERTY_IS_LINK_EXPIRED = "isLinkExpired";
   @javax.annotation.Nullable  private Boolean isLinkExpired;
@@ -531,7 +531,7 @@ public class AiFolderDtoInteger {
     this.shortWebUrl = shortWebUrl;
   }
 
-  public AiFolderDtoInteger created(@javax.annotation.Nullable AiApiDateTime created) {
+  public AiFolderDtoInteger created(@javax.annotation.Nullable OffsetDateTime created) {
     
     this.created = created;
     return this;
@@ -544,14 +544,14 @@ public class AiFolderDtoInteger {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public AiApiDateTime getCreated() {
+  public OffsetDateTime getCreated() {
     return created;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_CREATED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreated(@javax.annotation.Nullable AiApiDateTime created) {
+  public void setCreated(@javax.annotation.Nullable OffsetDateTime created) {
     this.created = created;
   }
 
@@ -579,7 +579,7 @@ public class AiFolderDtoInteger {
     this.createdBy = createdBy;
   }
 
-  public AiFolderDtoInteger updated(@javax.annotation.Nullable AiApiDateTime updated) {
+  public AiFolderDtoInteger updated(@javax.annotation.Nullable OffsetDateTime updated) {
     
     this.updated = updated;
     return this;
@@ -592,18 +592,18 @@ public class AiFolderDtoInteger {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPDATED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public AiApiDateTime getUpdated() {
+  public OffsetDateTime getUpdated() {
     return updated;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_UPDATED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUpdated(@javax.annotation.Nullable AiApiDateTime updated) {
+  public void setUpdated(@javax.annotation.Nullable OffsetDateTime updated) {
     this.updated = updated;
   }
 
-  public AiFolderDtoInteger autoDelete(@javax.annotation.Nullable AiApiDateTime autoDelete) {
+  public AiFolderDtoInteger autoDelete(@javax.annotation.Nullable OffsetDateTime autoDelete) {
     
     this.autoDelete = autoDelete;
     return this;
@@ -616,14 +616,14 @@ public class AiFolderDtoInteger {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTO_DELETE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public AiApiDateTime getAutoDelete() {
+  public OffsetDateTime getAutoDelete() {
     return autoDelete;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_AUTO_DELETE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAutoDelete(@javax.annotation.Nullable AiApiDateTime autoDelete) {
+  public void setAutoDelete(@javax.annotation.Nullable OffsetDateTime autoDelete) {
     this.autoDelete = autoDelete;
   }
 
@@ -1152,7 +1152,7 @@ public class AiFolderDtoInteger {
     this.external = external;
   }
 
-  public AiFolderDtoInteger expirationDate(@javax.annotation.Nullable AiApiDateTime expirationDate) {
+  public AiFolderDtoInteger expirationDate(@javax.annotation.Nullable OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
     return this;
@@ -1165,14 +1165,14 @@ public class AiFolderDtoInteger {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public AiApiDateTime getExpirationDate() {
+  public OffsetDateTime getExpirationDate() {
     return expirationDate;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpirationDate(@javax.annotation.Nullable AiApiDateTime expirationDate) {
+  public void setExpirationDate(@javax.annotation.Nullable OffsetDateTime expirationDate) {
     this.expirationDate = expirationDate;
   }
 
@@ -2225,7 +2225,12 @@ public class AiFolderDtoInteger {
 
     // add `created` to the URL query string
     if (getCreated() != null) {
-      joiner.add(getCreated().toUrlQueryString(prefix + "created" + suffix));
+      try {
+        joiner.add(String.format("%screated%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreated()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `createdBy` to the URL query string
@@ -2235,12 +2240,22 @@ public class AiFolderDtoInteger {
 
     // add `updated` to the URL query string
     if (getUpdated() != null) {
-      joiner.add(getUpdated().toUrlQueryString(prefix + "updated" + suffix));
+      try {
+        joiner.add(String.format("%supdated%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdated()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `autoDelete` to the URL query string
     if (getAutoDelete() != null) {
-      joiner.add(getAutoDelete().toUrlQueryString(prefix + "autoDelete" + suffix));
+      try {
+        joiner.add(String.format("%sautoDelete%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAutoDelete()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `rootFolderType` to the URL query string
@@ -2435,7 +2450,12 @@ public class AiFolderDtoInteger {
 
     // add `expirationDate` to the URL query string
     if (getExpirationDate() != null) {
-      joiner.add(getExpirationDate().toUrlQueryString(prefix + "expirationDate" + suffix));
+      try {
+        joiner.add(String.format("%sexpirationDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpirationDate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `isLinkExpired` to the URL query string

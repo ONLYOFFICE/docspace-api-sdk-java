@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * DocsCloudQuotaWrapper
+ * The successful API response containing the DocsCloudQuota object.
  */
 @JsonPropertyOrder({
   DocsCloudQuotaWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class DocsCloudQuotaWrapper {
   }
 
   /**
-   * Get response
+   * The DocsCloudQuota object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

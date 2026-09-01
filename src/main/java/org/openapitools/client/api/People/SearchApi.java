@@ -31,6 +31,7 @@ import org.openapitools.client.model.EmployeeArrayWrapper;
 import org.openapitools.client.model.EmployeeFullArrayWrapper;
 import org.openapitools.client.model.EmployeeStatus;
 import org.openapitools.client.model.EmployeeType;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.ObjectArrayWrapper;
 import org.openapitools.client.model.Payments;
 import org.openapitools.client.model.QuotaFilter;

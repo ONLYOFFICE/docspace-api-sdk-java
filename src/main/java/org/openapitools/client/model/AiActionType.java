@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Gets or Sets AiActionType
+ * The AI action a request or an assignment applies to. Each action has its own assignment slot; &#x60;Default&#x60; is the profile used when an action&#39;s own slot is empty.
  */
 public enum AiActionType {
   

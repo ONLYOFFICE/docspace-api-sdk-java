@@ -8,8 +8,8 @@ Resolved profile for an action — both the storage row and its ID.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**profileId** | **String** |  |  |
-|**profile** | [**AiProfile**](AiProfile.md) |  |  |
+|**profileId** | **String** | The identifier of the resolved profile. |  |
+|**profile** | [**AiProfile**](AiProfile.md) | The resolved profile itself. |  |
 
 
 

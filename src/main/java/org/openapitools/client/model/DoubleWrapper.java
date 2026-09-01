@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * DoubleWrapper
+ * The successful API response containing the double value.
  */
 @JsonPropertyOrder({
   DoubleWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class DoubleWrapper {
   }
 
   /**
-   * Get response
+   * The double value returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

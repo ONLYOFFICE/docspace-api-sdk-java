@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiEmbeddingModelPricing
+ * The pricing of a single embedding model.
  */
 @JsonPropertyOrder({
   AiEmbeddingModelPricing.JSON_PROPERTY_ID,
@@ -78,7 +78,7 @@ public class AiEmbeddingModelPricing {
   }
 
   /**
-   * Get id
+   * The identifier of the model, as the provider expects it on the wire.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -102,7 +102,7 @@ public class AiEmbeddingModelPricing {
   }
 
   /**
-   * Get alias
+   * The display name of the model.
    * @return alias
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -133,7 +133,7 @@ public class AiEmbeddingModelPricing {
   }
 
   /**
-   * Get ownedBy
+   * The owner of the model, as reported by the provider.
    * @return ownedBy
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -164,7 +164,7 @@ public class AiEmbeddingModelPricing {
   }
 
   /**
-   * Get provider
+   * The provider that serves the model.
    * @return provider
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -195,7 +195,7 @@ public class AiEmbeddingModelPricing {
   }
 
   /**
-   * Get link
+   * The link to the pricing page of the model.
    * @return link
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -226,7 +226,7 @@ public class AiEmbeddingModelPricing {
   }
 
   /**
-   * Get price
+   * The price of an embedding model, per token.
    * @return price
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PRICE, required = true)

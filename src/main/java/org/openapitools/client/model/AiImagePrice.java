@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiImagePrice
+ * The price of an image model: per prompt token and per generated image.
  */
 @JsonPropertyOrder({
   AiImagePrice.JSON_PROPERTY_PROMPT,
@@ -61,7 +61,7 @@ public class AiImagePrice {
   }
 
   /**
-   * Get prompt
+   * The price of a single prompt token.
    * @return prompt
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROMPT, required = false)
@@ -85,7 +85,7 @@ public class AiImagePrice {
   }
 
   /**
-   * Get completion
+   * The cost associated with the completion of a prompt in an AI model.
    * @return completion
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COMPLETION, required = false)
@@ -109,7 +109,7 @@ public class AiImagePrice {
   }
 
   /**
-   * Get image
+   * The price of a single generated image.
    * @return image
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMAGE, required = false)

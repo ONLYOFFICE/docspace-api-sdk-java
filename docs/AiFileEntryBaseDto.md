@@ -17,10 +17,10 @@ The file entry information.
 |**sharedExternal** | **Boolean** | Specifies if the file entry is shared via a public (non-internal) external link. |  [optional] |
 |**parentShared** | **Boolean** | Indicates whether the parent entity is shared. |  [optional] |
 |**shortWebUrl** | **URI** | The short Web URL. |  [optional] |
-|**created** | [**AiApiDateTime**](AiApiDateTime.md) | The creation date and time of the file entry. |  [optional] |
+|**created** | **OffsetDateTime** | The creation date and time of the file entry. |  [optional] |
 |**createdBy** | [**AiEmployeeDto**](AiEmployeeDto.md) | The file entry author. |  [optional] |
-|**updated** | [**AiApiDateTime**](AiApiDateTime.md) | The last date and time when the file entry was updated. |  [optional] |
-|**autoDelete** | [**AiApiDateTime**](AiApiDateTime.md) | The date and time when the file entry will be automatically deleted. |  [optional] |
+|**updated** | **OffsetDateTime** | The last date and time when the file entry was updated. |  [optional] |
+|**autoDelete** | **OffsetDateTime** | The date and time when the file entry will be automatically deleted. |  [optional] |
 |**rootFolderType** | **AiFolderType** | The root folder type of the file entry. |  [optional] |
 |**parentRoomType** | **AiFolderType** | The parent room type of the file entry. |  [optional] |
 |**updatedBy** | [**AiEmployeeDto**](AiEmployeeDto.md) | The user who updated the file entry. |  [optional] |

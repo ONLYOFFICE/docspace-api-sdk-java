@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * RoomFromTemplateStatusWrapper
+ * The successful API response containing the RoomFromTemplateStatusDto object.
  */
 @JsonPropertyOrder({
   RoomFromTemplateStatusWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class RoomFromTemplateStatusWrapper {
   }
 
   /**
-   * Get response
+   * The RoomFromTemplateStatusDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

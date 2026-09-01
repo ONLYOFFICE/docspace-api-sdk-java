@@ -49,7 +49,7 @@ public class ExportApi extends BaseApi {
 
   /**
    * Start markdown → docx export
-   * 
+   * Starts an asynchronous markdown-to-docx export. The response only acknowledges the task: the AI Worker converts the content and saves the .docx into the target folder (an agent room resolves to its result-storage subfolder), and completion reaches the client as the usual folder-modified socket event.
    *
    * REST API Reference for aiExportTextToDocx Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-export-text-to-docx/
@@ -65,7 +65,7 @@ public class ExportApi extends BaseApi {
 
   /**
    * Start markdown → docx export
-   * 
+   * Starts an asynchronous markdown-to-docx export. The response only acknowledges the task: the AI Worker converts the content and saves the .docx into the target folder (an agent room resolves to its result-storage subfolder), and completion reaches the client as the usual folder-modified socket event.
    *
    * REST API Reference for aiExportTextToDocx Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-export-text-to-docx/

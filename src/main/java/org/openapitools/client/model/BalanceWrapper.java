@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * BalanceWrapper
+ * The successful API response containing the Balance object.
  */
 @JsonPropertyOrder({
   BalanceWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class BalanceWrapper {
   }
 
   /**
-   * Get response
+   * The Balance object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

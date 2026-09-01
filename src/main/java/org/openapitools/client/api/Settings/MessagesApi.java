@@ -26,6 +26,7 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.AdminMessageBaseSettingsRequestsDto;
 import org.openapitools.client.model.AdminMessageSettingsRequestsDto;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.StringWrapper;
 import org.openapitools.client.model.TurnOnAdminMessageSettingsRequestDto;
 

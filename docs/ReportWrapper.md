@@ -2,12 +2,13 @@
 
 # ReportWrapper
 
+The successful API response containing the ReportDto object.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**response** | [**ReportDto**](ReportDto.md) |  |  [optional] |
+|**response** | [**ReportDto**](ReportDto.md) | The ReportDto object returned by the operation. |  [optional] |
 |**count** | **Integer** | The total number of items in the response |  [optional] |
 |**links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response |  [optional] |
 |**status** | **Integer** | HTTP status code of the response |  [optional] |

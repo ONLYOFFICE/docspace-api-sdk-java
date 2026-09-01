@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiWebSearchPricing
+ * The pricing of a single web search provider, per request.
  */
 @JsonPropertyOrder({
   AiWebSearchPricing.JSON_PROPERTY_ID,
@@ -69,7 +69,7 @@ public class AiWebSearchPricing {
   }
 
   /**
-   * Get id
+   * The identifier of the web search provider.
    * @return id
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -100,7 +100,7 @@ public class AiWebSearchPricing {
   }
 
   /**
-   * Get provider
+   * The provider that serves the web search requests.
    * @return provider
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -131,7 +131,7 @@ public class AiWebSearchPricing {
   }
 
   /**
-   * Get price
+   * The price of a single web search request.
    * @return price
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRICE, required = false)
@@ -155,7 +155,7 @@ public class AiWebSearchPricing {
   }
 
   /**
-   * Get link
+   * The link to the pricing page of the provider.
    * @return link
    */
   @javax.annotation.Nullable  @JsonIgnore

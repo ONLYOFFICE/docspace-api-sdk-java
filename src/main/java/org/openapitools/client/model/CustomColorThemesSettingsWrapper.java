@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * CustomColorThemesSettingsWrapper
+ * The successful API response containing the CustomColorThemesSettingsDto object.
  */
 @JsonPropertyOrder({
   CustomColorThemesSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class CustomColorThemesSettingsWrapper {
   }
 
   /**
-   * Get response
+   * The CustomColorThemesSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

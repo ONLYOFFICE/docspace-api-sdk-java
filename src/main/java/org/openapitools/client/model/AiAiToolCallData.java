@@ -35,7 +35,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiAiToolCallData
+ * Identifies a pending tool call to resume — mirrors the library `ToolCallData` (its serializable fields).
  */
 @JsonPropertyOrder({
   AiAiToolCallData.JSON_PROPERTY_THREAD_ID,
@@ -176,7 +176,7 @@ public class AiAiToolCallData {
   }
 
   /**
-   * Get actionArgs
+   * Per-request engine options: extra tools, reasoning, prompt override.
    * @return actionArgs
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTION_ARGS, required = false)
@@ -200,7 +200,7 @@ public class AiAiToolCallData {
   }
 
   /**
-   * Get entityId
+   * Optional entity (room) scope for profile resolution.
    * @return entityId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENTITY_ID, required = false)
@@ -224,7 +224,7 @@ public class AiAiToolCallData {
   }
 
   /**
-   * Get profileId
+   * Session-level profile override for this request only.
    * @return profileId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROFILE_ID, required = false)

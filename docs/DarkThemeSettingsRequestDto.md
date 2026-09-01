@@ -8,7 +8,7 @@ The theme settings request parameters.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**theme** | **DarkThemeSettingsType** | The theme type. |  |
+|**theme** | **DarkThemeSettingsType** | The portal theme settings type. |  |
 
 
 

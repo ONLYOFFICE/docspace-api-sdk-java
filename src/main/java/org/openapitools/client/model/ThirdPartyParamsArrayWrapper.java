@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ThirdPartyParamsArrayWrapper
+ * The successful API response containing the list of ThirdPartyParams objects.
  */
 @JsonPropertyOrder({
   ThirdPartyParamsArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class ThirdPartyParamsArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of ThirdPartyParams objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

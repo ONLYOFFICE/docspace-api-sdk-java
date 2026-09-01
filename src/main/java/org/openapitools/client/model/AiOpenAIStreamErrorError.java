@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiOpenAIStreamErrorError
+ * The error that ended the stream: its message, type, code and the offending parameter.
  */
 @JsonPropertyOrder({
   AiOpenAIStreamErrorError.JSON_PROPERTY_MESSAGE,

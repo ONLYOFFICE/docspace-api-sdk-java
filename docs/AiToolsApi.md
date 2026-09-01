@@ -24,7 +24,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > AiToolsMutationResult aiToolsAddCustomServer(aiToolsAddCustomServerRequest)
 
-Add custom server
+Add custom serverRegisters a custom MCP server in the scope under the given name.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-add-custom-server/).
 
@@ -91,7 +91,7 @@ public class Example {
 
 > List&lt;String&gt; aiToolsGetAllowAlways(entityId)
 
-Get allow always
+Get allow alwaysLists the tools on the always-allow list of the scope.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-allow-always/).
 
@@ -100,7 +100,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **entityId** | **String**|  | |
+| **entityId** | **String**| The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional] |
 
 ### Return type
 
@@ -126,7 +126,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         ToolsApi apiInstance = new ToolsApi(defaultClient);
-        String entityId = "entityId_example"; // String | 
+        String entityId = "entityId_example"; // String | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope.
         try {
             List<String> result = apiInstance.aiToolsGetAllowAlways(entityId);
             System.out.println(result);
@@ -158,7 +158,7 @@ public class Example {
 
 > Object aiToolsGetCustomServer(name, entityId)
 
-Get custom server
+Get custom serverReturns the configuration of one custom MCP server, or an empty result when it is not registered.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-custom-server/).
 
@@ -167,8 +167,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **name** | **String**|  | |
-| **entityId** | **String**|  | |
+| **name** | **String**| The custom MCP server name. | |
+| **entityId** | **String**| The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional] |
 
 ### Return type
 
@@ -194,8 +194,8 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         ToolsApi apiInstance = new ToolsApi(defaultClient);
-        String name = "name_example"; // String | 
-        String entityId = "entityId_example"; // String | 
+        String name = "name_example"; // String | The custom MCP server name.
+        String entityId = "entityId_example"; // String | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope.
         try {
             Object result = apiInstance.aiToolsGetCustomServer(name, entityId);
             System.out.println(result);
@@ -227,7 +227,7 @@ public class Example {
 
 > Map&lt;String, List&lt;String&gt;&gt; aiToolsGetDisabled(entityId)
 
-Get disabled
+Get disabledReturns the switched-off tools of the scope, grouped by server type.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-disabled/).
 
@@ -236,7 +236,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **entityId** | **String**|  | |
+| **entityId** | **String**| The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional] |
 
 ### Return type
 
@@ -262,7 +262,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         ToolsApi apiInstance = new ToolsApi(defaultClient);
-        String entityId = "entityId_example"; // String | 
+        String entityId = "entityId_example"; // String | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope.
         try {
             Map<String, List<String>> result = apiInstance.aiToolsGetDisabled(entityId);
             System.out.println(result);
@@ -294,7 +294,7 @@ public class Example {
 
 > Boolean aiToolsIsAllowAlways(serverType, toolName, entityId)
 
-Is allow always
+Is allow alwaysTells whether one tool is on the always-allow list.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-allow-always/).
 
@@ -303,9 +303,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serverType** | **String**|  | |
-| **toolName** | **String**|  | |
-| **entityId** | **String**|  | |
+| **serverType** | **String**| The MCP server type the tool belongs to. | |
+| **toolName** | **String**| The tool name. | |
+| **entityId** | **String**| The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional] |
 
 ### Return type
 
@@ -331,9 +331,9 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         ToolsApi apiInstance = new ToolsApi(defaultClient);
-        String serverType = "serverType_example"; // String | 
-        String toolName = "toolName_example"; // String | 
-        String entityId = "entityId_example"; // String | 
+        String serverType = "serverType_example"; // String | The MCP server type the tool belongs to.
+        String toolName = "toolName_example"; // String | The tool name.
+        String entityId = "entityId_example"; // String | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope.
         try {
             Boolean result = apiInstance.aiToolsIsAllowAlways(serverType, toolName, entityId);
             System.out.println(result);
@@ -365,7 +365,7 @@ public class Example {
 
 > Boolean aiToolsIsToolDisabled(serverType, toolName, entityId)
 
-Is tool disabled
+Is tool disabledTells whether one tool of a server type is switched off.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-tool-disabled/).
 
@@ -374,9 +374,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serverType** | **String**|  | |
-| **toolName** | **String**|  | |
-| **entityId** | **String**|  | |
+| **serverType** | **String**| The MCP server type the tool belongs to. | |
+| **toolName** | **String**| The tool name. | |
+| **entityId** | **String**| The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional] |
 
 ### Return type
 
@@ -402,9 +402,9 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         ToolsApi apiInstance = new ToolsApi(defaultClient);
-        String serverType = "serverType_example"; // String | 
-        String toolName = "toolName_example"; // String | 
-        String entityId = "entityId_example"; // String | 
+        String serverType = "serverType_example"; // String | The MCP server type the tool belongs to.
+        String toolName = "toolName_example"; // String | The tool name.
+        String entityId = "entityId_example"; // String | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope.
         try {
             Boolean result = apiInstance.aiToolsIsToolDisabled(serverType, toolName, entityId);
             System.out.println(result);
@@ -436,7 +436,7 @@ public class Example {
 
 > Map&lt;String, Object&gt; aiToolsListCustomServers(entityId)
 
-List custom servers
+List custom serversLists the custom MCP servers registered in the scope, keyed by name.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-custom-servers/).
 
@@ -445,7 +445,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **entityId** | **String**|  | |
+| **entityId** | **String**| The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional] |
 
 ### Return type
 
@@ -471,7 +471,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         ToolsApi apiInstance = new ToolsApi(defaultClient);
-        String entityId = "entityId_example"; // String | 
+        String entityId = "entityId_example"; // String | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope.
         try {
             Map<String, Object> result = apiInstance.aiToolsListCustomServers(entityId);
             System.out.println(result);
@@ -503,7 +503,7 @@ public class Example {
 
 > Map&lt;String, List&lt;AiTMCPItem&gt;&gt; aiToolsListSystemTools(entityId)
 
-List system tools
+List system toolsLists the tools of the host-configured system MCP servers, grouped by server type. The servers are connected and listed server-side, so the client renders its permission cards from one request and never opens an MCP connection of its own.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-system-tools/).
 
@@ -512,7 +512,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **entityId** | **String**|  | |
+| **entityId** | **String**| The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional] |
 
 ### Return type
 
@@ -538,7 +538,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         ToolsApi apiInstance = new ToolsApi(defaultClient);
-        String entityId = "entityId_example"; // String | 
+        String entityId = "entityId_example"; // String | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope.
         try {
             Map<String, List<AiTMCPItem>> result = apiInstance.aiToolsListSystemTools(entityId);
             System.out.println(result);
@@ -570,7 +570,7 @@ public class Example {
 
 > AiSuccessResponse aiToolsRemoveCustomServer(aiToolsRemoveCustomServerRequest)
 
-Remove custom server
+Remove custom serverRemoves a custom MCP server from the registry.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-remove-custom-server/).
 
@@ -637,7 +637,7 @@ public class Example {
 
 > AiToolsBulkResult aiToolsReplaceAllCustomServers(aiToolsReplaceAllCustomServersRequest)
 
-Replace all custom servers
+Replace all custom serversReplaces the whole custom MCP server registry of the scope with the supplied map.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-replace-all-custom-servers/).
 
@@ -704,7 +704,7 @@ public class Example {
 
 > AiSuccessResponse aiToolsSetAllowAlways(aiToolsSetAllowAlwaysRequest)
 
-Set allow always
+Set allow alwaysAdds a tool to the always-allow list, or removes it - the tools on that list run without an approval dialog.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-set-allow-always/).
 
@@ -771,7 +771,7 @@ public class Example {
 
 > AiSuccessResponse aiToolsSetDisabled(aiToolsSetDisabledRequest)
 
-Set disabled
+Set disabledMarks the listed tools of one server type as switched off, so the model is no longer offered them.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-set-disabled/).
 
@@ -838,7 +838,7 @@ public class Example {
 
 > AiToolsMutationResult aiToolsUpdateCustomServer(aiToolsUpdateCustomServerRequest)
 
-Update custom server
+Update custom serverUpdates the configuration of a registered custom MCP server.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-update-custom-server/).
 

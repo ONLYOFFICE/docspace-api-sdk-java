@@ -39,7 +39,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * FormMetadata
+ * The metadata of a single form field.
  */
 @JsonPropertyOrder({
   FormMetadata.JSON_PROPERTY_KEY,

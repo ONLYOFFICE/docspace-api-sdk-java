@@ -2,12 +2,13 @@
 
 # LoginSettingsWrapper
 
+The successful API response containing the LoginSettingsDto object.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**response** | [**LoginSettingsDto**](LoginSettingsDto.md) |  |  [optional] |
+|**response** | [**LoginSettingsDto**](LoginSettingsDto.md) | The LoginSettingsDto object returned by the operation. |  [optional] |
 |**count** | **Integer** | The total number of items in the response |  [optional] |
 |**links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response |  [optional] |
 |**status** | **Integer** | HTTP status code of the response |  [optional] |

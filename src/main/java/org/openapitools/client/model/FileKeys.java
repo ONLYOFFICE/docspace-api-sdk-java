@@ -38,7 +38,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * FileKeys
+ * The encrypted file key issued to one user.
  */
 @JsonPropertyOrder({
   FileKeys.JSON_PROPERTY_USER_ID,
@@ -79,7 +79,7 @@ public class FileKeys {
   }
 
   /**
-   * Get userId
+   * The identifier of the user the file key was issued to.
    * @return userId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = false)
@@ -103,7 +103,7 @@ public class FileKeys {
   }
 
   /**
-   * Get publicKeyId
+   * The identifier of the key pair the file key is encrypted for.
    * @return publicKeyId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PUBLIC_KEY_ID, required = false)
@@ -127,7 +127,7 @@ public class FileKeys {
   }
 
   /**
-   * Get privateKeyEnc
+   * The file key, encrypted with the public key of the pair.
    * @return privateKeyEnc
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -158,7 +158,7 @@ public class FileKeys {
   }
 
   /**
-   * Get tenantId
+   * The identifier of the portal the file belongs to.
    * @return tenantId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = false)
@@ -182,7 +182,7 @@ public class FileKeys {
   }
 
   /**
-   * Get fileId
+   * The identifier of the file the key unlocks.
    * @return fileId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_ID, required = false)
@@ -206,7 +206,7 @@ public class FileKeys {
   }
 
   /**
-   * Get createOn
+   * The date and time when the file key was issued.
    * @return createOn
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_ON, required = false)

@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * FolderStringArrayWrapper
+ * The successful API response containing the list of FolderDtoString objects.
  */
 @JsonPropertyOrder({
   FolderStringArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class FolderStringArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of FolderDtoString objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

@@ -49,7 +49,7 @@ public class PreferencesApi extends BaseApi {
 
   /**
    * Clear deep mode
-   * 
+   * Drops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
    *
    * REST API Reference for aiPreferencesClearDeepMode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-clear-deep-mode/
@@ -65,7 +65,7 @@ public class PreferencesApi extends BaseApi {
 
   /**
    * Clear deep mode
-   * 
+   * Drops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
    *
    * REST API Reference for aiPreferencesClearDeepMode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-clear-deep-mode/
@@ -132,39 +132,34 @@ public class PreferencesApi extends BaseApi {
 
   /**
    * Get deep mode
-   * 
+   * Returns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
    *
    * REST API Reference for aiPreferencesGetDeepMode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-deep-mode/
    *
-   * @param entityId  (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @return Boolean
    * @throws ApiException if fails to make API call
    */
-  public Boolean aiPreferencesGetDeepMode(@javax.annotation.Nonnull String entityId) throws ApiException {
+  public Boolean aiPreferencesGetDeepMode(@javax.annotation.Nullable String entityId) throws ApiException {
     return this.aiPreferencesGetDeepMode(entityId, Collections.emptyMap());
   }
 
 
   /**
    * Get deep mode
-   * 
+   * Returns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
    *
    * REST API Reference for aiPreferencesGetDeepMode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-deep-mode/
    *
-   * @param entityId  (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return Boolean
    * @throws ApiException if fails to make API call
    */
-  public Boolean aiPreferencesGetDeepMode(@javax.annotation.Nonnull String entityId, Map<String, String> additionalHeaders) throws ApiException {
+  public Boolean aiPreferencesGetDeepMode(@javax.annotation.Nullable String entityId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
-    
-    // verify the required parameter 'entityId' is set
-    if (entityId == null) {
-      throw new ApiException(400, "Missing the required parameter 'entityId' when calling aiPreferencesGetDeepMode");
-    }
     
     // create path and map variables
     String localVarPath = "/api/2.0/ai/preferences/get-deep-mode";
@@ -216,39 +211,34 @@ public class PreferencesApi extends BaseApi {
 
   /**
    * Is deep mode set
-   * 
+   * Tells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
    *
    * REST API Reference for aiPreferencesIsDeepModeSet Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-is-deep-mode-set/
    *
-   * @param entityId  (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @return Boolean
    * @throws ApiException if fails to make API call
    */
-  public Boolean aiPreferencesIsDeepModeSet(@javax.annotation.Nonnull String entityId) throws ApiException {
+  public Boolean aiPreferencesIsDeepModeSet(@javax.annotation.Nullable String entityId) throws ApiException {
     return this.aiPreferencesIsDeepModeSet(entityId, Collections.emptyMap());
   }
 
 
   /**
    * Is deep mode set
-   * 
+   * Tells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
    *
    * REST API Reference for aiPreferencesIsDeepModeSet Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-is-deep-mode-set/
    *
-   * @param entityId  (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return Boolean
    * @throws ApiException if fails to make API call
    */
-  public Boolean aiPreferencesIsDeepModeSet(@javax.annotation.Nonnull String entityId, Map<String, String> additionalHeaders) throws ApiException {
+  public Boolean aiPreferencesIsDeepModeSet(@javax.annotation.Nullable String entityId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
-    
-    // verify the required parameter 'entityId' is set
-    if (entityId == null) {
-      throw new ApiException(400, "Missing the required parameter 'entityId' when calling aiPreferencesIsDeepModeSet");
-    }
     
     // create path and map variables
     String localVarPath = "/api/2.0/ai/preferences/is-deep-mode-set";
@@ -300,7 +290,7 @@ public class PreferencesApi extends BaseApi {
 
   /**
    * Set deep mode
-   * 
+   * Persists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
    *
    * REST API Reference for aiPreferencesSetDeepMode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-deep-mode/
@@ -316,7 +306,7 @@ public class PreferencesApi extends BaseApi {
 
   /**
    * Set deep mode
-   * 
+   * Persists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
    *
    * REST API Reference for aiPreferencesSetDeepMode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-deep-mode/

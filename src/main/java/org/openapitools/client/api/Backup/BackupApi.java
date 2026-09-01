@@ -32,6 +32,7 @@ import org.openapitools.client.model.BackupScheduleDto;
 import org.openapitools.client.model.BackupServiceStateWrapper;
 import org.openapitools.client.model.BackupsCountResultWrapper;
 import org.openapitools.client.model.BooleanWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.Int32Wrapper;
 import java.time.OffsetDateTime;
 import org.openapitools.client.model.ScheduleWrapper;

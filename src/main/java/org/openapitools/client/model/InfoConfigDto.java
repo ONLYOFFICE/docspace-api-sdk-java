@@ -218,7 +218,7 @@ public class InfoConfigDto {
   }
 
   /**
-   * The editor type.
+   * The editor type of the file.
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)

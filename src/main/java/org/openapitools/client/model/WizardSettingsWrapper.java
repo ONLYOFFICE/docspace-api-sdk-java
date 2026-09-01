@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * WizardSettingsWrapper
+ * The successful API response containing the WizardSettings object.
  */
 @JsonPropertyOrder({
   WizardSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class WizardSettingsWrapper {
   }
 
   /**
-   * Get response
+   * The WizardSettings object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

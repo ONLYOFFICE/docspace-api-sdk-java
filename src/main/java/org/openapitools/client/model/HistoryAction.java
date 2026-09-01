@@ -62,7 +62,7 @@ public class HistoryAction {
   }
 
   /**
-   * The event action ID.
+   * The action performed on the file.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)

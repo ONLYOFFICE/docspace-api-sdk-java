@@ -9,9 +9,9 @@ The customer information.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**portalId** | **String** | The portal ID. |  [optional] [readonly] |
-|**paymentMethodStatus** | **PaymentMethodStatus** | The payment method status. |  [optional] |
+|**paymentMethodStatus** | **PaymentMethodStatus** | The customer's payment method. |  [optional] |
 |**email** | **String** | The customer email address. |  [optional] [readonly] |
-|**payer** | [**EmployeeDto**](EmployeeDto.md) | The user parameters. |  [optional] |
+|**payer** | [**EmployeeDto**](EmployeeDto.md) | The paying user. |  [optional] |
 
 
 

@@ -38,7 +38,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * EncryptionKeyDto
+ * The encryption key pair of a user.
  */
 @JsonPropertyOrder({
   EncryptionKeyDto.JSON_PROPERTY_ID,
@@ -79,7 +79,7 @@ public class EncryptionKeyDto {
   }
 
   /**
-   * Get id
+   * The identifier of the key pair.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -103,7 +103,7 @@ public class EncryptionKeyDto {
   }
 
   /**
-   * Get userId
+   * The identifier of the user the key pair belongs to.
    * @return userId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = false)
@@ -127,7 +127,7 @@ public class EncryptionKeyDto {
   }
 
   /**
-   * Get date
+   * The date and time when the key pair was created.
    * @return date
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
@@ -151,7 +151,7 @@ public class EncryptionKeyDto {
   }
 
   /**
-   * Get publicKey
+   * The public key of the pair, used to encrypt the file keys.
    * @return publicKey
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -182,7 +182,7 @@ public class EncryptionKeyDto {
   }
 
   /**
-   * Get privateKeyEnc
+   * The private key of the pair, encrypted with the user password.
    * @return privateKeyEnc
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -213,7 +213,7 @@ public class EncryptionKeyDto {
   }
 
   /**
-   * Get cryptoEngineId
+   * The identifier of the crypto engine the key pair was issued for.
    * @return cryptoEngineId
    */
   @javax.annotation.Nullable  @JsonIgnore

@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * TenantAiAccessSettingsWrapper
+ * The successful API response containing the TenantAiAccessSettings object.
  */
 @JsonPropertyOrder({
   TenantAiAccessSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class TenantAiAccessSettingsWrapper {
   }
 
   /**
-   * Get response
+   * The TenantAiAccessSettings object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

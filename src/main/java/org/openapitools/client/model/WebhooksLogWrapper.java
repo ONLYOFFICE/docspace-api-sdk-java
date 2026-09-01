@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * WebhooksLogWrapper
+ * The successful API response containing the WebhooksLogDto object.
  */
 @JsonPropertyOrder({
   WebhooksLogWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class WebhooksLogWrapper {
   }
 
   /**
-   * Get response
+   * The WebhooksLogDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

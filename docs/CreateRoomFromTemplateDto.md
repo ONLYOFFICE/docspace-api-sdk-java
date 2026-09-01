@@ -19,7 +19,7 @@ The parameters for creating a room from a template.
 |**indexing** | **Boolean** | Specifies whether to create a room with indexing. |  [optional] |
 |**denyDownload** | **Boolean** | Specifies whether to deny downloads from the room. |  [optional] |
 |**lifetime** | [**RoomDataLifetimeDto**](RoomDataLifetimeDto.md) | The room data lifetime information. |  [optional] |
-|**watermark** | [**WatermarkRequestDto**](WatermarkRequestDto.md) | The request parameters for adding watermarks. |  [optional] |
+|**watermark** | [**WatermarkRequestDto**](WatermarkRequestDto.md) | The watermark settings. |  [optional] |
 |**_private** | **Boolean** | Specifies whether the room to be created is private or not. |  [optional] |
 
 

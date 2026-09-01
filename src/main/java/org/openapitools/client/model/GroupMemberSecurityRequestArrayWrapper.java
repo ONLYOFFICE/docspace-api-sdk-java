@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * GroupMemberSecurityRequestArrayWrapper
+ * The successful API response containing the list of GroupMemberSecurityRequestDto objects.
  */
 @JsonPropertyOrder({
   GroupMemberSecurityRequestArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class GroupMemberSecurityRequestArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of GroupMemberSecurityRequestDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

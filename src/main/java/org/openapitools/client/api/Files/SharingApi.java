@@ -29,6 +29,7 @@ import org.openapitools.client.model.BaseBatchRequestDto;
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.ChangeOwnerRequestDto;
 import org.openapitools.client.model.EncryptionKeyArrayWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.ExternalShareRequestParam;
 import org.openapitools.client.model.ExternalShareWrapper;
 import org.openapitools.client.model.FileEntryBaseArrayWrapper;
@@ -1117,13 +1118,13 @@ public class SharingApi extends BaseApi {
    * REST API Reference for setFileSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/
    *
-   * @param fileId The file ID. (required)
+   * @param id The file ID. (required)
    * @param securityInfoSimpleRequestDto The parameters of the security information simple request. (required)
    * @return FileShareArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileShareArrayWrapper setFileSecurityInfo(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto) throws ApiException {
-    return this.setFileSecurityInfo(fileId, securityInfoSimpleRequestDto, Collections.emptyMap());
+  public FileShareArrayWrapper setFileSecurityInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto) throws ApiException {
+    return this.setFileSecurityInfo(id, securityInfoSimpleRequestDto, Collections.emptyMap());
   }
 
 
@@ -1134,18 +1135,18 @@ public class SharingApi extends BaseApi {
    * REST API Reference for setFileSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/
    *
-   * @param fileId The file ID. (required)
+   * @param id The file ID. (required)
    * @param securityInfoSimpleRequestDto The parameters of the security information simple request. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileShareArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileShareArrayWrapper setFileSecurityInfo(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+  public FileShareArrayWrapper setFileSecurityInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = securityInfoSimpleRequestDto;
     
-    // verify the required parameter 'fileId' is set
-    if (fileId == null) {
-      throw new ApiException(400, "Missing the required parameter 'fileId' when calling setFileSecurityInfo");
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling setFileSecurityInfo");
     }
     
     // verify the required parameter 'securityInfoSimpleRequestDto' is set
@@ -1154,8 +1155,8 @@ public class SharingApi extends BaseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/api/2.0/files/file/{fileId}/share"
-      .replaceAll("\\{" + "fileId" + "\\}", apiClient.escapeString(apiClient.parameterToString(fileId)));
+    String localVarPath = "/api/2.0/files/file/{id}/share"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1208,13 +1209,13 @@ public class SharingApi extends BaseApi {
    * REST API Reference for setFolderSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/
    *
-   * @param folderId The folder ID. (required)
+   * @param id The folder ID. (required)
    * @param securityInfoSimpleRequestDto The parameters of the security information simple request. (required)
    * @return FileShareArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileShareArrayWrapper setFolderSecurityInfo(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto) throws ApiException {
-    return this.setFolderSecurityInfo(folderId, securityInfoSimpleRequestDto, Collections.emptyMap());
+  public FileShareArrayWrapper setFolderSecurityInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto) throws ApiException {
+    return this.setFolderSecurityInfo(id, securityInfoSimpleRequestDto, Collections.emptyMap());
   }
 
 
@@ -1225,18 +1226,18 @@ public class SharingApi extends BaseApi {
    * REST API Reference for setFolderSecurityInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/
    *
-   * @param folderId The folder ID. (required)
+   * @param id The folder ID. (required)
    * @param securityInfoSimpleRequestDto The parameters of the security information simple request. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileShareArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileShareArrayWrapper setFolderSecurityInfo(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+  public FileShareArrayWrapper setFolderSecurityInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = securityInfoSimpleRequestDto;
     
-    // verify the required parameter 'folderId' is set
-    if (folderId == null) {
-      throw new ApiException(400, "Missing the required parameter 'folderId' when calling setFolderSecurityInfo");
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling setFolderSecurityInfo");
     }
     
     // verify the required parameter 'securityInfoSimpleRequestDto' is set
@@ -1245,8 +1246,8 @@ public class SharingApi extends BaseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/api/2.0/files/folder/{folderId}/share"
-      .replaceAll("\\{" + "folderId" + "\\}", apiClient.escapeString(apiClient.parameterToString(folderId)));
+    String localVarPath = "/api/2.0/files/folder/{id}/share"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;

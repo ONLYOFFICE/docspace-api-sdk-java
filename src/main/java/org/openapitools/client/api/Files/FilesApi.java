@@ -25,7 +25,6 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.AccessRequestKeyDto;
-import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.BaseBatchRequestDto;
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.ChangeHistory;
@@ -41,6 +40,7 @@ import org.openapitools.client.model.DocumentBuilderTaskWrapper;
 import org.openapitools.client.model.EditHistoryArrayWrapper;
 import org.openapitools.client.model.EditHistoryDataWrapper;
 import org.openapitools.client.model.EditorType;
+import org.openapitools.client.model.ErrorApiResponse;
 import java.io.File;
 import org.openapitools.client.model.FileEncryptionInfoWrapper;
 import org.openapitools.client.model.FileEntryBaseWrapper;
@@ -58,12 +58,12 @@ import org.openapitools.client.model.FormRoleArrayWrapper;
 import org.openapitools.client.model.FormSubmissionsWrapper;
 import org.openapitools.client.model.GetReferenceDataDtoInteger;
 import org.openapitools.client.model.HistoryArrayWrapper;
-import org.openapitools.client.model.KeyValuePairBooleanStringWrapper;
+import org.openapitools.client.model.ItemKeyValuePairBooleanStringWrapper;
 import org.openapitools.client.model.LockFileParameters;
 import org.openapitools.client.model.ManageFormFillingDtoInteger;
 import org.openapitools.client.model.MentionWrapperArrayWrapper;
-import org.openapitools.client.model.NoContentResultWrapper;
 import org.openapitools.client.model.ObjectArrayWrapper;
+import java.time.OffsetDateTime;
 import org.openapitools.client.model.OrderRequestDto;
 import org.openapitools.client.model.OrdersRequestDtoInteger;
 import org.openapitools.client.model.SaveAsPdfInteger;
@@ -1394,11 +1394,10 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/
    *
    * @param baseBatchRequestDto  (optional)
-   * @return NoContentResultWrapper
    * @throws ApiException if fails to make API call
    */
-  public NoContentResultWrapper deleteRecent(@javax.annotation.Nullable BaseBatchRequestDto baseBatchRequestDto) throws ApiException {
-    return this.deleteRecent(baseBatchRequestDto, Collections.emptyMap());
+  public void deleteRecent(@javax.annotation.Nullable BaseBatchRequestDto baseBatchRequestDto) throws ApiException {
+    this.deleteRecent(baseBatchRequestDto, Collections.emptyMap());
   }
 
 
@@ -1411,10 +1410,9 @@ public class FilesApi extends BaseApi {
    *
    * @param baseBatchRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return NoContentResultWrapper
    * @throws ApiException if fails to make API call
    */
-  public NoContentResultWrapper deleteRecent(@javax.annotation.Nullable BaseBatchRequestDto baseBatchRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteRecent(@javax.annotation.Nullable BaseBatchRequestDto baseBatchRequestDto, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = baseBatchRequestDto;
     
     // create path and map variables
@@ -1446,8 +1444,7 @@ public class FilesApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<NoContentResultWrapper> localVarReturnType = new TypeReference<NoContentResultWrapper>() {};
-    return apiClient.invokeAPI(
+    apiClient.invokeAPI(
         localVarPath,
         "DELETE",
         localVarQueryParams,
@@ -1460,7 +1457,7 @@ public class FilesApi extends BaseApi {
         localVarAccept,
         localVarContentType,
         localVarAuthNames,
-        localVarReturnType
+        null
     );
   }
 
@@ -1888,7 +1885,7 @@ public class FilesApi extends BaseApi {
    * REST API Reference for getEncryptionInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/
    *
-   * @param fileId  (required)
+   * @param fileId The file unique identifier. (required)
    * @return FileEncryptionInfoWrapper
    * @throws ApiException if fails to make API call
    */
@@ -1904,7 +1901,7 @@ public class FilesApi extends BaseApi {
    * REST API Reference for getEncryptionInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/
    *
-   * @param fileId  (required)
+   * @param fileId The file unique identifier. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileEncryptionInfoWrapper
    * @throws ApiException if fails to make API call
@@ -1980,7 +1977,7 @@ public class FilesApi extends BaseApi {
    * @return HistoryArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public HistoryArrayWrapper getFileHistory(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable ApiDateTime fromDate, @javax.annotation.Nullable ApiDateTime toDate, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex) throws ApiException {
+  public HistoryArrayWrapper getFileHistory(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable OffsetDateTime fromDate, @javax.annotation.Nullable OffsetDateTime toDate, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex) throws ApiException {
     return this.getFileHistory(fileId, fromDate, toDate, count, startIndex, Collections.emptyMap());
   }
 
@@ -2001,7 +1998,7 @@ public class FilesApi extends BaseApi {
    * @return HistoryArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public HistoryArrayWrapper getFileHistory(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable ApiDateTime fromDate, @javax.annotation.Nullable ApiDateTime toDate, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, Map<String, String> additionalHeaders) throws ApiException {
+  public HistoryArrayWrapper getFileHistory(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable OffsetDateTime fromDate, @javax.annotation.Nullable OffsetDateTime toDate, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'fileId' is set
@@ -2021,10 +2018,8 @@ public class FilesApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParameterBaseName = "fromDate";
-    localVarQueryStringJoiner.add(fromDate.toUrlQueryString("fromDate"));
-    localVarQueryParameterBaseName = "toDate";
-    localVarQueryStringJoiner.add(toDate.toUrlQueryString("toDate"));
+    localVarQueryParams.addAll(apiClient.parameterToPair("fromDate", fromDate));
+    localVarQueryParams.addAll(apiClient.parameterToPair("toDate", toDate));
     localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
     localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
       
@@ -3173,7 +3168,7 @@ public class FilesApi extends BaseApi {
    * REST API Reference for manageFormFilling Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/
    *
-   * @param fileId  (required)
+   * @param fileId The form the action applies to. Send the same value as the `formId` of the request body, which is the one the handler reads. (required)
    * @param manageFormFillingDtoInteger  (optional)
    * @throws ApiException if fails to make API call
    */
@@ -3189,7 +3184,7 @@ public class FilesApi extends BaseApi {
    * REST API Reference for manageFormFilling Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/
    *
-   * @param fileId  (required)
+   * @param fileId The form the action applies to. Send the same value as the `formId` of the request body, which is the one the handler reads. (required)
    * @param manageFormFillingDtoInteger  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
@@ -3221,7 +3216,7 @@ public class FilesApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -3635,7 +3630,7 @@ if (forcesave != null)
    * REST API Reference for saveFormRoleMapping Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/
    *
-   * @param fileId  (required)
+   * @param fileId The form the role mapping belongs to. Send the same value as the `formId` of the request body, which is the one the handler reads. (required)
    * @param saveFormRoleMappingDtoInteger  (optional)
    * @throws ApiException if fails to make API call
    */
@@ -3651,7 +3646,7 @@ if (forcesave != null)
    * REST API Reference for saveFormRoleMapping Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/
    *
-   * @param fileId  (required)
+   * @param fileId The form the role mapping belongs to. Send the same value as the `formId` of the request body, which is the one the handler reads. (required)
    * @param saveFormRoleMappingDtoInteger  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
@@ -3683,7 +3678,7 @@ if (forcesave != null)
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -3857,7 +3852,7 @@ if (forcesave != null)
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -4413,10 +4408,10 @@ if (forcesave != null)
    * @param tabId The tab ID to track editing changes. (optional)
    * @param docKeyForTrack The document key for tracking changes. (optional)
    * @param isFinish Specifies whether to finish file tracking or not. (optional)
-   * @return KeyValuePairBooleanStringWrapper
+   * @return ItemKeyValuePairBooleanStringWrapper
    * @throws ApiException if fails to make API call
    */
-  public KeyValuePairBooleanStringWrapper trackEditFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable UUID tabId, @javax.annotation.Nullable String docKeyForTrack, @javax.annotation.Nullable Boolean isFinish) throws ApiException {
+  public ItemKeyValuePairBooleanStringWrapper trackEditFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable UUID tabId, @javax.annotation.Nullable String docKeyForTrack, @javax.annotation.Nullable Boolean isFinish) throws ApiException {
     return this.trackEditFile(fileId, tabId, docKeyForTrack, isFinish, Collections.emptyMap());
   }
 
@@ -4433,10 +4428,10 @@ if (forcesave != null)
    * @param docKeyForTrack The document key for tracking changes. (optional)
    * @param isFinish Specifies whether to finish file tracking or not. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return KeyValuePairBooleanStringWrapper
+   * @return ItemKeyValuePairBooleanStringWrapper
    * @throws ApiException if fails to make API call
    */
-  public KeyValuePairBooleanStringWrapper trackEditFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable UUID tabId, @javax.annotation.Nullable String docKeyForTrack, @javax.annotation.Nullable Boolean isFinish, Map<String, String> additionalHeaders) throws ApiException {
+  public ItemKeyValuePairBooleanStringWrapper trackEditFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable UUID tabId, @javax.annotation.Nullable String docKeyForTrack, @javax.annotation.Nullable Boolean isFinish, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'fileId' is set
@@ -4477,7 +4472,7 @@ if (forcesave != null)
 
     String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<KeyValuePairBooleanStringWrapper> localVarReturnType = new TypeReference<KeyValuePairBooleanStringWrapper>() {};
+    TypeReference<ItemKeyValuePairBooleanStringWrapper> localVarReturnType = new TypeReference<ItemKeyValuePairBooleanStringWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",

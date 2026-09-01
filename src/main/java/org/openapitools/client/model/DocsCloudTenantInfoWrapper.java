@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * DocsCloudTenantInfoWrapper
+ * The successful API response containing the DocsCloudTenantInfo object.
  */
 @JsonPropertyOrder({
   DocsCloudTenantInfoWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class DocsCloudTenantInfoWrapper {
   }
 
   /**
-   * Get response
+   * The DocsCloudTenantInfo object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

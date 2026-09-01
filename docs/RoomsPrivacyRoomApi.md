@@ -1,14 +1,14 @@
-# docspace-api-sdk.org.openapitools.client.api.PrivacyroomApi
+# docspace-api-sdk.org.openapitools.client.api.PrivacyRoomApi
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**deleteKeys**](PrivacyroomApi.md#deleteKeys) | **DELETE** /api/2.0/privacyroom/keys/{id} | Deletes an encryption key and removes it from the system. |
-| [**getUserKeys**](PrivacyroomApi.md#getUserKeys) | **GET** /api/2.0/privacyroom/keys | Retrieves encryption keys associated with the current user. |
-| [**getUserKeysForRoom**](PrivacyroomApi.md#getUserKeysForRoom) | **GET** /api/2.0/privacyroom/{roomId}/access | Retrieves the encryption keys associated with a specific privacy room. |
-| [**replaceKey**](PrivacyroomApi.md#replaceKey) | **PUT** /api/2.0/privacyroom/keys | Replaces an existing encryption key with a new one for the user. |
-| [**setKeys**](PrivacyroomApi.md#setKeys) | **POST** /api/2.0/privacyroom/keys | Creates and sets encryption keys for the user. |
+| [**deleteKeys**](RoomsPrivacyRoomApi.md#deleteKeys) | **DELETE** /api/2.0/privacyroom/keys/{id} | Deletes an encryption key and removes it from the system. |
+| [**getUserKeys**](RoomsPrivacyRoomApi.md#getUserKeys) | **GET** /api/2.0/privacyroom/keys | Retrieves encryption keys associated with the current user. |
+| [**getUserKeysForRoom**](RoomsPrivacyRoomApi.md#getUserKeysForRoom) | **GET** /api/2.0/privacyroom/{roomId}/access | Retrieves the encryption keys associated with a specific privacy room. |
+| [**replaceKey**](RoomsPrivacyRoomApi.md#replaceKey) | **PUT** /api/2.0/privacyroom/keys | Replaces an existing encryption key with a new one for the user. |
+| [**setKeys**](RoomsPrivacyRoomApi.md#setKeys) | **POST** /api/2.0/privacyroom/keys | Creates and sets encryption keys for the user. |
 
 
 
@@ -44,7 +44,7 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
-import org.openapitools.client.api.PrivacyroomApi;
+import org.openapitools.client.api.PrivacyRoomApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -77,12 +77,12 @@ public class Example {
         Bearer.setBearerToken("BEARER TOKEN");
 
 
-        PrivacyroomApi apiInstance = new PrivacyroomApi(defaultClient);
+        PrivacyRoomApi apiInstance = new PrivacyRoomApi(defaultClient);
         UUID id = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The unique identifier of the encryption key to be deleted.
         try {
             apiInstance.deleteKeys(id);
         } catch (ApiException e) {
-            System.err.println("Exception when calling PrivacyroomApi#deleteKeys");
+            System.err.println("Exception when calling PrivacyRoomApi#deleteKeys");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -95,7 +95,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ### HTTP response details
@@ -105,7 +105,8 @@ public class Example {
 | **400** | The key identifier is not a valid GUID |  -  |
 | **404** | The encryption key is not found |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -139,7 +140,7 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
-import org.openapitools.client.api.PrivacyroomApi;
+import org.openapitools.client.api.PrivacyRoomApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -172,12 +173,12 @@ public class Example {
         Bearer.setBearerToken("BEARER TOKEN");
 
 
-        PrivacyroomApi apiInstance = new PrivacyroomApi(defaultClient);
+        PrivacyRoomApi apiInstance = new PrivacyRoomApi(defaultClient);
         try {
             EncryptionKeyArrayWrapper result = apiInstance.getUserKeys();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling PrivacyroomApi#getUserKeys");
+            System.err.println("Exception when calling PrivacyRoomApi#getUserKeys");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -196,9 +197,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | OK |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -235,7 +237,7 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
-import org.openapitools.client.api.PrivacyroomApi;
+import org.openapitools.client.api.PrivacyRoomApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -268,13 +270,13 @@ public class Example {
         Bearer.setBearerToken("BEARER TOKEN");
 
 
-        PrivacyroomApi apiInstance = new PrivacyroomApi(defaultClient);
+        PrivacyRoomApi apiInstance = new PrivacyRoomApi(defaultClient);
         Integer roomId = 56; // Integer | The identifier of the privacy room.
         try {
             EncryptionKeyArrayWrapper result = apiInstance.getUserKeysForRoom(roomId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling PrivacyroomApi#getUserKeysForRoom");
+            System.err.println("Exception when calling PrivacyRoomApi#getUserKeysForRoom");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -293,9 +295,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | OK |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
+| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -332,7 +336,7 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
-import org.openapitools.client.api.PrivacyroomApi;
+import org.openapitools.client.api.PrivacyRoomApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -365,13 +369,13 @@ public class Example {
         Bearer.setBearerToken("BEARER TOKEN");
 
 
-        PrivacyroomApi apiInstance = new PrivacyroomApi(defaultClient);
+        PrivacyRoomApi apiInstance = new PrivacyRoomApi(defaultClient);
         EncryptionKeyRequestDto encryptionKeyRequestDto = new EncryptionKeyRequestDto(); // EncryptionKeyRequestDto | The request object containing the public and private key information to replace the existing key.
         try {
             EncryptionKeyArrayWrapper result = apiInstance.replaceKey(encryptionKeyRequestDto);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling PrivacyroomApi#replaceKey");
+            System.err.println("Exception when calling PrivacyRoomApi#replaceKey");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -390,11 +394,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The encryption key is replaced |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The encryption key is replaced |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The key material is missing, blank or too large to be stored |  -  |
 | **404** | The encryption key to replace is not found |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -431,7 +436,7 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
-import org.openapitools.client.api.PrivacyroomApi;
+import org.openapitools.client.api.PrivacyRoomApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -464,13 +469,13 @@ public class Example {
         Bearer.setBearerToken("BEARER TOKEN");
 
 
-        PrivacyroomApi apiInstance = new PrivacyroomApi(defaultClient);
+        PrivacyRoomApi apiInstance = new PrivacyRoomApi(defaultClient);
         EncryptionKeyRequestDto encryptionKeyRequestDto = new EncryptionKeyRequestDto(); // EncryptionKeyRequestDto | The request object containing public and private key information.
         try {
             EncryptionKeyArrayWrapper result = apiInstance.setKeys(encryptionKeyRequestDto);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling PrivacyroomApi#setKeys");
+            System.err.println("Exception when calling PrivacyRoomApi#setKeys");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -493,7 +498,8 @@ public class Example {
 | **400** | The key material is missing, blank or too large to be stored |  -  |
 | **409** | A key with the same identifier already exists |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

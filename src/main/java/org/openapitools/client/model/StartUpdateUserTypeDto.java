@@ -67,7 +67,7 @@ public class StartUpdateUserTypeDto {
   }
 
   /**
-   * The user type.
+   * The new user type.
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)

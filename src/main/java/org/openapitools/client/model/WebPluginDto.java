@@ -384,7 +384,7 @@ public class WebPluginDto {
   }
 
   /**
-   * The user parameters.
+   * The user who created the web plugin.
    * @return createBy
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CREATE_BY, required = true)

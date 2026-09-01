@@ -24,10 +24,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.EmployeeDto;
 import org.openapitools.client.model.HistoryAction;
 import org.openapitools.client.model.HistoryData;
@@ -65,7 +65,7 @@ public class HistoryDto {
   @javax.annotation.Nonnull  private EmployeeDto initiator;
 
   public static final String JSON_PROPERTY_DATE = "date";
-  @javax.annotation.Nonnull  private ApiDateTime date;
+  @javax.annotation.Nullable  private OffsetDateTime date;
 
   public static final String JSON_PROPERTY_DATA = "data";
   @javax.annotation.Nonnull  private HistoryData data;
@@ -132,7 +132,7 @@ public class HistoryDto {
   }
 
   /**
-   * The user parameters.
+   * The action initiator.
    * @return initiator
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_INITIATOR, required = true)
@@ -149,27 +149,27 @@ public class HistoryDto {
     this.initiator = initiator;
   }
 
-  public HistoryDto date(@javax.annotation.Nonnull ApiDateTime date) {
+  public HistoryDto date(@javax.annotation.Nullable OffsetDateTime date) {
     
     this.date = date;
     return this;
   }
 
   /**
-   * The API date and time parameters.
+   * The date and time when an action on the file was performed.
    * @return date
    */
-  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DATE, required = true)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public ApiDateTime getDate() {
+  public OffsetDateTime getDate() {
     return date;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_DATE, required = true)
+  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDate(@javax.annotation.Nonnull ApiDateTime date) {
+  public void setDate(@javax.annotation.Nullable OffsetDateTime date) {
     this.date = date;
   }
 
@@ -352,7 +352,12 @@ public class HistoryDto {
 
     // add `date` to the URL query string
     if (getDate() != null) {
-      joiner.add(getDate().toUrlQueryString(prefix + "date" + suffix));
+      try {
+        joiner.add(String.format("%sdate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `data` to the URL query string

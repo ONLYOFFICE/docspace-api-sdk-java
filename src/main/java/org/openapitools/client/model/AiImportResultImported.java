@@ -33,7 +33,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiImportResultImported
+ * How many folders and prompts were created. Present on success.
  */
 @JsonPropertyOrder({
   AiImportResultImported.JSON_PROPERTY_FOLDERS,

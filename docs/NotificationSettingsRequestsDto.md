@@ -8,7 +8,7 @@ The request parameters for configuring notification settings.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**type** | **NotificationType** | The notification type. |  |
+|**type** | **NotificationType** | The notification to be configured. |  |
 |**isEnabled** | **Boolean** | Specifies if the specified notification type is enabled or not. |  [optional] |
 
 

@@ -53,7 +53,7 @@ public class AiSuccessResponse {
   }
 
   /**
-   * Get success
+   * Always true — the mutation completed.
    * @return success
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SUCCESS, required = true)

@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * MentionWrapperArrayWrapper
+ * The successful API response containing the list of MentionWrapper objects.
  */
 @JsonPropertyOrder({
   MentionWrapperArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class MentionWrapperArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of MentionWrapper objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

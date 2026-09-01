@@ -19,7 +19,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > AiFolderIntegerWrapper aiAgentsCreate(aiAgentsCreateRequest)
 
-Create an agent
+Create an agentCreates an AI agent room in the .NET AI service and binds the supplied `profileId` to it as a `Chat` assignment. The instruction is stored on the room as a prompt-only chat setting; a failed binding is reported as an error even though the room already exists.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-create/).
 
@@ -86,7 +86,7 @@ public class Example {
 
 > AiFileOperationWrapper aiAgentsDelete(id, aiAgentsDeleteRequest)
 
-Delete an agent
+Delete an agentDeletes an AI agent room.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-delete/).
 
@@ -95,7 +95,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**|  | |
+| **id** | **String**| The agent identifier. | |
 | **aiAgentsDeleteRequest** | [**AiAgentsDeleteRequest**](AiAgentsDeleteRequest.md)|  | |
 
 ### Return type
@@ -122,7 +122,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         AgentsApi apiInstance = new AgentsApi(defaultClient);
-        String id = "id_example"; // String | 
+        String id = "id_example"; // String | The agent identifier.
         AiAgentsDeleteRequest aiAgentsDeleteRequest = new AiAgentsDeleteRequest(); // AiAgentsDeleteRequest | 
         try {
             AiFileOperationWrapper result = apiInstance.aiAgentsDelete(id, aiAgentsDeleteRequest);
@@ -155,7 +155,7 @@ public class Example {
 
 > AiFolderIntegerWrapper aiAgentsGet(id)
 
-Get an agent
+Get an agentReturns one AI agent room, enriched with the `profileId` bound to it so an edit form can prefill the profile selector. A missing assignment simply leaves `profileId` out.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/).
 
@@ -164,7 +164,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**|  | |
+| **id** | **String**| The agent identifier. | |
 
 ### Return type
 
@@ -190,7 +190,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         AgentsApi apiInstance = new AgentsApi(defaultClient);
-        String id = "id_example"; // String | 
+        String id = "id_example"; // String | The agent identifier.
         try {
             AiFolderIntegerWrapper result = apiInstance.aiAgentsGet(id);
             System.out.println(result);
@@ -222,7 +222,7 @@ public class Example {
 
 > AiFolderContentIntegerWrapper aiAgentsList()
 
-List agents
+List agentsLists the portal's AI agent rooms. Query parameters are forwarded unchanged to the .NET AI service, which answers with its folder-content payload.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/).
 
@@ -285,7 +285,7 @@ public class Example {
 
 > AiNewItemsAgentNewItemsArrayWrapper aiAgentsNews()
 
-List agent news items
+List agent news itemsLists the new items across the caller's AI agent rooms.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-news/).
 
@@ -348,7 +348,7 @@ public class Example {
 
 > AiFolderIntegerArrayWrapper aiAgentsResetQuota(aiAgentsResetQuotaRequest)
 
-Reset agents' quota
+Reset agents' quotaResets the storage quota of the given AI agent rooms.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-reset-quota/).
 
@@ -415,7 +415,7 @@ public class Example {
 
 > AiFolderIntegerWrapper aiAgentsUpdate(id, aiAgentsUpdateRequest)
 
-Update an agent
+Update an agentUpdates an AI agent room - title, tags, instruction. `profileId` is not part of the room contract: it is stripped from the forwarded body and re-bound as the agent's assignment afterwards.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/).
 
@@ -424,7 +424,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**|  | |
+| **id** | **String**| The agent identifier. | |
 | **aiAgentsUpdateRequest** | [**AiAgentsUpdateRequest**](AiAgentsUpdateRequest.md)|  | |
 
 ### Return type
@@ -451,7 +451,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         AgentsApi apiInstance = new AgentsApi(defaultClient);
-        String id = "id_example"; // String | 
+        String id = "id_example"; // String | The agent identifier.
         AiAgentsUpdateRequest aiAgentsUpdateRequest = new AiAgentsUpdateRequest(); // AiAgentsUpdateRequest | 
         try {
             AiFolderIntegerWrapper result = apiInstance.aiAgentsUpdate(id, aiAgentsUpdateRequest);
@@ -484,7 +484,7 @@ public class Example {
 
 > AiFolderIntegerArrayWrapper aiAgentsUpdateQuota(aiAgentsUpdateQuotaRequest)
 
-Update agents' quota
+Update agents' quotaChanges the storage quota of the given AI agent rooms.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update-quota/).
 

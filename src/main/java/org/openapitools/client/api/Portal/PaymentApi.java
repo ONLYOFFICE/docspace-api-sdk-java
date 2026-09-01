@@ -37,6 +37,7 @@ import org.openapitools.client.model.CustomerOperationsReportRequestDto;
 import org.openapitools.client.model.CustomerServiceUsageReportRequestDto;
 import org.openapitools.client.model.CustomerServiceUsageReportWrapper;
 import org.openapitools.client.model.DocumentBuilderTaskWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.GetPortalPrices200Response;
 import java.time.OffsetDateTime;
 import org.openapitools.client.model.OperationOrderType;
@@ -55,6 +56,7 @@ import org.openapitools.client.model.StringWrapper;
 import org.openapitools.client.model.SubscriptionBalanceInfoWrapper;
 import org.openapitools.client.model.TenantWalletService;
 import org.openapitools.client.model.TenantWalletServiceSettingsWrapper;
+import org.openapitools.client.model.TenantWalletSettingsResponseWrapper;
 import org.openapitools.client.model.TenantWalletSettingsWrapper;
 import org.openapitools.client.model.TopUpDepositRequestDto;
 import java.net.URI;
@@ -2111,10 +2113,10 @@ public class PaymentApi extends BaseApi {
    * REST API Reference for getTenantWalletSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/
    *
-   * @return TenantWalletSettingsWrapper
+   * @return TenantWalletSettingsResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantWalletSettingsWrapper getTenantWalletSettings() throws ApiException {
+  public TenantWalletSettingsResponseWrapper getTenantWalletSettings() throws ApiException {
     return this.getTenantWalletSettings(Collections.emptyMap());
   }
 
@@ -2127,10 +2129,10 @@ public class PaymentApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return TenantWalletSettingsWrapper
+   * @return TenantWalletSettingsResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantWalletSettingsWrapper getTenantWalletSettings(Map<String, String> additionalHeaders) throws ApiException {
+  public TenantWalletSettingsResponseWrapper getTenantWalletSettings(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -2162,7 +2164,7 @@ public class PaymentApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<TenantWalletSettingsWrapper> localVarReturnType = new TypeReference<TenantWalletSettingsWrapper>() {};
+    TypeReference<TenantWalletSettingsResponseWrapper> localVarReturnType = new TypeReference<TenantWalletSettingsResponseWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -2465,7 +2467,7 @@ public class PaymentApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -2579,10 +2581,10 @@ public class PaymentApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/
    *
    * @param tenantWalletSettingsWrapper  (optional)
-   * @return TenantWalletSettingsWrapper
+   * @return TenantWalletSettingsResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantWalletSettingsWrapper setTenantWalletSettings(@javax.annotation.Nullable TenantWalletSettingsWrapper tenantWalletSettingsWrapper) throws ApiException {
+  public TenantWalletSettingsResponseWrapper setTenantWalletSettings(@javax.annotation.Nullable TenantWalletSettingsWrapper tenantWalletSettingsWrapper) throws ApiException {
     return this.setTenantWalletSettings(tenantWalletSettingsWrapper, Collections.emptyMap());
   }
 
@@ -2596,10 +2598,10 @@ public class PaymentApi extends BaseApi {
    *
    * @param tenantWalletSettingsWrapper  (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return TenantWalletSettingsWrapper
+   * @return TenantWalletSettingsResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantWalletSettingsWrapper setTenantWalletSettings(@javax.annotation.Nullable TenantWalletSettingsWrapper tenantWalletSettingsWrapper, Map<String, String> additionalHeaders) throws ApiException {
+  public TenantWalletSettingsResponseWrapper setTenantWalletSettings(@javax.annotation.Nullable TenantWalletSettingsWrapper tenantWalletSettingsWrapper, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = tenantWalletSettingsWrapper;
     
     // create path and map variables
@@ -2631,7 +2633,7 @@ public class PaymentApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<TenantWalletSettingsWrapper> localVarReturnType = new TypeReference<TenantWalletSettingsWrapper>() {};
+    TypeReference<TenantWalletSettingsResponseWrapper> localVarReturnType = new TypeReference<TenantWalletSettingsResponseWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -2694,7 +2696,7 @@ public class PaymentApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -2767,7 +2769,7 @@ public class PaymentApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -2840,7 +2842,7 @@ public class PaymentApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

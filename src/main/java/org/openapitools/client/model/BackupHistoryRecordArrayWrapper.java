@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * BackupHistoryRecordArrayWrapper
+ * The successful API response containing the list of BackupHistoryRecord objects.
  */
 @JsonPropertyOrder({
   BackupHistoryRecordArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class BackupHistoryRecordArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of BackupHistoryRecord objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

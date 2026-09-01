@@ -54,7 +54,7 @@ public class DefaultProductRequestDto {
   }
 
   /**
-   * The folder type.
+   * The ID of the product to be set as default.
    * @return defaultFolderType
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DEFAULT_FOLDER_TYPE, required = true)

@@ -26,6 +26,7 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.EmployeeFullArrayWrapper;
 import org.openapitools.client.model.EmployeeType;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.StartUpdateUserTypeDto;
 import org.openapitools.client.model.TaskProgressResponseWrapper;
 import org.openapitools.client.model.TerminateRequestDto;

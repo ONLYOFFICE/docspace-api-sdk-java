@@ -2,6 +2,7 @@
 
 # AiThreadMessageLike
 
+A single chat message as it travels on the wire.
 
 ## Properties
 

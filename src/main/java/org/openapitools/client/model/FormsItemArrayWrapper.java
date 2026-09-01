@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * FormsItemArrayWrapper
+ * The successful API response containing the list of FormsItemDto objects.
  */
 @JsonPropertyOrder({
   FormsItemArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class FormsItemArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of FormsItemDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

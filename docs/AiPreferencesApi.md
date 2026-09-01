@@ -15,7 +15,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > AiSuccessResponse aiPreferencesClearDeepMode(body)
 
-Clear deep mode
+Clear deep modeDrops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-clear-deep-mode/).
 
@@ -82,7 +82,7 @@ public class Example {
 
 > Boolean aiPreferencesGetDeepMode(entityId)
 
-Get deep mode
+Get deep modeReturns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-deep-mode/).
 
@@ -91,7 +91,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **entityId** | **String**|  | |
+| **entityId** | **String**| The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional] |
 
 ### Return type
 
@@ -117,7 +117,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         PreferencesApi apiInstance = new PreferencesApi(defaultClient);
-        String entityId = "entityId_example"; // String | 
+        String entityId = "entityId_example"; // String | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope.
         try {
             Boolean result = apiInstance.aiPreferencesGetDeepMode(entityId);
             System.out.println(result);
@@ -149,7 +149,7 @@ public class Example {
 
 > Boolean aiPreferencesIsDeepModeSet(entityId)
 
-Is deep mode set
+Is deep mode setTells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-is-deep-mode-set/).
 
@@ -158,7 +158,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **entityId** | **String**|  | |
+| **entityId** | **String**| The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional] |
 
 ### Return type
 
@@ -184,7 +184,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         PreferencesApi apiInstance = new PreferencesApi(defaultClient);
-        String entityId = "entityId_example"; // String | 
+        String entityId = "entityId_example"; // String | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope.
         try {
             Boolean result = apiInstance.aiPreferencesIsDeepModeSet(entityId);
             System.out.println(result);
@@ -216,7 +216,7 @@ public class Example {
 
 > AiSuccessResponse aiPreferencesSetDeepMode(aiPreferencesSetDeepModeRequest)
 
-Set deep mode
+Set deep modePersists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-deep-mode/).
 

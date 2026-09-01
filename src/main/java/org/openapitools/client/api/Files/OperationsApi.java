@@ -36,6 +36,7 @@ import org.openapitools.client.model.DeleteBatchRequestDto;
 import org.openapitools.client.model.DeleteVersionBatchRequestDto;
 import org.openapitools.client.model.DownloadRequestDto;
 import org.openapitools.client.model.DuplicateRequestDto;
+import org.openapitools.client.model.ErrorApiResponse;
 import java.io.File;
 import org.openapitools.client.model.FileEntryBaseArrayWrapper;
 import org.openapitools.client.model.FileOperationArrayWrapper;
@@ -126,7 +127,7 @@ public class OperationsApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

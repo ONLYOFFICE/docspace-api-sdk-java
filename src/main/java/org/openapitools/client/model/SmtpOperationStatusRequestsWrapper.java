@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * SmtpOperationStatusRequestsWrapper
+ * The successful API response containing the SmtpOperationStatusRequestsDto object.
  */
 @JsonPropertyOrder({
   SmtpOperationStatusRequestsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class SmtpOperationStatusRequestsWrapper {
   }
 
   /**
-   * Get response
+   * The SmtpOperationStatusRequestsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * TfaAppCodeArrayWrapper
+ * The successful API response containing the list of TfaAppCodeDto objects.
  */
 @JsonPropertyOrder({
   TfaAppCodeArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class TfaAppCodeArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of TfaAppCodeDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

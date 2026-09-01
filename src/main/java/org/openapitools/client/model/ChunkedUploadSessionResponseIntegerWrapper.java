@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ChunkedUploadSessionResponseIntegerWrapper
+ * The successful API response containing the ChunkedUploadSessionResponseInteger object.
  */
 @JsonPropertyOrder({
   ChunkedUploadSessionResponseIntegerWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class ChunkedUploadSessionResponseIntegerWrapper {
   }
 
   /**
-   * Get response
+   * The ChunkedUploadSessionResponseInteger object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

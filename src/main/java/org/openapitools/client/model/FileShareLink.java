@@ -24,8 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 import java.util.UUID;
-import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.LinkType;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -68,7 +68,7 @@ public class FileShareLink {
   @javax.annotation.Nullable  private JsonNullable<String> shareLink = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EXPIRATION_DATE = "expirationDate";
-  @javax.annotation.Nullable  private ApiDateTime expirationDate;
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> expirationDate = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_LINK_TYPE = "linkType";
   @javax.annotation.Nullable  private LinkType linkType;
@@ -187,28 +187,35 @@ public class FileShareLink {
     this.shareLink = JsonNullable.<String>of(shareLink);
   }
 
-  public FileShareLink expirationDate(@javax.annotation.Nullable ApiDateTime expirationDate) {
+  public FileShareLink expirationDate(@javax.annotation.Nullable OffsetDateTime expirationDate) {
+    this.expirationDate = JsonNullable.<OffsetDateTime>of(expirationDate);
     
-    this.expirationDate = expirationDate;
     return this;
   }
 
   /**
-   * The API date and time parameters.
+   * The date when the shared link expires.
    * @return expirationDate
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public ApiDateTime getExpirationDate() {
-    return expirationDate;
+  public OffsetDateTime getExpirationDate() {
+        return expirationDate.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpirationDate(@javax.annotation.Nullable ApiDateTime expirationDate) {
+  public JsonNullable<OffsetDateTime> getExpirationDate_JsonNullable() {
+    return expirationDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
+  public void setExpirationDate_JsonNullable(JsonNullable<OffsetDateTime> expirationDate) {
     this.expirationDate = expirationDate;
+  }
+
+  public void setExpirationDate(@javax.annotation.Nullable OffsetDateTime expirationDate) {
+    this.expirationDate = JsonNullable.<OffsetDateTime>of(expirationDate);
   }
 
   public FileShareLink linkType(@javax.annotation.Nullable LinkType linkType) {
@@ -488,7 +495,7 @@ public class FileShareLink {
     return Objects.equals(this.id, fileShareLink.id) &&
         equalsNullable(this.title, fileShareLink.title) &&
         equalsNullable(this.shareLink, fileShareLink.shareLink) &&
-        Objects.equals(this.expirationDate, fileShareLink.expirationDate) &&
+        equalsNullable(this.expirationDate, fileShareLink.expirationDate) &&
         Objects.equals(this.linkType, fileShareLink.linkType) &&
         equalsNullable(this.password, fileShareLink.password) &&
         equalsNullable(this.denyDownload, fileShareLink.denyDownload) &&
@@ -506,7 +513,7 @@ public class FileShareLink {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(title), hashCodeNullable(shareLink), expirationDate, linkType, hashCodeNullable(password), hashCodeNullable(denyDownload), hashCodeNullable(isExpired), primary, hashCodeNullable(internal), hashCodeNullable(requestToken), hashCodeNullable(maxUseCount), hashCodeNullable(currentUseCount));
+    return Objects.hash(id, hashCodeNullable(title), hashCodeNullable(shareLink), hashCodeNullable(expirationDate), linkType, hashCodeNullable(password), hashCodeNullable(denyDownload), hashCodeNullable(isExpired), primary, hashCodeNullable(internal), hashCodeNullable(requestToken), hashCodeNullable(maxUseCount), hashCodeNullable(currentUseCount));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -612,7 +619,12 @@ public class FileShareLink {
 
     // add `expirationDate` to the URL query string
     if (getExpirationDate() != null) {
-      joiner.add(getExpirationDate().toUrlQueryString(prefix + "expirationDate" + suffix));
+      try {
+        joiner.add(String.format("%sexpirationDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpirationDate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `linkType` to the URL query string

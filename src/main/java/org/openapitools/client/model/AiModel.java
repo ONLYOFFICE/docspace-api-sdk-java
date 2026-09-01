@@ -167,7 +167,7 @@ public class AiModel {
   }
 
   /**
-   * Bitmask of model capabilities (Chat, Image, Vision, Tools, etc.). Used to filter models per  {@link  ActionType  } .
+   * Bitmask of model capabilities (Chat, Image, Vision, Tools, etc.). Used to filter models per `ActionType`.
    * @return capabilities
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CAPABILITIES, required = false)

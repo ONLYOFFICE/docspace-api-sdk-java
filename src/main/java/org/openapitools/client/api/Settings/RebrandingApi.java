@@ -24,10 +24,15 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
+import org.openapitools.client.model.AdditionalWhiteLabelSettingsDtoWrapper;
+import org.openapitools.client.model.AdditionalWhiteLabelSettingsResponseWrapper;
 import org.openapitools.client.model.AdditionalWhiteLabelSettingsWrapper;
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.CompanyWhiteLabelSettingsArrayWrapper;
+import org.openapitools.client.model.CompanyWhiteLabelSettingsDtoWrapper;
+import org.openapitools.client.model.CompanyWhiteLabelSettingsResponseWrapper;
 import org.openapitools.client.model.CompanyWhiteLabelSettingsWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.IsDefaultWhiteLabelLogosArrayWrapper;
 import org.openapitools.client.model.IsDefaultWhiteLabelLogosWrapper;
 import org.openapitools.client.model.StringWrapper;
@@ -60,10 +65,10 @@ public class RebrandingApi extends BaseApi {
    * REST API Reference for deleteAdditionalWhiteLabelSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/
    *
-   * @return AdditionalWhiteLabelSettingsWrapper
+   * @return AdditionalWhiteLabelSettingsResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public AdditionalWhiteLabelSettingsWrapper deleteAdditionalWhiteLabelSettings() throws ApiException {
+  public AdditionalWhiteLabelSettingsResponseWrapper deleteAdditionalWhiteLabelSettings() throws ApiException {
     return this.deleteAdditionalWhiteLabelSettings(Collections.emptyMap());
   }
 
@@ -76,10 +81,10 @@ public class RebrandingApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return AdditionalWhiteLabelSettingsWrapper
+   * @return AdditionalWhiteLabelSettingsResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public AdditionalWhiteLabelSettingsWrapper deleteAdditionalWhiteLabelSettings(Map<String, String> additionalHeaders) throws ApiException {
+  public AdditionalWhiteLabelSettingsResponseWrapper deleteAdditionalWhiteLabelSettings(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -111,7 +116,7 @@ public class RebrandingApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<AdditionalWhiteLabelSettingsWrapper> localVarReturnType = new TypeReference<AdditionalWhiteLabelSettingsWrapper>() {};
+    TypeReference<AdditionalWhiteLabelSettingsResponseWrapper> localVarReturnType = new TypeReference<AdditionalWhiteLabelSettingsResponseWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "DELETE",
@@ -136,10 +141,10 @@ public class RebrandingApi extends BaseApi {
    * REST API Reference for deleteCompanyWhiteLabelSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/
    *
-   * @return CompanyWhiteLabelSettingsWrapper
+   * @return CompanyWhiteLabelSettingsResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public CompanyWhiteLabelSettingsWrapper deleteCompanyWhiteLabelSettings() throws ApiException {
+  public CompanyWhiteLabelSettingsResponseWrapper deleteCompanyWhiteLabelSettings() throws ApiException {
     return this.deleteCompanyWhiteLabelSettings(Collections.emptyMap());
   }
 
@@ -152,10 +157,10 @@ public class RebrandingApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return CompanyWhiteLabelSettingsWrapper
+   * @return CompanyWhiteLabelSettingsResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public CompanyWhiteLabelSettingsWrapper deleteCompanyWhiteLabelSettings(Map<String, String> additionalHeaders) throws ApiException {
+  public CompanyWhiteLabelSettingsResponseWrapper deleteCompanyWhiteLabelSettings(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -187,7 +192,7 @@ public class RebrandingApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<CompanyWhiteLabelSettingsWrapper> localVarReturnType = new TypeReference<CompanyWhiteLabelSettingsWrapper>() {};
+    TypeReference<CompanyWhiteLabelSettingsResponseWrapper> localVarReturnType = new TypeReference<CompanyWhiteLabelSettingsResponseWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "DELETE",
@@ -212,10 +217,10 @@ public class RebrandingApi extends BaseApi {
    * REST API Reference for getAdditionalWhiteLabelSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/
    *
-   * @return AdditionalWhiteLabelSettingsWrapper
+   * @return AdditionalWhiteLabelSettingsDtoWrapper
    * @throws ApiException if fails to make API call
    */
-  public AdditionalWhiteLabelSettingsWrapper getAdditionalWhiteLabelSettings() throws ApiException {
+  public AdditionalWhiteLabelSettingsDtoWrapper getAdditionalWhiteLabelSettings() throws ApiException {
     return this.getAdditionalWhiteLabelSettings(Collections.emptyMap());
   }
 
@@ -228,10 +233,10 @@ public class RebrandingApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return AdditionalWhiteLabelSettingsWrapper
+   * @return AdditionalWhiteLabelSettingsDtoWrapper
    * @throws ApiException if fails to make API call
    */
-  public AdditionalWhiteLabelSettingsWrapper getAdditionalWhiteLabelSettings(Map<String, String> additionalHeaders) throws ApiException {
+  public AdditionalWhiteLabelSettingsDtoWrapper getAdditionalWhiteLabelSettings(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -263,7 +268,7 @@ public class RebrandingApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<AdditionalWhiteLabelSettingsWrapper> localVarReturnType = new TypeReference<AdditionalWhiteLabelSettingsWrapper>() {};
+    TypeReference<AdditionalWhiteLabelSettingsDtoWrapper> localVarReturnType = new TypeReference<AdditionalWhiteLabelSettingsDtoWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -288,10 +293,10 @@ public class RebrandingApi extends BaseApi {
    * REST API Reference for getCompanyWhiteLabelSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/
    *
-   * @return CompanyWhiteLabelSettingsWrapper
+   * @return CompanyWhiteLabelSettingsDtoWrapper
    * @throws ApiException if fails to make API call
    */
-  public CompanyWhiteLabelSettingsWrapper getCompanyWhiteLabelSettings() throws ApiException {
+  public CompanyWhiteLabelSettingsDtoWrapper getCompanyWhiteLabelSettings() throws ApiException {
     return this.getCompanyWhiteLabelSettings(Collections.emptyMap());
   }
 
@@ -304,10 +309,10 @@ public class RebrandingApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return CompanyWhiteLabelSettingsWrapper
+   * @return CompanyWhiteLabelSettingsDtoWrapper
    * @throws ApiException if fails to make API call
    */
-  public CompanyWhiteLabelSettingsWrapper getCompanyWhiteLabelSettings(Map<String, String> additionalHeaders) throws ApiException {
+  public CompanyWhiteLabelSettingsDtoWrapper getCompanyWhiteLabelSettings(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -339,7 +344,7 @@ public class RebrandingApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<CompanyWhiteLabelSettingsWrapper> localVarReturnType = new TypeReference<CompanyWhiteLabelSettingsWrapper>() {};
+    TypeReference<CompanyWhiteLabelSettingsDtoWrapper> localVarReturnType = new TypeReference<CompanyWhiteLabelSettingsDtoWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",

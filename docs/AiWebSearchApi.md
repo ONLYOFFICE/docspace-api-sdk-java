@@ -19,7 +19,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > AiSuccessResponse aiWebSearchClear(body)
 
-Clear
+ClearRemoves the web-search configuration of the scope. Does nothing when web search was not configured there.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/).
 
@@ -86,7 +86,7 @@ public class Example {
 
 > AiWebSearchMutationResult aiWebSearchConfigure(aiWebSearchConfigureRequest)
 
-Configure
+ConfigureValidates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-configure/).
 
@@ -153,7 +153,7 @@ public class Example {
 
 > AiWebSearchConfig aiWebSearchGetActiveConfig(entityId)
 
-Get active config
+Get active configReturns the web-search configuration active in the scope, or an empty result when web search is not configured.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/).
 
@@ -162,7 +162,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **entityId** | **String**|  | |
+| **entityId** | **String**| The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional] |
 
 ### Return type
 
@@ -188,7 +188,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         WebSearchApi apiInstance = new WebSearchApi(defaultClient);
-        String entityId = "entityId_example"; // String | 
+        String entityId = "entityId_example"; // String | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope.
         try {
             AiWebSearchConfig result = apiInstance.aiWebSearchGetActiveConfig(entityId);
             System.out.println(result);
@@ -220,7 +220,7 @@ public class Example {
 
 > Boolean aiWebSearchIsConfigured(entityId)
 
-Is configured
+Is configuredTells whether web search is configured in the scope.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/).
 
@@ -229,7 +229,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **entityId** | **String**|  | |
+| **entityId** | **String**| The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional] |
 
 ### Return type
 
@@ -255,7 +255,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         WebSearchApi apiInstance = new WebSearchApi(defaultClient);
-        String entityId = "entityId_example"; // String | 
+        String entityId = "entityId_example"; // String | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope.
         try {
             Boolean result = apiInstance.aiWebSearchIsConfigured(entityId);
             System.out.println(result);
@@ -287,7 +287,7 @@ public class Example {
 
 > AiSuccessResponse aiWebSearchPassthroughContents(requestBody)
 
-Web page contents proxied to the portal's active web-search provider
+Web page contents proxied to the portal's active web-search providerFetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/).
 
@@ -354,7 +354,7 @@ public class Example {
 
 > AiSuccessResponse aiWebSearchPassthroughSearch(requestBody)
 
-Web search proxied to the portal's active web-search provider
+Web search proxied to the portal's active web-search providerRuns a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/).
 
@@ -421,7 +421,7 @@ public class Example {
 
 > AiSuccessResponse aiWebSearchSetActiveConfig(aiWebSearchConfigureRequest)
 
-Set active config
+Set active configStores a web-search configuration without contacting the provider first, for forms that validate locally.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-set-active-config/).
 
@@ -488,7 +488,7 @@ public class Example {
 
 > AiProfilesTestConnection200Response aiWebSearchTestConnection(aiWebSearchConfig)
 
-Test connection
+Test connectionChecks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-test-connection/).
 

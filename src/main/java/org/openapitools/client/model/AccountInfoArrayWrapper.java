@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AccountInfoArrayWrapper
+ * The successful API response containing the list of AccountInfoDto objects.
  */
 @JsonPropertyOrder({
   AccountInfoArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class AccountInfoArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of AccountInfoDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

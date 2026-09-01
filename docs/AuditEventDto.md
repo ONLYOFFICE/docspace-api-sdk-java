@@ -9,11 +9,11 @@ The audit event parameters.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **Integer** | The audit event ID. |  [optional] |
-|**date** | [**ApiDateTime**](ApiDateTime.md) | The API date and time parameters. |  [optional] |
+|**date** | **OffsetDateTime** | The audit event date. |  [optional] |
 |**user** | **String** | The name of the user who triggered the audit event. |  [optional] |
 |**userId** | **UUID** | The ID of the user who triggered the audit event. |  [optional] |
 |**action** | **String** | The audit event action. |  [optional] |
-|**actionId** | **MessageAction** | The event action ID. |  [optional] |
+|**actionId** | **MessageAction** | The specific action that occurred within the audit event. |  [optional] |
 |**ip** | **String** | The audit event IP. |  [optional] |
 |**country** | **String** | The audit event country. |  [optional] |
 |**city** | **String** | The audit event city. |  [optional] |

@@ -99,7 +99,7 @@ public class FillingFormResultDtoInteger {
   }
 
   /**
-   * The file parameters.
+   * The file with the completed forms.
    * @return completedForm
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COMPLETED_FORM, required = false)
@@ -123,7 +123,7 @@ public class FillingFormResultDtoInteger {
   }
 
   /**
-   * The file parameters.
+   * The file with the original forms.
    * @return originalForm
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ORIGINAL_FORM, required = false)
@@ -147,7 +147,7 @@ public class FillingFormResultDtoInteger {
   }
 
   /**
-   * The full list of user parameters.
+   * The manager who is filling the form.
    * @return manager
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MANAGER, required = false)

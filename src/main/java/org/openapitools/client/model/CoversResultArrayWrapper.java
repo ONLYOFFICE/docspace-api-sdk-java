@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * CoversResultArrayWrapper
+ * The successful API response containing the list of CoversResultDto objects.
  */
 @JsonPropertyOrder({
   CoversResultArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class CoversResultArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of CoversResultDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

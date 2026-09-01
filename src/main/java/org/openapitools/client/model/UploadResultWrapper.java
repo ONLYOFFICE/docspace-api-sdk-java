@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * UploadResultWrapper
+ * The successful API response containing the UploadResultDto object.
  */
 @JsonPropertyOrder({
   UploadResultWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class UploadResultWrapper {
   }
 
   /**
-   * Get response
+   * The UploadResultDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

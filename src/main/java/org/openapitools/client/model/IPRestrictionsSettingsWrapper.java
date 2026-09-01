@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * IPRestrictionsSettingsWrapper
+ * The successful API response containing the IPRestrictionsSettings object.
  */
 @JsonPropertyOrder({
   IPRestrictionsSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class IPRestrictionsSettingsWrapper {
   }
 
   /**
-   * Get response
+   * The IPRestrictionsSettings object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

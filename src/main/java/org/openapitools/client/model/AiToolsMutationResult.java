@@ -58,7 +58,7 @@ public class AiToolsMutationResult {
   }
 
   /**
-   * Get success
+   * True when the MCP server was persisted.
    * @return success
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SUCCESS, required = true)
@@ -82,7 +82,7 @@ public class AiToolsMutationResult {
   }
 
   /**
-   * Get error
+   * Why the MCP server was rejected. Present on failure.
    * @return error
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)

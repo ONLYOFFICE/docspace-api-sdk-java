@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiVectorizationSettingsWrapper
+ * The successful API response containing the VectorizationSettingsDto object.
  */
 @JsonPropertyOrder({
   AiVectorizationSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class AiVectorizationSettingsWrapper {
   }
 
   /**
-   * Get response
+   * The VectorizationSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

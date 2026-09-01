@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiTErrorData
+ * A field-scoped validation error: which form field was rejected, and why.
  */
 @JsonPropertyOrder({
   AiTErrorData.JSON_PROPERTY_FIELD,
@@ -41,7 +41,7 @@ import java.util.StringJoiner;
 
 public class AiTErrorData {
   /**
-   * Gets or Sets field
+   * The rejected field.
    */
   public enum FieldEnum {
     KEY(String.valueOf("key")),
@@ -93,7 +93,7 @@ public class AiTErrorData {
   }
 
   /**
-   * Get field
+   * The rejected field.
    * @return field
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_FIELD, required = true)
@@ -117,7 +117,7 @@ public class AiTErrorData {
   }
 
   /**
-   * Get message
+   * The human-readable reason the field was rejected.
    * @return message
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = true)

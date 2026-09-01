@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.net.URI;
-import org.openapitools.client.model.ApiDateTime;
+import java.time.OffsetDateTime;
 import org.openapitools.client.model.EmployeeDto;
 import org.openapitools.client.model.FileEntryDtoIntegerAllOfAvailableShareRights;
 import org.openapitools.client.model.FileEntryDtoIntegerAllOfSecurity;
@@ -115,16 +115,16 @@ public class FileEntryDtoString {
   @javax.annotation.Nullable  private URI shortWebUrl;
 
   public static final String JSON_PROPERTY_CREATED = "created";
-  @javax.annotation.Nullable  private ApiDateTime created;
+  @javax.annotation.Nullable  private OffsetDateTime created;
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
   @javax.annotation.Nullable  private EmployeeDto createdBy;
 
   public static final String JSON_PROPERTY_UPDATED = "updated";
-  @javax.annotation.Nullable  private ApiDateTime updated;
+  @javax.annotation.Nullable  private OffsetDateTime updated;
 
   public static final String JSON_PROPERTY_AUTO_DELETE = "autoDelete";
-  @javax.annotation.Nullable  private ApiDateTime autoDelete;
+  @javax.annotation.Nullable  private OffsetDateTime autoDelete;
 
   public static final String JSON_PROPERTY_ROOT_FOLDER_TYPE = "rootFolderType";
   @javax.annotation.Nullable  private FolderType rootFolderType;
@@ -190,7 +190,7 @@ public class FileEntryDtoString {
   @javax.annotation.Nullable  private JsonNullable<Boolean> external = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_EXPIRATION_DATE = "expirationDate";
-  @javax.annotation.Nullable  private ApiDateTime expirationDate;
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> expirationDate = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_IS_LINK_EXPIRED = "isLinkExpired";
   @javax.annotation.Nullable  private JsonNullable<Boolean> isLinkExpired = JsonNullable.<Boolean>undefined();
@@ -415,7 +415,7 @@ public class FileEntryDtoString {
     this.shortWebUrl = shortWebUrl;
   }
 
-  public FileEntryDtoString created(@javax.annotation.Nullable ApiDateTime created) {
+  public FileEntryDtoString created(@javax.annotation.Nullable OffsetDateTime created) {
     
     this.created = created;
     return this;
@@ -428,14 +428,14 @@ public class FileEntryDtoString {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ApiDateTime getCreated() {
+  public OffsetDateTime getCreated() {
     return created;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_CREATED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreated(@javax.annotation.Nullable ApiDateTime created) {
+  public void setCreated(@javax.annotation.Nullable OffsetDateTime created) {
     this.created = created;
   }
 
@@ -463,7 +463,7 @@ public class FileEntryDtoString {
     this.createdBy = createdBy;
   }
 
-  public FileEntryDtoString updated(@javax.annotation.Nullable ApiDateTime updated) {
+  public FileEntryDtoString updated(@javax.annotation.Nullable OffsetDateTime updated) {
     
     this.updated = updated;
     return this;
@@ -476,18 +476,18 @@ public class FileEntryDtoString {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPDATED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ApiDateTime getUpdated() {
+  public OffsetDateTime getUpdated() {
     return updated;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_UPDATED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUpdated(@javax.annotation.Nullable ApiDateTime updated) {
+  public void setUpdated(@javax.annotation.Nullable OffsetDateTime updated) {
     this.updated = updated;
   }
 
-  public FileEntryDtoString autoDelete(@javax.annotation.Nullable ApiDateTime autoDelete) {
+  public FileEntryDtoString autoDelete(@javax.annotation.Nullable OffsetDateTime autoDelete) {
     
     this.autoDelete = autoDelete;
     return this;
@@ -500,14 +500,14 @@ public class FileEntryDtoString {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTO_DELETE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ApiDateTime getAutoDelete() {
+  public OffsetDateTime getAutoDelete() {
     return autoDelete;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_AUTO_DELETE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAutoDelete(@javax.annotation.Nullable ApiDateTime autoDelete) {
+  public void setAutoDelete(@javax.annotation.Nullable OffsetDateTime autoDelete) {
     this.autoDelete = autoDelete;
   }
 
@@ -1092,9 +1092,9 @@ public class FileEntryDtoString {
     this.external = JsonNullable.<Boolean>of(external);
   }
 
-  public FileEntryDtoString expirationDate(@javax.annotation.Nullable ApiDateTime expirationDate) {
+  public FileEntryDtoString expirationDate(@javax.annotation.Nullable OffsetDateTime expirationDate) {
+    this.expirationDate = JsonNullable.<OffsetDateTime>of(expirationDate);
     
-    this.expirationDate = expirationDate;
     return this;
   }
 
@@ -1102,18 +1102,25 @@ public class FileEntryDtoString {
    * Represents the expiration date of the file entry.
    * @return expirationDate
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public ApiDateTime getExpirationDate() {
-    return expirationDate;
+  public OffsetDateTime getExpirationDate() {
+        return expirationDate.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpirationDate(@javax.annotation.Nullable ApiDateTime expirationDate) {
+  public JsonNullable<OffsetDateTime> getExpirationDate_JsonNullable() {
+    return expirationDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
+  public void setExpirationDate_JsonNullable(JsonNullable<OffsetDateTime> expirationDate) {
     this.expirationDate = expirationDate;
+  }
+
+  public void setExpirationDate(@javax.annotation.Nullable OffsetDateTime expirationDate) {
+    this.expirationDate = JsonNullable.<OffsetDateTime>of(expirationDate);
   }
 
   public FileEntryDtoString isLinkExpired(@javax.annotation.Nullable Boolean isLinkExpired) {
@@ -1190,7 +1197,7 @@ public class FileEntryDtoString {
         equalsNullable(this.availableShareRights, fileEntryDtoString.availableShareRights) &&
         equalsNullable(this.requestToken, fileEntryDtoString.requestToken) &&
         equalsNullable(this.external, fileEntryDtoString.external) &&
-        Objects.equals(this.expirationDate, fileEntryDtoString.expirationDate) &&
+        equalsNullable(this.expirationDate, fileEntryDtoString.expirationDate) &&
         equalsNullable(this.isLinkExpired, fileEntryDtoString.isLinkExpired);
   }
 
@@ -1200,7 +1207,7 @@ public class FileEntryDtoString {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, shortWebUrl, created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, providerItem, providerKey, providerId, order, isFavorite, fileEntryType, hashCodeNullable(id), hashCodeNullable(rootFolderId), hashCodeNullable(originId), hashCodeNullable(originRoomId), hashCodeNullable(originTitle), hashCodeNullable(originRoomTitle), canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), hashCodeNullable(requestToken), hashCodeNullable(external), expirationDate, hashCodeNullable(isLinkExpired));
+    return Objects.hash(title, access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, shortWebUrl, created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, providerItem, providerKey, providerId, order, isFavorite, fileEntryType, hashCodeNullable(id), hashCodeNullable(rootFolderId), hashCodeNullable(originId), hashCodeNullable(originRoomId), hashCodeNullable(originTitle), hashCodeNullable(originRoomTitle), canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), hashCodeNullable(requestToken), hashCodeNullable(external), hashCodeNullable(expirationDate), hashCodeNullable(isLinkExpired));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1379,7 +1386,12 @@ public class FileEntryDtoString {
 
     // add `created` to the URL query string
     if (getCreated() != null) {
-      joiner.add(getCreated().toUrlQueryString(prefix + "created" + suffix));
+      try {
+        joiner.add(String.format("%screated%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreated()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `createdBy` to the URL query string
@@ -1389,12 +1401,22 @@ public class FileEntryDtoString {
 
     // add `updated` to the URL query string
     if (getUpdated() != null) {
-      joiner.add(getUpdated().toUrlQueryString(prefix + "updated" + suffix));
+      try {
+        joiner.add(String.format("%supdated%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdated()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `autoDelete` to the URL query string
     if (getAutoDelete() != null) {
-      joiner.add(getAutoDelete().toUrlQueryString(prefix + "autoDelete" + suffix));
+      try {
+        joiner.add(String.format("%sautoDelete%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAutoDelete()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `rootFolderType` to the URL query string
@@ -1589,7 +1611,12 @@ public class FileEntryDtoString {
 
     // add `expirationDate` to the URL query string
     if (getExpirationDate() != null) {
-      joiner.add(getExpirationDate().toUrlQueryString(prefix + "expirationDate" + suffix));
+      try {
+        joiner.add(String.format("%sexpirationDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpirationDate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `isLinkExpired` to the URL query string

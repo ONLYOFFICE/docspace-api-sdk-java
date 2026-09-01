@@ -48,7 +48,7 @@ public class VectorizationApi extends BaseApi {
 
   /**
    * Start a vectorization task
-   * 
+   * Starts a vectorization task over the supplied portal files. The indexing itself runs asynchronously on the .NET side.
    *
    * REST API Reference for aiVectorizationStartTask Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-vectorization-start-task/
@@ -64,7 +64,7 @@ public class VectorizationApi extends BaseApi {
 
   /**
    * Start a vectorization task
-   * 
+   * Starts a vectorization task over the supplied portal files. The indexing itself runs asynchronously on the .NET side.
    *
    * REST API Reference for aiVectorizationStartTask Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-vectorization-start-task/

@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ModuleWrapper
+ * The successful API response containing the Module object.
  */
 @JsonPropertyOrder({
   ModuleWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class ModuleWrapper {
   }
 
   /**
-   * Get response
+   * The Module object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

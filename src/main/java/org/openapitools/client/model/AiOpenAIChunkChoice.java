@@ -35,7 +35,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiOpenAIChunkChoice
+ * One choice of a streaming completion, carrying the part this chunk adds.
  */
 @JsonPropertyOrder({
   AiOpenAIChunkChoice.JSON_PROPERTY_INDEX,
@@ -64,7 +64,7 @@ public class AiOpenAIChunkChoice {
   }
 
   /**
-   * Get index
+   * The zero-based position of the choice. This service emits a single choice, so always 0.
    * @return index
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_INDEX, required = true)
@@ -88,7 +88,7 @@ public class AiOpenAIChunkChoice {
   }
 
   /**
-   * Get delta
+   * What this chunk adds to the choice.
    * @return delta
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DELTA, required = true)
@@ -112,7 +112,7 @@ public class AiOpenAIChunkChoice {
   }
 
   /**
-   * Get finishReason
+   * Why the completion stopped, or null while it is still streaming.
    * @return finishReason
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FINISH_REASON, required = false)

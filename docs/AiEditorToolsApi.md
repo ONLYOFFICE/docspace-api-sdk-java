@@ -13,7 +13,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > AiSuccessResponse aiEditorToolsCall(requestBody)
 
-Execute a DocSpace tool on behalf of the editor AI plugin
+Execute a DocSpace tool on behalf of the editor AI pluginExecutes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-call/).
 
@@ -80,7 +80,7 @@ public class Example {
 
 > AiSuccessResponse aiEditorToolsList()
 
-Sanitized DocSpace tool catalog for the editor AI plugin
+Sanitized DocSpace tool catalog for the editor AI pluginReturns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-list/).
 

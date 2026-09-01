@@ -58,7 +58,7 @@ public class AiResolvedAssignment {
   }
 
   /**
-   * Get profileId
+   * The identifier of the resolved profile.
    * @return profileId
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PROFILE_ID, required = true)
@@ -82,7 +82,7 @@ public class AiResolvedAssignment {
   }
 
   /**
-   * Get profile
+   * The resolved profile itself.
    * @return profile
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PROFILE, required = true)

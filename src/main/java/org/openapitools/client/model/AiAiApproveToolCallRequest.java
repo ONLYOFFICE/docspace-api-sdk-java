@@ -233,7 +233,7 @@ public class AiAiApproveToolCallRequest {
   }
 
   /**
-   * Get actionArgs
+   * Per-request engine options: extra tools, reasoning, prompt override.
    * @return actionArgs
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTION_ARGS, required = false)
@@ -257,7 +257,7 @@ public class AiAiApproveToolCallRequest {
   }
 
   /**
-   * Get entityId
+   * Optional entity (room) scope for profile resolution.
    * @return entityId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENTITY_ID, required = false)
@@ -281,7 +281,7 @@ public class AiAiApproveToolCallRequest {
   }
 
   /**
-   * Get profileId
+   * Session-level profile override for this request only.
    * @return profileId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROFILE_ID, required = false)

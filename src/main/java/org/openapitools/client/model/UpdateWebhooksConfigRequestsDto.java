@@ -202,7 +202,7 @@ public class UpdateWebhooksConfigRequestsDto {
   }
 
   /**
-   * The webhook trigger type.
+   * Defines which events will trigger webhook notifications.
    * @return triggers
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRIGGERS, required = false)

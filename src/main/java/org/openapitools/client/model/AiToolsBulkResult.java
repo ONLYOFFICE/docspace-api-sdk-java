@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Outcome of  {@link  ToolsEngine.replaceAllCustomServers }  — either every entry persisted, or no entries persisted plus a per-key error report.
+ * Outcome of `ToolsEngine.replaceAllCustomServers` — either every entry persisted, or no entries persisted plus a per-key error report.
  */
 @JsonPropertyOrder({
   AiToolsBulkResult.JSON_PROPERTY_SUCCESS,
@@ -61,7 +61,7 @@ public class AiToolsBulkResult {
   }
 
   /**
-   * Get success
+   * True when every custom MCP server was persisted.
    * @return success
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SUCCESS, required = true)
@@ -93,7 +93,7 @@ public class AiToolsBulkResult {
   }
 
   /**
-   * Get errors
+   * What was rejected, per server. Present on failure - and then no server was persisted.
    * @return errors
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ERRORS, required = false)

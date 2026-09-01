@@ -26,6 +26,7 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.EmployeeArrayWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.ObjectWrapper;
 import org.openapitools.client.model.PasswordSettingsRequestsDto;
 import org.openapitools.client.model.PasswordSettingsWrapper;

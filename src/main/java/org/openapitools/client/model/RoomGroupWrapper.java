@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * RoomGroupWrapper
+ * The successful API response containing the RoomGroupDto object.
  */
 @JsonPropertyOrder({
   RoomGroupWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class RoomGroupWrapper {
   }
 
   /**
-   * Get response
+   * The RoomGroupDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

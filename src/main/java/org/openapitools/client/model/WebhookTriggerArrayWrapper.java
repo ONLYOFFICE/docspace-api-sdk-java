@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * WebhookTriggerArrayWrapper
+ * The successful API response containing the list of WebhookTriggerDto objects.
  */
 @JsonPropertyOrder({
   WebhookTriggerArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class WebhookTriggerArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of WebhookTriggerDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

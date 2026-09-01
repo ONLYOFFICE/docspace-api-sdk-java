@@ -24,8 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 import java.util.UUID;
-import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.FileShare;
 import org.openapitools.client.model.LinkType;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -63,7 +63,7 @@ public class RoomLinkRequest {
   @javax.annotation.Nullable  private FileShare access;
 
   public static final String JSON_PROPERTY_EXPIRATION_DATE = "expirationDate";
-  @javax.annotation.Nullable  private ApiDateTime expirationDate;
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> expirationDate = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_INTERNAL = "internal";
   @javax.annotation.Nullable  private Boolean internal;
@@ -121,7 +121,7 @@ public class RoomLinkRequest {
   }
 
   /**
-   * The access rights type.
+   * The link sharing rights.
    * @return access
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
@@ -138,28 +138,35 @@ public class RoomLinkRequest {
     this.access = access;
   }
 
-  public RoomLinkRequest expirationDate(@javax.annotation.Nullable ApiDateTime expirationDate) {
+  public RoomLinkRequest expirationDate(@javax.annotation.Nullable OffsetDateTime expirationDate) {
+    this.expirationDate = JsonNullable.<OffsetDateTime>of(expirationDate);
     
-    this.expirationDate = expirationDate;
     return this;
   }
 
   /**
-   * The API date and time parameters.
+   * The link expiration date.
    * @return expirationDate
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public ApiDateTime getExpirationDate() {
-    return expirationDate;
+  public OffsetDateTime getExpirationDate() {
+        return expirationDate.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpirationDate(@javax.annotation.Nullable ApiDateTime expirationDate) {
+  public JsonNullable<OffsetDateTime> getExpirationDate_JsonNullable() {
+    return expirationDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
+  public void setExpirationDate_JsonNullable(JsonNullable<OffsetDateTime> expirationDate) {
     this.expirationDate = expirationDate;
+  }
+
+  public void setExpirationDate(@javax.annotation.Nullable OffsetDateTime expirationDate) {
+    this.expirationDate = JsonNullable.<OffsetDateTime>of(expirationDate);
   }
 
   public RoomLinkRequest internal(@javax.annotation.Nullable Boolean internal) {
@@ -364,7 +371,7 @@ public class RoomLinkRequest {
     RoomLinkRequest roomLinkRequest = (RoomLinkRequest) o;
     return Objects.equals(this.linkId, roomLinkRequest.linkId) &&
         Objects.equals(this.access, roomLinkRequest.access) &&
-        Objects.equals(this.expirationDate, roomLinkRequest.expirationDate) &&
+        equalsNullable(this.expirationDate, roomLinkRequest.expirationDate) &&
         Objects.equals(this.internal, roomLinkRequest.internal) &&
         equalsNullable(this.title, roomLinkRequest.title) &&
         Objects.equals(this.linkType, roomLinkRequest.linkType) &&
@@ -380,7 +387,7 @@ public class RoomLinkRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(linkId, access, expirationDate, internal, hashCodeNullable(title), linkType, hashCodeNullable(password), denyDownload, hashCodeNullable(maxUseCount), currentUseCount);
+    return Objects.hash(linkId, access, hashCodeNullable(expirationDate), internal, hashCodeNullable(title), linkType, hashCodeNullable(password), denyDownload, hashCodeNullable(maxUseCount), currentUseCount);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -473,7 +480,12 @@ public class RoomLinkRequest {
 
     // add `expirationDate` to the URL query string
     if (getExpirationDate() != null) {
-      joiner.add(getExpirationDate().toUrlQueryString(prefix + "expirationDate" + suffix));
+      try {
+        joiner.add(String.format("%sexpirationDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpirationDate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `internal` to the URL query string

@@ -11,7 +11,7 @@ A shareable link for a file with its configuration and status.
 |**id** | **UUID** | The unique identifier of the shared link. |  [optional] |
 |**title** | **String** | The title of the shared content. |  [optional] |
 |**shareLink** | **String** | The URL for accessing the shared content. |  [optional] |
-|**expirationDate** | [**ApiDateTime**](ApiDateTime.md) | The API date and time parameters. |  [optional] |
+|**expirationDate** | **OffsetDateTime** | The date when the shared link expires. |  [optional] |
 |**linkType** | **LinkType** | The sharing link type (e.g., Invitation). |  [optional] |
 |**password** | **String** | The password protection for accessing the shared content. |  [optional] |
 |**denyDownload** | **Boolean** | Indicates whether downloading of the shared content is prohibited. |  [optional] |

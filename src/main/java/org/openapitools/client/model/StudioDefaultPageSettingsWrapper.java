@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * StudioDefaultPageSettingsWrapper
+ * The successful API response containing the StudioDefaultPageSettings object.
  */
 @JsonPropertyOrder({
   StudioDefaultPageSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class StudioDefaultPageSettingsWrapper {
   }
 
   /**
-   * Get response
+   * The StudioDefaultPageSettings object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

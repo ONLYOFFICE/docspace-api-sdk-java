@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * SsoSettingsV2Wrapper
+ * The successful API response containing the SsoSettingsV2 object.
  */
 @JsonPropertyOrder({
   SsoSettingsV2Wrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class SsoSettingsV2Wrapper {
   }
 
   /**
-   * Get response
+   * The SsoSettingsV2 object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

@@ -24,8 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 import java.util.UUID;
-import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.EmployeeType;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -59,7 +59,7 @@ public class InvitationLinkDto {
   @javax.annotation.Nonnull  private EmployeeType employeeType;
 
   public static final String JSON_PROPERTY_EXPIRATION = "expiration";
-  @javax.annotation.Nullable  private ApiDateTime expiration;
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> expiration = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_IS_EXPIRED = "isExpired";
   @javax.annotation.Nullable  private Boolean isExpired;
@@ -108,7 +108,7 @@ public class InvitationLinkDto {
   }
 
   /**
-   * The user type.
+   * The type of employee role for the invitation link.
    * @return employeeType
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_EMPLOYEE_TYPE, required = true)
@@ -125,28 +125,35 @@ public class InvitationLinkDto {
     this.employeeType = employeeType;
   }
 
-  public InvitationLinkDto expiration(@javax.annotation.Nullable ApiDateTime expiration) {
+  public InvitationLinkDto expiration(@javax.annotation.Nullable OffsetDateTime expiration) {
+    this.expiration = JsonNullable.<OffsetDateTime>of(expiration);
     
-    this.expiration = expiration;
     return this;
   }
 
   /**
-   * The API date and time parameters.
+   * The expiration date of the invitation link.
    * @return expiration
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public ApiDateTime getExpiration() {
-    return expiration;
+  public OffsetDateTime getExpiration() {
+        return expiration.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_EXPIRATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpiration(@javax.annotation.Nullable ApiDateTime expiration) {
+  public JsonNullable<OffsetDateTime> getExpiration_JsonNullable() {
+    return expiration;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXPIRATION)
+  public void setExpiration_JsonNullable(JsonNullable<OffsetDateTime> expiration) {
     this.expiration = expiration;
+  }
+
+  public void setExpiration(@javax.annotation.Nullable OffsetDateTime expiration) {
+    this.expiration = JsonNullable.<OffsetDateTime>of(expiration);
   }
 
   public InvitationLinkDto isExpired(@javax.annotation.Nullable Boolean isExpired) {
@@ -270,7 +277,7 @@ public class InvitationLinkDto {
     InvitationLinkDto invitationLinkDto = (InvitationLinkDto) o;
     return Objects.equals(this.id, invitationLinkDto.id) &&
         Objects.equals(this.employeeType, invitationLinkDto.employeeType) &&
-        Objects.equals(this.expiration, invitationLinkDto.expiration) &&
+        equalsNullable(this.expiration, invitationLinkDto.expiration) &&
         Objects.equals(this.isExpired, invitationLinkDto.isExpired) &&
         equalsNullable(this.maxUseCount, invitationLinkDto.maxUseCount) &&
         Objects.equals(this.currentUseCount, invitationLinkDto.currentUseCount) &&
@@ -283,7 +290,7 @@ public class InvitationLinkDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, employeeType, expiration, isExpired, hashCodeNullable(maxUseCount), currentUseCount, hashCodeNullable(url));
+    return Objects.hash(id, employeeType, hashCodeNullable(expiration), isExpired, hashCodeNullable(maxUseCount), currentUseCount, hashCodeNullable(url));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -373,7 +380,12 @@ public class InvitationLinkDto {
 
     // add `expiration` to the URL query string
     if (getExpiration() != null) {
-      joiner.add(getExpiration().toUrlQueryString(prefix + "expiration" + suffix));
+      try {
+        joiner.add(String.format("%sexpiration%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpiration()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `isExpired` to the URL query string

@@ -26,6 +26,7 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.AccountInfoArrayWrapper;
 import org.openapitools.client.model.EmployeeWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.LinkAccountRequestDto;
 import org.openapitools.client.model.SignupAccountRequestDto;
 
@@ -183,7 +184,7 @@ public class ThirdPartyAccountsApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -337,7 +338,7 @@ public class ThirdPartyAccountsApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -378,7 +379,7 @@ public class ThirdPartyAccountsApi extends BaseApi {
     localVarHeaderParams.putAll(additionalHeaders);
 
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ScheduleWrapper
+ * The successful API response containing the ScheduleDto object.
  */
 @JsonPropertyOrder({
   ScheduleWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class ScheduleWrapper {
   }
 
   /**
-   * Get response
+   * The ScheduleDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

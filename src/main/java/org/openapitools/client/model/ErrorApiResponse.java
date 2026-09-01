@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.client.model.ErrorApiResponseError;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -32,28 +33,60 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * NoContentResult
+ * The error body returned with every failed request.
  */
 @JsonPropertyOrder({
-  NoContentResult.JSON_PROPERTY_STATUS_CODE
+  ErrorApiResponse.JSON_PROPERTY_STATUS,
+  ErrorApiResponse.JSON_PROPERTY_STATUS_CODE,
+  ErrorApiResponse.JSON_PROPERTY_ERROR
 })
 
-public class NoContentResult {
+public class ErrorApiResponse {
+  public static final String JSON_PROPERTY_STATUS = "status";
+  @javax.annotation.Nullable  private Integer status;
+
   public static final String JSON_PROPERTY_STATUS_CODE = "statusCode";
   @javax.annotation.Nullable  private Integer statusCode;
 
-  public NoContentResult() {
+  public static final String JSON_PROPERTY_ERROR = "error";
+  @javax.annotation.Nullable  private ErrorApiResponseError error;
+
+  public ErrorApiResponse() {
   }
 
 
-  public NoContentResult statusCode(@javax.annotation.Nullable Integer statusCode) {
+  public ErrorApiResponse status(@javax.annotation.Nullable Integer status) {
+    
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * The response status flag. Always 1 on an error, as opposed to 0 on success.
+   * @return status
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getStatus() {
+    return status;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStatus(@javax.annotation.Nullable Integer status) {
+    this.status = status;
+  }
+
+  public ErrorApiResponse statusCode(@javax.annotation.Nullable Integer statusCode) {
     
     this.statusCode = statusCode;
     return this;
   }
 
   /**
-   * Get statusCode
+   * The HTTP status code of the response, repeated in the body.
    * @return statusCode
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS_CODE, required = false)
@@ -70,6 +103,30 @@ public class NoContentResult {
     this.statusCode = statusCode;
   }
 
+  public ErrorApiResponse error(@javax.annotation.Nullable ErrorApiResponseError error) {
+    
+    this.error = error;
+    return this;
+  }
+
+  /**
+   * Get error
+   * @return error
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public ErrorApiResponseError getError() {
+    return error;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setError(@javax.annotation.Nullable ErrorApiResponseError error) {
+    this.error = error;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -78,20 +135,24 @@ public class NoContentResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NoContentResult noContentResult = (NoContentResult) o;
-    return Objects.equals(this.statusCode, noContentResult.statusCode);
+    ErrorApiResponse errorApiResponse = (ErrorApiResponse) o;
+    return Objects.equals(this.status, errorApiResponse.status) &&
+        Objects.equals(this.statusCode, errorApiResponse.statusCode) &&
+        Objects.equals(this.error, errorApiResponse.error);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(statusCode);
+    return Objects.hash(status, statusCode, error);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NoContentResult {\n");
+    sb.append("class ErrorApiResponse {\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -139,6 +200,16 @@ public class NoContentResult {
 
     StringJoiner joiner = new StringJoiner("&");
 
+    // add `status` to the URL query string
+    if (getStatus() != null) {
+      try {
+        joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
     // add `statusCode` to the URL query string
     if (getStatusCode() != null) {
       try {
@@ -147,6 +218,11 @@ public class NoContentResult {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
+    }
+
+    // add `error` to the URL query string
+    if (getError() != null) {
+      joiner.add(getError().toUrlQueryString(prefix + "error" + suffix));
     }
 
     return joiner.toString();

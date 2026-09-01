@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * CapabilitiesWrapper
+ * The successful API response containing the CapabilitiesDto object.
  */
 @JsonPropertyOrder({
   CapabilitiesWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class CapabilitiesWrapper {
   }
 
   /**
-   * Get response
+   * The CapabilitiesDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

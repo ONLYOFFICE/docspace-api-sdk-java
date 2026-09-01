@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiAiUserSettingsWrapper
+ * The successful API response containing the AiUserSettingsDto object.
  */
 @JsonPropertyOrder({
   AiAiUserSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class AiAiUserSettingsWrapper {
   }
 
   /**
-   * Get response
+   * The AiUserSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

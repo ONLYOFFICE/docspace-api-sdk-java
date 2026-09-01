@@ -25,6 +25,7 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.CreateWebhooksConfigRequestsDto;
+import org.openapitools.client.model.ErrorApiResponse;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 import org.openapitools.client.model.UpdateWebhooksConfigRequestsDto;

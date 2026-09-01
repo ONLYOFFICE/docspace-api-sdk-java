@@ -24,6 +24,7 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.IconRequest;
 import org.openapitools.client.model.RoomGroupArrayWrapper;
 import org.openapitools.client.model.RoomGroupRequestDto;
@@ -269,7 +270,7 @@ public class GroupsApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -391,13 +392,12 @@ public class GroupsApi extends BaseApi {
    * REST API Reference for getRoomGroups Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-groups/
    *
-   * @param id The group unique identifier. (required)
    * @param includeMembers Whether to include group members. (optional)
    * @return RoomGroupArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public RoomGroupArrayWrapper getRoomGroups(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable Boolean includeMembers) throws ApiException {
-    return this.getRoomGroups(id, includeMembers, Collections.emptyMap());
+  public RoomGroupArrayWrapper getRoomGroups(@javax.annotation.Nullable Boolean includeMembers) throws ApiException {
+    return this.getRoomGroups(includeMembers, Collections.emptyMap());
   }
 
 
@@ -408,23 +408,16 @@ public class GroupsApi extends BaseApi {
    * REST API Reference for getRoomGroups Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-groups/
    *
-   * @param id The group unique identifier. (required)
    * @param includeMembers Whether to include group members. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return RoomGroupArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public RoomGroupArrayWrapper getRoomGroups(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable Boolean includeMembers, Map<String, String> additionalHeaders) throws ApiException {
+  public RoomGroupArrayWrapper getRoomGroups(@javax.annotation.Nullable Boolean includeMembers, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getRoomGroups");
-    }
-    
     // create path and map variables
-    String localVarPath = "/api/2.0/files/group"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
+    String localVarPath = "/api/2.0/files/group";
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;

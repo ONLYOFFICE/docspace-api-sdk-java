@@ -106,7 +106,7 @@ public class ConversationResultDto {
   }
 
   /**
-   * The file operation type.
+   * The conversion operation type.
    * @return operation
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_OPERATION, required = true)

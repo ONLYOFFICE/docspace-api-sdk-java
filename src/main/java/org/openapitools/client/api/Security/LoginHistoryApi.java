@@ -24,11 +24,12 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.AuditReportFormat;
 import org.openapitools.client.model.DocumentBuilderTaskWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.LoginEventArrayWrapper;
 import org.openapitools.client.model.MessageAction;
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 
@@ -232,7 +233,7 @@ public class LoginHistoryApi extends BaseApi {
    * @return LoginEventArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public LoginEventArrayWrapper getLoginEventsByFilter(@javax.annotation.Nullable UUID userId, @javax.annotation.Nullable MessageAction action, @javax.annotation.Nullable ApiDateTime from, @javax.annotation.Nullable ApiDateTime to, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex) throws ApiException {
+  public LoginEventArrayWrapper getLoginEventsByFilter(@javax.annotation.Nullable UUID userId, @javax.annotation.Nullable MessageAction action, @javax.annotation.Nullable OffsetDateTime from, @javax.annotation.Nullable OffsetDateTime to, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex) throws ApiException {
     return this.getLoginEventsByFilter(userId, action, from, to, count, startIndex, Collections.emptyMap());
   }
 
@@ -254,7 +255,7 @@ public class LoginHistoryApi extends BaseApi {
    * @return LoginEventArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public LoginEventArrayWrapper getLoginEventsByFilter(@javax.annotation.Nullable UUID userId, @javax.annotation.Nullable MessageAction action, @javax.annotation.Nullable ApiDateTime from, @javax.annotation.Nullable ApiDateTime to, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, Map<String, String> additionalHeaders) throws ApiException {
+  public LoginEventArrayWrapper getLoginEventsByFilter(@javax.annotation.Nullable UUID userId, @javax.annotation.Nullable MessageAction action, @javax.annotation.Nullable OffsetDateTime from, @javax.annotation.Nullable OffsetDateTime to, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -270,10 +271,8 @@ public class LoginHistoryApi extends BaseApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPair("userId", userId));
     localVarQueryParams.addAll(apiClient.parameterToPair("action", action));
-    localVarQueryParameterBaseName = "from";
-    localVarQueryStringJoiner.add(from.toUrlQueryString("from"));
-    localVarQueryParameterBaseName = "to";
-    localVarQueryStringJoiner.add(to.toUrlQueryString("to"));
+    localVarQueryParams.addAll(apiClient.parameterToPair("from", from));
+    localVarQueryParams.addAll(apiClient.parameterToPair("to", to));
     localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
     localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
       
@@ -435,7 +434,7 @@ public class LoginHistoryApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -476,7 +475,7 @@ public class LoginHistoryApi extends BaseApi {
     localVarHeaderParams.putAll(additionalHeaders);
 
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

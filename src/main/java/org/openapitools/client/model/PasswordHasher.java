@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * PasswordHasher
+ * The password hash parameters.
  */
 @JsonPropertyOrder({
   PasswordHasher.JSON_PROPERTY_SIZE,
@@ -73,7 +73,7 @@ public class PasswordHasher {
 
 
   /**
-   * Get size
+   * The password hash size.
    * @return size
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SIZE, required = false)
@@ -86,7 +86,7 @@ public class PasswordHasher {
 
 
   /**
-   * Get iterations
+   * The number of iterations to generate the ppassword hash.
    * @return iterations
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ITERATIONS, required = false)
@@ -99,7 +99,7 @@ public class PasswordHasher {
 
 
   /**
-   * Get salt
+   * The salt to generate the ppassword hash.
    * @return salt
    */
   @javax.annotation.Nullable  @JsonIgnore

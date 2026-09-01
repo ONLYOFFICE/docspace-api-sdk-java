@@ -48,7 +48,7 @@ public class EditorToolsApi extends BaseApi {
 
   /**
    * Execute a DocSpace tool on behalf of the editor AI plugin
-   * 
+   * Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
    *
    * REST API Reference for aiEditorToolsCall Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-call/
@@ -64,7 +64,7 @@ public class EditorToolsApi extends BaseApi {
 
   /**
    * Execute a DocSpace tool on behalf of the editor AI plugin
-   * 
+   * Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
    *
    * REST API Reference for aiEditorToolsCall Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-call/
@@ -131,7 +131,7 @@ public class EditorToolsApi extends BaseApi {
 
   /**
    * Sanitized DocSpace tool catalog for the editor AI plugin
-   * 
+   * Returns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
    *
    * REST API Reference for aiEditorToolsList Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-list/
@@ -146,7 +146,7 @@ public class EditorToolsApi extends BaseApi {
 
   /**
    * Sanitized DocSpace tool catalog for the editor AI plugin
-   * 
+   * Returns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
    *
    * REST API Reference for aiEditorToolsList Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-list/

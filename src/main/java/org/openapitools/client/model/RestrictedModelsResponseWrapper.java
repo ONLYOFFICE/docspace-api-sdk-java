@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * RestrictedModelsResponseWrapper
+ * The successful API response containing the RestrictedModelsResponse object.
  */
 @JsonPropertyOrder({
   RestrictedModelsResponseWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class RestrictedModelsResponseWrapper {
   }
 
   /**
-   * Get response
+   * The RestrictedModelsResponse object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

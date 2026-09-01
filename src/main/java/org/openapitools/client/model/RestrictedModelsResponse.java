@@ -35,7 +35,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * RestrictedModelsResponse
+ * The AI models the portal is not allowed to use.
  */
 @JsonPropertyOrder({
   RestrictedModelsResponse.JSON_PROPERTY_MODELS
@@ -64,7 +64,7 @@ public class RestrictedModelsResponse {
   }
 
   /**
-   * Get models
+   * The identifiers of the models the portal is not allowed to use.
    * @return models
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MODELS, required = false)

@@ -41,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * FileEncryptionInfoDto
+ * The encryption information of a file: the user key pairs and the per-user file keys.
  */
 @JsonPropertyOrder({
   FileEncryptionInfoDto.JSON_PROPERTY_USER_KEYS,
@@ -78,7 +78,7 @@ public class FileEncryptionInfoDto {
   }
 
   /**
-   * Get userKeys
+   * The key pairs of the users who have access to the file.
    * @return userKeys
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -121,7 +121,7 @@ public class FileEncryptionInfoDto {
   }
 
   /**
-   * Get fileKeys
+   * The file keys issued to those users.
    * @return fileKeys
    */
   @javax.annotation.Nullable  @JsonIgnore

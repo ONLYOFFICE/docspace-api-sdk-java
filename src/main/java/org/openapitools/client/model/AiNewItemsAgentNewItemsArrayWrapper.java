@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiNewItemsAgentNewItemsArrayWrapper
+ * The successful API response containing the list of NewItemsDtoAgentNewItemsDto objects.
  */
 @JsonPropertyOrder({
   AiNewItemsAgentNewItemsArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class AiNewItemsAgentNewItemsArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of NewItemsDtoAgentNewItemsDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

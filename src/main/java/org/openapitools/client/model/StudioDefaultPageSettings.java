@@ -34,7 +34,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * StudioDefaultPageSettings
+ * The settings that define the folder opened by default after sign-in.
  */
 @JsonPropertyOrder({
   StudioDefaultPageSettings.JSON_PROPERTY_DEFAULT_FOLDER_TYPE,

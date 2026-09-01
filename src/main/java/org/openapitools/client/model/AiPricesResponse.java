@@ -40,7 +40,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiPricesResponse
+ * The AI price list: per-model pricing for every model kind, in a single currency.
  */
 @JsonPropertyOrder({
   AiPricesResponse.JSON_PROPERTY_CHAT,
@@ -85,7 +85,7 @@ public class AiPricesResponse {
   }
 
   /**
-   * Get chat
+   * The pricing of every available chat model.
    * @return chat
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CHAT, required = false)
@@ -117,7 +117,7 @@ public class AiPricesResponse {
   }
 
   /**
-   * Get embedding
+   * The pricing of every available embedding model.
    * @return embedding
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMBEDDING, required = false)
@@ -149,7 +149,7 @@ public class AiPricesResponse {
   }
 
   /**
-   * Get image
+   * The pricing of every available image model.
    * @return image
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMAGE, required = false)
@@ -181,7 +181,7 @@ public class AiPricesResponse {
   }
 
   /**
-   * Get search
+   * The pricing of every available web search provider.
    * @return search
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SEARCH, required = false)
@@ -205,7 +205,7 @@ public class AiPricesResponse {
   }
 
   /**
-   * Get currency
+   * The currency the AI prices are quoted in.
    * @return currency
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CURRENCY, required = true)

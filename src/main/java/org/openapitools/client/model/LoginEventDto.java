@@ -24,8 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 import java.util.UUID;
-import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.MessageAction;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -62,7 +62,7 @@ public class LoginEventDto {
   @javax.annotation.Nullable  private Integer id;
 
   public static final String JSON_PROPERTY_DATE = "date";
-  @javax.annotation.Nullable  private ApiDateTime date;
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> date = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_USER = "user";
   @javax.annotation.Nullable  private JsonNullable<String> user = JsonNullable.<String>undefined();
@@ -125,28 +125,35 @@ public class LoginEventDto {
     this.id = id;
   }
 
-  public LoginEventDto date(@javax.annotation.Nullable ApiDateTime date) {
+  public LoginEventDto date(@javax.annotation.Nullable OffsetDateTime date) {
+    this.date = JsonNullable.<OffsetDateTime>of(date);
     
-    this.date = date;
     return this;
   }
 
   /**
-   * The API date and time parameters.
+   * The login event date.
    * @return date
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public ApiDateTime getDate() {
-    return date;
+  public OffsetDateTime getDate() {
+        return date.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(@javax.annotation.Nullable ApiDateTime date) {
+  public JsonNullable<OffsetDateTime> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<OffsetDateTime> date) {
     this.date = date;
+  }
+
+  public void setDate(@javax.annotation.Nullable OffsetDateTime date) {
+    this.date = JsonNullable.<OffsetDateTime>of(date);
   }
 
   public LoginEventDto user(@javax.annotation.Nullable String user) {
@@ -273,7 +280,7 @@ public class LoginEventDto {
   }
 
   /**
-   * The event action ID.
+   * The login-related action to filter events by.
    * @return actionId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTION_ID, required = false)
@@ -486,7 +493,7 @@ public class LoginEventDto {
     }
     LoginEventDto loginEventDto = (LoginEventDto) o;
     return Objects.equals(this.id, loginEventDto.id) &&
-        Objects.equals(this.date, loginEventDto.date) &&
+        equalsNullable(this.date, loginEventDto.date) &&
         equalsNullable(this.user, loginEventDto.user) &&
         Objects.equals(this.userId, loginEventDto.userId) &&
         equalsNullable(this.login, loginEventDto.login) &&
@@ -506,7 +513,7 @@ public class LoginEventDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, date, hashCodeNullable(user), userId, hashCodeNullable(login), hashCodeNullable(action), actionId, hashCodeNullable(ip), hashCodeNullable(country), hashCodeNullable(city), hashCodeNullable(browser), hashCodeNullable(platform), hashCodeNullable(page));
+    return Objects.hash(id, hashCodeNullable(date), hashCodeNullable(user), userId, hashCodeNullable(login), hashCodeNullable(action), actionId, hashCodeNullable(ip), hashCodeNullable(country), hashCodeNullable(city), hashCodeNullable(browser), hashCodeNullable(platform), hashCodeNullable(page));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -592,7 +599,12 @@ public class LoginEventDto {
 
     // add `date` to the URL query string
     if (getDate() != null) {
-      joiner.add(getDate().toUrlQueryString(prefix + "date" + suffix));
+      try {
+        joiner.add(String.format("%sdate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `user` to the URL query string

@@ -153,7 +153,7 @@ public class AiProfilesGetById200Response {
   }
 
   /**
-   * Provider type for this profile. Use `external` to delegate all HTTP transport to  {@link  PlatformAdapter.externalFetch  }  while reusing an existing provider's response parser — see  {@link  Profile.basedOn }  for the format selector.
+   * Provider type for this profile. Use `external` to delegate all HTTP transport to `PlatformAdapter.externalFetch` while reusing an existing provider's response parser — see `Profile.basedOn` for the format selector.
    * @return providerType
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PROVIDER_TYPE, required = true)
@@ -321,7 +321,7 @@ public class AiProfilesGetById200Response {
   }
 
   /**
-   * Result of the live Responses-API probe (parallel to  {@link  canUseTool  } ). `true` means the model speaks `/v1/responses` and the OpenAI provider must route through `client.responses.create` — required for gpt-5+ reasoning models that reject `reasoning_effort` together with `tools` on `/v1/chat/completions`. Probed at create time and whenever `modelId` / `providerType` / `baseUrl` change. `undefined` means the probe never ran (legacy record) — readers treat that as `false`.
+   * Result of the live Responses-API probe (parallel to `canUseTool`). `true` means the model speaks `/v1/responses` and the OpenAI provider must route through `client.responses.create` — required for gpt-5+ reasoning models that reject `reasoning_effort` together with `tools` on `/v1/chat/completions`. Probed at create time and whenever `modelId` / `providerType` / `baseUrl` change. `undefined` means the probe never ran (legacy record) — readers treat that as `false`.
    * @return useResponsesApi
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USE_RESPONSES_API, required = false)
@@ -369,7 +369,7 @@ public class AiProfilesGetById200Response {
   }
 
   /**
-   * Route every provider request through the host's `fetchProxy` instead of the global `fetch`. Useful when the host runs the widget in a sandbox without direct network access (CORS, custom auth, etc.). Has no effect when the  {@link  PlatformAdapter.fetchProxy  }  is not configured.
+   * Route every provider request through the host's `fetchProxy` instead of the global `fetch`. Useful when the host runs the widget in a sandbox without direct network access (CORS, custom auth, etc.). Has no effect when the `PlatformAdapter.fetchProxy` is not configured.
    * @return useProxy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USE_PROXY, required = false)

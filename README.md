@@ -1720,12 +1720,12 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       </tr>
       <tr>
         <td><a href="docs/FilesSharingApi.md#setfilesecurityinfo"><strong>setFileSecurityInfo</strong></a></td>
-        <td><strong>PUT</strong> /api/2.0/files/file/{fileId}/share</td>
+        <td><strong>PUT</strong> /api/2.0/files/file/{id}/share</td>
         <td>Share a file</td>
       </tr>
       <tr>
         <td><a href="docs/FilesSharingApi.md#setfoldersecurityinfo"><strong>setFolderSecurityInfo</strong></a></td>
-        <td><strong>PUT</strong> /api/2.0/files/folder/{folderId}/share</td>
+        <td><strong>PUT</strong> /api/2.0/files/folder/{id}/share</td>
         <td>Share a folder</td>
       </tr>
       <tr>
@@ -2736,48 +2736,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 </details>
 <details>
-  <summary>Privacyroom</summary>
-
-  <table>
-    <tbody>
-      <tr>
-        <th>Method</th>
-        <th>HTTP request</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td colspan="3" style="text-align: center;"><strong>PrivacyroomApi</strong></td>
-      </tr>
-      <tr>
-        <td><a href="docs/PrivacyroomApi.md#deletekeys"><strong>deleteKeys</strong></a></td>
-        <td><strong>DELETE</strong> /api/2.0/privacyroom/keys/{id}</td>
-        <td>Deletes an encryption key and removes it from the system.</td>
-      </tr>
-      <tr>
-        <td><a href="docs/PrivacyroomApi.md#getuserkeys"><strong>getUserKeys</strong></a></td>
-        <td><strong>GET</strong> /api/2.0/privacyroom/keys</td>
-        <td>Retrieves encryption keys associated with the current user.</td>
-      </tr>
-      <tr>
-        <td><a href="docs/PrivacyroomApi.md#getuserkeysforroom"><strong>getUserKeysForRoom</strong></a></td>
-        <td><strong>GET</strong> /api/2.0/privacyroom/{roomId}/access</td>
-        <td>Retrieves the encryption keys associated with a specific privacy room.</td>
-      </tr>
-      <tr>
-        <td><a href="docs/PrivacyroomApi.md#replacekey"><strong>replaceKey</strong></a></td>
-        <td><strong>PUT</strong> /api/2.0/privacyroom/keys</td>
-        <td>Replaces an existing encryption key with a new one for the user.</td>
-      </tr>
-      <tr>
-        <td><a href="docs/PrivacyroomApi.md#setkeys"><strong>setKeys</strong></a></td>
-        <td><strong>POST</strong> /api/2.0/privacyroom/keys</td>
-        <td>Creates and sets encryption keys for the user.</td>
-      </tr>
-    </tbody>
-  </table>
-
-</details>
-<details>
   <summary>Rooms</summary>
 
   <table>
@@ -3032,6 +2990,34 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/RoomsGroupsApi.md#updateroomgroup"><strong>updateRoomGroup</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/files/group/{id}</td>
         <td>Update room group</td>
+      </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;"><strong>PrivacyRoomApi</strong></td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsPrivacyRoomApi.md#deletekeys"><strong>deleteKeys</strong></a></td>
+        <td><strong>DELETE</strong> /api/2.0/privacyroom/keys/{id}</td>
+        <td>Deletes an encryption key and removes it from the system.</td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsPrivacyRoomApi.md#getuserkeys"><strong>getUserKeys</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/privacyroom/keys</td>
+        <td>Retrieves encryption keys associated with the current user.</td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsPrivacyRoomApi.md#getuserkeysforroom"><strong>getUserKeysForRoom</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/privacyroom/{roomId}/access</td>
+        <td>Retrieves the encryption keys associated with a specific privacy room.</td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsPrivacyRoomApi.md#replacekey"><strong>replaceKey</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/privacyroom/keys</td>
+        <td>Replaces an existing encryption key with a new one for the user.</td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsPrivacyRoomApi.md#setkeys"><strong>setKeys</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/privacyroom/keys</td>
+        <td>Creates and sets encryption keys for the user.</td>
       </tr>
     </tbody>
   </table>
@@ -4067,6 +4053,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.ActiveServiceDto](docs/ActiveServiceDto.md)
  - [org.openapitools.client.model.AdditionalWhiteLabelSettings](docs/AdditionalWhiteLabelSettings.md)
  - [org.openapitools.client.model.AdditionalWhiteLabelSettingsDto](docs/AdditionalWhiteLabelSettingsDto.md)
+ - [org.openapitools.client.model.AdditionalWhiteLabelSettingsDtoWrapper](docs/AdditionalWhiteLabelSettingsDtoWrapper.md)
+ - [org.openapitools.client.model.AdditionalWhiteLabelSettingsResponseWrapper](docs/AdditionalWhiteLabelSettingsResponseWrapper.md)
  - [org.openapitools.client.model.AdditionalWhiteLabelSettingsWrapper](docs/AdditionalWhiteLabelSettingsWrapper.md)
  - [org.openapitools.client.model.AdminMessageBaseSettingsRequestsDto](docs/AdminMessageBaseSettingsRequestsDto.md)
  - [org.openapitools.client.model.AdminMessageSettingsRequestsDto](docs/AdminMessageSettingsRequestsDto.md)
@@ -4090,7 +4078,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.AiAiToolCallData](docs/AiAiToolCallData.md)
  - [org.openapitools.client.model.AiAiUserSettingsDto](docs/AiAiUserSettingsDto.md)
  - [org.openapitools.client.model.AiAiUserSettingsWrapper](docs/AiAiUserSettingsWrapper.md)
- - [org.openapitools.client.model.AiApiDateTime](docs/AiApiDateTime.md)
  - [org.openapitools.client.model.AiAssignmentMutationResult](docs/AiAssignmentMutationResult.md)
  - [org.openapitools.client.model.AiAssignmentsAssignRequest](docs/AiAssignmentsAssignRequest.md)
  - [org.openapitools.client.model.AiAttachment](docs/AiAttachment.md)
@@ -4211,7 +4198,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.AiWebSearchMutationResult](docs/AiWebSearchMutationResult.md)
  - [org.openapitools.client.model.AiWebSearchPricing](docs/AiWebSearchPricing.md)
  - [org.openapitools.client.model.AnonymousConfigDto](docs/AnonymousConfigDto.md)
- - [org.openapitools.client.model.ApiDateTime](docs/ApiDateTime.md)
  - [org.openapitools.client.model.ApiKeyResponseArrayWrapper](docs/ApiKeyResponseArrayWrapper.md)
  - [org.openapitools.client.model.ApiKeyResponseDto](docs/ApiKeyResponseDto.md)
  - [org.openapitools.client.model.ApiKeyResponseWrapper](docs/ApiKeyResponseWrapper.md)
@@ -4293,6 +4279,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.CompanyWhiteLabelSettings](docs/CompanyWhiteLabelSettings.md)
  - [org.openapitools.client.model.CompanyWhiteLabelSettingsArrayWrapper](docs/CompanyWhiteLabelSettingsArrayWrapper.md)
  - [org.openapitools.client.model.CompanyWhiteLabelSettingsDto](docs/CompanyWhiteLabelSettingsDto.md)
+ - [org.openapitools.client.model.CompanyWhiteLabelSettingsDtoWrapper](docs/CompanyWhiteLabelSettingsDtoWrapper.md)
+ - [org.openapitools.client.model.CompanyWhiteLabelSettingsResponseWrapper](docs/CompanyWhiteLabelSettingsResponseWrapper.md)
  - [org.openapitools.client.model.CompanyWhiteLabelSettingsWrapper](docs/CompanyWhiteLabelSettingsWrapper.md)
  - [org.openapitools.client.model.ConfigurationDtoInteger](docs/ConfigurationDtoInteger.md)
  - [org.openapitools.client.model.ConfigurationIntegerWrapper](docs/ConfigurationIntegerWrapper.md)
@@ -4454,6 +4442,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.EncryptionSettings](docs/EncryptionSettings.md)
  - [org.openapitools.client.model.EncryptionSettingsWrapper](docs/EncryptionSettingsWrapper.md)
  - [org.openapitools.client.model.EntryType](docs/EntryType.md)
+ - [org.openapitools.client.model.ErrorApiResponse](docs/ErrorApiResponse.md)
+ - [org.openapitools.client.model.ErrorApiResponseError](docs/ErrorApiResponseError.md)
  - [org.openapitools.client.model.ExchangeToken200Response](docs/ExchangeToken200Response.md)
  - [org.openapitools.client.model.ExternalDatabaseSettings](docs/ExternalDatabaseSettings.md)
  - [org.openapitools.client.model.ExternalDatabaseType](docs/ExternalDatabaseType.md)
@@ -4502,6 +4492,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.FileShareDto](docs/FileShareDto.md)
  - [org.openapitools.client.model.FileShareLink](docs/FileShareLink.md)
  - [org.openapitools.client.model.FileShareParams](docs/FileShareParams.md)
+ - [org.openapitools.client.model.FileShareResponseArrayWrapper](docs/FileShareResponseArrayWrapper.md)
  - [org.openapitools.client.model.FileShareWrapper](docs/FileShareWrapper.md)
  - [org.openapitools.client.model.FileStatus](docs/FileStatus.md)
  - [org.openapitools.client.model.FileType](docs/FileType.md)
@@ -4564,7 +4555,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.HistoryData](docs/HistoryData.md)
  - [org.openapitools.client.model.HistoryDto](docs/HistoryDto.md)
  - [org.openapitools.client.model.ICompressWrapper](docs/ICompressWrapper.md)
- - [org.openapitools.client.model.IMagickGeometry](docs/IMagickGeometry.md)
  - [org.openapitools.client.model.IPRestriction](docs/IPRestriction.md)
  - [org.openapitools.client.model.IPRestrictionArrayWrapper](docs/IPRestrictionArrayWrapper.md)
  - [org.openapitools.client.model.IPRestrictionsSettings](docs/IPRestrictionsSettings.md)
@@ -4586,12 +4576,12 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.IsDefaultWhiteLabelLogosArrayWrapper](docs/IsDefaultWhiteLabelLogosArrayWrapper.md)
  - [org.openapitools.client.model.IsDefaultWhiteLabelLogosDto](docs/IsDefaultWhiteLabelLogosDto.md)
  - [org.openapitools.client.model.IsDefaultWhiteLabelLogosWrapper](docs/IsDefaultWhiteLabelLogosWrapper.md)
+ - [org.openapitools.client.model.ItemKeyValuePairBooleanString](docs/ItemKeyValuePairBooleanString.md)
+ - [org.openapitools.client.model.ItemKeyValuePairBooleanStringWrapper](docs/ItemKeyValuePairBooleanStringWrapper.md)
  - [org.openapitools.client.model.ItemKeyValuePairObjectObject](docs/ItemKeyValuePairObjectObject.md)
  - [org.openapitools.client.model.ItemKeyValuePairStringBoolean](docs/ItemKeyValuePairStringBoolean.md)
  - [org.openapitools.client.model.ItemKeyValuePairStringLogoRequestsDto](docs/ItemKeyValuePairStringLogoRequestsDto.md)
  - [org.openapitools.client.model.ItemKeyValuePairStringString](docs/ItemKeyValuePairStringString.md)
- - [org.openapitools.client.model.KeyValuePairBooleanString](docs/KeyValuePairBooleanString.md)
- - [org.openapitools.client.model.KeyValuePairBooleanStringWrapper](docs/KeyValuePairBooleanStringWrapper.md)
  - [org.openapitools.client.model.LinkAccountRequestDto](docs/LinkAccountRequestDto.md)
  - [org.openapitools.client.model.LinkType](docs/LinkType.md)
  - [org.openapitools.client.model.Location](docs/Location.md)
@@ -4631,8 +4621,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.NewItemsDtoRoomNewItemsDto](docs/NewItemsDtoRoomNewItemsDto.md)
  - [org.openapitools.client.model.NewItemsFileEntryBaseArrayWrapper](docs/NewItemsFileEntryBaseArrayWrapper.md)
  - [org.openapitools.client.model.NewItemsRoomNewItemsArrayWrapper](docs/NewItemsRoomNewItemsArrayWrapper.md)
- - [org.openapitools.client.model.NoContentResult](docs/NoContentResult.md)
- - [org.openapitools.client.model.NoContentResultWrapper](docs/NoContentResultWrapper.md)
  - [org.openapitools.client.model.NotificationChannelDto](docs/NotificationChannelDto.md)
  - [org.openapitools.client.model.NotificationChannelStatusDto](docs/NotificationChannelStatusDto.md)
  - [org.openapitools.client.model.NotificationChannelStatusWrapper](docs/NotificationChannelStatusWrapper.md)
@@ -4747,8 +4735,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.SettingsDto](docs/SettingsDto.md)
  - [org.openapitools.client.model.SettingsRequestDto](docs/SettingsRequestDto.md)
  - [org.openapitools.client.model.SettingsWrapper](docs/SettingsWrapper.md)
- - [org.openapitools.client.model.SetupCode](docs/SetupCode.md)
- - [org.openapitools.client.model.SetupCodeWrapper](docs/SetupCodeWrapper.md)
  - [org.openapitools.client.model.ShareFilterType](docs/ShareFilterType.md)
  - [org.openapitools.client.model.SignupAccountRequestDto](docs/SignupAccountRequestDto.md)
  - [org.openapitools.client.model.Size](docs/Size.md)
@@ -4802,6 +4788,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.TenantAiAgentQuotaSettings](docs/TenantAiAgentQuotaSettings.md)
  - [org.openapitools.client.model.TenantAiAgentQuotaSettingsWrapper](docs/TenantAiAgentQuotaSettingsWrapper.md)
  - [org.openapitools.client.model.TenantAuditSettings](docs/TenantAuditSettings.md)
+ - [org.openapitools.client.model.TenantAuditSettingsResponseWrapper](docs/TenantAuditSettingsResponseWrapper.md)
  - [org.openapitools.client.model.TenantAuditSettingsWrapper](docs/TenantAuditSettingsWrapper.md)
  - [org.openapitools.client.model.TenantBannerSettings](docs/TenantBannerSettings.md)
  - [org.openapitools.client.model.TenantBannerSettingsDto](docs/TenantBannerSettingsDto.md)
@@ -4834,6 +4821,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.TenantWalletServiceSettings](docs/TenantWalletServiceSettings.md)
  - [org.openapitools.client.model.TenantWalletServiceSettingsWrapper](docs/TenantWalletServiceSettingsWrapper.md)
  - [org.openapitools.client.model.TenantWalletSettings](docs/TenantWalletSettings.md)
+ - [org.openapitools.client.model.TenantWalletSettingsResponseWrapper](docs/TenantWalletSettingsResponseWrapper.md)
  - [org.openapitools.client.model.TenantWalletSettingsWrapper](docs/TenantWalletSettingsWrapper.md)
  - [org.openapitools.client.model.TenantWrapper](docs/TenantWrapper.md)
  - [org.openapitools.client.model.TerminateRequestDto](docs/TerminateRequestDto.md)
@@ -4845,6 +4833,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.TfaRequestsDtoType](docs/TfaRequestsDtoType.md)
  - [org.openapitools.client.model.TfaSettingsArrayWrapper](docs/TfaSettingsArrayWrapper.md)
  - [org.openapitools.client.model.TfaSettingsDto](docs/TfaSettingsDto.md)
+ - [org.openapitools.client.model.TfaSetupCodeDto](docs/TfaSetupCodeDto.md)
+ - [org.openapitools.client.model.TfaSetupCodeWrapper](docs/TfaSetupCodeWrapper.md)
  - [org.openapitools.client.model.TfaValidateRequestsDto](docs/TfaValidateRequestsDto.md)
  - [org.openapitools.client.model.ThirdPartyBackupRequestDto](docs/ThirdPartyBackupRequestDto.md)
  - [org.openapitools.client.model.ThirdPartyParams](docs/ThirdPartyParams.md)
@@ -4921,6 +4911,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.WhiteLabelItemArrayWrapper](docs/WhiteLabelItemArrayWrapper.md)
  - [org.openapitools.client.model.WhiteLabelItemDto](docs/WhiteLabelItemDto.md)
  - [org.openapitools.client.model.WhiteLabelItemPathDto](docs/WhiteLabelItemPathDto.md)
+ - [org.openapitools.client.model.WhiteLabelItemSizeDto](docs/WhiteLabelItemSizeDto.md)
  - [org.openapitools.client.model.WhiteLabelLogoType](docs/WhiteLabelLogoType.md)
  - [org.openapitools.client.model.WhiteLabelRequestsDto](docs/WhiteLabelRequestsDto.md)
  - [org.openapitools.client.model.WizardRequestsDto](docs/WizardRequestsDto.md)

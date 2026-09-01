@@ -16,7 +16,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > AiAiSettingsWrapper aiSettingsGet()
 
-Get AI settings
+Get AI settingsReports the portal's combined AI configuration and readiness.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/).
 
@@ -79,7 +79,7 @@ public class Example {
 
 > AiAiUserSettingsWrapper aiSettingsGetUser()
 
-Get user AI settings
+Get user AI settingsReturns the current user's AI settings.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/).
 
@@ -142,7 +142,7 @@ public class Example {
 
 > AiVectorizationSettingsWrapper aiSettingsGetVectorization()
 
-Get vectorization settings
+Get vectorization settingsReturns the portal's vectorization settings.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/).
 
@@ -205,7 +205,7 @@ public class Example {
 
 > AiAiUserSettingsWrapper aiSettingsSetUser(requestBody)
 
-Update user AI settings
+Update user AI settingsUpdates the current user's AI settings.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/).
 
@@ -272,7 +272,7 @@ public class Example {
 
 > AiVectorizationSettingsWrapper aiSettingsSetVectorization(requestBody)
 
-Update vectorization settings
+Update vectorization settingsUpdates the portal's vectorization settings.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/).
 

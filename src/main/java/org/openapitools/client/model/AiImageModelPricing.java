@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiImageModelPricing
+ * The pricing of a single image model.
  */
 @JsonPropertyOrder({
   AiImageModelPricing.JSON_PROPERTY_ID,
@@ -78,7 +78,7 @@ public class AiImageModelPricing {
   }
 
   /**
-   * Get id
+   * The identifier of the model, as the provider expects it on the wire.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -102,7 +102,7 @@ public class AiImageModelPricing {
   }
 
   /**
-   * Get alias
+   * The display name of the model.
    * @return alias
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -133,7 +133,7 @@ public class AiImageModelPricing {
   }
 
   /**
-   * Get ownedBy
+   * The owner of the model, as reported by the provider.
    * @return ownedBy
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -164,7 +164,7 @@ public class AiImageModelPricing {
   }
 
   /**
-   * Get provider
+   * The provider that serves the model.
    * @return provider
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -195,7 +195,7 @@ public class AiImageModelPricing {
   }
 
   /**
-   * Get link
+   * The link to the pricing page of the model.
    * @return link
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -226,7 +226,7 @@ public class AiImageModelPricing {
   }
 
   /**
-   * Get price
+   * The price of an image model: per prompt token and per generated image.
    * @return price
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PRICE, required = true)

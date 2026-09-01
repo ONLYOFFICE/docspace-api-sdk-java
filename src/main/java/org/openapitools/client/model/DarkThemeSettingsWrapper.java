@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * DarkThemeSettingsWrapper
+ * The successful API response containing the DarkThemeSettings object.
  */
 @JsonPropertyOrder({
   DarkThemeSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class DarkThemeSettingsWrapper {
   }
 
   /**
-   * Get response
+   * The DarkThemeSettings object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

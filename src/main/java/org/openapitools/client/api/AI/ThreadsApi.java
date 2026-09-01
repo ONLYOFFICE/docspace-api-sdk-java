@@ -69,7 +69,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Append user message
-   * 
+   * Persists a user message in a thread and bumps the thread's last-edit date so it resurfaces in the sidebar. Optionally rebinds the thread to another profile when the model changed mid-conversation.
    *
    * REST API Reference for aiThreadsAppendUserMessage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-append-user-message/
@@ -85,7 +85,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Append user message
-   * 
+   * Persists a user message in a thread and bumps the thread's last-edit date so it resurfaces in the sidebar. Optionally rebinds the thread to another profile when the model changed mid-conversation.
    *
    * REST API Reference for aiThreadsAppendUserMessage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-append-user-message/
@@ -152,7 +152,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Clear messages
-   * 
+   * Drops every message of a thread while keeping the thread itself, and bumps its last-edit date.
    *
    * REST API Reference for aiThreadsClearMessages Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/
@@ -168,7 +168,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Clear messages
-   * 
+   * Drops every message of a thread while keeping the thread itself, and bumps its last-edit date.
    *
    * REST API Reference for aiThreadsClearMessages Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/
@@ -235,7 +235,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Create
-   * 
+   * Creates a chat thread with a caller-supplied title. Use `open-or-create` instead when the title should be generated from the first user message.
    *
    * REST API Reference for aiThreadsCreate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-create/
@@ -251,7 +251,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Create
-   * 
+   * Creates a chat thread with a caller-supplied title. Use `open-or-create` instead when the title should be generated from the first user message.
    *
    * REST API Reference for aiThreadsCreate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-create/
@@ -318,7 +318,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Delete
-   * 
+   * Deletes a chat thread together with its messages.
    *
    * REST API Reference for aiThreadsDelete Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/
@@ -334,7 +334,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Delete
-   * 
+   * Deletes a chat thread together with its messages.
    *
    * REST API Reference for aiThreadsDelete Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/
@@ -401,7 +401,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Delete message
-   * 
+   * Deletes one chat message, leaving the rest of the thread untouched.
    *
    * REST API Reference for aiThreadsDeleteMessage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/
@@ -417,7 +417,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Delete message
-   * 
+   * Deletes one chat message, leaving the rest of the thread untouched.
    *
    * REST API Reference for aiThreadsDeleteMessage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/
@@ -484,12 +484,12 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Get by id
-   * 
+   * Returns one chat thread, or an empty result when the identifier is unknown.
    *
    * REST API Reference for aiThreadsGetById Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/
    *
-   * @param threadId  (required)
+   * @param threadId The chat thread identifier. (required)
    * @return AiThread
    * @throws ApiException if fails to make API call
    */
@@ -500,12 +500,12 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Get by id
-   * 
+   * Returns one chat thread, or an empty result when the identifier is unknown.
    *
    * REST API Reference for aiThreadsGetById Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/
    *
-   * @param threadId  (required)
+   * @param threadId The chat thread identifier. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiThread
    * @throws ApiException if fails to make API call
@@ -568,12 +568,12 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Get message by id
-   * 
+   * Returns one chat message by its globally unique identifier.
    *
    * REST API Reference for aiThreadsGetMessageById Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/
    *
-   * @param messageId  (required)
+   * @param messageId The globally unique chat message identifier. (required)
    * @return AiThreadMessageLike
    * @throws ApiException if fails to make API call
    */
@@ -584,12 +584,12 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Get message by id
-   * 
+   * Returns one chat message by its globally unique identifier.
    *
    * REST API Reference for aiThreadsGetMessageById Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/
    *
-   * @param messageId  (required)
+   * @param messageId The globally unique chat message identifier. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiThreadMessageLike
    * @throws ApiException if fails to make API call
@@ -652,60 +652,40 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * List
-   * 
+   * Lists the chat threads of the scope, most recently edited first. Supports cursor pagination and a server-side case-insensitive title search.
    *
    * REST API Reference for aiThreadsList Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/
    *
-   * @param entityId  (required)
-   * @param count  (required)
-   * @param cursor  (required)
-   * @param query  (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
+   * @param count The maximum number of items to return in one page. (optional)
+   * @param cursor The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)
+   * @param query The full-text query the thread list is filtered by. (optional)
    * @return List&lt;AiThread&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<AiThread> aiThreadsList(@javax.annotation.Nonnull String entityId, @javax.annotation.Nonnull String count, @javax.annotation.Nonnull String cursor, @javax.annotation.Nonnull String query) throws ApiException {
+  public List<AiThread> aiThreadsList(@javax.annotation.Nullable String entityId, @javax.annotation.Nullable String count, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String query) throws ApiException {
     return this.aiThreadsList(entityId, count, cursor, query, Collections.emptyMap());
   }
 
 
   /**
    * List
-   * 
+   * Lists the chat threads of the scope, most recently edited first. Supports cursor pagination and a server-side case-insensitive title search.
    *
    * REST API Reference for aiThreadsList Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/
    *
-   * @param entityId  (required)
-   * @param count  (required)
-   * @param cursor  (required)
-   * @param query  (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
+   * @param count The maximum number of items to return in one page. (optional)
+   * @param cursor The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)
+   * @param query The full-text query the thread list is filtered by. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return List&lt;AiThread&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<AiThread> aiThreadsList(@javax.annotation.Nonnull String entityId, @javax.annotation.Nonnull String count, @javax.annotation.Nonnull String cursor, @javax.annotation.Nonnull String query, Map<String, String> additionalHeaders) throws ApiException {
+  public List<AiThread> aiThreadsList(@javax.annotation.Nullable String entityId, @javax.annotation.Nullable String count, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
-    
-    // verify the required parameter 'entityId' is set
-    if (entityId == null) {
-      throw new ApiException(400, "Missing the required parameter 'entityId' when calling aiThreadsList");
-    }
-    
-    // verify the required parameter 'count' is set
-    if (count == null) {
-      throw new ApiException(400, "Missing the required parameter 'count' when calling aiThreadsList");
-    }
-    
-    // verify the required parameter 'cursor' is set
-    if (cursor == null) {
-      throw new ApiException(400, "Missing the required parameter 'cursor' when calling aiThreadsList");
-    }
-    
-    // verify the required parameter 'query' is set
-    if (query == null) {
-      throw new ApiException(400, "Missing the required parameter 'query' when calling aiThreadsList");
-    }
     
     // create path and map variables
     String localVarPath = "/api/2.0/ai/threads/list";
@@ -762,7 +742,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Open or create
-   * 
+   * Opens a chat thread and returns its history, or creates one with a title generated from the supplied first message. That first message is not persisted - the caller decides whether to follow up with `append-user-message`.
    *
    * REST API Reference for aiThreadsOpenOrCreate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-open-or-create/
@@ -778,7 +758,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Open or create
-   * 
+   * Opens a chat thread and returns its history, or creates one with a title generated from the supplied first message. That first message is not persisted - the caller decides whether to follow up with `append-user-message`.
    *
    * REST API Reference for aiThreadsOpenOrCreate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-open-or-create/
@@ -845,59 +825,44 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Read messages
-   * 
+   * Reads the messages of a thread, with the same cursor pagination as the thread list.
    *
    * REST API Reference for aiThreadsReadMessages Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/
    *
-   * @param threadId  (required)
-   * @param count  (required)
-   * @param cursor  (required)
-   * @param direction  (required)
+   * @param threadId The chat thread identifier. (required)
+   * @param count The maximum number of items to return in one page. (optional)
+   * @param cursor The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)
+   * @param direction The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. (optional)
    * @return List&lt;AiThreadMessageLike&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<AiThreadMessageLike> aiThreadsReadMessages(@javax.annotation.Nonnull String threadId, @javax.annotation.Nonnull String count, @javax.annotation.Nonnull String cursor, @javax.annotation.Nonnull String direction) throws ApiException {
+  public List<AiThreadMessageLike> aiThreadsReadMessages(@javax.annotation.Nonnull String threadId, @javax.annotation.Nullable String count, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String direction) throws ApiException {
     return this.aiThreadsReadMessages(threadId, count, cursor, direction, Collections.emptyMap());
   }
 
 
   /**
    * Read messages
-   * 
+   * Reads the messages of a thread, with the same cursor pagination as the thread list.
    *
    * REST API Reference for aiThreadsReadMessages Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/
    *
-   * @param threadId  (required)
-   * @param count  (required)
-   * @param cursor  (required)
-   * @param direction  (required)
+   * @param threadId The chat thread identifier. (required)
+   * @param count The maximum number of items to return in one page. (optional)
+   * @param cursor The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)
+   * @param direction The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return List&lt;AiThreadMessageLike&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<AiThreadMessageLike> aiThreadsReadMessages(@javax.annotation.Nonnull String threadId, @javax.annotation.Nonnull String count, @javax.annotation.Nonnull String cursor, @javax.annotation.Nonnull String direction, Map<String, String> additionalHeaders) throws ApiException {
+  public List<AiThreadMessageLike> aiThreadsReadMessages(@javax.annotation.Nonnull String threadId, @javax.annotation.Nullable String count, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String direction, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'threadId' is set
     if (threadId == null) {
       throw new ApiException(400, "Missing the required parameter 'threadId' when calling aiThreadsReadMessages");
-    }
-    
-    // verify the required parameter 'count' is set
-    if (count == null) {
-      throw new ApiException(400, "Missing the required parameter 'count' when calling aiThreadsReadMessages");
-    }
-    
-    // verify the required parameter 'cursor' is set
-    if (cursor == null) {
-      throw new ApiException(400, "Missing the required parameter 'cursor' when calling aiThreadsReadMessages");
-    }
-    
-    // verify the required parameter 'direction' is set
-    if (direction == null) {
-      throw new ApiException(400, "Missing the required parameter 'direction' when calling aiThreadsReadMessages");
     }
     
     // create path and map variables
@@ -955,7 +920,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Regenerate title
-   * 
+   * Generates a fresh title from the thread's first user message and persists it. Fails when the thread has no user message yet.
    *
    * REST API Reference for aiThreadsRegenerateTitle Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-regenerate-title/
@@ -971,7 +936,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Regenerate title
-   * 
+   * Generates a fresh title from the thread's first user message and persists it. Fails when the thread has no user message yet.
    *
    * REST API Reference for aiThreadsRegenerateTitle Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-regenerate-title/
@@ -1038,7 +1003,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Rename
-   * 
+   * Renames a chat thread and bumps its last-edit date so the new title shows up in the sidebar.
    *
    * REST API Reference for aiThreadsRename Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-rename/
@@ -1054,7 +1019,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Rename
-   * 
+   * Renames a chat thread and bumps its last-edit date so the new title shows up in the sidebar.
    *
    * REST API Reference for aiThreadsRename Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-rename/
@@ -1121,7 +1086,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Touch
-   * 
+   * Bumps a thread's last-edit date, and optionally rebinds it to another profile, when something other than a new message - a model switch, say - should resurface it.
    *
    * REST API Reference for aiThreadsTouch Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-touch/
@@ -1137,7 +1102,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Touch
-   * 
+   * Bumps a thread's last-edit date, and optionally rebinds it to another profile, when something other than a new message - a model switch, say - should resurface it.
    *
    * REST API Reference for aiThreadsTouch Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-touch/
@@ -1204,7 +1169,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Update message
-   * 
+   * Replaces the content of a chat message - used by the edit and regenerate flows that change a message outside the streaming lifecycle.
    *
    * REST API Reference for aiThreadsUpdateMessage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-update-message/
@@ -1220,7 +1185,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Update message
-   * 
+   * Replaces the content of a chat message - used by the edit and regenerate flows that change a message outside the streaming lifecycle.
    *
    * REST API Reference for aiThreadsUpdateMessage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-update-message/

@@ -25,12 +25,13 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.BooleanWrapper;
-import org.openapitools.client.model.SetupCodeWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.StringWrapper;
 import org.openapitools.client.model.TfaAppCodeArrayWrapper;
 import org.openapitools.client.model.TfaConfirmDataWrapper;
 import org.openapitools.client.model.TfaRequestsDto;
 import org.openapitools.client.model.TfaSettingsArrayWrapper;
+import org.openapitools.client.model.TfaSetupCodeWrapper;
 import org.openapitools.client.model.TfaValidateRequestsDto;
 
 
@@ -287,10 +288,10 @@ public class TFASettingsApi extends BaseApi {
    * REST API Reference for tfaAppGenerateSetupCode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/
    *
-   * @return SetupCodeWrapper
+   * @return TfaSetupCodeWrapper
    * @throws ApiException if fails to make API call
    */
-  public SetupCodeWrapper tfaAppGenerateSetupCode() throws ApiException {
+  public TfaSetupCodeWrapper tfaAppGenerateSetupCode() throws ApiException {
     return this.tfaAppGenerateSetupCode(Collections.emptyMap());
   }
 
@@ -303,10 +304,10 @@ public class TFASettingsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return SetupCodeWrapper
+   * @return TfaSetupCodeWrapper
    * @throws ApiException if fails to make API call
    */
-  public SetupCodeWrapper tfaAppGenerateSetupCode(Map<String, String> additionalHeaders) throws ApiException {
+  public TfaSetupCodeWrapper tfaAppGenerateSetupCode(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -338,7 +339,7 @@ public class TFASettingsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<SetupCodeWrapper> localVarReturnType = new TypeReference<SetupCodeWrapper>() {};
+    TypeReference<TfaSetupCodeWrapper> localVarReturnType = new TypeReference<TfaSetupCodeWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",

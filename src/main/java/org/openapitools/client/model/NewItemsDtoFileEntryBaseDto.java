@@ -24,10 +24,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.FileEntryBaseDto;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -46,7 +46,7 @@ import java.util.StringJoiner;
 
 public class NewItemsDtoFileEntryBaseDto {
   public static final String JSON_PROPERTY_DATE = "date";
-  @javax.annotation.Nonnull  private ApiDateTime date;
+  @javax.annotation.Nullable  private OffsetDateTime date;
 
   public static final String JSON_PROPERTY_ITEMS = "items";
   @javax.annotation.Nullable  private List<FileEntryBaseDto> items;
@@ -55,7 +55,7 @@ public class NewItemsDtoFileEntryBaseDto {
   }
 
 
-  public NewItemsDtoFileEntryBaseDto date(@javax.annotation.Nonnull ApiDateTime date) {
+  public NewItemsDtoFileEntryBaseDto date(@javax.annotation.Nullable OffsetDateTime date) {
     
     this.date = date;
     return this;
@@ -65,17 +65,17 @@ public class NewItemsDtoFileEntryBaseDto {
    * The date and time when the new item was created.
    * @return date
    */
-  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DATE, required = true)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public ApiDateTime getDate() {
+  public OffsetDateTime getDate() {
     return date;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_DATE, required = true)
+  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDate(@javax.annotation.Nonnull ApiDateTime date) {
+  public void setDate(@javax.annotation.Nullable OffsetDateTime date) {
     this.date = date;
   }
 
@@ -184,7 +184,12 @@ public class NewItemsDtoFileEntryBaseDto {
 
     // add `date` to the URL query string
     if (getDate() != null) {
-      joiner.add(getDate().toUrlQueryString(prefix + "date" + suffix));
+      try {
+        joiner.add(String.format("%sdate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `items` to the URL query string

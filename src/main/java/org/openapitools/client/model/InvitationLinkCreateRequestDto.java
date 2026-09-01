@@ -67,7 +67,7 @@ public class InvitationLinkCreateRequestDto {
   }
 
   /**
-   * The user type.
+   * The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).
    * @return employeeType
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_EMPLOYEE_TYPE, required = true)

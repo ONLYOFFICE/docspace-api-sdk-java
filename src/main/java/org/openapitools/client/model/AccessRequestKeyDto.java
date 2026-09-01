@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AccessRequestKeyDto
+ * The encryption key granting one user access to a file.
  */
 @JsonPropertyOrder({
   AccessRequestKeyDto.JSON_PROPERTY_USER_ID,

@@ -2,6 +2,7 @@
 
 # FormSubmissionsDto
 
+All submissions of a form, together with the metadata of its fields.
 
 ## Properties
 

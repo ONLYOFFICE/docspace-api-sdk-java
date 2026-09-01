@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * FileUploadResultWrapper
+ * The successful API response containing the FileUploadResultDto object.
  */
 @JsonPropertyOrder({
   FileUploadResultWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class FileUploadResultWrapper {
   }
 
   /**
-   * Get response
+   * The FileUploadResultDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

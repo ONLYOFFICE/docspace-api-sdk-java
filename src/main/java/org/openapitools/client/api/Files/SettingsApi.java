@@ -33,10 +33,11 @@ import org.openapitools.client.model.DefaultTemplateSettingsResetRequestDto;
 import org.openapitools.client.model.DefaultTemplateSettingsWrapper;
 import org.openapitools.client.model.DisplayRequestDto;
 import org.openapitools.client.model.DocServiceUrlWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.ExternalSharingSettingsRequestDto;
 import org.openapitools.client.model.ExternalSharingSettingsWrapper;
 import java.io.File;
-import org.openapitools.client.model.FileShareArrayWrapper;
+import org.openapitools.client.model.FileShareResponseArrayWrapper;
 import org.openapitools.client.model.FilesSettingsWrapper;
 import org.openapitools.client.model.HideConfirmConvertRequestDto;
 import org.openapitools.client.model.ICompressWrapper;
@@ -226,10 +227,10 @@ public class SettingsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/
    *
    * @param requestBody Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)
-   * @return FileShareArrayWrapper
+   * @return FileShareResponseArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileShareArrayWrapper changeDefaultAccessRights(@javax.annotation.Nullable List<Integer> requestBody) throws ApiException {
+  public FileShareResponseArrayWrapper changeDefaultAccessRights(@javax.annotation.Nullable List<Integer> requestBody) throws ApiException {
     return this.changeDefaultAccessRights(requestBody, Collections.emptyMap());
   }
 
@@ -243,10 +244,10 @@ public class SettingsApi extends BaseApi {
    *
    * @param requestBody Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FileShareArrayWrapper
+   * @return FileShareResponseArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileShareArrayWrapper changeDefaultAccessRights(@javax.annotation.Nullable List<Integer> requestBody, Map<String, String> additionalHeaders) throws ApiException {
+  public FileShareResponseArrayWrapper changeDefaultAccessRights(@javax.annotation.Nullable List<Integer> requestBody, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = requestBody;
     
     // create path and map variables
@@ -278,7 +279,7 @@ public class SettingsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<FileShareArrayWrapper> localVarReturnType = new TypeReference<FileShareArrayWrapper>() {};
+    TypeReference<FileShareResponseArrayWrapper> localVarReturnType = new TypeReference<FileShareResponseArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",

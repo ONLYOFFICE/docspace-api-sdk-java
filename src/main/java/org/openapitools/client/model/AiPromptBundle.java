@@ -48,7 +48,7 @@ import java.util.StringJoiner;
 
 public class AiPromptBundle {
   /**
-   * Gets or Sets version
+   * The bundle format version, so an import can migrate an older export.
    */
   public enum VersionEnum {
     NUMBER_1(new BigDecimal("1"));
@@ -99,7 +99,7 @@ public class AiPromptBundle {
   }
 
   /**
-   * Get version
+   * The bundle format version, so an import can migrate an older export.
    * @return version
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_VERSION, required = true)
@@ -131,7 +131,7 @@ public class AiPromptBundle {
   }
 
   /**
-   * Get folders
+   * Every exported prompt folder.
    * @return folders
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_FOLDERS, required = true)
@@ -163,7 +163,7 @@ public class AiPromptBundle {
   }
 
   /**
-   * Get prompts
+   * Every exported prompt.
    * @return prompts
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PROMPTS, required = true)

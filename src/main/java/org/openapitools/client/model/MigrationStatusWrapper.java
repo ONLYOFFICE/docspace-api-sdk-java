@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * MigrationStatusWrapper
+ * The successful API response containing the MigrationStatusDto object.
  */
 @JsonPropertyOrder({
   MigrationStatusWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class MigrationStatusWrapper {
   }
 
   /**
-   * Get response
+   * The MigrationStatusDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

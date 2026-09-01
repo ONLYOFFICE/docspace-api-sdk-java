@@ -326,7 +326,7 @@ public class SettingsDto {
   }
 
   /**
-   * The type of the tenant trusted domains.
+   * The type of the trusted domains.
    * @return trustedDomainsType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRUSTED_DOMAINS_TYPE, required = false)
@@ -1446,7 +1446,7 @@ public class SettingsDto {
   }
 
   /**
-   * The folder type.
+   * Specifies the default folder type for the current settings.
    * @return defaultFolderType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEFAULT_FOLDER_TYPE, required = false)

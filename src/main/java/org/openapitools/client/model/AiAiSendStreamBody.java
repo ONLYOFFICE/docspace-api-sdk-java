@@ -34,7 +34,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiAiSendStreamBody
+ * Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`.
  */
 @JsonPropertyOrder({
   AiAiSendStreamBody.JSON_PROPERTY_THREAD_ID,
@@ -119,7 +119,7 @@ public class AiAiSendStreamBody {
   }
 
   /**
-   * Get actionArgs
+   * Per-request engine options: extra tools, reasoning, prompt override.
    * @return actionArgs
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTION_ARGS, required = false)

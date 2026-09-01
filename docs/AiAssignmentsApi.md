@@ -19,7 +19,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > AiAssignmentMutationResult aiAssignmentsAssign(aiAssignmentsAssignRequest)
 
-Assign
+AssignBinds a profile to an AI action, creating the assignment or updating it in place. The profile's declared capabilities are validated against the action, except for the `Default` slot.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-assign/).
 
@@ -86,7 +86,7 @@ public class Example {
 
 > AiBulkAssignmentResult aiAssignmentsBulkAssign(requestBody)
 
-Bulk assign
+Bulk assignApplies many action-to-profile bindings at once. Every entry is validated first and nothing is written if any of them fails, so the assignment set is never left half-written.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-bulk-assign/).
 
@@ -153,7 +153,7 @@ public class Example {
 
 > AiSuccessResponse aiAssignmentsCascadeProfileDelete(body)
 
-Cascade profile delete
+Cascade profile deleteCleans up the assignments pointing at a profile that is about to be deleted: the `Default` slot is promoted to the first remaining profile (or dropped when none is left), and every other slot holding that profile is unbound.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-cascade-profile-delete/).
 
@@ -220,7 +220,7 @@ public class Example {
 
 > Map&lt;String, String&gt; aiAssignmentsGetAllAssignments(entityId)
 
-Get all assignments
+Get all assignmentsReturns the full action-to-profile assignment map of the scope.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/).
 
@@ -229,7 +229,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **entityId** | **String**|  | |
+| **entityId** | **String**| The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional] |
 
 ### Return type
 
@@ -255,7 +255,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         AssignmentsApi apiInstance = new AssignmentsApi(defaultClient);
-        String entityId = "entityId_example"; // String | 
+        String entityId = "entityId_example"; // String | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope.
         try {
             Map<String, String> result = apiInstance.aiAssignmentsGetAllAssignments(entityId);
             System.out.println(result);
@@ -287,7 +287,7 @@ public class Example {
 
 > String aiAssignmentsGetAssignment(actionType)
 
-Get assignment
+Get assignmentReturns the profile bound to one AI action, without the `Default` fallback.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-assignment/).
 
@@ -296,7 +296,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **actionType** | **String**|  | |
+| **actionType** | **String**| The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision. | |
 
 ### Return type
 
@@ -322,7 +322,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         AssignmentsApi apiInstance = new AssignmentsApi(defaultClient);
-        String actionType = "actionType_example"; // String | 
+        String actionType = "actionType_example"; // String | The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision.
         try {
             String result = apiInstance.aiAssignmentsGetAssignment(actionType);
             System.out.println(result);
@@ -354,7 +354,7 @@ public class Example {
 
 > AiResolvedAssignment aiAssignmentsResolveForAction(actionType, entityId)
 
-Resolve for action
+Resolve for actionResolves the profile bound to an AI action, falling back to the `Default` slot when the action itself has none. Fails when neither slot is set or the bound profile no longer exists - use `try-resolve-for-action` for an empty answer instead.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-resolve-for-action/).
 
@@ -363,8 +363,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **actionType** | **String**|  | |
-| **entityId** | **String**|  | |
+| **actionType** | **String**| The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision. | |
+| **entityId** | **String**| The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional] |
 
 ### Return type
 
@@ -390,8 +390,8 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         AssignmentsApi apiInstance = new AssignmentsApi(defaultClient);
-        String actionType = "actionType_example"; // String | 
-        String entityId = "entityId_example"; // String | 
+        String actionType = "actionType_example"; // String | The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision.
+        String entityId = "entityId_example"; // String | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope.
         try {
             AiResolvedAssignment result = apiInstance.aiAssignmentsResolveForAction(actionType, entityId);
             System.out.println(result);
@@ -423,7 +423,7 @@ public class Example {
 
 > AiResolvedAssignment aiAssignmentsTryResolveForAction(actionType, entityId)
 
-Try resolve for action
+Try resolve for actionResolves the profile bound to an AI action exactly like `resolve-for-action`, but answers with an empty result instead of failing when nothing is configured.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-try-resolve-for-action/).
 
@@ -432,8 +432,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **actionType** | **String**|  | |
-| **entityId** | **String**|  | |
+| **actionType** | **String**| The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision. | |
+| **entityId** | **String**| The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional] |
 
 ### Return type
 
@@ -459,8 +459,8 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         AssignmentsApi apiInstance = new AssignmentsApi(defaultClient);
-        String actionType = "actionType_example"; // String | 
-        String entityId = "entityId_example"; // String | 
+        String actionType = "actionType_example"; // String | The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision.
+        String entityId = "entityId_example"; // String | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope.
         try {
             AiResolvedAssignment result = apiInstance.aiAssignmentsTryResolveForAction(actionType, entityId);
             System.out.println(result);
@@ -492,7 +492,7 @@ public class Example {
 
 > AiSuccessResponse aiAssignmentsUnassign(body)
 
-Unassign
+UnassignRemoves the profile binding of an AI action. Does nothing when that slot is already empty.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-unassign/).
 

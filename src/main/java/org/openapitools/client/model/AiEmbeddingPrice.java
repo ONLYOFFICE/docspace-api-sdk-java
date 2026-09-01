@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiEmbeddingPrice
+ * The price of an embedding model, per token.
  */
 @JsonPropertyOrder({
   AiEmbeddingPrice.JSON_PROPERTY_PROMPT
@@ -53,7 +53,7 @@ public class AiEmbeddingPrice {
   }
 
   /**
-   * Get prompt
+   * The price of a single input token.
    * @return prompt
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROMPT, required = false)

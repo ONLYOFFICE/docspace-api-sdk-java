@@ -53,7 +53,7 @@ public class AiErrorResponse {
   }
 
   /**
-   * Get error
+   * The error message, ready to be shown to the caller.
    * @return error
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ERROR, required = true)

@@ -24,13 +24,13 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.ApplyFilterOption;
 import org.openapitools.client.model.AuditReportFormat;
 import org.openapitools.client.model.CheckUploadRequest;
 import org.openapitools.client.model.CreateFolder;
 import org.openapitools.client.model.DeleteFolder;
 import org.openapitools.client.model.DocumentBuilderTaskWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import java.io.File;
 import org.openapitools.client.model.FileEntryBaseArrayWrapper;
 import org.openapitools.client.model.FileIntegerArrayWrapper;
@@ -1038,7 +1038,7 @@ public class FoldersApi extends BaseApi {
    * @return HistoryArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public HistoryArrayWrapper getFolderHistory(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable ApiDateTime fromDate, @javax.annotation.Nullable ApiDateTime toDate, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex) throws ApiException {
+  public HistoryArrayWrapper getFolderHistory(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable OffsetDateTime fromDate, @javax.annotation.Nullable OffsetDateTime toDate, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex) throws ApiException {
     return this.getFolderHistory(folderId, fromDate, toDate, count, startIndex, Collections.emptyMap());
   }
 
@@ -1059,7 +1059,7 @@ public class FoldersApi extends BaseApi {
    * @return HistoryArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public HistoryArrayWrapper getFolderHistory(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable ApiDateTime fromDate, @javax.annotation.Nullable ApiDateTime toDate, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, Map<String, String> additionalHeaders) throws ApiException {
+  public HistoryArrayWrapper getFolderHistory(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable OffsetDateTime fromDate, @javax.annotation.Nullable OffsetDateTime toDate, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'folderId' is set
@@ -1079,10 +1079,8 @@ public class FoldersApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParameterBaseName = "fromDate";
-    localVarQueryStringJoiner.add(fromDate.toUrlQueryString("fromDate"));
-    localVarQueryParameterBaseName = "toDate";
-    localVarQueryStringJoiner.add(toDate.toUrlQueryString("toDate"));
+    localVarQueryParams.addAll(apiClient.parameterToPair("fromDate", fromDate));
+    localVarQueryParams.addAll(apiClient.parameterToPair("toDate", toDate));
     localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
     localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
       
@@ -1950,7 +1948,7 @@ public class FoldersApi extends BaseApi {
    * REST API Reference for getReportFolderHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-report-folder-history/
    *
-   * @param folderId  (required)
+   * @param folderId The folder unique identifier. (required)
    * @return DocumentBuilderTaskWrapper
    * @throws ApiException if fails to make API call
    */
@@ -1966,7 +1964,7 @@ public class FoldersApi extends BaseApi {
    * REST API Reference for getReportFolderHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-report-folder-history/
    *
-   * @param folderId  (required)
+   * @param folderId The folder unique identifier. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return DocumentBuilderTaskWrapper
    * @throws ApiException if fails to make API call
@@ -2762,7 +2760,7 @@ if (streamWriteTimeout != null)
    * REST API Reference for terminateReportFolderHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-report-folder-history/
    *
-   * @param folderId  (required)
+   * @param folderId The folder unique identifier. (required)
    * @throws ApiException if fails to make API call
    */
   public void terminateReportFolderHistory(@javax.annotation.Nonnull Integer folderId) throws ApiException {
@@ -2777,7 +2775,7 @@ if (streamWriteTimeout != null)
    * REST API Reference for terminateReportFolderHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-report-folder-history/
    *
-   * @param folderId  (required)
+   * @param folderId The folder unique identifier. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
@@ -2808,7 +2806,7 @@ if (streamWriteTimeout != null)
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

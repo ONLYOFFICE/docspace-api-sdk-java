@@ -27,6 +27,7 @@ import org.openapitools.client.Pair;
 import org.openapitools.client.model.EmployeeActivationStatus;
 import org.openapitools.client.model.EmployeeFullArrayWrapper;
 import org.openapitools.client.model.EmployeeStatus;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.SortOrder;
 import org.openapitools.client.model.UpdateMembersRequestDto;
 

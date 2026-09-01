@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.client.model.ApiDateTime;
+import java.time.OffsetDateTime;
 import org.openapitools.client.model.EditHistoryAuthor;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -51,7 +51,7 @@ public class EditHistoryChangesWrapper {
   @javax.annotation.Nullable  private EditHistoryAuthor user;
 
   public static final String JSON_PROPERTY_CREATED = "created";
-  @javax.annotation.Nullable  private ApiDateTime created;
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> created = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_DOCUMENT_SHA256 = "documentSha256";
   @javax.annotation.Nullable  private JsonNullable<String> documentSha256 = JsonNullable.<String>undefined();
@@ -67,7 +67,7 @@ public class EditHistoryChangesWrapper {
   }
 
   /**
-   * The information about the file editing history author.
+   * The user who edited the file.
    * @return user
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER, required = false)
@@ -84,28 +84,35 @@ public class EditHistoryChangesWrapper {
     this.user = user;
   }
 
-  public EditHistoryChangesWrapper created(@javax.annotation.Nullable ApiDateTime created) {
+  public EditHistoryChangesWrapper created(@javax.annotation.Nullable OffsetDateTime created) {
+    this.created = JsonNullable.<OffsetDateTime>of(created);
     
-    this.created = created;
     return this;
   }
 
   /**
-   * The API date and time parameters.
+   * The creation date and time of the file version.
    * @return created
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public ApiDateTime getCreated() {
-    return created;
+  public OffsetDateTime getCreated() {
+        return created.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_CREATED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreated(@javax.annotation.Nullable ApiDateTime created) {
+  public JsonNullable<OffsetDateTime> getCreated_JsonNullable() {
+    return created;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED)
+  public void setCreated_JsonNullable(JsonNullable<OffsetDateTime> created) {
     this.created = created;
+  }
+
+  public void setCreated(@javax.annotation.Nullable OffsetDateTime created) {
+    this.created = JsonNullable.<OffsetDateTime>of(created);
   }
 
   public EditHistoryChangesWrapper documentSha256(@javax.annotation.Nullable String documentSha256) {
@@ -149,7 +156,7 @@ public class EditHistoryChangesWrapper {
     }
     EditHistoryChangesWrapper editHistoryChangesWrapper = (EditHistoryChangesWrapper) o;
     return Objects.equals(this.user, editHistoryChangesWrapper.user) &&
-        Objects.equals(this.created, editHistoryChangesWrapper.created) &&
+        equalsNullable(this.created, editHistoryChangesWrapper.created) &&
         equalsNullable(this.documentSha256, editHistoryChangesWrapper.documentSha256);
   }
 
@@ -159,7 +166,7 @@ public class EditHistoryChangesWrapper {
 
   @Override
   public int hashCode() {
-    return Objects.hash(user, created, hashCodeNullable(documentSha256));
+    return Objects.hash(user, hashCodeNullable(created), hashCodeNullable(documentSha256));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -230,7 +237,12 @@ public class EditHistoryChangesWrapper {
 
     // add `created` to the URL query string
     if (getCreated() != null) {
-      joiner.add(getCreated().toUrlQueryString(prefix + "created" + suffix));
+      try {
+        joiner.add(String.format("%screated%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreated()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `documentSha256` to the URL query string

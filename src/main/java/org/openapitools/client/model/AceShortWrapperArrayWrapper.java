@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AceShortWrapperArrayWrapper
+ * The successful API response containing the list of AceShortWrapper objects.
  */
 @JsonPropertyOrder({
   AceShortWrapperArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class AceShortWrapperArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of AceShortWrapper objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

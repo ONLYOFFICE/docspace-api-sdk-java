@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * TenantQuotaWrapper
+ * The successful API response containing the TenantQuota object.
  */
 @JsonPropertyOrder({
   TenantQuotaWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class TenantQuotaWrapper {
   }
 
   /**
-   * Get response
+   * The TenantQuota object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

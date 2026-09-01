@@ -1893,7 +1893,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The sorting parameters.
+   * The default order of files.
    * @return defaultOrder
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEFAULT_ORDER, required = false)

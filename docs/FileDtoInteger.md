@@ -17,10 +17,10 @@ The file parameters.
 |**sharedExternal** | **Boolean** | Specifies if the file entry is shared via a public (non-internal) external link. |  [optional] |
 |**parentShared** | **Boolean** | Indicates whether the parent entity is shared. |  [optional] |
 |**shortWebUrl** | **URI** | The short Web URL. |  [optional] |
-|**created** | [**ApiDateTime**](ApiDateTime.md) | The creation date and time of the file entry. |  [optional] |
+|**created** | **OffsetDateTime** | The creation date and time of the file entry. |  [optional] |
 |**createdBy** | [**EmployeeDto**](EmployeeDto.md) | The file entry author. |  [optional] |
-|**updated** | [**ApiDateTime**](ApiDateTime.md) | The last date and time when the file entry was updated. |  [optional] |
-|**autoDelete** | [**ApiDateTime**](ApiDateTime.md) | The date and time when the file entry will be automatically deleted. |  [optional] |
+|**updated** | **OffsetDateTime** | The last date and time when the file entry was updated. |  [optional] |
+|**autoDelete** | **OffsetDateTime** | The date and time when the file entry will be automatically deleted. |  [optional] |
 |**rootFolderType** | **FolderType** | The root folder type of the file entry. |  [optional] |
 |**parentRoomType** | **FolderType** | The parent room type of the file entry. |  [optional] |
 |**updatedBy** | [**EmployeeDto**](EmployeeDto.md) | The user who updated the file entry. |  [optional] |
@@ -42,7 +42,7 @@ The file parameters.
 |**availableShareRights** | [**FileEntryDtoIntegerAllOfAvailableShareRights**](FileEntryDtoIntegerAllOfAvailableShareRights.md) |  |  [optional] |
 |**requestToken** | **String** | The request token of the file entry. |  [optional] |
 |**external** | **Boolean** | Specifies if the folder can be accessed via an external link or not. |  [optional] |
-|**expirationDate** | [**ApiDateTime**](ApiDateTime.md) | Represents the expiration date of the file entry. |  [optional] |
+|**expirationDate** | **OffsetDateTime** | Represents the expiration date of the file entry. |  [optional] |
 |**isLinkExpired** | **Boolean** | Indicates whether the shareable link associated with the file or folder has expired. |  [optional] |
 |**folderId** | **Integer** | The folder ID where the file is located. |  [optional] |
 |**version** | **Integer** | The file version. |  [optional] |
@@ -74,11 +74,11 @@ The file parameters.
 |**resultsFolderId** | **Integer** | The ID of the FormFillingFolderDone folder that corresponds to this original form. |  [optional] |
 |**draftLocation** | [**DraftLocationInteger**](DraftLocationInteger.md) | The file draft information with its location. |  [optional] |
 |**viewAccessibility** | [**FileDtoIntegerAllOfViewAccessibility**](FileDtoIntegerAllOfViewAccessibility.md) |  |  [optional] |
-|**lastOpened** | [**ApiDateTime**](ApiDateTime.md) | The time when the file was last opened. |  [optional] |
-|**expired** | [**ApiDateTime**](ApiDateTime.md) | The date when the file will be expired. |  [optional] |
+|**lastOpened** | **OffsetDateTime** | The time when the file was last opened. |  [optional] |
+|**expired** | **OffsetDateTime** | The date when the file will be expired. |  [optional] |
 |**vectorizationStatus** | **VectorizationStatus** | The vectorization status of the file. |  [optional] |
 |**externalDbTableName** | **String** | The name of the table in the external database that corresponds to this form. |  [optional] |
-|**dimensions** | [**Size**](Size.md) | Represents dimensions with width and height values. |  [optional] |
+|**dimensions** | [**Size**](Size.md) | The dimensions (width and height) of the image file in pixels.  This property is populated only for image files that can be viewed (supported formats like PNG, JPEG, GIF, BMP, etc.).  For non-image files, this property remains null. |  [optional] |
 
 
 

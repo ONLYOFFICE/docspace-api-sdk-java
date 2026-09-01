@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ItemKeyValuePairStringLogoRequestsDto
+ * A key-value pair of a list item.
  */
 @JsonPropertyOrder({
   ItemKeyValuePairStringLogoRequestsDto.JSON_PROPERTY_KEY,
@@ -62,7 +62,7 @@ public class ItemKeyValuePairStringLogoRequestsDto {
   }
 
   /**
-   * Get key
+   * The key that identifies the item within the list.
    * @return key
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -93,7 +93,7 @@ public class ItemKeyValuePairStringLogoRequestsDto {
   }
 
   /**
-   * The request parameters for the theme-specific logo configurations.
+   * The value associated with the key.
    * @return value
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)

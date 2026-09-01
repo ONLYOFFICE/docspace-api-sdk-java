@@ -10,7 +10,7 @@ The settings information.
 |------------ | ------------- | ------------- | -------------|
 |**timezone** | **String** | The time zone. |  [optional] |
 |**trustedDomains** | **List&lt;String&gt;** | The list of the trusted domains. |  [optional] |
-|**trustedDomainsType** | **TenantTrustedDomainsType** | The type of the tenant trusted domains. |  [optional] |
+|**trustedDomainsType** | **TenantTrustedDomainsType** | The type of the trusted domains. |  [optional] |
 |**culture** | **String** | The language. |  |
 |**utcOffset** | **String** | The UTC offset in the TimeSpan format. |  [optional] |
 |**utcHoursOffset** | **Double** | The UTC offset in hours. |  [optional] |
@@ -52,7 +52,7 @@ The settings information.
 |**maxImageUploadSize** | **Long** | The maximum image upload size. |  [optional] |
 |**logoText** | **String** | The white label logo text. |  [optional] |
 |**externalResources** | [**CultureSpecificExternalResources**](CultureSpecificExternalResources.md) | The external resources settings. |  [optional] |
-|**defaultFolderType** | **FolderType** | The folder type. |  [optional] |
+|**defaultFolderType** | **FolderType** | Specifies the default folder type for the current settings. |  [optional] |
 |**externalDbEnabled** | **Boolean** | Specifies if an external database is connected for storing form results. |  [optional] |
 
 

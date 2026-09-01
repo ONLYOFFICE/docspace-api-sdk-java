@@ -2,12 +2,13 @@
 
 # TimezonesRequestsArrayWrapper
 
+The successful API response containing the list of TimezonesRequestsDto objects.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**response** | [**List&lt;TimezonesRequestsDto&gt;**](TimezonesRequestsDto.md) |  |  [optional] |
+|**response** | [**List&lt;TimezonesRequestsDto&gt;**](TimezonesRequestsDto.md) | The list of TimezonesRequestsDto objects returned by the operation. |  [optional] |
 |**count** | **Integer** | The total number of items in the response |  [optional] |
 |**links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response |  [optional] |
 |**status** | **Integer** | HTTP status code of the response |  [optional] |

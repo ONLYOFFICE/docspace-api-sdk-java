@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AppWrapper
+ * The successful API response containing the AppDto object.
  */
 @JsonPropertyOrder({
   AppWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class AppWrapper {
   }
 
   /**
-   * Get response
+   * The AppDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

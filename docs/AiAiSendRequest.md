@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**actionType** | **AiActionType** | Which AI action to run — selects the assignment slot and action. |  |
 |**userMessage** | [**AiThreadMessageLike**](AiThreadMessageLike.md) | The user turn to send. |  |
-|**actionArgs** | [**AiAiActionArgs**](AiAiActionArgs.md) |  |  [optional] |
+|**actionArgs** | [**AiAiActionArgs**](AiAiActionArgs.md) | Per-request engine options: extra tools, reasoning, prompt override. |  [optional] |
 |**entityId** | **String** | Optional entity (room) scope for profile resolution. |  [optional] |
 
 

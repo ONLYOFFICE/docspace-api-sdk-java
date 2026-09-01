@@ -52,7 +52,7 @@ public class AttachmentsApi extends BaseApi {
 
   /**
    * Delete
-   * 
+   * Permanently deletes one attachment, whether it is still a draft or already linked to a message.
    *
    * REST API Reference for aiAttachmentsDelete Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete/
@@ -68,7 +68,7 @@ public class AttachmentsApi extends BaseApi {
 
   /**
    * Delete
-   * 
+   * Permanently deletes one attachment, whether it is still a draft or already linked to a message.
    *
    * REST API Reference for aiAttachmentsDelete Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete/
@@ -135,7 +135,7 @@ public class AttachmentsApi extends BaseApi {
 
   /**
    * Delete many
-   * 
+   * Permanently deletes a batch of attachments in a single round trip.
    *
    * REST API Reference for aiAttachmentsDeleteMany Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete-many/
@@ -151,7 +151,7 @@ public class AttachmentsApi extends BaseApi {
 
   /**
    * Delete many
-   * 
+   * Permanently deletes a batch of attachments in a single round trip.
    *
    * REST API Reference for aiAttachmentsDeleteMany Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete-many/
@@ -218,7 +218,7 @@ public class AttachmentsApi extends BaseApi {
 
   /**
    * Get
-   * 
+   * Returns one attachment by identifier.
    *
    * REST API Reference for aiAttachmentsGet Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get/
@@ -234,7 +234,7 @@ public class AttachmentsApi extends BaseApi {
 
   /**
    * Get
-   * 
+   * Returns one attachment by identifier.
    *
    * REST API Reference for aiAttachmentsGet Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get/
@@ -301,7 +301,7 @@ public class AttachmentsApi extends BaseApi {
 
   /**
    * Get many
-   * 
+   * Returns a batch of attachments, preserving the requested order; an identifier that no longer exists comes back empty.
    *
    * REST API Reference for aiAttachmentsGetMany Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-many/
@@ -317,7 +317,7 @@ public class AttachmentsApi extends BaseApi {
 
   /**
    * Get many
-   * 
+   * Returns a batch of attachments, preserving the requested order; an identifier that no longer exists comes back empty.
    *
    * REST API Reference for aiAttachmentsGetMany Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-many/
@@ -384,7 +384,7 @@ public class AttachmentsApi extends BaseApi {
 
   /**
    * Link to message
-   * 
+   * Binds draft attachments to the chat message that owns them, once that message has been persisted, so deleting the message removes them too. Identifiers that no longer exist are skipped.
    *
    * REST API Reference for aiAttachmentsLinkToMessage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-link-to-message/
@@ -400,7 +400,7 @@ public class AttachmentsApi extends BaseApi {
 
   /**
    * Link to message
-   * 
+   * Binds draft attachments to the chat message that owns them, once that message has been persisted, so deleting the message removes them too. Identifiers that no longer exist are skipped.
    *
    * REST API Reference for aiAttachmentsLinkToMessage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-link-to-message/
@@ -467,7 +467,7 @@ public class AttachmentsApi extends BaseApi {
 
   /**
    * Save file
-   * 
+   * Stores one file attachment as a draft, carrying the host-extracted text of the file. Prefer `save-files-many` when adding several files at once so they land as one round trip.
    *
    * REST API Reference for aiAttachmentsSaveFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-file/
@@ -483,7 +483,7 @@ public class AttachmentsApi extends BaseApi {
 
   /**
    * Save file
-   * 
+   * Stores one file attachment as a draft, carrying the host-extracted text of the file. Prefer `save-files-many` when adding several files at once so they land as one round trip.
    *
    * REST API Reference for aiAttachmentsSaveFile Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-file/
@@ -550,7 +550,7 @@ public class AttachmentsApi extends BaseApi {
 
   /**
    * Save files many
-   * 
+   * Stores a batch of file attachments as drafts in a single round trip. The returned records keep the order of the input.
    *
    * REST API Reference for aiAttachmentsSaveFilesMany Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-files-many/
@@ -566,7 +566,7 @@ public class AttachmentsApi extends BaseApi {
 
   /**
    * Save files many
-   * 
+   * Stores a batch of file attachments as drafts in a single round trip. The returned records keep the order of the input.
    *
    * REST API Reference for aiAttachmentsSaveFilesMany Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-files-many/

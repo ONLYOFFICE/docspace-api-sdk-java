@@ -13,7 +13,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > AiSuccessResponse aiOpenaiChatCompletions(profileId, requestBody)
 
-OpenAI-compatible chat completions proxied to the profile's provider
+OpenAI-compatible chat completions proxied to the profile's providerOpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/).
 
@@ -22,7 +22,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **profileId** | **String**|  | |
+| **profileId** | **String**| The AI provider profile identifier. | |
 | **requestBody** | [**Map&lt;String, Object&gt;**](Object.md)|  | |
 
 ### Return type
@@ -49,7 +49,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         OpenAIPassthroughApi apiInstance = new OpenAIPassthroughApi(defaultClient);
-        String profileId = "profileId_example"; // String | 
+        String profileId = "profileId_example"; // String | The AI provider profile identifier.
         Map<String, Object> requestBody = null; // Map<String, Object> | 
         try {
             AiSuccessResponse result = apiInstance.aiOpenaiChatCompletions(profileId, requestBody);
@@ -82,7 +82,7 @@ public class Example {
 
 > AiSuccessResponse aiOpenaiImagesGenerations(profileId, requestBody)
 
-OpenAI-compatible image generation proxied to the profile's provider
+OpenAI-compatible image generation proxied to the profile's providerOpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/).
 
@@ -91,7 +91,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **profileId** | **String**|  | |
+| **profileId** | **String**| The AI provider profile identifier. | |
 | **requestBody** | [**Map&lt;String, Object&gt;**](Object.md)|  | |
 
 ### Return type
@@ -118,7 +118,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         OpenAIPassthroughApi apiInstance = new OpenAIPassthroughApi(defaultClient);
-        String profileId = "profileId_example"; // String | 
+        String profileId = "profileId_example"; // String | The AI provider profile identifier.
         Map<String, Object> requestBody = null; // Map<String, Object> | 
         try {
             AiSuccessResponse result = apiInstance.aiOpenaiImagesGenerations(profileId, requestBody);

@@ -55,7 +55,7 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * Create
-   * 
+   * Creates an AI provider profile. The name must be unique and the credentials are validated against the provider before the profile is stored; the portal's first profile also takes the `Default` assignment slot.
    *
    * REST API Reference for aiProfilesCreate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/
@@ -71,7 +71,7 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * Create
-   * 
+   * Creates an AI provider profile. The name must be unique and the credentials are validated against the provider before the profile is stored; the portal's first profile also takes the `Default` assignment slot.
    *
    * REST API Reference for aiProfilesCreate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/
@@ -138,7 +138,7 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * Delete
-   * 
+   * Deletes an AI provider profile and cleans up the assignments pointing at it - the `Default` slot moves to the first remaining profile, the other slots are unbound.
    *
    * REST API Reference for aiProfilesDelete Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/
@@ -154,7 +154,7 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * Delete
-   * 
+   * Deletes an AI provider profile and cleans up the assignments pointing at it - the `Default` slot moves to the first remaining profile, the other slots are unbound.
    *
    * REST API Reference for aiProfilesDelete Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/
@@ -221,12 +221,12 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * Get by id
-   * 
+   * Returns one AI provider profile, or an empty result when the identifier is unknown.
    *
    * REST API Reference for aiProfilesGetById Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/
    *
-   * @param id  (required)
+   * @param id The AI provider profile identifier. (required)
    * @return AiProfilesGetById200Response
    * @throws ApiException if fails to make API call
    */
@@ -237,12 +237,12 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * Get by id
-   * 
+   * Returns one AI provider profile, or an empty result when the identifier is unknown.
    *
    * REST API Reference for aiProfilesGetById Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/
    *
-   * @param id  (required)
+   * @param id The AI provider profile identifier. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiProfilesGetById200Response
    * @throws ApiException if fails to make API call
@@ -305,7 +305,7 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * List
-   * 
+   * Lists the portal's AI provider profiles.
    *
    * REST API Reference for aiProfilesList Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list/
@@ -320,7 +320,7 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * List
-   * 
+   * Lists the portal's AI provider profiles.
    *
    * REST API Reference for aiProfilesList Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list/
@@ -381,12 +381,12 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * List models
-   * 
+   * Lists the models the given profile's provider offers, as reported by the provider itself.
    *
    * REST API Reference for aiProfilesListModels Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/
    *
-   * @param profileId  (required)
+   * @param profileId The AI provider profile identifier. (required)
    * @return List&lt;AiModel&gt;
    * @throws ApiException if fails to make API call
    */
@@ -397,12 +397,12 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * List models
-   * 
+   * Lists the models the given profile's provider offers, as reported by the provider itself.
    *
    * REST API Reference for aiProfilesListModels Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/
    *
-   * @param profileId  (required)
+   * @param profileId The AI provider profile identifier. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return List&lt;AiModel&gt;
    * @throws ApiException if fails to make API call
@@ -465,7 +465,7 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * List provider models
-   * 
+   * Lists the models a provider offers for the supplied endpoint and key, before any profile is created from them.
    *
    * REST API Reference for aiProfilesListProviderModels Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-provider-models/
@@ -481,7 +481,7 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * List provider models
-   * 
+   * Lists the models a provider offers for the supplied endpoint and key, before any profile is created from them.
    *
    * REST API Reference for aiProfilesListProviderModels Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-provider-models/
@@ -548,7 +548,7 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * Test connection
-   * 
+   * Checks a stored profile's credentials against its provider and reports the provider's own error when the call fails. Nothing is written.
    *
    * REST API Reference for aiProfilesTestConnection Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/
@@ -564,7 +564,7 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * Test connection
-   * 
+   * Checks a stored profile's credentials against its provider and reports the provider's own error when the call fails. Nothing is written.
    *
    * REST API Reference for aiProfilesTestConnection Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/
@@ -631,7 +631,7 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * Update
-   * 
+   * Updates an AI provider profile, re-checking name uniqueness and the provider credentials.
    *
    * REST API Reference for aiProfilesUpdate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-update/
@@ -647,7 +647,7 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * Update
-   * 
+   * Updates an AI provider profile, re-checking name uniqueness and the provider credentials.
    *
    * REST API Reference for aiProfilesUpdate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-update/

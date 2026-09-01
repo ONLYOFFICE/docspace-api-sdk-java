@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * UploadSessionResponseIntegerWrapper
+ * The successful API response containing the UploadSessionResponseDtoInteger object.
  */
 @JsonPropertyOrder({
   UploadSessionResponseIntegerWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class UploadSessionResponseIntegerWrapper {
   }
 
   /**
-   * Get response
+   * The UploadSessionResponseDtoInteger object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

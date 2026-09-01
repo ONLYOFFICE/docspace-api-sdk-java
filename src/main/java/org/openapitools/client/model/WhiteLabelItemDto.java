@@ -24,8 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.client.model.IMagickGeometry;
 import org.openapitools.client.model.WhiteLabelItemPathDto;
+import org.openapitools.client.model.WhiteLabelItemSizeDto;
 import org.openapitools.client.model.WhiteLabelLogoType;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -56,7 +56,7 @@ public class WhiteLabelItemDto {
   @javax.annotation.Nullable  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SIZE = "size";
-  @javax.annotation.Nullable  private IMagickGeometry size;
+  @javax.annotation.Nullable  private WhiteLabelItemSizeDto size;
 
   public static final String JSON_PROPERTY_PATH = "path";
   @javax.annotation.Nullable  private WhiteLabelItemPathDto path;
@@ -120,7 +120,7 @@ public class WhiteLabelItemDto {
     this.name = JsonNullable.<String>of(name);
   }
 
-  public WhiteLabelItemDto size(@javax.annotation.Nullable IMagickGeometry size) {
+  public WhiteLabelItemDto size(@javax.annotation.Nullable WhiteLabelItemSizeDto size) {
     
     this.size = size;
     return this;
@@ -133,14 +133,14 @@ public class WhiteLabelItemDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public IMagickGeometry getSize() {
+  public WhiteLabelItemSizeDto getSize() {
     return size;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSize(@javax.annotation.Nullable IMagickGeometry size) {
+  public void setSize(@javax.annotation.Nullable WhiteLabelItemSizeDto size) {
     this.size = size;
   }
 

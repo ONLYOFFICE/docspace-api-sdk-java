@@ -34,7 +34,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Discriminated event emitted by the streaming methods of  {@link  AIEngine } . The engine never invokes user-supplied middleware or callbacks directly — every observable side-effect is encoded as a  {@link  ChatEvent }  so the same stream can be replayed over SSE, WebSocket, or in-process.  Pause point: `tool-call-pending` is the only stop. The UI must execute the tool itself (consulting `autoAllow` to decide between the silent path and the approve dialog) and resume via  {@link  AIEngine.approveToolCall }  or  {@link  AIEngine.denyToolCall } .  Other variants are pure data:  - `message-start` / `message-delta` / `message-end` — assistant   reply lifecycle. - `message-incomplete` — the provider returned an error or   incomplete status. - `thread-title` — auto-generated title ready for a new thread.
+ * Discriminated event emitted by the streaming methods of `AIEngine`. The engine never invokes user-supplied middleware or callbacks directly — every observable side-effect is encoded as a `ChatEvent` so the same stream can be replayed over SSE, WebSocket, or in-process.  Pause point: `tool-call-pending` is the only stop. The UI must execute the tool itself (consulting `autoAllow` to decide between the silent path and the approve dialog) and resume via `AIEngine.approveToolCall` or `AIEngine.denyToolCall`.  Other variants are pure data:  - `message-start` / `message-delta` / `message-end` — assistant reply lifecycle. - `message-incomplete` — the provider returned an error or incomplete status. - `thread-title` — auto-generated title ready for a new thread.
  */
 @JsonPropertyOrder({
   AiChatEvent.JSON_PROPERTY_TYPE,
@@ -155,7 +155,7 @@ public class AiChatEvent {
   }
 
   /**
-   * Get message
+   * The message the event is about, in the state it has reached.
    * @return message
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
@@ -179,7 +179,7 @@ public class AiChatEvent {
   }
 
   /**
-   * Get messageId
+   * The storage identifier of that message.
    * @return messageId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MESSAGE_ID, required = false)
@@ -203,7 +203,7 @@ public class AiChatEvent {
   }
 
   /**
-   * Get idx
+   * The zero-based position of the pending tool call within the message.
    * @return idx
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IDX, required = false)
@@ -227,7 +227,7 @@ public class AiChatEvent {
   }
 
   /**
-   * Get threadId
+   * The thread the event belongs to.
    * @return threadId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_THREAD_ID, required = false)
@@ -299,7 +299,7 @@ public class AiChatEvent {
   }
 
   /**
-   * Get title
+   * The generated thread title.
    * @return title
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
@@ -323,7 +323,7 @@ public class AiChatEvent {
   }
 
   /**
-   * Get profileId
+   * The profile that generated the title, when one was used.
    * @return profileId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROFILE_ID, required = false)

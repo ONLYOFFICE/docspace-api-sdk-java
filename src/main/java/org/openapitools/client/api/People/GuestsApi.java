@@ -26,6 +26,7 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.EmailMemberRequestDto;
 import org.openapitools.client.model.EmployeeFullWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.UpdateMembersRequestDto;
 
 
@@ -172,7 +173,7 @@ public class GuestsApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -213,7 +214,7 @@ public class GuestsApi extends BaseApi {
     localVarHeaderParams.putAll(additionalHeaders);
 
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * DefaultTemplateSettingsWrapper
+ * The successful API response containing the DefaultTemplateSettingsDto object.
  */
 @JsonPropertyOrder({
   DefaultTemplateSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class DefaultTemplateSettingsWrapper {
   }
 
   /**
-   * Get response
+   * The DefaultTemplateSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

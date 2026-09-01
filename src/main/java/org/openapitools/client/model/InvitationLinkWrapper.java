@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * InvitationLinkWrapper
+ * The successful API response containing the InvitationLinkDto object.
  */
 @JsonPropertyOrder({
   InvitationLinkWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class InvitationLinkWrapper {
   }
 
   /**
-   * Get response
+   * The InvitationLinkDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

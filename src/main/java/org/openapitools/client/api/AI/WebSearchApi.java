@@ -52,7 +52,7 @@ public class WebSearchApi extends BaseApi {
 
   /**
    * Clear
-   * 
+   * Removes the web-search configuration of the scope. Does nothing when web search was not configured there.
    *
    * REST API Reference for aiWebSearchClear Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/
@@ -68,7 +68,7 @@ public class WebSearchApi extends BaseApi {
 
   /**
    * Clear
-   * 
+   * Removes the web-search configuration of the scope. Does nothing when web search was not configured there.
    *
    * REST API Reference for aiWebSearchClear Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/
@@ -135,7 +135,7 @@ public class WebSearchApi extends BaseApi {
 
   /**
    * Configure
-   * 
+   * Validates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
    *
    * REST API Reference for aiWebSearchConfigure Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-configure/
@@ -151,7 +151,7 @@ public class WebSearchApi extends BaseApi {
 
   /**
    * Configure
-   * 
+   * Validates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
    *
    * REST API Reference for aiWebSearchConfigure Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-configure/
@@ -218,39 +218,34 @@ public class WebSearchApi extends BaseApi {
 
   /**
    * Get active config
-   * 
+   * Returns the web-search configuration active in the scope, or an empty result when web search is not configured.
    *
    * REST API Reference for aiWebSearchGetActiveConfig Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/
    *
-   * @param entityId  (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @return AiWebSearchConfig
    * @throws ApiException if fails to make API call
    */
-  public AiWebSearchConfig aiWebSearchGetActiveConfig(@javax.annotation.Nonnull String entityId) throws ApiException {
+  public AiWebSearchConfig aiWebSearchGetActiveConfig(@javax.annotation.Nullable String entityId) throws ApiException {
     return this.aiWebSearchGetActiveConfig(entityId, Collections.emptyMap());
   }
 
 
   /**
    * Get active config
-   * 
+   * Returns the web-search configuration active in the scope, or an empty result when web search is not configured.
    *
    * REST API Reference for aiWebSearchGetActiveConfig Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/
    *
-   * @param entityId  (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiWebSearchConfig
    * @throws ApiException if fails to make API call
    */
-  public AiWebSearchConfig aiWebSearchGetActiveConfig(@javax.annotation.Nonnull String entityId, Map<String, String> additionalHeaders) throws ApiException {
+  public AiWebSearchConfig aiWebSearchGetActiveConfig(@javax.annotation.Nullable String entityId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
-    
-    // verify the required parameter 'entityId' is set
-    if (entityId == null) {
-      throw new ApiException(400, "Missing the required parameter 'entityId' when calling aiWebSearchGetActiveConfig");
-    }
     
     // create path and map variables
     String localVarPath = "/api/2.0/ai/web-search/get-active-config";
@@ -302,39 +297,34 @@ public class WebSearchApi extends BaseApi {
 
   /**
    * Is configured
-   * 
+   * Tells whether web search is configured in the scope.
    *
    * REST API Reference for aiWebSearchIsConfigured Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/
    *
-   * @param entityId  (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @return Boolean
    * @throws ApiException if fails to make API call
    */
-  public Boolean aiWebSearchIsConfigured(@javax.annotation.Nonnull String entityId) throws ApiException {
+  public Boolean aiWebSearchIsConfigured(@javax.annotation.Nullable String entityId) throws ApiException {
     return this.aiWebSearchIsConfigured(entityId, Collections.emptyMap());
   }
 
 
   /**
    * Is configured
-   * 
+   * Tells whether web search is configured in the scope.
    *
    * REST API Reference for aiWebSearchIsConfigured Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/
    *
-   * @param entityId  (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return Boolean
    * @throws ApiException if fails to make API call
    */
-  public Boolean aiWebSearchIsConfigured(@javax.annotation.Nonnull String entityId, Map<String, String> additionalHeaders) throws ApiException {
+  public Boolean aiWebSearchIsConfigured(@javax.annotation.Nullable String entityId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
-    
-    // verify the required parameter 'entityId' is set
-    if (entityId == null) {
-      throw new ApiException(400, "Missing the required parameter 'entityId' when calling aiWebSearchIsConfigured");
-    }
     
     // create path and map variables
     String localVarPath = "/api/2.0/ai/web-search/is-configured";
@@ -386,7 +376,7 @@ public class WebSearchApi extends BaseApi {
 
   /**
    * Web page contents proxied to the portal's active web-search provider
-   * 
+   * Fetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
    *
    * REST API Reference for aiWebSearchPassthroughContents Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/
@@ -402,7 +392,7 @@ public class WebSearchApi extends BaseApi {
 
   /**
    * Web page contents proxied to the portal's active web-search provider
-   * 
+   * Fetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
    *
    * REST API Reference for aiWebSearchPassthroughContents Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/
@@ -469,7 +459,7 @@ public class WebSearchApi extends BaseApi {
 
   /**
    * Web search proxied to the portal's active web-search provider
-   * 
+   * Runs a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
    *
    * REST API Reference for aiWebSearchPassthroughSearch Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/
@@ -485,7 +475,7 @@ public class WebSearchApi extends BaseApi {
 
   /**
    * Web search proxied to the portal's active web-search provider
-   * 
+   * Runs a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
    *
    * REST API Reference for aiWebSearchPassthroughSearch Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/
@@ -552,7 +542,7 @@ public class WebSearchApi extends BaseApi {
 
   /**
    * Set active config
-   * 
+   * Stores a web-search configuration without contacting the provider first, for forms that validate locally.
    *
    * REST API Reference for aiWebSearchSetActiveConfig Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-set-active-config/
@@ -568,7 +558,7 @@ public class WebSearchApi extends BaseApi {
 
   /**
    * Set active config
-   * 
+   * Stores a web-search configuration without contacting the provider first, for forms that validate locally.
    *
    * REST API Reference for aiWebSearchSetActiveConfig Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-set-active-config/
@@ -635,7 +625,7 @@ public class WebSearchApi extends BaseApi {
 
   /**
    * Test connection
-   * 
+   * Checks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
    *
    * REST API Reference for aiWebSearchTestConnection Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-test-connection/
@@ -651,7 +641,7 @@ public class WebSearchApi extends BaseApi {
 
   /**
    * Test connection
-   * 
+   * Checks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
    *
    * REST API Reference for aiWebSearchTestConnection Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-test-connection/

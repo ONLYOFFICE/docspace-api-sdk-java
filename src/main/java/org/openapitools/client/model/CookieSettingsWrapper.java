@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * CookieSettingsWrapper
+ * The successful API response containing the CookieSettingsDto object.
  */
 @JsonPropertyOrder({
   CookieSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class CookieSettingsWrapper {
   }
 
   /**
-   * Get response
+   * The CookieSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

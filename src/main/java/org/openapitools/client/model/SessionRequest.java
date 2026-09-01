@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.client.model.ApiDateTime;
+import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -59,7 +59,7 @@ public class SessionRequest {
   @javax.annotation.Nullable  private JsonNullable<String> relativePath = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CREATE_ON = "createOn";
-  @javax.annotation.Nullable  private ApiDateTime createOn;
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> createOn = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_ENCRYPTED = "encrypted";
   @javax.annotation.Nullable  private Boolean encrypted;
@@ -150,28 +150,35 @@ public class SessionRequest {
     this.relativePath = JsonNullable.<String>of(relativePath);
   }
 
-  public SessionRequest createOn(@javax.annotation.Nullable ApiDateTime createOn) {
+  public SessionRequest createOn(@javax.annotation.Nullable OffsetDateTime createOn) {
+    this.createOn = JsonNullable.<OffsetDateTime>of(createOn);
     
-    this.createOn = createOn;
     return this;
   }
 
   /**
-   * The API date and time parameters.
+   * The date and time when the file was created.
    * @return createOn
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_ON, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public ApiDateTime getCreateOn() {
-    return createOn;
+  public OffsetDateTime getCreateOn() {
+        return createOn.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_CREATE_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreateOn(@javax.annotation.Nullable ApiDateTime createOn) {
+  public JsonNullable<OffsetDateTime> getCreateOn_JsonNullable() {
+    return createOn;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATE_ON)
+  public void setCreateOn_JsonNullable(JsonNullable<OffsetDateTime> createOn) {
     this.createOn = createOn;
+  }
+
+  public void setCreateOn(@javax.annotation.Nullable OffsetDateTime createOn) {
+    this.createOn = JsonNullable.<OffsetDateTime>of(createOn);
   }
 
   public SessionRequest encrypted(@javax.annotation.Nullable Boolean encrypted) {
@@ -234,7 +241,7 @@ public class SessionRequest {
     return Objects.equals(this.fileName, sessionRequest.fileName) &&
         Objects.equals(this.fileSize, sessionRequest.fileSize) &&
         equalsNullable(this.relativePath, sessionRequest.relativePath) &&
-        Objects.equals(this.createOn, sessionRequest.createOn) &&
+        equalsNullable(this.createOn, sessionRequest.createOn) &&
         Objects.equals(this.encrypted, sessionRequest.encrypted) &&
         Objects.equals(this.createNewIfExist, sessionRequest.createNewIfExist);
   }
@@ -245,7 +252,7 @@ public class SessionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileName, fileSize, hashCodeNullable(relativePath), createOn, encrypted, createNewIfExist);
+    return Objects.hash(fileName, fileSize, hashCodeNullable(relativePath), hashCodeNullable(createOn), encrypted, createNewIfExist);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -344,7 +351,12 @@ public class SessionRequest {
 
     // add `createOn` to the URL query string
     if (getCreateOn() != null) {
-      joiner.add(getCreateOn().toUrlQueryString(prefix + "createOn" + suffix));
+      try {
+        joiner.add(String.format("%screateOn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreateOn()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `encrypted` to the URL query string

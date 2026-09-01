@@ -26,6 +26,7 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.CspRequestsDto;
 import org.openapitools.client.model.CspWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 
 
 import java.util.ArrayList;

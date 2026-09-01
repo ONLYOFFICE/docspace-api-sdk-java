@@ -28,6 +28,7 @@ import org.openapitools.client.model.AuthServiceRequestsArrayWrapper;
 import org.openapitools.client.model.AuthServiceRequestsDto;
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.ConnectionTestResultWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.ExternalDatabaseSettings;
 
 

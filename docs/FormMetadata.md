@@ -2,6 +2,7 @@
 
 # FormMetadata
 
+The metadata of a single form field.
 
 ## Properties
 

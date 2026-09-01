@@ -24,8 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 import java.util.UUID;
-import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -83,7 +83,7 @@ public class ActiveConnectionsItemDto {
   @javax.annotation.Nullable  private JsonNullable<String> platform = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DATE = "date";
-  @javax.annotation.Nullable  private ApiDateTime date;
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> date = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_PAGE = "page";
   @javax.annotation.Nullable  private JsonNullable<String> page = JsonNullable.<String>undefined();
@@ -343,28 +343,35 @@ public class ActiveConnectionsItemDto {
     this.platform = JsonNullable.<String>of(platform);
   }
 
-  public ActiveConnectionsItemDto date(@javax.annotation.Nullable ApiDateTime date) {
+  public ActiveConnectionsItemDto date(@javax.annotation.Nullable OffsetDateTime date) {
+    this.date = JsonNullable.<OffsetDateTime>of(date);
     
-    this.date = date;
     return this;
   }
 
   /**
-   * The API date and time parameters.
+   * The active connection date.
    * @return date
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public ApiDateTime getDate() {
-    return date;
+  public OffsetDateTime getDate() {
+        return date.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(@javax.annotation.Nullable ApiDateTime date) {
+  public JsonNullable<OffsetDateTime> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<OffsetDateTime> date) {
     this.date = date;
+  }
+
+  public void setDate(@javax.annotation.Nullable OffsetDateTime date) {
+    this.date = JsonNullable.<OffsetDateTime>of(date);
   }
 
   public ActiveConnectionsItemDto page(@javax.annotation.Nullable String page) {
@@ -416,7 +423,7 @@ public class ActiveConnectionsItemDto {
         equalsNullable(this.city, activeConnectionsItemDto.city) &&
         equalsNullable(this.browser, activeConnectionsItemDto.browser) &&
         equalsNullable(this.platform, activeConnectionsItemDto.platform) &&
-        Objects.equals(this.date, activeConnectionsItemDto.date) &&
+        equalsNullable(this.date, activeConnectionsItemDto.date) &&
         equalsNullable(this.page, activeConnectionsItemDto.page);
   }
 
@@ -426,7 +433,7 @@ public class ActiveConnectionsItemDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, userId, mobile, hashCodeNullable(ip), hashCodeNullable(country), hashCodeNullable(city), hashCodeNullable(browser), hashCodeNullable(platform), date, hashCodeNullable(page));
+    return Objects.hash(id, tenantId, userId, mobile, hashCodeNullable(ip), hashCodeNullable(country), hashCodeNullable(city), hashCodeNullable(browser), hashCodeNullable(platform), hashCodeNullable(date), hashCodeNullable(page));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -590,7 +597,12 @@ public class ActiveConnectionsItemDto {
 
     // add `date` to the URL query string
     if (getDate() != null) {
-      joiner.add(getDate().toUrlQueryString(prefix + "date" + suffix));
+      try {
+        joiner.add(String.format("%sdate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `page` to the URL query string

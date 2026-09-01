@@ -35,6 +35,7 @@ import org.openapitools.client.model.CreateTagRequestDto;
 import org.openapitools.client.model.CreateThirdPartyRoom;
 import org.openapitools.client.model.DeleteRoomRequest;
 import org.openapitools.client.model.DocumentBuilderTaskWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.ExternalDbSyncTaskWrapper;
 import java.io.File;
 import org.openapitools.client.model.FileOperationWrapper;
@@ -904,7 +905,7 @@ public class RoomsApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -2399,7 +2400,7 @@ public class RoomsApi extends BaseApi {
    * REST API Reference for hasTagLinks Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/
    *
-   * @param tagName2  (required)
+   * @param tagName2 The tag being checked. Send the same value as the `tagName` query parameter, which is the one the handler reads. (required)
    * @param tagName Represents the name of a tag (optional)
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
@@ -2416,7 +2417,7 @@ public class RoomsApi extends BaseApi {
    * REST API Reference for hasTagLinks Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/
    *
-   * @param tagName2  (required)
+   * @param tagName2 The tag being checked. Send the same value as the `tagName` query parameter, which is the one the handler reads. (required)
    * @param tagName Represents the name of a tag (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return BooleanWrapper
@@ -2707,7 +2708,7 @@ public class RoomsApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -2782,7 +2783,7 @@ public class RoomsApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -3205,7 +3206,7 @@ public class RoomsApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

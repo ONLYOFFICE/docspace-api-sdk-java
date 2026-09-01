@@ -9,8 +9,8 @@ The room link parameters.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**linkId** | **UUID** | The room link ID. |  [optional] |
-|**access** | **FileShare** | The access rights type. |  [optional] |
-|**expirationDate** | [**ApiDateTime**](ApiDateTime.md) | The API date and time parameters. |  [optional] |
+|**access** | **FileShare** | The link sharing rights. |  [optional] |
+|**expirationDate** | **OffsetDateTime** | The link expiration date. |  [optional] |
 |**internal** | **Boolean** | The link scope, whether it is internal or not. |  [optional] |
 |**title** | **String** | The link name. |  [optional] |
 |**linkType** | **LinkType** | The link type. |  [optional] |

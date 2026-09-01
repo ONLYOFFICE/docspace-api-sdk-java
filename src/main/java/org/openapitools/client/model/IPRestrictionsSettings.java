@@ -33,7 +33,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * IPRestrictionsSettings
+ * The IP restriction settings.
  */
 @JsonPropertyOrder({
   IPRestrictionsSettings.JSON_PROPERTY_ENABLE,
@@ -58,7 +58,7 @@ public class IPRestrictionsSettings {
   }
 
   /**
-   * Get enable
+   * Specifies if the IP restrictions are enabled or not.
    * @return enable
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLE, required = false)
@@ -82,7 +82,7 @@ public class IPRestrictionsSettings {
   }
 
   /**
-   * Get lastModified
+   * The date and time when the settings were last modified.
    * @return lastModified
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)

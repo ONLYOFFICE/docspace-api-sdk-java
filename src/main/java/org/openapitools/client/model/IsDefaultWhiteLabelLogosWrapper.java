@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * IsDefaultWhiteLabelLogosWrapper
+ * The successful API response containing the IsDefaultWhiteLabelLogosDto object.
  */
 @JsonPropertyOrder({
   IsDefaultWhiteLabelLogosWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class IsDefaultWhiteLabelLogosWrapper {
   }
 
   /**
-   * Get response
+   * The IsDefaultWhiteLabelLogosDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

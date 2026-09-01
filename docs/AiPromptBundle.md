@@ -8,9 +8,9 @@ Versioned, self-contained bundle of every saved prompt and folder. Stable wire f
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**version** | [**VersionEnum**](#VersionEnum) |  |  |
-|**folders** | [**List&lt;AiPromptFolder&gt;**](AiPromptFolder.md) |  |  |
-|**prompts** | [**List&lt;AiPrompt&gt;**](AiPrompt.md) |  |  |
+|**version** | [**VersionEnum**](#VersionEnum) | The bundle format version, so an import can migrate an older export. |  |
+|**folders** | [**List&lt;AiPromptFolder&gt;**](AiPromptFolder.md) | Every exported prompt folder. |  |
+|**prompts** | [**List&lt;AiPrompt&gt;**](AiPrompt.md) | Every exported prompt. |  |
 
 
 

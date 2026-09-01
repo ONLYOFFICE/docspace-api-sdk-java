@@ -33,7 +33,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Outcome of  {@link  AssignmentsEngine.assign }  /  {@link  AssignmentsEngine.unassign } . Either a success or a field-scoped error suitable for displaying in the profile editor.
+ * Outcome of `AssignmentsEngine.assign` / `AssignmentsEngine.unassign`. Either a success or a field-scoped error suitable for displaying in the profile editor.
  */
 @JsonPropertyOrder({
   AiAssignmentMutationResult.JSON_PROPERTY_SUCCESS,
@@ -58,7 +58,7 @@ public class AiAssignmentMutationResult {
   }
 
   /**
-   * Get success
+   * True when the assignment was persisted.
    * @return success
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SUCCESS, required = true)
@@ -82,7 +82,7 @@ public class AiAssignmentMutationResult {
   }
 
   /**
-   * Get error
+   * Why the assignment was rejected. Present on failure.
    * @return error
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)

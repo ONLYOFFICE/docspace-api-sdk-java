@@ -34,7 +34,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Outcome of  {@link  WebSearchEngine.configure }  — either the persisted config or a field-scoped error suitable for the settings form.
+ * Outcome of `WebSearchEngine.configure` — either the persisted config or a field-scoped error suitable for the settings form.
  */
 @JsonPropertyOrder({
   AiWebSearchMutationResult.JSON_PROPERTY_SUCCESS,
@@ -63,7 +63,7 @@ public class AiWebSearchMutationResult {
   }
 
   /**
-   * Get success
+   * True when the configuration was persisted.
    * @return success
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SUCCESS, required = true)
@@ -87,7 +87,7 @@ public class AiWebSearchMutationResult {
   }
 
   /**
-   * Get config
+   * The persisted web-search configuration. Present on success.
    * @return config
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONFIG, required = false)
@@ -111,7 +111,7 @@ public class AiWebSearchMutationResult {
   }
 
   /**
-   * Get error
+   * Why the configuration was rejected. Present on failure.
    * @return error
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)

@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * UpcomingPaymentArrayWrapper
+ * The successful API response containing the list of UpcomingPaymentDto objects.
  */
 @JsonPropertyOrder({
   UpcomingPaymentArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class UpcomingPaymentArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of UpcomingPaymentDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

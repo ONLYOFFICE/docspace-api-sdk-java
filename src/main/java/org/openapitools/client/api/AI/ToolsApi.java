@@ -57,7 +57,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Add custom server
-   * 
+   * Registers a custom MCP server in the scope under the given name.
    *
    * REST API Reference for aiToolsAddCustomServer Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-add-custom-server/
@@ -73,7 +73,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Add custom server
-   * 
+   * Registers a custom MCP server in the scope under the given name.
    *
    * REST API Reference for aiToolsAddCustomServer Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-add-custom-server/
@@ -140,39 +140,34 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Get allow always
-   * 
+   * Lists the tools on the always-allow list of the scope.
    *
    * REST API Reference for aiToolsGetAllowAlways Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-allow-always/
    *
-   * @param entityId  (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<String> aiToolsGetAllowAlways(@javax.annotation.Nonnull String entityId) throws ApiException {
+  public List<String> aiToolsGetAllowAlways(@javax.annotation.Nullable String entityId) throws ApiException {
     return this.aiToolsGetAllowAlways(entityId, Collections.emptyMap());
   }
 
 
   /**
    * Get allow always
-   * 
+   * Lists the tools on the always-allow list of the scope.
    *
    * REST API Reference for aiToolsGetAllowAlways Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-allow-always/
    *
-   * @param entityId  (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<String> aiToolsGetAllowAlways(@javax.annotation.Nonnull String entityId, Map<String, String> additionalHeaders) throws ApiException {
+  public List<String> aiToolsGetAllowAlways(@javax.annotation.Nullable String entityId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
-    
-    // verify the required parameter 'entityId' is set
-    if (entityId == null) {
-      throw new ApiException(400, "Missing the required parameter 'entityId' when calling aiToolsGetAllowAlways");
-    }
     
     // create path and map variables
     String localVarPath = "/api/2.0/ai/tools/get-allow-always";
@@ -224,45 +219,40 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Get custom server
-   * 
+   * Returns the configuration of one custom MCP server, or an empty result when it is not registered.
    *
    * REST API Reference for aiToolsGetCustomServer Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-custom-server/
    *
-   * @param name  (required)
-   * @param entityId  (required)
+   * @param name The custom MCP server name. (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object aiToolsGetCustomServer(@javax.annotation.Nonnull String name, @javax.annotation.Nonnull String entityId) throws ApiException {
+  public Object aiToolsGetCustomServer(@javax.annotation.Nonnull String name, @javax.annotation.Nullable String entityId) throws ApiException {
     return this.aiToolsGetCustomServer(name, entityId, Collections.emptyMap());
   }
 
 
   /**
    * Get custom server
-   * 
+   * Returns the configuration of one custom MCP server, or an empty result when it is not registered.
    *
    * REST API Reference for aiToolsGetCustomServer Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-custom-server/
    *
-   * @param name  (required)
-   * @param entityId  (required)
+   * @param name The custom MCP server name. (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object aiToolsGetCustomServer(@javax.annotation.Nonnull String name, @javax.annotation.Nonnull String entityId, Map<String, String> additionalHeaders) throws ApiException {
+  public Object aiToolsGetCustomServer(@javax.annotation.Nonnull String name, @javax.annotation.Nullable String entityId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'name' is set
     if (name == null) {
       throw new ApiException(400, "Missing the required parameter 'name' when calling aiToolsGetCustomServer");
-    }
-    
-    // verify the required parameter 'entityId' is set
-    if (entityId == null) {
-      throw new ApiException(400, "Missing the required parameter 'entityId' when calling aiToolsGetCustomServer");
     }
     
     // create path and map variables
@@ -316,39 +306,34 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Get disabled
-   * 
+   * Returns the switched-off tools of the scope, grouped by server type.
    *
    * REST API Reference for aiToolsGetDisabled Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-disabled/
    *
-   * @param entityId  (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @return Map&lt;String, List&lt;String&gt;&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, List<String>> aiToolsGetDisabled(@javax.annotation.Nonnull String entityId) throws ApiException {
+  public Map<String, List<String>> aiToolsGetDisabled(@javax.annotation.Nullable String entityId) throws ApiException {
     return this.aiToolsGetDisabled(entityId, Collections.emptyMap());
   }
 
 
   /**
    * Get disabled
-   * 
+   * Returns the switched-off tools of the scope, grouped by server type.
    *
    * REST API Reference for aiToolsGetDisabled Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-disabled/
    *
-   * @param entityId  (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return Map&lt;String, List&lt;String&gt;&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, List<String>> aiToolsGetDisabled(@javax.annotation.Nonnull String entityId, Map<String, String> additionalHeaders) throws ApiException {
+  public Map<String, List<String>> aiToolsGetDisabled(@javax.annotation.Nullable String entityId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
-    
-    // verify the required parameter 'entityId' is set
-    if (entityId == null) {
-      throw new ApiException(400, "Missing the required parameter 'entityId' when calling aiToolsGetDisabled");
-    }
     
     // create path and map variables
     String localVarPath = "/api/2.0/ai/tools/get-disabled";
@@ -400,37 +385,37 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Is allow always
-   * 
+   * Tells whether one tool is on the always-allow list.
    *
    * REST API Reference for aiToolsIsAllowAlways Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-allow-always/
    *
-   * @param serverType  (required)
-   * @param toolName  (required)
-   * @param entityId  (required)
+   * @param serverType The MCP server type the tool belongs to. (required)
+   * @param toolName The tool name. (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @return Boolean
    * @throws ApiException if fails to make API call
    */
-  public Boolean aiToolsIsAllowAlways(@javax.annotation.Nonnull String serverType, @javax.annotation.Nonnull String toolName, @javax.annotation.Nonnull String entityId) throws ApiException {
+  public Boolean aiToolsIsAllowAlways(@javax.annotation.Nonnull String serverType, @javax.annotation.Nonnull String toolName, @javax.annotation.Nullable String entityId) throws ApiException {
     return this.aiToolsIsAllowAlways(serverType, toolName, entityId, Collections.emptyMap());
   }
 
 
   /**
    * Is allow always
-   * 
+   * Tells whether one tool is on the always-allow list.
    *
    * REST API Reference for aiToolsIsAllowAlways Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-allow-always/
    *
-   * @param serverType  (required)
-   * @param toolName  (required)
-   * @param entityId  (required)
+   * @param serverType The MCP server type the tool belongs to. (required)
+   * @param toolName The tool name. (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return Boolean
    * @throws ApiException if fails to make API call
    */
-  public Boolean aiToolsIsAllowAlways(@javax.annotation.Nonnull String serverType, @javax.annotation.Nonnull String toolName, @javax.annotation.Nonnull String entityId, Map<String, String> additionalHeaders) throws ApiException {
+  public Boolean aiToolsIsAllowAlways(@javax.annotation.Nonnull String serverType, @javax.annotation.Nonnull String toolName, @javax.annotation.Nullable String entityId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'serverType' is set
@@ -441,11 +426,6 @@ public class ToolsApi extends BaseApi {
     // verify the required parameter 'toolName' is set
     if (toolName == null) {
       throw new ApiException(400, "Missing the required parameter 'toolName' when calling aiToolsIsAllowAlways");
-    }
-    
-    // verify the required parameter 'entityId' is set
-    if (entityId == null) {
-      throw new ApiException(400, "Missing the required parameter 'entityId' when calling aiToolsIsAllowAlways");
     }
     
     // create path and map variables
@@ -500,37 +480,37 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Is tool disabled
-   * 
+   * Tells whether one tool of a server type is switched off.
    *
    * REST API Reference for aiToolsIsToolDisabled Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-tool-disabled/
    *
-   * @param serverType  (required)
-   * @param toolName  (required)
-   * @param entityId  (required)
+   * @param serverType The MCP server type the tool belongs to. (required)
+   * @param toolName The tool name. (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @return Boolean
    * @throws ApiException if fails to make API call
    */
-  public Boolean aiToolsIsToolDisabled(@javax.annotation.Nonnull String serverType, @javax.annotation.Nonnull String toolName, @javax.annotation.Nonnull String entityId) throws ApiException {
+  public Boolean aiToolsIsToolDisabled(@javax.annotation.Nonnull String serverType, @javax.annotation.Nonnull String toolName, @javax.annotation.Nullable String entityId) throws ApiException {
     return this.aiToolsIsToolDisabled(serverType, toolName, entityId, Collections.emptyMap());
   }
 
 
   /**
    * Is tool disabled
-   * 
+   * Tells whether one tool of a server type is switched off.
    *
    * REST API Reference for aiToolsIsToolDisabled Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-tool-disabled/
    *
-   * @param serverType  (required)
-   * @param toolName  (required)
-   * @param entityId  (required)
+   * @param serverType The MCP server type the tool belongs to. (required)
+   * @param toolName The tool name. (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return Boolean
    * @throws ApiException if fails to make API call
    */
-  public Boolean aiToolsIsToolDisabled(@javax.annotation.Nonnull String serverType, @javax.annotation.Nonnull String toolName, @javax.annotation.Nonnull String entityId, Map<String, String> additionalHeaders) throws ApiException {
+  public Boolean aiToolsIsToolDisabled(@javax.annotation.Nonnull String serverType, @javax.annotation.Nonnull String toolName, @javax.annotation.Nullable String entityId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'serverType' is set
@@ -541,11 +521,6 @@ public class ToolsApi extends BaseApi {
     // verify the required parameter 'toolName' is set
     if (toolName == null) {
       throw new ApiException(400, "Missing the required parameter 'toolName' when calling aiToolsIsToolDisabled");
-    }
-    
-    // verify the required parameter 'entityId' is set
-    if (entityId == null) {
-      throw new ApiException(400, "Missing the required parameter 'entityId' when calling aiToolsIsToolDisabled");
     }
     
     // create path and map variables
@@ -600,39 +575,34 @@ public class ToolsApi extends BaseApi {
 
   /**
    * List custom servers
-   * 
+   * Lists the custom MCP servers registered in the scope, keyed by name.
    *
    * REST API Reference for aiToolsListCustomServers Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-custom-servers/
    *
-   * @param entityId  (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @return Map&lt;String, Object&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, Object> aiToolsListCustomServers(@javax.annotation.Nonnull String entityId) throws ApiException {
+  public Map<String, Object> aiToolsListCustomServers(@javax.annotation.Nullable String entityId) throws ApiException {
     return this.aiToolsListCustomServers(entityId, Collections.emptyMap());
   }
 
 
   /**
    * List custom servers
-   * 
+   * Lists the custom MCP servers registered in the scope, keyed by name.
    *
    * REST API Reference for aiToolsListCustomServers Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-custom-servers/
    *
-   * @param entityId  (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return Map&lt;String, Object&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, Object> aiToolsListCustomServers(@javax.annotation.Nonnull String entityId, Map<String, String> additionalHeaders) throws ApiException {
+  public Map<String, Object> aiToolsListCustomServers(@javax.annotation.Nullable String entityId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
-    
-    // verify the required parameter 'entityId' is set
-    if (entityId == null) {
-      throw new ApiException(400, "Missing the required parameter 'entityId' when calling aiToolsListCustomServers");
-    }
     
     // create path and map variables
     String localVarPath = "/api/2.0/ai/tools/list-custom-servers";
@@ -684,39 +654,34 @@ public class ToolsApi extends BaseApi {
 
   /**
    * List system tools
-   * 
+   * Lists the tools of the host-configured system MCP servers, grouped by server type. The servers are connected and listed server-side, so the client renders its permission cards from one request and never opens an MCP connection of its own.
    *
    * REST API Reference for aiToolsListSystemTools Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-system-tools/
    *
-   * @param entityId  (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @return Map&lt;String, List&lt;AiTMCPItem&gt;&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, List<AiTMCPItem>> aiToolsListSystemTools(@javax.annotation.Nonnull String entityId) throws ApiException {
+  public Map<String, List<AiTMCPItem>> aiToolsListSystemTools(@javax.annotation.Nullable String entityId) throws ApiException {
     return this.aiToolsListSystemTools(entityId, Collections.emptyMap());
   }
 
 
   /**
    * List system tools
-   * 
+   * Lists the tools of the host-configured system MCP servers, grouped by server type. The servers are connected and listed server-side, so the client renders its permission cards from one request and never opens an MCP connection of its own.
    *
    * REST API Reference for aiToolsListSystemTools Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-system-tools/
    *
-   * @param entityId  (required)
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return Map&lt;String, List&lt;AiTMCPItem&gt;&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, List<AiTMCPItem>> aiToolsListSystemTools(@javax.annotation.Nonnull String entityId, Map<String, String> additionalHeaders) throws ApiException {
+  public Map<String, List<AiTMCPItem>> aiToolsListSystemTools(@javax.annotation.Nullable String entityId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
-    
-    // verify the required parameter 'entityId' is set
-    if (entityId == null) {
-      throw new ApiException(400, "Missing the required parameter 'entityId' when calling aiToolsListSystemTools");
-    }
     
     // create path and map variables
     String localVarPath = "/api/2.0/ai/tools/list-system-tools";
@@ -768,7 +733,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Remove custom server
-   * 
+   * Removes a custom MCP server from the registry.
    *
    * REST API Reference for aiToolsRemoveCustomServer Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-remove-custom-server/
@@ -784,7 +749,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Remove custom server
-   * 
+   * Removes a custom MCP server from the registry.
    *
    * REST API Reference for aiToolsRemoveCustomServer Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-remove-custom-server/
@@ -851,7 +816,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Replace all custom servers
-   * 
+   * Replaces the whole custom MCP server registry of the scope with the supplied map.
    *
    * REST API Reference for aiToolsReplaceAllCustomServers Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-replace-all-custom-servers/
@@ -867,7 +832,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Replace all custom servers
-   * 
+   * Replaces the whole custom MCP server registry of the scope with the supplied map.
    *
    * REST API Reference for aiToolsReplaceAllCustomServers Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-replace-all-custom-servers/
@@ -934,7 +899,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Set allow always
-   * 
+   * Adds a tool to the always-allow list, or removes it - the tools on that list run without an approval dialog.
    *
    * REST API Reference for aiToolsSetAllowAlways Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-set-allow-always/
@@ -950,7 +915,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Set allow always
-   * 
+   * Adds a tool to the always-allow list, or removes it - the tools on that list run without an approval dialog.
    *
    * REST API Reference for aiToolsSetAllowAlways Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-set-allow-always/
@@ -1017,7 +982,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Set disabled
-   * 
+   * Marks the listed tools of one server type as switched off, so the model is no longer offered them.
    *
    * REST API Reference for aiToolsSetDisabled Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-set-disabled/
@@ -1033,7 +998,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Set disabled
-   * 
+   * Marks the listed tools of one server type as switched off, so the model is no longer offered them.
    *
    * REST API Reference for aiToolsSetDisabled Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-set-disabled/
@@ -1100,7 +1065,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Update custom server
-   * 
+   * Updates the configuration of a registered custom MCP server.
    *
    * REST API Reference for aiToolsUpdateCustomServer Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-update-custom-server/
@@ -1116,7 +1081,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Update custom server
-   * 
+   * Updates the configuration of a registered custom MCP server.
    *
    * REST API Reference for aiToolsUpdateCustomServer Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-update-custom-server/

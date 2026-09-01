@@ -24,12 +24,12 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.GroupArrayWrapper;
 import org.openapitools.client.model.GroupRequestDto;
 import org.openapitools.client.model.GroupSummaryArrayWrapper;
 import org.openapitools.client.model.GroupWrapper;
 import org.openapitools.client.model.MembersRequest;
-import org.openapitools.client.model.NoContentResultWrapper;
 import org.openapitools.client.model.SetManagerRequest;
 import org.openapitools.client.model.SortOrder;
 import java.util.UUID;
@@ -242,11 +242,10 @@ public class GroupApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/
    *
    * @param id The group ID. (required)
-   * @return NoContentResultWrapper
    * @throws ApiException if fails to make API call
    */
-  public NoContentResultWrapper deleteGroup(@javax.annotation.Nonnull UUID id) throws ApiException {
-    return this.deleteGroup(id, Collections.emptyMap());
+  public void deleteGroup(@javax.annotation.Nonnull UUID id) throws ApiException {
+    this.deleteGroup(id, Collections.emptyMap());
   }
 
 
@@ -259,10 +258,9 @@ public class GroupApi extends BaseApi {
    *
    * @param id The group ID. (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return NoContentResultWrapper
    * @throws ApiException if fails to make API call
    */
-  public NoContentResultWrapper deleteGroup(@javax.annotation.Nonnull UUID id, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteGroup(@javax.annotation.Nonnull UUID id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -300,8 +298,7 @@ public class GroupApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<NoContentResultWrapper> localVarReturnType = new TypeReference<NoContentResultWrapper>() {};
-    return apiClient.invokeAPI(
+    apiClient.invokeAPI(
         localVarPath,
         "DELETE",
         localVarQueryParams,
@@ -314,7 +311,7 @@ public class GroupApi extends BaseApi {
         localVarAccept,
         localVarContentType,
         localVarAuthNames,
-        localVarReturnType
+        null
     );
   }
 

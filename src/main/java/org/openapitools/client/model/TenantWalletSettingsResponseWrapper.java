@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
-import org.openapitools.client.model.KeyValuePairBooleanString;
+import org.openapitools.client.model.TenantWalletSettings;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -37,19 +37,19 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * KeyValuePairBooleanStringWrapper
+ * The successful API response containing the TenantWalletSettings object.
  */
 @JsonPropertyOrder({
-  KeyValuePairBooleanStringWrapper.JSON_PROPERTY_RESPONSE,
-  KeyValuePairBooleanStringWrapper.JSON_PROPERTY_COUNT,
-  KeyValuePairBooleanStringWrapper.JSON_PROPERTY_LINKS,
-  KeyValuePairBooleanStringWrapper.JSON_PROPERTY_STATUS,
-  KeyValuePairBooleanStringWrapper.JSON_PROPERTY_STATUS_CODE
+  TenantWalletSettingsResponseWrapper.JSON_PROPERTY_RESPONSE,
+  TenantWalletSettingsResponseWrapper.JSON_PROPERTY_COUNT,
+  TenantWalletSettingsResponseWrapper.JSON_PROPERTY_LINKS,
+  TenantWalletSettingsResponseWrapper.JSON_PROPERTY_STATUS,
+  TenantWalletSettingsResponseWrapper.JSON_PROPERTY_STATUS_CODE
 })
 
-public class KeyValuePairBooleanStringWrapper {
+public class TenantWalletSettingsResponseWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private KeyValuePairBooleanString response;
+  @javax.annotation.Nullable  private TenantWalletSettings response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -63,35 +63,35 @@ public class KeyValuePairBooleanStringWrapper {
   public static final String JSON_PROPERTY_STATUS_CODE = "statusCode";
   @javax.annotation.Nullable  private Integer statusCode;
 
-  public KeyValuePairBooleanStringWrapper() {
+  public TenantWalletSettingsResponseWrapper() {
   }
 
 
-  public KeyValuePairBooleanStringWrapper response(@javax.annotation.Nullable KeyValuePairBooleanString response) {
+  public TenantWalletSettingsResponseWrapper response(@javax.annotation.Nullable TenantWalletSettings response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * Get response
+   * The TenantWalletSettings object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public KeyValuePairBooleanString getResponse() {
+  public TenantWalletSettings getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable KeyValuePairBooleanString response) {
+  public void setResponse(@javax.annotation.Nullable TenantWalletSettings response) {
     this.response = response;
   }
 
-  public KeyValuePairBooleanStringWrapper count(@javax.annotation.Nullable Integer count) {
+  public TenantWalletSettingsResponseWrapper count(@javax.annotation.Nullable Integer count) {
     
     this.count = count;
     return this;
@@ -115,13 +115,13 @@ public class KeyValuePairBooleanStringWrapper {
     this.count = count;
   }
 
-  public KeyValuePairBooleanStringWrapper links(@javax.annotation.Nullable List<GetPortalPrices200ResponseLinksInner> links) {
+  public TenantWalletSettingsResponseWrapper links(@javax.annotation.Nullable List<GetPortalPrices200ResponseLinksInner> links) {
     
     this.links = links;
     return this;
   }
 
-  public KeyValuePairBooleanStringWrapper addLinksItem(GetPortalPrices200ResponseLinksInner linksItem) {
+  public TenantWalletSettingsResponseWrapper addLinksItem(GetPortalPrices200ResponseLinksInner linksItem) {
     if (this.links == null) {
       this.links = new ArrayList<>();
     }
@@ -147,7 +147,7 @@ public class KeyValuePairBooleanStringWrapper {
     this.links = links;
   }
 
-  public KeyValuePairBooleanStringWrapper status(@javax.annotation.Nullable Integer status) {
+  public TenantWalletSettingsResponseWrapper status(@javax.annotation.Nullable Integer status) {
     
     this.status = status;
     return this;
@@ -171,7 +171,7 @@ public class KeyValuePairBooleanStringWrapper {
     this.status = status;
   }
 
-  public KeyValuePairBooleanStringWrapper statusCode(@javax.annotation.Nullable Integer statusCode) {
+  public TenantWalletSettingsResponseWrapper statusCode(@javax.annotation.Nullable Integer statusCode) {
     
     this.statusCode = statusCode;
     return this;
@@ -203,12 +203,12 @@ public class KeyValuePairBooleanStringWrapper {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    KeyValuePairBooleanStringWrapper keyValuePairBooleanStringWrapper = (KeyValuePairBooleanStringWrapper) o;
-    return Objects.equals(this.response, keyValuePairBooleanStringWrapper.response) &&
-        Objects.equals(this.count, keyValuePairBooleanStringWrapper.count) &&
-        Objects.equals(this.links, keyValuePairBooleanStringWrapper.links) &&
-        Objects.equals(this.status, keyValuePairBooleanStringWrapper.status) &&
-        Objects.equals(this.statusCode, keyValuePairBooleanStringWrapper.statusCode);
+    TenantWalletSettingsResponseWrapper tenantWalletSettingsResponseWrapper = (TenantWalletSettingsResponseWrapper) o;
+    return Objects.equals(this.response, tenantWalletSettingsResponseWrapper.response) &&
+        Objects.equals(this.count, tenantWalletSettingsResponseWrapper.count) &&
+        Objects.equals(this.links, tenantWalletSettingsResponseWrapper.links) &&
+        Objects.equals(this.status, tenantWalletSettingsResponseWrapper.status) &&
+        Objects.equals(this.statusCode, tenantWalletSettingsResponseWrapper.statusCode);
   }
 
   @Override
@@ -219,7 +219,7 @@ public class KeyValuePairBooleanStringWrapper {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class KeyValuePairBooleanStringWrapper {\n");
+    sb.append("class TenantWalletSettingsResponseWrapper {\n");
     sb.append("    response: ").append(toIndentedString(response)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");

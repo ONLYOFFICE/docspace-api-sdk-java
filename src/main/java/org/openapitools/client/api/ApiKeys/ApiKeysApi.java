@@ -28,6 +28,7 @@ import org.openapitools.client.model.ApiKeyResponseArrayWrapper;
 import org.openapitools.client.model.ApiKeyResponseWrapper;
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.CreateApiKeyRequestDto;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.STRINGArrayWrapper;
 import java.util.UUID;
 import org.openapitools.client.model.UpdateApiKeyRequest;

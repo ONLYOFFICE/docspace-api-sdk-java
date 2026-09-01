@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.client.model.ApiDateTime;
+import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -71,7 +71,7 @@ public class UpcomingPaymentDto {
   @javax.annotation.Nullable  private Boolean wallet;
 
   public static final String JSON_PROPERTY_DUE_DATE = "dueDate";
-  @javax.annotation.Nullable  private ApiDateTime dueDate;
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> dueDate = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   @javax.annotation.Nullable  private Double amount;
@@ -248,28 +248,35 @@ public class UpcomingPaymentDto {
     this.wallet = wallet;
   }
 
-  public UpcomingPaymentDto dueDate(@javax.annotation.Nullable ApiDateTime dueDate) {
+  public UpcomingPaymentDto dueDate(@javax.annotation.Nullable OffsetDateTime dueDate) {
+    this.dueDate = JsonNullable.<OffsetDateTime>of(dueDate);
     
-    this.dueDate = dueDate;
     return this;
   }
 
   /**
-   * The API date and time parameters.
+   * The due date of the upcoming payment in the portal time zone.
    * @return dueDate
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DUE_DATE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public ApiDateTime getDueDate() {
-    return dueDate;
+  public OffsetDateTime getDueDate() {
+        return dueDate.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_DUE_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDueDate(@javax.annotation.Nullable ApiDateTime dueDate) {
+  public JsonNullable<OffsetDateTime> getDueDate_JsonNullable() {
+    return dueDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DUE_DATE)
+  public void setDueDate_JsonNullable(JsonNullable<OffsetDateTime> dueDate) {
     this.dueDate = dueDate;
+  }
+
+  public void setDueDate(@javax.annotation.Nullable OffsetDateTime dueDate) {
+    this.dueDate = JsonNullable.<OffsetDateTime>of(dueDate);
   }
 
   public UpcomingPaymentDto amount(@javax.annotation.Nullable Double amount) {
@@ -342,7 +349,7 @@ public class UpcomingPaymentDto {
         equalsNullable(this.unitOfMeasure, upcomingPaymentDto.unitOfMeasure) &&
         Objects.equals(this.quantity, upcomingPaymentDto.quantity) &&
         Objects.equals(this.wallet, upcomingPaymentDto.wallet) &&
-        Objects.equals(this.dueDate, upcomingPaymentDto.dueDate) &&
+        equalsNullable(this.dueDate, upcomingPaymentDto.dueDate) &&
         Objects.equals(this.amount, upcomingPaymentDto.amount) &&
         equalsNullable(this.currency, upcomingPaymentDto.currency);
   }
@@ -353,7 +360,7 @@ public class UpcomingPaymentDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(name), hashCodeNullable(title), hashCodeNullable(unitOfMeasure), quantity, wallet, dueDate, amount, hashCodeNullable(currency));
+    return Objects.hash(id, hashCodeNullable(name), hashCodeNullable(title), hashCodeNullable(unitOfMeasure), quantity, wallet, hashCodeNullable(dueDate), amount, hashCodeNullable(currency));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -485,7 +492,12 @@ public class UpcomingPaymentDto {
 
     // add `dueDate` to the URL query string
     if (getDueDate() != null) {
-      joiner.add(getDueDate().toUrlQueryString(prefix + "dueDate" + suffix));
+      try {
+        joiner.add(String.format("%sdueDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDueDate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `amount` to the URL query string

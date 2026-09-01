@@ -32,23 +32,23 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * IMagickGeometry
+ * The white label logo size parameters.
  */
 @JsonPropertyOrder({
-  IMagickGeometry.JSON_PROPERTY_ASPECT_RATIO,
-  IMagickGeometry.JSON_PROPERTY_FILL_AREA,
-  IMagickGeometry.JSON_PROPERTY_GREATER,
-  IMagickGeometry.JSON_PROPERTY_HEIGHT,
-  IMagickGeometry.JSON_PROPERTY_IGNORE_ASPECT_RATIO,
-  IMagickGeometry.JSON_PROPERTY_IS_PERCENTAGE,
-  IMagickGeometry.JSON_PROPERTY_LESS,
-  IMagickGeometry.JSON_PROPERTY_LIMIT_PIXELS,
-  IMagickGeometry.JSON_PROPERTY_WIDTH,
-  IMagickGeometry.JSON_PROPERTY_X,
-  IMagickGeometry.JSON_PROPERTY_Y
+  WhiteLabelItemSizeDto.JSON_PROPERTY_ASPECT_RATIO,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_FILL_AREA,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_GREATER,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_HEIGHT,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_IGNORE_ASPECT_RATIO,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_IS_PERCENTAGE,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_LESS,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_LIMIT_PIXELS,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_WIDTH,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_X,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_Y
 })
 
-public class IMagickGeometry {
+public class WhiteLabelItemSizeDto {
   public static final String JSON_PROPERTY_ASPECT_RATIO = "aspectRatio";
   @javax.annotation.Nullable  private Boolean aspectRatio;
 
@@ -82,22 +82,18 @@ public class IMagickGeometry {
   public static final String JSON_PROPERTY_Y = "y";
   @javax.annotation.Nullable  private Integer y;
 
-  public IMagickGeometry() {
+  public WhiteLabelItemSizeDto() {
   }
-  /**
-   * Constructor with only readonly parameters
-   */
-  @JsonCreator
-  public IMagickGeometry(
-    @JsonProperty(JSON_PROPERTY_ASPECT_RATIO) Boolean aspectRatio
-  ) {
-    this();
+
+
+  public WhiteLabelItemSizeDto aspectRatio(@javax.annotation.Nullable Boolean aspectRatio) {
+    
     this.aspectRatio = aspectRatio;
+    return this;
   }
 
-
   /**
-   * Get aspectRatio
+   * Specifies whether the size is an aspect ratio.
    * @return aspectRatio
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ASPECT_RATIO, required = false)
@@ -108,15 +104,20 @@ public class IMagickGeometry {
   }
 
 
+  @JsonProperty(value = JSON_PROPERTY_ASPECT_RATIO, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAspectRatio(@javax.annotation.Nullable Boolean aspectRatio) {
+    this.aspectRatio = aspectRatio;
+  }
 
-  public IMagickGeometry fillArea(@javax.annotation.Nullable Boolean fillArea) {
+  public WhiteLabelItemSizeDto fillArea(@javax.annotation.Nullable Boolean fillArea) {
     
     this.fillArea = fillArea;
     return this;
   }
 
   /**
-   * Get fillArea
+   * Specifies whether the logo is resized based on the smallest fitting dimension.
    * @return fillArea
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILL_AREA, required = false)
@@ -133,14 +134,14 @@ public class IMagickGeometry {
     this.fillArea = fillArea;
   }
 
-  public IMagickGeometry greater(@javax.annotation.Nullable Boolean greater) {
+  public WhiteLabelItemSizeDto greater(@javax.annotation.Nullable Boolean greater) {
     
     this.greater = greater;
     return this;
   }
 
   /**
-   * Get greater
+   * Specifies whether the logo is resized only if it is greater than the size.
    * @return greater
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GREATER, required = false)
@@ -157,14 +158,14 @@ public class IMagickGeometry {
     this.greater = greater;
   }
 
-  public IMagickGeometry height(@javax.annotation.Nullable Integer height) {
+  public WhiteLabelItemSizeDto height(@javax.annotation.Nullable Integer height) {
     
     this.height = height;
     return this;
   }
 
   /**
-   * Get height
+   * The logo height, in pixels.
    * @return height
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
@@ -181,14 +182,14 @@ public class IMagickGeometry {
     this.height = height;
   }
 
-  public IMagickGeometry ignoreAspectRatio(@javax.annotation.Nullable Boolean ignoreAspectRatio) {
+  public WhiteLabelItemSizeDto ignoreAspectRatio(@javax.annotation.Nullable Boolean ignoreAspectRatio) {
     
     this.ignoreAspectRatio = ignoreAspectRatio;
     return this;
   }
 
   /**
-   * Get ignoreAspectRatio
+   * Specifies whether the logo is resized without preserving the aspect ratio.
    * @return ignoreAspectRatio
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IGNORE_ASPECT_RATIO, required = false)
@@ -205,14 +206,14 @@ public class IMagickGeometry {
     this.ignoreAspectRatio = ignoreAspectRatio;
   }
 
-  public IMagickGeometry isPercentage(@javax.annotation.Nullable Boolean isPercentage) {
+  public WhiteLabelItemSizeDto isPercentage(@javax.annotation.Nullable Boolean isPercentage) {
     
     this.isPercentage = isPercentage;
     return this;
   }
 
   /**
-   * Get isPercentage
+   * Specifies whether the width and height are expressed as percentages.
    * @return isPercentage
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_PERCENTAGE, required = false)
@@ -229,14 +230,14 @@ public class IMagickGeometry {
     this.isPercentage = isPercentage;
   }
 
-  public IMagickGeometry less(@javax.annotation.Nullable Boolean less) {
+  public WhiteLabelItemSizeDto less(@javax.annotation.Nullable Boolean less) {
     
     this.less = less;
     return this;
   }
 
   /**
-   * Get less
+   * Specifies whether the logo is resized only if it is less than the size.
    * @return less
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LESS, required = false)
@@ -253,14 +254,14 @@ public class IMagickGeometry {
     this.less = less;
   }
 
-  public IMagickGeometry limitPixels(@javax.annotation.Nullable Boolean limitPixels) {
+  public WhiteLabelItemSizeDto limitPixels(@javax.annotation.Nullable Boolean limitPixels) {
     
     this.limitPixels = limitPixels;
     return this;
   }
 
   /**
-   * Get limitPixels
+   * Specifies whether the logo is resized using a pixel area count limit.
    * @return limitPixels
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIMIT_PIXELS, required = false)
@@ -277,14 +278,14 @@ public class IMagickGeometry {
     this.limitPixels = limitPixels;
   }
 
-  public IMagickGeometry width(@javax.annotation.Nullable Integer width) {
+  public WhiteLabelItemSizeDto width(@javax.annotation.Nullable Integer width) {
     
     this.width = width;
     return this;
   }
 
   /**
-   * Get width
+   * The logo width, in pixels.
    * @return width
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
@@ -301,14 +302,14 @@ public class IMagickGeometry {
     this.width = width;
   }
 
-  public IMagickGeometry x(@javax.annotation.Nullable Integer x) {
+  public WhiteLabelItemSizeDto x(@javax.annotation.Nullable Integer x) {
     
     this.x = x;
     return this;
   }
 
   /**
-   * Get x
+   * The X offset from the origin, in pixels.
    * @return x
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_X, required = false)
@@ -325,14 +326,14 @@ public class IMagickGeometry {
     this.x = x;
   }
 
-  public IMagickGeometry y(@javax.annotation.Nullable Integer y) {
+  public WhiteLabelItemSizeDto y(@javax.annotation.Nullable Integer y) {
     
     this.y = y;
     return this;
   }
 
   /**
-   * Get y
+   * The Y offset from the origin, in pixels.
    * @return y
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_Y, required = false)
@@ -357,18 +358,18 @@ public class IMagickGeometry {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IMagickGeometry imagickGeometry = (IMagickGeometry) o;
-    return Objects.equals(this.aspectRatio, imagickGeometry.aspectRatio) &&
-        Objects.equals(this.fillArea, imagickGeometry.fillArea) &&
-        Objects.equals(this.greater, imagickGeometry.greater) &&
-        Objects.equals(this.height, imagickGeometry.height) &&
-        Objects.equals(this.ignoreAspectRatio, imagickGeometry.ignoreAspectRatio) &&
-        Objects.equals(this.isPercentage, imagickGeometry.isPercentage) &&
-        Objects.equals(this.less, imagickGeometry.less) &&
-        Objects.equals(this.limitPixels, imagickGeometry.limitPixels) &&
-        Objects.equals(this.width, imagickGeometry.width) &&
-        Objects.equals(this.x, imagickGeometry.x) &&
-        Objects.equals(this.y, imagickGeometry.y);
+    WhiteLabelItemSizeDto whiteLabelItemSizeDto = (WhiteLabelItemSizeDto) o;
+    return Objects.equals(this.aspectRatio, whiteLabelItemSizeDto.aspectRatio) &&
+        Objects.equals(this.fillArea, whiteLabelItemSizeDto.fillArea) &&
+        Objects.equals(this.greater, whiteLabelItemSizeDto.greater) &&
+        Objects.equals(this.height, whiteLabelItemSizeDto.height) &&
+        Objects.equals(this.ignoreAspectRatio, whiteLabelItemSizeDto.ignoreAspectRatio) &&
+        Objects.equals(this.isPercentage, whiteLabelItemSizeDto.isPercentage) &&
+        Objects.equals(this.less, whiteLabelItemSizeDto.less) &&
+        Objects.equals(this.limitPixels, whiteLabelItemSizeDto.limitPixels) &&
+        Objects.equals(this.width, whiteLabelItemSizeDto.width) &&
+        Objects.equals(this.x, whiteLabelItemSizeDto.x) &&
+        Objects.equals(this.y, whiteLabelItemSizeDto.y);
   }
 
   @Override
@@ -379,7 +380,7 @@ public class IMagickGeometry {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IMagickGeometry {\n");
+    sb.append("class WhiteLabelItemSizeDto {\n");
     sb.append("    aspectRatio: ").append(toIndentedString(aspectRatio)).append("\n");
     sb.append("    fillArea: ").append(toIndentedString(fillArea)).append("\n");
     sb.append("    greater: ").append(toIndentedString(greater)).append("\n");

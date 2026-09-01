@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * BackupsCountResultWrapper
+ * The successful API response containing the BackupsCountResultDto object.
  */
 @JsonPropertyOrder({
   BackupsCountResultWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class BackupsCountResultWrapper {
   }
 
   /**
-   * Get response
+   * The BackupsCountResultDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

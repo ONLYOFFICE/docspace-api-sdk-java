@@ -301,7 +301,7 @@ public class WebhooksConfigDto {
   }
 
   /**
-   * The user parameters.
+   * The user who created the webhook.
    * @return createdBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED_BY, required = false)
@@ -356,7 +356,7 @@ public class WebhooksConfigDto {
   }
 
   /**
-   * The user parameters.
+   * The user who modified the webhook.
    * @return modifiedBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MODIFIED_BY, required = false)

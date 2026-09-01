@@ -117,7 +117,7 @@ public class AiAiSendRequest {
   }
 
   /**
-   * Get actionArgs
+   * Per-request engine options: extra tools, reasoning, prompt override.
    * @return actionArgs
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTION_ARGS, required = false)

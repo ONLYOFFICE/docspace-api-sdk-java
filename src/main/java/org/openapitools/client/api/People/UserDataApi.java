@@ -26,6 +26,7 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.EmployeeType;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.StartReassignRequestDto;
 import org.openapitools.client.model.StringWrapper;
 import org.openapitools.client.model.TaskProgressResponseWrapper;
@@ -810,7 +811,7 @@ public class UserDataApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -851,7 +852,7 @@ public class UserDataApi extends BaseApi {
     localVarHeaderParams.putAll(additionalHeaders);
 
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

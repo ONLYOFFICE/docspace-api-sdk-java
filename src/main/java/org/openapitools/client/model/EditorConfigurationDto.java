@@ -227,7 +227,7 @@ public class EditorConfigurationDto {
   }
 
   /**
-   * The configuration parameters for the embedded document type.
+   * The embedded configuration parameters for embedded documents.
    * @return embedded
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMBEDDED, required = false)
@@ -366,7 +366,7 @@ public class EditorConfigurationDto {
   }
 
   /**
-   * The configuration settings to connect the special add-ons.
+   * The plugins configuration.
    * @return plugins
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PLUGINS, required = false)
@@ -476,7 +476,7 @@ public class EditorConfigurationDto {
   }
 
   /**
-   * The configuration parameters of the user currently viewing or editing the document.
+   * The user configuration of the editor.
    * @return user
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER, required = false)

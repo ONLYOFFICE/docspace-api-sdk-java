@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * RoomsNotificationSettingsWrapper
+ * The successful API response containing the RoomsNotificationSettingsDto object.
  */
 @JsonPropertyOrder({
   RoomsNotificationSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class RoomsNotificationSettingsWrapper {
   }
 
   /**
-   * Get response
+   * The RoomsNotificationSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

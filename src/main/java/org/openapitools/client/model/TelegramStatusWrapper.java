@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * TelegramStatusWrapper
+ * The successful API response containing the TelegramStatusDto object.
  */
 @JsonPropertyOrder({
   TelegramStatusWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class TelegramStatusWrapper {
   }
 
   /**
-   * Get response
+   * The TelegramStatusDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

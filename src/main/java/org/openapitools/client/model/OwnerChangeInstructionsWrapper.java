@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * OwnerChangeInstructionsWrapper
+ * The successful API response containing the OwnerChangeInstructionsDto object.
  */
 @JsonPropertyOrder({
   OwnerChangeInstructionsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class OwnerChangeInstructionsWrapper {
   }
 
   /**
-   * Get response
+   * The OwnerChangeInstructionsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

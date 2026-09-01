@@ -19,7 +19,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > AiProfileMutationResult aiProfilesCreate(aiCreateProfileInput)
 
-Create
+CreateCreates an AI provider profile. The name must be unique and the credentials are validated against the provider before the profile is stored; the portal's first profile also takes the `Default` assignment slot.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/).
 
@@ -86,7 +86,7 @@ public class Example {
 
 > AiSuccessResponse aiProfilesDelete(body)
 
-Delete
+DeleteDeletes an AI provider profile and cleans up the assignments pointing at it - the `Default` slot moves to the first remaining profile, the other slots are unbound.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/).
 
@@ -153,7 +153,7 @@ public class Example {
 
 > AiProfilesGetById200Response aiProfilesGetById(id)
 
-Get by id
+Get by idReturns one AI provider profile, or an empty result when the identifier is unknown.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/).
 
@@ -162,7 +162,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**|  | |
+| **id** | **String**| The AI provider profile identifier. | |
 
 ### Return type
 
@@ -188,7 +188,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         ProfilesApi apiInstance = new ProfilesApi(defaultClient);
-        String id = "id_example"; // String | 
+        String id = "id_example"; // String | The AI provider profile identifier.
         try {
             AiProfilesGetById200Response result = apiInstance.aiProfilesGetById(id);
             System.out.println(result);
@@ -220,7 +220,7 @@ public class Example {
 
 > List&lt;AiProfile&gt; aiProfilesList()
 
-List
+ListLists the portal's AI provider profiles.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list/).
 
@@ -283,7 +283,7 @@ public class Example {
 
 > List&lt;AiModel&gt; aiProfilesListModels(profileId)
 
-List models
+List modelsLists the models the given profile's provider offers, as reported by the provider itself.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/).
 
@@ -292,7 +292,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **profileId** | **String**|  | |
+| **profileId** | **String**| The AI provider profile identifier. | |
 
 ### Return type
 
@@ -318,7 +318,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         ProfilesApi apiInstance = new ProfilesApi(defaultClient);
-        String profileId = "profileId_example"; // String | 
+        String profileId = "profileId_example"; // String | The AI provider profile identifier.
         try {
             List<AiModel> result = apiInstance.aiProfilesListModels(profileId);
             System.out.println(result);
@@ -350,7 +350,7 @@ public class Example {
 
 > List&lt;AiModel&gt; aiProfilesListProviderModels(aiProfilesListProviderModelsRequest)
 
-List provider models
+List provider modelsLists the models a provider offers for the supplied endpoint and key, before any profile is created from them.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-provider-models/).
 
@@ -417,7 +417,7 @@ public class Example {
 
 > AiProfilesTestConnection200Response aiProfilesTestConnection(body)
 
-Test connection
+Test connectionChecks a stored profile's credentials against its provider and reports the provider's own error when the call fails. Nothing is written.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/).
 
@@ -484,7 +484,7 @@ public class Example {
 
 > AiProfileMutationResult aiProfilesUpdate(aiProfile)
 
-Update
+UpdateUpdates an AI provider profile, re-checking name uniqueness and the provider credentials.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-update/).
 

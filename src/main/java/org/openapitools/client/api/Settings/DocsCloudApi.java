@@ -33,6 +33,7 @@ import org.openapitools.client.model.DocsCloudTenantInfoWrapper;
 import org.openapitools.client.model.DocsCloudTenantWrapper;
 import org.openapitools.client.model.DocsCloudUsageWrapper;
 import org.openapitools.client.model.DocumentBuilderTaskWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.PaymentCalculationWrapper;
 
 
@@ -215,7 +216,7 @@ public class DocsCloudApi extends BaseApi {
    * REST API Reference for getTenant Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant/
    *
-   * @param refresh  (optional, default to false)
+   * @param refresh Specifies whether to bypass the cache and request the tenant from DocsCloud again. (optional, default to false)
    * @return DocsCloudTenantWrapper
    * @throws ApiException if fails to make API call
    */
@@ -231,7 +232,7 @@ public class DocsCloudApi extends BaseApi {
    * REST API Reference for getTenant Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant/
    *
-   * @param refresh  (optional, default to false)
+   * @param refresh Specifies whether to bypass the cache and request the tenant from DocsCloud again. (optional, default to false)
    * @param additionalHeaders additionalHeaders for this call
    * @return DocsCloudTenantWrapper
    * @throws ApiException if fails to make API call
@@ -294,7 +295,7 @@ public class DocsCloudApi extends BaseApi {
    * REST API Reference for getTenantConfig Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-config/
    *
-   * @param refresh  (optional, default to false)
+   * @param refresh Specifies whether to bypass the cache and request the tenant configuration from DocsCloud again. (optional, default to false)
    * @return DocsCloudConfigWrapper
    * @throws ApiException if fails to make API call
    */
@@ -310,7 +311,7 @@ public class DocsCloudApi extends BaseApi {
    * REST API Reference for getTenantConfig Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-config/
    *
-   * @param refresh  (optional, default to false)
+   * @param refresh Specifies whether to bypass the cache and request the tenant configuration from DocsCloud again. (optional, default to false)
    * @param additionalHeaders additionalHeaders for this call
    * @return DocsCloudConfigWrapper
    * @throws ApiException if fails to make API call
@@ -373,7 +374,7 @@ public class DocsCloudApi extends BaseApi {
    * REST API Reference for getTenantInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-info/
    *
-   * @param refresh  (optional, default to false)
+   * @param refresh Specifies whether to bypass the cache and request the tenant information from DocsCloud again. (optional, default to false)
    * @return DocsCloudTenantInfoWrapper
    * @throws ApiException if fails to make API call
    */
@@ -389,7 +390,7 @@ public class DocsCloudApi extends BaseApi {
    * REST API Reference for getTenantInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-info/
    *
-   * @param refresh  (optional, default to false)
+   * @param refresh Specifies whether to bypass the cache and request the tenant information from DocsCloud again. (optional, default to false)
    * @param additionalHeaders additionalHeaders for this call
    * @return DocsCloudTenantInfoWrapper
    * @throws ApiException if fails to make API call
@@ -452,7 +453,7 @@ public class DocsCloudApi extends BaseApi {
    * REST API Reference for getTenantQuota Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-quota/
    *
-   * @param refresh  (optional, default to false)
+   * @param refresh Specifies whether to bypass the cache and request the user quota from DocsCloud again. (optional, default to false)
    * @return DocsCloudQuotaWrapper
    * @throws ApiException if fails to make API call
    */
@@ -468,7 +469,7 @@ public class DocsCloudApi extends BaseApi {
    * REST API Reference for getTenantQuota Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-quota/
    *
-   * @param refresh  (optional, default to false)
+   * @param refresh Specifies whether to bypass the cache and request the user quota from DocsCloud again. (optional, default to false)
    * @param additionalHeaders additionalHeaders for this call
    * @return DocsCloudQuotaWrapper
    * @throws ApiException if fails to make API call
@@ -607,7 +608,7 @@ public class DocsCloudApi extends BaseApi {
    * REST API Reference for getTenantUsage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-usage/
    *
-   * @param refresh  (optional, default to false)
+   * @param refresh Specifies whether to bypass the cache and request the usage statistics from DocsCloud again. (optional, default to false)
    * @return DocsCloudUsageWrapper
    * @throws ApiException if fails to make API call
    */
@@ -623,7 +624,7 @@ public class DocsCloudApi extends BaseApi {
    * REST API Reference for getTenantUsage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-usage/
    *
-   * @param refresh  (optional, default to false)
+   * @param refresh Specifies whether to bypass the cache and request the usage statistics from DocsCloud again. (optional, default to false)
    * @param additionalHeaders additionalHeaders for this call
    * @return DocsCloudUsageWrapper
    * @throws ApiException if fails to make API call
@@ -878,7 +879,7 @@ public class DocsCloudApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

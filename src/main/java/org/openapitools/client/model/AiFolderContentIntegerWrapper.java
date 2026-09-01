@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiFolderContentIntegerWrapper
+ * The successful API response containing the FolderContentDtoInteger object.
  */
 @JsonPropertyOrder({
   AiFolderContentIntegerWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class AiFolderContentIntegerWrapper {
   }
 
   /**
-   * Get response
+   * The FolderContentDtoInteger object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

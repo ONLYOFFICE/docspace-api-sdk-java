@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.client.model.ApiDateTime;
+import java.time.OffsetDateTime;
 import org.openapitools.client.model.OperationType;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -59,7 +59,7 @@ import java.util.StringJoiner;
 
 public class OperationDto {
   public static final String JSON_PROPERTY_DATE = "date";
-  @javax.annotation.Nullable  private ApiDateTime date;
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> date = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_SERVICE = "service";
   @javax.annotation.Nullable  private JsonNullable<String> service = JsonNullable.<String>undefined();
@@ -104,28 +104,35 @@ public class OperationDto {
   }
 
 
-  public OperationDto date(@javax.annotation.Nullable ApiDateTime date) {
+  public OperationDto date(@javax.annotation.Nullable OffsetDateTime date) {
+    this.date = JsonNullable.<OffsetDateTime>of(date);
     
-    this.date = date;
     return this;
   }
 
   /**
-   * The API date and time parameters.
+   * The date when the operation took place.
    * @return date
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public ApiDateTime getDate() {
-    return date;
+  public OffsetDateTime getDate() {
+        return date.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(@javax.annotation.Nullable ApiDateTime date) {
+  public JsonNullable<OffsetDateTime> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<OffsetDateTime> date) {
     this.date = date;
+  }
+
+  public void setDate(@javax.annotation.Nullable OffsetDateTime date) {
+    this.date = JsonNullable.<OffsetDateTime>of(date);
   }
 
   public OperationDto service(@javax.annotation.Nullable String service) {
@@ -486,7 +493,7 @@ public class OperationDto {
   }
 
   /**
-   * The operation type
+   * Type of the operation
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
@@ -512,7 +519,7 @@ public class OperationDto {
       return false;
     }
     OperationDto operationDto = (OperationDto) o;
-    return Objects.equals(this.date, operationDto.date) &&
+    return equalsNullable(this.date, operationDto.date) &&
         equalsNullable(this.service, operationDto.service) &&
         equalsNullable(this.description, operationDto.description) &&
         equalsNullable(this.details, operationDto.details) &&
@@ -534,7 +541,7 @@ public class OperationDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, hashCodeNullable(service), hashCodeNullable(description), hashCodeNullable(details), hashCodeNullable(serviceUnit), quantity, hashCodeNullable(currency), credit, debit, hashCodeNullable(participantName), hashCodeNullable(participantDisplayName), hashCodeNullable(agentId), hashCodeNullable(agentTitle), type);
+    return Objects.hash(hashCodeNullable(date), hashCodeNullable(service), hashCodeNullable(description), hashCodeNullable(details), hashCodeNullable(serviceUnit), quantity, hashCodeNullable(currency), credit, debit, hashCodeNullable(participantName), hashCodeNullable(participantDisplayName), hashCodeNullable(agentId), hashCodeNullable(agentTitle), type);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -611,7 +618,12 @@ public class OperationDto {
 
     // add `date` to the URL query string
     if (getDate() != null) {
-      joiner.add(getDate().toUrlQueryString(prefix + "date" + suffix));
+      try {
+        joiner.add(String.format("%sdate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `service` to the URL query string

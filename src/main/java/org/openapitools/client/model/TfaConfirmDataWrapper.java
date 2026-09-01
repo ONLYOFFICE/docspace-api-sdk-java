@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * TfaConfirmDataWrapper
+ * The successful API response containing the TfaConfirmDataDto object.
  */
 @JsonPropertyOrder({
   TfaConfirmDataWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class TfaConfirmDataWrapper {
   }
 
   /**
-   * Get response
+   * The TfaConfirmDataDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Mode passed to  {@link  PromptsEngine.importBundle } .
+ * Mode passed to &#x60;PromptsEngine.importBundle&#x60;.
  */
 public enum AiImportMode {
   

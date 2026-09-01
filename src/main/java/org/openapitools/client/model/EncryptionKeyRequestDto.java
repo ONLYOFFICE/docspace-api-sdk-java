@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * EncryptionKeyRequestDto
+ * The request parameters for storing the encryption key pair of a user.
  */
 @JsonPropertyOrder({
   EncryptionKeyRequestDto.JSON_PROPERTY_ID,
@@ -66,7 +66,7 @@ public class EncryptionKeyRequestDto {
   }
 
   /**
-   * Get id
+   * The identifier of the key pair.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -90,7 +90,7 @@ public class EncryptionKeyRequestDto {
   }
 
   /**
-   * Get publicKey
+   * The public key of the pair, used to encrypt the file keys.
    * @return publicKey
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -121,7 +121,7 @@ public class EncryptionKeyRequestDto {
   }
 
   /**
-   * Get privateKeyEnc
+   * The private key of the pair, encrypted with the user password.
    * @return privateKeyEnc
    */
   @javax.annotation.Nullable  @JsonIgnore

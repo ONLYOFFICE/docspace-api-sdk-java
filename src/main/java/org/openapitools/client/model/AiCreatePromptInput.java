@@ -65,7 +65,7 @@ public class AiCreatePromptInput {
   }
 
   /**
-   * Get name
+   * The prompt name.
    * @return name
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
@@ -89,7 +89,7 @@ public class AiCreatePromptInput {
   }
 
   /**
-   * Get text
+   * The prompt body.
    * @return text
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TEXT, required = true)
@@ -113,7 +113,7 @@ public class AiCreatePromptInput {
   }
 
   /**
-   * Get folderId
+   * The folder to file the prompt under. Omit or send null to leave it outside any folder.
    * @return folderId
    */
   @javax.annotation.Nullable  @JsonIgnore

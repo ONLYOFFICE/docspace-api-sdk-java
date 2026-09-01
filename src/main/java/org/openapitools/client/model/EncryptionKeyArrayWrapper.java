@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * EncryptionKeyArrayWrapper
+ * The successful API response containing the list of EncryptionKeyDto objects.
  */
 @JsonPropertyOrder({
   EncryptionKeyArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class EncryptionKeyArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of EncryptionKeyDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

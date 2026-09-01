@@ -26,6 +26,7 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.DarkThemeSettingsRequestDto;
 import org.openapitools.client.model.DarkThemeSettingsWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 
 
 import java.util.ArrayList;

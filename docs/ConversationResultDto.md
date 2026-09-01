@@ -9,7 +9,7 @@ The result of file convertion operation.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** | The conversion operation ID. |  |
-|**operation** | **FileOperationType** | The file operation type. |  |
+|**operation** | **FileOperationType** | The conversion operation type. |  |
 |**progress** | **Integer** | The conversion operation progress. |  |
 |**source** | **String** | The source file for the conversion. |  [optional] |
 |**result** | **Object** |  |  [optional] |

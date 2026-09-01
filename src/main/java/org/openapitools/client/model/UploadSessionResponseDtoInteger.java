@@ -240,7 +240,7 @@ public class UploadSessionResponseDtoInteger {
   }
 
   /**
-   * The file parameters.
+   * The uploaded file information.
    * @return _file
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE, required = false)

@@ -30,6 +30,7 @@ import org.openapitools.client.model.AuthenticationTokenWrapper;
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.ConfirmWrapper;
 import org.openapitools.client.model.EmailValidationKeyModel;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.MobileRequestsDto;
 import org.openapitools.client.model.StringWrapper;
 
@@ -137,7 +138,7 @@ public class AuthenticationApi extends BaseApi {
    * REST API Reference for authenticateMeFromBodyWithCode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/
    *
-   * @param code  (required)
+   * @param code The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads. (required)
    * @param authWithCodeRequestsDto  (optional)
    * @return AuthenticationTokenWrapper
    * @throws ApiException if fails to make API call
@@ -154,7 +155,7 @@ public class AuthenticationApi extends BaseApi {
    * REST API Reference for authenticateMeFromBodyWithCode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/
    *
-   * @param code  (required)
+   * @param code The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads. (required)
    * @param authWithCodeRequestsDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return AuthenticationTokenWrapper

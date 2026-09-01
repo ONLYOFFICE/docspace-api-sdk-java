@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
-import org.openapitools.client.model.SetupCode;
+import org.openapitools.client.model.TenantAuditSettings;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -37,19 +37,19 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * SetupCodeWrapper
+ * The successful API response containing the TenantAuditSettings object.
  */
 @JsonPropertyOrder({
-  SetupCodeWrapper.JSON_PROPERTY_RESPONSE,
-  SetupCodeWrapper.JSON_PROPERTY_COUNT,
-  SetupCodeWrapper.JSON_PROPERTY_LINKS,
-  SetupCodeWrapper.JSON_PROPERTY_STATUS,
-  SetupCodeWrapper.JSON_PROPERTY_STATUS_CODE
+  TenantAuditSettingsResponseWrapper.JSON_PROPERTY_RESPONSE,
+  TenantAuditSettingsResponseWrapper.JSON_PROPERTY_COUNT,
+  TenantAuditSettingsResponseWrapper.JSON_PROPERTY_LINKS,
+  TenantAuditSettingsResponseWrapper.JSON_PROPERTY_STATUS,
+  TenantAuditSettingsResponseWrapper.JSON_PROPERTY_STATUS_CODE
 })
 
-public class SetupCodeWrapper {
+public class TenantAuditSettingsResponseWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private SetupCode response;
+  @javax.annotation.Nullable  private TenantAuditSettings response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -63,35 +63,35 @@ public class SetupCodeWrapper {
   public static final String JSON_PROPERTY_STATUS_CODE = "statusCode";
   @javax.annotation.Nullable  private Integer statusCode;
 
-  public SetupCodeWrapper() {
+  public TenantAuditSettingsResponseWrapper() {
   }
 
 
-  public SetupCodeWrapper response(@javax.annotation.Nullable SetupCode response) {
+  public TenantAuditSettingsResponseWrapper response(@javax.annotation.Nullable TenantAuditSettings response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * Get response
+   * The TenantAuditSettings object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SetupCode getResponse() {
+  public TenantAuditSettings getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable SetupCode response) {
+  public void setResponse(@javax.annotation.Nullable TenantAuditSettings response) {
     this.response = response;
   }
 
-  public SetupCodeWrapper count(@javax.annotation.Nullable Integer count) {
+  public TenantAuditSettingsResponseWrapper count(@javax.annotation.Nullable Integer count) {
     
     this.count = count;
     return this;
@@ -115,13 +115,13 @@ public class SetupCodeWrapper {
     this.count = count;
   }
 
-  public SetupCodeWrapper links(@javax.annotation.Nullable List<GetPortalPrices200ResponseLinksInner> links) {
+  public TenantAuditSettingsResponseWrapper links(@javax.annotation.Nullable List<GetPortalPrices200ResponseLinksInner> links) {
     
     this.links = links;
     return this;
   }
 
-  public SetupCodeWrapper addLinksItem(GetPortalPrices200ResponseLinksInner linksItem) {
+  public TenantAuditSettingsResponseWrapper addLinksItem(GetPortalPrices200ResponseLinksInner linksItem) {
     if (this.links == null) {
       this.links = new ArrayList<>();
     }
@@ -147,7 +147,7 @@ public class SetupCodeWrapper {
     this.links = links;
   }
 
-  public SetupCodeWrapper status(@javax.annotation.Nullable Integer status) {
+  public TenantAuditSettingsResponseWrapper status(@javax.annotation.Nullable Integer status) {
     
     this.status = status;
     return this;
@@ -171,7 +171,7 @@ public class SetupCodeWrapper {
     this.status = status;
   }
 
-  public SetupCodeWrapper statusCode(@javax.annotation.Nullable Integer statusCode) {
+  public TenantAuditSettingsResponseWrapper statusCode(@javax.annotation.Nullable Integer statusCode) {
     
     this.statusCode = statusCode;
     return this;
@@ -203,12 +203,12 @@ public class SetupCodeWrapper {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SetupCodeWrapper setupCodeWrapper = (SetupCodeWrapper) o;
-    return Objects.equals(this.response, setupCodeWrapper.response) &&
-        Objects.equals(this.count, setupCodeWrapper.count) &&
-        Objects.equals(this.links, setupCodeWrapper.links) &&
-        Objects.equals(this.status, setupCodeWrapper.status) &&
-        Objects.equals(this.statusCode, setupCodeWrapper.statusCode);
+    TenantAuditSettingsResponseWrapper tenantAuditSettingsResponseWrapper = (TenantAuditSettingsResponseWrapper) o;
+    return Objects.equals(this.response, tenantAuditSettingsResponseWrapper.response) &&
+        Objects.equals(this.count, tenantAuditSettingsResponseWrapper.count) &&
+        Objects.equals(this.links, tenantAuditSettingsResponseWrapper.links) &&
+        Objects.equals(this.status, tenantAuditSettingsResponseWrapper.status) &&
+        Objects.equals(this.statusCode, tenantAuditSettingsResponseWrapper.statusCode);
   }
 
   @Override
@@ -219,7 +219,7 @@ public class SetupCodeWrapper {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SetupCodeWrapper {\n");
+    sb.append("class TenantAuditSettingsResponseWrapper {\n");
     sb.append("    response: ").append(toIndentedString(response)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");

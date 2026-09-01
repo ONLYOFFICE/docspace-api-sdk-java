@@ -54,7 +54,7 @@ public class DarkThemeSettingsRequestDto {
   }
 
   /**
-   * The theme type.
+   * The portal theme settings type.
    * @return theme
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_THEME, required = true)

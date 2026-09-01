@@ -82,7 +82,7 @@ public class AutoCleanupRequestDto {
   }
 
   /**
-   * The period when the trash bin will be cleared.
+   * The time interval when the auto-clearing will be performed.
    * @return gap
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GAP, required = false)

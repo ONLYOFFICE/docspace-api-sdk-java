@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AuthenticationTokenWrapper
+ * The successful API response containing the AuthenticationTokenDto object.
  */
 @JsonPropertyOrder({
   AuthenticationTokenWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class AuthenticationTokenWrapper {
   }
 
   /**
-   * Get response
+   * The AuthenticationTokenDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

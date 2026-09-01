@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * TenantDeepLinkSettingsWrapper
+ * The successful API response containing the TenantDeepLinkSettings object.
  */
 @JsonPropertyOrder({
   TenantDeepLinkSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class TenantDeepLinkSettingsWrapper {
   }
 
   /**
-   * Get response
+   * The TenantDeepLinkSettings object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

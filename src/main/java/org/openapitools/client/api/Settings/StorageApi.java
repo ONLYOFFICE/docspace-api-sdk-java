@@ -26,6 +26,7 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.CdnStorageSettingsWrapper;
 import org.openapitools.client.model.DoubleWrapper;
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.ObjectWrapper;
 import org.openapitools.client.model.StorageArrayWrapper;
 import org.openapitools.client.model.StorageRequestsDto;
@@ -478,7 +479,7 @@ public class StorageApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -551,7 +552,7 @@ public class StorageApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

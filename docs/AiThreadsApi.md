@@ -25,7 +25,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > AiThreadMessageLike aiThreadsAppendUserMessage(aiThreadsAppendUserMessageRequest)
 
-Append user message
+Append user messagePersists a user message in a thread and bumps the thread's last-edit date so it resurfaces in the sidebar. Optionally rebinds the thread to another profile when the model changed mid-conversation.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-append-user-message/).
 
@@ -92,7 +92,7 @@ public class Example {
 
 > AiSuccessResponse aiThreadsClearMessages(body)
 
-Clear messages
+Clear messagesDrops every message of a thread while keeping the thread itself, and bumps its last-edit date.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/).
 
@@ -159,7 +159,7 @@ public class Example {
 
 > AiThread aiThreadsCreate(aiThreadsCreateRequest)
 
-Create
+CreateCreates a chat thread with a caller-supplied title. Use `open-or-create` instead when the title should be generated from the first user message.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-create/).
 
@@ -226,7 +226,7 @@ public class Example {
 
 > AiSuccessResponse aiThreadsDelete(body)
 
-Delete
+DeleteDeletes a chat thread together with its messages.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/).
 
@@ -293,7 +293,7 @@ public class Example {
 
 > AiSuccessResponse aiThreadsDeleteMessage(body)
 
-Delete message
+Delete messageDeletes one chat message, leaving the rest of the thread untouched.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/).
 
@@ -360,7 +360,7 @@ public class Example {
 
 > AiThread aiThreadsGetById(threadId)
 
-Get by id
+Get by idReturns one chat thread, or an empty result when the identifier is unknown.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/).
 
@@ -369,7 +369,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **threadId** | **String**|  | |
+| **threadId** | **String**| The chat thread identifier. | |
 
 ### Return type
 
@@ -395,7 +395,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         ThreadsApi apiInstance = new ThreadsApi(defaultClient);
-        String threadId = "threadId_example"; // String | 
+        String threadId = "threadId_example"; // String | The chat thread identifier.
         try {
             AiThread result = apiInstance.aiThreadsGetById(threadId);
             System.out.println(result);
@@ -427,7 +427,7 @@ public class Example {
 
 > AiThreadMessageLike aiThreadsGetMessageById(messageId)
 
-Get message by id
+Get message by idReturns one chat message by its globally unique identifier.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/).
 
@@ -436,7 +436,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **messageId** | **String**|  | |
+| **messageId** | **String**| The globally unique chat message identifier. | |
 
 ### Return type
 
@@ -462,7 +462,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         ThreadsApi apiInstance = new ThreadsApi(defaultClient);
-        String messageId = "messageId_example"; // String | 
+        String messageId = "messageId_example"; // String | The globally unique chat message identifier.
         try {
             AiThreadMessageLike result = apiInstance.aiThreadsGetMessageById(messageId);
             System.out.println(result);
@@ -494,7 +494,7 @@ public class Example {
 
 > List&lt;AiThread&gt; aiThreadsList(entityId, count, cursor, query)
 
-List
+ListLists the chat threads of the scope, most recently edited first. Supports cursor pagination and a server-side case-insensitive title search.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/).
 
@@ -503,10 +503,10 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **entityId** | **String**|  | |
-| **count** | **String**|  | |
-| **cursor** | **String**|  | |
-| **query** | **String**|  | |
+| **entityId** | **String**| The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional] |
+| **count** | **String**| The maximum number of items to return in one page. | [optional] |
+| **cursor** | **String**| The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. | [optional] |
+| **query** | **String**| The full-text query the thread list is filtered by. | [optional] |
 
 ### Return type
 
@@ -532,10 +532,10 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         ThreadsApi apiInstance = new ThreadsApi(defaultClient);
-        String entityId = "entityId_example"; // String | 
-        String count = "count_example"; // String | 
-        String cursor = "cursor_example"; // String | 
-        String query = "query_example"; // String | 
+        String entityId = "entityId_example"; // String | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope.
+        String count = "count_example"; // String | The maximum number of items to return in one page.
+        String cursor = "cursor_example"; // String | The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page.
+        String query = "query_example"; // String | The full-text query the thread list is filtered by.
         try {
             List<AiThread> result = apiInstance.aiThreadsList(entityId, count, cursor, query);
             System.out.println(result);
@@ -567,7 +567,7 @@ public class Example {
 
 > AiOpenOrCreateResult aiThreadsOpenOrCreate(aiThreadsOpenOrCreateRequest)
 
-Open or create
+Open or createOpens a chat thread and returns its history, or creates one with a title generated from the supplied first message. That first message is not persisted - the caller decides whether to follow up with `append-user-message`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-open-or-create/).
 
@@ -634,7 +634,7 @@ public class Example {
 
 > List&lt;AiThreadMessageLike&gt; aiThreadsReadMessages(threadId, count, cursor, direction)
 
-Read messages
+Read messagesReads the messages of a thread, with the same cursor pagination as the thread list.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/).
 
@@ -643,10 +643,10 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **threadId** | **String**|  | |
-| **count** | **String**|  | |
-| **cursor** | **String**|  | |
-| **direction** | **String**|  | |
+| **threadId** | **String**| The chat thread identifier. | |
+| **count** | **String**| The maximum number of items to return in one page. | [optional] |
+| **cursor** | **String**| The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. | [optional] |
+| **direction** | **String**| The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. | [optional] |
 
 ### Return type
 
@@ -672,10 +672,10 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         ThreadsApi apiInstance = new ThreadsApi(defaultClient);
-        String threadId = "threadId_example"; // String | 
-        String count = "count_example"; // String | 
-        String cursor = "cursor_example"; // String | 
-        String direction = "direction_example"; // String | 
+        String threadId = "threadId_example"; // String | The chat thread identifier.
+        String count = "count_example"; // String | The maximum number of items to return in one page.
+        String cursor = "cursor_example"; // String | The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page.
+        String direction = "direction_example"; // String | The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read.
         try {
             List<AiThreadMessageLike> result = apiInstance.aiThreadsReadMessages(threadId, count, cursor, direction);
             System.out.println(result);
@@ -707,7 +707,7 @@ public class Example {
 
 > String aiThreadsRegenerateTitle(aiThreadsRegenerateTitleRequest)
 
-Regenerate title
+Regenerate titleGenerates a fresh title from the thread's first user message and persists it. Fails when the thread has no user message yet.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-regenerate-title/).
 
@@ -774,7 +774,7 @@ public class Example {
 
 > AiSuccessResponse aiThreadsRename(aiThreadsRenameRequest)
 
-Rename
+RenameRenames a chat thread and bumps its last-edit date so the new title shows up in the sidebar.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-rename/).
 
@@ -841,7 +841,7 @@ public class Example {
 
 > AiSuccessResponse aiThreadsTouch(aiThreadsTouchRequest)
 
-Touch
+TouchBumps a thread's last-edit date, and optionally rebinds it to another profile, when something other than a new message - a model switch, say - should resurface it.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-touch/).
 
@@ -908,7 +908,7 @@ public class Example {
 
 > AiSuccessResponse aiThreadsUpdateMessage(aiThreadsUpdateMessageRequest)
 
-Update message
+Update messageReplaces the content of a chat message - used by the edit and regenerate flows that change a message outside the streaming lifecycle.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-update-message/).
 

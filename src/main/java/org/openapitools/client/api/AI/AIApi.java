@@ -56,7 +56,7 @@ public class AIApi extends BaseApi {
 
   /**
    * Approve tool call
-   * 
+   * Resumes a chat round paused on a tool call. The supplied result is persisted onto the assistant message that issued the call and the stream continues with the augmented history.
    *
    * REST API Reference for aiAiApproveToolCall Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-approve-tool-call/
@@ -72,7 +72,7 @@ public class AIApi extends BaseApi {
 
   /**
    * Approve tool call
-   * 
+   * Resumes a chat round paused on a tool call. The supplied result is persisted onto the assistant message that issued the call and the stream continues with the augmented history.
    *
    * REST API Reference for aiAiApproveToolCall Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-approve-tool-call/
@@ -139,7 +139,7 @@ public class AIApi extends BaseApi {
 
   /**
    * Deny tool call
-   * 
+   * Denies the pending tool call and resumes the chat immediately, with `User deny tool call` standing in for the tool result.
    *
    * REST API Reference for aiAiDenyToolCall Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-deny-tool-call/
@@ -155,7 +155,7 @@ public class AIApi extends BaseApi {
 
   /**
    * Deny tool call
-   * 
+   * Denies the pending tool call and resumes the chat immediately, with `User deny tool call` standing in for the tool result.
    *
    * REST API Reference for aiAiDenyToolCall Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-deny-tool-call/
@@ -222,7 +222,7 @@ public class AIApi extends BaseApi {
 
   /**
    * Regenerate stream
-   * 
+   * Re-rolls the last assistant reply in an existing thread: every message after the last user message (the previous reply plus any tool-call hops) is dropped and a fresh reply is streamed against the unchanged prompt. The thread must already exist and no title is generated.
    *
    * REST API Reference for aiAiRegenerateStream Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-regenerate-stream/
@@ -238,7 +238,7 @@ public class AIApi extends BaseApi {
 
   /**
    * Regenerate stream
-   * 
+   * Re-rolls the last assistant reply in an existing thread: every message after the last user message (the previous reply plus any tool-call hops) is dropped and a fresh reply is streamed against the unchanged prompt. The thread must already exist and no title is generated.
    *
    * REST API Reference for aiAiRegenerateStream Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-regenerate-stream/
@@ -305,7 +305,7 @@ public class AIApi extends BaseApi {
 
   /**
    * Send
-   * 
+   * Runs one AI action: the profile bound to `actionType` (falling back to the `Default` slot) is dispatched against a single-message history. Nothing is persisted - no thread, no title generation, no storage writes.
    *
    * REST API Reference for aiAiSend Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send/
@@ -321,7 +321,7 @@ public class AIApi extends BaseApi {
 
   /**
    * Send
-   * 
+   * Runs one AI action: the profile bound to `actionType` (falling back to the `Default` slot) is dispatched against a single-message history. Nothing is persisted - no thread, no title generation, no storage writes.
    *
    * REST API Reference for aiAiSend Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send/
@@ -388,7 +388,7 @@ public class AIApi extends BaseApi {
 
   /**
    * Send custom
-   * 
+   * Runs a free-form one-turn call against a caller-supplied system prompt. No thread, no history and no persistence. The profile is the explicit `profileId` when it resolves, otherwise the `Default` assignment slot.
    *
    * REST API Reference for aiAiSendCustom Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-custom/
@@ -404,7 +404,7 @@ public class AIApi extends BaseApi {
 
   /**
    * Send custom
-   * 
+   * Runs a free-form one-turn call against a caller-supplied system prompt. No thread, no history and no persistence. The profile is the explicit `profileId` when it resolves, otherwise the `Default` assignment slot.
    *
    * REST API Reference for aiAiSendCustom Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-custom/
@@ -471,7 +471,7 @@ public class AIApi extends BaseApi {
 
   /**
    * Send with stream
-   * 
+   * Starts a chat round and streams it back as newline-delimited `ChatEvent` objects. The thread is opened or created, the user message and the reply are persisted, a new thread gets a generated title, and a tool call pauses the round until it is approved or denied.
    *
    * REST API Reference for aiAiSendWithStream Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream/
@@ -487,7 +487,7 @@ public class AIApi extends BaseApi {
 
   /**
    * Send with stream
-   * 
+   * Starts a chat round and streams it back as newline-delimited `ChatEvent` objects. The thread is opened or created, the user message and the reply are persisted, a new thread gets a generated title, and a tool call pauses the round until it is approved or denied.
    *
    * REST API Reference for aiAiSendWithStream Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream/
@@ -554,7 +554,7 @@ public class AIApi extends BaseApi {
 
   /**
    * Send with stream open ai
-   * 
+   * The same chat round as `send-with-stream`, re-encoded as an OpenAI Chat Completions stream of `chat.completion.chunk` objects. Storage, title generation and tool-call pauses are identical - only the wire shape differs; a tool call ends the stream with `finish_reason: tool_calls`.
    *
    * REST API Reference for aiAiSendWithStreamOpenAI Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream-open-ai/
@@ -570,7 +570,7 @@ public class AIApi extends BaseApi {
 
   /**
    * Send with stream open ai
-   * 
+   * The same chat round as `send-with-stream`, re-encoded as an OpenAI Chat Completions stream of `chat.completion.chunk` objects. Storage, title generation and tool-call pauses are identical - only the wire shape differs; a tool call ends the stream with `finish_reason: tool_calls`.
    *
    * REST API Reference for aiAiSendWithStreamOpenAI Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream-open-ai/

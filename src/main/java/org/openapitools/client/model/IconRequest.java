@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * IconRequest
+ * The icon to set on a room group.
  */
 @JsonPropertyOrder({
   IconRequest.JSON_PROPERTY_ICON

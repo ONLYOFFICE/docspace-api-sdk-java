@@ -36,15 +36,15 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * SetupCode
+ * The setup TFA code parameters.
  */
 @JsonPropertyOrder({
-  SetupCode.JSON_PROPERTY_ACCOUNT,
-  SetupCode.JSON_PROPERTY_MANUAL_ENTRY_KEY,
-  SetupCode.JSON_PROPERTY_QR_CODE_SETUP_IMAGE_URL
+  TfaSetupCodeDto.JSON_PROPERTY_ACCOUNT,
+  TfaSetupCodeDto.JSON_PROPERTY_MANUAL_ENTRY_KEY,
+  TfaSetupCodeDto.JSON_PROPERTY_QR_CODE_SETUP_IMAGE_URL
 })
 
-public class SetupCode {
+public class TfaSetupCodeDto {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   @javax.annotation.Nullable  private JsonNullable<String> account = JsonNullable.<String>undefined();
 
@@ -54,13 +54,13 @@ public class SetupCode {
   public static final String JSON_PROPERTY_QR_CODE_SETUP_IMAGE_URL = "qrCodeSetupImageUrl";
   @javax.annotation.Nullable  private JsonNullable<String> qrCodeSetupImageUrl = JsonNullable.<String>undefined();
 
-  public SetupCode() {
+  public TfaSetupCodeDto() {
   }
   /**
    * Constructor with only readonly parameters
    */
   @JsonCreator
-  public SetupCode(
+  public TfaSetupCodeDto(
     @JsonProperty(JSON_PROPERTY_ACCOUNT) String account, 
     @JsonProperty(JSON_PROPERTY_MANUAL_ENTRY_KEY) String manualEntryKey, 
     @JsonProperty(JSON_PROPERTY_QR_CODE_SETUP_IMAGE_URL) String qrCodeSetupImageUrl
@@ -73,7 +73,7 @@ public class SetupCode {
 
 
   /**
-   * Get account
+   * The account for which the setup code is generated.
    * @return account
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -99,7 +99,7 @@ public class SetupCode {
 
 
   /**
-   * Get manualEntryKey
+   * The manual entry key.
    * @return manualEntryKey
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -125,7 +125,7 @@ public class SetupCode {
 
 
   /**
-   * Get qrCodeSetupImageUrl
+   * The QR-code setup image URL (base64-encoded PNG image).
    * @return qrCodeSetupImageUrl
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -158,10 +158,10 @@ public class SetupCode {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SetupCode setupCode = (SetupCode) o;
-    return equalsNullable(this.account, setupCode.account) &&
-        equalsNullable(this.manualEntryKey, setupCode.manualEntryKey) &&
-        equalsNullable(this.qrCodeSetupImageUrl, setupCode.qrCodeSetupImageUrl);
+    TfaSetupCodeDto tfaSetupCodeDto = (TfaSetupCodeDto) o;
+    return equalsNullable(this.account, tfaSetupCodeDto.account) &&
+        equalsNullable(this.manualEntryKey, tfaSetupCodeDto.manualEntryKey) &&
+        equalsNullable(this.qrCodeSetupImageUrl, tfaSetupCodeDto.qrCodeSetupImageUrl);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -183,7 +183,7 @@ public class SetupCode {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SetupCode {\n");
+    sb.append("class TfaSetupCodeDto {\n");
     sb.append("    account: ").append(toIndentedString(account)).append("\n");
     sb.append("    manualEntryKey: ").append(toIndentedString(manualEntryKey)).append("\n");
     sb.append("    qrCodeSetupImageUrl: ").append(toIndentedString(qrCodeSetupImageUrl)).append("\n");

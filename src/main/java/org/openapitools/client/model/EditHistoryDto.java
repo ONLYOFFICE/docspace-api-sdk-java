@@ -24,10 +24,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.EditHistoryAuthor;
 import org.openapitools.client.model.EditHistoryChangesWrapper;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -73,7 +73,7 @@ public class EditHistoryDto {
   @javax.annotation.Nullable  private EditHistoryAuthor user;
 
   public static final String JSON_PROPERTY_CREATED = "created";
-  @javax.annotation.Nullable  private ApiDateTime created;
+  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> created = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_CHANGES_HISTORY = "changesHistory";
   @javax.annotation.Nullable  private JsonNullable<String> changesHistory = JsonNullable.<String>undefined();
@@ -198,7 +198,7 @@ public class EditHistoryDto {
   }
 
   /**
-   * The information about the file editing history author.
+   * The user who updated a file.
    * @return user
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER, required = false)
@@ -215,28 +215,35 @@ public class EditHistoryDto {
     this.user = user;
   }
 
-  public EditHistoryDto created(@javax.annotation.Nullable ApiDateTime created) {
+  public EditHistoryDto created(@javax.annotation.Nullable OffsetDateTime created) {
+    this.created = JsonNullable.<OffsetDateTime>of(created);
     
-    this.created = created;
     return this;
   }
 
   /**
-   * The API date and time parameters.
+   * The document version creation date.
    * @return created
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public ApiDateTime getCreated() {
-    return created;
+  public OffsetDateTime getCreated() {
+        return created.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_CREATED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreated(@javax.annotation.Nullable ApiDateTime created) {
+  public JsonNullable<OffsetDateTime> getCreated_JsonNullable() {
+    return created;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED)
+  public void setCreated_JsonNullable(JsonNullable<OffsetDateTime> created) {
     this.created = created;
+  }
+
+  public void setCreated(@javax.annotation.Nullable OffsetDateTime created) {
+    this.created = JsonNullable.<OffsetDateTime>of(created);
   }
 
   public EditHistoryDto changesHistory(@javax.annotation.Nullable String changesHistory) {
@@ -358,7 +365,7 @@ public class EditHistoryDto {
         Objects.equals(this.version, editHistoryDto.version) &&
         Objects.equals(this.versionGroup, editHistoryDto.versionGroup) &&
         Objects.equals(this.user, editHistoryDto.user) &&
-        Objects.equals(this.created, editHistoryDto.created) &&
+        equalsNullable(this.created, editHistoryDto.created) &&
         equalsNullable(this.changesHistory, editHistoryDto.changesHistory) &&
         equalsNullable(this.changes, editHistoryDto.changes) &&
         equalsNullable(this.serverVersion, editHistoryDto.serverVersion);
@@ -370,7 +377,7 @@ public class EditHistoryDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(key), version, versionGroup, user, created, hashCodeNullable(changesHistory), hashCodeNullable(changes), hashCodeNullable(serverVersion));
+    return Objects.hash(id, hashCodeNullable(key), version, versionGroup, user, hashCodeNullable(created), hashCodeNullable(changesHistory), hashCodeNullable(changes), hashCodeNullable(serverVersion));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -487,7 +494,12 @@ public class EditHistoryDto {
 
     // add `created` to the URL query string
     if (getCreated() != null) {
-      joiner.add(getCreated().toUrlQueryString(prefix + "created" + suffix));
+      try {
+        joiner.add(String.format("%screated%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreated()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `changesHistory` to the URL query string

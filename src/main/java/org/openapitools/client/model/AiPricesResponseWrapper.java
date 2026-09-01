@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AiPricesResponseWrapper
+ * The successful API response containing the AiPricesResponse object.
  */
 @JsonPropertyOrder({
   AiPricesResponseWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class AiPricesResponseWrapper {
   }
 
   /**
-   * Get response
+   * The AiPricesResponse object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

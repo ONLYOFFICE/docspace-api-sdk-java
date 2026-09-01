@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Outcome of  {@link  PromptsEngine.importBundle } . Either every entry persisted with counts, or no entries persisted plus a per-entry error report.
+ * Outcome of `PromptsEngine.importBundle`. Either every entry persisted with counts, or no entries persisted plus a per-entry error report.
  */
 @JsonPropertyOrder({
   AiImportResult.JSON_PROPERTY_SUCCESS,
@@ -66,7 +66,7 @@ public class AiImportResult {
   }
 
   /**
-   * Get success
+   * True when the whole bundle was imported.
    * @return success
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SUCCESS, required = true)
@@ -122,7 +122,7 @@ public class AiImportResult {
   }
 
   /**
-   * Get errors
+   * What was rejected, per entry. Present on failure - and then nothing was imported.
    * @return errors
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ERRORS, required = false)

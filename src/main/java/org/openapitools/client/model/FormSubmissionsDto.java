@@ -41,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * FormSubmissionsDto
+ * All submissions of a form, together with the metadata of its fields.
  */
 @JsonPropertyOrder({
   FormSubmissionsDto.JSON_PROPERTY_METADATA,

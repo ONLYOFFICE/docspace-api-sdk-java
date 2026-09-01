@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * TaskProgressResponseWrapper
+ * The successful API response containing the TaskProgressResponseDto object.
  */
 @JsonPropertyOrder({
   TaskProgressResponseWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class TaskProgressResponseWrapper {
   }
 
   /**
-   * Get response
+   * The TaskProgressResponseDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

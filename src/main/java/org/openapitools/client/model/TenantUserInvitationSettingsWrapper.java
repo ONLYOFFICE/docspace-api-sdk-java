@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * TenantUserInvitationSettingsWrapper
+ * The successful API response containing the TenantUserInvitationSettingsDto object.
  */
 @JsonPropertyOrder({
   TenantUserInvitationSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class TenantUserInvitationSettingsWrapper {
   }
 
   /**
-   * Get response
+   * The TenantUserInvitationSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

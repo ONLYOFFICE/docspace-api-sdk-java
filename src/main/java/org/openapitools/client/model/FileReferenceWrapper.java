@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * FileReferenceWrapper
+ * The successful API response containing the FileReference object.
  */
 @JsonPropertyOrder({
   FileReferenceWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class FileReferenceWrapper {
   }
 
   /**
-   * Get response
+   * The FileReference object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

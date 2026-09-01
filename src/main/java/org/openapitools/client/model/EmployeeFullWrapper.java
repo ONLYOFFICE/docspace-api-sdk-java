@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * EmployeeFullWrapper
+ * The successful API response containing the EmployeeFullDto object.
  */
 @JsonPropertyOrder({
   EmployeeFullWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class EmployeeFullWrapper {
   }
 
   /**
-   * Get response
+   * The EmployeeFullDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

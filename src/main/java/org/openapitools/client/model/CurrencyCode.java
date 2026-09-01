@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * CurrencyCode
+ * The currency an amount is expressed in.
  */
 @JsonPropertyOrder({
   CurrencyCode.JSON_PROPERTY_CURRENCY
