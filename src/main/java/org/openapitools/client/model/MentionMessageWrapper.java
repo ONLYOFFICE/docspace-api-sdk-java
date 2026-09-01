@@ -69,7 +69,7 @@ public class MentionMessageWrapper {
   }
 
   /**
-   * Get actionLink
+   * The config parameter which contains the information about the action in the document that will be scrolled to.
    * @return actionLink
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTION_LINK, required = false)

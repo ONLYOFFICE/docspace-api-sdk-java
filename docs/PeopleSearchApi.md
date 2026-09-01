@@ -96,7 +96,7 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        Integer id = 56; // Integer | The user ID.
+        Integer id = 00000000-0000-0000-0000-000000000000; // Integer | The user ID.
         EmployeeStatus employeeStatus = EmployeeStatus.fromValue("1"); // EmployeeStatus | The user status.
         EmployeeActivationStatus activationStatus = EmployeeActivationStatus.fromValue("0"); // EmployeeActivationStatus | The user activation status.
         Boolean excludeShared = false; // Boolean | Specifies whether to exclude the account sharing settings from the response.
@@ -104,7 +104,7 @@ public class Example {
         Boolean invitedByMe = false; // Boolean | Specifies whether the user is invited by the current user or not.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The inviter ID.
         Area area = Area.fromValue("0"); // Area | The area of the account entries.
-        List<EmployeeType> employeeTypes = Arrays.asList(new ArrayList<>()); // List<EmployeeType> | The list of the user types.
+        List<EmployeeType> employeeTypes = Arrays.asList(); // List<EmployeeType> | The list of the user types.
         Integer count = 25; // Integer | The number of items to retrieve in a request.
         Integer startIndex = 0; // Integer | The starting index for the query results.
         String filterSeparator = ","; // String | Specifies the separator used in filter expressions.
@@ -218,7 +218,7 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        Integer id = 56; // Integer | The user ID.
+        Integer id = 00000000-0000-0000-0000-000000000000; // Integer | The user ID.
         EmployeeStatus employeeStatus = EmployeeStatus.fromValue("1"); // EmployeeStatus | The user status.
         EmployeeActivationStatus activationStatus = EmployeeActivationStatus.fromValue("0"); // EmployeeActivationStatus | The user activation status.
         Boolean excludeShared = false; // Boolean | Specifies whether to exclude the account sharing settings from the response.
@@ -226,7 +226,7 @@ public class Example {
         Boolean invitedByMe = false; // Boolean | Specifies whether the user is invited by the current user or not.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The inviter ID.
         Area area = Area.fromValue("0"); // Area | The area of the account entries.
-        List<EmployeeType> employeeTypes = Arrays.asList(new ArrayList<>()); // List<EmployeeType> | The list of the user types.
+        List<EmployeeType> employeeTypes = Arrays.asList(); // List<EmployeeType> | The list of the user types.
         Integer count = 25; // Integer | The number of items to retrieve in a request.
         Integer startIndex = 0; // Integer | The starting index for the query results.
         String filterSeparator = ","; // String | Specifies the separator used in filter expressions.
@@ -340,7 +340,7 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        Integer id = 56; // Integer | The user ID.
+        Integer id = 00000000-0000-0000-0000-000000000000; // Integer | The user ID.
         EmployeeStatus employeeStatus = EmployeeStatus.fromValue("1"); // EmployeeStatus | The user status.
         EmployeeActivationStatus activationStatus = EmployeeActivationStatus.fromValue("0"); // EmployeeActivationStatus | The user activation status.
         Boolean excludeShared = false; // Boolean | Specifies whether to exclude the account sharing settings from the response.
@@ -348,7 +348,7 @@ public class Example {
         Boolean invitedByMe = false; // Boolean | Specifies whether the user is invited by the current user or not.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The inviter ID.
         Area area = Area.fromValue("0"); // Area | The area of the account entries.
-        List<EmployeeType> employeeTypes = Arrays.asList(new ArrayList<>()); // List<EmployeeType> | The list of the user types.
+        List<EmployeeType> employeeTypes = Arrays.asList(); // List<EmployeeType> | The list of the user types.
         Integer count = 25; // Integer | The number of items to retrieve in a request.
         Integer startIndex = 0; // Integer | The starting index for the query results.
         String filterSeparator = ","; // String | Specifies the separator used in filter expressions.
@@ -575,7 +575,7 @@ public class Example {
         UUID groupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The group ID.
         EmployeeActivationStatus activationStatus = EmployeeActivationStatus.fromValue("0"); // EmployeeActivationStatus | The user activation status.
         EmployeeType employeeType = EmployeeType.fromValue("All"); // EmployeeType | The user type.
-        List<Integer> employeeTypes = Arrays.asList(new ArrayList<>()); // List<Integer> | The list of user types.
+        List<Integer> employeeTypes = Arrays.asList(); // List<Integer> | The list of user types.
         Boolean isAdministrator = false; // Boolean | Specifies if the user is an administrator or not.
         Payments payments = Payments.fromValue("0"); // Payments | The user payment status.
         AccountLoginType accountLoginType = AccountLoginType.fromValue("0"); // AccountLoginType | The account login type.
@@ -700,7 +700,7 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        Integer id = 56; // Integer | The user ID.
+        Integer id = 00000000-0000-0000-0000-000000000000; // Integer | The user ID.
         EmployeeStatus employeeStatus = EmployeeStatus.fromValue("1"); // EmployeeStatus | The user status.
         EmployeeActivationStatus activationStatus = EmployeeActivationStatus.fromValue("0"); // EmployeeActivationStatus | The user activation status.
         Boolean excludeShared = false; // Boolean | Specifies whether to exclude the user sharing settings or not.
@@ -708,7 +708,7 @@ public class Example {
         Boolean invitedByMe = false; // Boolean | Specifies whether the user was invited by the current user or not.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The inviter ID.
         Area area = Area.fromValue("0"); // Area | The user area.
-        List<EmployeeType> employeeTypes = Arrays.asList(new ArrayList<>()); // List<EmployeeType> | The list of user types.
+        List<EmployeeType> employeeTypes = Arrays.asList(); // List<EmployeeType> | The list of user types.
         Integer count = 25; // Integer | The maximum number of users to be retrieved in the request.
         Integer startIndex = 0; // Integer | The zero-based index of the first record to retrieve in a paged query.
         String filterSeparator = ","; // String | The character or string used to separate multiple filter values in a filtering query.
@@ -822,7 +822,7 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        Integer id = 56; // Integer | The user ID.
+        Integer id = 00000000-0000-0000-0000-000000000000; // Integer | The user ID.
         EmployeeStatus employeeStatus = EmployeeStatus.fromValue("1"); // EmployeeStatus | The user status.
         EmployeeActivationStatus activationStatus = EmployeeActivationStatus.fromValue("0"); // EmployeeActivationStatus | The user activation status.
         Boolean excludeShared = false; // Boolean | Specifies whether to exclude the user sharing settings or not.
@@ -830,7 +830,7 @@ public class Example {
         Boolean invitedByMe = false; // Boolean | Specifies whether the user was invited by the current user or not.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The inviter ID.
         Area area = Area.fromValue("0"); // Area | The user area.
-        List<EmployeeType> employeeTypes = Arrays.asList(new ArrayList<>()); // List<EmployeeType> | The list of user types.
+        List<EmployeeType> employeeTypes = Arrays.asList(); // List<EmployeeType> | The list of user types.
         Integer count = 25; // Integer | The maximum number of users to be retrieved in the request.
         Integer startIndex = 0; // Integer | The zero-based index of the first record to retrieve in a paged query.
         String filterSeparator = ","; // String | The character or string used to separate multiple filter values in a filtering query.
@@ -944,7 +944,7 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        Integer id = 56; // Integer | The user ID.
+        Integer id = 00000000-0000-0000-0000-000000000000; // Integer | The user ID.
         EmployeeStatus employeeStatus = EmployeeStatus.fromValue("1"); // EmployeeStatus | The user status.
         EmployeeActivationStatus activationStatus = EmployeeActivationStatus.fromValue("0"); // EmployeeActivationStatus | The user activation status.
         Boolean excludeShared = false; // Boolean | Specifies whether to exclude the user sharing settings or not.
@@ -952,7 +952,7 @@ public class Example {
         Boolean invitedByMe = false; // Boolean | Specifies whether the user was invited by the current user or not.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The inviter ID.
         Area area = Area.fromValue("0"); // Area | The user area.
-        List<EmployeeType> employeeTypes = Arrays.asList(new ArrayList<>()); // List<EmployeeType> | The list of user types.
+        List<EmployeeType> employeeTypes = Arrays.asList(); // List<EmployeeType> | The list of user types.
         Integer count = 25; // Integer | The maximum number of users to be retrieved in the request.
         Integer startIndex = 0; // Integer | The zero-based index of the first record to retrieve in a paged query.
         String filterSeparator = ","; // String | The character or string used to separate multiple filter values in a filtering query.
@@ -1077,7 +1077,7 @@ public class Example {
         UUID groupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The group ID.
         EmployeeActivationStatus activationStatus = EmployeeActivationStatus.fromValue("0"); // EmployeeActivationStatus | The user activation status.
         EmployeeType employeeType = EmployeeType.fromValue("All"); // EmployeeType | The user type.
-        List<Integer> employeeTypes = Arrays.asList(new ArrayList<>()); // List<Integer> | The list of user types.
+        List<Integer> employeeTypes = Arrays.asList(); // List<Integer> | The list of user types.
         Boolean isAdministrator = false; // Boolean | Specifies if the user is an administrator or not.
         Payments payments = Payments.fromValue("0"); // Payments | The user payment status.
         AccountLoginType accountLoginType = AccountLoginType.fromValue("0"); // AccountLoginType | The account login type.

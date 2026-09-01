@@ -146,7 +146,7 @@ public class CreateThirdPartyRoom {
   }
 
   /**
-   * Get roomType
+   * The room type.
    * @return roomType
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ROOM_TYPE, required = true)
@@ -347,7 +347,7 @@ public class CreateThirdPartyRoom {
   }
 
   /**
-   * Get logo
+   * The logo request parameters.
    * @return logo
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)

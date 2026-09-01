@@ -108,7 +108,7 @@ public class InvitationLinkDto {
   }
 
   /**
-   * Get employeeType
+   * The user type.
    * @return employeeType
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_EMPLOYEE_TYPE, required = true)
@@ -132,7 +132,7 @@ public class InvitationLinkDto {
   }
 
   /**
-   * Get expiration
+   * The API date and time parameters.
    * @return expiration
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION, required = false)

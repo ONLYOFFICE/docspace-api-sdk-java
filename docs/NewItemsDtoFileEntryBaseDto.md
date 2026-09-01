@@ -8,7 +8,7 @@ The new item parameters.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**date** | [**ApiDateTime**](ApiDateTime.md) |  |  |
+|**date** | [**ApiDateTime**](ApiDateTime.md) | The date and time when the new item was created. |  |
 |**items** | [**List&lt;FileEntryBaseDto&gt;**](FileEntryBaseDto.md) | The list of items. |  |
 
 

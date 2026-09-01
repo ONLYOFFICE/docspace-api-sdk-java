@@ -8,7 +8,7 @@ The notification settings parameters.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**type** | **NotificationType** |  |  [optional] |
+|**type** | **NotificationType** | The notification type. |  [optional] |
 |**isEnabled** | **Boolean** | Specifies if the notification type is enabled or not. |  [optional] |
 
 

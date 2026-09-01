@@ -344,7 +344,7 @@ public class AuthRequestsDto {
   }
 
   /**
-   * Get confirmData
+   * The additional confirmation data required for authentication.
    * @return confirmData
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONFIRM_DATA, required = false)
@@ -368,7 +368,7 @@ public class AuthRequestsDto {
   }
 
   /**
-   * Get recaptchaType
+   * The type of CAPTCHA validation used.
    * @return recaptchaType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RECAPTCHA_TYPE, required = false)

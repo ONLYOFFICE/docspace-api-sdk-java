@@ -10,7 +10,7 @@ The backup history parameters.
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** | The backup ID. |  |
 |**fileName** | **String** | The backup file name. |  |
-|**storageType** | **BackupStorageType** |  |  |
+|**storageType** | **BackupStorageType** | The backup storage type. |  |
 |**createdOn** | **OffsetDateTime** | The backup creation date. |  |
 |**expiresOn** | **OffsetDateTime** | The backup expiration date. |  |
 

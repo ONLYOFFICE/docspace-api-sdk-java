@@ -67,7 +67,7 @@ public class InvitationLinkCreateRequestDto {
   }
 
   /**
-   * Get employeeType
+   * The user type.
    * @return employeeType
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_EMPLOYEE_TYPE, required = true)

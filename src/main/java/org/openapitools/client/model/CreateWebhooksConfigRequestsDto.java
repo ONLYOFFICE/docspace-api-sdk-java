@@ -209,7 +209,7 @@ public class CreateWebhooksConfigRequestsDto {
   }
 
   /**
-   * Get triggers
+   * The webhook trigger type.
    * @return triggers
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRIGGERS, required = false)

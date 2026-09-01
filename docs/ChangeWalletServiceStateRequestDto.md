@@ -8,7 +8,7 @@ The request parameters for changing the tenant wallet service state.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**service** | **TenantWalletService** |  |  [optional] |
+|**service** | **TenantWalletService** | The wallet service type. |  [optional] |
 |**enabled** | **Boolean** | Specifies whether the wallet service is enabled. |  [optional] |
 
 

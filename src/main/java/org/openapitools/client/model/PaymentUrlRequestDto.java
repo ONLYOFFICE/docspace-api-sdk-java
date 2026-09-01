@@ -27,10 +27,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -55,7 +51,7 @@ public class PaymentUrlRequestDto {
   @javax.annotation.Nonnull  private URI successUrl;
 
   public static final String JSON_PROPERTY_QUANTITY = "quantity";
-  @javax.annotation.Nullable  private JsonNullable<Map<String, Integer>> quantity = JsonNullable.<Map<String, Integer>>undefined();
+  @javax.annotation.Nonnull  private Map<String, Integer> quantity = new HashMap<>();
 
   public PaymentUrlRequestDto() {
   }
@@ -109,21 +105,14 @@ public class PaymentUrlRequestDto {
     this.successUrl = successUrl;
   }
 
-  public PaymentUrlRequestDto quantity(@javax.annotation.Nullable Map<String, Integer> quantity) {
-    this.quantity = JsonNullable.<Map<String, Integer>>of(quantity);
+  public PaymentUrlRequestDto quantity(@javax.annotation.Nonnull Map<String, Integer> quantity) {
     
+    this.quantity = quantity;
     return this;
   }
 
   public PaymentUrlRequestDto putQuantityItem(String key, Integer quantityItem) {
-    if (this.quantity == null || !this.quantity.isPresent()) {
-      this.quantity = JsonNullable.<Map<String, Integer>>of(new HashMap<>());
-    }
-    try {
-      this.quantity.get().put(key, quantityItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.quantity.put(key, quantityItem);
     return this;
   }
 
@@ -131,25 +120,18 @@ public class PaymentUrlRequestDto {
    * The payment quantity.
    * @return quantity
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_QUANTITY, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Map<String, Integer> getQuantity() {
-        return quantity.orElse(null);
-  }
-
-  @JsonProperty(value = JSON_PROPERTY_QUANTITY, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Map<String, Integer>> getQuantity_JsonNullable() {
     return quantity;
   }
-  
-  @JsonProperty(JSON_PROPERTY_QUANTITY)
-  public void setQuantity_JsonNullable(JsonNullable<Map<String, Integer>> quantity) {
-    this.quantity = quantity;
-  }
 
-  public void setQuantity(@javax.annotation.Nullable Map<String, Integer> quantity) {
-    this.quantity = JsonNullable.<Map<String, Integer>>of(quantity);
+
+  @JsonProperty(value = JSON_PROPERTY_QUANTITY, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setQuantity(@javax.annotation.Nonnull Map<String, Integer> quantity) {
+    this.quantity = quantity;
   }
 
   @Override
@@ -163,23 +145,12 @@ public class PaymentUrlRequestDto {
     PaymentUrlRequestDto paymentUrlRequestDto = (PaymentUrlRequestDto) o;
     return Objects.equals(this.backUrl, paymentUrlRequestDto.backUrl) &&
         Objects.equals(this.successUrl, paymentUrlRequestDto.successUrl) &&
-        equalsNullable(this.quantity, paymentUrlRequestDto.quantity);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+        Objects.equals(this.quantity, paymentUrlRequestDto.quantity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backUrl, successUrl, hashCodeNullable(quantity));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(backUrl, successUrl, quantity);
   }
 
   @Override

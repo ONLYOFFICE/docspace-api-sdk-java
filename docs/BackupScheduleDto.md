@@ -8,10 +8,10 @@ The backup schedule parameters.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**storageType** | **BackupStorageType** |  |  [optional] |
+|**storageType** | **BackupStorageType** | The backup storage type. |  [optional] |
 |**storageParams** | [**List&lt;ItemKeyValuePairObjectObject&gt;**](ItemKeyValuePairObjectObject.md) | The backup storage parameters. |  [optional] |
 |**backupsStored** | **Integer** | The maximum number of the stored backup copies. |  [optional] |
-|**cronParams** | [**Cron**](Cron.md) |  |  [optional] |
+|**cronParams** | [**Cron**](Cron.md) | The backup cron parameters. |  [optional] |
 |**dump** | **Boolean** | Specifies if a dump will be created or not. |  [optional] |
 
 

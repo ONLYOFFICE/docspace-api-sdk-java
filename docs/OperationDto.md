@@ -8,7 +8,7 @@ Represents an operation.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**date** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
+|**date** | [**ApiDateTime**](ApiDateTime.md) | The API date and time parameters. |  [optional] |
 |**service** | **String** | The service related to the operation. |  [optional] |
 |**description** | **String** | The brief operation description. |  [optional] |
 |**details** | **String** | The detailed information about the operation. |  [optional] |
@@ -21,7 +21,7 @@ Represents an operation.
 |**participantDisplayName** | **String** | The participant display name. |  [optional] |
 |**agentId** | **String** | AI Agent id. |  [optional] |
 |**agentTitle** | **String** | AI Agent name. |  [optional] |
-|**type** | **OperationType** |  |  [optional] |
+|**type** | **OperationType** | The operation type |  [optional] |
 
 
 

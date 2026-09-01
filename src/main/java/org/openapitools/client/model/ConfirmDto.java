@@ -74,7 +74,7 @@ public class ConfirmDto {
   }
 
   /**
-   * Get result
+   * The confirmation result.
    * @return result
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_RESULT, required = true)

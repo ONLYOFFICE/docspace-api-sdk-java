@@ -24,19 +24,17 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.CreateAgentRequestDto;
-import org.openapitools.client.model.DeleteRoomRequest;
-import org.openapitools.client.model.FileOperationWrapper;
-import org.openapitools.client.model.FolderContentIntegerWrapper;
-import org.openapitools.client.model.FolderIntegerArrayWrapper;
-import org.openapitools.client.model.FolderIntegerWrapper;
-import org.openapitools.client.model.NewItemsAgentNewItemsArrayWrapper;
-import org.openapitools.client.model.QuotaFilter;
-import org.openapitools.client.model.SortOrder;
-import org.openapitools.client.model.SubjectFilter;
-import org.openapitools.client.model.UpdateRoomRequest;
-import org.openapitools.client.model.UpdateRoomsQuotaRequestDtoInteger;
-import org.openapitools.client.model.UpdateRoomsRoomIdsRequestDtoInteger;
+import org.openapitools.client.model.AiAgentsCreateRequest;
+import org.openapitools.client.model.AiAgentsDeleteRequest;
+import org.openapitools.client.model.AiAgentsResetQuotaRequest;
+import org.openapitools.client.model.AiAgentsUpdateQuotaRequest;
+import org.openapitools.client.model.AiAgentsUpdateRequest;
+import org.openapitools.client.model.AiErrorResponse;
+import org.openapitools.client.model.AiFileOperationWrapper;
+import org.openapitools.client.model.AiFolderContentIntegerWrapper;
+import org.openapitools.client.model.AiFolderIntegerArrayWrapper;
+import org.openapitools.client.model.AiFolderIntegerWrapper;
+import org.openapitools.client.model.AiNewItemsAgentNewItemsArrayWrapper;
 
 
 import java.util.ArrayList;
@@ -56,48 +54,42 @@ public class AgentsApi extends BaseApi {
     super(apiClient);
   }
 
-  private String fields;
 
   /**
-   * Specifies which fields should be included in the API response.
-   * @param fields A comma-separated list of field paths to include in the response
-   * @return this (for method chaining)
-   */
-  public AgentsApi withFields(String fields) {
-      this.fields = fields;
-      return this;
-  }
-
-  /**
-   * Create an ai agent
-   * Creates an ai agent.
+   * Create an agent
+   * 
    *
-   * REST API Reference for createAgent Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-agent/
+   * REST API Reference for aiAgentsCreate Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-create/
    *
-   * @param createAgentRequestDto  (optional)
-   * @return FolderIntegerWrapper
+   * @param aiAgentsCreateRequest  (required)
+   * @return AiFolderIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerWrapper createAgent(@javax.annotation.Nullable CreateAgentRequestDto createAgentRequestDto) throws ApiException {
-    return this.createAgent(createAgentRequestDto, Collections.emptyMap());
+  public AiFolderIntegerWrapper aiAgentsCreate(@javax.annotation.Nonnull AiAgentsCreateRequest aiAgentsCreateRequest) throws ApiException {
+    return this.aiAgentsCreate(aiAgentsCreateRequest, Collections.emptyMap());
   }
 
 
   /**
-   * Create an ai agent
-   * Creates an ai agent.
+   * Create an agent
+   * 
    *
-   * REST API Reference for createAgent Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-agent/
+   * REST API Reference for aiAgentsCreate Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-create/
    *
-   * @param createAgentRequestDto  (optional)
+   * @param aiAgentsCreateRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FolderIntegerWrapper
+   * @return AiFolderIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerWrapper createAgent(@javax.annotation.Nullable CreateAgentRequestDto createAgentRequestDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = createAgentRequestDto;
+  public AiFolderIntegerWrapper aiAgentsCreate(@javax.annotation.Nonnull AiAgentsCreateRequest aiAgentsCreateRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiAgentsCreateRequest;
+    
+    // verify the required parameter 'aiAgentsCreateRequest' is set
+    if (aiAgentsCreateRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiAgentsCreateRequest' when calling aiAgentsCreate");
+    }
     
     // create path and map variables
     String localVarPath = "/api/2.0/ai/agents";
@@ -126,9 +118,9 @@ public class AgentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<FolderIntegerWrapper> localVarReturnType = new TypeReference<FolderIntegerWrapper>() {};
+    TypeReference<AiFolderIntegerWrapper> localVarReturnType = new TypeReference<AiFolderIntegerWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -147,46 +139,46 @@ public class AgentsApi extends BaseApi {
   }
 
   /**
-   * Remove an ai agent
-   * Removes an ai agent.
+   * Delete an agent
+   * 
    *
-   * REST API Reference for deleteAgent Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-agent/
+   * REST API Reference for aiAgentsDelete Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-delete/
    *
-   * @param id The room ID. (required)
-   * @param deleteRoomRequest The parameters for deleting a room. (required)
-   * @return FileOperationWrapper
+   * @param id  (required)
+   * @param aiAgentsDeleteRequest  (required)
+   * @return AiFileOperationWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileOperationWrapper deleteAgent(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull DeleteRoomRequest deleteRoomRequest) throws ApiException {
-    return this.deleteAgent(id, deleteRoomRequest, Collections.emptyMap());
+  public AiFileOperationWrapper aiAgentsDelete(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull AiAgentsDeleteRequest aiAgentsDeleteRequest) throws ApiException {
+    return this.aiAgentsDelete(id, aiAgentsDeleteRequest, Collections.emptyMap());
   }
 
 
   /**
-   * Remove an ai agent
-   * Removes an ai agent.
+   * Delete an agent
+   * 
    *
-   * REST API Reference for deleteAgent Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-agent/
+   * REST API Reference for aiAgentsDelete Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-delete/
    *
-   * @param id The room ID. (required)
-   * @param deleteRoomRequest The parameters for deleting a room. (required)
+   * @param id  (required)
+   * @param aiAgentsDeleteRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FileOperationWrapper
+   * @return AiFileOperationWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileOperationWrapper deleteAgent(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull DeleteRoomRequest deleteRoomRequest, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = deleteRoomRequest;
+  public AiFileOperationWrapper aiAgentsDelete(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull AiAgentsDeleteRequest aiAgentsDeleteRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiAgentsDeleteRequest;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteAgent");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling aiAgentsDelete");
     }
     
-    // verify the required parameter 'deleteRoomRequest' is set
-    if (deleteRoomRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'deleteRoomRequest' when calling deleteAgent");
+    // verify the required parameter 'aiAgentsDeleteRequest' is set
+    if (aiAgentsDeleteRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiAgentsDeleteRequest' when calling aiAgentsDelete");
     }
     
     // create path and map variables
@@ -217,9 +209,9 @@ public class AgentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<FileOperationWrapper> localVarReturnType = new TypeReference<FileOperationWrapper>() {};
+    TypeReference<AiFileOperationWrapper> localVarReturnType = new TypeReference<AiFileOperationWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "DELETE",
@@ -238,39 +230,39 @@ public class AgentsApi extends BaseApi {
   }
 
   /**
-   * Return an ai agent
-   * Returns an ai agent.
+   * Get an agent
+   * 
    *
-   * REST API Reference for getAgentInfo Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agent-info/
+   * REST API Reference for aiAgentsGet Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/
    *
-   * @param id The room ID. (required)
-   * @return FolderIntegerWrapper
+   * @param id  (required)
+   * @return AiFolderIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerWrapper getAgentInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
-    return this.getAgentInfo(id, Collections.emptyMap());
+  public AiFolderIntegerWrapper aiAgentsGet(@javax.annotation.Nonnull String id) throws ApiException {
+    return this.aiAgentsGet(id, Collections.emptyMap());
   }
 
 
   /**
-   * Return an ai agent
-   * Returns an ai agent.
+   * Get an agent
+   * 
    *
-   * REST API Reference for getAgentInfo Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agent-info/
+   * REST API Reference for aiAgentsGet Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/
    *
-   * @param id The room ID. (required)
+   * @param id  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FolderIntegerWrapper
+   * @return AiFolderIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerWrapper getAgentInfo(@javax.annotation.Nonnull Integer id, Map<String, String> additionalHeaders) throws ApiException {
+  public AiFolderIntegerWrapper aiAgentsGet(@javax.annotation.Nonnull String id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getAgentInfo");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling aiAgentsGet");
     }
     
     // create path and map variables
@@ -301,9 +293,9 @@ public class AgentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<FolderIntegerWrapper> localVarReturnType = new TypeReference<FolderIntegerWrapper>() {};
+    TypeReference<AiFolderIntegerWrapper> localVarReturnType = new TypeReference<AiFolderIntegerWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -322,56 +314,32 @@ public class AgentsApi extends BaseApi {
   }
 
   /**
-   * Get ai agents
-   * Get ai agents
+   * List agents
+   * 
    *
-   * REST API Reference for getAgents Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents/
+   * REST API Reference for aiAgentsList Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/
    *
-   * @param subjectId The filter by user ID. (optional)
-   * @param subjectOwnerId The filter by room owner ID. (optional)
-   * @param withoutTags Specifies whether to search by tags or not. (optional)
-   * @param tags The tags in the serialized format. (optional)
-   * @param excludeSubject Specifies whether to exclude search by user or group ID. (optional)
-   * @param subjectFilter The filter by user (Owner - 0, Member - 1). (optional)
-   * @param quotaFilter The filter by quota (All - 0, Default - 1, Custom - 2). (optional)
-   * @param count Specifies the maximum number of items to retrieve. (optional)
-   * @param startIndex The index from which to start retrieving the room content. (optional)
-   * @param sortBy Specifies the field by which the room content should be sorted. (optional)
-   * @param sortOrder The order in which the results are sorted. (optional)
-   * @param filterValue The text filter value used to refine search or query operations. (optional)
-   * @return FolderContentIntegerWrapper
+   * @return AiFolderContentIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentIntegerWrapper getAgents(@javax.annotation.Nullable String subjectId, @javax.annotation.Nullable String subjectOwnerId, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable SubjectFilter subjectFilter, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue) throws ApiException {
-    return this.getAgents(subjectId, subjectOwnerId, withoutTags, tags, excludeSubject, subjectFilter, quotaFilter, count, startIndex, sortBy, sortOrder, filterValue, Collections.emptyMap());
+  public AiFolderContentIntegerWrapper aiAgentsList() throws ApiException {
+    return this.aiAgentsList(Collections.emptyMap());
   }
 
 
   /**
-   * Get ai agents
-   * Get ai agents
+   * List agents
+   * 
    *
-   * REST API Reference for getAgents Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents/
+   * REST API Reference for aiAgentsList Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/
    *
-   * @param subjectId The filter by user ID. (optional)
-   * @param subjectOwnerId The filter by room owner ID. (optional)
-   * @param withoutTags Specifies whether to search by tags or not. (optional)
-   * @param tags The tags in the serialized format. (optional)
-   * @param excludeSubject Specifies whether to exclude search by user or group ID. (optional)
-   * @param subjectFilter The filter by user (Owner - 0, Member - 1). (optional)
-   * @param quotaFilter The filter by quota (All - 0, Default - 1, Custom - 2). (optional)
-   * @param count Specifies the maximum number of items to retrieve. (optional)
-   * @param startIndex The index from which to start retrieving the room content. (optional)
-   * @param sortBy Specifies the field by which the room content should be sorted. (optional)
-   * @param sortOrder The order in which the results are sorted. (optional)
-   * @param filterValue The text filter value used to refine search or query operations. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FolderContentIntegerWrapper
+   * @return AiFolderContentIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentIntegerWrapper getAgents(@javax.annotation.Nullable String subjectId, @javax.annotation.Nullable String subjectOwnerId, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable SubjectFilter subjectFilter, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public AiFolderContentIntegerWrapper aiAgentsList(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -385,22 +353,8 @@ public class AgentsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("subjectId", subjectId));
-    localVarQueryParams.addAll(apiClient.parameterToPair("subjectOwnerId", subjectOwnerId));
-    localVarQueryParams.addAll(apiClient.parameterToPair("withoutTags", withoutTags));
-    localVarQueryParams.addAll(apiClient.parameterToPair("tags", tags));
-    localVarQueryParams.addAll(apiClient.parameterToPair("excludeSubject", excludeSubject));
-    localVarQueryParams.addAll(apiClient.parameterToPair("subjectFilter", subjectFilter));
-    localVarQueryParams.addAll(apiClient.parameterToPair("quotaFilter", quotaFilter));
-    localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
-    localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
-    localVarQueryParams.addAll(apiClient.parameterToPair("sortBy", sortBy));
-    localVarQueryParams.addAll(apiClient.parameterToPair("sortOrder", sortOrder));
-    localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
       
-    if (this.fields != null)
-      localVarHeaderParams.put("fields", this.fields);
-
+    
     localVarHeaderParams.putAll(additionalHeaders);
 
     
@@ -415,9 +369,9 @@ public class AgentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<FolderContentIntegerWrapper> localVarReturnType = new TypeReference<FolderContentIntegerWrapper>() {};
+    TypeReference<AiFolderContentIntegerWrapper> localVarReturnType = new TypeReference<AiFolderContentIntegerWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -436,32 +390,32 @@ public class AgentsApi extends BaseApi {
   }
 
   /**
-   * Get the room new items
-   * Returns the room new items.
+   * List agent news items
+   * 
    *
-   * REST API Reference for getAgentsNewItems Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents-new-items/
+   * REST API Reference for aiAgentsNews Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-news/
    *
-   * @return NewItemsAgentNewItemsArrayWrapper
+   * @return AiNewItemsAgentNewItemsArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public NewItemsAgentNewItemsArrayWrapper getAgentsNewItems() throws ApiException {
-    return this.getAgentsNewItems(Collections.emptyMap());
+  public AiNewItemsAgentNewItemsArrayWrapper aiAgentsNews() throws ApiException {
+    return this.aiAgentsNews(Collections.emptyMap());
   }
 
 
   /**
-   * Get the room new items
-   * Returns the room new items.
+   * List agent news items
+   * 
    *
-   * REST API Reference for getAgentsNewItems Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents-new-items/
+   * REST API Reference for aiAgentsNews Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-news/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return NewItemsAgentNewItemsArrayWrapper
+   * @return AiNewItemsAgentNewItemsArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public NewItemsAgentNewItemsArrayWrapper getAgentsNewItems(Map<String, String> additionalHeaders) throws ApiException {
+  public AiNewItemsAgentNewItemsArrayWrapper aiAgentsNews(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -491,9 +445,9 @@ public class AgentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<NewItemsAgentNewItemsArrayWrapper> localVarReturnType = new TypeReference<NewItemsAgentNewItemsArrayWrapper>() {};
+    TypeReference<AiNewItemsAgentNewItemsArrayWrapper> localVarReturnType = new TypeReference<AiNewItemsAgentNewItemsArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -512,35 +466,40 @@ public class AgentsApi extends BaseApi {
   }
 
   /**
-   * Reset the AI agents quota limit
-   * Resets the quota limit for the AI agents with the IDs specified in the request.
+   * Reset agents' quota
+   * 
    *
-   * REST API Reference for resetAgentsQuota Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-agents-quota/
+   * REST API Reference for aiAgentsResetQuota Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-reset-quota/
    *
-   * @param updateRoomsRoomIdsRequestDtoInteger  (optional)
-   * @return FolderIntegerArrayWrapper
+   * @param aiAgentsResetQuotaRequest  (required)
+   * @return AiFolderIntegerArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerArrayWrapper resetAgentsQuota(@javax.annotation.Nullable UpdateRoomsRoomIdsRequestDtoInteger updateRoomsRoomIdsRequestDtoInteger) throws ApiException {
-    return this.resetAgentsQuota(updateRoomsRoomIdsRequestDtoInteger, Collections.emptyMap());
+  public AiFolderIntegerArrayWrapper aiAgentsResetQuota(@javax.annotation.Nonnull AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest) throws ApiException {
+    return this.aiAgentsResetQuota(aiAgentsResetQuotaRequest, Collections.emptyMap());
   }
 
 
   /**
-   * Reset the AI agents quota limit
-   * Resets the quota limit for the AI agents with the IDs specified in the request.
+   * Reset agents' quota
+   * 
    *
-   * REST API Reference for resetAgentsQuota Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-agents-quota/
+   * REST API Reference for aiAgentsResetQuota Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-reset-quota/
    *
-   * @param updateRoomsRoomIdsRequestDtoInteger  (optional)
+   * @param aiAgentsResetQuotaRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FolderIntegerArrayWrapper
+   * @return AiFolderIntegerArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerArrayWrapper resetAgentsQuota(@javax.annotation.Nullable UpdateRoomsRoomIdsRequestDtoInteger updateRoomsRoomIdsRequestDtoInteger, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = updateRoomsRoomIdsRequestDtoInteger;
+  public AiFolderIntegerArrayWrapper aiAgentsResetQuota(@javax.annotation.Nonnull AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiAgentsResetQuotaRequest;
+    
+    // verify the required parameter 'aiAgentsResetQuotaRequest' is set
+    if (aiAgentsResetQuotaRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiAgentsResetQuotaRequest' when calling aiAgentsResetQuota");
+    }
     
     // create path and map variables
     String localVarPath = "/api/2.0/ai/agents/resetquota";
@@ -569,9 +528,9 @@ public class AgentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<FolderIntegerArrayWrapper> localVarReturnType = new TypeReference<FolderIntegerArrayWrapper>() {};
+    TypeReference<AiFolderIntegerArrayWrapper> localVarReturnType = new TypeReference<AiFolderIntegerArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
@@ -590,46 +549,46 @@ public class AgentsApi extends BaseApi {
   }
 
   /**
-   * Update an ai agent
-   * Updates an ai agent.
+   * Update an agent
+   * 
    *
-   * REST API Reference for updateAgent Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-agent/
+   * REST API Reference for aiAgentsUpdate Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/
    *
-   * @param id The room ID. (required)
-   * @param updateRoomRequest The request parameters for updating a room. (required)
-   * @return FolderIntegerWrapper
+   * @param id  (required)
+   * @param aiAgentsUpdateRequest  (required)
+   * @return AiFolderIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerWrapper updateAgent(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateRoomRequest updateRoomRequest) throws ApiException {
-    return this.updateAgent(id, updateRoomRequest, Collections.emptyMap());
+  public AiFolderIntegerWrapper aiAgentsUpdate(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull AiAgentsUpdateRequest aiAgentsUpdateRequest) throws ApiException {
+    return this.aiAgentsUpdate(id, aiAgentsUpdateRequest, Collections.emptyMap());
   }
 
 
   /**
-   * Update an ai agent
-   * Updates an ai agent.
+   * Update an agent
+   * 
    *
-   * REST API Reference for updateAgent Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-agent/
+   * REST API Reference for aiAgentsUpdate Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/
    *
-   * @param id The room ID. (required)
-   * @param updateRoomRequest The request parameters for updating a room. (required)
+   * @param id  (required)
+   * @param aiAgentsUpdateRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FolderIntegerWrapper
+   * @return AiFolderIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerWrapper updateAgent(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateRoomRequest updateRoomRequest, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = updateRoomRequest;
+  public AiFolderIntegerWrapper aiAgentsUpdate(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull AiAgentsUpdateRequest aiAgentsUpdateRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiAgentsUpdateRequest;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateAgent");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling aiAgentsUpdate");
     }
     
-    // verify the required parameter 'updateRoomRequest' is set
-    if (updateRoomRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'updateRoomRequest' when calling updateAgent");
+    // verify the required parameter 'aiAgentsUpdateRequest' is set
+    if (aiAgentsUpdateRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiAgentsUpdateRequest' when calling aiAgentsUpdate");
     }
     
     // create path and map variables
@@ -660,9 +619,9 @@ public class AgentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<FolderIntegerWrapper> localVarReturnType = new TypeReference<FolderIntegerWrapper>() {};
+    TypeReference<AiFolderIntegerWrapper> localVarReturnType = new TypeReference<AiFolderIntegerWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
@@ -681,35 +640,40 @@ public class AgentsApi extends BaseApi {
   }
 
   /**
-   * Change the AI agent quota limit
-   * Changes the quota limit for the AI agents with the IDs specified in the request.
+   * Update agents' quota
+   * 
    *
-   * REST API Reference for updateAgentsQuota Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-agents-quota/
+   * REST API Reference for aiAgentsUpdateQuota Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update-quota/
    *
-   * @param updateRoomsQuotaRequestDtoInteger  (optional)
-   * @return FolderIntegerArrayWrapper
+   * @param aiAgentsUpdateQuotaRequest  (required)
+   * @return AiFolderIntegerArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerArrayWrapper updateAgentsQuota(@javax.annotation.Nullable UpdateRoomsQuotaRequestDtoInteger updateRoomsQuotaRequestDtoInteger) throws ApiException {
-    return this.updateAgentsQuota(updateRoomsQuotaRequestDtoInteger, Collections.emptyMap());
+  public AiFolderIntegerArrayWrapper aiAgentsUpdateQuota(@javax.annotation.Nonnull AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest) throws ApiException {
+    return this.aiAgentsUpdateQuota(aiAgentsUpdateQuotaRequest, Collections.emptyMap());
   }
 
 
   /**
-   * Change the AI agent quota limit
-   * Changes the quota limit for the AI agents with the IDs specified in the request.
+   * Update agents' quota
+   * 
    *
-   * REST API Reference for updateAgentsQuota Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-agents-quota/
+   * REST API Reference for aiAgentsUpdateQuota Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update-quota/
    *
-   * @param updateRoomsQuotaRequestDtoInteger  (optional)
+   * @param aiAgentsUpdateQuotaRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FolderIntegerArrayWrapper
+   * @return AiFolderIntegerArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerArrayWrapper updateAgentsQuota(@javax.annotation.Nullable UpdateRoomsQuotaRequestDtoInteger updateRoomsQuotaRequestDtoInteger, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = updateRoomsQuotaRequestDtoInteger;
+  public AiFolderIntegerArrayWrapper aiAgentsUpdateQuota(@javax.annotation.Nonnull AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiAgentsUpdateQuotaRequest;
+    
+    // verify the required parameter 'aiAgentsUpdateQuotaRequest' is set
+    if (aiAgentsUpdateQuotaRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiAgentsUpdateQuotaRequest' when calling aiAgentsUpdateQuota");
+    }
     
     // create path and map variables
     String localVarPath = "/api/2.0/ai/agents/agentquota";
@@ -738,9 +702,9 @@ public class AgentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<FolderIntegerArrayWrapper> localVarReturnType = new TypeReference<FolderIntegerArrayWrapper>() {};
+    TypeReference<AiFolderIntegerArrayWrapper> localVarReturnType = new TypeReference<AiFolderIntegerArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
@@ -780,7 +744,7 @@ public class AgentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] {  };
 
     return apiClient.invokeAPI(
       localVarPath,

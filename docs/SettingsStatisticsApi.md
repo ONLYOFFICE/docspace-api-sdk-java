@@ -74,7 +74,7 @@ public class Example {
 
 
         StatisticsApi apiInstance = new StatisticsApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | The ID extracted from the route parameters.
+        UUID id = UUID.fromString("1"); // UUID | The ID extracted from the route parameters.
         try {
             UsageSpaceStatItemArrayWrapper result = apiInstance.getSpaceUsageStatistics(id);
             System.out.println(result);

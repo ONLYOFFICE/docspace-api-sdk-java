@@ -78,7 +78,7 @@ public class ThirdPartyParams {
   }
 
   /**
-   * Get authData
+   * The authentication data.
    * @return authData
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTH_DATA, required = false)

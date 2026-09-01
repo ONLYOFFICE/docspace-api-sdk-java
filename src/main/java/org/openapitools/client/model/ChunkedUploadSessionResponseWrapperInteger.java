@@ -82,7 +82,7 @@ public class ChunkedUploadSessionResponseWrapperInteger {
   }
 
   /**
-   * Get data
+   * Represents the response returned from a chunked upload session.
    * @return data
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATA, required = false)

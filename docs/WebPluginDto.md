@@ -18,7 +18,7 @@ The web plugin information.
 |**pluginName** | **String** | The name by which the web plugin is registered in the window object. |  |
 |**scopes** | **String** | The web plugin scopes. |  |
 |**image** | **String** | The web plugin image. |  |
-|**createBy** | [**EmployeeDto**](EmployeeDto.md) |  |  |
+|**createBy** | [**EmployeeDto**](EmployeeDto.md) | The user parameters. |  |
 |**createOn** | **OffsetDateTime** | The date and time when the web plugin was created. |  |
 |**enabled** | **Boolean** | Specifies if the web plugin is enabled or not. |  |
 |**system** | **Boolean** | Specifies if the web plugin is system or not. |  |
@@ -27,6 +27,7 @@ The web plugin information.
 |**settings** | **String** | The web plugin settings. |  |
 |**nameLocale** | **Map&lt;String, String&gt;** | The web plugin localized name. |  [optional] |
 |**descriptionLocale** | **Map&lt;String, String&gt;** | The web plugin localized description. |  [optional] |
+|**runtime** | **String** | The web plugin loading method |  [optional] |
 
 
 

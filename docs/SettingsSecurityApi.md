@@ -465,7 +465,7 @@ public class Example {
 
 
         SecurityApi apiInstance = new SecurityApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | The ID extracted from the route parameters.
+        UUID id = UUID.fromString("1"); // UUID | The ID extracted from the route parameters.
         try {
             BooleanWrapper result = apiInstance.getWebItemSecurityInfo(id);
             System.out.println(result);
@@ -562,7 +562,7 @@ public class Example {
 
 
         SecurityApi apiInstance = new SecurityApi(defaultClient);
-        List<String> ids = Arrays.asList(new ArrayList<>()); // List<String> | The list of module identifiers for which to retrieve the security settings.
+        List<String> ids = Arrays.asList(); // List<String> | The list of module identifiers for which to retrieve the security settings.
         try {
             SecurityArrayWrapper result = apiInstance.getWebItemSettingsSecurityInfo(ids);
             System.out.println(result);

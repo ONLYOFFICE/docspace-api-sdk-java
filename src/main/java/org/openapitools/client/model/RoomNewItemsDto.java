@@ -65,7 +65,7 @@ public class RoomNewItemsDto {
   }
 
   /**
-   * Get room
+   * The room file entry.
    * @return room
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOM, required = false)

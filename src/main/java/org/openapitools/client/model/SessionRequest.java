@@ -157,7 +157,7 @@ public class SessionRequest {
   }
 
   /**
-   * Get createOn
+   * The API date and time parameters.
    * @return createOn
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_ON, required = false)

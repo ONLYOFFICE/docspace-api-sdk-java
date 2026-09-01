@@ -108,7 +108,7 @@ public class HistoryDto {
   }
 
   /**
-   * Get action
+   * The action performed on the file.
    * @return action
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ACTION, required = true)
@@ -132,7 +132,7 @@ public class HistoryDto {
   }
 
   /**
-   * Get initiator
+   * The user parameters.
    * @return initiator
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_INITIATOR, required = true)
@@ -156,7 +156,7 @@ public class HistoryDto {
   }
 
   /**
-   * Get date
+   * The API date and time parameters.
    * @return date
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DATE, required = true)
@@ -180,7 +180,7 @@ public class HistoryDto {
   }
 
   /**
-   * Get data
+   * The history data.
    * @return data
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DATA, required = true)

@@ -220,7 +220,7 @@ public class MemberRequestDto {
   }
 
   /**
-   * Get type
+   * The user type.
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)

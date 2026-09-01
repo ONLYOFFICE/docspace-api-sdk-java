@@ -25,10 +25,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -54,7 +50,7 @@ public class TenantUserQuotaSettings {
   @javax.annotation.Nullable  private Long defaultQuota;
 
   public static final String JSON_PROPERTY_LAST_RECALCULATE_DATE = "lastRecalculateDate";
-  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> lastRecalculateDate = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private OffsetDateTime lastRecalculateDate;
 
   public static final String JSON_PROPERTY_LAST_MODIFIED = "lastModified";
   @javax.annotation.Nullable  private OffsetDateTime lastModified;
@@ -112,8 +108,8 @@ public class TenantUserQuotaSettings {
   }
 
   public TenantUserQuotaSettings lastRecalculateDate(@javax.annotation.Nullable OffsetDateTime lastRecalculateDate) {
-    this.lastRecalculateDate = JsonNullable.<OffsetDateTime>of(lastRecalculateDate);
     
+    this.lastRecalculateDate = lastRecalculateDate;
     return this;
   }
 
@@ -121,25 +117,18 @@ public class TenantUserQuotaSettings {
    * The date of the last quota recalculation.
    * @return lastRecalculateDate
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_RECALCULATE_DATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getLastRecalculateDate() {
-        return lastRecalculateDate.orElse(null);
+    return lastRecalculateDate;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_LAST_RECALCULATE_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<OffsetDateTime> getLastRecalculateDate_JsonNullable() {
-    return lastRecalculateDate;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_LAST_RECALCULATE_DATE)
-  public void setLastRecalculateDate_JsonNullable(JsonNullable<OffsetDateTime> lastRecalculateDate) {
-    this.lastRecalculateDate = lastRecalculateDate;
-  }
-
   public void setLastRecalculateDate(@javax.annotation.Nullable OffsetDateTime lastRecalculateDate) {
-    this.lastRecalculateDate = JsonNullable.<OffsetDateTime>of(lastRecalculateDate);
+    this.lastRecalculateDate = lastRecalculateDate;
   }
 
   public TenantUserQuotaSettings lastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
@@ -177,24 +166,13 @@ public class TenantUserQuotaSettings {
     TenantUserQuotaSettings tenantUserQuotaSettings = (TenantUserQuotaSettings) o;
     return Objects.equals(this.enableQuota, tenantUserQuotaSettings.enableQuota) &&
         Objects.equals(this.defaultQuota, tenantUserQuotaSettings.defaultQuota) &&
-        equalsNullable(this.lastRecalculateDate, tenantUserQuotaSettings.lastRecalculateDate) &&
+        Objects.equals(this.lastRecalculateDate, tenantUserQuotaSettings.lastRecalculateDate) &&
         Objects.equals(this.lastModified, tenantUserQuotaSettings.lastModified);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enableQuota, defaultQuota, hashCodeNullable(lastRecalculateDate), lastModified);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(enableQuota, defaultQuota, lastRecalculateDate, lastModified);
   }
 
   @Override

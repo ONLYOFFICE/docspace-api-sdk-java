@@ -13,7 +13,7 @@ The room logo information.
 |**medium** | **String** | The medium logo. |  |
 |**small** | **String** | The small logo. |  |
 |**color** | **String** | The logo color. |  [optional] |
-|**cover** | [**LogoCover**](LogoCover.md) |  |  [optional] |
+|**cover** | [**LogoCover**](LogoCover.md) | The logo cover. |  [optional] |
 
 
 

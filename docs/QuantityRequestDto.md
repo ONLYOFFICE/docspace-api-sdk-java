@@ -8,7 +8,7 @@ The request parameters for specifying payment quantity.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**quantity** | **Map&lt;String, Integer&gt;** | The mapping of item identifiers to their respective quantities in the payment. |  [optional] |
+|**quantity** | **Map&lt;String, Integer&gt;** | The mapping of item identifiers to their respective quantities in the payment. |  |
 
 
 

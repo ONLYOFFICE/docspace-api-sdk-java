@@ -61,7 +61,8 @@ import java.util.StringJoiner;
   WebPluginDto.JSON_PROPERTY_CSS_URL,
   WebPluginDto.JSON_PROPERTY_SETTINGS,
   WebPluginDto.JSON_PROPERTY_NAME_LOCALE,
-  WebPluginDto.JSON_PROPERTY_DESCRIPTION_LOCALE
+  WebPluginDto.JSON_PROPERTY_DESCRIPTION_LOCALE,
+  WebPluginDto.JSON_PROPERTY_RUNTIME
 })
 
 public class WebPluginDto {
@@ -117,10 +118,13 @@ public class WebPluginDto {
   @javax.annotation.Nullable  private String settings;
 
   public static final String JSON_PROPERTY_NAME_LOCALE = "nameLocale";
-  @javax.annotation.Nullable  private JsonNullable<Map<String, String>> nameLocale = JsonNullable.<Map<String, String>>undefined();
+  @javax.annotation.Nullable  private Map<String, String> nameLocale = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION_LOCALE = "descriptionLocale";
-  @javax.annotation.Nullable  private JsonNullable<Map<String, String>> descriptionLocale = JsonNullable.<Map<String, String>>undefined();
+  @javax.annotation.Nullable  private Map<String, String> descriptionLocale = new HashMap<>();
+
+  public static final String JSON_PROPERTY_RUNTIME = "runtime";
+  @javax.annotation.Nullable  private JsonNullable<String> runtime = JsonNullable.<String>undefined();
 
   public WebPluginDto() {
   }
@@ -380,7 +384,7 @@ public class WebPluginDto {
   }
 
   /**
-   * Get createBy
+   * The user parameters.
    * @return createBy
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CREATE_BY, required = true)
@@ -542,20 +546,16 @@ public class WebPluginDto {
   }
 
   public WebPluginDto nameLocale(@javax.annotation.Nullable Map<String, String> nameLocale) {
-    this.nameLocale = JsonNullable.<Map<String, String>>of(nameLocale);
     
+    this.nameLocale = nameLocale;
     return this;
   }
 
   public WebPluginDto putNameLocaleItem(String key, String nameLocaleItem) {
-    if (this.nameLocale == null || !this.nameLocale.isPresent()) {
-      this.nameLocale = JsonNullable.<Map<String, String>>of(new HashMap<>());
+    if (this.nameLocale == null) {
+      this.nameLocale = new HashMap<>();
     }
-    try {
-      this.nameLocale.get().put(key, nameLocaleItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.nameLocale.put(key, nameLocaleItem);
     return this;
   }
 
@@ -563,42 +563,31 @@ public class WebPluginDto {
    * The web plugin localized name.
    * @return nameLocale
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NAME_LOCALE, required = false)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, String> getNameLocale() {
-        return nameLocale.orElse(null);
+    return nameLocale;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_NAME_LOCALE, required = false)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Map<String, String>> getNameLocale_JsonNullable() {
-    return nameLocale;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_NAME_LOCALE)
-  public void setNameLocale_JsonNullable(JsonNullable<Map<String, String>> nameLocale) {
+  public void setNameLocale(@javax.annotation.Nullable Map<String, String> nameLocale) {
     this.nameLocale = nameLocale;
   }
 
-  public void setNameLocale(@javax.annotation.Nullable Map<String, String> nameLocale) {
-    this.nameLocale = JsonNullable.<Map<String, String>>of(nameLocale);
-  }
-
   public WebPluginDto descriptionLocale(@javax.annotation.Nullable Map<String, String> descriptionLocale) {
-    this.descriptionLocale = JsonNullable.<Map<String, String>>of(descriptionLocale);
     
+    this.descriptionLocale = descriptionLocale;
     return this;
   }
 
   public WebPluginDto putDescriptionLocaleItem(String key, String descriptionLocaleItem) {
-    if (this.descriptionLocale == null || !this.descriptionLocale.isPresent()) {
-      this.descriptionLocale = JsonNullable.<Map<String, String>>of(new HashMap<>());
+    if (this.descriptionLocale == null) {
+      this.descriptionLocale = new HashMap<>();
     }
-    try {
-      this.descriptionLocale.get().put(key, descriptionLocaleItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.descriptionLocale.put(key, descriptionLocaleItem);
     return this;
   }
 
@@ -606,25 +595,49 @@ public class WebPluginDto {
    * The web plugin localized description.
    * @return descriptionLocale
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION_LOCALE, required = false)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, String> getDescriptionLocale() {
-        return descriptionLocale.orElse(null);
+    return descriptionLocale;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_DESCRIPTION_LOCALE, required = false)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Map<String, String>> getDescriptionLocale_JsonNullable() {
-    return descriptionLocale;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION_LOCALE)
-  public void setDescriptionLocale_JsonNullable(JsonNullable<Map<String, String>> descriptionLocale) {
+  public void setDescriptionLocale(@javax.annotation.Nullable Map<String, String> descriptionLocale) {
     this.descriptionLocale = descriptionLocale;
   }
 
-  public void setDescriptionLocale(@javax.annotation.Nullable Map<String, String> descriptionLocale) {
-    this.descriptionLocale = JsonNullable.<Map<String, String>>of(descriptionLocale);
+  public WebPluginDto runtime(@javax.annotation.Nullable String runtime) {
+    this.runtime = JsonNullable.<String>of(runtime);
+    
+    return this;
+  }
+
+  /**
+   * The web plugin loading method
+   * @return runtime
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getRuntime() {
+        return runtime.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_RUNTIME, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getRuntime_JsonNullable() {
+    return runtime;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_RUNTIME)
+  public void setRuntime_JsonNullable(JsonNullable<String> runtime) {
+    this.runtime = runtime;
+  }
+
+  public void setRuntime(@javax.annotation.Nullable String runtime) {
+    this.runtime = JsonNullable.<String>of(runtime);
   }
 
   @Override
@@ -653,8 +666,9 @@ public class WebPluginDto {
         Objects.equals(this.url, webPluginDto.url) &&
         Objects.equals(this.cssUrl, webPluginDto.cssUrl) &&
         Objects.equals(this.settings, webPluginDto.settings) &&
-        equalsNullable(this.nameLocale, webPluginDto.nameLocale) &&
-        equalsNullable(this.descriptionLocale, webPluginDto.descriptionLocale);
+        Objects.equals(this.nameLocale, webPluginDto.nameLocale) &&
+        Objects.equals(this.descriptionLocale, webPluginDto.descriptionLocale) &&
+        equalsNullable(this.runtime, webPluginDto.runtime);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -663,7 +677,7 @@ public class WebPluginDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, version, hashCodeNullable(minDocSpaceVersion), description, license, author, homePage, pluginName, scopes, image, createBy, createOn, enabled, system, url, cssUrl, settings, hashCodeNullable(nameLocale), hashCodeNullable(descriptionLocale));
+    return Objects.hash(name, version, hashCodeNullable(minDocSpaceVersion), description, license, author, homePage, pluginName, scopes, image, createBy, createOn, enabled, system, url, cssUrl, settings, nameLocale, descriptionLocale, hashCodeNullable(runtime));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -696,6 +710,7 @@ public class WebPluginDto {
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("    nameLocale: ").append(toIndentedString(nameLocale)).append("\n");
     sb.append("    descriptionLocale: ").append(toIndentedString(descriptionLocale)).append("\n");
+    sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -933,6 +948,16 @@ public class WebPluginDto {
           // Should never happen, UTF-8 is always supported
           throw new RuntimeException(e);
         }
+      }
+    }
+
+    // add `runtime` to the URL query string
+    if (getRuntime() != null) {
+      try {
+        joiner.add(String.format("%sruntime%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRuntime()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
       }
     }
 

@@ -26,10 +26,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.UUID;
 import org.openapitools.client.model.FileShare;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -48,7 +44,7 @@ import java.util.StringJoiner;
 
 public class FileShareParams {
   public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nullable  private JsonNullable<String> email = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String email;
 
   public static final String JSON_PROPERTY_SHARE_TO = "shareTo";
   @javax.annotation.Nullable  private UUID shareTo;
@@ -61,8 +57,8 @@ public class FileShareParams {
 
 
   public FileShareParams email(@javax.annotation.Nullable String email) {
-    this.email = JsonNullable.<String>of(email);
     
+    this.email = email;
     return this;
   }
 
@@ -70,25 +66,18 @@ public class FileShareParams {
    * The email address.
    * @return email
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEmail() {
-        return email.orElse(null);
+    return email;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getEmail_JsonNullable() {
-    return email;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_EMAIL)
-  public void setEmail_JsonNullable(JsonNullable<String> email) {
-    this.email = email;
-  }
-
   public void setEmail(@javax.annotation.Nullable String email) {
-    this.email = JsonNullable.<String>of(email);
+    this.email = email;
   }
 
   public FileShareParams shareTo(@javax.annotation.Nullable UUID shareTo) {
@@ -122,7 +111,7 @@ public class FileShareParams {
   }
 
   /**
-   * Get access
+   * The sharing access rights.
    * @return access
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
@@ -148,25 +137,14 @@ public class FileShareParams {
       return false;
     }
     FileShareParams fileShareParams = (FileShareParams) o;
-    return equalsNullable(this.email, fileShareParams.email) &&
+    return Objects.equals(this.email, fileShareParams.email) &&
         Objects.equals(this.shareTo, fileShareParams.shareTo) &&
         Objects.equals(this.access, fileShareParams.access);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(email), shareTo, access);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(email, shareTo, access);
   }
 
   @Override

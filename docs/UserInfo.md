@@ -14,8 +14,8 @@ The user information.
 |**userName** | **String** | The user username. |  [optional] |
 |**birthDate** | **OffsetDateTime** | The user birthday. |  [optional] |
 |**sex** | **Boolean** | The user sex (male or female). |  [optional] |
-|**status** | **EmployeeStatus** |  |  [optional] |
-|**activationStatus** | **EmployeeActivationStatus** |  |  [optional] |
+|**status** | **EmployeeStatus** | The user status. |  [optional] |
+|**activationStatus** | **EmployeeActivationStatus** | The user activation status. |  [optional] |
 |**terminatedDate** | **OffsetDateTime** | The date and time when the user account was terminated. |  [optional] |
 |**title** | **String** | The user title. |  [optional] |
 |**workFromDate** | **OffsetDateTime** | The user registration date. |  [optional] |
@@ -30,7 +30,7 @@ The user information.
 |**isActive** | **Boolean** | Specifies if the user is active or not. |  [optional] [readonly] |
 |**cultureName** | **String** | The user culture code. |  [optional] |
 |**mobilePhone** | **String** | The user mobile phone. |  [optional] |
-|**mobilePhoneActivationStatus** | **MobilePhoneActivationStatus** |  |  [optional] |
+|**mobilePhoneActivationStatus** | **MobilePhoneActivationStatus** | The user mobile phone activation status. |  [optional] |
 |**sid** | **String** | The LDAP user identifier. |  [optional] |
 |**ldapQouta** | **Long** | The LDAP user quota attribute. |  [optional] |
 |**ssoNameId** | **String** | The SSO SAML user identifier. |  [optional] |

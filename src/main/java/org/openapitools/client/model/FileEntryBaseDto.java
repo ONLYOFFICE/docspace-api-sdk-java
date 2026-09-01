@@ -178,7 +178,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * Get access
+   * The access rights to the file entry.
    * @return access
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
@@ -202,7 +202,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * Get sharedBy
+   * Provides information about the employee who shared the file or folder.
    * @return sharedBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARED_BY, required = false)
@@ -226,7 +226,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * Get ownedBy
+   * The information about the employee who owns the file entry.
    * @return ownedBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OWNED_BY, required = false)
@@ -377,7 +377,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * Get created
+   * The creation date and time of the file entry.
    * @return created
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED, required = false)
@@ -401,7 +401,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * Get createdBy
+   * The file entry author.
    * @return createdBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED_BY, required = false)
@@ -425,7 +425,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * Get updated
+   * The last date and time when the file entry was updated.
    * @return updated
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPDATED, required = false)
@@ -449,7 +449,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * Get autoDelete
+   * The date and time when the file entry will be automatically deleted.
    * @return autoDelete
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTO_DELETE, required = false)
@@ -473,7 +473,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * Get rootFolderType
+   * The root folder type of the file entry.
    * @return rootFolderType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOT_FOLDER_TYPE, required = false)
@@ -497,7 +497,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * Get parentRoomType
+   * The parent room type of the file entry.
    * @return parentRoomType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PARENT_ROOM_TYPE, required = false)
@@ -521,7 +521,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * Get updatedBy
+   * The user who updated the file entry.
    * @return updatedBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPDATED_BY, required = false)
@@ -700,7 +700,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * Get fileEntryType
+   * The file entry type.
    * @return fileEntryType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_ENTRY_TYPE, required = false)

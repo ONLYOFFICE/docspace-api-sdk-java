@@ -61,7 +61,7 @@ public class SubAccount {
   }
 
   /**
-   * The three-character ISO 4217 currency symbol of the sub-account.
+   * The three-character ISO 4217 currency symbol.
    * @return currency
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -92,7 +92,7 @@ public class SubAccount {
   }
 
   /**
-   * The balance of the sub-account in the specified currency.
+   * The amount in the specified currency.
    * @return amount
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AMOUNT, required = false)

@@ -11,6 +11,7 @@
 |**alias** | **String** |  |  [optional] |
 |**ownedBy** | **String** |  |  [optional] |
 |**provider** | **String** |  |  [optional] |
+|**link** | **String** |  |  [optional] |
 |**price** | [**AiChatPrice**](AiChatPrice.md) |  |  |
 
 

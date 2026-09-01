@@ -50,6 +50,7 @@ import java.util.StringJoiner;
   TenantQuota.JSON_PROPERTY_SERVICE_GROUP,
   TenantQuota.JSON_PROPERTY_VISIBLE,
   TenantQuota.JSON_PROPERTY_WALLET,
+  TenantQuota.JSON_PROPERTY_ADDITIONAL,
   TenantQuota.JSON_PROPERTY_DUE_DATE,
   TenantQuota.JSON_PROPERTY_FEATURES,
   TenantQuota.JSON_PROPERTY_MAX_FILE_SIZE,
@@ -80,7 +81,11 @@ import java.util.StringJoiner;
   TenantQuota.JSON_PROPERTY_COUNT_FREE_BACKUP,
   TenantQuota.JSON_PROPERTY_BACKUP,
   TenantQuota.JSON_PROPERTY_COUNT_A_I_AGENT,
-  TenantQuota.JSON_PROPERTY_AI_TOOLS
+  TenantQuota.JSON_PROPERTY_AI_TOOLS,
+  TenantQuota.JSON_PROPERTY_AI_SEARCH,
+  TenantQuota.JSON_PROPERTY_DOCS_CLOUD,
+  TenantQuota.JSON_PROPERTY_DOCS_CLOUD_DEV_PACK,
+  TenantQuota.JSON_PROPERTY_DOCS_CLOUD_TRIAL
 })
 
 public class TenantQuota {
@@ -113,6 +118,9 @@ public class TenantQuota {
 
   public static final String JSON_PROPERTY_WALLET = "wallet";
   @javax.annotation.Nullable  private Boolean wallet;
+
+  public static final String JSON_PROPERTY_ADDITIONAL = "additional";
+  @javax.annotation.Nullable  private Boolean additional;
 
   public static final String JSON_PROPERTY_DUE_DATE = "dueDate";
   @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> dueDate = JsonNullable.<OffsetDateTime>undefined();
@@ -206,6 +214,18 @@ public class TenantQuota {
 
   public static final String JSON_PROPERTY_AI_TOOLS = "aiTools";
   @javax.annotation.Nullable  private Boolean aiTools;
+
+  public static final String JSON_PROPERTY_AI_SEARCH = "aiSearch";
+  @javax.annotation.Nullable  private Boolean aiSearch;
+
+  public static final String JSON_PROPERTY_DOCS_CLOUD = "docsCloud";
+  @javax.annotation.Nullable  private Integer docsCloud;
+
+  public static final String JSON_PROPERTY_DOCS_CLOUD_DEV_PACK = "docsCloudDevPack";
+  @javax.annotation.Nullable  private Boolean docsCloudDevPack;
+
+  public static final String JSON_PROPERTY_DOCS_CLOUD_TRIAL = "docsCloudTrial";
+  @javax.annotation.Nullable  private Boolean docsCloudTrial;
 
   public TenantQuota() {
   }
@@ -491,6 +511,30 @@ public class TenantQuota {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWallet(@javax.annotation.Nullable Boolean wallet) {
     this.wallet = wallet;
+  }
+
+  public TenantQuota additional(@javax.annotation.Nullable Boolean additional) {
+    
+    this.additional = additional;
+    return this;
+  }
+
+  /**
+   * Specifies if the tenant quota is primary or additional.
+   * @return additional
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ADDITIONAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAdditional() {
+    return additional;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ADDITIONAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAdditional(@javax.annotation.Nullable Boolean additional) {
+    this.additional = additional;
   }
 
   public TenantQuota dueDate(@javax.annotation.Nullable OffsetDateTime dueDate) {
@@ -1251,6 +1295,102 @@ public class TenantQuota {
     this.aiTools = aiTools;
   }
 
+  public TenantQuota aiSearch(@javax.annotation.Nullable Boolean aiSearch) {
+    
+    this.aiSearch = aiSearch;
+    return this;
+  }
+
+  /**
+   * Specifies if the AI search enabled as a wallet service or not.
+   * @return aiSearch
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AI_SEARCH, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAiSearch() {
+    return aiSearch;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_AI_SEARCH, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAiSearch(@javax.annotation.Nullable Boolean aiSearch) {
+    this.aiSearch = aiSearch;
+  }
+
+  public TenantQuota docsCloud(@javax.annotation.Nullable Integer docsCloud) {
+    
+    this.docsCloud = docsCloud;
+    return this;
+  }
+
+  /**
+   * The number of DocsCloud users.
+   * @return docsCloud
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOCS_CLOUD, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getDocsCloud() {
+    return docsCloud;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_DOCS_CLOUD, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDocsCloud(@javax.annotation.Nullable Integer docsCloud) {
+    this.docsCloud = docsCloud;
+  }
+
+  public TenantQuota docsCloudDevPack(@javax.annotation.Nullable Boolean docsCloudDevPack) {
+    
+    this.docsCloudDevPack = docsCloudDevPack;
+    return this;
+  }
+
+  /**
+   * Specifies if the DocsCloudDevPack enabled or not.
+   * @return docsCloudDevPack
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOCS_CLOUD_DEV_PACK, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getDocsCloudDevPack() {
+    return docsCloudDevPack;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_DOCS_CLOUD_DEV_PACK, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDocsCloudDevPack(@javax.annotation.Nullable Boolean docsCloudDevPack) {
+    this.docsCloudDevPack = docsCloudDevPack;
+  }
+
+  public TenantQuota docsCloudTrial(@javax.annotation.Nullable Boolean docsCloudTrial) {
+    
+    this.docsCloudTrial = docsCloudTrial;
+    return this;
+  }
+
+  /**
+   * Specifies if the DocsCloudTrial enabled or not.
+   * @return docsCloudTrial
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOCS_CLOUD_TRIAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getDocsCloudTrial() {
+    return docsCloudTrial;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_DOCS_CLOUD_TRIAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDocsCloudTrial(@javax.annotation.Nullable Boolean docsCloudTrial) {
+    this.docsCloudTrial = docsCloudTrial;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -1270,6 +1410,7 @@ public class TenantQuota {
         equalsNullable(this.serviceGroup, tenantQuota.serviceGroup) &&
         Objects.equals(this.visible, tenantQuota.visible) &&
         Objects.equals(this.wallet, tenantQuota.wallet) &&
+        Objects.equals(this.additional, tenantQuota.additional) &&
         equalsNullable(this.dueDate, tenantQuota.dueDate) &&
         equalsNullable(this.features, tenantQuota.features) &&
         Objects.equals(this.maxFileSize, tenantQuota.maxFileSize) &&
@@ -1300,7 +1441,11 @@ public class TenantQuota {
         Objects.equals(this.countFreeBackup, tenantQuota.countFreeBackup) &&
         Objects.equals(this.backup, tenantQuota.backup) &&
         Objects.equals(this.countAIAgent, tenantQuota.countAIAgent) &&
-        Objects.equals(this.aiTools, tenantQuota.aiTools);
+        Objects.equals(this.aiTools, tenantQuota.aiTools) &&
+        Objects.equals(this.aiSearch, tenantQuota.aiSearch) &&
+        Objects.equals(this.docsCloud, tenantQuota.docsCloud) &&
+        Objects.equals(this.docsCloudDevPack, tenantQuota.docsCloudDevPack) &&
+        Objects.equals(this.docsCloudTrial, tenantQuota.docsCloudTrial);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1309,7 +1454,7 @@ public class TenantQuota {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tenantId, hashCodeNullable(name), price, hashCodeNullable(priceCurrencySymbol), hashCodeNullable(priceISOCurrencySymbol), hashCodeNullable(productId), hashCodeNullable(serviceName), hashCodeNullable(serviceGroup), visible, wallet, hashCodeNullable(dueDate), hashCodeNullable(features), maxFileSize, maxTotalSize, countUser, countRoomAdmin, usersInRoom, countRoom, nonProfit, trial, free, update, audit, docsEdition, ldap, sso, statistic, branding, customization, lifetime, automationApi, custom, restore, oauth, contentSearch, thirdParty, year, countFreeBackup, backup, countAIAgent, aiTools);
+    return Objects.hash(tenantId, hashCodeNullable(name), price, hashCodeNullable(priceCurrencySymbol), hashCodeNullable(priceISOCurrencySymbol), hashCodeNullable(productId), hashCodeNullable(serviceName), hashCodeNullable(serviceGroup), visible, wallet, additional, hashCodeNullable(dueDate), hashCodeNullable(features), maxFileSize, maxTotalSize, countUser, countRoomAdmin, usersInRoom, countRoom, nonProfit, trial, free, update, audit, docsEdition, ldap, sso, statistic, branding, customization, lifetime, automationApi, custom, restore, oauth, contentSearch, thirdParty, year, countFreeBackup, backup, countAIAgent, aiTools, aiSearch, docsCloud, docsCloudDevPack, docsCloudTrial);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1333,6 +1478,7 @@ public class TenantQuota {
     sb.append("    serviceGroup: ").append(toIndentedString(serviceGroup)).append("\n");
     sb.append("    visible: ").append(toIndentedString(visible)).append("\n");
     sb.append("    wallet: ").append(toIndentedString(wallet)).append("\n");
+    sb.append("    additional: ").append(toIndentedString(additional)).append("\n");
     sb.append("    dueDate: ").append(toIndentedString(dueDate)).append("\n");
     sb.append("    features: ").append(toIndentedString(features)).append("\n");
     sb.append("    maxFileSize: ").append(toIndentedString(maxFileSize)).append("\n");
@@ -1364,6 +1510,10 @@ public class TenantQuota {
     sb.append("    backup: ").append(toIndentedString(backup)).append("\n");
     sb.append("    countAIAgent: ").append(toIndentedString(countAIAgent)).append("\n");
     sb.append("    aiTools: ").append(toIndentedString(aiTools)).append("\n");
+    sb.append("    aiSearch: ").append(toIndentedString(aiSearch)).append("\n");
+    sb.append("    docsCloud: ").append(toIndentedString(docsCloud)).append("\n");
+    sb.append("    docsCloudDevPack: ").append(toIndentedString(docsCloudDevPack)).append("\n");
+    sb.append("    docsCloudTrial: ").append(toIndentedString(docsCloudTrial)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1505,6 +1655,16 @@ public class TenantQuota {
     if (getWallet() != null) {
       try {
         joiner.add(String.format("%swallet%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getWallet()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `additional` to the URL query string
+    if (getAdditional() != null) {
+      try {
+        joiner.add(String.format("%sadditional%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAdditional()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
@@ -1815,6 +1975,46 @@ public class TenantQuota {
     if (getAiTools() != null) {
       try {
         joiner.add(String.format("%saiTools%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAiTools()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `aiSearch` to the URL query string
+    if (getAiSearch() != null) {
+      try {
+        joiner.add(String.format("%saiSearch%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAiSearch()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `docsCloud` to the URL query string
+    if (getDocsCloud() != null) {
+      try {
+        joiner.add(String.format("%sdocsCloud%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDocsCloud()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `docsCloudDevPack` to the URL query string
+    if (getDocsCloudDevPack() != null) {
+      try {
+        joiner.add(String.format("%sdocsCloudDevPack%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDocsCloudDevPack()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `docsCloudTrial` to the URL query string
+    if (getDocsCloudTrial() != null) {
+      try {
+        joiner.add(String.format("%sdocsCloudTrial%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDocsCloudTrial()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

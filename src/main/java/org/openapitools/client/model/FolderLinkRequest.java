@@ -112,7 +112,7 @@ public class FolderLinkRequest {
   }
 
   /**
-   * Get access
+   * The access rights type.
    * @return access
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
@@ -136,7 +136,7 @@ public class FolderLinkRequest {
   }
 
   /**
-   * Get expirationDate
+   * The API date and time parameters.
    * @return expirationDate
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)

@@ -17,7 +17,7 @@ The active connection item parameters.
 |**city** | **String** | The active connection city. |  [optional] |
 |**browser** | **String** | The active connection browser. |  [optional] |
 |**platform** | **String** | The active connection platform. |  [optional] |
-|**date** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
+|**date** | [**ApiDateTime**](ApiDateTime.md) | The API date and time parameters. |  [optional] |
 |**page** | **String** | The active connection page. |  [optional] |
 
 

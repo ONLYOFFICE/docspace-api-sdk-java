@@ -10,8 +10,8 @@ The custom color theme settings.
 |------------ | ------------- | ------------- | -------------|
 |**id** | **Integer** | The custom color theme ID. |  [optional] |
 |**name** | **String** | The custom color theme name. |  [optional] |
-|**main** | [**CustomColorThemesSettingsColorItem**](CustomColorThemesSettingsColorItem.md) |  |  [optional] |
-|**text** | [**CustomColorThemesSettingsColorItem**](CustomColorThemesSettingsColorItem.md) |  |  [optional] |
+|**main** | [**CustomColorThemesSettingsColorItem**](CustomColorThemesSettingsColorItem.md) | The custom color theme main colors. |  [optional] |
+|**text** | [**CustomColorThemesSettingsColorItem**](CustomColorThemesSettingsColorItem.md) | The custom color theme text colors. |  [optional] |
 
 
 

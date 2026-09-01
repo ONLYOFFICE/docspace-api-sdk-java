@@ -8,7 +8,7 @@ The webhook configuration with its status.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**configs** | [**WebhooksConfigDto**](WebhooksConfigDto.md) |  |  [optional] |
+|**configs** | [**WebhooksConfigDto**](WebhooksConfigDto.md) | The webhook configuration. |  [optional] |
 |**status** | **Integer** | The webhook status. |  [optional] |
 
 

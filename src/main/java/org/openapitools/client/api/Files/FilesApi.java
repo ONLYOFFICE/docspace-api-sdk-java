@@ -24,6 +24,7 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
+import org.openapitools.client.model.AccessRequestKeyDto;
 import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.BaseBatchRequestDto;
 import org.openapitools.client.model.BooleanWrapper;
@@ -41,6 +42,7 @@ import org.openapitools.client.model.EditHistoryArrayWrapper;
 import org.openapitools.client.model.EditHistoryDataWrapper;
 import org.openapitools.client.model.EditorType;
 import java.io.File;
+import org.openapitools.client.model.FileEncryptionInfoWrapper;
 import org.openapitools.client.model.FileEntryBaseWrapper;
 import org.openapitools.client.model.FileEntryIntegerArrayWrapper;
 import org.openapitools.client.model.FileIntegerArrayWrapper;
@@ -1862,6 +1864,90 @@ public class FilesApi extends BaseApi {
     String[] localVarAuthNames = new String[] {  };
 
     TypeReference<EditHistoryArrayWrapper> localVarReturnType = new TypeReference<EditHistoryArrayWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get file encryption information
+   * Returns the encryption information for a file with the specified identifier, including user encryption keys and file-specific encryption keys.
+   *
+   * REST API Reference for getEncryptionInfo Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/
+   *
+   * @param fileId  (required)
+   * @return FileEncryptionInfoWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public FileEncryptionInfoWrapper getEncryptionInfo(@javax.annotation.Nonnull Integer fileId) throws ApiException {
+    return this.getEncryptionInfo(fileId, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get file encryption information
+   * Returns the encryption information for a file with the specified identifier, including user encryption keys and file-specific encryption keys.
+   *
+   * REST API Reference for getEncryptionInfo Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/
+   *
+   * @param fileId  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return FileEncryptionInfoWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public FileEncryptionInfoWrapper getEncryptionInfo(@javax.annotation.Nonnull Integer fileId, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'fileId' is set
+    if (fileId == null) {
+      throw new ApiException(400, "Missing the required parameter 'fileId' when calling getEncryptionInfo");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/{fileId}/access"
+      .replaceAll("\\{" + "fileId" + "\\}", apiClient.escapeString(apiClient.parameterToString(fileId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<FileEncryptionInfoWrapper> localVarReturnType = new TypeReference<FileEncryptionInfoWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -3713,6 +3799,89 @@ if (forcesave != null)
         localVarContentType,
         localVarAuthNames,
         localVarReturnType
+    );
+  }
+
+  /**
+   * Set file encryption information
+   * Sets or updates the encryption keys for a file with the specified identifier. This allows updating the file's encryption configuration.
+   *
+   * REST API Reference for setEncryptionInfo Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/
+   *
+   * @param fileId File ID (required)
+   * @param accessRequestKeyDto Collection of encryption key data for users with access to the file (optional)
+   * @throws ApiException if fails to make API call
+   */
+  public void setEncryptionInfo(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable List<AccessRequestKeyDto> accessRequestKeyDto) throws ApiException {
+    this.setEncryptionInfo(fileId, accessRequestKeyDto, Collections.emptyMap());
+  }
+
+
+  /**
+   * Set file encryption information
+   * Sets or updates the encryption keys for a file with the specified identifier. This allows updating the file's encryption configuration.
+   *
+   * REST API Reference for setEncryptionInfo Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/
+   *
+   * @param fileId File ID (required)
+   * @param accessRequestKeyDto Collection of encryption key data for users with access to the file (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @throws ApiException if fails to make API call
+   */
+  public void setEncryptionInfo(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable List<AccessRequestKeyDto> accessRequestKeyDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = accessRequestKeyDto;
+    
+    // verify the required parameter 'fileId' is set
+    if (fileId == null) {
+      throw new ApiException(400, "Missing the required parameter 'fileId' when calling setEncryptionInfo");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/{fileId}/access"
+      .replaceAll("\\{" + "fileId" + "\\}", apiClient.escapeString(apiClient.parameterToString(fileId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    apiClient.invokeAPI(
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null
     );
   }
 

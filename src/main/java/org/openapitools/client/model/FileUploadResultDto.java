@@ -89,7 +89,7 @@ public class FileUploadResultDto {
   }
 
   /**
-   * The file upload result data.
+   * Get data
    * @return data
    */
   @javax.annotation.Nullable  @JsonIgnore

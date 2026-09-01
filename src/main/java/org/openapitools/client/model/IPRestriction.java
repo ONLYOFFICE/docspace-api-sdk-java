@@ -43,7 +43,7 @@ import java.util.StringJoiner;
 
 public class IPRestriction {
   public static final String JSON_PROPERTY_IP = "ip";
-  @javax.annotation.Nullable  private String ip;
+  @javax.annotation.Nonnull  private String ip;
 
   public static final String JSON_PROPERTY_FOR_ADMIN = "forAdmin";
   @javax.annotation.Nullable  private Boolean forAdmin;
@@ -58,7 +58,7 @@ public class IPRestriction {
   }
 
 
-  public IPRestriction ip(@javax.annotation.Nullable String ip) {
+  public IPRestriction ip(@javax.annotation.Nonnull String ip) {
     
     this.ip = ip;
     return this;
@@ -68,7 +68,7 @@ public class IPRestriction {
    * Get ip
    * @return ip
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IP, required = false)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IP, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getIp() {
@@ -76,9 +76,9 @@ public class IPRestriction {
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_IP, required = false)
+  @JsonProperty(value = JSON_PROPERTY_IP, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIp(@javax.annotation.Nullable String ip) {
+  public void setIp(@javax.annotation.Nonnull String ip) {
     this.ip = ip;
   }
 

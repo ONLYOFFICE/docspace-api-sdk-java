@@ -9,27 +9,27 @@ The file parameters.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**title** | **String** | The file entry title. |  [optional] |
-|**access** | **FileShare** |  |  [optional] |
-|**sharedBy** | [**EmployeeDto**](EmployeeDto.md) |  |  [optional] |
-|**ownedBy** | [**EmployeeDto**](EmployeeDto.md) |  |  [optional] |
+|**access** | **FileShare** | The access rights to the file entry. |  [optional] |
+|**sharedBy** | [**EmployeeDto**](EmployeeDto.md) | Provides information about the employee who shared the file or folder. |  [optional] |
+|**ownedBy** | [**EmployeeDto**](EmployeeDto.md) | The information about the employee who owns the file entry. |  [optional] |
 |**shared** | **Boolean** | Specifies if the file entry is shared via link or not. |  [optional] |
 |**sharedForUser** | **Boolean** | Specifies if the file entry is shared for user or not. |  [optional] |
 |**sharedExternal** | **Boolean** | Specifies if the file entry is shared via a public (non-internal) external link. |  [optional] |
 |**parentShared** | **Boolean** | Indicates whether the parent entity is shared. |  [optional] |
 |**shortWebUrl** | **URI** | The short Web URL. |  [optional] |
-|**created** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
-|**createdBy** | [**EmployeeDto**](EmployeeDto.md) |  |  [optional] |
-|**updated** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
-|**autoDelete** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
-|**rootFolderType** | **FolderType** |  |  [optional] |
-|**parentRoomType** | **FolderType** |  |  [optional] |
-|**updatedBy** | [**EmployeeDto**](EmployeeDto.md) |  |  [optional] |
+|**created** | [**ApiDateTime**](ApiDateTime.md) | The creation date and time of the file entry. |  [optional] |
+|**createdBy** | [**EmployeeDto**](EmployeeDto.md) | The file entry author. |  [optional] |
+|**updated** | [**ApiDateTime**](ApiDateTime.md) | The last date and time when the file entry was updated. |  [optional] |
+|**autoDelete** | [**ApiDateTime**](ApiDateTime.md) | The date and time when the file entry will be automatically deleted. |  [optional] |
+|**rootFolderType** | **FolderType** | The root folder type of the file entry. |  [optional] |
+|**parentRoomType** | **FolderType** | The parent room type of the file entry. |  [optional] |
+|**updatedBy** | [**EmployeeDto**](EmployeeDto.md) | The user who updated the file entry. |  [optional] |
 |**providerItem** | **Boolean** | Specifies if the file entry provider is specified or not. |  [optional] |
 |**providerKey** | **String** | The provider key of the file entry. |  [optional] |
 |**providerId** | **Integer** | The provider ID of the file entry. |  [optional] |
 |**order** | **String** | The order of the file entry. |  [optional] |
 |**isFavorite** | **Boolean** | Specifies if the file is a favorite or not. |  [optional] |
-|**fileEntryType** | **FileEntryType** |  |  [optional] |
+|**fileEntryType** | **FileEntryType** | The file entry type. |  [optional] |
 |**id** | **Integer** | The file entry ID. |  [optional] |
 |**rootFolderId** | **Integer** | The root folder ID of the file entry. |  [optional] |
 |**originId** | **Integer** | The origin ID of the file entry. |  [optional] |
@@ -42,28 +42,28 @@ The file parameters.
 |**availableShareRights** | [**FileEntryDtoIntegerAllOfAvailableShareRights**](FileEntryDtoIntegerAllOfAvailableShareRights.md) |  |  [optional] |
 |**requestToken** | **String** | The request token of the file entry. |  [optional] |
 |**external** | **Boolean** | Specifies if the folder can be accessed via an external link or not. |  [optional] |
-|**expirationDate** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
+|**expirationDate** | [**ApiDateTime**](ApiDateTime.md) | Represents the expiration date of the file entry. |  [optional] |
 |**isLinkExpired** | **Boolean** | Indicates whether the shareable link associated with the file or folder has expired. |  [optional] |
 |**folderId** | **Integer** | The folder ID where the file is located. |  [optional] |
 |**version** | **Integer** | The file version. |  [optional] |
 |**versionGroup** | **Integer** | The version group of the file. |  [optional] |
 |**contentLength** | **String** | The content length of the file. |  [optional] |
 |**pureContentLength** | **Long** | The pure content length of the file. |  [optional] |
-|**fileStatus** | **FileStatus** |  |  [optional] |
+|**fileStatus** | **FileStatus** | The current status of the file. |  [optional] |
 |**editingBy** | **Map&lt;String, String&gt;** | The list of users editing the file. |  [optional] |
 |**mute** | **Boolean** | Specifies if the file is muted or not. |  [optional] |
 |**viewUrl** | **URI** | The URL link to view the file. |  [optional] |
 |**webUrl** | **URI** | The Web URL link to the file. |  [optional] |
-|**fileType** | **FileType** |  |  [optional] |
+|**fileType** | **FileType** | The file type. |  [optional] |
 |**fileExst** | **String** | The file extension. |  [optional] |
 |**comment** | **String** | The comment to the file. |  [optional] |
 |**encrypted** | **Boolean** | Specifies if the file is encrypted or not. |  [optional] |
 |**thumbnailUrl** | **URI** | The thumbnail URL of the file. |  [optional] |
-|**thumbnailStatus** | **Thumbnail** |  |  [optional] |
+|**thumbnailStatus** | **Thumbnail** | The current thumbnail status of the file. |  [optional] |
 |**locked** | **Boolean** | Specifies if the file is locked or not. |  [optional] |
 |**lockedBy** | **String** | The user ID of the person who locked the file. |  [optional] |
 |**hasDraft** | **Boolean** | Specifies if the file has a draft or not. |  [optional] |
-|**formFillingStatus** | **FormFillingStatus** |  |  [optional] |
+|**formFillingStatus** | **FormFillingStatus** | The status of the form filling process. |  [optional] |
 |**isForm** | **Boolean** | Specifies if the file is a form or not. |  [optional] |
 |**customFilterEnabled** | **Boolean** | Specifies if the Custom Filter editing mode is enabled for a file or not. |  [optional] |
 |**customFilterEnabledBy** | **String** | The name of the user who enabled a Custom Filter editing mode for a file. |  [optional] |
@@ -72,13 +72,13 @@ The file parameters.
 |**inProcessFolderId** | **Integer** | The InProcess folder ID of the file. |  [optional] |
 |**inProcessFolderTitle** | **String** | The InProcess folder title of the file. |  [optional] |
 |**resultsFolderId** | **Integer** | The ID of the FormFillingFolderDone folder that corresponds to this original form. |  [optional] |
-|**draftLocation** | [**DraftLocationInteger**](DraftLocationInteger.md) |  |  [optional] |
+|**draftLocation** | [**DraftLocationInteger**](DraftLocationInteger.md) | The file draft information with its location. |  [optional] |
 |**viewAccessibility** | [**FileDtoIntegerAllOfViewAccessibility**](FileDtoIntegerAllOfViewAccessibility.md) |  |  [optional] |
-|**lastOpened** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
-|**expired** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
-|**vectorizationStatus** | **VectorizationStatus** |  |  [optional] |
+|**lastOpened** | [**ApiDateTime**](ApiDateTime.md) | The time when the file was last opened. |  [optional] |
+|**expired** | [**ApiDateTime**](ApiDateTime.md) | The date when the file will be expired. |  [optional] |
+|**vectorizationStatus** | **VectorizationStatus** | The vectorization status of the file. |  [optional] |
 |**externalDbTableName** | **String** | The name of the table in the external database that corresponds to this form. |  [optional] |
-|**dimensions** | [**Size**](Size.md) |  |  [optional] |
+|**dimensions** | [**Size**](Size.md) | Represents dimensions with width and height values. |  [optional] |
 
 
 

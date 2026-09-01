@@ -11,7 +11,7 @@ The user request parameters.
 |**password** | **String** | The user password. |  [optional] |
 |**passwordHash** | **String** | The user password hash. |  [optional] |
 |**email** | **String** | The user email address. |  [optional] |
-|**type** | **EmployeeType** |  |  [optional] |
+|**type** | **EmployeeType** | The user type. |  [optional] |
 |**isUser** | **Boolean** | Specifies if this is a guest or a user. |  [optional] |
 |**firstName** | **String** | The user first name. |  [optional] |
 |**lastName** | **String** | The user last name. |  [optional] |

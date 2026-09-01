@@ -15,7 +15,7 @@ The tenant parameters.
 |**creationDateTime** | **OffsetDateTime** | The tenant creation date and time. |  [optional] [readonly] |
 |**hostedRegion** | **String** | The hosted region. |  [optional] |
 |**tenantId** | **Integer** | The tenant ID. |  [optional] [readonly] |
-|**industry** | **TenantIndustry** |  |  [optional] |
+|**industry** | **TenantIndustry** | The tenant industry. |  [optional] |
 |**language** | **String** | The tenant language. |  [optional] |
 |**lastModified** | **OffsetDateTime** | The date and time when the tenant was last modified. |  [optional] |
 |**mappedDomain** | **String** | The tenant mapped domain. |  [optional] |
@@ -23,12 +23,12 @@ The tenant parameters.
 |**ownerId** | **UUID** | The tenant owner ID. |  [optional] |
 |**paymentId** | **String** | The tenant payment ID. |  [optional] |
 |**spam** | **Boolean** | Specifies if the ONLYOFFICE newsletter is allowed or not. |  [optional] |
-|**status** | **TenantStatus** |  |  [optional] |
+|**status** | **TenantStatus** | The tenant status. |  [optional] |
 |**statusChangeDate** | **OffsetDateTime** | The date and time when the tenant status was changed. |  [optional] [readonly] |
 |**timeZone** | **String** | The tenant time zone. |  [optional] |
 |**trustedDomains** | **List&lt;String&gt;** | The list of tenant trusted domains. |  [optional] |
 |**trustedDomainsRaw** | **String** | The tenant trusted domains in the string format. |  [optional] |
-|**trustedDomainsType** | **TenantTrustedDomainsType** |  |  [optional] |
+|**trustedDomainsType** | **TenantTrustedDomainsType** | The type of the tenant trusted domains. |  [optional] |
 |**version** | **Integer** | The tenant version |  [optional] |
 |**versionChanged** | **OffsetDateTime** | The date and time when the tenant version was changed. |  [optional] |
 |**region** | **String** | The tenant AWS region. |  [optional] |

@@ -8,7 +8,7 @@ The deep link settings.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**handlingMode** | **DeepLinkHandlingMode** |  |  [optional] |
+|**handlingMode** | **DeepLinkHandlingMode** | The deep link handling mode. |  [optional] |
 |**lastModified** | **OffsetDateTime** | The timestamp indicating when the settings were last modified. |  [optional] |
 
 

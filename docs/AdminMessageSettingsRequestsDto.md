@@ -11,7 +11,7 @@ The request parameters for configuring the administrator message content.
 |**message** | **String** | The content of the administrator message to be sent. |  |
 |**email** | **String** | Email |  |
 |**culture** | **String** | Culture |  [optional] |
-|**recaptchaType** | **RecaptchaType** |  |  [optional] |
+|**recaptchaType** | **RecaptchaType** | The type of CAPTCHA validation used. |  [optional] |
 |**recaptchaResponse** | **String** | The user's response to the CAPTCHA challenge. |  [optional] |
 
 

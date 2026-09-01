@@ -12,7 +12,7 @@ The task progress response parameters.
 |**error** | **String** | The task progress error message. |  [optional] |
 |**percentage** | **Integer** | The percentage of the task progress. |  |
 |**isCompleted** | **Boolean** | Specifies if the task peogress is completed or not. |  |
-|**status** | **DistributedTaskStatus** |  |  |
+|**status** | **DistributedTaskStatus** | The status of the distributed task. |  |
 
 
 

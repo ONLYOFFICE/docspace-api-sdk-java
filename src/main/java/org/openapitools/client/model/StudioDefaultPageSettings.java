@@ -59,7 +59,7 @@ public class StudioDefaultPageSettings {
   }
 
   /**
-   * Get defaultFolderType
+   * Specifies the type of the default folder associated with the settings.
    * @return defaultFolderType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEFAULT_FOLDER_TYPE, required = false)

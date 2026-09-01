@@ -53,6 +53,7 @@ import org.openapitools.client.model.QuotaFilter;
 import org.openapitools.client.model.RoomFromTemplateStatusWrapper;
 import org.openapitools.client.model.RoomInvitationRequest;
 import org.openapitools.client.model.RoomLinkRequest;
+import org.openapitools.client.model.RoomPrivacyFilter;
 import org.openapitools.client.model.RoomSecurityWrapper;
 import org.openapitools.client.model.RoomTemplateDto;
 import org.openapitools.client.model.RoomTemplateStatusWrapper;
@@ -63,7 +64,7 @@ import org.openapitools.client.model.ShareFilterType;
 import org.openapitools.client.model.SortOrder;
 import org.openapitools.client.model.StorageFilter;
 import org.openapitools.client.model.StringWrapper;
-import org.openapitools.client.model.SubjectFilter;
+import java.util.UUID;
 import org.openapitools.client.model.UpdateRoomRequest;
 import org.openapitools.client.model.UpdateTagRequestDto;
 import org.openapitools.client.model.UploadResultWrapper;
@@ -2117,9 +2118,9 @@ public class RoomsApi extends BaseApi {
    * @param tags The tags in the serialized format. (optional)
    * @param excludeSubject Specifies whether to exclude search by user or group ID. (optional)
    * @param provider The filter by provider name (None, Box, DropBox, GoogleDrive, kDrive, OneDrive, SharePoint, WebDav, Yandex, Storage). (optional)
-   * @param subjectFilter The filter by user (Owner - 0, Member - 1). (optional)
    * @param quotaFilter The filter by quota (All - 0, Default - 1, Custom - 2). (optional)
    * @param storageFilter The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional)
+   * @param privacyFilter The filter by room privacy (None - 0, Private - 1, NotPrivate - 2). When omitted, all rooms are returned. (optional)
    * @param count Specifies the maximum number of items to retrieve. (optional)
    * @param startIndex The index from which to start retrieving the room content. (optional)
    * @param sortBy Specifies the field by which the room content should be sorted. (optional)
@@ -2129,8 +2130,8 @@ public class RoomsApi extends BaseApi {
    * @return FolderContentIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentIntegerWrapper getRoomsFolder(@javax.annotation.Nullable List<RoomType> type, @javax.annotation.Nullable String subjectId, @javax.annotation.Nullable String subjectOwnerId, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ProviderFilter provider, @javax.annotation.Nullable SubjectFilter subjectFilter, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable StorageFilter storageFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer groupId) throws ApiException {
-    return this.getRoomsFolder(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId, Collections.emptyMap());
+  public FolderContentIntegerWrapper getRoomsFolder(@javax.annotation.Nullable List<RoomType> type, @javax.annotation.Nullable UUID subjectId, @javax.annotation.Nullable UUID subjectOwnerId, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ProviderFilter provider, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable StorageFilter storageFilter, @javax.annotation.Nullable RoomPrivacyFilter privacyFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer groupId) throws ApiException {
+    return this.getRoomsFolder(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, quotaFilter, storageFilter, privacyFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId, Collections.emptyMap());
   }
 
 
@@ -2149,9 +2150,9 @@ public class RoomsApi extends BaseApi {
    * @param tags The tags in the serialized format. (optional)
    * @param excludeSubject Specifies whether to exclude search by user or group ID. (optional)
    * @param provider The filter by provider name (None, Box, DropBox, GoogleDrive, kDrive, OneDrive, SharePoint, WebDav, Yandex, Storage). (optional)
-   * @param subjectFilter The filter by user (Owner - 0, Member - 1). (optional)
    * @param quotaFilter The filter by quota (All - 0, Default - 1, Custom - 2). (optional)
    * @param storageFilter The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional)
+   * @param privacyFilter The filter by room privacy (None - 0, Private - 1, NotPrivate - 2). When omitted, all rooms are returned. (optional)
    * @param count Specifies the maximum number of items to retrieve. (optional)
    * @param startIndex The index from which to start retrieving the room content. (optional)
    * @param sortBy Specifies the field by which the room content should be sorted. (optional)
@@ -2162,7 +2163,7 @@ public class RoomsApi extends BaseApi {
    * @return FolderContentIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentIntegerWrapper getRoomsFolder(@javax.annotation.Nullable List<RoomType> type, @javax.annotation.Nullable String subjectId, @javax.annotation.Nullable String subjectOwnerId, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ProviderFilter provider, @javax.annotation.Nullable SubjectFilter subjectFilter, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable StorageFilter storageFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer groupId, Map<String, String> additionalHeaders) throws ApiException {
+  public FolderContentIntegerWrapper getRoomsFolder(@javax.annotation.Nullable List<RoomType> type, @javax.annotation.Nullable UUID subjectId, @javax.annotation.Nullable UUID subjectOwnerId, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ProviderFilter provider, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable StorageFilter storageFilter, @javax.annotation.Nullable RoomPrivacyFilter privacyFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer groupId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -2176,10 +2177,7 @@ public class RoomsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParameterBaseName = "type";
-    for (int i=0; i < type.size(); i++) {
-      localVarQueryStringJoiner.add(String.format(java.util.Locale.ROOT, "type[%d]=%s", i, apiClient.parameterToString(type.get(i))));
-    }
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "type", type));
     localVarQueryParams.addAll(apiClient.parameterToPair("subjectId", subjectId));
     localVarQueryParams.addAll(apiClient.parameterToPair("subjectOwnerId", subjectOwnerId));
     localVarQueryParams.addAll(apiClient.parameterToPair("searchArea", searchArea));
@@ -2187,9 +2185,9 @@ public class RoomsApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("tags", tags));
     localVarQueryParams.addAll(apiClient.parameterToPair("excludeSubject", excludeSubject));
     localVarQueryParams.addAll(apiClient.parameterToPair("provider", provider));
-    localVarQueryParams.addAll(apiClient.parameterToPair("subjectFilter", subjectFilter));
     localVarQueryParams.addAll(apiClient.parameterToPair("quotaFilter", quotaFilter));
     localVarQueryParams.addAll(apiClient.parameterToPair("storageFilter", storageFilter));
+    localVarQueryParams.addAll(apiClient.parameterToPair("privacyFilter", privacyFilter));
     localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
     localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
     localVarQueryParams.addAll(apiClient.parameterToPair("sortBy", sortBy));

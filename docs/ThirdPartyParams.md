@@ -8,7 +8,7 @@ The third-party account parameters.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**authData** | [**AuthData**](AuthData.md) |  |  [optional] |
+|**authData** | [**AuthData**](AuthData.md) | The authentication data. |  [optional] |
 |**corporate** | **Boolean** | Specifies if this is a corporate account or not. |  [optional] |
 |**roomsStorage** | **Boolean** | Specifies if this is a room storage or not. |  [optional] |
 |**customerTitle** | **String** | The customer title. |  [optional] |

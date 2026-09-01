@@ -243,7 +243,7 @@ public class CreateRoomRequestDto {
   }
 
   /**
-   * Get lifetime
+   * The room data lifetime information.
    * @return lifetime
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIFETIME, required = false)
@@ -267,7 +267,7 @@ public class CreateRoomRequestDto {
   }
 
   /**
-   * Get watermark
+   * The request parameters for adding watermarks.
    * @return watermark
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WATERMARK, required = false)
@@ -291,7 +291,7 @@ public class CreateRoomRequestDto {
   }
 
   /**
-   * Get logo
+   * The logo request parameters.
    * @return logo
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
@@ -358,7 +358,7 @@ public class CreateRoomRequestDto {
   }
 
   /**
-   * The room color.
+   * The room color, as a six-digit hexadecimal value without a leading '#'.
    * @return color
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -420,7 +420,7 @@ public class CreateRoomRequestDto {
   }
 
   /**
-   * Get roomType
+   * The room type.
    * @return roomType
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ROOM_TYPE, required = true)
@@ -511,7 +511,7 @@ public class CreateRoomRequestDto {
   }
 
   /**
-   * Get chatSettings
+   * The chat settings.
    * @return chatSettings
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CHAT_SETTINGS, required = false)

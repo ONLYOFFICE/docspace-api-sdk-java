@@ -79,7 +79,7 @@ public class BackupScheduleDto {
   }
 
   /**
-   * Get storageType
+   * The backup storage type.
    * @return storageType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STORAGE_TYPE, required = false)
@@ -177,7 +177,7 @@ public class BackupScheduleDto {
   }
 
   /**
-   * Get cronParams
+   * The backup cron parameters.
    * @return cronParams
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CRON_PARAMS, required = false)

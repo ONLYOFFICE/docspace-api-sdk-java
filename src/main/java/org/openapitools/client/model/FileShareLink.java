@@ -194,7 +194,7 @@ public class FileShareLink {
   }
 
   /**
-   * Get expirationDate
+   * The API date and time parameters.
    * @return expirationDate
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
@@ -218,7 +218,7 @@ public class FileShareLink {
   }
 
   /**
-   * Get linkType
+   * The sharing link type (e.g., Invitation).
    * @return linkType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LINK_TYPE, required = false)

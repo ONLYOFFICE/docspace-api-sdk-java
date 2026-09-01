@@ -176,7 +176,7 @@ public class FolderContentDtoInteger {
   }
 
   /**
-   * Get current
+   * The current folder information.
    * @return current
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CURRENT, required = false)
@@ -200,7 +200,7 @@ public class FolderContentDtoInteger {
   }
 
   /**
-   * The folder path.
+   * Get pathParts
    * @return pathParts
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PATH_PARTS, required = false)

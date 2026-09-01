@@ -181,7 +181,7 @@ public class PaymentSettingsDto {
   }
 
   /**
-   * Get currentLicense
+   * The current license information.
    * @return currentLicense
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CURRENT_LICENSE, required = true)

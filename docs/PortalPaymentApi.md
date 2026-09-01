@@ -6,15 +6,20 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 |------------- | ------------- | -------------|
 | [**calculateWalletPayment**](PortalPaymentApi.md#calculateWalletPayment) | **PUT** /api/2.0/portal/payment/calculatewallet | Calculate the wallet payment amount |
 | [**changeTenantWalletServiceState**](PortalPaymentApi.md#changeTenantWalletServiceState) | **POST** /api/2.0/portal/payment/servicestate | Change tenant wallet service state |
+| [**createCustomerMonthlyUsageReport**](PortalPaymentApi.md#createCustomerMonthlyUsageReport) | **POST** /api/2.0/portal/payment/customer/usage/monthly/report | Start the customer monthly usage report generation |
 | [**createCustomerOperationsReport**](PortalPaymentApi.md#createCustomerOperationsReport) | **POST** /api/2.0/portal/payment/customer/operationsreport | Start the customer operations report generation |
-| [**creditAiBalance**](PortalPaymentApi.md#creditAiBalance) | **POST** /api/2.0/portal/payment/creditaibalance | Credit AI balance |
+| [**createCustomerServiceUsageReport**](PortalPaymentApi.md#createCustomerServiceUsageReport) | **POST** /api/2.0/portal/payment/customer/usage/report | Start the customer service usage report generation |
+| [**getActiveServices**](PortalPaymentApi.md#getActiveServices) | **GET** /api/2.0/portal/payment/activeservices | Get the active wallet services |
 | [**getAiPrices**](PortalPaymentApi.md#getAiPrices) | **GET** /api/2.0/portal/payment/ai-prices | Get AI model prices |
 | [**getCheckoutSetupUrl**](PortalPaymentApi.md#getCheckoutSetupUrl) | **GET** /api/2.0/portal/payment/checkoutsetupurl | Get the checkout setup page URL |
-| [**getCustomerAiBalance**](PortalPaymentApi.md#getCustomerAiBalance) | **GET** /api/2.0/portal/payment/customer/aibalance | Get the customer AI balance |
 | [**getCustomerBalance**](PortalPaymentApi.md#getCustomerBalance) | **GET** /api/2.0/portal/payment/customer/balance | Get the customer balance |
 | [**getCustomerInfo**](PortalPaymentApi.md#getCustomerInfo) | **GET** /api/2.0/portal/payment/customerinfo | Get the customer information |
+| [**getCustomerMonthlyUsage**](PortalPaymentApi.md#getCustomerMonthlyUsage) | **GET** /api/2.0/portal/payment/customer/usage/monthly | Get the customer monthly usage |
+| [**getCustomerMonthlyUsageReport**](PortalPaymentApi.md#getCustomerMonthlyUsageReport) | **GET** /api/2.0/portal/payment/customer/usage/monthly/report | Get the status of the customer monthly usage report generation |
 | [**getCustomerOperations**](PortalPaymentApi.md#getCustomerOperations) | **GET** /api/2.0/portal/payment/customer/operations | Get the customer operations |
 | [**getCustomerOperationsReport**](PortalPaymentApi.md#getCustomerOperationsReport) | **GET** /api/2.0/portal/payment/customer/operationsreport | Get the status of the customer operations report generation |
+| [**getCustomerServiceUsage**](PortalPaymentApi.md#getCustomerServiceUsage) | **GET** /api/2.0/portal/payment/customer/usage | Get the customer service usage |
+| [**getCustomerServiceUsageReport**](PortalPaymentApi.md#getCustomerServiceUsageReport) | **GET** /api/2.0/portal/payment/customer/usage/report | Get the status of the customer service usage report generation |
 | [**getPaymentAccount**](PortalPaymentApi.md#getPaymentAccount) | **GET** /api/2.0/portal/payment/account | Get the payment account |
 | [**getPaymentCurrencies**](PortalPaymentApi.md#getPaymentCurrencies) | **GET** /api/2.0/portal/payment/currencies | Get currencies |
 | [**getPaymentQuotas**](PortalPaymentApi.md#getPaymentQuotas) | **GET** /api/2.0/portal/payment/quotas | Get quotas |
@@ -22,14 +27,18 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**getPortalPrices**](PortalPaymentApi.md#getPortalPrices) | **GET** /api/2.0/portal/payment/prices | Get prices |
 | [**getQuotaPaymentInformation**](PortalPaymentApi.md#getQuotaPaymentInformation) | **GET** /api/2.0/portal/payment/quota | Get quota payment information |
 | [**getRestrictedAiModels**](PortalPaymentApi.md#getRestrictedAiModels) | **GET** /api/2.0/portal/payment/ai-model/restrictions | Get restricted AI models |
+| [**getSubscriptionBalanceInfo**](PortalPaymentApi.md#getSubscriptionBalanceInfo) | **GET** /api/2.0/portal/payment/subscription/balance | Get the subscription balance information |
 | [**getTenantWalletServiceSettings**](PortalPaymentApi.md#getTenantWalletServiceSettings) | **GET** /api/2.0/portal/payment/servicessettings | Gets the wallet service settings for the tenant. |
 | [**getTenantWalletSettings**](PortalPaymentApi.md#getTenantWalletSettings) | **GET** /api/2.0/portal/payment/topupsettings | Gets the tenant wallet auto top up settings |
 | [**getWalletService**](PortalPaymentApi.md#getWalletService) | **GET** /api/2.0/portal/payment/walletservice | Get wallet service |
 | [**getWalletServices**](PortalPaymentApi.md#getWalletServices) | **GET** /api/2.0/portal/payment/walletservices | Get wallet services |
+| [**moveSubscriptionToWallet**](PortalPaymentApi.md#moveSubscriptionToWallet) | **POST** /api/2.0/portal/payment/subscription/movetowallet | Move the subscription balance to the wallet and purchase admins |
 | [**sendPaymentRequest**](PortalPaymentApi.md#sendPaymentRequest) | **POST** /api/2.0/portal/payment/request | Send a payment request |
 | [**setRestrictedAiModels**](PortalPaymentApi.md#setRestrictedAiModels) | **PUT** /api/2.0/portal/payment/ai-model/restrictions | Set restricted AI models |
 | [**setTenantWalletSettings**](PortalPaymentApi.md#setTenantWalletSettings) | **POST** /api/2.0/portal/payment/topupsettings | Set the wallet auto top up settings |
+| [**terminateCustomerMonthlyUsageReport**](PortalPaymentApi.md#terminateCustomerMonthlyUsageReport) | **DELETE** /api/2.0/portal/payment/customer/usage/monthly/report | Terminate the customer monthly usage report generation |
 | [**terminateCustomerOperationsReport**](PortalPaymentApi.md#terminateCustomerOperationsReport) | **DELETE** /api/2.0/portal/payment/customer/operationsreport | Terminate the customer operations report generation |
+| [**terminateCustomerServiceUsageReport**](PortalPaymentApi.md#terminateCustomerServiceUsageReport) | **DELETE** /api/2.0/portal/payment/customer/usage/report | Terminate the customer service usage report generation |
 | [**topUpDeposit**](PortalPaymentApi.md#topUpDeposit) | **POST** /api/2.0/portal/payment/deposit | Put money on deposit |
 | [**updatePayment**](PortalPaymentApi.md#updatePayment) | **PUT** /api/2.0/portal/payment/update | Update the payment quantity |
 | [**updateWalletPayment**](PortalPaymentApi.md#updateWalletPayment) | **PUT** /api/2.0/portal/payment/updatewallet | Update the wallet payment quantity |
@@ -235,6 +244,105 @@ public class Example {
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
+## createCustomerMonthlyUsageReport
+
+> DocumentBuilderTaskWrapper createCustomerMonthlyUsageReport(customerMonthlyUsageReportRequestDto)
+
+Start the customer monthly usage report generationStarts generating a customer monthly usage report as an xlsx file and saves it in Documents.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-monthly-usage-report/).
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **customerMonthlyUsageReportRequestDto** | [**CustomerMonthlyUsageReportRequestDto**](CustomerMonthlyUsageReportRequestDto.md)|  | [optional] |
+
+### Return type
+
+[**DocumentBuilderTaskWrapper**](DocumentBuilderTaskWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PaymentApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        PaymentApi apiInstance = new PaymentApi(defaultClient);
+        CustomerMonthlyUsageReportRequestDto customerMonthlyUsageReportRequestDto = new CustomerMonthlyUsageReportRequestDto(); // CustomerMonthlyUsageReportRequestDto | 
+        try {
+            DocumentBuilderTaskWrapper result = apiInstance.createCustomerMonthlyUsageReport(customerMonthlyUsageReportRequestDto);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PaymentApi#createCustomerMonthlyUsageReport");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Operation execution status |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | No permissions to perform this action |  -  |
+| **404** | Customer could not be found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+
 ## createCustomerOperationsReport
 
 > DocumentBuilderTaskWrapper createCustomerOperationsReport(customerOperationsReportRequestDto)
@@ -334,24 +442,24 @@ public class Example {
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
-## creditAiBalance
+## createCustomerServiceUsageReport
 
-> ServicePaymentWrapper creditAiBalance(creditAiBalanceRequestDto)
+> DocumentBuilderTaskWrapper createCustomerServiceUsageReport(customerServiceUsageReportRequestDto)
 
-Credit AI balanceCredits AI quota to the customer AI sub-account from their main balance.  Requires the customer to have a configured payment method.
+Start the customer service usage report generationStarts generating a customer service usage report as an xlsx file and saves it in Documents.
 
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/credit-ai-balance/).
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-service-usage-report/).
 
 ### Parameters
 
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **creditAiBalanceRequestDto** | [**CreditAiBalanceRequestDto**](CreditAiBalanceRequestDto.md)|  | [optional] |
+| **customerServiceUsageReportRequestDto** | [**CustomerServiceUsageReportRequestDto**](CustomerServiceUsageReportRequestDto.md)|  | [optional] |
 
 ### Return type
 
-[**ServicePaymentWrapper**](ServicePaymentWrapper.md)
+[**DocumentBuilderTaskWrapper**](DocumentBuilderTaskWrapper.md)
 
 ### Authorization
 
@@ -400,12 +508,12 @@ public class Example {
 
 
         PaymentApi apiInstance = new PaymentApi(defaultClient);
-        CreditAiBalanceRequestDto creditAiBalanceRequestDto = new CreditAiBalanceRequestDto(); // CreditAiBalanceRequestDto | 
+        CustomerServiceUsageReportRequestDto customerServiceUsageReportRequestDto = new CustomerServiceUsageReportRequestDto(); // CustomerServiceUsageReportRequestDto | 
         try {
-            ServicePaymentWrapper result = apiInstance.creditAiBalance(creditAiBalanceRequestDto);
+            DocumentBuilderTaskWrapper result = apiInstance.createCustomerServiceUsageReport(customerServiceUsageReportRequestDto);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling PaymentApi#creditAiBalance");
+            System.err.println("Exception when calling PaymentApi#createCustomerServiceUsageReport");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -424,10 +532,103 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The AI credit operation result |  * X-RateLimit-Limit - Rate limit: 10 requests per 1 minutes per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **400** | Unsupported currency or insufficient balance |  -  |
+| **200** | Operation execution status |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
-| **404** | Customer or AiTools quota could not be found |  -  |
+| **404** | Customer or service could not be found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+
+## getActiveServices
+
+> ActiveServiceArrayWrapper getActiveServices()
+
+Get the active wallet servicesReturns all the active wallet services (quotas) of the current portal: the active additional quotas  from the tariff, plus the services enabled manually via the wallet service settings.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-active-services/).
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ActiveServiceArrayWrapper**](ActiveServiceArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PaymentApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        PaymentApi apiInstance = new PaymentApi(defaultClient);
+        try {
+            ActiveServiceArrayWrapper result = apiInstance.getActiveServices();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PaymentApi#getActiveServices");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The list of active wallet services |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | No permissions to perform this action |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -621,104 +822,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The URL to the checkout setup page |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **403** | No permissions to perform this action |  -  |
-| **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
-| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-
-
-## getCustomerAiBalance
-
-> BalanceWrapper getCustomerAiBalance(refresh)
-
-Get the customer AI balanceReturns the AI quota balance of a customer from the accounting service.
-
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-ai-balance/).
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **refresh** | **Boolean**| Specifies whether to refresh the payment information cache or not. | [optional] |
-
-### Return type
-
-[**BalanceWrapper**](BalanceWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### Example
-
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PaymentApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost:8092");
-        
-        // Configure HTTP basic authorization: Basic
-        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
-        Basic.setUsername("YOUR USERNAME");
-        Basic.setPassword("YOUR PASSWORD");
-
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
-
-        // Configure API key authorization: ApiKeyBearer
-        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
-        ApiKeyBearer.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //ApiKeyBearer.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: asc_auth_key
-        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
-        asc_auth_key.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //asc_auth_key.setApiKeyPrefix("Token");
-
-        // Configure HTTP bearer authorization: Bearer
-        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
-        Bearer.setBearerToken("BEARER TOKEN");
-
-
-        PaymentApi apiInstance = new PaymentApi(defaultClient);
-        Boolean refresh = true; // Boolean | Specifies whether to refresh the payment information cache or not.
-        try {
-            BalanceWrapper result = apiInstance.getCustomerAiBalance(refresh);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling PaymentApi#getCustomerAiBalance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | The customer AI balance |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
@@ -922,6 +1025,201 @@ public class Example {
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
+## getCustomerMonthlyUsage
+
+> CustomerMonthlyUsageArrayWrapper getCustomerMonthlyUsage(startDate, endDate)
+
+Get the customer monthly usageReturns the customer spending aggregated per calendar month from the accounting service.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage/).
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **startDate** | **OffsetDateTime**| Start of the period (inclusive). | [optional] |
+| **endDate** | **OffsetDateTime**| End of the period (inclusive). | [optional] |
+
+### Return type
+
+[**CustomerMonthlyUsageArrayWrapper**](CustomerMonthlyUsageArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PaymentApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        PaymentApi apiInstance = new PaymentApi(defaultClient);
+        OffsetDateTime startDate = OffsetDateTime.parse("2025-01-01T00:00:00Z"); // OffsetDateTime | Start of the period (inclusive).
+        OffsetDateTime endDate = OffsetDateTime.parse("2025-12-31T23:59:59Z"); // OffsetDateTime | End of the period (inclusive).
+        try {
+            CustomerMonthlyUsageArrayWrapper result = apiInstance.getCustomerMonthlyUsage(startDate, endDate);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PaymentApi#getCustomerMonthlyUsage");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The customer monthly usage |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+
+## getCustomerMonthlyUsageReport
+
+> DocumentBuilderTaskWrapper getCustomerMonthlyUsageReport()
+
+Get the status of the customer monthly usage report generationReturns the status of generating a customer monthly usage report.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage-report/).
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DocumentBuilderTaskWrapper**](DocumentBuilderTaskWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PaymentApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        PaymentApi apiInstance = new PaymentApi(defaultClient);
+        try {
+            DocumentBuilderTaskWrapper result = apiInstance.getCustomerMonthlyUsageReport();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PaymentApi#getCustomerMonthlyUsageReport");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Operation execution status |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | No permissions to perform this action |  -  |
+| **404** | Customer could not be found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+
 ## getCustomerOperations
 
 > ReportWrapper getCustomerOperations(offset, limit, serviceName, startDate, endDate, participantName, credit, debit, type, status, orderBy, orderType)
@@ -937,7 +1235,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 |------------- | ------------- | ------------- | -------------|
 | **offset** | **Integer**| The number of items to skip for pagination. The default value is 0. | [optional] |
 | **limit** | **Integer**| The maximum number of items to return for pagination. The default value is 25. | [optional] |
-| **serviceName** | **String**| The service name. | [optional] |
+| **serviceName** | [**List&lt;String&gt;**](String.md)| The service name list. A single string is also accepted for backward compatibility. | [optional] |
 | **startDate** | **OffsetDateTime**| The report start date. | [optional] |
 | **endDate** | **OffsetDateTime**| The report end date. | [optional] |
 | **participantName** | **String**| The participant name. | [optional] |
@@ -1001,8 +1299,8 @@ public class Example {
         PaymentApi apiInstance = new PaymentApi(defaultClient);
         Integer offset = 0; // Integer | The number of items to skip for pagination. The default value is 0.
         Integer limit = 25; // Integer | The maximum number of items to return for pagination. The default value is 25.
-        String serviceName = "backup"; // String | The service name.
-        OffsetDateTime startDate = OffsetDateTime.parse("2024-01-01T00:00Z"); // OffsetDateTime | The report start date.
+        List<String> serviceName = Arrays.asList(); // List<String> | The service name list. A single string is also accepted for backward compatibility.
+        OffsetDateTime startDate = OffsetDateTime.parse("2024-01-01T00:00:00Z"); // OffsetDateTime | The report start date.
         OffsetDateTime endDate = OffsetDateTime.parse("2024-01-31T23:59:59Z"); // OffsetDateTime | The report end date.
         String participantName = "My Own Corporation"; // String | The participant name.
         Boolean credit = true; // Boolean | Specifies whether to include credit operations in the report.
@@ -1111,6 +1409,218 @@ public class Example {
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling PaymentApi#getCustomerOperationsReport");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Operation execution status |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | No permissions to perform this action |  -  |
+| **404** | Customer could not be found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+
+## getCustomerServiceUsage
+
+> CustomerServiceUsageReportWrapper getCustomerServiceUsage(serviceName, participantName, status, startDate, endDate, metadata, offset, limit, orderBy, orderType)
+
+Get the customer service usageReturns the customer usage statistics aggregated per service from the accounting service.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage/).
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | [**List&lt;String&gt;**](String.md)| The service name list. | [optional] |
+| **participantName** | **String**| The participant name. | [optional] |
+| **status** | [**OperationStatus**](.md)| The operation status to filter by. | [optional] [enum: 0, 1, 2, 3] |
+| **startDate** | **OffsetDateTime**| Start of the period (inclusive). | [optional] |
+| **endDate** | **OffsetDateTime**| End of the period (inclusive). | [optional] |
+| **metadata** | [**Map&lt;String, String&gt;**](String.md)| Metadata key-value pairs to filter by. | [optional] |
+| **offset** | **Integer**| The number of items to skip for pagination. The default value is 0. | [optional] |
+| **limit** | **Integer**| The maximum number of items to return for pagination. The default value is 25. | [optional] |
+| **orderBy** | **String**| The field to order by. | [optional] |
+| **orderType** | [**OperationOrderType**](.md)| Order direction: Ascending or Descending. | [optional] [enum: 0, 1] |
+
+### Return type
+
+[**CustomerServiceUsageReportWrapper**](CustomerServiceUsageReportWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PaymentApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        PaymentApi apiInstance = new PaymentApi(defaultClient);
+        List<String> serviceName = Arrays.asList(); // List<String> | The service name list.
+        String participantName = "My Own Corporation"; // String | The participant name.
+        OperationStatus status = OperationStatus.fromValue("0"); // OperationStatus | The operation status to filter by.
+        OffsetDateTime startDate = OffsetDateTime.parse("2025-01-01T00:00:00Z"); // OffsetDateTime | Start of the period (inclusive).
+        OffsetDateTime endDate = OffsetDateTime.parse("2025-12-31T23:59:59Z"); // OffsetDateTime | End of the period (inclusive).
+        Map<String, String> metadata = new HashMap(); // Map<String, String> | Metadata key-value pairs to filter by.
+        Integer offset = 0; // Integer | The number of items to skip for pagination. The default value is 0.
+        Integer limit = 25; // Integer | The maximum number of items to return for pagination. The default value is 25.
+        String orderBy = "ServiceName"; // String | The field to order by.
+        OperationOrderType orderType = OperationOrderType.fromValue("0"); // OperationOrderType | Order direction: Ascending or Descending.
+        try {
+            CustomerServiceUsageReportWrapper result = apiInstance.getCustomerServiceUsage(serviceName, participantName, status, startDate, endDate, metadata, offset, limit, orderBy, orderType);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PaymentApi#getCustomerServiceUsage");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The customer service usage |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | No permissions to perform this action |  -  |
+| **404** | Service could not be found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+
+## getCustomerServiceUsageReport
+
+> DocumentBuilderTaskWrapper getCustomerServiceUsageReport()
+
+Get the status of the customer service usage report generationReturns the status of generating a customer service usage report.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage-report/).
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DocumentBuilderTaskWrapper**](DocumentBuilderTaskWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PaymentApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        PaymentApi apiInstance = new PaymentApi(defaultClient);
+        try {
+            DocumentBuilderTaskWrapper result = apiInstance.getCustomerServiceUsageReport();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PaymentApi#getCustomerServiceUsageReport");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1332,7 +1842,7 @@ public class Example {
 
 ## getPaymentQuotas
 
-> QuotaArrayWrapper getPaymentQuotas(wallet)
+> QuotaArrayWrapper getPaymentQuotas(wallet, additional)
 
 Get quotasReturns the available portal quotas.
 
@@ -1344,6 +1854,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **wallet** | **Boolean**| Specifies whether to return the wallet quotas only. | [optional] |
+| **additional** | **Boolean**| Specifies whether to return additional quotas only. | [optional] |
 
 ### Return type
 
@@ -1397,8 +1908,9 @@ public class Example {
 
         PaymentApi apiInstance = new PaymentApi(defaultClient);
         Boolean wallet = true; // Boolean | Specifies whether to return the wallet quotas only.
+        Boolean additional = true; // Boolean | Specifies whether to return additional quotas only.
         try {
-            QuotaArrayWrapper result = apiInstance.getPaymentQuotas(wallet);
+            QuotaArrayWrapper result = apiInstance.getPaymentQuotas(wallet, additional);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling PaymentApi#getPaymentQuotas");
@@ -1813,6 +2325,103 @@ public class Example {
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
+## getSubscriptionBalanceInfo
+
+> SubscriptionBalanceInfoWrapper getSubscriptionBalanceInfo()
+
+Get the subscription balance informationReturns the information about the current subscription and its unused (prorated) balance.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/).
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**SubscriptionBalanceInfoWrapper**](SubscriptionBalanceInfoWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PaymentApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        PaymentApi apiInstance = new PaymentApi(defaultClient);
+        try {
+            SubscriptionBalanceInfoWrapper result = apiInstance.getSubscriptionBalanceInfo();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PaymentApi#getSubscriptionBalanceInfo");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The subscription balance information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **400** | Invalid request parameters |  -  |
+| **402** | Tariff is not paid |  -  |
+| **403** | No permissions to perform this action |  -  |
+| **404** | Customer or subscription could not be found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+
 ## getTenantWalletServiceSettings
 
 > TenantWalletServiceSettingsWrapper getTenantWalletServiceSettings()
@@ -2014,7 +2623,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **service** | [**TenantWalletService**](.md)| The wallet service type. | [enum: -13, -12, -11] |
+| **service** | [**TenantWalletService**](.md)| The wallet service type. | [enum: -18, -16, -15, -14, -13, -12, -11] |
 
 ### Return type
 
@@ -2067,7 +2676,7 @@ public class Example {
 
 
         PaymentApi apiInstance = new PaymentApi(defaultClient);
-        TenantWalletService service = TenantWalletService.fromValue("-13"); // TenantWalletService | The wallet service type.
+        TenantWalletService service = TenantWalletService.fromValue("-18"); // TenantWalletService | The wallet service type.
         try {
             WalletServiceWrapper result = apiInstance.getWalletService(service);
             System.out.println(result);
@@ -2194,6 +2803,107 @@ public class Example {
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
+## moveSubscriptionToWallet
+
+> BooleanWrapper moveSubscriptionToWallet(quantityRequestDto)
+
+Move the subscription balance to the wallet and purchase adminsCancels the current subscription, moves its unused balance to the wallet, and purchases the requested number of  admins from the wallet. If the wallet balance is not enough, it is topped up for the missing amount first  (with several attempts, as the balance may be consumed concurrently).
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/move-subscription-to-wallet/).
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **quantityRequestDto** | [**QuantityRequestDto**](QuantityRequestDto.md)|  | [optional] |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PaymentApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        PaymentApi apiInstance = new PaymentApi(defaultClient);
+        QuantityRequestDto quantityRequestDto = new QuantityRequestDto(); // QuantityRequestDto | 
+        try {
+            BooleanWrapper result = apiInstance.moveSubscriptionToWallet(quantityRequestDto);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PaymentApi#moveSubscriptionToWallet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Boolean value: true if the operation is successful |  * X-RateLimit-Limit - Rate limit: 10 requests per 1 minutes per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **400** | Invalid request parameters |  -  |
+| **402** | Tariff is not paid |  -  |
+| **403** | No permissions to perform this action |  -  |
+| **404** | Customer or subscription could not be found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+
 ## sendPaymentRequest
 
 > sendPaymentRequest(salesRequestsDto)
@@ -2283,7 +2993,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | Ok |  * X-RateLimit-Limit - Rate limit: 10 requests per 1 minutes per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **400** | Incorrect email or message text is empty |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **429** | Request limit is exceeded |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
@@ -2296,7 +3006,7 @@ public class Example {
 
 > RestrictedModelsResponseWrapper setRestrictedAiModels(setRestrictedAiModelsRequestDto)
 
-Set restricted AI modelsOverwrites the entire set of restricted AI model IDs for the current tenant.  The request body must contain the complete desired set — to add a restriction, include the new model alongside existing ones;  to remove one, omit it. An empty set lifts all restrictions. Only the portal payer can perform this action.
+Set restricted AI modelsOverwrites the entire set of restricted AI model IDs for the current tenant.  The request body must contain the complete desired set — to add a restriction, include the new model alongside existing ones;  to remove one, omit it. An empty set lifts all restrictions. Only portal administrators can perform this action.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-restricted-ai-models/).
 
@@ -2490,6 +3200,100 @@ public class Example {
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
+## terminateCustomerMonthlyUsageReport
+
+> terminateCustomerMonthlyUsageReport()
+
+Terminate the customer monthly usage report generationTerminates generating a customer monthly usage report.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-monthly-usage-report/).
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PaymentApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        PaymentApi apiInstance = new PaymentApi(defaultClient);
+        try {
+            apiInstance.terminateCustomerMonthlyUsageReport();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PaymentApi#terminateCustomerMonthlyUsageReport");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | No permissions to perform this action |  -  |
+| **404** | Customer could not be found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+
 ## terminateCustomerOperationsReport
 
 > terminateCustomerOperationsReport()
@@ -2557,6 +3361,100 @@ public class Example {
             apiInstance.terminateCustomerOperationsReport();
         } catch (ApiException e) {
             System.err.println("Exception when calling PaymentApi#terminateCustomerOperationsReport");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | No permissions to perform this action |  -  |
+| **404** | Customer could not be found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+
+## terminateCustomerServiceUsageReport
+
+> terminateCustomerServiceUsageReport()
+
+Terminate the customer service usage report generationTerminates generating a customer service usage report.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-service-usage-report/).
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PaymentApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        PaymentApi apiInstance = new PaymentApi(defaultClient);
+        try {
+            apiInstance.terminateCustomerServiceUsageReport();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PaymentApi#terminateCustomerServiceUsageReport");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2876,7 +3774,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  * X-RateLimit-Limit - Rate limit: 10 requests per 1 minutes per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **400** | Invalid request parameters |  -  |
-| **402** | Tariff is not paid |  -  |
+| **402** | Payment required |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | Customer could not be found |  -  |
 | **401** | Unauthorized |  -  |

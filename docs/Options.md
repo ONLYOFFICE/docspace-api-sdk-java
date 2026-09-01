@@ -8,7 +8,7 @@ The document options.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**watermarkOnDraw** | [**WatermarkOnDraw**](WatermarkOnDraw.md) |  |  [optional] |
+|**watermarkOnDraw** | [**WatermarkOnDraw**](WatermarkOnDraw.md) | The document watermark parameters. |  [optional] |
 
 
 

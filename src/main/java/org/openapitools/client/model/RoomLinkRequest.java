@@ -121,7 +121,7 @@ public class RoomLinkRequest {
   }
 
   /**
-   * Get access
+   * The access rights type.
    * @return access
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
@@ -145,7 +145,7 @@ public class RoomLinkRequest {
   }
 
   /**
-   * Get expirationDate
+   * The API date and time parameters.
    * @return expirationDate
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
@@ -224,7 +224,7 @@ public class RoomLinkRequest {
   }
 
   /**
-   * Get linkType
+   * The link type.
    * @return linkType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LINK_TYPE, required = false)

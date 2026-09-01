@@ -82,7 +82,7 @@ public class OrderBy {
   }
 
   /**
-   * Get property
+   * The parameters by which the files will be sorted.
    * @return property
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROPERTY, required = false)

@@ -256,7 +256,7 @@ public class BackupProgress {
   }
 
   /**
-   * Get backupProgressEnum
+   * The backup progress type.
    * @return backupProgressEnum
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_BACKUP_PROGRESS_ENUM, required = false)
@@ -280,7 +280,7 @@ public class BackupProgress {
   }
 
   /**
-   * Get status
+   * The backup progress status.
    * @return status
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)

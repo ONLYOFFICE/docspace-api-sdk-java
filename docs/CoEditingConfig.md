@@ -10,7 +10,7 @@ The co-editing configuration parameters.
 |------------ | ------------- | ------------- | -------------|
 |**change** | **Boolean** | Specifies if the co-editing mode can be changed in the editor interface or not. |  [optional] |
 |**fast** | **Boolean** | Specifies if the co-editing mode is fast. |  [optional] |
-|**mode** | **CoEditingConfigMode** |  |  [optional] |
+|**mode** | **CoEditingConfigMode** | The co-editing mode (fast or strict). |  [optional] |
 
 
 

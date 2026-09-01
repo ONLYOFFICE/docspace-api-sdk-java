@@ -234,7 +234,7 @@ public class AuthData {
   }
 
   /**
-   * Get token
+   * The authentication token.
    * @return token
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOKEN, required = false)

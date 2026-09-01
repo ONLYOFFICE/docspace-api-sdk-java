@@ -117,7 +117,7 @@ public class WatermarkRequestDto {
   }
 
   /**
-   * Get additions
+   * Specifies whether to display the following addditional information or not: username, user email, user IP address, current date and room name.
    * @return additions
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ADDITIONS, required = false)

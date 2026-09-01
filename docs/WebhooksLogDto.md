@@ -10,7 +10,7 @@ The webhook log parameters.
 |------------ | ------------- | ------------- | -------------|
 |**id** | **Integer** | The webhook log ID. |  |
 |**configName** | **String** | The webhook configuration name. |  [optional] |
-|**trigger** | **WebhookTrigger** |  |  [optional] |
+|**trigger** | **WebhookTrigger** | The webhook trigger type. |  [optional] |
 |**creationTime** | **OffsetDateTime** | The webhook creation time. |  [optional] |
 |**method** | **String** | The webhook method. |  [optional] |
 |**route** | **String** | The webhook route. |  [optional] |

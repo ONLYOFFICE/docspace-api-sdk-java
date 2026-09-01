@@ -93,7 +93,7 @@ public class ItemKeyValuePairStringLogoRequestsDto {
   }
 
   /**
-   * Get value
+   * The request parameters for the theme-specific logo configurations.
    * @return value
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)

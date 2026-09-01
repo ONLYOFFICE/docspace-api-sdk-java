@@ -477,13 +477,13 @@ public class Example {
 
 
         WebhooksApi apiInstance = new WebhooksApi(defaultClient);
-        OffsetDateTime deliveryFrom = OffsetDateTime.parse("2024-01-15T10:30Z"); // OffsetDateTime | The delivery start time for filtering webhook logs.
-        OffsetDateTime deliveryTo = OffsetDateTime.parse("2024-01-15T10:30Z"); // OffsetDateTime | The delivery end time for filtering webhook logs.
+        OffsetDateTime deliveryFrom = OffsetDateTime.parse("2024-01-15T10:30:00Z"); // OffsetDateTime | The delivery start time for filtering webhook logs.
+        OffsetDateTime deliveryTo = OffsetDateTime.parse("2024-01-15T10:30:00Z"); // OffsetDateTime | The delivery end time for filtering webhook logs.
         String hookUri = "https://example.com/webhook"; // String | The destination URL where webhooks are delivered.
         Integer configId = 1; // Integer | The webhook configuration identifier.
         Integer eventId = 1; // Integer | The unique identifier of the event that triggered the webhook.
         WebhookGroupStatus groupStatus = WebhookGroupStatus.fromValue("0"); // WebhookGroupStatus | The status of the webhook delivery group.
-        UUID userId = UUID.randomUUID(); // UUID | The identifier of the user associated with the webhook event.
+        UUID userId = UUID.fromString("{}"); // UUID | The identifier of the user associated with the webhook event.
         WebhookTrigger trigger = WebhookTrigger.fromValue("0"); // WebhookTrigger | The type of event that triggered the webhook.
         Integer count = 1; // Integer | The maximum number of webhook log records to return in the query response.
         Integer startIndex = 1; // Integer | Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries.

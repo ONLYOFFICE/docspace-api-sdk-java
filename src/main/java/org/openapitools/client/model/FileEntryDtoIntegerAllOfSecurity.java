@@ -79,7 +79,9 @@ import java.util.StringJoiner;
   FileEntryDtoIntegerAllOfSecurity.JSON_PROPERTY_ASK_AI,
   FileEntryDtoIntegerAllOfSecurity.JSON_PROPERTY_USE_CHAT,
   FileEntryDtoIntegerAllOfSecurity.JSON_PROPERTY_UPDATE_XLSX,
-  FileEntryDtoIntegerAllOfSecurity.JSON_PROPERTY_ANALYZE_RESPONSES
+  FileEntryDtoIntegerAllOfSecurity.JSON_PROPERTY_ANALYZE_RESPONSES,
+  FileEntryDtoIntegerAllOfSecurity.JSON_PROPERTY_CAN_USE_AI,
+  FileEntryDtoIntegerAllOfSecurity.JSON_PROPERTY_HISTORY_EXPORT
 })
 @JsonTypeName("FileEntryDtoInteger_allOf_security")
 
@@ -218,6 +220,12 @@ public class FileEntryDtoIntegerAllOfSecurity {
 
   public static final String JSON_PROPERTY_ANALYZE_RESPONSES = "AnalyzeResponses";
   @javax.annotation.Nullable  private Boolean analyzeResponses;
+
+  public static final String JSON_PROPERTY_CAN_USE_AI = "CanUseAi";
+  @javax.annotation.Nullable  private Boolean canUseAi;
+
+  public static final String JSON_PROPERTY_HISTORY_EXPORT = "HistoryExport";
+  @javax.annotation.Nullable  private Boolean historyExport;
 
   public FileEntryDtoIntegerAllOfSecurity() {
   }
@@ -1303,6 +1311,54 @@ public class FileEntryDtoIntegerAllOfSecurity {
     this.analyzeResponses = analyzeResponses;
   }
 
+  public FileEntryDtoIntegerAllOfSecurity canUseAi(@javax.annotation.Nullable Boolean canUseAi) {
+    
+    this.canUseAi = canUseAi;
+    return this;
+  }
+
+  /**
+   * Get canUseAi
+   * @return canUseAi
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CAN_USE_AI, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getCanUseAi() {
+    return canUseAi;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CAN_USE_AI, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCanUseAi(@javax.annotation.Nullable Boolean canUseAi) {
+    this.canUseAi = canUseAi;
+  }
+
+  public FileEntryDtoIntegerAllOfSecurity historyExport(@javax.annotation.Nullable Boolean historyExport) {
+    
+    this.historyExport = historyExport;
+    return this;
+  }
+
+  /**
+   * Get historyExport
+   * @return historyExport
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HISTORY_EXPORT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getHistoryExport() {
+    return historyExport;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_HISTORY_EXPORT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setHistoryExport(@javax.annotation.Nullable Boolean historyExport) {
+    this.historyExport = historyExport;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -1356,12 +1412,14 @@ public class FileEntryDtoIntegerAllOfSecurity {
         Objects.equals(this.askAi, fileEntryDtoIntegerAllOfSecurity.askAi) &&
         Objects.equals(this.useChat, fileEntryDtoIntegerAllOfSecurity.useChat) &&
         Objects.equals(this.updateXlsx, fileEntryDtoIntegerAllOfSecurity.updateXlsx) &&
-        Objects.equals(this.analyzeResponses, fileEntryDtoIntegerAllOfSecurity.analyzeResponses);
+        Objects.equals(this.analyzeResponses, fileEntryDtoIntegerAllOfSecurity.analyzeResponses) &&
+        Objects.equals(this.canUseAi, fileEntryDtoIntegerAllOfSecurity.canUseAi) &&
+        Objects.equals(this.historyExport, fileEntryDtoIntegerAllOfSecurity.historyExport);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(read, comment, fillForms, review, create, createFrom, edit, delete, customFilter, editRoom, rename, readHistory, lock, editHistory, copyTo, copy, moveTo, move, pin, mute, editAccess, duplicate, submitToFormGallery, download, convert, copySharedLink, readLinks, reconnect, createRoomFrom, copyLink, embed, changeOwner, indexExport, startFilling, fillingStatus, resetFilling, stopFilling, openForm, editInternal, editExpiration, vectorization, askAi, useChat, updateXlsx, analyzeResponses);
+    return Objects.hash(read, comment, fillForms, review, create, createFrom, edit, delete, customFilter, editRoom, rename, readHistory, lock, editHistory, copyTo, copy, moveTo, move, pin, mute, editAccess, duplicate, submitToFormGallery, download, convert, copySharedLink, readLinks, reconnect, createRoomFrom, copyLink, embed, changeOwner, indexExport, startFilling, fillingStatus, resetFilling, stopFilling, openForm, editInternal, editExpiration, vectorization, askAi, useChat, updateXlsx, analyzeResponses, canUseAi, historyExport);
   }
 
   @Override
@@ -1413,6 +1471,8 @@ public class FileEntryDtoIntegerAllOfSecurity {
     sb.append("    useChat: ").append(toIndentedString(useChat)).append("\n");
     sb.append("    updateXlsx: ").append(toIndentedString(updateXlsx)).append("\n");
     sb.append("    analyzeResponses: ").append(toIndentedString(analyzeResponses)).append("\n");
+    sb.append("    canUseAi: ").append(toIndentedString(canUseAi)).append("\n");
+    sb.append("    historyExport: ").append(toIndentedString(historyExport)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1904,6 +1964,26 @@ public class FileEntryDtoIntegerAllOfSecurity {
     if (getAnalyzeResponses() != null) {
       try {
         joiner.add(String.format("%sAnalyzeResponses%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAnalyzeResponses()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `CanUseAi` to the URL query string
+    if (getCanUseAi() != null) {
+      try {
+        joiner.add(String.format("%sCanUseAi%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCanUseAi()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `HistoryExport` to the URL query string
+    if (getHistoryExport() != null) {
+      try {
+        joiner.add(String.format("%sHistoryExport%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHistoryExport()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

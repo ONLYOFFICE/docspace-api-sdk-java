@@ -52,14 +52,14 @@ The file settings parameters.
 |**hideConfirmConvertSave** | **Boolean** | Specifies whether to hide the confirmation dialog  for saving the file copy in the original format when converting a file. |  [optional] |
 |**hideConfirmConvertOpen** | **Boolean** | Specifies whether to hide the confirmation dialog  for opening the conversion result. |  [optional] |
 |**hideConfirmRoomLifetime** | **Boolean** | Specifies whether to hide the confirmation dialog about the file lifetime in the room. |  [optional] |
-|**defaultOrder** | [**OrderBy**](OrderBy.md) |  |  [optional] |
+|**defaultOrder** | [**OrderBy**](OrderBy.md) | The sorting parameters. |  [optional] |
 |**forcesave** | **Boolean** | Specifies whether to forcesave the files or not. |  [optional] |
 |**storeForcesave** | **Boolean** | Specifies whether to store the forcesaved file versions or not. |  [optional] |
 |**recentSection** | **Boolean** | Specifies if the Recent section is displayed or not. |  [optional] |
 |**favoritesSection** | **Boolean** | Specifies if the Favorites section is displayed or not. |  [optional] |
 |**templatesSection** | **Boolean** | Specifies if the Templates section is displayed or not. |  [optional] |
 |**downloadTarGz** | **Boolean** | Specifies whether to download the .tar.gz files or not. |  [optional] |
-|**automaticallyCleanUp** | [**AutoCleanUpData**](AutoCleanUpData.md) |  |  [optional] |
+|**automaticallyCleanUp** | [**AutoCleanUpData**](AutoCleanUpData.md) | The auto-clearing setting parameters. |  [optional] |
 |**canSearchByContent** | **Boolean** | Specifies whether the file can be searched by its content or not. |  [optional] |
 |**defaultSharingAccessRights** | [**List&lt;DefaultSharingAccessRightsEnum&gt;**](#List&lt;DefaultSharingAccessRightsEnum&gt;) | The default access rights in sharing settings. |  [optional] |
 |**maxUploadThreadCount** | **Integer** | The maximum number of upload threads. |  [optional] |

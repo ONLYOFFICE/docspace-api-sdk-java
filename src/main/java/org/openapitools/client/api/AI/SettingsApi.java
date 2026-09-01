@@ -24,13 +24,10 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.AiSettingsWrapper;
-import org.openapitools.client.model.AiUserSettingsWrapper;
-import org.openapitools.client.model.SetAiUserSettingsRequestDto;
-import org.openapitools.client.model.SetEmbeddingConfigRequestBody;
-import org.openapitools.client.model.SetWebSearchSettingsRequestBody;
-import org.openapitools.client.model.VectorizationSettingsWrapper;
-import org.openapitools.client.model.WebSearchSettingsWrapper;
+import org.openapitools.client.model.AiAiSettingsWrapper;
+import org.openapitools.client.model.AiAiUserSettingsWrapper;
+import org.openapitools.client.model.AiErrorResponse;
+import org.openapitools.client.model.AiVectorizationSettingsWrapper;
 
 
 import java.util.ArrayList;
@@ -53,31 +50,31 @@ public class SettingsApi extends BaseApi {
 
   /**
    * Get AI settings
-   * Retrieves the combined AI configuration for the current portal, including the status of web search,  vectorization, and AI readiness, along with tool names and the portal MCP server identifier.
+   * 
    *
-   * REST API Reference for getAiSettings Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-settings/
+   * REST API Reference for aiSettingsGet Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/
    *
-   * @return AiSettingsWrapper
+   * @return AiAiSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public AiSettingsWrapper getAiSettings() throws ApiException {
-    return this.getAiSettings(Collections.emptyMap());
+  public AiAiSettingsWrapper aiSettingsGet() throws ApiException {
+    return this.aiSettingsGet(Collections.emptyMap());
   }
 
 
   /**
    * Get AI settings
-   * Retrieves the combined AI configuration for the current portal, including the status of web search,  vectorization, and AI readiness, along with tool names and the portal MCP server identifier.
+   * 
    *
-   * REST API Reference for getAiSettings Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-settings/
+   * REST API Reference for aiSettingsGet Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return AiSettingsWrapper
+   * @return AiAiSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public AiSettingsWrapper getAiSettings(Map<String, String> additionalHeaders) throws ApiException {
+  public AiAiSettingsWrapper aiSettingsGet(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -107,9 +104,9 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<AiSettingsWrapper> localVarReturnType = new TypeReference<AiSettingsWrapper>() {};
+    TypeReference<AiAiSettingsWrapper> localVarReturnType = new TypeReference<AiAiSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -128,32 +125,32 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * Get per-user AI settings
-   * Retrieves the current user's AI settings, including the recommended model banner visibility preference.
+   * Get user AI settings
+   * 
    *
-   * REST API Reference for getAiUserSettings Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-user-settings/
+   * REST API Reference for aiSettingsGetUser Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/
    *
-   * @return AiUserSettingsWrapper
+   * @return AiAiUserSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public AiUserSettingsWrapper getAiUserSettings() throws ApiException {
-    return this.getAiUserSettings(Collections.emptyMap());
+  public AiAiUserSettingsWrapper aiSettingsGetUser() throws ApiException {
+    return this.aiSettingsGetUser(Collections.emptyMap());
   }
 
 
   /**
-   * Get per-user AI settings
-   * Retrieves the current user's AI settings, including the recommended model banner visibility preference.
+   * Get user AI settings
+   * 
    *
-   * REST API Reference for getAiUserSettings Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-user-settings/
+   * REST API Reference for aiSettingsGetUser Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return AiUserSettingsWrapper
+   * @return AiAiUserSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public AiUserSettingsWrapper getAiUserSettings(Map<String, String> additionalHeaders) throws ApiException {
+  public AiAiUserSettingsWrapper aiSettingsGetUser(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -183,9 +180,9 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<AiUserSettingsWrapper> localVarReturnType = new TypeReference<AiUserSettingsWrapper>() {};
+    TypeReference<AiAiUserSettingsWrapper> localVarReturnType = new TypeReference<AiAiUserSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -205,31 +202,31 @@ public class SettingsApi extends BaseApi {
 
   /**
    * Get vectorization settings
-   * Retrieves the current embedding provider settings used for document vectorization,  including the configured provider type and whether the API key needs to be reset.
+   * 
    *
-   * REST API Reference for getVectorizationSettings Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-vectorization-settings/
+   * REST API Reference for aiSettingsGetVectorization Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/
    *
-   * @return VectorizationSettingsWrapper
+   * @return AiVectorizationSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public VectorizationSettingsWrapper getVectorizationSettings() throws ApiException {
-    return this.getVectorizationSettings(Collections.emptyMap());
+  public AiVectorizationSettingsWrapper aiSettingsGetVectorization() throws ApiException {
+    return this.aiSettingsGetVectorization(Collections.emptyMap());
   }
 
 
   /**
    * Get vectorization settings
-   * Retrieves the current embedding provider settings used for document vectorization,  including the configured provider type and whether the API key needs to be reset.
+   * 
    *
-   * REST API Reference for getVectorizationSettings Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-vectorization-settings/
+   * REST API Reference for aiSettingsGetVectorization Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return VectorizationSettingsWrapper
+   * @return AiVectorizationSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public VectorizationSettingsWrapper getVectorizationSettings(Map<String, String> additionalHeaders) throws ApiException {
+  public AiVectorizationSettingsWrapper aiSettingsGetVectorization(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -259,9 +256,9 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<VectorizationSettingsWrapper> localVarReturnType = new TypeReference<VectorizationSettingsWrapper>() {};
+    TypeReference<AiVectorizationSettingsWrapper> localVarReturnType = new TypeReference<AiVectorizationSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -280,111 +277,40 @@ public class SettingsApi extends BaseApi {
   }
 
   /**
-   * Get web search settings
-   * Retrieves the current web search integration settings for AI chat sessions,  including whether web search is enabled, the configured search engine type, and whether the API key needs to be reset.
+   * Update user AI settings
+   * 
    *
-   * REST API Reference for getWebSearchSettings Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-search-settings/
+   * REST API Reference for aiSettingsSetUser Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/
    *
-   * @return WebSearchSettingsWrapper
+   * @param requestBody  (required)
+   * @return AiAiUserSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public WebSearchSettingsWrapper getWebSearchSettings() throws ApiException {
-    return this.getWebSearchSettings(Collections.emptyMap());
+  public AiAiUserSettingsWrapper aiSettingsSetUser(@javax.annotation.Nonnull Map<String, Object> requestBody) throws ApiException {
+    return this.aiSettingsSetUser(requestBody, Collections.emptyMap());
   }
 
 
   /**
-   * Get web search settings
-   * Retrieves the current web search integration settings for AI chat sessions,  including whether web search is enabled, the configured search engine type, and whether the API key needs to be reset.
+   * Update user AI settings
+   * 
    *
-   * REST API Reference for getWebSearchSettings Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-search-settings/
+   * REST API Reference for aiSettingsSetUser Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/
    *
+   * @param requestBody  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return WebSearchSettingsWrapper
+   * @return AiAiUserSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public WebSearchSettingsWrapper getWebSearchSettings(Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
+  public AiAiUserSettingsWrapper aiSettingsSetUser(@javax.annotation.Nonnull Map<String, Object> requestBody, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = requestBody;
     
-    // create path and map variables
-    String localVarPath = "/api/2.0/ai/config/web-search";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-      
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
-
-    TypeReference<WebSearchSettingsWrapper> localVarReturnType = new TypeReference<WebSearchSettingsWrapper>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Update per-user AI settings
-   * Updates the current user's AI recommended model banner visibility preferences.  Each user's settings are stored independently.
-   *
-   * REST API Reference for setAiUserSettings Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-ai-user-settings/
-   *
-   * @param setAiUserSettingsRequestDto  (optional)
-   * @return AiUserSettingsWrapper
-   * @throws ApiException if fails to make API call
-   */
-  public AiUserSettingsWrapper setAiUserSettings(@javax.annotation.Nullable SetAiUserSettingsRequestDto setAiUserSettingsRequestDto) throws ApiException {
-    return this.setAiUserSettings(setAiUserSettingsRequestDto, Collections.emptyMap());
-  }
-
-
-  /**
-   * Update per-user AI settings
-   * Updates the current user's AI recommended model banner visibility preferences.  Each user's settings are stored independently.
-   *
-   * REST API Reference for setAiUserSettings Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-ai-user-settings/
-   *
-   * @param setAiUserSettingsRequestDto  (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return AiUserSettingsWrapper
-   * @throws ApiException if fails to make API call
-   */
-  public AiUserSettingsWrapper setAiUserSettings(@javax.annotation.Nullable SetAiUserSettingsRequestDto setAiUserSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = setAiUserSettingsRequestDto;
+    // verify the required parameter 'requestBody' is set
+    if (requestBody == null) {
+      throw new ApiException(400, "Missing the required parameter 'requestBody' when calling aiSettingsSetUser");
+    }
     
     // create path and map variables
     String localVarPath = "/api/2.0/ai/config/user";
@@ -413,9 +339,9 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<AiUserSettingsWrapper> localVarReturnType = new TypeReference<AiUserSettingsWrapper>() {};
+    TypeReference<AiAiUserSettingsWrapper> localVarReturnType = new TypeReference<AiAiUserSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
@@ -435,38 +361,38 @@ public class SettingsApi extends BaseApi {
 
   /**
    * Update vectorization settings
-   * Configures the embedding provider used for document vectorization at the portal level.  Vectorization enables semantic search and knowledge retrieval capabilities in AI chat sessions.  Allows selecting the embedding provider type and providing the API key for the chosen provider.  Only portal administrators can modify these settings.
+   * 
    *
-   * REST API Reference for setVectorizationSettings Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-vectorization-settings/
+   * REST API Reference for aiSettingsSetVectorization Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/
    *
-   * @param setEmbeddingConfigRequestBody The embedding provider configuration parameters. (required)
-   * @return VectorizationSettingsWrapper
+   * @param requestBody  (required)
+   * @return AiVectorizationSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public VectorizationSettingsWrapper setVectorizationSettings(@javax.annotation.Nonnull SetEmbeddingConfigRequestBody setEmbeddingConfigRequestBody) throws ApiException {
-    return this.setVectorizationSettings(setEmbeddingConfigRequestBody, Collections.emptyMap());
+  public AiVectorizationSettingsWrapper aiSettingsSetVectorization(@javax.annotation.Nonnull Map<String, Object> requestBody) throws ApiException {
+    return this.aiSettingsSetVectorization(requestBody, Collections.emptyMap());
   }
 
 
   /**
    * Update vectorization settings
-   * Configures the embedding provider used for document vectorization at the portal level.  Vectorization enables semantic search and knowledge retrieval capabilities in AI chat sessions.  Allows selecting the embedding provider type and providing the API key for the chosen provider.  Only portal administrators can modify these settings.
+   * 
    *
-   * REST API Reference for setVectorizationSettings Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-vectorization-settings/
+   * REST API Reference for aiSettingsSetVectorization Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/
    *
-   * @param setEmbeddingConfigRequestBody The embedding provider configuration parameters. (required)
+   * @param requestBody  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return VectorizationSettingsWrapper
+   * @return AiVectorizationSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public VectorizationSettingsWrapper setVectorizationSettings(@javax.annotation.Nonnull SetEmbeddingConfigRequestBody setEmbeddingConfigRequestBody, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = setEmbeddingConfigRequestBody;
+  public AiVectorizationSettingsWrapper aiSettingsSetVectorization(@javax.annotation.Nonnull Map<String, Object> requestBody, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = requestBody;
     
-    // verify the required parameter 'setEmbeddingConfigRequestBody' is set
-    if (setEmbeddingConfigRequestBody == null) {
-      throw new ApiException(400, "Missing the required parameter 'setEmbeddingConfigRequestBody' when calling setVectorizationSettings");
+    // verify the required parameter 'requestBody' is set
+    if (requestBody == null) {
+      throw new ApiException(400, "Missing the required parameter 'requestBody' when calling aiSettingsSetVectorization");
     }
     
     // create path and map variables
@@ -496,92 +422,9 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<VectorizationSettingsWrapper> localVarReturnType = new TypeReference<VectorizationSettingsWrapper>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Update web search settings
-   * Configures the web search integration for AI chat sessions at the portal level.  Allows enabling or disabling web search, selecting the search engine type, and providing the API key for the chosen engine.  Only portal administrators can modify these settings.
-   *
-   * REST API Reference for setWebSearchSettings Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-search-settings/
-   *
-   * @param setWebSearchSettingsRequestBody The web search configuration parameters. (required)
-   * @return WebSearchSettingsWrapper
-   * @throws ApiException if fails to make API call
-   */
-  public WebSearchSettingsWrapper setWebSearchSettings(@javax.annotation.Nonnull SetWebSearchSettingsRequestBody setWebSearchSettingsRequestBody) throws ApiException {
-    return this.setWebSearchSettings(setWebSearchSettingsRequestBody, Collections.emptyMap());
-  }
-
-
-  /**
-   * Update web search settings
-   * Configures the web search integration for AI chat sessions at the portal level.  Allows enabling or disabling web search, selecting the search engine type, and providing the API key for the chosen engine.  Only portal administrators can modify these settings.
-   *
-   * REST API Reference for setWebSearchSettings Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-search-settings/
-   *
-   * @param setWebSearchSettingsRequestBody The web search configuration parameters. (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return WebSearchSettingsWrapper
-   * @throws ApiException if fails to make API call
-   */
-  public WebSearchSettingsWrapper setWebSearchSettings(@javax.annotation.Nonnull SetWebSearchSettingsRequestBody setWebSearchSettingsRequestBody, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = setWebSearchSettingsRequestBody;
-    
-    // verify the required parameter 'setWebSearchSettingsRequestBody' is set
-    if (setWebSearchSettingsRequestBody == null) {
-      throw new ApiException(400, "Missing the required parameter 'setWebSearchSettingsRequestBody' when calling setWebSearchSettings");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/2.0/ai/config/web-search";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-      
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
-
-    TypeReference<WebSearchSettingsWrapper> localVarReturnType = new TypeReference<WebSearchSettingsWrapper>() {};
+    TypeReference<AiVectorizationSettingsWrapper> localVarReturnType = new TypeReference<AiVectorizationSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
@@ -621,7 +464,7 @@ public class SettingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] {  };
 
     return apiClient.invokeAPI(
       localVarPath,

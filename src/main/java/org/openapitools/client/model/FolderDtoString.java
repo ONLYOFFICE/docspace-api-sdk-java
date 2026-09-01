@@ -123,7 +123,7 @@ import java.util.StringJoiner;
 
 public class FolderDtoString {
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String title;
 
   public static final String JSON_PROPERTY_ACCESS = "access";
   @javax.annotation.Nullable  private FileShare access;
@@ -147,7 +147,7 @@ public class FolderDtoString {
   @javax.annotation.Nullable  private Boolean parentShared;
 
   public static final String JSON_PROPERTY_SHORT_WEB_URL = "shortWebUrl";
-  @javax.annotation.Nullable  private JsonNullable<URI> shortWebUrl = JsonNullable.<URI>undefined();
+  @javax.annotation.Nullable  private URI shortWebUrl;
 
   public static final String JSON_PROPERTY_CREATED = "created";
   @javax.annotation.Nullable  private ApiDateTime created;
@@ -171,40 +171,40 @@ public class FolderDtoString {
   @javax.annotation.Nullable  private EmployeeDto updatedBy;
 
   public static final String JSON_PROPERTY_PROVIDER_ITEM = "providerItem";
-  @javax.annotation.Nullable  private JsonNullable<Boolean> providerItem = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private Boolean providerItem;
 
   public static final String JSON_PROPERTY_PROVIDER_KEY = "providerKey";
-  @javax.annotation.Nullable  private JsonNullable<String> providerKey = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String providerKey;
 
   public static final String JSON_PROPERTY_PROVIDER_ID = "providerId";
-  @javax.annotation.Nullable  private JsonNullable<Integer> providerId = JsonNullable.<Integer>undefined();
+  @javax.annotation.Nullable  private Integer providerId;
 
   public static final String JSON_PROPERTY_ORDER = "order";
-  @javax.annotation.Nullable  private JsonNullable<String> order = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String order;
 
   public static final String JSON_PROPERTY_IS_FAVORITE = "isFavorite";
-  @javax.annotation.Nullable  private JsonNullable<Boolean> isFavorite = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private Boolean isFavorite;
 
   public static final String JSON_PROPERTY_FILE_ENTRY_TYPE = "fileEntryType";
   @javax.annotation.Nullable  private FileEntryType fileEntryType;
 
   public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable  private JsonNullable<String> id = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String id;
 
   public static final String JSON_PROPERTY_ROOT_FOLDER_ID = "rootFolderId";
-  @javax.annotation.Nullable  private JsonNullable<String> rootFolderId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String rootFolderId;
 
   public static final String JSON_PROPERTY_ORIGIN_ID = "originId";
-  @javax.annotation.Nullable  private JsonNullable<String> originId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String originId;
 
   public static final String JSON_PROPERTY_ORIGIN_ROOM_ID = "originRoomId";
-  @javax.annotation.Nullable  private JsonNullable<String> originRoomId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String originRoomId;
 
   public static final String JSON_PROPERTY_ORIGIN_TITLE = "originTitle";
-  @javax.annotation.Nullable  private JsonNullable<String> originTitle = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String originTitle;
 
   public static final String JSON_PROPERTY_ORIGIN_ROOM_TITLE = "originRoomTitle";
-  @javax.annotation.Nullable  private JsonNullable<String> originRoomTitle = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String originRoomTitle;
 
   public static final String JSON_PROPERTY_CAN_SHARE = "canShare";
   @javax.annotation.Nullable  private Boolean canShare;
@@ -219,16 +219,16 @@ public class FolderDtoString {
   @javax.annotation.Nullable  private JsonNullable<FileEntryDtoIntegerAllOfAvailableShareRights> availableShareRights = JsonNullable.<FileEntryDtoIntegerAllOfAvailableShareRights>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_TOKEN = "requestToken";
-  @javax.annotation.Nullable  private JsonNullable<String> requestToken = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String requestToken;
 
   public static final String JSON_PROPERTY_EXTERNAL = "external";
-  @javax.annotation.Nullable  private JsonNullable<Boolean> external = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private Boolean external;
 
   public static final String JSON_PROPERTY_EXPIRATION_DATE = "expirationDate";
   @javax.annotation.Nullable  private ApiDateTime expirationDate;
 
   public static final String JSON_PROPERTY_IS_LINK_EXPIRED = "isLinkExpired";
-  @javax.annotation.Nullable  private JsonNullable<Boolean> isLinkExpired = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private Boolean isLinkExpired;
 
   public static final String JSON_PROPERTY_PARENT_ID = "parentId";
   @javax.annotation.Nullable  private JsonNullable<String> parentId = JsonNullable.<String>undefined();
@@ -316,8 +316,8 @@ public class FolderDtoString {
 
 
   public FolderDtoString title(@javax.annotation.Nullable String title) {
-    this.title = JsonNullable.<String>of(title);
     
+    this.title = title;
     return this;
   }
 
@@ -325,25 +325,18 @@ public class FolderDtoString {
    * The file entry title.
    * @return title
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTitle() {
-        return title.orElse(null);
+    return title;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getTitle_JsonNullable() {
-    return title;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  public void setTitle_JsonNullable(JsonNullable<String> title) {
-    this.title = title;
-  }
-
   public void setTitle(@javax.annotation.Nullable String title) {
-    this.title = JsonNullable.<String>of(title);
+    this.title = title;
   }
 
   public FolderDtoString access(@javax.annotation.Nullable FileShare access) {
@@ -353,7 +346,7 @@ public class FolderDtoString {
   }
 
   /**
-   * Get access
+   * The access rights to the file entry.
    * @return access
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
@@ -377,7 +370,7 @@ public class FolderDtoString {
   }
 
   /**
-   * Get sharedBy
+   * Provides information about the employee who shared the file or folder.
    * @return sharedBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARED_BY, required = false)
@@ -401,7 +394,7 @@ public class FolderDtoString {
   }
 
   /**
-   * Get ownedBy
+   * The information about the employee who owns the file entry.
    * @return ownedBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OWNED_BY, required = false)
@@ -515,8 +508,8 @@ public class FolderDtoString {
   }
 
   public FolderDtoString shortWebUrl(@javax.annotation.Nullable URI shortWebUrl) {
-    this.shortWebUrl = JsonNullable.<URI>of(shortWebUrl);
     
+    this.shortWebUrl = shortWebUrl;
     return this;
   }
 
@@ -524,25 +517,18 @@ public class FolderDtoString {
    * The short Web URL.
    * @return shortWebUrl
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHORT_WEB_URL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public URI getShortWebUrl() {
-        return shortWebUrl.orElse(null);
+    return shortWebUrl;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_SHORT_WEB_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<URI> getShortWebUrl_JsonNullable() {
-    return shortWebUrl;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_SHORT_WEB_URL)
-  public void setShortWebUrl_JsonNullable(JsonNullable<URI> shortWebUrl) {
-    this.shortWebUrl = shortWebUrl;
-  }
-
   public void setShortWebUrl(@javax.annotation.Nullable URI shortWebUrl) {
-    this.shortWebUrl = JsonNullable.<URI>of(shortWebUrl);
+    this.shortWebUrl = shortWebUrl;
   }
 
   public FolderDtoString created(@javax.annotation.Nullable ApiDateTime created) {
@@ -552,7 +538,7 @@ public class FolderDtoString {
   }
 
   /**
-   * Get created
+   * The creation date and time of the file entry.
    * @return created
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED, required = false)
@@ -576,7 +562,7 @@ public class FolderDtoString {
   }
 
   /**
-   * Get createdBy
+   * The file entry author.
    * @return createdBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED_BY, required = false)
@@ -600,7 +586,7 @@ public class FolderDtoString {
   }
 
   /**
-   * Get updated
+   * The last date and time when the file entry was updated.
    * @return updated
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPDATED, required = false)
@@ -624,7 +610,7 @@ public class FolderDtoString {
   }
 
   /**
-   * Get autoDelete
+   * The date and time when the file entry will be automatically deleted.
    * @return autoDelete
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTO_DELETE, required = false)
@@ -648,7 +634,7 @@ public class FolderDtoString {
   }
 
   /**
-   * Get rootFolderType
+   * The root folder type of the file entry.
    * @return rootFolderType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOT_FOLDER_TYPE, required = false)
@@ -672,7 +658,7 @@ public class FolderDtoString {
   }
 
   /**
-   * Get parentRoomType
+   * The parent room type of the file entry.
    * @return parentRoomType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PARENT_ROOM_TYPE, required = false)
@@ -696,7 +682,7 @@ public class FolderDtoString {
   }
 
   /**
-   * Get updatedBy
+   * The user who updated the file entry.
    * @return updatedBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPDATED_BY, required = false)
@@ -714,8 +700,8 @@ public class FolderDtoString {
   }
 
   public FolderDtoString providerItem(@javax.annotation.Nullable Boolean providerItem) {
-    this.providerItem = JsonNullable.<Boolean>of(providerItem);
     
+    this.providerItem = providerItem;
     return this;
   }
 
@@ -723,30 +709,23 @@ public class FolderDtoString {
    * Specifies if the file entry provider is specified or not.
    * @return providerItem
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROVIDER_ITEM, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getProviderItem() {
-        return providerItem.orElse(null);
+    return providerItem;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_PROVIDER_ITEM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Boolean> getProviderItem_JsonNullable() {
-    return providerItem;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_PROVIDER_ITEM)
-  public void setProviderItem_JsonNullable(JsonNullable<Boolean> providerItem) {
+  public void setProviderItem(@javax.annotation.Nullable Boolean providerItem) {
     this.providerItem = providerItem;
   }
 
-  public void setProviderItem(@javax.annotation.Nullable Boolean providerItem) {
-    this.providerItem = JsonNullable.<Boolean>of(providerItem);
-  }
-
   public FolderDtoString providerKey(@javax.annotation.Nullable String providerKey) {
-    this.providerKey = JsonNullable.<String>of(providerKey);
     
+    this.providerKey = providerKey;
     return this;
   }
 
@@ -754,30 +733,23 @@ public class FolderDtoString {
    * The provider key of the file entry.
    * @return providerKey
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROVIDER_KEY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getProviderKey() {
-        return providerKey.orElse(null);
+    return providerKey;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_PROVIDER_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getProviderKey_JsonNullable() {
-    return providerKey;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_PROVIDER_KEY)
-  public void setProviderKey_JsonNullable(JsonNullable<String> providerKey) {
+  public void setProviderKey(@javax.annotation.Nullable String providerKey) {
     this.providerKey = providerKey;
   }
 
-  public void setProviderKey(@javax.annotation.Nullable String providerKey) {
-    this.providerKey = JsonNullable.<String>of(providerKey);
-  }
-
   public FolderDtoString providerId(@javax.annotation.Nullable Integer providerId) {
-    this.providerId = JsonNullable.<Integer>of(providerId);
     
+    this.providerId = providerId;
     return this;
   }
 
@@ -785,30 +757,23 @@ public class FolderDtoString {
    * The provider ID of the file entry.
    * @return providerId
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROVIDER_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getProviderId() {
-        return providerId.orElse(null);
+    return providerId;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_PROVIDER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Integer> getProviderId_JsonNullable() {
-    return providerId;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_PROVIDER_ID)
-  public void setProviderId_JsonNullable(JsonNullable<Integer> providerId) {
+  public void setProviderId(@javax.annotation.Nullable Integer providerId) {
     this.providerId = providerId;
   }
 
-  public void setProviderId(@javax.annotation.Nullable Integer providerId) {
-    this.providerId = JsonNullable.<Integer>of(providerId);
-  }
-
   public FolderDtoString order(@javax.annotation.Nullable String order) {
-    this.order = JsonNullable.<String>of(order);
     
+    this.order = order;
     return this;
   }
 
@@ -816,30 +781,23 @@ public class FolderDtoString {
    * The order of the file entry.
    * @return order
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ORDER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOrder() {
-        return order.orElse(null);
+    return order;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_ORDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getOrder_JsonNullable() {
-    return order;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_ORDER)
-  public void setOrder_JsonNullable(JsonNullable<String> order) {
+  public void setOrder(@javax.annotation.Nullable String order) {
     this.order = order;
   }
 
-  public void setOrder(@javax.annotation.Nullable String order) {
-    this.order = JsonNullable.<String>of(order);
-  }
-
   public FolderDtoString isFavorite(@javax.annotation.Nullable Boolean isFavorite) {
-    this.isFavorite = JsonNullable.<Boolean>of(isFavorite);
     
+    this.isFavorite = isFavorite;
     return this;
   }
 
@@ -847,25 +805,18 @@ public class FolderDtoString {
    * Specifies if the file is a favorite or not.
    * @return isFavorite
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_FAVORITE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsFavorite() {
-        return isFavorite.orElse(null);
+    return isFavorite;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_IS_FAVORITE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Boolean> getIsFavorite_JsonNullable() {
-    return isFavorite;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_IS_FAVORITE)
-  public void setIsFavorite_JsonNullable(JsonNullable<Boolean> isFavorite) {
-    this.isFavorite = isFavorite;
-  }
-
   public void setIsFavorite(@javax.annotation.Nullable Boolean isFavorite) {
-    this.isFavorite = JsonNullable.<Boolean>of(isFavorite);
+    this.isFavorite = isFavorite;
   }
 
   public FolderDtoString fileEntryType(@javax.annotation.Nullable FileEntryType fileEntryType) {
@@ -875,7 +826,7 @@ public class FolderDtoString {
   }
 
   /**
-   * Get fileEntryType
+   * The file entry type.
    * @return fileEntryType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_ENTRY_TYPE, required = false)
@@ -893,8 +844,8 @@ public class FolderDtoString {
   }
 
   public FolderDtoString id(@javax.annotation.Nullable String id) {
-    this.id = JsonNullable.<String>of(id);
     
+    this.id = id;
     return this;
   }
 
@@ -902,30 +853,23 @@ public class FolderDtoString {
    * The file entry ID.
    * @return id
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getId() {
-        return id.orElse(null);
+    return id;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getId_JsonNullable() {
-    return id;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_ID)
-  public void setId_JsonNullable(JsonNullable<String> id) {
+  public void setId(@javax.annotation.Nullable String id) {
     this.id = id;
   }
 
-  public void setId(@javax.annotation.Nullable String id) {
-    this.id = JsonNullable.<String>of(id);
-  }
-
   public FolderDtoString rootFolderId(@javax.annotation.Nullable String rootFolderId) {
-    this.rootFolderId = JsonNullable.<String>of(rootFolderId);
     
+    this.rootFolderId = rootFolderId;
     return this;
   }
 
@@ -933,30 +877,23 @@ public class FolderDtoString {
    * The root folder ID of the file entry.
    * @return rootFolderId
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOT_FOLDER_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRootFolderId() {
-        return rootFolderId.orElse(null);
+    return rootFolderId;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_ROOT_FOLDER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getRootFolderId_JsonNullable() {
-    return rootFolderId;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_ROOT_FOLDER_ID)
-  public void setRootFolderId_JsonNullable(JsonNullable<String> rootFolderId) {
+  public void setRootFolderId(@javax.annotation.Nullable String rootFolderId) {
     this.rootFolderId = rootFolderId;
   }
 
-  public void setRootFolderId(@javax.annotation.Nullable String rootFolderId) {
-    this.rootFolderId = JsonNullable.<String>of(rootFolderId);
-  }
-
   public FolderDtoString originId(@javax.annotation.Nullable String originId) {
-    this.originId = JsonNullable.<String>of(originId);
     
+    this.originId = originId;
     return this;
   }
 
@@ -964,30 +901,23 @@ public class FolderDtoString {
    * The origin ID of the file entry.
    * @return originId
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ORIGIN_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOriginId() {
-        return originId.orElse(null);
+    return originId;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_ORIGIN_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getOriginId_JsonNullable() {
-    return originId;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_ORIGIN_ID)
-  public void setOriginId_JsonNullable(JsonNullable<String> originId) {
+  public void setOriginId(@javax.annotation.Nullable String originId) {
     this.originId = originId;
   }
 
-  public void setOriginId(@javax.annotation.Nullable String originId) {
-    this.originId = JsonNullable.<String>of(originId);
-  }
-
   public FolderDtoString originRoomId(@javax.annotation.Nullable String originRoomId) {
-    this.originRoomId = JsonNullable.<String>of(originRoomId);
     
+    this.originRoomId = originRoomId;
     return this;
   }
 
@@ -995,30 +925,23 @@ public class FolderDtoString {
    * The origin room ID of the file entry.
    * @return originRoomId
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ORIGIN_ROOM_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOriginRoomId() {
-        return originRoomId.orElse(null);
+    return originRoomId;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_ORIGIN_ROOM_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getOriginRoomId_JsonNullable() {
-    return originRoomId;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_ORIGIN_ROOM_ID)
-  public void setOriginRoomId_JsonNullable(JsonNullable<String> originRoomId) {
+  public void setOriginRoomId(@javax.annotation.Nullable String originRoomId) {
     this.originRoomId = originRoomId;
   }
 
-  public void setOriginRoomId(@javax.annotation.Nullable String originRoomId) {
-    this.originRoomId = JsonNullable.<String>of(originRoomId);
-  }
-
   public FolderDtoString originTitle(@javax.annotation.Nullable String originTitle) {
-    this.originTitle = JsonNullable.<String>of(originTitle);
     
+    this.originTitle = originTitle;
     return this;
   }
 
@@ -1026,30 +949,23 @@ public class FolderDtoString {
    * The origin title of the file entry.
    * @return originTitle
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ORIGIN_TITLE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOriginTitle() {
-        return originTitle.orElse(null);
+    return originTitle;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_ORIGIN_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getOriginTitle_JsonNullable() {
-    return originTitle;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_ORIGIN_TITLE)
-  public void setOriginTitle_JsonNullable(JsonNullable<String> originTitle) {
+  public void setOriginTitle(@javax.annotation.Nullable String originTitle) {
     this.originTitle = originTitle;
   }
 
-  public void setOriginTitle(@javax.annotation.Nullable String originTitle) {
-    this.originTitle = JsonNullable.<String>of(originTitle);
-  }
-
   public FolderDtoString originRoomTitle(@javax.annotation.Nullable String originRoomTitle) {
-    this.originRoomTitle = JsonNullable.<String>of(originRoomTitle);
     
+    this.originRoomTitle = originRoomTitle;
     return this;
   }
 
@@ -1057,25 +973,18 @@ public class FolderDtoString {
    * The origin room title of the file entry.
    * @return originRoomTitle
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ORIGIN_ROOM_TITLE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOriginRoomTitle() {
-        return originRoomTitle.orElse(null);
+    return originRoomTitle;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_ORIGIN_ROOM_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getOriginRoomTitle_JsonNullable() {
-    return originRoomTitle;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_ORIGIN_ROOM_TITLE)
-  public void setOriginRoomTitle_JsonNullable(JsonNullable<String> originRoomTitle) {
-    this.originRoomTitle = originRoomTitle;
-  }
-
   public void setOriginRoomTitle(@javax.annotation.Nullable String originRoomTitle) {
-    this.originRoomTitle = JsonNullable.<String>of(originRoomTitle);
+    this.originRoomTitle = originRoomTitle;
   }
 
   public FolderDtoString canShare(@javax.annotation.Nullable Boolean canShare) {
@@ -1196,8 +1105,8 @@ public class FolderDtoString {
   }
 
   public FolderDtoString requestToken(@javax.annotation.Nullable String requestToken) {
-    this.requestToken = JsonNullable.<String>of(requestToken);
     
+    this.requestToken = requestToken;
     return this;
   }
 
@@ -1205,30 +1114,23 @@ public class FolderDtoString {
    * The request token of the file entry.
    * @return requestToken
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REQUEST_TOKEN, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRequestToken() {
-        return requestToken.orElse(null);
+    return requestToken;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_REQUEST_TOKEN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getRequestToken_JsonNullable() {
-    return requestToken;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_REQUEST_TOKEN)
-  public void setRequestToken_JsonNullable(JsonNullable<String> requestToken) {
+  public void setRequestToken(@javax.annotation.Nullable String requestToken) {
     this.requestToken = requestToken;
   }
 
-  public void setRequestToken(@javax.annotation.Nullable String requestToken) {
-    this.requestToken = JsonNullable.<String>of(requestToken);
-  }
-
   public FolderDtoString external(@javax.annotation.Nullable Boolean external) {
-    this.external = JsonNullable.<Boolean>of(external);
     
+    this.external = external;
     return this;
   }
 
@@ -1236,25 +1138,18 @@ public class FolderDtoString {
    * Specifies if the folder can be accessed via an external link or not.
    * @return external
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTERNAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getExternal() {
-        return external.orElse(null);
+    return external;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_EXTERNAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Boolean> getExternal_JsonNullable() {
-    return external;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_EXTERNAL)
-  public void setExternal_JsonNullable(JsonNullable<Boolean> external) {
-    this.external = external;
-  }
-
   public void setExternal(@javax.annotation.Nullable Boolean external) {
-    this.external = JsonNullable.<Boolean>of(external);
+    this.external = external;
   }
 
   public FolderDtoString expirationDate(@javax.annotation.Nullable ApiDateTime expirationDate) {
@@ -1264,7 +1159,7 @@ public class FolderDtoString {
   }
 
   /**
-   * Get expirationDate
+   * Represents the expiration date of the file entry.
    * @return expirationDate
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
@@ -1282,8 +1177,8 @@ public class FolderDtoString {
   }
 
   public FolderDtoString isLinkExpired(@javax.annotation.Nullable Boolean isLinkExpired) {
-    this.isLinkExpired = JsonNullable.<Boolean>of(isLinkExpired);
     
+    this.isLinkExpired = isLinkExpired;
     return this;
   }
 
@@ -1291,25 +1186,18 @@ public class FolderDtoString {
    * Indicates whether the shareable link associated with the file or folder has expired.
    * @return isLinkExpired
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_LINK_EXPIRED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsLinkExpired() {
-        return isLinkExpired.orElse(null);
+    return isLinkExpired;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_IS_LINK_EXPIRED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Boolean> getIsLinkExpired_JsonNullable() {
-    return isLinkExpired;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_IS_LINK_EXPIRED)
-  public void setIsLinkExpired_JsonNullable(JsonNullable<Boolean> isLinkExpired) {
-    this.isLinkExpired = isLinkExpired;
-  }
-
   public void setIsLinkExpired(@javax.annotation.Nullable Boolean isLinkExpired) {
-    this.isLinkExpired = JsonNullable.<Boolean>of(isLinkExpired);
+    this.isLinkExpired = isLinkExpired;
   }
 
   public FolderDtoString parentId(@javax.annotation.Nullable String parentId) {
@@ -1520,7 +1408,7 @@ public class FolderDtoString {
   }
 
   /**
-   * Get logo
+   * The folder logo.
    * @return logo
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
@@ -1568,7 +1456,7 @@ public class FolderDtoString {
   }
 
   /**
-   * Get roomType
+   * The room type of the folder.
    * @return roomType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOM_TYPE, required = false)
@@ -1664,7 +1552,7 @@ public class FolderDtoString {
   }
 
   /**
-   * Get lifetime
+   * The room data lifetime settings of the folder.
    * @return lifetime
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIFETIME, required = false)
@@ -1688,7 +1576,7 @@ public class FolderDtoString {
   }
 
   /**
-   * Get watermark
+   * The watermark settings of the folder.
    * @return watermark
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WATERMARK, required = false)
@@ -1712,7 +1600,7 @@ public class FolderDtoString {
   }
 
   /**
-   * Get type
+   * The folder type.
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
@@ -1924,7 +1812,7 @@ public class FolderDtoString {
   }
 
   /**
-   * Get chatSettings
+   * The AI chat settings for the folder room. Contains configuration for AI provider, model selection, and custom prompts.  Only applicable to rooms with AI chat functionality enabled. Null if the room does not have chat settings configured.
    * @return chatSettings
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CHAT_SETTINGS, required = false)
@@ -1948,7 +1836,7 @@ public class FolderDtoString {
   }
 
   /**
-   * Get rootRoomType
+   * The room type of the root folder. Indicates the type of the parent room if the current folder is nested within a room hierarchy.  This property helps identify the context in which a nested folder exists.
    * @return rootRoomType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOT_ROOM_TYPE, required = false)
@@ -2067,7 +1955,7 @@ public class FolderDtoString {
       return false;
     }
     FolderDtoString folderDtoString = (FolderDtoString) o;
-    return equalsNullable(this.title, folderDtoString.title) &&
+    return Objects.equals(this.title, folderDtoString.title) &&
         Objects.equals(this.access, folderDtoString.access) &&
         Objects.equals(this.sharedBy, folderDtoString.sharedBy) &&
         Objects.equals(this.ownedBy, folderDtoString.ownedBy) &&
@@ -2075,7 +1963,7 @@ public class FolderDtoString {
         Objects.equals(this.sharedForUser, folderDtoString.sharedForUser) &&
         Objects.equals(this.sharedExternal, folderDtoString.sharedExternal) &&
         Objects.equals(this.parentShared, folderDtoString.parentShared) &&
-        equalsNullable(this.shortWebUrl, folderDtoString.shortWebUrl) &&
+        Objects.equals(this.shortWebUrl, folderDtoString.shortWebUrl) &&
         Objects.equals(this.created, folderDtoString.created) &&
         Objects.equals(this.createdBy, folderDtoString.createdBy) &&
         Objects.equals(this.updated, folderDtoString.updated) &&
@@ -2083,26 +1971,26 @@ public class FolderDtoString {
         Objects.equals(this.rootFolderType, folderDtoString.rootFolderType) &&
         Objects.equals(this.parentRoomType, folderDtoString.parentRoomType) &&
         Objects.equals(this.updatedBy, folderDtoString.updatedBy) &&
-        equalsNullable(this.providerItem, folderDtoString.providerItem) &&
-        equalsNullable(this.providerKey, folderDtoString.providerKey) &&
-        equalsNullable(this.providerId, folderDtoString.providerId) &&
-        equalsNullable(this.order, folderDtoString.order) &&
-        equalsNullable(this.isFavorite, folderDtoString.isFavorite) &&
+        Objects.equals(this.providerItem, folderDtoString.providerItem) &&
+        Objects.equals(this.providerKey, folderDtoString.providerKey) &&
+        Objects.equals(this.providerId, folderDtoString.providerId) &&
+        Objects.equals(this.order, folderDtoString.order) &&
+        Objects.equals(this.isFavorite, folderDtoString.isFavorite) &&
         Objects.equals(this.fileEntryType, folderDtoString.fileEntryType) &&
-        equalsNullable(this.id, folderDtoString.id) &&
-        equalsNullable(this.rootFolderId, folderDtoString.rootFolderId) &&
-        equalsNullable(this.originId, folderDtoString.originId) &&
-        equalsNullable(this.originRoomId, folderDtoString.originRoomId) &&
-        equalsNullable(this.originTitle, folderDtoString.originTitle) &&
-        equalsNullable(this.originRoomTitle, folderDtoString.originRoomTitle) &&
+        Objects.equals(this.id, folderDtoString.id) &&
+        Objects.equals(this.rootFolderId, folderDtoString.rootFolderId) &&
+        Objects.equals(this.originId, folderDtoString.originId) &&
+        Objects.equals(this.originRoomId, folderDtoString.originRoomId) &&
+        Objects.equals(this.originTitle, folderDtoString.originTitle) &&
+        Objects.equals(this.originRoomTitle, folderDtoString.originRoomTitle) &&
         Objects.equals(this.canShare, folderDtoString.canShare) &&
         equalsNullable(this.shareSettings, folderDtoString.shareSettings) &&
         equalsNullable(this.security, folderDtoString.security) &&
         equalsNullable(this.availableShareRights, folderDtoString.availableShareRights) &&
-        equalsNullable(this.requestToken, folderDtoString.requestToken) &&
-        equalsNullable(this.external, folderDtoString.external) &&
+        Objects.equals(this.requestToken, folderDtoString.requestToken) &&
+        Objects.equals(this.external, folderDtoString.external) &&
         Objects.equals(this.expirationDate, folderDtoString.expirationDate) &&
-        equalsNullable(this.isLinkExpired, folderDtoString.isLinkExpired) &&
+        Objects.equals(this.isLinkExpired, folderDtoString.isLinkExpired) &&
         equalsNullable(this.parentId, folderDtoString.parentId) &&
         Objects.equals(this.filesCount, folderDtoString.filesCount) &&
         Objects.equals(this.foldersCount, folderDtoString.foldersCount) &&
@@ -2138,7 +2026,7 @@ public class FolderDtoString {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(title), access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, hashCodeNullable(shortWebUrl), created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), fileEntryType, hashCodeNullable(id), hashCodeNullable(rootFolderId), hashCodeNullable(originId), hashCodeNullable(originRoomId), hashCodeNullable(originTitle), hashCodeNullable(originRoomTitle), canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), hashCodeNullable(requestToken), hashCodeNullable(external), expirationDate, hashCodeNullable(isLinkExpired), hashCodeNullable(parentId), filesCount, foldersCount, hashCodeNullable(isShareable), _new, mute, hashCodeNullable(tags), logo, pinned, roomType, _private, indexing, denyDownload, lifetime, watermark, type, hashCodeNullable(inRoom), hashCodeNullable(quotaLimit), hashCodeNullable(isCustomQuota), hashCodeNullable(usedSpace), hashCodeNullable(passwordProtected), hashCodeNullable(expired), chatSettings, rootRoomType, hashCodeNullable(saveFormAsXLSX), hashCodeNullable(sendFormToExternalDB), hashCodeNullable(originalFormId));
+    return Objects.hash(title, access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, shortWebUrl, created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, providerItem, providerKey, providerId, order, isFavorite, fileEntryType, id, rootFolderId, originId, originRoomId, originTitle, originRoomTitle, canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), requestToken, external, expirationDate, isLinkExpired, hashCodeNullable(parentId), filesCount, foldersCount, hashCodeNullable(isShareable), _new, mute, hashCodeNullable(tags), logo, pinned, roomType, _private, indexing, denyDownload, lifetime, watermark, type, hashCodeNullable(inRoom), hashCodeNullable(quotaLimit), hashCodeNullable(isCustomQuota), hashCodeNullable(usedSpace), hashCodeNullable(passwordProtected), hashCodeNullable(expired), chatSettings, rootRoomType, hashCodeNullable(saveFormAsXLSX), hashCodeNullable(sendFormToExternalDB), hashCodeNullable(originalFormId));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

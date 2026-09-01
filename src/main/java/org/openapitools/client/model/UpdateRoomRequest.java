@@ -236,7 +236,7 @@ public class UpdateRoomRequest {
   }
 
   /**
-   * Get lifetime
+   * The room data lifetime information.
    * @return lifetime
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIFETIME, required = false)
@@ -260,7 +260,7 @@ public class UpdateRoomRequest {
   }
 
   /**
-   * Get watermark
+   * The watermark settings.
    * @return watermark
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WATERMARK, required = false)
@@ -284,7 +284,7 @@ public class UpdateRoomRequest {
   }
 
   /**
-   * Get logo
+   * The room logo.
    * @return logo
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
@@ -351,7 +351,7 @@ public class UpdateRoomRequest {
   }
 
   /**
-   * The room color.
+   * The room color, as a six-digit hexadecimal value without a leading '#'.
    * @return color
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -413,7 +413,7 @@ public class UpdateRoomRequest {
   }
 
   /**
-   * Get chatSettings
+   * The chat settings.
    * @return chatSettings
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CHAT_SETTINGS, required = false)

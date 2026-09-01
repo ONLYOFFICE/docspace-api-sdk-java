@@ -159,7 +159,7 @@ public class CreateRoomFromTemplateDto {
   }
 
   /**
-   * Get logo
+   * The logo request parameters.
    * @return logo
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
@@ -405,7 +405,7 @@ public class CreateRoomFromTemplateDto {
   }
 
   /**
-   * Get lifetime
+   * The room data lifetime information.
    * @return lifetime
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIFETIME, required = false)
@@ -429,7 +429,7 @@ public class CreateRoomFromTemplateDto {
   }
 
   /**
-   * Get watermark
+   * The request parameters for adding watermarks.
    * @return watermark
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WATERMARK, required = false)

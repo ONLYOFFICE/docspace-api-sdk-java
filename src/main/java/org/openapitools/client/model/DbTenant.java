@@ -432,7 +432,7 @@ public class DbTenant {
   }
 
   /**
-   * Get trustedDomainsEnabled
+   * The type of the tenant trusted domains.
    * @return trustedDomainsEnabled
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRUSTED_DOMAINS_ENABLED, required = false)
@@ -456,7 +456,7 @@ public class DbTenant {
   }
 
   /**
-   * Get status
+   * The tenant status.
    * @return status
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
@@ -621,7 +621,7 @@ public class DbTenant {
   }
 
   /**
-   * Get industry
+   * The tenant industry.
    * @return industry
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INDUSTRY, required = false)
@@ -693,7 +693,7 @@ public class DbTenant {
   }
 
   /**
-   * Get partner
+   * The database tenant partner parameters.
    * @return partner
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PARTNER, required = false)

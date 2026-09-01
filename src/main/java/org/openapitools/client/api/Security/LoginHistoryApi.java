@@ -25,9 +25,10 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.ApiDateTime;
+import org.openapitools.client.model.AuditReportFormat;
+import org.openapitools.client.model.DocumentBuilderTaskWrapper;
 import org.openapitools.client.model.LoginEventArrayWrapper;
 import org.openapitools.client.model.MessageAction;
-import org.openapitools.client.model.StringWrapper;
 import java.util.UUID;
 
 
@@ -61,32 +62,34 @@ public class LoginHistoryApi extends BaseApi {
   }
 
   /**
-   * Generate the login history report
-   * Generates the login history report.
+   * Start the login history report generation
+   * Starts generating the login history report (XLSX by default, or CSV) and saves it to My documents.
    *
    * REST API Reference for createLoginHistoryReport Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/
    *
-   * @return StringWrapper
+   * @param format The output file format of the report. Defaults to XLSX. (optional)
+   * @return DocumentBuilderTaskWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper createLoginHistoryReport() throws ApiException {
-    return this.createLoginHistoryReport(Collections.emptyMap());
+  public DocumentBuilderTaskWrapper createLoginHistoryReport(@javax.annotation.Nullable AuditReportFormat format) throws ApiException {
+    return this.createLoginHistoryReport(format, Collections.emptyMap());
   }
 
 
   /**
-   * Generate the login history report
-   * Generates the login history report.
+   * Start the login history report generation
+   * Starts generating the login history report (XLSX by default, or CSV) and saves it to My documents.
    *
    * REST API Reference for createLoginHistoryReport Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/
    *
+   * @param format The output file format of the report. Defaults to XLSX. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return StringWrapper
+   * @return DocumentBuilderTaskWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper createLoginHistoryReport(Map<String, String> additionalHeaders) throws ApiException {
+  public DocumentBuilderTaskWrapper createLoginHistoryReport(@javax.annotation.Nullable AuditReportFormat format, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -100,6 +103,7 @@ public class LoginHistoryApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPair("format", format));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -118,7 +122,7 @@ public class LoginHistoryApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<StringWrapper> localVarReturnType = new TypeReference<StringWrapper>() {};
+    TypeReference<DocumentBuilderTaskWrapper> localVarReturnType = new TypeReference<DocumentBuilderTaskWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -310,6 +314,155 @@ public class LoginHistoryApi extends BaseApi {
     );
   }
 
+  /**
+   * Get the login history report generation status
+   * Returns the status of generating the login history report.
+   *
+   * REST API Reference for getLoginHistoryReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-history-report/
+   *
+   * @return DocumentBuilderTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentBuilderTaskWrapper getLoginHistoryReport() throws ApiException {
+    return this.getLoginHistoryReport(Collections.emptyMap());
+  }
+
+
+  /**
+   * Get the login history report generation status
+   * Returns the status of generating the login history report.
+   *
+   * REST API Reference for getLoginHistoryReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-history-report/
+   *
+   * @param additionalHeaders additionalHeaders for this call
+   * @return DocumentBuilderTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentBuilderTaskWrapper getLoginHistoryReport(Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/security/audit/login/report";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<DocumentBuilderTaskWrapper> localVarReturnType = new TypeReference<DocumentBuilderTaskWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Terminate the login history report generation
+   * Terminates generating the login history report.
+   *
+   * REST API Reference for terminateLoginHistoryReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-login-history-report/
+   *
+   * @throws ApiException if fails to make API call
+   */
+  public void terminateLoginHistoryReport() throws ApiException {
+    this.terminateLoginHistoryReport(Collections.emptyMap());
+  }
+
+
+  /**
+   * Terminate the login history report generation
+   * Terminates generating the login history report.
+   *
+   * REST API Reference for terminateLoginHistoryReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-login-history-report/
+   *
+   * @param additionalHeaders additionalHeaders for this call
+   * @throws ApiException if fails to make API call
+   */
+  public void terminateLoginHistoryReport(Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/security/audit/login/report";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    apiClient.invokeAPI(
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null
+    );
+  }
+
   @Override
   public <T> T invokeAPI(String url, String method, Object request, TypeReference<T> returnType, Map<String, String> additionalHeaders) throws ApiException {
     String localVarPath = url.replace(apiClient.getBaseURL(), "");
@@ -323,7 +476,7 @@ public class LoginHistoryApi extends BaseApi {
     localVarHeaderParams.putAll(additionalHeaders);
 
     final String[] localVarAccepts = {
-      "application/json"
+      
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

@@ -8,7 +8,7 @@ The Telegram connection status parameters.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **RegStatus** |  |  |
+|**status** | **RegStatus** | The registration Telegram status. |  |
 |**username** | **String** | The Telegram username. |  [optional] |
 
 

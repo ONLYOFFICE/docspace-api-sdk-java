@@ -138,7 +138,7 @@ public class EditHistoryDataDto {
   }
 
   /**
-   * Get previous
+   * The object of the previous version of the document.
    * @return previous
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PREVIOUS, required = false)

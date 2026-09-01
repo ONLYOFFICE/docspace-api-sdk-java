@@ -256,7 +256,7 @@ public class GroupDto {
   }
 
   /**
-   * Get manager
+   * The group manager full information.
    * @return manager
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MANAGER, required = false)

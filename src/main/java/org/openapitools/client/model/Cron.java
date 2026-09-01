@@ -66,7 +66,7 @@ public class Cron {
   }
 
   /**
-   * Get period
+   * The backup period type.
    * @return period
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PERIOD, required = false)

@@ -13,7 +13,7 @@
 |**displayName** | **String** |  |  [optional] |
 |**firstName** | **String** |  |  [optional] |
 |**lastName** | **String** |  |  [optional] |
-|**userType** | **EmployeeType** |  |  [optional] |
+|**userType** | **EmployeeType** | The user type. |  [optional] |
 |**migratingFiles** | [**MigratingApiFiles**](MigratingApiFiles.md) |  |  [optional] |
 
 

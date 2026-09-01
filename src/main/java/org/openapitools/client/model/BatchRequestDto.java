@@ -226,7 +226,7 @@ public class BatchRequestDto {
   }
 
   /**
-   * Get conflictResolveType
+   * The overwriting behavior of the file copying or moving.
    * @return conflictResolveType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONFLICT_RESOLVE_TYPE, required = false)

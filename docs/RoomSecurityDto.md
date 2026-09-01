@@ -10,7 +10,7 @@ The room security parameters.
 |------------ | ------------- | ------------- | -------------|
 |**members** | [**List&lt;FileShareDto&gt;**](FileShareDto.md) | The list of room members. |  [optional] |
 |**warning** | **String** | The warning message. |  [optional] |
-|**error** | **RoomSecurityError** |  |  [optional] |
+|**error** | **RoomSecurityError** | The error type. |  [optional] |
 
 
 

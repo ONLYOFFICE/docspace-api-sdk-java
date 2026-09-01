@@ -243,10 +243,6 @@
 
 * `StartStorageEncryption` (value: `5050`)
 
-* `PrivacyRoomEnable` (value: `5051`)
-
-* `PrivacyRoomDisable` (value: `5052`)
-
 * `StartStorageDecryption` (value: `5053`)
 
 * `FileOpenedForChange` (value: `5054`)
@@ -429,6 +425,12 @@
 
 * `DocumentsDefaultTemplatesSettingsUpdated` (value: `5160`)
 
+* `PrivacyRoomKeyCreated` (value: `5161`)
+
+* `PrivacyRoomKeyUpdated` (value: `5162`)
+
+* `PrivacyRoomKeyDeleted` (value: `5163`)
+
 * `FileSavedButUserQuotaExceeded` (value: `5201`)
 
 * `FileNotSavedDueToUserQuota` (value: `5202`)
@@ -436,6 +438,10 @@
 * `FileSavedButRoomQuotaExceeded` (value: `5203`)
 
 * `FileNotSavedDueToRoomQuota` (value: `5204`)
+
+* `FileSavedButTenantQuotaExceeded` (value: `5205`)
+
+* `FileNotSavedDueToTenantQuota` (value: `5206`)
 
 * `LdapEnabled` (value: `5501`)
 
@@ -642,6 +648,26 @@
 * `AIAccessDisabled` (value: `6098`)
 
 * `UserUpdatedAiSettings` (value: `6099`)
+
+* `SubscriptionBalanceMovedToWallet` (value: `6100`)
+
+* `DocsCloudConfigUpdated` (value: `6101`)
+
+* `DocsCloudQuotaReportDownloaded` (value: `6102`)
+
+* `AiProfileCreated` (value: `6103`)
+
+* `AiProfileUpdated` (value: `6104`)
+
+* `AiProfileDeleted` (value: `6105`)
+
+* `AiProfileAssigned` (value: `6106`)
+
+* `AiProfileUnassigned` (value: `6107`)
+
+* `AiAgentProfileAssigned` (value: `6108`)
+
+* `UpdatedServerOfAgent` (value: `6109`)
 
 * `ContactAdminMailSent` (value: `7000`)
 

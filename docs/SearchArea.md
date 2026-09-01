@@ -21,5 +21,9 @@
 
 * `AiAgents` (value: `7`)
 
+* `Forms` (value: `8`)
+
+* `FormTemplates` (value: `9`)
+
 
 

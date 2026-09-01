@@ -58,7 +58,7 @@ public class NotificationSettingsDto {
   }
 
   /**
-   * Get type
+   * The notification type.
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)

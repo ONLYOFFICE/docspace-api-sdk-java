@@ -178,7 +178,7 @@ public class DocumentBuilderTaskDto {
   }
 
   /**
-   * Get status
+   * The status of the document building process.
    * @return status
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)
@@ -202,7 +202,7 @@ public class DocumentBuilderTaskDto {
   }
 
   /**
-   * The result file ID.
+   * Get resultFileId
    * @return resultFileId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESULT_FILE_ID, required = false)

@@ -72,7 +72,7 @@ public class WhiteLabelItemDto {
   }
 
   /**
-   * Get type
+   * The white label logo type.
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
@@ -127,7 +127,7 @@ public class WhiteLabelItemDto {
   }
 
   /**
-   * Get size
+   * The white label file size.
    * @return size
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SIZE, required = false)
@@ -151,7 +151,7 @@ public class WhiteLabelItemDto {
   }
 
   /**
-   * Get path
+   * The white label file path.
    * @return path
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PATH, required = false)

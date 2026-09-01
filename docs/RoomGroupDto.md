@@ -10,7 +10,7 @@ The room security parameters.
 |------------ | ------------- | ------------- | -------------|
 |**id** | **Integer** | The group ID. |  [optional] |
 |**name** | **String** | Group name |  [optional] |
-|**icon** | [**MultiSizeLogoCover**](MultiSizeLogoCover.md) |  |  [optional] |
+|**icon** | [**MultiSizeLogoCover**](MultiSizeLogoCover.md) | Group icon |  [optional] |
 |**userId** | **UUID** | The user ID. |  [optional] |
 |**rooms** | [**List&lt;FileEntryBaseDto&gt;**](FileEntryBaseDto.md) | The list of rooms in the group. |  [optional] |
 |**totalRooms** | **Integer** | Total number of rooms in the group. |  [optional] |

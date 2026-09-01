@@ -29,6 +29,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.AiChatModelPricing;
 import org.openapitools.client.model.AiEmbeddingModelPricing;
+import org.openapitools.client.model.AiImageModelPricing;
 import org.openapitools.client.model.AiWebSearchPricing;
 import org.openapitools.client.model.CurrencyInfo;
 
@@ -44,7 +45,8 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   AiPricesResponse.JSON_PROPERTY_CHAT,
   AiPricesResponse.JSON_PROPERTY_EMBEDDING,
-  AiPricesResponse.JSON_PROPERTY_WEB_SEARCH,
+  AiPricesResponse.JSON_PROPERTY_IMAGE,
+  AiPricesResponse.JSON_PROPERTY_SEARCH,
   AiPricesResponse.JSON_PROPERTY_CURRENCY
 })
 
@@ -55,8 +57,11 @@ public class AiPricesResponse {
   public static final String JSON_PROPERTY_EMBEDDING = "embedding";
   @javax.annotation.Nullable  private List<AiEmbeddingModelPricing> embedding;
 
-  public static final String JSON_PROPERTY_WEB_SEARCH = "webSearch";
-  @javax.annotation.Nonnull  private AiWebSearchPricing webSearch;
+  public static final String JSON_PROPERTY_IMAGE = "image";
+  @javax.annotation.Nullable  private List<AiImageModelPricing> image;
+
+  public static final String JSON_PROPERTY_SEARCH = "search";
+  @javax.annotation.Nullable  private List<AiWebSearchPricing> search;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   @javax.annotation.Nonnull  private CurrencyInfo currency;
@@ -129,28 +134,68 @@ public class AiPricesResponse {
     this.embedding = embedding;
   }
 
-  public AiPricesResponse webSearch(@javax.annotation.Nonnull AiWebSearchPricing webSearch) {
+  public AiPricesResponse image(@javax.annotation.Nullable List<AiImageModelPricing> image) {
     
-    this.webSearch = webSearch;
+    this.image = image;
+    return this;
+  }
+
+  public AiPricesResponse addImageItem(AiImageModelPricing imageItem) {
+    if (this.image == null) {
+      this.image = new ArrayList<>();
+    }
+    this.image.add(imageItem);
     return this;
   }
 
   /**
-   * Get webSearch
-   * @return webSearch
+   * Get image
+   * @return image
    */
-  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_WEB_SEARCH, required = true)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public AiWebSearchPricing getWebSearch() {
-    return webSearch;
+  public List<AiImageModelPricing> getImage() {
+    return image;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_WEB_SEARCH, required = true)
+  @JsonProperty(value = JSON_PROPERTY_IMAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWebSearch(@javax.annotation.Nonnull AiWebSearchPricing webSearch) {
-    this.webSearch = webSearch;
+  public void setImage(@javax.annotation.Nullable List<AiImageModelPricing> image) {
+    this.image = image;
+  }
+
+  public AiPricesResponse search(@javax.annotation.Nullable List<AiWebSearchPricing> search) {
+    
+    this.search = search;
+    return this;
+  }
+
+  public AiPricesResponse addSearchItem(AiWebSearchPricing searchItem) {
+    if (this.search == null) {
+      this.search = new ArrayList<>();
+    }
+    this.search.add(searchItem);
+    return this;
+  }
+
+  /**
+   * Get search
+   * @return search
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SEARCH, required = false)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<AiWebSearchPricing> getSearch() {
+    return search;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SEARCH, required = false)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setSearch(@javax.annotation.Nullable List<AiWebSearchPricing> search) {
+    this.search = search;
   }
 
   public AiPricesResponse currency(@javax.annotation.Nonnull CurrencyInfo currency) {
@@ -188,13 +233,14 @@ public class AiPricesResponse {
     AiPricesResponse aiPricesResponse = (AiPricesResponse) o;
     return Objects.equals(this.chat, aiPricesResponse.chat) &&
         Objects.equals(this.embedding, aiPricesResponse.embedding) &&
-        Objects.equals(this.webSearch, aiPricesResponse.webSearch) &&
+        Objects.equals(this.image, aiPricesResponse.image) &&
+        Objects.equals(this.search, aiPricesResponse.search) &&
         Objects.equals(this.currency, aiPricesResponse.currency);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chat, embedding, webSearch, currency);
+    return Objects.hash(chat, embedding, image, search, currency);
   }
 
   @Override
@@ -203,7 +249,8 @@ public class AiPricesResponse {
     sb.append("class AiPricesResponse {\n");
     sb.append("    chat: ").append(toIndentedString(chat)).append("\n");
     sb.append("    embedding: ").append(toIndentedString(embedding)).append("\n");
-    sb.append("    webSearch: ").append(toIndentedString(webSearch)).append("\n");
+    sb.append("    image: ").append(toIndentedString(image)).append("\n");
+    sb.append("    search: ").append(toIndentedString(search)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -272,9 +319,24 @@ public class AiPricesResponse {
       }
     }
 
-    // add `webSearch` to the URL query string
-    if (getWebSearch() != null) {
-      joiner.add(getWebSearch().toUrlQueryString(prefix + "webSearch" + suffix));
+    // add `image` to the URL query string
+    if (getImage() != null) {
+      for (int i = 0; i < getImage().size(); i++) {
+        if (getImage().get(i) != null) {
+          joiner.add(getImage().get(i).toUrlQueryString(String.format("%simage%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `search` to the URL query string
+    if (getSearch() != null) {
+      for (int i = 0; i < getSearch().size(); i++) {
+        if (getSearch().get(i) != null) {
+          joiner.add(getSearch().get(i).toUrlQueryString(String.format("%ssearch%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
     }
 
     // add `currency` to the URL query string

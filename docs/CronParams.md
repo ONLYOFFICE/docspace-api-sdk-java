@@ -8,7 +8,7 @@ The backup cron parameters.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**period** | **BackupPeriod** |  |  [optional] |
+|**period** | **BackupPeriod** | The backup period type. |  [optional] |
 |**hour** | **Integer** | The time of the day to start the backup process. |  [optional] |
 |**day** | **Integer** | The day of the week to start the backup process. |  [optional] |
 

@@ -62,7 +62,7 @@ public class NewItemsDtoRoomNewItemsDto {
   }
 
   /**
-   * Get date
+   * The date and time when the new item was created.
    * @return date
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DATE, required = true)

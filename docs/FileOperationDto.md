@@ -9,7 +9,7 @@ The file operation information.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** | The file operation ID. |  |
-|**operation** | **FileOperationType** |  |  |
+|**operation** | **FileOperationType** | The file operation type. |  |
 |**progress** | **Integer** | The file operation progress in percentage. |  |
 |**error** | **String** | The file operation error message. |  |
 |**processed** | **String** | The file operation processing status. |  |
@@ -17,7 +17,7 @@ The file operation information.
 |**url** | **URI** | The file operation URL. |  [optional] |
 |**files** | [**List&lt;FileEntryBaseDto&gt;**](FileEntryBaseDto.md) | The list of files of the file operation. |  [optional] |
 |**folders** | [**List&lt;FileEntryBaseDto&gt;**](FileEntryBaseDto.md) | The list of folders of the file operation. |  [optional] |
-|**status** | **DistributedTaskStatus** |  |  [optional] |
+|**status** | **DistributedTaskStatus** | The status of the distributed task related to the file operation. |  [optional] |
 
 
 

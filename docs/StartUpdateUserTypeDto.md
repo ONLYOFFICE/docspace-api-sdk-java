@@ -8,7 +8,7 @@ The parameters for updating the type of the user or guest when reassigning rooms
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**type** | **EmployeeType** |  |  [optional] |
+|**type** | **EmployeeType** | The user type. |  [optional] |
 |**userId** | **UUID** | The user ID. |  [optional] |
 |**reassignUserId** | **UUID** | The user ID to reassign. |  [optional] |
 

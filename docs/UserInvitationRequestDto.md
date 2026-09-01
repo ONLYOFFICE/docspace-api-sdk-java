@@ -9,7 +9,7 @@ The user invitation parameters.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**email** | **String** | The email address. |  [optional] |
-|**type** | **EmployeeType** |  |  [optional] |
+|**type** | **EmployeeType** | The user type. |  [optional] |
 
 
 

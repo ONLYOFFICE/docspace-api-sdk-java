@@ -86,7 +86,7 @@ public class OrdersItemRequestDtoInteger {
   }
 
   /**
-   * Get entryType
+   * The entry type (file or folder).
    * @return entryType
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ENTRY_TYPE, required = true)

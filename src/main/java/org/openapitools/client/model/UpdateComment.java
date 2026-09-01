@@ -62,6 +62,8 @@ public class UpdateComment {
 
   /**
    * The comment version.
+   * minimum: 1
+   * maximum: 2147483647
    * @return version
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_VERSION, required = true)

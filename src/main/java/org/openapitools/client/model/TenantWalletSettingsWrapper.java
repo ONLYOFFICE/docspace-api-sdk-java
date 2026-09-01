@@ -54,7 +54,7 @@ public class TenantWalletSettingsWrapper {
   }
 
   /**
-   * Get settings
+   * The tenant wallet settings.
    * @return settings
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = false)

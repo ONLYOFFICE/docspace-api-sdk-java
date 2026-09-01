@@ -129,7 +129,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * Get customer
+   * The customization customer configuration.
    * @return customer
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CUSTOMER, required = false)
@@ -153,7 +153,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * Get anonymous
+   * The anonymous configuration of the customization.
    * @return anonymous
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ANONYMOUS, required = false)
@@ -177,7 +177,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * Get feedback
+   * The settings for the Feedback & Support menu button.
    * @return feedback
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FEEDBACK, required = false)
@@ -232,7 +232,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * Get goback
+   * The settings for the Open file location menu button and upper right corner button.
    * @return goback
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GOBACK, required = false)
@@ -256,7 +256,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * Get review
+   * Configuration for review display settings.
    * @return review
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REVIEW, required = false)
@@ -280,7 +280,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * Get logo
+   * The logo of the customization.
    * @return logo
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
@@ -328,7 +328,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * Get submitForm
+   * The Complete & Submit button settings.
    * @return submitForm
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SUBMIT_FORM, required = false)
@@ -352,7 +352,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * Get startFillingForm
+   * The parameters of the button that starts filling out the form.
    * @return startFillingForm
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_START_FILLING_FORM, required = false)

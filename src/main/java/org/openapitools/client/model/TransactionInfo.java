@@ -25,10 +25,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -40,24 +36,72 @@ import java.util.StringJoiner;
  * Represents information about the transaction applied to an account.
  */
 @JsonPropertyOrder({
-  TransactionInfo.JSON_PROPERTY_DATE,
   TransactionInfo.JSON_PROPERTY_CURRENCY,
-  TransactionInfo.JSON_PROPERTY_AMOUNT
+  TransactionInfo.JSON_PROPERTY_AMOUNT,
+  TransactionInfo.JSON_PROPERTY_DATE
 })
 
 public class TransactionInfo {
-  public static final String JSON_PROPERTY_DATE = "date";
-  @javax.annotation.Nullable  private OffsetDateTime date;
-
   public static final String JSON_PROPERTY_CURRENCY = "currency";
-  @javax.annotation.Nullable  private JsonNullable<String> currency = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String currency;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   @javax.annotation.Nullable  private Double amount;
 
+  public static final String JSON_PROPERTY_DATE = "date";
+  @javax.annotation.Nullable  private OffsetDateTime date;
+
   public TransactionInfo() {
   }
 
+
+  public TransactionInfo currency(@javax.annotation.Nullable String currency) {
+    
+    this.currency = currency;
+    return this;
+  }
+
+  /**
+   * The three-character ISO 4217 currency symbol.
+   * @return currency
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CURRENCY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCurrency() {
+    return currency;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CURRENCY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCurrency(@javax.annotation.Nullable String currency) {
+    this.currency = currency;
+  }
+
+  public TransactionInfo amount(@javax.annotation.Nullable Double amount) {
+    
+    this.amount = amount;
+    return this;
+  }
+
+  /**
+   * The amount in the specified currency.
+   * @return amount
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AMOUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Double getAmount() {
+    return amount;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_AMOUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAmount(@javax.annotation.Nullable Double amount) {
+    this.amount = amount;
+  }
 
   public TransactionInfo date(@javax.annotation.Nullable OffsetDateTime date) {
     
@@ -83,61 +127,6 @@ public class TransactionInfo {
     this.date = date;
   }
 
-  public TransactionInfo currency(@javax.annotation.Nullable String currency) {
-    this.currency = JsonNullable.<String>of(currency);
-    
-    return this;
-  }
-
-  /**
-   * The three-character ISO 4217 currency symbol of the transaction.
-   * @return currency
-   */
-  @javax.annotation.Nullable  @JsonIgnore
-
-  public String getCurrency() {
-        return currency.orElse(null);
-  }
-
-  @JsonProperty(value = JSON_PROPERTY_CURRENCY, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getCurrency_JsonNullable() {
-    return currency;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
-  public void setCurrency_JsonNullable(JsonNullable<String> currency) {
-    this.currency = currency;
-  }
-
-  public void setCurrency(@javax.annotation.Nullable String currency) {
-    this.currency = JsonNullable.<String>of(currency);
-  }
-
-  public TransactionInfo amount(@javax.annotation.Nullable Double amount) {
-    
-    this.amount = amount;
-    return this;
-  }
-
-  /**
-   * Amount of the transaction.
-   * @return amount
-   */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AMOUNT, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Double getAmount() {
-    return amount;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_AMOUNT, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAmount(@javax.annotation.Nullable Double amount) {
-    this.amount = amount;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -147,34 +136,23 @@ public class TransactionInfo {
       return false;
     }
     TransactionInfo transactionInfo = (TransactionInfo) o;
-    return Objects.equals(this.date, transactionInfo.date) &&
-        equalsNullable(this.currency, transactionInfo.currency) &&
-        Objects.equals(this.amount, transactionInfo.amount);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.currency, transactionInfo.currency) &&
+        Objects.equals(this.amount, transactionInfo.amount) &&
+        Objects.equals(this.date, transactionInfo.date);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, hashCodeNullable(currency), amount);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(currency, amount, date);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransactionInfo {\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -222,16 +200,6 @@ public class TransactionInfo {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `date` to the URL query string
-    if (getDate() != null) {
-      try {
-        joiner.add(String.format("%sdate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDate()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
     // add `currency` to the URL query string
     if (getCurrency() != null) {
       try {
@@ -246,6 +214,16 @@ public class TransactionInfo {
     if (getAmount() != null) {
       try {
         joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAmount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `date` to the URL query string
+    if (getDate() != null) {
+      try {
+        joiner.add(String.format("%sdate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDate()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

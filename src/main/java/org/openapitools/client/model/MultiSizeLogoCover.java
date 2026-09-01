@@ -46,7 +46,7 @@ public class MultiSizeLogoCover {
   @javax.annotation.Nullable  private String id;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  @javax.annotation.Nullable  private Map<String, String> data;
+  @javax.annotation.Nonnull  private Map<String, String> data = new HashMap<>();
 
   public MultiSizeLogoCover() {
   }
@@ -76,7 +76,7 @@ public class MultiSizeLogoCover {
     this.id = id;
   }
 
-  public MultiSizeLogoCover data(@javax.annotation.Nullable Map<String, String> data) {
+  public MultiSizeLogoCover data(@javax.annotation.Nonnull Map<String, String> data) {
     
     this.data = data;
     return this;
@@ -91,7 +91,7 @@ public class MultiSizeLogoCover {
    * The logo cover data.
    * @return data
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATA, required = false)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DATA, required = true)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
 
   public Map<String, String> getData() {
@@ -99,9 +99,9 @@ public class MultiSizeLogoCover {
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_DATA, required = false)
+  @JsonProperty(value = JSON_PROPERTY_DATA, required = true)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
-  public void setData(@javax.annotation.Nullable Map<String, String> data) {
+  public void setData(@javax.annotation.Nonnull Map<String, String> data) {
     this.data = data;
   }
 

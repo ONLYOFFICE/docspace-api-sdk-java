@@ -248,7 +248,7 @@ public class FireBaseUser {
   }
 
   /**
-   * Get tenant
+   * The database tenant parameters.
    * @return tenant
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT, required = false)

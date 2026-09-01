@@ -58,7 +58,7 @@ public class WebhooksConfigWithStatusDto {
   }
 
   /**
-   * Get configs
+   * The webhook configuration.
    * @return configs
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONFIGS, required = false)

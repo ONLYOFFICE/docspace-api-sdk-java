@@ -14,8 +14,8 @@ The backup progress parameters.
 |**warning** | **String** | The backup warning message. |  [optional] |
 |**link** | **String** | The backup link. |  [optional] |
 |**tenantId** | **Integer** | The tenant ID. |  [optional] |
-|**backupProgressEnum** | **BackupProgressEnum** |  |  [optional] |
-|**status** | **DistributedTaskStatus** |  |  [optional] |
+|**backupProgressEnum** | **BackupProgressEnum** | The backup progress type. |  [optional] |
+|**status** | **DistributedTaskStatus** | The backup progress status. |  [optional] |
 |**taskId** | **String** | The task ID. |  [optional] |
 
 

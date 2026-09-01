@@ -89,6 +89,7 @@ import java.util.StringJoiner;
   SettingsDto.JSON_PROPERTY_LIMITED_ACCESS_DEV_TOOLS_FOR_USERS,
   SettingsDto.JSON_PROPERTY_DISPLAY_BANNERS,
   SettingsDto.JSON_PROPERTY_AI_ENABLED,
+  SettingsDto.JSON_PROPERTY_WALLET_LOW_BALANCE,
   SettingsDto.JSON_PROPERTY_USER_NAME_REGEX,
   SettingsDto.JSON_PROPERTY_INVITATION_LIMIT,
   SettingsDto.JSON_PROPERTY_PLUGINS,
@@ -207,6 +208,9 @@ public class SettingsDto {
   public static final String JSON_PROPERTY_AI_ENABLED = "aiEnabled";
   @javax.annotation.Nullable  private Boolean aiEnabled;
 
+  public static final String JSON_PROPERTY_WALLET_LOW_BALANCE = "walletLowBalance";
+  @javax.annotation.Nullable  private JsonNullable<Boolean> walletLowBalance = JsonNullable.<Boolean>undefined();
+
   public static final String JSON_PROPERTY_USER_NAME_REGEX = "userNameRegex";
   @javax.annotation.Nullable  private JsonNullable<String> userNameRegex = JsonNullable.<String>undefined();
 
@@ -322,7 +326,7 @@ public class SettingsDto {
   }
 
   /**
-   * Get trustedDomainsType
+   * The type of the tenant trusted domains.
    * @return trustedDomainsType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRUSTED_DOMAINS_TYPE, required = false)
@@ -724,7 +728,7 @@ public class SettingsDto {
   }
 
   /**
-   * Get passwordHash
+   * The password hash.
    * @return passwordHash
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PASSWORD_HASH, required = false)
@@ -748,7 +752,7 @@ public class SettingsDto {
   }
 
   /**
-   * Get firebase
+   * The Firebase parameters.
    * @return firebase
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FIREBASE, required = false)
@@ -803,7 +807,7 @@ public class SettingsDto {
   }
 
   /**
-   * Get recaptchaType
+   * The type of CAPTCHA validation used.
    * @return recaptchaType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RECAPTCHA_TYPE, required = false)
@@ -913,7 +917,7 @@ public class SettingsDto {
   }
 
   /**
-   * Get tenantStatus
+   * The tenant status.
    * @return tenantStatus
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT_STATUS, required = false)
@@ -992,7 +996,7 @@ public class SettingsDto {
   }
 
   /**
-   * Get domainValidator
+   * The domain validator.
    * @return domainValidator
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOMAIN_VALIDATOR, required = false)
@@ -1191,6 +1195,37 @@ public class SettingsDto {
     this.aiEnabled = aiEnabled;
   }
 
+  public SettingsDto walletLowBalance(@javax.annotation.Nullable Boolean walletLowBalance) {
+    this.walletLowBalance = JsonNullable.<Boolean>of(walletLowBalance);
+    
+    return this;
+  }
+
+  /**
+   * Specifies whether the tenant wallet balance is currently below the low-balance threshold. Only returned to portal administrators.
+   * @return walletLowBalance
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Boolean getWalletLowBalance() {
+        return walletLowBalance.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_WALLET_LOW_BALANCE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Boolean> getWalletLowBalance_JsonNullable() {
+    return walletLowBalance;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WALLET_LOW_BALANCE)
+  public void setWalletLowBalance_JsonNullable(JsonNullable<Boolean> walletLowBalance) {
+    this.walletLowBalance = walletLowBalance;
+  }
+
+  public void setWalletLowBalance(@javax.annotation.Nullable Boolean walletLowBalance) {
+    this.walletLowBalance = JsonNullable.<Boolean>of(walletLowBalance);
+  }
+
   public SettingsDto userNameRegex(@javax.annotation.Nullable String userNameRegex) {
     this.userNameRegex = JsonNullable.<String>of(userNameRegex);
     
@@ -1260,7 +1295,7 @@ public class SettingsDto {
   }
 
   /**
-   * Get plugins
+   * The plugins settings.
    * @return plugins
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PLUGINS, required = false)
@@ -1284,7 +1319,7 @@ public class SettingsDto {
   }
 
   /**
-   * Get deepLink
+   * The deep link settings.
    * @return deepLink
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DEEP_LINK, required = true)
@@ -1308,7 +1343,7 @@ public class SettingsDto {
   }
 
   /**
-   * Get formGallery
+   * The form gallery settings.
    * @return formGallery
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FORM_GALLERY, required = false)
@@ -1387,7 +1422,7 @@ public class SettingsDto {
   }
 
   /**
-   * Get externalResources
+   * The external resources settings.
    * @return externalResources
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_RESOURCES, required = false)
@@ -1411,7 +1446,7 @@ public class SettingsDto {
   }
 
   /**
-   * Get defaultFolderType
+   * The folder type.
    * @return defaultFolderType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEFAULT_FOLDER_TYPE, required = false)
@@ -1496,6 +1531,7 @@ public class SettingsDto {
         Objects.equals(this.limitedAccessDevToolsForUsers, settingsDto.limitedAccessDevToolsForUsers) &&
         Objects.equals(this.displayBanners, settingsDto.displayBanners) &&
         Objects.equals(this.aiEnabled, settingsDto.aiEnabled) &&
+        equalsNullable(this.walletLowBalance, settingsDto.walletLowBalance) &&
         equalsNullable(this.userNameRegex, settingsDto.userNameRegex) &&
         equalsNullable(this.invitationLimit, settingsDto.invitationLimit) &&
         Objects.equals(this.plugins, settingsDto.plugins) &&
@@ -1514,7 +1550,7 @@ public class SettingsDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(timezone), hashCodeNullable(trustedDomains), trustedDomainsType, culture, utcOffset, utcHoursOffset, hashCodeNullable(greetingSettings), ownerId, hashCodeNullable(nameSchemaId), hashCodeNullable(enabledJoin), hashCodeNullable(enableAdmMess), hashCodeNullable(thirdpartyEnable), docSpace, standalone, isAmi, baseDomain, hashCodeNullable(wizardToken), passwordHash, firebase, hashCodeNullable(version), recaptchaType, hashCodeNullable(recaptchaPublicKey), debugInfo, hashCodeNullable(socketUrl), tenantStatus, hashCodeNullable(tenantAlias), displayAbout, domainValidator, hashCodeNullable(zendeskKey), hashCodeNullable(tagManagerId), cookieSettingsEnabled, limitedAccessSpace, limitedAccessDevToolsForUsers, displayBanners, aiEnabled, hashCodeNullable(userNameRegex), hashCodeNullable(invitationLimit), plugins, deepLink, formGallery, maxImageUploadSize, hashCodeNullable(logoText), externalResources, defaultFolderType, externalDbEnabled);
+    return Objects.hash(hashCodeNullable(timezone), hashCodeNullable(trustedDomains), trustedDomainsType, culture, utcOffset, utcHoursOffset, hashCodeNullable(greetingSettings), ownerId, hashCodeNullable(nameSchemaId), hashCodeNullable(enabledJoin), hashCodeNullable(enableAdmMess), hashCodeNullable(thirdpartyEnable), docSpace, standalone, isAmi, baseDomain, hashCodeNullable(wizardToken), passwordHash, firebase, hashCodeNullable(version), recaptchaType, hashCodeNullable(recaptchaPublicKey), debugInfo, hashCodeNullable(socketUrl), tenantStatus, hashCodeNullable(tenantAlias), displayAbout, domainValidator, hashCodeNullable(zendeskKey), hashCodeNullable(tagManagerId), cookieSettingsEnabled, limitedAccessSpace, limitedAccessDevToolsForUsers, displayBanners, aiEnabled, hashCodeNullable(walletLowBalance), hashCodeNullable(userNameRegex), hashCodeNullable(invitationLimit), plugins, deepLink, formGallery, maxImageUploadSize, hashCodeNullable(logoText), externalResources, defaultFolderType, externalDbEnabled);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1563,6 +1599,7 @@ public class SettingsDto {
     sb.append("    limitedAccessDevToolsForUsers: ").append(toIndentedString(limitedAccessDevToolsForUsers)).append("\n");
     sb.append("    displayBanners: ").append(toIndentedString(displayBanners)).append("\n");
     sb.append("    aiEnabled: ").append(toIndentedString(aiEnabled)).append("\n");
+    sb.append("    walletLowBalance: ").append(toIndentedString(walletLowBalance)).append("\n");
     sb.append("    userNameRegex: ").append(toIndentedString(userNameRegex)).append("\n");
     sb.append("    invitationLimit: ").append(toIndentedString(invitationLimit)).append("\n");
     sb.append("    plugins: ").append(toIndentedString(plugins)).append("\n");
@@ -1953,6 +1990,16 @@ public class SettingsDto {
     if (getAiEnabled() != null) {
       try {
         joiner.add(String.format("%saiEnabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAiEnabled()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `walletLowBalance` to the URL query string
+    if (getWalletLowBalance() != null) {
+      try {
+        joiner.add(String.format("%swalletLowBalance%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getWalletLowBalance()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

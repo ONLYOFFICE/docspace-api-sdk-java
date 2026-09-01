@@ -158,7 +158,7 @@ public class WebhooksLogDto {
   }
 
   /**
-   * Get trigger
+   * The webhook trigger type.
    * @return trigger
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRIGGER, required = false)

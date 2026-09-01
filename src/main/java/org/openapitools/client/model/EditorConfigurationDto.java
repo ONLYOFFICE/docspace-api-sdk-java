@@ -31,7 +31,7 @@ import java.util.List;
 import org.openapitools.client.model.CoEditingConfig;
 import org.openapitools.client.model.CustomizationConfigDto;
 import org.openapitools.client.model.EmbeddedConfig;
-import org.openapitools.client.model.EncryptionKeysConfig;
+import org.openapitools.client.model.EncryptionKeyDto;
 import org.openapitools.client.model.PluginsConfig;
 import org.openapitools.client.model.RecentConfig;
 import org.openapitools.client.model.TemplatesConfig;
@@ -83,7 +83,7 @@ public class EditorConfigurationDto {
   @javax.annotation.Nullable  private EmbeddedConfig embedded;
 
   public static final String JSON_PROPERTY_ENCRYPTION_KEYS = "encryptionKeys";
-  @javax.annotation.Nullable  private EncryptionKeysConfig encryptionKeys;
+  @javax.annotation.Nullable  private JsonNullable<List<EncryptionKeyDto>> encryptionKeys = JsonNullable.<List<EncryptionKeyDto>>undefined();
 
   public static final String JSON_PROPERTY_LANG = "lang";
   @javax.annotation.Nullable  private String lang;
@@ -148,7 +148,7 @@ public class EditorConfigurationDto {
   }
 
   /**
-   * Get coEditing
+   * The co-editing configuration parameters.
    * @return coEditing
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CO_EDITING, required = false)
@@ -203,7 +203,7 @@ public class EditorConfigurationDto {
   }
 
   /**
-   * Get customization
+   * The customization configuration.
    * @return customization
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CUSTOMIZATION, required = false)
@@ -227,7 +227,7 @@ public class EditorConfigurationDto {
   }
 
   /**
-   * Get embedded
+   * The configuration parameters for the embedded document type.
    * @return embedded
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMBEDDED, required = false)
@@ -244,28 +244,47 @@ public class EditorConfigurationDto {
     this.embedded = embedded;
   }
 
-  public EditorConfigurationDto encryptionKeys(@javax.annotation.Nullable EncryptionKeysConfig encryptionKeys) {
+  public EditorConfigurationDto encryptionKeys(@javax.annotation.Nullable List<EncryptionKeyDto> encryptionKeys) {
+    this.encryptionKeys = JsonNullable.<List<EncryptionKeyDto>>of(encryptionKeys);
     
-    this.encryptionKeys = encryptionKeys;
+    return this;
+  }
+
+  public EditorConfigurationDto addEncryptionKeysItem(EncryptionKeyDto encryptionKeysItem) {
+    if (this.encryptionKeys == null || !this.encryptionKeys.isPresent()) {
+      this.encryptionKeys = JsonNullable.<List<EncryptionKeyDto>>of(new ArrayList<>());
+    }
+    try {
+      this.encryptionKeys.get().add(encryptionKeysItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
   /**
-   * Get encryptionKeys
+   * The encryption keys of the editor configuration.
    * @return encryptionKeys
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENCRYPTION_KEYS, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public EncryptionKeysConfig getEncryptionKeys() {
-    return encryptionKeys;
+  public List<EncryptionKeyDto> getEncryptionKeys() {
+        return encryptionKeys.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_ENCRYPTION_KEYS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEncryptionKeys(@javax.annotation.Nullable EncryptionKeysConfig encryptionKeys) {
+  public JsonNullable<List<EncryptionKeyDto>> getEncryptionKeys_JsonNullable() {
+    return encryptionKeys;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ENCRYPTION_KEYS)
+  public void setEncryptionKeys_JsonNullable(JsonNullable<List<EncryptionKeyDto>> encryptionKeys) {
     this.encryptionKeys = encryptionKeys;
+  }
+
+  public void setEncryptionKeys(@javax.annotation.Nullable List<EncryptionKeyDto> encryptionKeys) {
+    this.encryptionKeys = JsonNullable.<List<EncryptionKeyDto>>of(encryptionKeys);
   }
 
   public EditorConfigurationDto lang(@javax.annotation.Nullable String lang) {
@@ -347,7 +366,7 @@ public class EditorConfigurationDto {
   }
 
   /**
-   * Get plugins
+   * The configuration settings to connect the special add-ons.
    * @return plugins
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PLUGINS, required = false)
@@ -457,7 +476,7 @@ public class EditorConfigurationDto {
   }
 
   /**
-   * Get user
+   * The configuration parameters of the user currently viewing or editing the document.
    * @return user
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER, required = false)
@@ -488,7 +507,7 @@ public class EditorConfigurationDto {
         equalsNullable(this.createUrl, editorConfigurationDto.createUrl) &&
         Objects.equals(this.customization, editorConfigurationDto.customization) &&
         Objects.equals(this.embedded, editorConfigurationDto.embedded) &&
-        Objects.equals(this.encryptionKeys, editorConfigurationDto.encryptionKeys) &&
+        equalsNullable(this.encryptionKeys, editorConfigurationDto.encryptionKeys) &&
         Objects.equals(this.lang, editorConfigurationDto.lang) &&
         Objects.equals(this.mode, editorConfigurationDto.mode) &&
         Objects.equals(this.modeWrite, editorConfigurationDto.modeWrite) &&
@@ -504,7 +523,7 @@ public class EditorConfigurationDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(callbackUrl), coEditing, hashCodeNullable(createUrl), customization, embedded, encryptionKeys, lang, mode, modeWrite, plugins, hashCodeNullable(recent), hashCodeNullable(templates), user);
+    return Objects.hash(hashCodeNullable(callbackUrl), coEditing, hashCodeNullable(createUrl), customization, embedded, hashCodeNullable(encryptionKeys), lang, mode, modeWrite, plugins, hashCodeNullable(recent), hashCodeNullable(templates), user);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -615,7 +634,12 @@ public class EditorConfigurationDto {
 
     // add `encryptionKeys` to the URL query string
     if (getEncryptionKeys() != null) {
-      joiner.add(getEncryptionKeys().toUrlQueryString(prefix + "encryptionKeys" + suffix));
+      for (int i = 0; i < getEncryptionKeys().size(); i++) {
+        if (getEncryptionKeys().get(i) != null) {
+          joiner.add(getEncryptionKeys().get(i).toUrlQueryString(String.format("%sencryptionKeys%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
     }
 
     // add `lang` to the URL query string

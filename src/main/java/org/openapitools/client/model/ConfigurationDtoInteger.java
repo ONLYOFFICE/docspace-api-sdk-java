@@ -121,7 +121,7 @@ public class ConfigurationDtoInteger {
   }
 
   /**
-   * Get document
+   * The document configuration.
    * @return document
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DOCUMENT, required = true)
@@ -169,7 +169,7 @@ public class ConfigurationDtoInteger {
   }
 
   /**
-   * Get editorConfig
+   * The editor configuration.
    * @return editorConfig
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_EDITOR_CONFIG, required = true)
@@ -193,7 +193,7 @@ public class ConfigurationDtoInteger {
   }
 
   /**
-   * Get editorType
+   * The editor type.
    * @return editorType
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_EDITOR_TYPE, required = true)
@@ -303,7 +303,7 @@ public class ConfigurationDtoInteger {
   }
 
   /**
-   * Get _file
+   * The file parameters.
    * @return _file
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_FILE, required = true)
@@ -420,7 +420,7 @@ public class ConfigurationDtoInteger {
   }
 
   /**
-   * Get startFillingMode
+   * The start filling mode.
    * @return startFillingMode
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_START_FILLING_MODE, required = false)
@@ -475,7 +475,7 @@ public class ConfigurationDtoInteger {
   }
 
   /**
-   * Get quotaExceededScope
+   * Indicates which quota scope has been exceeded.
    * @return quotaExceededScope
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_QUOTA_EXCEEDED_SCOPE, required = false)
@@ -499,7 +499,7 @@ public class ConfigurationDtoInteger {
   }
 
   /**
-   * Get generationToolCallState
+   * The generation tool call state. Used to run the agent flow in the editor.
    * @return generationToolCallState
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GENERATION_TOOL_CALL_STATE, required = false)

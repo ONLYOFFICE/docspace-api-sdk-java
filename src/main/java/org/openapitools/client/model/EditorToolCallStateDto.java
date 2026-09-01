@@ -81,7 +81,7 @@ public class EditorToolCallStateDto {
   }
 
   /**
-   * The editor tool call parameters.
+   * The tool call parameters.
    * @return parameters
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PARAMETERS, required = true)

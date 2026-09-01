@@ -40,7 +40,8 @@ import java.util.StringJoiner;
   FilesStatisticsResultDto.JSON_PROPERTY_TRASH_USED_SPACE,
   FilesStatisticsResultDto.JSON_PROPERTY_ARCHIVE_USED_SPACE,
   FilesStatisticsResultDto.JSON_PROPERTY_ROOMS_USED_SPACE,
-  FilesStatisticsResultDto.JSON_PROPERTY_AI_AGENTS_USED_SPACE
+  FilesStatisticsResultDto.JSON_PROPERTY_AI_AGENTS_USED_SPACE,
+  FilesStatisticsResultDto.JSON_PROPERTY_FORMS_USED_SPACE
 })
 
 public class FilesStatisticsResultDto {
@@ -59,6 +60,9 @@ public class FilesStatisticsResultDto {
   public static final String JSON_PROPERTY_AI_AGENTS_USED_SPACE = "aiAgentsUsedSpace";
   @javax.annotation.Nullable  private FilesStatisticsFolder aiAgentsUsedSpace;
 
+  public static final String JSON_PROPERTY_FORMS_USED_SPACE = "formsUsedSpace";
+  @javax.annotation.Nullable  private FilesStatisticsFolder formsUsedSpace;
+
   public FilesStatisticsResultDto() {
   }
 
@@ -70,7 +74,7 @@ public class FilesStatisticsResultDto {
   }
 
   /**
-   * Get myDocumentsUsedSpace
+   * The used space of files in the \\My Documents\\ section.
    * @return myDocumentsUsedSpace
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MY_DOCUMENTS_USED_SPACE, required = false)
@@ -94,7 +98,7 @@ public class FilesStatisticsResultDto {
   }
 
   /**
-   * Get trashUsedSpace
+   * The used space of files in the \\Trash\\ section.
    * @return trashUsedSpace
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRASH_USED_SPACE, required = false)
@@ -118,7 +122,7 @@ public class FilesStatisticsResultDto {
   }
 
   /**
-   * Get archiveUsedSpace
+   * The used space of files in the \\Archive\\ section.
    * @return archiveUsedSpace
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ARCHIVE_USED_SPACE, required = false)
@@ -142,7 +146,7 @@ public class FilesStatisticsResultDto {
   }
 
   /**
-   * Get roomsUsedSpace
+   * The used space of files in the \\Rooms\\ section.
    * @return roomsUsedSpace
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOMS_USED_SPACE, required = false)
@@ -166,7 +170,7 @@ public class FilesStatisticsResultDto {
   }
 
   /**
-   * Get aiAgentsUsedSpace
+   * The used space of files in the \\AI agents\\ section.
    * @return aiAgentsUsedSpace
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AI_AGENTS_USED_SPACE, required = false)
@@ -183,6 +187,30 @@ public class FilesStatisticsResultDto {
     this.aiAgentsUsedSpace = aiAgentsUsedSpace;
   }
 
+  public FilesStatisticsResultDto formsUsedSpace(@javax.annotation.Nullable FilesStatisticsFolder formsUsedSpace) {
+    
+    this.formsUsedSpace = formsUsedSpace;
+    return this;
+  }
+
+  /**
+   * The used space of files in the \\Forms\\ section.
+   * @return formsUsedSpace
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FORMS_USED_SPACE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public FilesStatisticsFolder getFormsUsedSpace() {
+    return formsUsedSpace;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_FORMS_USED_SPACE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFormsUsedSpace(@javax.annotation.Nullable FilesStatisticsFolder formsUsedSpace) {
+    this.formsUsedSpace = formsUsedSpace;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -196,12 +224,13 @@ public class FilesStatisticsResultDto {
         Objects.equals(this.trashUsedSpace, filesStatisticsResultDto.trashUsedSpace) &&
         Objects.equals(this.archiveUsedSpace, filesStatisticsResultDto.archiveUsedSpace) &&
         Objects.equals(this.roomsUsedSpace, filesStatisticsResultDto.roomsUsedSpace) &&
-        Objects.equals(this.aiAgentsUsedSpace, filesStatisticsResultDto.aiAgentsUsedSpace);
+        Objects.equals(this.aiAgentsUsedSpace, filesStatisticsResultDto.aiAgentsUsedSpace) &&
+        Objects.equals(this.formsUsedSpace, filesStatisticsResultDto.formsUsedSpace);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(myDocumentsUsedSpace, trashUsedSpace, archiveUsedSpace, roomsUsedSpace, aiAgentsUsedSpace);
+    return Objects.hash(myDocumentsUsedSpace, trashUsedSpace, archiveUsedSpace, roomsUsedSpace, aiAgentsUsedSpace, formsUsedSpace);
   }
 
   @Override
@@ -213,6 +242,7 @@ public class FilesStatisticsResultDto {
     sb.append("    archiveUsedSpace: ").append(toIndentedString(archiveUsedSpace)).append("\n");
     sb.append("    roomsUsedSpace: ").append(toIndentedString(roomsUsedSpace)).append("\n");
     sb.append("    aiAgentsUsedSpace: ").append(toIndentedString(aiAgentsUsedSpace)).append("\n");
+    sb.append("    formsUsedSpace: ").append(toIndentedString(formsUsedSpace)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -283,6 +313,11 @@ public class FilesStatisticsResultDto {
     // add `aiAgentsUsedSpace` to the URL query string
     if (getAiAgentsUsedSpace() != null) {
       joiner.add(getAiAgentsUsedSpace().toUrlQueryString(prefix + "aiAgentsUsedSpace" + suffix));
+    }
+
+    // add `formsUsedSpace` to the URL query string
+    if (getFormsUsedSpace() != null) {
+      joiner.add(getFormsUsedSpace().toUrlQueryString(prefix + "formsUsedSpace" + suffix));
     }
 
     return joiner.toString();

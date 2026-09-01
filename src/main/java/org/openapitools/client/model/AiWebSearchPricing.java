@@ -39,24 +39,59 @@ import java.util.StringJoiner;
  * AiWebSearchPricing
  */
 @JsonPropertyOrder({
+  AiWebSearchPricing.JSON_PROPERTY_ID,
   AiWebSearchPricing.JSON_PROPERTY_PROVIDER,
-  AiWebSearchPricing.JSON_PROPERTY_SEARCH,
-  AiWebSearchPricing.JSON_PROPERTY_CONTENTS
+  AiWebSearchPricing.JSON_PROPERTY_PRICE,
+  AiWebSearchPricing.JSON_PROPERTY_LINK
 })
 
 public class AiWebSearchPricing {
+  public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable  private JsonNullable<String> id = JsonNullable.<String>undefined();
+
   public static final String JSON_PROPERTY_PROVIDER = "provider";
   @javax.annotation.Nullable  private JsonNullable<String> provider = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_SEARCH = "search";
-  @javax.annotation.Nullable  private Double search;
+  public static final String JSON_PROPERTY_PRICE = "price";
+  @javax.annotation.Nullable  private Double price;
 
-  public static final String JSON_PROPERTY_CONTENTS = "contents";
-  @javax.annotation.Nullable  private Double contents;
+  public static final String JSON_PROPERTY_LINK = "link";
+  @javax.annotation.Nullable  private JsonNullable<String> link = JsonNullable.<String>undefined();
 
   public AiWebSearchPricing() {
   }
 
+
+  public AiWebSearchPricing id(@javax.annotation.Nullable String id) {
+    this.id = JsonNullable.<String>of(id);
+    
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getId() {
+        return id.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getId_JsonNullable() {
+    return id;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ID)
+  public void setId_JsonNullable(JsonNullable<String> id) {
+    this.id = id;
+  }
+
+  public void setId(@javax.annotation.Nullable String id) {
+    this.id = JsonNullable.<String>of(id);
+  }
 
   public AiWebSearchPricing provider(@javax.annotation.Nullable String provider) {
     this.provider = JsonNullable.<String>of(provider);
@@ -89,52 +124,59 @@ public class AiWebSearchPricing {
     this.provider = JsonNullable.<String>of(provider);
   }
 
-  public AiWebSearchPricing search(@javax.annotation.Nullable Double search) {
+  public AiWebSearchPricing price(@javax.annotation.Nullable Double price) {
     
-    this.search = search;
+    this.price = price;
     return this;
   }
 
   /**
-   * Get search
-   * @return search
+   * Get price
+   * @return price
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SEARCH, required = false)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRICE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Double getSearch() {
-    return search;
+  public Double getPrice() {
+    return price;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_SEARCH, required = false)
+  @JsonProperty(value = JSON_PROPERTY_PRICE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSearch(@javax.annotation.Nullable Double search) {
-    this.search = search;
+  public void setPrice(@javax.annotation.Nullable Double price) {
+    this.price = price;
   }
 
-  public AiWebSearchPricing contents(@javax.annotation.Nullable Double contents) {
+  public AiWebSearchPricing link(@javax.annotation.Nullable String link) {
+    this.link = JsonNullable.<String>of(link);
     
-    this.contents = contents;
     return this;
   }
 
   /**
-   * Get contents
-   * @return contents
+   * Get link
+   * @return link
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONTENTS, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public Double getContents() {
-    return contents;
+  public String getLink() {
+        return link.orElse(null);
   }
 
-
-  @JsonProperty(value = JSON_PROPERTY_CONTENTS, required = false)
+  @JsonProperty(value = JSON_PROPERTY_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setContents(@javax.annotation.Nullable Double contents) {
-    this.contents = contents;
+  public JsonNullable<String> getLink_JsonNullable() {
+    return link;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LINK)
+  public void setLink_JsonNullable(JsonNullable<String> link) {
+    this.link = link;
+  }
+
+  public void setLink(@javax.annotation.Nullable String link) {
+    this.link = JsonNullable.<String>of(link);
   }
 
   @Override
@@ -146,9 +188,10 @@ public class AiWebSearchPricing {
       return false;
     }
     AiWebSearchPricing aiWebSearchPricing = (AiWebSearchPricing) o;
-    return equalsNullable(this.provider, aiWebSearchPricing.provider) &&
-        Objects.equals(this.search, aiWebSearchPricing.search) &&
-        Objects.equals(this.contents, aiWebSearchPricing.contents);
+    return equalsNullable(this.id, aiWebSearchPricing.id) &&
+        equalsNullable(this.provider, aiWebSearchPricing.provider) &&
+        Objects.equals(this.price, aiWebSearchPricing.price) &&
+        equalsNullable(this.link, aiWebSearchPricing.link);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -157,7 +200,7 @@ public class AiWebSearchPricing {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(provider), search, contents);
+    return Objects.hash(hashCodeNullable(id), hashCodeNullable(provider), price, hashCodeNullable(link));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -171,9 +214,10 @@ public class AiWebSearchPricing {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AiWebSearchPricing {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
-    sb.append("    search: ").append(toIndentedString(search)).append("\n");
-    sb.append("    contents: ").append(toIndentedString(contents)).append("\n");
+    sb.append("    price: ").append(toIndentedString(price)).append("\n");
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -221,6 +265,16 @@ public class AiWebSearchPricing {
 
     StringJoiner joiner = new StringJoiner("&");
 
+    // add `id` to the URL query string
+    if (getId() != null) {
+      try {
+        joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
     // add `provider` to the URL query string
     if (getProvider() != null) {
       try {
@@ -231,20 +285,20 @@ public class AiWebSearchPricing {
       }
     }
 
-    // add `search` to the URL query string
-    if (getSearch() != null) {
+    // add `price` to the URL query string
+    if (getPrice() != null) {
       try {
-        joiner.add(String.format("%ssearch%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSearch()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%sprice%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPrice()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
     }
 
-    // add `contents` to the URL query string
-    if (getContents() != null) {
+    // add `link` to the URL query string
+    if (getLink() != null) {
       try {
-        joiner.add(String.format("%scontents%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getContents()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%slink%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLink()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

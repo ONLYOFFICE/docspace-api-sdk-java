@@ -9,7 +9,7 @@ The tariff parameters.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **Integer** | The tariff ID. |  [optional] |
-|**state** | **TariffState** |  |  [optional] |
+|**state** | **TariffState** | The tariff state. |  [optional] |
 |**dueDate** | **OffsetDateTime** | The tariff due date. |  |
 |**delayDueDate** | **OffsetDateTime** | The tariff delay due date. |  [optional] |
 |**licenseDate** | **OffsetDateTime** | The tariff license date. |  [optional] |

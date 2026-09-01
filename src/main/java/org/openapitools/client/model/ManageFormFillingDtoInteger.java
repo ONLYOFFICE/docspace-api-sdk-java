@@ -82,7 +82,7 @@ public class ManageFormFillingDtoInteger {
   }
 
   /**
-   * Get action
+   * The action to perform on the form.
    * @return action
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTION, required = false)

@@ -9,7 +9,7 @@ The editor tool call state. Used to run the agent flow in the editor.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**toolName** | **String** | The tool name. |  |
-|**parameters** | **Object** | The editor tool call parameters. |  |
+|**parameters** | **Object** | The tool call parameters. |  |
 
 
 

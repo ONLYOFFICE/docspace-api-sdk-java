@@ -14,7 +14,7 @@ The upload session response parameters.
 |**title** | **String** | The file title. |  [optional] |
 |**providerKey** | **String** | The third-party provider key. |  [optional] |
 |**uploaded** | **Boolean** | Specifies whether the file has been uploaded. |  [optional] |
-|**_file** | [**FileDtoInteger**](FileDtoInteger.md) |  |  [optional] |
+|**_file** | [**FileDtoInteger**](FileDtoInteger.md) | The file parameters. |  [optional] |
 
 
 

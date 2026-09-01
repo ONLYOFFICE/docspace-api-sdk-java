@@ -25,10 +25,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.EmployeeType;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -46,7 +42,7 @@ import java.util.StringJoiner;
 
 public class UserInvitationRequestDto {
   public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nullable  private JsonNullable<String> email = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String email;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   @javax.annotation.Nullable  private EmployeeType type;
@@ -56,8 +52,8 @@ public class UserInvitationRequestDto {
 
 
   public UserInvitationRequestDto email(@javax.annotation.Nullable String email) {
-    this.email = JsonNullable.<String>of(email);
     
+    this.email = email;
     return this;
   }
 
@@ -65,25 +61,18 @@ public class UserInvitationRequestDto {
    * The email address.
    * @return email
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEmail() {
-        return email.orElse(null);
+    return email;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getEmail_JsonNullable() {
-    return email;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_EMAIL)
-  public void setEmail_JsonNullable(JsonNullable<String> email) {
-    this.email = email;
-  }
-
   public void setEmail(@javax.annotation.Nullable String email) {
-    this.email = JsonNullable.<String>of(email);
+    this.email = email;
   }
 
   public UserInvitationRequestDto type(@javax.annotation.Nullable EmployeeType type) {
@@ -93,7 +82,7 @@ public class UserInvitationRequestDto {
   }
 
   /**
-   * Get type
+   * The user type.
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
@@ -119,24 +108,13 @@ public class UserInvitationRequestDto {
       return false;
     }
     UserInvitationRequestDto userInvitationRequestDto = (UserInvitationRequestDto) o;
-    return equalsNullable(this.email, userInvitationRequestDto.email) &&
+    return Objects.equals(this.email, userInvitationRequestDto.email) &&
         Objects.equals(this.type, userInvitationRequestDto.type);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(email), type);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(email, type);
   }
 
   @Override

@@ -153,7 +153,7 @@ public class AdminMessageSettingsRequestsDto {
   }
 
   /**
-   * Get recaptchaType
+   * The type of CAPTCHA validation used.
    * @return recaptchaType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RECAPTCHA_TYPE, required = false)

@@ -44,6 +44,8 @@ import java.util.StringJoiner;
   TenantWalletSettings.JSON_PROPERTY_MIN_BALANCE,
   TenantWalletSettings.JSON_PROPERTY_UP_TO_BALANCE,
   TenantWalletSettings.JSON_PROPERTY_CURRENCY,
+  TenantWalletSettings.JSON_PROPERTY_LOW_BALANCE_THRESHOLD,
+  TenantWalletSettings.JSON_PROPERTY_LOW_BALANCE_NOTIFIED,
   TenantWalletSettings.JSON_PROPERTY_LAST_MODIFIED
 })
 
@@ -59,6 +61,12 @@ public class TenantWalletSettings {
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   @javax.annotation.Nullable  private JsonNullable<String> currency = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_LOW_BALANCE_THRESHOLD = "lowBalanceThreshold";
+  @javax.annotation.Nullable  private Integer lowBalanceThreshold;
+
+  public static final String JSON_PROPERTY_LOW_BALANCE_NOTIFIED = "lowBalanceNotified";
+  @javax.annotation.Nullable  private Boolean lowBalanceNotified;
 
   public static final String JSON_PROPERTY_LAST_MODIFIED = "lastModified";
   @javax.annotation.Nullable  private OffsetDateTime lastModified;
@@ -174,6 +182,54 @@ public class TenantWalletSettings {
     this.currency = JsonNullable.<String>of(currency);
   }
 
+  public TenantWalletSettings lowBalanceThreshold(@javax.annotation.Nullable Integer lowBalanceThreshold) {
+    
+    this.lowBalanceThreshold = lowBalanceThreshold;
+    return this;
+  }
+
+  /**
+   * The wallet balance below which a low-balance notification is sent. Set internally, not user-configurable.
+   * @return lowBalanceThreshold
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOW_BALANCE_THRESHOLD, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getLowBalanceThreshold() {
+    return lowBalanceThreshold;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_LOW_BALANCE_THRESHOLD, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLowBalanceThreshold(@javax.annotation.Nullable Integer lowBalanceThreshold) {
+    this.lowBalanceThreshold = lowBalanceThreshold;
+  }
+
+  public TenantWalletSettings lowBalanceNotified(@javax.annotation.Nullable Boolean lowBalanceNotified) {
+    
+    this.lowBalanceNotified = lowBalanceNotified;
+    return this;
+  }
+
+  /**
+   * Specifies whether a low-balance notification has already been sent for the current dip below ASC.Core.Tenants.TenantWalletSettings.LowBalanceThreshold.
+   * @return lowBalanceNotified
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOW_BALANCE_NOTIFIED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getLowBalanceNotified() {
+    return lowBalanceNotified;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_LOW_BALANCE_NOTIFIED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLowBalanceNotified(@javax.annotation.Nullable Boolean lowBalanceNotified) {
+    this.lowBalanceNotified = lowBalanceNotified;
+  }
+
   public TenantWalletSettings lastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
     
     this.lastModified = lastModified;
@@ -211,6 +267,8 @@ public class TenantWalletSettings {
         Objects.equals(this.minBalance, tenantWalletSettings.minBalance) &&
         Objects.equals(this.upToBalance, tenantWalletSettings.upToBalance) &&
         equalsNullable(this.currency, tenantWalletSettings.currency) &&
+        Objects.equals(this.lowBalanceThreshold, tenantWalletSettings.lowBalanceThreshold) &&
+        Objects.equals(this.lowBalanceNotified, tenantWalletSettings.lowBalanceNotified) &&
         Objects.equals(this.lastModified, tenantWalletSettings.lastModified);
   }
 
@@ -220,7 +278,7 @@ public class TenantWalletSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, minBalance, upToBalance, hashCodeNullable(currency), lastModified);
+    return Objects.hash(enabled, minBalance, upToBalance, hashCodeNullable(currency), lowBalanceThreshold, lowBalanceNotified, lastModified);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -238,6 +296,8 @@ public class TenantWalletSettings {
     sb.append("    minBalance: ").append(toIndentedString(minBalance)).append("\n");
     sb.append("    upToBalance: ").append(toIndentedString(upToBalance)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    lowBalanceThreshold: ").append(toIndentedString(lowBalanceThreshold)).append("\n");
+    sb.append("    lowBalanceNotified: ").append(toIndentedString(lowBalanceNotified)).append("\n");
     sb.append("    lastModified: ").append(toIndentedString(lastModified)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -320,6 +380,26 @@ public class TenantWalletSettings {
     if (getCurrency() != null) {
       try {
         joiner.add(String.format("%scurrency%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCurrency()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `lowBalanceThreshold` to the URL query string
+    if (getLowBalanceThreshold() != null) {
+      try {
+        joiner.add(String.format("%slowBalanceThreshold%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLowBalanceThreshold()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `lowBalanceNotified` to the URL query string
+    if (getLowBalanceNotified() != null) {
+      try {
+        joiner.add(String.format("%slowBalanceNotified%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLowBalanceNotified()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

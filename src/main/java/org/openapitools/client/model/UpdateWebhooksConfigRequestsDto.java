@@ -25,10 +25,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.WebhookTrigger;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -58,7 +54,7 @@ public class UpdateWebhooksConfigRequestsDto {
   @javax.annotation.Nonnull  private String uri;
 
   public static final String JSON_PROPERTY_SECRET_KEY = "secretKey";
-  @javax.annotation.Nullable  private JsonNullable<String> secretKey = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String secretKey;
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   @javax.annotation.Nullable  private Boolean enabled;
@@ -70,7 +66,7 @@ public class UpdateWebhooksConfigRequestsDto {
   @javax.annotation.Nullable  private WebhookTrigger triggers;
 
   public static final String JSON_PROPERTY_TARGET_ID = "targetId";
-  @javax.annotation.Nullable  private JsonNullable<String> targetId = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String targetId;
 
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nonnull  private Integer id;
@@ -128,8 +124,8 @@ public class UpdateWebhooksConfigRequestsDto {
   }
 
   public UpdateWebhooksConfigRequestsDto secretKey(@javax.annotation.Nullable String secretKey) {
-    this.secretKey = JsonNullable.<String>of(secretKey);
     
+    this.secretKey = secretKey;
     return this;
   }
 
@@ -137,25 +133,18 @@ public class UpdateWebhooksConfigRequestsDto {
    * The webhook secret key used to sign the webhook payloads for the security verification.
    * @return secretKey
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SECRET_KEY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSecretKey() {
-        return secretKey.orElse(null);
+    return secretKey;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_SECRET_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getSecretKey_JsonNullable() {
-    return secretKey;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_SECRET_KEY)
-  public void setSecretKey_JsonNullable(JsonNullable<String> secretKey) {
-    this.secretKey = secretKey;
-  }
-
   public void setSecretKey(@javax.annotation.Nullable String secretKey) {
-    this.secretKey = JsonNullable.<String>of(secretKey);
+    this.secretKey = secretKey;
   }
 
   public UpdateWebhooksConfigRequestsDto enabled(@javax.annotation.Nullable Boolean enabled) {
@@ -213,7 +202,7 @@ public class UpdateWebhooksConfigRequestsDto {
   }
 
   /**
-   * Get triggers
+   * The webhook trigger type.
    * @return triggers
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRIGGERS, required = false)
@@ -231,8 +220,8 @@ public class UpdateWebhooksConfigRequestsDto {
   }
 
   public UpdateWebhooksConfigRequestsDto targetId(@javax.annotation.Nullable String targetId) {
-    this.targetId = JsonNullable.<String>of(targetId);
     
+    this.targetId = targetId;
     return this;
   }
 
@@ -240,25 +229,18 @@ public class UpdateWebhooksConfigRequestsDto {
    * Target ID
    * @return targetId
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TARGET_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTargetId() {
-        return targetId.orElse(null);
+    return targetId;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_TARGET_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getTargetId_JsonNullable() {
-    return targetId;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_TARGET_ID)
-  public void setTargetId_JsonNullable(JsonNullable<String> targetId) {
-    this.targetId = targetId;
-  }
-
   public void setTargetId(@javax.annotation.Nullable String targetId) {
-    this.targetId = JsonNullable.<String>of(targetId);
+    this.targetId = targetId;
   }
 
   public UpdateWebhooksConfigRequestsDto id(@javax.annotation.Nonnull Integer id) {
@@ -296,28 +278,17 @@ public class UpdateWebhooksConfigRequestsDto {
     UpdateWebhooksConfigRequestsDto updateWebhooksConfigRequestsDto = (UpdateWebhooksConfigRequestsDto) o;
     return Objects.equals(this.name, updateWebhooksConfigRequestsDto.name) &&
         Objects.equals(this.uri, updateWebhooksConfigRequestsDto.uri) &&
-        equalsNullable(this.secretKey, updateWebhooksConfigRequestsDto.secretKey) &&
+        Objects.equals(this.secretKey, updateWebhooksConfigRequestsDto.secretKey) &&
         Objects.equals(this.enabled, updateWebhooksConfigRequestsDto.enabled) &&
         Objects.equals(this.ssl, updateWebhooksConfigRequestsDto.ssl) &&
         Objects.equals(this.triggers, updateWebhooksConfigRequestsDto.triggers) &&
-        equalsNullable(this.targetId, updateWebhooksConfigRequestsDto.targetId) &&
+        Objects.equals(this.targetId, updateWebhooksConfigRequestsDto.targetId) &&
         Objects.equals(this.id, updateWebhooksConfigRequestsDto.id);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, uri, hashCodeNullable(secretKey), enabled, ssl, triggers, hashCodeNullable(targetId), id);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(name, uri, secretKey, enabled, ssl, triggers, targetId, id);
   }
 
   @Override

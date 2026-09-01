@@ -83,7 +83,7 @@ public class WalletServiceDto {
   @javax.annotation.Nonnull  private Boolean trial;
 
   public static final String JSON_PROPERTY_FEATURES = "features";
-  @javax.annotation.Nullable  private List<TenantQuotaFeatureDto> features;
+  @javax.annotation.Nonnull  private List<TenantQuotaFeatureDto> features = new ArrayList<>();
 
   public static final String JSON_PROPERTY_USERS_QUOTA = "usersQuota";
   @javax.annotation.Nullable  private TenantEntityQuotaSettings usersQuota;
@@ -98,7 +98,7 @@ public class WalletServiceDto {
   @javax.annotation.Nullable  private TenantQuotaSettings tenantCustomQuota;
 
   public static final String JSON_PROPERTY_DUE_DATE = "dueDate";
-  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> dueDate = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private OffsetDateTime dueDate;
 
   public static final String JSON_PROPERTY_INNER_SERVICES = "innerServices";
   @javax.annotation.Nullable  private JsonNullable<List<WalletServiceDto>> innerServices = JsonNullable.<List<WalletServiceDto>>undefined();
@@ -145,7 +145,7 @@ public class WalletServiceDto {
    * @return title
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTitle() {
     return title;
@@ -153,7 +153,7 @@ public class WalletServiceDto {
 
 
   @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(@javax.annotation.Nullable String title) {
     this.title = title;
   }
@@ -165,7 +165,7 @@ public class WalletServiceDto {
   }
 
   /**
-   * Get price
+   * The price parameters.
    * @return price
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PRICE, required = true)
@@ -254,7 +254,7 @@ public class WalletServiceDto {
     this.trial = trial;
   }
 
-  public WalletServiceDto features(@javax.annotation.Nullable List<TenantQuotaFeatureDto> features) {
+  public WalletServiceDto features(@javax.annotation.Nonnull List<TenantQuotaFeatureDto> features) {
     
     this.features = features;
     return this;
@@ -272,7 +272,7 @@ public class WalletServiceDto {
    * The list of tenant quota features.
    * @return features
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FEATURES, required = false)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_FEATURES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<TenantQuotaFeatureDto> getFeatures() {
@@ -280,9 +280,9 @@ public class WalletServiceDto {
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_FEATURES, required = false)
+  @JsonProperty(value = JSON_PROPERTY_FEATURES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFeatures(@javax.annotation.Nullable List<TenantQuotaFeatureDto> features) {
+  public void setFeatures(@javax.annotation.Nonnull List<TenantQuotaFeatureDto> features) {
     this.features = features;
   }
 
@@ -293,7 +293,7 @@ public class WalletServiceDto {
   }
 
   /**
-   * Get usersQuota
+   * The tenant entity quota settings.
    * @return usersQuota
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USERS_QUOTA, required = false)
@@ -317,7 +317,7 @@ public class WalletServiceDto {
   }
 
   /**
-   * Get roomsQuota
+   * The tenant entity quota settings.
    * @return roomsQuota
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOMS_QUOTA, required = false)
@@ -341,7 +341,7 @@ public class WalletServiceDto {
   }
 
   /**
-   * Get aiAgentsQuota
+   * The tenant entity quota settings.
    * @return aiAgentsQuota
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AI_AGENTS_QUOTA, required = false)
@@ -365,7 +365,7 @@ public class WalletServiceDto {
   }
 
   /**
-   * Get tenantCustomQuota
+   * The tenant quota settings.
    * @return tenantCustomQuota
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT_CUSTOM_QUOTA, required = false)
@@ -383,8 +383,8 @@ public class WalletServiceDto {
   }
 
   public WalletServiceDto dueDate(@javax.annotation.Nullable OffsetDateTime dueDate) {
-    this.dueDate = JsonNullable.<OffsetDateTime>of(dueDate);
     
+    this.dueDate = dueDate;
     return this;
   }
 
@@ -392,25 +392,18 @@ public class WalletServiceDto {
    * The due date.
    * @return dueDate
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DUE_DATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getDueDate() {
-        return dueDate.orElse(null);
+    return dueDate;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_DUE_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<OffsetDateTime> getDueDate_JsonNullable() {
-    return dueDate;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_DUE_DATE)
-  public void setDueDate_JsonNullable(JsonNullable<OffsetDateTime> dueDate) {
-    this.dueDate = dueDate;
-  }
-
   public void setDueDate(@javax.annotation.Nullable OffsetDateTime dueDate) {
-    this.dueDate = JsonNullable.<OffsetDateTime>of(dueDate);
+    this.dueDate = dueDate;
   }
 
   public WalletServiceDto innerServices(@javax.annotation.Nullable List<WalletServiceDto> innerServices) {
@@ -507,7 +500,7 @@ public class WalletServiceDto {
         Objects.equals(this.roomsQuota, walletServiceDto.roomsQuota) &&
         Objects.equals(this.aiAgentsQuota, walletServiceDto.aiAgentsQuota) &&
         Objects.equals(this.tenantCustomQuota, walletServiceDto.tenantCustomQuota) &&
-        equalsNullable(this.dueDate, walletServiceDto.dueDate) &&
+        Objects.equals(this.dueDate, walletServiceDto.dueDate) &&
         equalsNullable(this.innerServices, walletServiceDto.innerServices) &&
         equalsNullable(this.serviceName, walletServiceDto.serviceName);
   }
@@ -518,7 +511,7 @@ public class WalletServiceDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, price, nonProfit, free, trial, features, usersQuota, roomsQuota, aiAgentsQuota, tenantCustomQuota, hashCodeNullable(dueDate), hashCodeNullable(innerServices), hashCodeNullable(serviceName));
+    return Objects.hash(id, title, price, nonProfit, free, trial, features, usersQuota, roomsQuota, aiAgentsQuota, tenantCustomQuota, dueDate, hashCodeNullable(innerServices), hashCodeNullable(serviceName));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

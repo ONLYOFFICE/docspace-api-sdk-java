@@ -376,7 +376,7 @@ public class UserInfo {
   }
 
   /**
-   * Get status
+   * The user status.
    * @return status
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
@@ -400,7 +400,7 @@ public class UserInfo {
   }
 
   /**
-   * Get activationStatus
+   * The user activation status.
    * @return activationStatus
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTIVATION_STATUS, required = false)
@@ -831,7 +831,7 @@ public class UserInfo {
   }
 
   /**
-   * Get mobilePhoneActivationStatus
+   * The user mobile phone activation status.
    * @return mobilePhoneActivationStatus
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MOBILE_PHONE_ACTIVATION_STATUS, required = false)

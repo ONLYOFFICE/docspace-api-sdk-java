@@ -8,7 +8,7 @@ The parameters of a user mentioned in a message.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**user** | [**UserInfo**](UserInfo.md) |  |  [optional] |
+|**user** | [**UserInfo**](UserInfo.md) | The user information. |  [optional] |
 |**email** | **String** | The user email address. |  [optional] [readonly] |
 |**id** | **String** | The user unique identification. |  [optional] [readonly] |
 |**image** | **String** | The path to the user's avatar. |  [optional] [readonly] |

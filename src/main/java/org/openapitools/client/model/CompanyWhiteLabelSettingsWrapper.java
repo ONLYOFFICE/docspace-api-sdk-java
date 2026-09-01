@@ -54,7 +54,7 @@ public class CompanyWhiteLabelSettingsWrapper {
   }
 
   /**
-   * Get settings
+   * The company white label settings.
    * @return settings
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = false)

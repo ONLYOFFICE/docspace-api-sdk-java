@@ -8,7 +8,7 @@ The request parameters for setting the default product configuration.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**defaultFolderType** | **FolderType** |  |  |
+|**defaultFolderType** | **FolderType** | The folder type. |  |
 
 
 

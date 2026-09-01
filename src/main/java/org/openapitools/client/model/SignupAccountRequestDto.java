@@ -70,7 +70,7 @@ public class SignupAccountRequestDto {
   }
 
   /**
-   * Get employeeType
+   * The user type.
    * @return employeeType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMPLOYEE_TYPE, required = false)

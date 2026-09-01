@@ -96,7 +96,7 @@ public class MentionWrapper {
   }
 
   /**
-   * Get user
+   * The user information.
    * @return user
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER, required = false)

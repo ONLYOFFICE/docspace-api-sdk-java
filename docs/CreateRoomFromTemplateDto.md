@@ -10,7 +10,7 @@ The parameters for creating a room from a template.
 |------------ | ------------- | ------------- | -------------|
 |**templateId** | **Integer** | The template ID from which the room to be created. |  |
 |**title** | **String** | The room title. |  |
-|**logo** | [**LogoRequest**](LogoRequest.md) |  |  [optional] |
+|**logo** | [**LogoRequest**](LogoRequest.md) | The logo request parameters. |  [optional] |
 |**copyLogo** | **Boolean** | Specifies whether to copy a logo or not. |  [optional] |
 |**tags** | **List&lt;String&gt;** | The collection of tags. |  [optional] |
 |**color** | **String** | The color of the room to be created. |  [optional] |
@@ -18,8 +18,8 @@ The parameters for creating a room from a template.
 |**quota** | **Long** | The room quota. |  [optional] |
 |**indexing** | **Boolean** | Specifies whether to create a room with indexing. |  [optional] |
 |**denyDownload** | **Boolean** | Specifies whether to deny downloads from the room. |  [optional] |
-|**lifetime** | [**RoomDataLifetimeDto**](RoomDataLifetimeDto.md) |  |  [optional] |
-|**watermark** | [**WatermarkRequestDto**](WatermarkRequestDto.md) |  |  [optional] |
+|**lifetime** | [**RoomDataLifetimeDto**](RoomDataLifetimeDto.md) | The room data lifetime information. |  [optional] |
+|**watermark** | [**WatermarkRequestDto**](WatermarkRequestDto.md) | The request parameters for adding watermarks. |  [optional] |
 |**_private** | **Boolean** | Specifies whether the room to be created is private or not. |  [optional] |
 
 

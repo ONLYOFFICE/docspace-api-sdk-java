@@ -8,8 +8,8 @@ Represents a sub-account with a specific currency and balance.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**currency** | **String** | The three-character ISO 4217 currency symbol of the sub-account. |  [optional] |
-|**amount** | **Double** | The balance of the sub-account in the specified currency. |  [optional] |
+|**currency** | **String** | The three-character ISO 4217 currency symbol. |  [optional] |
+|**amount** | **Double** | The amount in the specified currency. |  [optional] |
 
 
 

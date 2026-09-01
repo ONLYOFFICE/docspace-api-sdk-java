@@ -234,7 +234,7 @@ public class ApiKeyResponseDto {
   }
 
   /**
-   * Get lastUsed
+   * The API date and time parameters.
    * @return lastUsed
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_USED, required = false)
@@ -258,7 +258,7 @@ public class ApiKeyResponseDto {
   }
 
   /**
-   * Get createOn
+   * The API date and time parameters.
    * @return createOn
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_ON, required = false)
@@ -282,7 +282,7 @@ public class ApiKeyResponseDto {
   }
 
   /**
-   * Get createBy
+   * The user parameters.
    * @return createBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_BY, required = false)
@@ -306,7 +306,7 @@ public class ApiKeyResponseDto {
   }
 
   /**
-   * Get expiresAt
+   * The API date and time parameters.
    * @return expiresAt
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)

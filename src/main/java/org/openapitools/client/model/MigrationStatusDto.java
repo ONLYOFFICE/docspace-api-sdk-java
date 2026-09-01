@@ -125,7 +125,7 @@ public class MigrationStatusDto {
   }
 
   /**
-   * Get parseResult
+   * The migration API information.
    * @return parseResult
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PARSE_RESULT, required = false)

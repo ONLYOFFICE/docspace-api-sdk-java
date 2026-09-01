@@ -1133,33 +1133,35 @@ public class OperationsApi extends BaseApi {
 
   /**
    * Empty the Trash folder
-   * Deletes all the files and folders from the Trash folder.
+   * Deletes all the files and folders from the Trash folder. If the folder types are specified, only the items originally located in the sections of these types are deleted.
    *
    * REST API Reference for emptyTrash Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/
    *
    * @param single Specifies whether to return only the current operation (optional)
+   * @param folderType The parent folder types used to empty the trash only from the items originally located in the sections of the specified types. (optional)
    * @return FileOperationArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileOperationArrayWrapper emptyTrash(@javax.annotation.Nullable Boolean single) throws ApiException {
-    return this.emptyTrash(single, Collections.emptyMap());
+  public FileOperationArrayWrapper emptyTrash(@javax.annotation.Nullable Boolean single, @javax.annotation.Nullable List<Integer> folderType) throws ApiException {
+    return this.emptyTrash(single, folderType, Collections.emptyMap());
   }
 
 
   /**
    * Empty the Trash folder
-   * Deletes all the files and folders from the Trash folder.
+   * Deletes all the files and folders from the Trash folder. If the folder types are specified, only the items originally located in the sections of these types are deleted.
    *
    * REST API Reference for emptyTrash Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/
    *
    * @param single Specifies whether to return only the current operation (optional)
+   * @param folderType The parent folder types used to empty the trash only from the items originally located in the sections of the specified types. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileOperationArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileOperationArrayWrapper emptyTrash(@javax.annotation.Nullable Boolean single, Map<String, String> additionalHeaders) throws ApiException {
+  public FileOperationArrayWrapper emptyTrash(@javax.annotation.Nullable Boolean single, @javax.annotation.Nullable List<Integer> folderType, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -1174,6 +1176,7 @@ public class OperationsApi extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPair("Single", single));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "folderType", folderType));
       
     
     localVarHeaderParams.putAll(additionalHeaders);

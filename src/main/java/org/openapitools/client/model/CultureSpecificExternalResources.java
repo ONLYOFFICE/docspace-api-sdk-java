@@ -86,7 +86,7 @@ public class CultureSpecificExternalResources {
   }
 
   /**
-   * Get api
+   * The link to the product API.
    * @return api
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_API, required = false)
@@ -110,7 +110,7 @@ public class CultureSpecificExternalResources {
   }
 
   /**
-   * Get common
+   * The link to the common product information.
    * @return common
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COMMON, required = false)
@@ -134,7 +134,7 @@ public class CultureSpecificExternalResources {
   }
 
   /**
-   * Get forum
+   * The link to the forum.
    * @return forum
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FORUM, required = false)
@@ -158,7 +158,7 @@ public class CultureSpecificExternalResources {
   }
 
   /**
-   * Get helpcenter
+   * The link to the Help Center.
    * @return helpcenter
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HELPCENTER, required = false)
@@ -182,7 +182,7 @@ public class CultureSpecificExternalResources {
   }
 
   /**
-   * Get integrations
+   * The link to the product integrations.
    * @return integrations
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INTEGRATIONS, required = false)
@@ -206,7 +206,7 @@ public class CultureSpecificExternalResources {
   }
 
   /**
-   * Get site
+   * The link to the product website.
    * @return site
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SITE, required = false)
@@ -230,7 +230,7 @@ public class CultureSpecificExternalResources {
   }
 
   /**
-   * Get socialNetworks
+   * The link to the product social nerworks.
    * @return socialNetworks
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SOCIAL_NETWORKS, required = false)
@@ -254,7 +254,7 @@ public class CultureSpecificExternalResources {
   }
 
   /**
-   * Get support
+   * The link to the product support.
    * @return support
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SUPPORT, required = false)
@@ -278,7 +278,7 @@ public class CultureSpecificExternalResources {
   }
 
   /**
-   * Get videoguides
+   * The link to the video guides.
    * @return videoguides
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VIDEOGUIDES, required = false)

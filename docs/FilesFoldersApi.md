@@ -7,7 +7,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**checkUpload**](FilesFoldersApi.md#checkUpload) | **POST** /api/2.0/files/{folderId}/upload/check | Check file uploads |
 | [**createFolder**](FilesFoldersApi.md#createFolder) | **POST** /api/2.0/files/folder/{folderId} | Create a folder |
 | [**createFolderPrimaryExternalLink**](FilesFoldersApi.md#createFolderPrimaryExternalLink) | **POST** /api/2.0/files/folder/{id}/link | Create primary external link |
-| [**createReportFolderHistory**](FilesFoldersApi.md#createReportFolderHistory) | **POST** /api/2.0/files/folder/{folderId}/log/report | Generates folder history |
+| [**createReportFolderHistory**](FilesFoldersApi.md#createReportFolderHistory) | **POST** /api/2.0/files/folder/{folderId}/log/report | Start the folder history report generation |
 | [**deleteFolder**](FilesFoldersApi.md#deleteFolder) | **DELETE** /api/2.0/files/folder/{folderId} | Delete a folder |
 | [**generateXlsxByFolder**](FilesFoldersApi.md#generateXlsxByFolder) | **POST** /api/2.0/files/folder/{folderId}/xlsx | Generate XLSX report by folder |
 | [**getFavoritesFolder**](FilesFoldersApi.md#getFavoritesFolder) | **GET** /api/2.0/files/@favorites | Get the Favorites section |
@@ -20,10 +20,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**getFolderPath**](FilesFoldersApi.md#getFolderPath) | **GET** /api/2.0/files/folder/{folderId}/path | Get the folder path |
 | [**getFolderPrimaryExternalLink**](FilesFoldersApi.md#getFolderPrimaryExternalLink) | **GET** /api/2.0/files/folder/{id}/link | Get primary external link |
 | [**getFolders**](FilesFoldersApi.md#getFolders) | **GET** /api/2.0/files/{folderId}/subfolders | Get subfolders |
+| [**getFormsFolder**](FilesFoldersApi.md#getFormsFolder) | **GET** /api/2.0/files/@forms | Get the Forms section |
 | [**getMyFolder**](FilesFoldersApi.md#getMyFolder) | **GET** /api/2.0/files/@my | Get the My documents section |
 | [**getNewFolderItems**](FilesFoldersApi.md#getNewFolderItems) | **GET** /api/2.0/files/{folderId}/news | Get new folder items |
-| [**getPrivacyFolder**](FilesFoldersApi.md#getPrivacyFolder) | **GET** /api/2.0/files/@privacy | Get the Private Room section |
 | [**getRecentFolder**](FilesFoldersApi.md#getRecentFolder) | **GET** /api/2.0/files/recent | Get the Recent section |
+| [**getReportFolderHistory**](FilesFoldersApi.md#getReportFolderHistory) | **GET** /api/2.0/files/folder/{folderId}/log/report | Get the folder history report generation status |
 | [**getRootFolders**](FilesFoldersApi.md#getRootFolders) | **GET** /api/2.0/files/@root | Get filtered sections |
 | [**getTrashFolder**](FilesFoldersApi.md#getTrashFolder) | **GET** /api/2.0/files/@trash | Get the Trash section |
 | [**insertFile**](FilesFoldersApi.md#insertFile) | **POST** /api/2.0/files/{folderId}/insert | Insert a file |
@@ -31,6 +32,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**renameFolder**](FilesFoldersApi.md#renameFolder) | **PUT** /api/2.0/files/folder/{folderId} | Rename a folder |
 | [**setFolderOrder**](FilesFoldersApi.md#setFolderOrder) | **PUT** /api/2.0/files/folder/{folderId}/order | Set folder order |
 | [**setFolderPrimaryExternalLink**](FilesFoldersApi.md#setFolderPrimaryExternalLink) | **PUT** /api/2.0/files/folder/{id}/links | Set the folder external link |
+| [**terminateReportFolderHistory**](FilesFoldersApi.md#terminateReportFolderHistory) | **DELETE** /api/2.0/files/folder/{folderId}/log/report | Terminate the folder history report generation |
 | [**uploadFile**](FilesFoldersApi.md#uploadFile) | **POST** /api/2.0/files/{folderId}/upload | Upload a file |
 | [**uploadFileToMy**](FilesFoldersApi.md#uploadFileToMy) | **POST** /api/2.0/files/@my/upload | Upload a file to the My documents section |
 
@@ -337,9 +339,9 @@ public class Example {
 
 ## createReportFolderHistory
 
-> StringWrapper createReportFolderHistory(folderId)
+> DocumentBuilderTaskWrapper createReportFolderHistory(folderId, format, from, to)
 
-Generates folder historyGenerates the activity history of a folder.
+Start the folder history report generationStarts generating the activity history report of a folder (XLSX by default, or CSV) and saves it to My documents.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-report-folder-history/).
 
@@ -348,11 +350,14 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **folderId** | **Integer**|  | |
+| **folderId** | **Integer**| The folder ID whose history is exported. | |
+| **format** | [**AuditReportFormat**](.md)| The output file format of the report. Defaults to XLSX. | [optional] [enum: 0, 1] |
+| **from** | **OffsetDateTime**| The start date of the history period to export. | [optional] |
+| **to** | **OffsetDateTime**| The end date of the history period to export. | [optional] |
 
 ### Return type
 
-[**StringWrapper**](StringWrapper.md)
+[**DocumentBuilderTaskWrapper**](DocumentBuilderTaskWrapper.md)
 
 ### Authorization
 
@@ -401,9 +406,12 @@ public class Example {
 
 
         FoldersApi apiInstance = new FoldersApi(defaultClient);
-        Integer folderId = 56; // Integer | 
+        Integer folderId = 1; // Integer | The folder ID whose history is exported.
+        AuditReportFormat format = AuditReportFormat.fromValue("0"); // AuditReportFormat | The output file format of the report. Defaults to XLSX.
+        OffsetDateTime from = OffsetDateTime.parse("2025-01-01T00:00:00"); // OffsetDateTime | The start date of the history period to export.
+        OffsetDateTime to = OffsetDateTime.parse("2025-12-31T23:59:59"); // OffsetDateTime | The end date of the history period to export.
         try {
-            StringWrapper result = apiInstance.createReportFolderHistory(folderId);
+            DocumentBuilderTaskWrapper result = apiInstance.createReportFolderHistory(folderId, format, from, to);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling FoldersApi#createReportFolderHistory");
@@ -425,7 +433,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | URL to the report file |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | Operation execution status |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | You don't have enough permission to perform the operation |  -  |
 | **404** | The required folder was not found |  -  |
 | **401** | Unauthorized |  -  |
@@ -907,7 +915,7 @@ public class Example {
 
 ## getFolderByFolderId
 
-> FolderContentIntegerWrapper getFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location)
+> FolderContentIntegerWrapper getFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location)
 
 Get a folder by IDReturns the detailed list of files and folders located in the folder with the ID specified in the request.
 
@@ -923,11 +931,12 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sharedBy** | **UUID**| The identifier of the user who shared the folder or file. | [optional] |
 | **filterType** | [**FilterType**](.md)| The filter type. | [optional] [enum: 0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 17, 20, 22, 23, 24, 25, 26] |
 | **roomId** | **Integer**| The room ID. | [optional] |
+| **folderType** | [**List&lt;Integer&gt;**](Integer.md)| The parent folder types used to filter the folder contents by folder type. | [optional] [enum: 0, 1, 2, 3, 5, 6, 8, 10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36] |
 | **excludeSubject** | **Boolean**| Specifies whether to exclude search by user or group ID. | [optional] |
 | **applyFilterOption** | [**ApplyFilterOption**](.md)| Specifies whether to return only files, only folders, or all elements from the specified folder. | [optional] [enum: 0, 1, 2] |
 | **withSubFolders** | **Boolean**| Specifies whether to include files from subfolders in the results. | [optional] |
 | **extension** | **String**| Specifies whether to search for the specific file extension. | [optional] |
-| **searchArea** | [**SearchArea**](.md)| The search area. | [optional] [enum: 0, 1, 2, 3, 4, 5, 6, 7] |
+| **searchArea** | [**SearchArea**](.md)| The search area. | [optional] [enum: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9] |
 | **formsItemKey** | **String**| The forms item key. | [optional] |
 | **formsItemType** | **String**| The forms item type. | [optional] |
 | **count** | **Integer**| The maximum number of items to retrieve in the request. | [optional] |
@@ -966,6 +975,7 @@ public class Example {
         UUID sharedBy = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The identifier of the user who shared the folder or file.
         FilterType filterType = FilterType.fromValue("0"); // FilterType | The filter type.
         Integer roomId = 1; // Integer | The room ID.
+        List<Integer> folderType = Arrays.asList(); // List<Integer> | The parent folder types used to filter the folder contents by folder type.
         Boolean excludeSubject = false; // Boolean | Specifies whether to exclude search by user or group ID.
         ApplyFilterOption applyFilterOption = ApplyFilterOption.fromValue("0"); // ApplyFilterOption | Specifies whether to return only files, only folders, or all elements from the specified folder.
         Boolean withSubFolders = true; // Boolean | Specifies whether to include files from subfolders in the results.
@@ -980,7 +990,7 @@ public class Example {
         String filterValue = "My Document"; // String | The text value used as a filter parameter for folder content queries.
         Location location = Location.fromValue("1"); // Location | The location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link.
         try {
-            FolderContentIntegerWrapper result = apiInstance.getFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location);
+            FolderContentIntegerWrapper result = apiInstance.getFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling FoldersApi#getFolderByFolderId");
@@ -1554,6 +1564,117 @@ public class Example {
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
+## getFormsFolder
+
+> FolderContentIntegerWrapper getFormsFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue)
+
+Get the Forms sectionReturns the detailed list of rooms used for filling out forms located in the Forms section.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-forms-folder/).
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userIdOrGroupId** | **UUID**| The user or group ID. | [optional] |
+| **filterType** | [**FilterType**](.md)| The filter type. | [optional] [enum: 0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 17, 20, 22, 23, 24, 25, 26] |
+| **count** | **Integer**| The maximum number of items to retrieve in the request. | [optional] |
+| **startIndex** | **Integer**| The zero-based index of the first item to retrieve in a paginated list. | [optional] |
+| **sortBy** | **String**| Specifies the field by which the folder content should be sorted. | [optional] |
+| **sortOrder** | [**SortOrder**](.md)| The order in which the results are sorted. | [optional] [enum: 0, 1] |
+| **filterValue** | **String**| The text used as a filter or search criterion for folder content queries. | [optional] |
+
+### Return type
+
+[**FolderContentIntegerWrapper**](FolderContentIntegerWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.FoldersApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        FoldersApi apiInstance = new FoldersApi(defaultClient);
+        UUID userIdOrGroupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user or group ID.
+        FilterType filterType = FilterType.fromValue("0"); // FilterType | The filter type.
+        Integer count = 25; // Integer | The maximum number of items to retrieve in the request.
+        Integer startIndex = 0; // Integer | The zero-based index of the first item to retrieve in a paginated list.
+        String sortBy = "DateAndTime"; // String | Specifies the field by which the folder content should be sorted.
+        SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
+        String filterValue = "My Document"; // String | The text used as a filter or search criterion for folder content queries.
+        try {
+            FolderContentIntegerWrapper result = apiInstance.getFormsFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FoldersApi#getFormsFolder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The Forms section contents |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to view the folder content |  -  |
+| **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+
 ## getMyFolder
 
 > FolderContentIntegerWrapper getMyFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue)
@@ -1765,117 +1886,6 @@ public class Example {
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
-## getPrivacyFolder
-
-> FolderContentIntegerWrapper getPrivacyFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue)
-
-Get the Private Room sectionReturns the detailed list of files and folders located in the Private Room section.
-
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/).
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **userIdOrGroupId** | **UUID**| The user or group ID. | [optional] |
-| **filterType** | [**FilterType**](.md)| The filter type. | [optional] [enum: 0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 17, 20, 22, 23, 24, 25, 26] |
-| **count** | **Integer**| The maximum number of items to retrieve in the request. | [optional] |
-| **startIndex** | **Integer**| The zero-based index of the first item to retrieve in a paginated list. | [optional] |
-| **sortBy** | **String**| Specifies the field by which the folder content should be sorted. | [optional] |
-| **sortOrder** | [**SortOrder**](.md)| The order in which the results are sorted. | [optional] [enum: 0, 1] |
-| **filterValue** | **String**| The text used as a filter or search criterion for folder content queries. | [optional] |
-
-### Return type
-
-[**FolderContentIntegerWrapper**](FolderContentIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### Example
-
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.FoldersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost:8092");
-        
-        // Configure HTTP basic authorization: Basic
-        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
-        Basic.setUsername("YOUR USERNAME");
-        Basic.setPassword("YOUR PASSWORD");
-
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
-
-        // Configure API key authorization: ApiKeyBearer
-        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
-        ApiKeyBearer.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //ApiKeyBearer.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: asc_auth_key
-        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
-        asc_auth_key.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //asc_auth_key.setApiKeyPrefix("Token");
-
-        // Configure HTTP bearer authorization: Bearer
-        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
-        Bearer.setBearerToken("BEARER TOKEN");
-
-
-        FoldersApi apiInstance = new FoldersApi(defaultClient);
-        UUID userIdOrGroupId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The user or group ID.
-        FilterType filterType = FilterType.fromValue("0"); // FilterType | The filter type.
-        Integer count = 25; // Integer | The maximum number of items to retrieve in the request.
-        Integer startIndex = 0; // Integer | The zero-based index of the first item to retrieve in a paginated list.
-        String sortBy = "DateAndTime"; // String | Specifies the field by which the folder content should be sorted.
-        SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterValue = "My Document"; // String | The text used as a filter or search criterion for folder content queries.
-        try {
-            FolderContentIntegerWrapper result = apiInstance.getPrivacyFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling FoldersApi#getPrivacyFolder");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | The Private Room section contents |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **403** | You don't have enough permission to view the folder content |  -  |
-| **404** | The required folder was not found |  -  |
-| **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
-| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-
-
 ## getRecentFolder
 
 > FolderContentIntegerWrapper getRecentFolder(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue)
@@ -1893,7 +1903,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **filterType** | [**FilterType**](.md)| The filter type. | [optional] [enum: 0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 17, 20, 22, 23, 24, 25, 26] |
 | **excludeSubject** | **Boolean**| Specifies whether to exclude search by user or group ID. | [optional] |
 | **applyFilterOption** | [**ApplyFilterOption**](.md)| Specifies whether to return only files, only folders or all elements. | [optional] [enum: 0, 1, 2] |
-| **searchArea** | [**SearchArea**](.md)| The search area. | [optional] [enum: 0, 1, 2, 3, 4, 5, 6, 7] |
+| **searchArea** | [**SearchArea**](.md)| The search area. | [optional] [enum: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9] |
 | **extension** | [**List&lt;String&gt;**](String.md)| Specifies whether to search for a specific file extension in the Recent folder. | [optional] |
 | **count** | **Integer**| The maximum number of items to return. | [optional] |
 | **startIndex** | **Integer**| The starting position of the results to be returned in the query response. | [optional] |
@@ -1957,7 +1967,7 @@ public class Example {
         Boolean excludeSubject = false; // Boolean | Specifies whether to exclude search by user or group ID.
         ApplyFilterOption applyFilterOption = ApplyFilterOption.fromValue("0"); // ApplyFilterOption | Specifies whether to return only files, only folders or all elements.
         SearchArea searchArea = SearchArea.fromValue("0"); // SearchArea | The search area.
-        List<String> extension = Arrays.asList(new ArrayList<>()); // List<String> | Specifies whether to search for a specific file extension in the Recent folder.
+        List<String> extension = Arrays.asList(); // List<String> | Specifies whether to search for a specific file extension in the Recent folder.
         Integer count = 25; // Integer | The maximum number of items to return.
         Integer startIndex = 0; // Integer | The starting position of the results to be returned in the query response.
         String sortBy = "DateAndTime"; // String | Specifies the sorting criteria for the folder request.
@@ -1988,6 +1998,105 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | The Recent section contents |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | You don't have enough permission to view the folder content |  -  |
+| **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+
+## getReportFolderHistory
+
+> DocumentBuilderTaskWrapper getReportFolderHistory(folderId)
+
+Get the folder history report generation statusReturns the status of generating the folder history report.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-report-folder-history/).
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **folderId** | **Integer**|  | |
+
+### Return type
+
+[**DocumentBuilderTaskWrapper**](DocumentBuilderTaskWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.FoldersApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        FoldersApi apiInstance = new FoldersApi(defaultClient);
+        Integer folderId = 56; // Integer | 
+        try {
+            DocumentBuilderTaskWrapper result = apiInstance.getReportFolderHistory(folderId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FoldersApi#getReportFolderHistory");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Operation execution status |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **404** | The required folder was not found |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
@@ -2757,6 +2866,104 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Folder information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+
+## terminateReportFolderHistory
+
+> terminateReportFolderHistory(folderId)
+
+Terminate the folder history report generationTerminates generating the folder history report.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-report-folder-history/).
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **folderId** | **Integer**|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.FoldersApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        FoldersApi apiInstance = new FoldersApi(defaultClient);
+        Integer folderId = 56; // Integer | 
+        try {
+            apiInstance.terminateReportFolderHistory(folderId);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FoldersApi#terminateReportFolderHistory");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **403** | You don't have enough permission to perform the operation |  -  |
+| **404** | The required folder was not found |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |

@@ -52,6 +52,14 @@ public class TenantWalletServiceSettings {
    * The list of the enabled wallet services.
    */
   public enum EnabledServicesEnum {
+    AISearch(Integer.valueOf(-18)),
+    
+    DocsCloudDevPack(Integer.valueOf(-16)),
+    
+    DocsCloud(Integer.valueOf(-15)),
+    
+    Admin(Integer.valueOf(-14)),
+    
     AITools(Integer.valueOf(-13)),
     
     Backup(Integer.valueOf(-12)),

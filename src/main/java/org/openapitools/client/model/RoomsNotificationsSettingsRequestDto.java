@@ -61,7 +61,7 @@ public class RoomsNotificationsSettingsRequestDto {
   }
 
   /**
-   * The target room identifier.
+   * Get roomsId
    * @return roomsId
    */
   @javax.annotation.Nullable  @JsonIgnore

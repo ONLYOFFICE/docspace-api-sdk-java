@@ -378,15 +378,15 @@ public class SettingsApi extends BaseApi {
    * Change the archive format (using body parameters)
    * Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
    *
-   * REST API Reference for changeDownloadZipFromBody Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip-from-body/
+   * REST API Reference for changeDownloadZip Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip/
    *
    * @param displayRequestDto  (optional)
    * @return ICompressWrapper
    * @throws ApiException if fails to make API call
    */
-  public ICompressWrapper changeDownloadZipFromBody(@javax.annotation.Nullable DisplayRequestDto displayRequestDto) throws ApiException {
-    return this.changeDownloadZipFromBody(displayRequestDto, Collections.emptyMap());
+  public ICompressWrapper changeDownloadZip(@javax.annotation.Nullable DisplayRequestDto displayRequestDto) throws ApiException {
+    return this.changeDownloadZip(displayRequestDto, Collections.emptyMap());
   }
 
 
@@ -394,15 +394,15 @@ public class SettingsApi extends BaseApi {
    * Change the archive format (using body parameters)
    * Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
    *
-   * REST API Reference for changeDownloadZipFromBody Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip-from-body/
+   * REST API Reference for changeDownloadZip Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip/
    *
    * @param displayRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return ICompressWrapper
    * @throws ApiException if fails to make API call
    */
-  public ICompressWrapper changeDownloadZipFromBody(@javax.annotation.Nullable DisplayRequestDto displayRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+  public ICompressWrapper changeDownloadZip(@javax.annotation.Nullable DisplayRequestDto displayRequestDto, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = displayRequestDto;
     
     // create path and map variables
@@ -1599,82 +1599,6 @@ public class SettingsApi extends BaseApi {
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Check the Private Room availability
-   * Checks if the Private Room settings are available or not.
-   *
-   * REST API Reference for isAvailablePrivacyRoomSettings Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/
-   *
-   * @return BooleanWrapper
-   * @throws ApiException if fails to make API call
-   */
-  public BooleanWrapper isAvailablePrivacyRoomSettings() throws ApiException {
-    return this.isAvailablePrivacyRoomSettings(Collections.emptyMap());
-  }
-
-
-  /**
-   * Check the Private Room availability
-   * Checks if the Private Room settings are available or not.
-   *
-   * REST API Reference for isAvailablePrivacyRoomSettings Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/
-   *
-   * @param additionalHeaders additionalHeaders for this call
-   * @return BooleanWrapper
-   * @throws ApiException if fails to make API call
-   */
-  public BooleanWrapper isAvailablePrivacyRoomSettings(Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/2.0/files/@privacy/available";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-      
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
-
-    TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),

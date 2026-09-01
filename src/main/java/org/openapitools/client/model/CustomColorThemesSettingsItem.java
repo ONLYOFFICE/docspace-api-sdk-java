@@ -125,7 +125,7 @@ public class CustomColorThemesSettingsItem {
   }
 
   /**
-   * Get main
+   * The custom color theme main colors.
    * @return main
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MAIN, required = false)
@@ -149,7 +149,7 @@ public class CustomColorThemesSettingsItem {
   }
 
   /**
-   * Get text
+   * The custom color theme text colors.
    * @return text
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TEXT, required = false)

@@ -120,7 +120,7 @@ public class BackupHistoryRecord {
   }
 
   /**
-   * Get storageType
+   * The backup storage type.
    * @return storageType
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STORAGE_TYPE, required = true)

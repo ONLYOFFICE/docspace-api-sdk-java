@@ -108,7 +108,7 @@ public class ExternalShareDto {
   }
 
   /**
-   * Get status
+   * The external data status.
    * @return status
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)
@@ -194,7 +194,7 @@ public class ExternalShareDto {
   }
 
   /**
-   * Get type
+   * The type of the external data.
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
@@ -304,7 +304,7 @@ public class ExternalShareDto {
   }
 
   /**
-   * Get entityType
+   * The entry type of the external data.
    * @return entityType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENTITY_TYPE, required = false)

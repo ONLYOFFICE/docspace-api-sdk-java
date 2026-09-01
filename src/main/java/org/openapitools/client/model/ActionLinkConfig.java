@@ -54,7 +54,7 @@ public class ActionLinkConfig {
   }
 
   /**
-   * Get action
+   * The information about the action in the document that will be scrolled to.
    * @return action
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTION, required = false)

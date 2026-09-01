@@ -345,7 +345,7 @@ public class TenantDto {
   }
 
   /**
-   * Get industry
+   * The tenant industry.
    * @return industry
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INDUSTRY, required = false)
@@ -565,7 +565,7 @@ public class TenantDto {
   }
 
   /**
-   * Get status
+   * The tenant status.
    * @return status
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
@@ -707,7 +707,7 @@ public class TenantDto {
   }
 
   /**
-   * Get trustedDomainsType
+   * The type of the tenant trusted domains.
    * @return trustedDomainsType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRUSTED_DOMAINS_TYPE, required = false)

@@ -27,10 +27,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.HashMap;
 import java.util.Map;
 import org.openapitools.client.model.ProductQuantityType;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -48,7 +44,7 @@ import java.util.StringJoiner;
 
 public class WalletQuantityRequestDto {
   public static final String JSON_PROPERTY_QUANTITY = "quantity";
-  @javax.annotation.Nullable  private JsonNullable<Map<String, Integer>> quantity = JsonNullable.<Map<String, Integer>>undefined();
+  @javax.annotation.Nonnull  private Map<String, Integer> quantity = new HashMap<>();
 
   public static final String JSON_PROPERTY_PRODUCT_QUANTITY_TYPE = "productQuantityType";
   @javax.annotation.Nullable  private ProductQuantityType productQuantityType;
@@ -57,21 +53,14 @@ public class WalletQuantityRequestDto {
   }
 
 
-  public WalletQuantityRequestDto quantity(@javax.annotation.Nullable Map<String, Integer> quantity) {
-    this.quantity = JsonNullable.<Map<String, Integer>>of(quantity);
+  public WalletQuantityRequestDto quantity(@javax.annotation.Nonnull Map<String, Integer> quantity) {
     
+    this.quantity = quantity;
     return this;
   }
 
   public WalletQuantityRequestDto putQuantityItem(String key, Integer quantityItem) {
-    if (this.quantity == null || !this.quantity.isPresent()) {
-      this.quantity = JsonNullable.<Map<String, Integer>>of(new HashMap<>());
-    }
-    try {
-      this.quantity.get().put(key, quantityItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.quantity.put(key, quantityItem);
     return this;
   }
 
@@ -79,25 +68,18 @@ public class WalletQuantityRequestDto {
    * The mapping of item identifiers to their respective quantities in the payment.
    * @return quantity
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_QUANTITY, required = true)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
 
   public Map<String, Integer> getQuantity() {
-        return quantity.orElse(null);
-  }
-
-  @JsonProperty(value = JSON_PROPERTY_QUANTITY, required = false)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Map<String, Integer>> getQuantity_JsonNullable() {
     return quantity;
   }
-  
-  @JsonProperty(JSON_PROPERTY_QUANTITY)
-  public void setQuantity_JsonNullable(JsonNullable<Map<String, Integer>> quantity) {
-    this.quantity = quantity;
-  }
 
-  public void setQuantity(@javax.annotation.Nullable Map<String, Integer> quantity) {
-    this.quantity = JsonNullable.<Map<String, Integer>>of(quantity);
+
+  @JsonProperty(value = JSON_PROPERTY_QUANTITY, required = true)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
+  public void setQuantity(@javax.annotation.Nonnull Map<String, Integer> quantity) {
+    this.quantity = quantity;
   }
 
   public WalletQuantityRequestDto productQuantityType(@javax.annotation.Nullable ProductQuantityType productQuantityType) {
@@ -107,7 +89,7 @@ public class WalletQuantityRequestDto {
   }
 
   /**
-   * Get productQuantityType
+   * The type of action performed on a product's quantity.
    * @return productQuantityType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRODUCT_QUANTITY_TYPE, required = false)
@@ -133,24 +115,13 @@ public class WalletQuantityRequestDto {
       return false;
     }
     WalletQuantityRequestDto walletQuantityRequestDto = (WalletQuantityRequestDto) o;
-    return equalsNullable(this.quantity, walletQuantityRequestDto.quantity) &&
+    return Objects.equals(this.quantity, walletQuantityRequestDto.quantity) &&
         Objects.equals(this.productQuantityType, walletQuantityRequestDto.productQuantityType);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(quantity), productQuantityType);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(quantity, productQuantityType);
   }
 
   @Override

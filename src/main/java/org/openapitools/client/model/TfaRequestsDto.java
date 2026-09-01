@@ -78,7 +78,7 @@ public class TfaRequestsDto {
   }
 
   /**
-   * Get type
+   * The two-factor authentication type.
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
@@ -138,7 +138,7 @@ public class TfaRequestsDto {
   }
 
   /**
-   * The list of IP addresses that bypass TFA verification.
+   * The list of IP addresses that bypass TFA verification. Each entry is a single address, an inclusive  from-to range or a CIDR block.
    * @return trustedIps
    */
   @javax.annotation.Nullable  @JsonIgnore

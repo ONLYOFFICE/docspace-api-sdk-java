@@ -9,7 +9,7 @@ The file upload result.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**success** | **Boolean** | Specifies if the upload operation is successful or not. |  [optional] |
-|**data** | **Object** | The file upload result data. |  [optional] |
+|**data** | **Object** |  |  [optional] |
 |**message** | **String** | The file upload result message. |  [optional] |
 
 

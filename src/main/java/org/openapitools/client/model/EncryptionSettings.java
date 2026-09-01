@@ -97,7 +97,7 @@ public class EncryptionSettings {
   }
 
   /**
-   * Get status
+   * The encryption status.
    * @return status
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)

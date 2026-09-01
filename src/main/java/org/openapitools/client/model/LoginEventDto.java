@@ -132,7 +132,7 @@ public class LoginEventDto {
   }
 
   /**
-   * Get date
+   * The API date and time parameters.
    * @return date
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
@@ -273,7 +273,7 @@ public class LoginEventDto {
   }
 
   /**
-   * Get actionId
+   * The event action ID.
    * @return actionId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTION_ID, required = false)

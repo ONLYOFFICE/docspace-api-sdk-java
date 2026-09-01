@@ -88,7 +88,7 @@ import java.util.StringJoiner;
 
 public class FileEntryDtoString {
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String title;
 
   public static final String JSON_PROPERTY_ACCESS = "access";
   @javax.annotation.Nullable  private FileShare access;
@@ -112,7 +112,7 @@ public class FileEntryDtoString {
   @javax.annotation.Nullable  private Boolean parentShared;
 
   public static final String JSON_PROPERTY_SHORT_WEB_URL = "shortWebUrl";
-  @javax.annotation.Nullable  private JsonNullable<URI> shortWebUrl = JsonNullable.<URI>undefined();
+  @javax.annotation.Nullable  private URI shortWebUrl;
 
   public static final String JSON_PROPERTY_CREATED = "created";
   @javax.annotation.Nullable  private ApiDateTime created;
@@ -136,19 +136,19 @@ public class FileEntryDtoString {
   @javax.annotation.Nullable  private EmployeeDto updatedBy;
 
   public static final String JSON_PROPERTY_PROVIDER_ITEM = "providerItem";
-  @javax.annotation.Nullable  private JsonNullable<Boolean> providerItem = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private Boolean providerItem;
 
   public static final String JSON_PROPERTY_PROVIDER_KEY = "providerKey";
-  @javax.annotation.Nullable  private JsonNullable<String> providerKey = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String providerKey;
 
   public static final String JSON_PROPERTY_PROVIDER_ID = "providerId";
-  @javax.annotation.Nullable  private JsonNullable<Integer> providerId = JsonNullable.<Integer>undefined();
+  @javax.annotation.Nullable  private Integer providerId;
 
   public static final String JSON_PROPERTY_ORDER = "order";
-  @javax.annotation.Nullable  private JsonNullable<String> order = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String order;
 
   public static final String JSON_PROPERTY_IS_FAVORITE = "isFavorite";
-  @javax.annotation.Nullable  private JsonNullable<Boolean> isFavorite = JsonNullable.<Boolean>undefined();
+  @javax.annotation.Nullable  private Boolean isFavorite;
 
   public static final String JSON_PROPERTY_FILE_ENTRY_TYPE = "fileEntryType";
   @javax.annotation.Nullable  private FileEntryType fileEntryType;
@@ -200,8 +200,8 @@ public class FileEntryDtoString {
 
 
   public FileEntryDtoString title(@javax.annotation.Nullable String title) {
-    this.title = JsonNullable.<String>of(title);
     
+    this.title = title;
     return this;
   }
 
@@ -209,25 +209,18 @@ public class FileEntryDtoString {
    * The file entry title.
    * @return title
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTitle() {
-        return title.orElse(null);
+    return title;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getTitle_JsonNullable() {
-    return title;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  public void setTitle_JsonNullable(JsonNullable<String> title) {
-    this.title = title;
-  }
-
   public void setTitle(@javax.annotation.Nullable String title) {
-    this.title = JsonNullable.<String>of(title);
+    this.title = title;
   }
 
   public FileEntryDtoString access(@javax.annotation.Nullable FileShare access) {
@@ -237,7 +230,7 @@ public class FileEntryDtoString {
   }
 
   /**
-   * Get access
+   * The access rights to the file entry.
    * @return access
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
@@ -261,7 +254,7 @@ public class FileEntryDtoString {
   }
 
   /**
-   * Get sharedBy
+   * Provides information about the employee who shared the file or folder.
    * @return sharedBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARED_BY, required = false)
@@ -285,7 +278,7 @@ public class FileEntryDtoString {
   }
 
   /**
-   * Get ownedBy
+   * The information about the employee who owns the file entry.
    * @return ownedBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OWNED_BY, required = false)
@@ -399,8 +392,8 @@ public class FileEntryDtoString {
   }
 
   public FileEntryDtoString shortWebUrl(@javax.annotation.Nullable URI shortWebUrl) {
-    this.shortWebUrl = JsonNullable.<URI>of(shortWebUrl);
     
+    this.shortWebUrl = shortWebUrl;
     return this;
   }
 
@@ -408,25 +401,18 @@ public class FileEntryDtoString {
    * The short Web URL.
    * @return shortWebUrl
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHORT_WEB_URL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public URI getShortWebUrl() {
-        return shortWebUrl.orElse(null);
+    return shortWebUrl;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_SHORT_WEB_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<URI> getShortWebUrl_JsonNullable() {
-    return shortWebUrl;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_SHORT_WEB_URL)
-  public void setShortWebUrl_JsonNullable(JsonNullable<URI> shortWebUrl) {
-    this.shortWebUrl = shortWebUrl;
-  }
-
   public void setShortWebUrl(@javax.annotation.Nullable URI shortWebUrl) {
-    this.shortWebUrl = JsonNullable.<URI>of(shortWebUrl);
+    this.shortWebUrl = shortWebUrl;
   }
 
   public FileEntryDtoString created(@javax.annotation.Nullable ApiDateTime created) {
@@ -436,7 +422,7 @@ public class FileEntryDtoString {
   }
 
   /**
-   * Get created
+   * The creation date and time of the file entry.
    * @return created
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED, required = false)
@@ -460,7 +446,7 @@ public class FileEntryDtoString {
   }
 
   /**
-   * Get createdBy
+   * The file entry author.
    * @return createdBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED_BY, required = false)
@@ -484,7 +470,7 @@ public class FileEntryDtoString {
   }
 
   /**
-   * Get updated
+   * The last date and time when the file entry was updated.
    * @return updated
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPDATED, required = false)
@@ -508,7 +494,7 @@ public class FileEntryDtoString {
   }
 
   /**
-   * Get autoDelete
+   * The date and time when the file entry will be automatically deleted.
    * @return autoDelete
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTO_DELETE, required = false)
@@ -532,7 +518,7 @@ public class FileEntryDtoString {
   }
 
   /**
-   * Get rootFolderType
+   * The root folder type of the file entry.
    * @return rootFolderType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOT_FOLDER_TYPE, required = false)
@@ -556,7 +542,7 @@ public class FileEntryDtoString {
   }
 
   /**
-   * Get parentRoomType
+   * The parent room type of the file entry.
    * @return parentRoomType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PARENT_ROOM_TYPE, required = false)
@@ -580,7 +566,7 @@ public class FileEntryDtoString {
   }
 
   /**
-   * Get updatedBy
+   * The user who updated the file entry.
    * @return updatedBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPDATED_BY, required = false)
@@ -598,8 +584,8 @@ public class FileEntryDtoString {
   }
 
   public FileEntryDtoString providerItem(@javax.annotation.Nullable Boolean providerItem) {
-    this.providerItem = JsonNullable.<Boolean>of(providerItem);
     
+    this.providerItem = providerItem;
     return this;
   }
 
@@ -607,30 +593,23 @@ public class FileEntryDtoString {
    * Specifies if the file entry provider is specified or not.
    * @return providerItem
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROVIDER_ITEM, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getProviderItem() {
-        return providerItem.orElse(null);
+    return providerItem;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_PROVIDER_ITEM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Boolean> getProviderItem_JsonNullable() {
-    return providerItem;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_PROVIDER_ITEM)
-  public void setProviderItem_JsonNullable(JsonNullable<Boolean> providerItem) {
+  public void setProviderItem(@javax.annotation.Nullable Boolean providerItem) {
     this.providerItem = providerItem;
   }
 
-  public void setProviderItem(@javax.annotation.Nullable Boolean providerItem) {
-    this.providerItem = JsonNullable.<Boolean>of(providerItem);
-  }
-
   public FileEntryDtoString providerKey(@javax.annotation.Nullable String providerKey) {
-    this.providerKey = JsonNullable.<String>of(providerKey);
     
+    this.providerKey = providerKey;
     return this;
   }
 
@@ -638,30 +617,23 @@ public class FileEntryDtoString {
    * The provider key of the file entry.
    * @return providerKey
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROVIDER_KEY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getProviderKey() {
-        return providerKey.orElse(null);
+    return providerKey;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_PROVIDER_KEY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getProviderKey_JsonNullable() {
-    return providerKey;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_PROVIDER_KEY)
-  public void setProviderKey_JsonNullable(JsonNullable<String> providerKey) {
+  public void setProviderKey(@javax.annotation.Nullable String providerKey) {
     this.providerKey = providerKey;
   }
 
-  public void setProviderKey(@javax.annotation.Nullable String providerKey) {
-    this.providerKey = JsonNullable.<String>of(providerKey);
-  }
-
   public FileEntryDtoString providerId(@javax.annotation.Nullable Integer providerId) {
-    this.providerId = JsonNullable.<Integer>of(providerId);
     
+    this.providerId = providerId;
     return this;
   }
 
@@ -669,30 +641,23 @@ public class FileEntryDtoString {
    * The provider ID of the file entry.
    * @return providerId
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROVIDER_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getProviderId() {
-        return providerId.orElse(null);
+    return providerId;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_PROVIDER_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Integer> getProviderId_JsonNullable() {
-    return providerId;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_PROVIDER_ID)
-  public void setProviderId_JsonNullable(JsonNullable<Integer> providerId) {
+  public void setProviderId(@javax.annotation.Nullable Integer providerId) {
     this.providerId = providerId;
   }
 
-  public void setProviderId(@javax.annotation.Nullable Integer providerId) {
-    this.providerId = JsonNullable.<Integer>of(providerId);
-  }
-
   public FileEntryDtoString order(@javax.annotation.Nullable String order) {
-    this.order = JsonNullable.<String>of(order);
     
+    this.order = order;
     return this;
   }
 
@@ -700,30 +665,23 @@ public class FileEntryDtoString {
    * The order of the file entry.
    * @return order
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ORDER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOrder() {
-        return order.orElse(null);
+    return order;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_ORDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getOrder_JsonNullable() {
-    return order;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_ORDER)
-  public void setOrder_JsonNullable(JsonNullable<String> order) {
+  public void setOrder(@javax.annotation.Nullable String order) {
     this.order = order;
   }
 
-  public void setOrder(@javax.annotation.Nullable String order) {
-    this.order = JsonNullable.<String>of(order);
-  }
-
   public FileEntryDtoString isFavorite(@javax.annotation.Nullable Boolean isFavorite) {
-    this.isFavorite = JsonNullable.<Boolean>of(isFavorite);
     
+    this.isFavorite = isFavorite;
     return this;
   }
 
@@ -731,25 +689,18 @@ public class FileEntryDtoString {
    * Specifies if the file is a favorite or not.
    * @return isFavorite
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_FAVORITE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsFavorite() {
-        return isFavorite.orElse(null);
+    return isFavorite;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_IS_FAVORITE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Boolean> getIsFavorite_JsonNullable() {
-    return isFavorite;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_IS_FAVORITE)
-  public void setIsFavorite_JsonNullable(JsonNullable<Boolean> isFavorite) {
-    this.isFavorite = isFavorite;
-  }
-
   public void setIsFavorite(@javax.annotation.Nullable Boolean isFavorite) {
-    this.isFavorite = JsonNullable.<Boolean>of(isFavorite);
+    this.isFavorite = isFavorite;
   }
 
   public FileEntryDtoString fileEntryType(@javax.annotation.Nullable FileEntryType fileEntryType) {
@@ -759,7 +710,7 @@ public class FileEntryDtoString {
   }
 
   /**
-   * Get fileEntryType
+   * The file entry type.
    * @return fileEntryType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_ENTRY_TYPE, required = false)
@@ -1148,7 +1099,7 @@ public class FileEntryDtoString {
   }
 
   /**
-   * Get expirationDate
+   * Represents the expiration date of the file entry.
    * @return expirationDate
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
@@ -1205,7 +1156,7 @@ public class FileEntryDtoString {
       return false;
     }
     FileEntryDtoString fileEntryDtoString = (FileEntryDtoString) o;
-    return equalsNullable(this.title, fileEntryDtoString.title) &&
+    return Objects.equals(this.title, fileEntryDtoString.title) &&
         Objects.equals(this.access, fileEntryDtoString.access) &&
         Objects.equals(this.sharedBy, fileEntryDtoString.sharedBy) &&
         Objects.equals(this.ownedBy, fileEntryDtoString.ownedBy) &&
@@ -1213,7 +1164,7 @@ public class FileEntryDtoString {
         Objects.equals(this.sharedForUser, fileEntryDtoString.sharedForUser) &&
         Objects.equals(this.sharedExternal, fileEntryDtoString.sharedExternal) &&
         Objects.equals(this.parentShared, fileEntryDtoString.parentShared) &&
-        equalsNullable(this.shortWebUrl, fileEntryDtoString.shortWebUrl) &&
+        Objects.equals(this.shortWebUrl, fileEntryDtoString.shortWebUrl) &&
         Objects.equals(this.created, fileEntryDtoString.created) &&
         Objects.equals(this.createdBy, fileEntryDtoString.createdBy) &&
         Objects.equals(this.updated, fileEntryDtoString.updated) &&
@@ -1221,11 +1172,11 @@ public class FileEntryDtoString {
         Objects.equals(this.rootFolderType, fileEntryDtoString.rootFolderType) &&
         Objects.equals(this.parentRoomType, fileEntryDtoString.parentRoomType) &&
         Objects.equals(this.updatedBy, fileEntryDtoString.updatedBy) &&
-        equalsNullable(this.providerItem, fileEntryDtoString.providerItem) &&
-        equalsNullable(this.providerKey, fileEntryDtoString.providerKey) &&
-        equalsNullable(this.providerId, fileEntryDtoString.providerId) &&
-        equalsNullable(this.order, fileEntryDtoString.order) &&
-        equalsNullable(this.isFavorite, fileEntryDtoString.isFavorite) &&
+        Objects.equals(this.providerItem, fileEntryDtoString.providerItem) &&
+        Objects.equals(this.providerKey, fileEntryDtoString.providerKey) &&
+        Objects.equals(this.providerId, fileEntryDtoString.providerId) &&
+        Objects.equals(this.order, fileEntryDtoString.order) &&
+        Objects.equals(this.isFavorite, fileEntryDtoString.isFavorite) &&
         Objects.equals(this.fileEntryType, fileEntryDtoString.fileEntryType) &&
         equalsNullable(this.id, fileEntryDtoString.id) &&
         equalsNullable(this.rootFolderId, fileEntryDtoString.rootFolderId) &&
@@ -1249,7 +1200,7 @@ public class FileEntryDtoString {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(title), access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, hashCodeNullable(shortWebUrl), created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), fileEntryType, hashCodeNullable(id), hashCodeNullable(rootFolderId), hashCodeNullable(originId), hashCodeNullable(originRoomId), hashCodeNullable(originTitle), hashCodeNullable(originRoomTitle), canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), hashCodeNullable(requestToken), hashCodeNullable(external), expirationDate, hashCodeNullable(isLinkExpired));
+    return Objects.hash(title, access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, shortWebUrl, created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, providerItem, providerKey, providerId, order, isFavorite, fileEntryType, hashCodeNullable(id), hashCodeNullable(rootFolderId), hashCodeNullable(originId), hashCodeNullable(originRoomId), hashCodeNullable(originTitle), hashCodeNullable(originRoomTitle), canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), hashCodeNullable(requestToken), hashCodeNullable(external), expirationDate, hashCodeNullable(isLinkExpired));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

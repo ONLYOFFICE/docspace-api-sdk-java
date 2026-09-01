@@ -266,7 +266,7 @@ public class MigratingApiUser {
   }
 
   /**
-   * Get userType
+   * The user type.
    * @return userType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER_TYPE, required = false)

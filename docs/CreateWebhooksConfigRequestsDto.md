@@ -13,7 +13,7 @@ The request parameters for creating the webhook configuration.
 |**secretKey** | **String** | The webhook secret key used to sign the webhook payloads for the security verification. |  [optional] |
 |**enabled** | **Boolean** | Specifies whether the webhook configuration is active or not. |  [optional] |
 |**ssl** | **Boolean** | Specifies whether the SSL certificate verification is required or not. |  [optional] |
-|**triggers** | **WebhookTrigger** |  |  [optional] |
+|**triggers** | **WebhookTrigger** | The webhook trigger type. |  [optional] |
 |**targetId** | **String** | Target ID |  [optional] |
 
 

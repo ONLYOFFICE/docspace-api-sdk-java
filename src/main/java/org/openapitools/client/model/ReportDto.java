@@ -62,7 +62,7 @@ public class ReportDto {
   @javax.annotation.Nullable  private Integer limit;
 
   public static final String JSON_PROPERTY_TOTAL_QUANTITY = "totalQuantity";
-  @javax.annotation.Nullable  private Integer totalQuantity;
+  @javax.annotation.Nullable  private Long totalQuantity;
 
   public static final String JSON_PROPERTY_TOTAL_PAGE = "totalPage";
   @javax.annotation.Nullable  private Integer totalPage;
@@ -165,7 +165,7 @@ public class ReportDto {
     this.limit = limit;
   }
 
-  public ReportDto totalQuantity(@javax.annotation.Nullable Integer totalQuantity) {
+  public ReportDto totalQuantity(@javax.annotation.Nullable Long totalQuantity) {
     
     this.totalQuantity = totalQuantity;
     return this;
@@ -178,14 +178,14 @@ public class ReportDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOTAL_QUANTITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getTotalQuantity() {
+  public Long getTotalQuantity() {
     return totalQuantity;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_TOTAL_QUANTITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTotalQuantity(@javax.annotation.Nullable Integer totalQuantity) {
+  public void setTotalQuantity(@javax.annotation.Nullable Long totalQuantity) {
     this.totalQuantity = totalQuantity;
   }
 

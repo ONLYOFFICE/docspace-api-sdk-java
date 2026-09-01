@@ -26,9 +26,11 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.ApplyFilterOption;
+import org.openapitools.client.model.AuditReportFormat;
 import org.openapitools.client.model.CheckUploadRequest;
 import org.openapitools.client.model.CreateFolder;
 import org.openapitools.client.model.DeleteFolder;
+import org.openapitools.client.model.DocumentBuilderTaskWrapper;
 import java.io.File;
 import org.openapitools.client.model.FileEntryBaseArrayWrapper;
 import org.openapitools.client.model.FileIntegerArrayWrapper;
@@ -45,11 +47,11 @@ import org.openapitools.client.model.FolderLinkRequest;
 import org.openapitools.client.model.FormsItemArrayWrapper;
 import org.openapitools.client.model.HistoryArrayWrapper;
 import org.openapitools.client.model.Location;
+import java.time.OffsetDateTime;
 import org.openapitools.client.model.OrderRequestDto;
 import org.openapitools.client.model.STRINGArrayWrapper;
 import org.openapitools.client.model.SearchArea;
 import org.openapitools.client.model.SortOrder;
-import org.openapitools.client.model.StringWrapper;
 import java.util.UUID;
 import org.openapitools.client.model.XlsxReportResponseWrapper;
 
@@ -357,34 +359,40 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * Generates folder history
-   * Generates the activity history of a folder.
+   * Start the folder history report generation
+   * Starts generating the activity history report of a folder (XLSX by default, or CSV) and saves it to My documents.
    *
    * REST API Reference for createReportFolderHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-report-folder-history/
    *
-   * @param folderId  (required)
-   * @return StringWrapper
+   * @param folderId The folder ID whose history is exported. (required)
+   * @param format The output file format of the report. Defaults to XLSX. (optional)
+   * @param from The start date of the history period to export. (optional)
+   * @param to The end date of the history period to export. (optional)
+   * @return DocumentBuilderTaskWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper createReportFolderHistory(@javax.annotation.Nonnull Integer folderId) throws ApiException {
-    return this.createReportFolderHistory(folderId, Collections.emptyMap());
+  public DocumentBuilderTaskWrapper createReportFolderHistory(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable AuditReportFormat format, @javax.annotation.Nullable OffsetDateTime from, @javax.annotation.Nullable OffsetDateTime to) throws ApiException {
+    return this.createReportFolderHistory(folderId, format, from, to, Collections.emptyMap());
   }
 
 
   /**
-   * Generates folder history
-   * Generates the activity history of a folder.
+   * Start the folder history report generation
+   * Starts generating the activity history report of a folder (XLSX by default, or CSV) and saves it to My documents.
    *
    * REST API Reference for createReportFolderHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-report-folder-history/
    *
-   * @param folderId  (required)
+   * @param folderId The folder ID whose history is exported. (required)
+   * @param format The output file format of the report. Defaults to XLSX. (optional)
+   * @param from The start date of the history period to export. (optional)
+   * @param to The end date of the history period to export. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return StringWrapper
+   * @return DocumentBuilderTaskWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper createReportFolderHistory(@javax.annotation.Nonnull Integer folderId, Map<String, String> additionalHeaders) throws ApiException {
+  public DocumentBuilderTaskWrapper createReportFolderHistory(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable AuditReportFormat format, @javax.annotation.Nullable OffsetDateTime from, @javax.annotation.Nullable OffsetDateTime to, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'folderId' is set
@@ -404,6 +412,9 @@ public class FoldersApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPair("format", format));
+    localVarQueryParams.addAll(apiClient.parameterToPair("from", from));
+    localVarQueryParams.addAll(apiClient.parameterToPair("to", to));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -422,7 +433,7 @@ public class FoldersApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<StringWrapper> localVarReturnType = new TypeReference<StringWrapper>() {};
+    TypeReference<DocumentBuilderTaskWrapper> localVarReturnType = new TypeReference<DocumentBuilderTaskWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -886,6 +897,7 @@ public class FoldersApi extends BaseApi {
    * @param sharedBy The identifier of the user who shared the folder or file. (optional)
    * @param filterType The filter type. (optional)
    * @param roomId The room ID. (optional)
+   * @param folderType The parent folder types used to filter the folder contents by folder type. (optional)
    * @param excludeSubject Specifies whether to exclude search by user or group ID. (optional)
    * @param applyFilterOption Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)
    * @param withSubFolders Specifies whether to include files from subfolders in the results. (optional)
@@ -902,8 +914,8 @@ public class FoldersApi extends BaseApi {
    * @return FolderContentIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentIntegerWrapper getFolderByFolderId(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable UUID sharedBy, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer roomId, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Boolean withSubFolders, @javax.annotation.Nullable String extension, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable String formsItemKey, @javax.annotation.Nullable String formsItemType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Location location) throws ApiException {
-    return this.getFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, Collections.emptyMap());
+  public FolderContentIntegerWrapper getFolderByFolderId(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable UUID sharedBy, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer roomId, @javax.annotation.Nullable List<Integer> folderType, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Boolean withSubFolders, @javax.annotation.Nullable String extension, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable String formsItemKey, @javax.annotation.Nullable String formsItemType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Location location) throws ApiException {
+    return this.getFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, Collections.emptyMap());
   }
 
 
@@ -919,6 +931,7 @@ public class FoldersApi extends BaseApi {
    * @param sharedBy The identifier of the user who shared the folder or file. (optional)
    * @param filterType The filter type. (optional)
    * @param roomId The room ID. (optional)
+   * @param folderType The parent folder types used to filter the folder contents by folder type. (optional)
    * @param excludeSubject Specifies whether to exclude search by user or group ID. (optional)
    * @param applyFilterOption Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)
    * @param withSubFolders Specifies whether to include files from subfolders in the results. (optional)
@@ -936,7 +949,7 @@ public class FoldersApi extends BaseApi {
    * @return FolderContentIntegerWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentIntegerWrapper getFolderByFolderId(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable UUID sharedBy, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer roomId, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Boolean withSubFolders, @javax.annotation.Nullable String extension, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable String formsItemKey, @javax.annotation.Nullable String formsItemType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Location location, Map<String, String> additionalHeaders) throws ApiException {
+  public FolderContentIntegerWrapper getFolderByFolderId(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable UUID sharedBy, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer roomId, @javax.annotation.Nullable List<Integer> folderType, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Boolean withSubFolders, @javax.annotation.Nullable String extension, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable String formsItemKey, @javax.annotation.Nullable String formsItemType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Location location, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'folderId' is set
@@ -960,6 +973,7 @@ public class FoldersApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("sharedBy", sharedBy));
     localVarQueryParams.addAll(apiClient.parameterToPair("filterType", filterType));
     localVarQueryParams.addAll(apiClient.parameterToPair("roomId", roomId));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "folderType", folderType));
     localVarQueryParams.addAll(apiClient.parameterToPair("excludeSubject", excludeSubject));
     localVarQueryParams.addAll(apiClient.parameterToPair("applyFilterOption", applyFilterOption));
     localVarQueryParams.addAll(apiClient.parameterToPair("withSubFolders", withSubFolders));
@@ -1534,6 +1548,105 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
+   * Get the Forms section
+   * Returns the detailed list of rooms used for filling out forms located in the Forms section.
+   *
+   * REST API Reference for getFormsFolder Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-forms-folder/
+   *
+   * @param userIdOrGroupId The user or group ID. (optional)
+   * @param filterType The filter type. (optional)
+   * @param count The maximum number of items to retrieve in the request. (optional)
+   * @param startIndex The zero-based index of the first item to retrieve in a paginated list. (optional)
+   * @param sortBy Specifies the field by which the folder content should be sorted. (optional)
+   * @param sortOrder The order in which the results are sorted. (optional)
+   * @param filterValue The text used as a filter or search criterion for folder content queries. (optional)
+   * @return FolderContentIntegerWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public FolderContentIntegerWrapper getFormsFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue) throws ApiException {
+    return this.getFormsFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get the Forms section
+   * Returns the detailed list of rooms used for filling out forms located in the Forms section.
+   *
+   * REST API Reference for getFormsFolder Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-forms-folder/
+   *
+   * @param userIdOrGroupId The user or group ID. (optional)
+   * @param filterType The filter type. (optional)
+   * @param count The maximum number of items to retrieve in the request. (optional)
+   * @param startIndex The zero-based index of the first item to retrieve in a paginated list. (optional)
+   * @param sortBy Specifies the field by which the folder content should be sorted. (optional)
+   * @param sortOrder The order in which the results are sorted. (optional)
+   * @param filterValue The text used as a filter or search criterion for folder content queries. (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return FolderContentIntegerWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public FolderContentIntegerWrapper getFormsFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/@forms";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("userIdOrGroupId", userIdOrGroupId));
+    localVarQueryParams.addAll(apiClient.parameterToPair("filterType", filterType));
+    localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
+    localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
+    localVarQueryParams.addAll(apiClient.parameterToPair("sortBy", sortBy));
+    localVarQueryParams.addAll(apiClient.parameterToPair("sortOrder", sortOrder));
+    localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
+      
+    if (this.fields != null)
+      localVarHeaderParams.put("fields", this.fields);
+
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<FolderContentIntegerWrapper> localVarReturnType = new TypeReference<FolderContentIntegerWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Get the My documents section
    * Returns the detailed list of files and folders located in the My documents section.
    *
@@ -1720,105 +1833,6 @@ public class FoldersApi extends BaseApi {
   }
 
   /**
-   * Get the Private Room section
-   * Returns the detailed list of files and folders located in the Private Room section.
-   *
-   * REST API Reference for getPrivacyFolder Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/
-   *
-   * @param userIdOrGroupId The user or group ID. (optional)
-   * @param filterType The filter type. (optional)
-   * @param count The maximum number of items to retrieve in the request. (optional)
-   * @param startIndex The zero-based index of the first item to retrieve in a paginated list. (optional)
-   * @param sortBy Specifies the field by which the folder content should be sorted. (optional)
-   * @param sortOrder The order in which the results are sorted. (optional)
-   * @param filterValue The text used as a filter or search criterion for folder content queries. (optional)
-   * @return FolderContentIntegerWrapper
-   * @throws ApiException if fails to make API call
-   */
-  public FolderContentIntegerWrapper getPrivacyFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue) throws ApiException {
-    return this.getPrivacyFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get the Private Room section
-   * Returns the detailed list of files and folders located in the Private Room section.
-   *
-   * REST API Reference for getPrivacyFolder Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/
-   *
-   * @param userIdOrGroupId The user or group ID. (optional)
-   * @param filterType The filter type. (optional)
-   * @param count The maximum number of items to retrieve in the request. (optional)
-   * @param startIndex The zero-based index of the first item to retrieve in a paginated list. (optional)
-   * @param sortBy Specifies the field by which the folder content should be sorted. (optional)
-   * @param sortOrder The order in which the results are sorted. (optional)
-   * @param filterValue The text used as a filter or search criterion for folder content queries. (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return FolderContentIntegerWrapper
-   * @throws ApiException if fails to make API call
-   */
-  public FolderContentIntegerWrapper getPrivacyFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/2.0/files/@privacy";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("userIdOrGroupId", userIdOrGroupId));
-    localVarQueryParams.addAll(apiClient.parameterToPair("filterType", filterType));
-    localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
-    localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
-    localVarQueryParams.addAll(apiClient.parameterToPair("sortBy", sortBy));
-    localVarQueryParams.addAll(apiClient.parameterToPair("sortOrder", sortOrder));
-    localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
-      
-    if (this.fields != null)
-      localVarHeaderParams.put("fields", this.fields);
-
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
-
-    TypeReference<FolderContentIntegerWrapper> localVarReturnType = new TypeReference<FolderContentIntegerWrapper>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
    * Get the Recent section
    * Returns the detailed list of files located in the Recent section.
    *
@@ -1885,10 +1899,7 @@ public class FoldersApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("excludeSubject", excludeSubject));
     localVarQueryParams.addAll(apiClient.parameterToPair("applyFilterOption", applyFilterOption));
     localVarQueryParams.addAll(apiClient.parameterToPair("searchArea", searchArea));
-    localVarQueryParameterBaseName = "extension";
-    for (int i=0; i < extension.size(); i++) {
-      localVarQueryStringJoiner.add(String.format(java.util.Locale.ROOT, "extension[%d]=%s", i, apiClient.parameterToString(extension.get(i))));
-    }
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "extension", extension));
     localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
     localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
     localVarQueryParams.addAll(apiClient.parameterToPair("sortBy", sortBy));
@@ -1915,6 +1926,90 @@ public class FoldersApi extends BaseApi {
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<FolderContentIntegerWrapper> localVarReturnType = new TypeReference<FolderContentIntegerWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get the folder history report generation status
+   * Returns the status of generating the folder history report.
+   *
+   * REST API Reference for getReportFolderHistory Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-report-folder-history/
+   *
+   * @param folderId  (required)
+   * @return DocumentBuilderTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentBuilderTaskWrapper getReportFolderHistory(@javax.annotation.Nonnull Integer folderId) throws ApiException {
+    return this.getReportFolderHistory(folderId, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get the folder history report generation status
+   * Returns the status of generating the folder history report.
+   *
+   * REST API Reference for getReportFolderHistory Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-report-folder-history/
+   *
+   * @param folderId  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return DocumentBuilderTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentBuilderTaskWrapper getReportFolderHistory(@javax.annotation.Nonnull Integer folderId, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'folderId' is set
+    if (folderId == null) {
+      throw new ApiException(400, "Missing the required parameter 'folderId' when calling getReportFolderHistory");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/folder/{folderId}/log/report"
+      .replaceAll("\\{" + "folderId" + "\\}", apiClient.escapeString(apiClient.parameterToString(folderId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<DocumentBuilderTaskWrapper> localVarReturnType = new TypeReference<DocumentBuilderTaskWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -2657,6 +2752,87 @@ if (streamWriteTimeout != null)
         localVarContentType,
         localVarAuthNames,
         localVarReturnType
+    );
+  }
+
+  /**
+   * Terminate the folder history report generation
+   * Terminates generating the folder history report.
+   *
+   * REST API Reference for terminateReportFolderHistory Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-report-folder-history/
+   *
+   * @param folderId  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void terminateReportFolderHistory(@javax.annotation.Nonnull Integer folderId) throws ApiException {
+    this.terminateReportFolderHistory(folderId, Collections.emptyMap());
+  }
+
+
+  /**
+   * Terminate the folder history report generation
+   * Terminates generating the folder history report.
+   *
+   * REST API Reference for terminateReportFolderHistory Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-report-folder-history/
+   *
+   * @param folderId  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @throws ApiException if fails to make API call
+   */
+  public void terminateReportFolderHistory(@javax.annotation.Nonnull Integer folderId, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'folderId' is set
+    if (folderId == null) {
+      throw new ApiException(400, "Missing the required parameter 'folderId' when calling terminateReportFolderHistory");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/folder/{folderId}/log/report"
+      .replaceAll("\\{" + "folderId" + "\\}", apiClient.escapeString(apiClient.parameterToString(folderId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    apiClient.invokeAPI(
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null
     );
   }
 

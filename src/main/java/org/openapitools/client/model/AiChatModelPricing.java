@@ -44,6 +44,7 @@ import java.util.StringJoiner;
   AiChatModelPricing.JSON_PROPERTY_ALIAS,
   AiChatModelPricing.JSON_PROPERTY_OWNED_BY,
   AiChatModelPricing.JSON_PROPERTY_PROVIDER,
+  AiChatModelPricing.JSON_PROPERTY_LINK,
   AiChatModelPricing.JSON_PROPERTY_PRICE
 })
 
@@ -59,6 +60,9 @@ public class AiChatModelPricing {
 
   public static final String JSON_PROPERTY_PROVIDER = "provider";
   @javax.annotation.Nullable  private JsonNullable<String> provider = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_LINK = "link";
+  @javax.annotation.Nullable  private JsonNullable<String> link = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PRICE = "price";
   @javax.annotation.Nonnull  private AiChatPrice price;
@@ -184,6 +188,37 @@ public class AiChatModelPricing {
     this.provider = JsonNullable.<String>of(provider);
   }
 
+  public AiChatModelPricing link(@javax.annotation.Nullable String link) {
+    this.link = JsonNullable.<String>of(link);
+    
+    return this;
+  }
+
+  /**
+   * Get link
+   * @return link
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getLink() {
+        return link.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_LINK, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getLink_JsonNullable() {
+    return link;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LINK)
+  public void setLink_JsonNullable(JsonNullable<String> link) {
+    this.link = link;
+  }
+
+  public void setLink(@javax.annotation.Nullable String link) {
+    this.link = JsonNullable.<String>of(link);
+  }
+
   public AiChatModelPricing price(@javax.annotation.Nonnull AiChatPrice price) {
     
     this.price = price;
@@ -221,6 +256,7 @@ public class AiChatModelPricing {
         equalsNullable(this.alias, aiChatModelPricing.alias) &&
         equalsNullable(this.ownedBy, aiChatModelPricing.ownedBy) &&
         equalsNullable(this.provider, aiChatModelPricing.provider) &&
+        equalsNullable(this.link, aiChatModelPricing.link) &&
         Objects.equals(this.price, aiChatModelPricing.price);
   }
 
@@ -230,7 +266,7 @@ public class AiChatModelPricing {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(alias), hashCodeNullable(ownedBy), hashCodeNullable(provider), price);
+    return Objects.hash(id, hashCodeNullable(alias), hashCodeNullable(ownedBy), hashCodeNullable(provider), hashCodeNullable(link), price);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -248,6 +284,7 @@ public class AiChatModelPricing {
     sb.append("    alias: ").append(toIndentedString(alias)).append("\n");
     sb.append("    ownedBy: ").append(toIndentedString(ownedBy)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -330,6 +367,16 @@ public class AiChatModelPricing {
     if (getProvider() != null) {
       try {
         joiner.add(String.format("%sprovider%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getProvider()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `link` to the URL query string
+    if (getLink() != null) {
+      try {
+        joiner.add(String.format("%slink%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLink()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

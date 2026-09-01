@@ -12,7 +12,7 @@ The payment settings parameters.
 |**feedbackAndSupportUrl** | **String** | The URL for accessing the feedback and support resources. |  [optional] |
 |**buyUrl** | **String** | The URL for purchasing or upgrading the product. |  |
 |**standalone** | **Boolean** | Indicates whether the system is running in standalone mode. |  |
-|**currentLicense** | [**CurrentLicenseInfo**](CurrentLicenseInfo.md) |  |  |
+|**currentLicense** | [**CurrentLicenseInfo**](CurrentLicenseInfo.md) | The current license information. |  |
 |**max** | **Integer** | The maximum quota quantity. |  |
 
 

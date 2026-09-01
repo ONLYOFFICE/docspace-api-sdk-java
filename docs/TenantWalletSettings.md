@@ -12,6 +12,8 @@ The tenant wallet settings.
 |**minBalance** | **Integer** | The minimum wallet balance at which automatic top-up will be triggered. Must be between 5 and 1000. |  [optional] |
 |**upToBalance** | **Integer** | The maximum wallet balance at which automatic top-up will be triggered. Must be between 6 and 5000. |  [optional] |
 |**currency** | **String** | The three-character ISO 4217 currency symbol. |  [optional] |
+|**lowBalanceThreshold** | **Integer** | The wallet balance below which a low-balance notification is sent. Set internally, not user-configurable. |  [optional] |
+|**lowBalanceNotified** | **Boolean** | Specifies whether a low-balance notification has already been sent for the current dip below ASC.Core.Tenants.TenantWalletSettings.LowBalanceThreshold. |  [optional] |
 |**lastModified** | **OffsetDateTime** | The date and time when the tenant wallet settings were last modified. |  [optional] |
 
 

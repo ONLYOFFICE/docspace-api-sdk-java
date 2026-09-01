@@ -66,7 +66,7 @@ public class QuotaDto {
   @javax.annotation.Nonnull  private Integer id;
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable  private String title;
+  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PRICE = "price";
   @javax.annotation.Nonnull  private PriceDto price;
@@ -127,8 +127,8 @@ public class QuotaDto {
   }
 
   public QuotaDto title(@javax.annotation.Nullable String title) {
+    this.title = JsonNullable.<String>of(title);
     
-    this.title = title;
     return this;
   }
 
@@ -136,18 +136,25 @@ public class QuotaDto {
    * The quota title.
    * @return title
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable  @JsonIgnore
 
   public String getTitle() {
-    return title;
+        return title.orElse(null);
   }
 
-
   @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTitle(@javax.annotation.Nullable String title) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getTitle_JsonNullable() {
+    return title;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  public void setTitle_JsonNullable(JsonNullable<String> title) {
     this.title = title;
+  }
+
+  public void setTitle(@javax.annotation.Nullable String title) {
+    this.title = JsonNullable.<String>of(title);
   }
 
   public QuotaDto price(@javax.annotation.Nonnull PriceDto price) {
@@ -157,7 +164,7 @@ public class QuotaDto {
   }
 
   /**
-   * Get price
+   * The price parameters.
    * @return price
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PRICE, required = true)
@@ -285,7 +292,7 @@ public class QuotaDto {
   }
 
   /**
-   * Get usersQuota
+   * The tenant entity quota settings.
    * @return usersQuota
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USERS_QUOTA, required = false)
@@ -309,7 +316,7 @@ public class QuotaDto {
   }
 
   /**
-   * Get roomsQuota
+   * The tenant entity quota settings.
    * @return roomsQuota
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOMS_QUOTA, required = false)
@@ -333,7 +340,7 @@ public class QuotaDto {
   }
 
   /**
-   * Get aiAgentsQuota
+   * The tenant entity quota settings.
    * @return aiAgentsQuota
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AI_AGENTS_QUOTA, required = false)
@@ -357,7 +364,7 @@ public class QuotaDto {
   }
 
   /**
-   * Get tenantCustomQuota
+   * The tenant quota settings.
    * @return tenantCustomQuota
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT_CUSTOM_QUOTA, required = false)
@@ -415,7 +422,7 @@ public class QuotaDto {
     }
     QuotaDto quotaDto = (QuotaDto) o;
     return Objects.equals(this.id, quotaDto.id) &&
-        Objects.equals(this.title, quotaDto.title) &&
+        equalsNullable(this.title, quotaDto.title) &&
         Objects.equals(this.price, quotaDto.price) &&
         Objects.equals(this.nonProfit, quotaDto.nonProfit) &&
         Objects.equals(this.free, quotaDto.free) &&
@@ -434,7 +441,7 @@ public class QuotaDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, price, nonProfit, free, trial, features, usersQuota, roomsQuota, aiAgentsQuota, tenantCustomQuota, hashCodeNullable(dueDate));
+    return Objects.hash(id, hashCodeNullable(title), price, nonProfit, free, trial, features, usersQuota, roomsQuota, aiAgentsQuota, tenantCustomQuota, hashCodeNullable(dueDate));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

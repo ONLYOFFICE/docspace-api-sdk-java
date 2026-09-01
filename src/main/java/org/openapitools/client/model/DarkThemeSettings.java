@@ -59,7 +59,7 @@ public class DarkThemeSettings {
   }
 
   /**
-   * Get theme
+   * The theme type.
    * @return theme
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_THEME, required = false)

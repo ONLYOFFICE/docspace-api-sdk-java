@@ -67,7 +67,7 @@ public class EditHistoryChangesWrapper {
   }
 
   /**
-   * Get user
+   * The information about the file editing history author.
    * @return user
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER, required = false)
@@ -91,7 +91,7 @@ public class EditHistoryChangesWrapper {
   }
 
   /**
-   * Get created
+   * The API date and time parameters.
    * @return created
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED, required = false)

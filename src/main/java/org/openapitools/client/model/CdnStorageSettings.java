@@ -52,7 +52,7 @@ public class CdnStorageSettings {
   @javax.annotation.Nullable  private JsonNullable<String> module = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PROPS = "props";
-  @javax.annotation.Nullable  private JsonNullable<Map<String, String>> props = JsonNullable.<Map<String, String>>undefined();
+  @javax.annotation.Nullable  private Map<String, String> props = new HashMap<>();
 
   public static final String JSON_PROPERTY_LAST_MODIFIED = "lastModified";
   @javax.annotation.Nullable  private OffsetDateTime lastModified;
@@ -93,20 +93,16 @@ public class CdnStorageSettings {
   }
 
   public CdnStorageSettings props(@javax.annotation.Nullable Map<String, String> props) {
-    this.props = JsonNullable.<Map<String, String>>of(props);
     
+    this.props = props;
     return this;
   }
 
   public CdnStorageSettings putPropsItem(String key, String propsItem) {
-    if (this.props == null || !this.props.isPresent()) {
-      this.props = JsonNullable.<Map<String, String>>of(new HashMap<>());
+    if (this.props == null) {
+      this.props = new HashMap<>();
     }
-    try {
-      this.props.get().put(key, propsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.props.put(key, propsItem);
     return this;
   }
 
@@ -114,25 +110,18 @@ public class CdnStorageSettings {
    * Get props
    * @return props
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROPS, required = false)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, String> getProps() {
-        return props.orElse(null);
+    return props;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_PROPS, required = false)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Map<String, String>> getProps_JsonNullable() {
-    return props;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_PROPS)
-  public void setProps_JsonNullable(JsonNullable<Map<String, String>> props) {
-    this.props = props;
-  }
-
   public void setProps(@javax.annotation.Nullable Map<String, String> props) {
-    this.props = JsonNullable.<Map<String, String>>of(props);
+    this.props = props;
   }
 
   public CdnStorageSettings lastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
@@ -169,7 +158,7 @@ public class CdnStorageSettings {
     }
     CdnStorageSettings cdnStorageSettings = (CdnStorageSettings) o;
     return equalsNullable(this.module, cdnStorageSettings.module) &&
-        equalsNullable(this.props, cdnStorageSettings.props) &&
+        Objects.equals(this.props, cdnStorageSettings.props) &&
         Objects.equals(this.lastModified, cdnStorageSettings.lastModified);
   }
 
@@ -179,7 +168,7 @@ public class CdnStorageSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(module), hashCodeNullable(props), lastModified);
+    return Objects.hash(hashCodeNullable(module), props, lastModified);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

@@ -27,6 +27,7 @@ import org.openapitools.client.Pair;
 import org.openapitools.client.model.DoubleWrapper;
 import org.openapitools.client.model.TariffWrapper;
 import org.openapitools.client.model.TenantQuotaWrapper;
+import org.openapitools.client.model.UpcomingPaymentArrayWrapper;
 
 
 import java.util.ArrayList;
@@ -337,6 +338,85 @@ public class QuotaApi extends BaseApi {
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<TenantQuotaWrapper> localVarReturnType = new TypeReference<TenantQuotaWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get upcoming payments
+   * Returns the list of upcoming payments based on the active quotas of the current portal tariff.
+   *
+   * REST API Reference for getUpcomingPayments Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-upcoming-payments/
+   *
+   * @param refresh The value indicating whether the current portal tariff information should be refreshed. (optional)
+   * @return UpcomingPaymentArrayWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public UpcomingPaymentArrayWrapper getUpcomingPayments(@javax.annotation.Nullable Boolean refresh) throws ApiException {
+    return this.getUpcomingPayments(refresh, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get upcoming payments
+   * Returns the list of upcoming payments based on the active quotas of the current portal tariff.
+   *
+   * REST API Reference for getUpcomingPayments Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-upcoming-payments/
+   *
+   * @param refresh The value indicating whether the current portal tariff information should be refreshed. (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return UpcomingPaymentArrayWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public UpcomingPaymentArrayWrapper getUpcomingPayments(@javax.annotation.Nullable Boolean refresh, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/portal/tariff/upcoming";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("refresh", refresh));
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<UpcomingPaymentArrayWrapper> localVarReturnType = new TypeReference<UpcomingPaymentArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",

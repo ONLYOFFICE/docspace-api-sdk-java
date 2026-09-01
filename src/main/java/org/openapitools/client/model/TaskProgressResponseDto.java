@@ -177,7 +177,7 @@ public class TaskProgressResponseDto {
   }
 
   /**
-   * Get status
+   * The status of the distributed task.
    * @return status
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)

@@ -50,7 +50,7 @@ public class CultureSpecificExternalResource {
   @javax.annotation.Nullable  private JsonNullable<String> domain = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ENTRIES = "entries";
-  @javax.annotation.Nullable  private JsonNullable<Map<String, String>> entries = JsonNullable.<Map<String, String>>undefined();
+  @javax.annotation.Nullable  private Map<String, String> entries = new HashMap<>();
 
   public CultureSpecificExternalResource() {
   }
@@ -88,20 +88,16 @@ public class CultureSpecificExternalResource {
   }
 
   public CultureSpecificExternalResource entries(@javax.annotation.Nullable Map<String, String> entries) {
-    this.entries = JsonNullable.<Map<String, String>>of(entries);
     
+    this.entries = entries;
     return this;
   }
 
   public CultureSpecificExternalResource putEntriesItem(String key, String entriesItem) {
-    if (this.entries == null || !this.entries.isPresent()) {
-      this.entries = JsonNullable.<Map<String, String>>of(new HashMap<>());
+    if (this.entries == null) {
+      this.entries = new HashMap<>();
     }
-    try {
-      this.entries.get().put(key, entriesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.entries.put(key, entriesItem);
     return this;
   }
 
@@ -109,25 +105,18 @@ public class CultureSpecificExternalResource {
    * The external resource entries.
    * @return entries
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENTRIES, required = false)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, String> getEntries() {
-        return entries.orElse(null);
+    return entries;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_ENTRIES, required = false)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Map<String, String>> getEntries_JsonNullable() {
-    return entries;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_ENTRIES)
-  public void setEntries_JsonNullable(JsonNullable<Map<String, String>> entries) {
-    this.entries = entries;
-  }
-
   public void setEntries(@javax.annotation.Nullable Map<String, String> entries) {
-    this.entries = JsonNullable.<Map<String, String>>of(entries);
+    this.entries = entries;
   }
 
   @Override
@@ -140,7 +129,7 @@ public class CultureSpecificExternalResource {
     }
     CultureSpecificExternalResource cultureSpecificExternalResource = (CultureSpecificExternalResource) o;
     return equalsNullable(this.domain, cultureSpecificExternalResource.domain) &&
-        equalsNullable(this.entries, cultureSpecificExternalResource.entries);
+        Objects.equals(this.entries, cultureSpecificExternalResource.entries);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -149,7 +138,7 @@ public class CultureSpecificExternalResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(domain), hashCodeNullable(entries));
+    return Objects.hash(hashCodeNullable(domain), entries);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

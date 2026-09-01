@@ -9,7 +9,7 @@ The sorting parameters.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**isAsc** | **Boolean** | Specifies if the order is ascending. |  [optional] |
-|**property** | **SortedByType** |  |  [optional] |
+|**property** | **SortedByType** | The parameters by which the files will be sorted. |  [optional] |
 
 
 

@@ -509,10 +509,7 @@ public class SecurityApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParameterBaseName = "ids";
-    for (int i=0; i < ids.size(); i++) {
-      localVarQueryStringJoiner.add(String.format(java.util.Locale.ROOT, "ids[%d]=%s", i, apiClient.parameterToString(ids.get(i))));
-    }
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "ids", ids));
       
     
     localVarHeaderParams.putAll(additionalHeaders);

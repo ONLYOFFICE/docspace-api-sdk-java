@@ -124,7 +124,7 @@ public class FileOperationDto {
   }
 
   /**
-   * Get operation
+   * The file operation type.
    * @return operation
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_OPERATION, required = true)
@@ -361,7 +361,7 @@ public class FileOperationDto {
   }
 
   /**
-   * Get status
+   * The status of the distributed task related to the file operation.
    * @return status
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)

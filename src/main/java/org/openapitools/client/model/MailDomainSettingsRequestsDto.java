@@ -65,7 +65,7 @@ public class MailDomainSettingsRequestsDto {
   }
 
   /**
-   * Get type
+   * The type of the tenant trusted domains.
    * @return type
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)

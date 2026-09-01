@@ -141,7 +141,7 @@ public class ApiClient extends JavaTimeFormatter {
     dateFormat = ApiClient.buildDefaultDateFormat();
 
     // Set default User-Agent.
-    setUserAgent("OpenAPI-Generator/3.7.0/java");
+    setUserAgent("OpenAPI-Generator/4.0.0/java");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
@@ -150,6 +150,8 @@ public class ApiClient extends JavaTimeFormatter {
     authentications.put("Bearer", new HttpBearerAuth("bearer"));
     authentications.put("ApiKeyBearer", new ApiKeyAuth("header", "ApiKeyBearer"));
     authentications.put("OAuth2", new OAuth());
+    authentications.put("cookieAuth", new ApiKeyAuth("query", "asc_auth_key"));
+    authentications.put("bearerAuth", new HttpBearerAuth("bearer"));
     authentications.put("x-signature", new ApiKeyAuth("query", "x-signature"));
     authentications.put("OpenId", new OpenIdAuth());
     // Prevent the authentications from being modified.

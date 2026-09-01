@@ -24,10 +24,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -46,21 +42,21 @@ import java.util.StringJoiner;
 
 public class SalesRequestsDto {
   public static final String JSON_PROPERTY_USER_NAME = "userName";
-  @javax.annotation.Nullable  private JsonNullable<String> userName = JsonNullable.<String>undefined();
+  @javax.annotation.Nonnull  private String userName;
 
   public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nullable  private String email;
+  @javax.annotation.Nonnull  private String email;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
-  @javax.annotation.Nullable  private String message;
+  @javax.annotation.Nonnull  private String message;
 
   public SalesRequestsDto() {
   }
 
 
-  public SalesRequestsDto userName(@javax.annotation.Nullable String userName) {
-    this.userName = JsonNullable.<String>of(userName);
+  public SalesRequestsDto userName(@javax.annotation.Nonnull String userName) {
     
+    this.userName = userName;
     return this;
   }
 
@@ -68,28 +64,21 @@ public class SalesRequestsDto {
    * The name of the user submitting the sales request.
    * @return userName
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_USER_NAME, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getUserName() {
-        return userName.orElse(null);
-  }
-
-  @JsonProperty(value = JSON_PROPERTY_USER_NAME, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getUserName_JsonNullable() {
     return userName;
   }
-  
-  @JsonProperty(JSON_PROPERTY_USER_NAME)
-  public void setUserName_JsonNullable(JsonNullable<String> userName) {
+
+
+  @JsonProperty(value = JSON_PROPERTY_USER_NAME, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setUserName(@javax.annotation.Nonnull String userName) {
     this.userName = userName;
   }
 
-  public void setUserName(@javax.annotation.Nullable String userName) {
-    this.userName = JsonNullable.<String>of(userName);
-  }
-
-  public SalesRequestsDto email(@javax.annotation.Nullable String email) {
+  public SalesRequestsDto email(@javax.annotation.Nonnull String email) {
     
     this.email = email;
     return this;
@@ -99,7 +88,7 @@ public class SalesRequestsDto {
    * The contact email address for the sales inquiry.
    * @return email
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getEmail() {
@@ -107,13 +96,13 @@ public class SalesRequestsDto {
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEmail(@javax.annotation.Nullable String email) {
+  public void setEmail(@javax.annotation.Nonnull String email) {
     this.email = email;
   }
 
-  public SalesRequestsDto message(@javax.annotation.Nullable String message) {
+  public SalesRequestsDto message(@javax.annotation.Nonnull String message) {
     
     this.message = message;
     return this;
@@ -123,7 +112,7 @@ public class SalesRequestsDto {
    * The details of the sales inquiry or payment request.
    * @return message
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getMessage() {
@@ -131,9 +120,9 @@ public class SalesRequestsDto {
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setMessage(@javax.annotation.Nullable String message) {
+  public void setMessage(@javax.annotation.Nonnull String message) {
     this.message = message;
   }
 
@@ -146,25 +135,14 @@ public class SalesRequestsDto {
       return false;
     }
     SalesRequestsDto salesRequestsDto = (SalesRequestsDto) o;
-    return equalsNullable(this.userName, salesRequestsDto.userName) &&
+    return Objects.equals(this.userName, salesRequestsDto.userName) &&
         Objects.equals(this.email, salesRequestsDto.email) &&
         Objects.equals(this.message, salesRequestsDto.message);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(userName), email, message);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(userName, email, message);
   }
 
   @Override

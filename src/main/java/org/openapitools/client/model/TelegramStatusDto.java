@@ -62,7 +62,7 @@ public class TelegramStatusDto {
   }
 
   /**
-   * Get status
+   * The registration Telegram status.
    * @return status
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)

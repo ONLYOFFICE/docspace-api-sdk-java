@@ -2,7 +2,7 @@
 
 # Quota
 
-The quota parameters.  <example>  {    id: 1,    quantity: 50,    wallet: false,    dueDate: 2026-03-31T00:00:00Z,    nextQuantity: 100,    state: Active  }  </example>
+The quota parameters.  <example>  {    id: 1,    quantity: 50,    wallet: false,    additional: false,    dueDate: 2026-03-31T00:00:00Z,    nextQuantity: 100,    state: Active  }  </example>
 
 ## Properties
 
@@ -13,7 +13,9 @@ The quota parameters.  <example>  {    id: 1,    quantity: 50,    wallet: false,
 |**wallet** | **Boolean** | The quota applies to the wallet or not |  [optional] |
 |**dueDate** | **OffsetDateTime** | The quota due date. |  [optional] |
 |**nextQuantity** | **Integer** | The quota next quantity. |  [optional] |
-|**state** | **QuotaState** |  |  [optional] |
+|**additional** | **Boolean** | Indicates whether the quota is primary or additional. |  [optional] |
+|**nextQuota** | **Integer** | The quota ID to switch to at the next period. |  [optional] |
+|**state** | **QuotaState** | The quota state. |  [optional] |
 
 
 

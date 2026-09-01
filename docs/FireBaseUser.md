@@ -14,7 +14,7 @@ The Firebase user parameters.
 |**firebaseDeviceToken** | **String** | The Firebase device token. |  [optional] |
 |**application** | **String** | The Firebase application. |  [optional] |
 |**isSubscribed** | **Boolean** | Specifies if the user is subscribed to the push notifications or not. |  [optional] |
-|**tenant** | [**DbTenant**](DbTenant.md) |  |  [optional] |
+|**tenant** | [**DbTenant**](DbTenant.md) | The database tenant parameters. |  [optional] |
 
 
 

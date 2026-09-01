@@ -110,7 +110,7 @@ public class CoEditingConfig {
   }
 
   /**
-   * Get mode
+   * The co-editing mode (fast or strict).
    * @return mode
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MODE, required = false)

@@ -80,7 +80,7 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        Integer id = 56; // Integer | The group ID.
+        Integer id = 00000000-0000-0000-0000-000000000000; // Integer | The group ID.
         Boolean excludeShared = false; // Boolean | Specifies whether to exclude the group sharing settings from the response.
         Integer count = 25; // Integer | The number of groups to retrieve in the request.
         Integer startIndex = 0; // Integer | The starting index from which to begin retrieving groups with their sharing settings.
@@ -186,7 +186,7 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        Integer id = 56; // Integer | The group ID.
+        Integer id = 00000000-0000-0000-0000-000000000000; // Integer | The group ID.
         Boolean excludeShared = false; // Boolean | Specifies whether to exclude the group sharing settings from the response.
         Integer count = 25; // Integer | The number of groups to retrieve in the request.
         Integer startIndex = 0; // Integer | The starting index from which to begin retrieving groups with their sharing settings.
@@ -292,7 +292,7 @@ public class Example {
 
 
         SearchApi apiInstance = new SearchApi(defaultClient);
-        Integer id = 56; // Integer | The group ID.
+        Integer id = 00000000-0000-0000-0000-000000000000; // Integer | The group ID.
         Boolean excludeShared = false; // Boolean | Specifies whether to exclude the group sharing settings from the response.
         Integer count = 25; // Integer | The number of groups to retrieve in the request.
         Integer startIndex = 0; // Integer | The starting index from which to begin retrieving groups with their sharing settings.

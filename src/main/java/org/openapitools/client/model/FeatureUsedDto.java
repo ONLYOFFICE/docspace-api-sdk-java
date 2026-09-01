@@ -61,7 +61,7 @@ public class FeatureUsedDto {
   }
 
   /**
-   * The used space value.
+   * Get value
    * @return value
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)

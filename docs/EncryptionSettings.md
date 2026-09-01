@@ -9,7 +9,7 @@ The encryption settings.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**password** | **String** | The encryption password. |  [optional] |
-|**status** | **EncryprtionStatus** |  |  [optional] |
+|**status** | **EncryprtionStatus** | The encryption status. |  [optional] |
 |**notifyUsers** | **Boolean** | Specifies if the users will be notified about the encryption operation or not. |  [optional] |
 
 

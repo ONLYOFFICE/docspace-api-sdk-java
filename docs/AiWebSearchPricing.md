@@ -7,9 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**id** | **String** |  |  [optional] |
 |**provider** | **String** |  |  [optional] |
-|**search** | **Double** |  |  [optional] |
-|**contents** | **Double** |  |  [optional] |
+|**price** | **Double** |  |  [optional] |
+|**link** | **String** |  |  [optional] |
 
 
 

@@ -66,7 +66,7 @@ public class CheckDestFolderDto {
   }
 
   /**
-   * Get result
+   * The result of the validation operation.
    * @return result
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESULT, required = false)

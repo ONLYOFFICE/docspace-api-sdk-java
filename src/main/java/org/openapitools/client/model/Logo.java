@@ -205,7 +205,7 @@ public class Logo {
   }
 
   /**
-   * Get cover
+   * The logo cover.
    * @return cover
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COVER, required = false)

@@ -149,7 +149,7 @@ public class FilesSettingsDto {
   @javax.annotation.Nullable  private JsonNullable<List<String>> extsMustConvert = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTS_CONVERTIBLE = "extsConvertible";
-  @javax.annotation.Nullable  private JsonNullable<Map<String, List<String>>> extsConvertible = JsonNullable.<Map<String, List<String>>>undefined();
+  @javax.annotation.Nullable  private Map<String, List<String>> extsConvertible = new HashMap<>();
 
   public static final String JSON_PROPERTY_EXTS_UPLOADABLE = "extsUploadable";
   @javax.annotation.Nullable  private JsonNullable<List<String>> extsUploadable = JsonNullable.<List<String>>undefined();
@@ -839,20 +839,16 @@ public class FilesSettingsDto {
   }
 
   public FilesSettingsDto extsConvertible(@javax.annotation.Nullable Map<String, List<String>> extsConvertible) {
-    this.extsConvertible = JsonNullable.<Map<String, List<String>>>of(extsConvertible);
     
+    this.extsConvertible = extsConvertible;
     return this;
   }
 
   public FilesSettingsDto putExtsConvertibleItem(String key, List<String> extsConvertibleItem) {
-    if (this.extsConvertible == null || !this.extsConvertible.isPresent()) {
-      this.extsConvertible = JsonNullable.<Map<String, List<String>>>of(new HashMap<>());
+    if (this.extsConvertible == null) {
+      this.extsConvertible = new HashMap<>();
     }
-    try {
-      this.extsConvertible.get().put(key, extsConvertibleItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.extsConvertible.put(key, extsConvertibleItem);
     return this;
   }
 
@@ -860,25 +856,18 @@ public class FilesSettingsDto {
    * The list of the convertible extensions.
    * @return extsConvertible
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTS_CONVERTIBLE, required = false)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, List<String>> getExtsConvertible() {
-        return extsConvertible.orElse(null);
+    return extsConvertible;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_EXTS_CONVERTIBLE, required = false)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Map<String, List<String>>> getExtsConvertible_JsonNullable() {
-    return extsConvertible;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_EXTS_CONVERTIBLE)
-  public void setExtsConvertible_JsonNullable(JsonNullable<Map<String, List<String>>> extsConvertible) {
-    this.extsConvertible = extsConvertible;
-  }
-
   public void setExtsConvertible(@javax.annotation.Nullable Map<String, List<String>> extsConvertible) {
-    this.extsConvertible = JsonNullable.<Map<String, List<String>>>of(extsConvertible);
+    this.extsConvertible = extsConvertible;
   }
 
   public FilesSettingsDto extsUploadable(@javax.annotation.Nullable List<String> extsUploadable) {
@@ -1904,7 +1893,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Get defaultOrder
+   * The sorting parameters.
    * @return defaultOrder
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEFAULT_ORDER, required = false)
@@ -2072,7 +2061,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Get automaticallyCleanUp
+   * The auto-clearing setting parameters.
    * @return automaticallyCleanUp
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTOMATICALLY_CLEAN_UP, required = false)
@@ -2435,7 +2424,7 @@ public class FilesSettingsDto {
         equalsNullable(this.extsWebCommented, filesSettingsDto.extsWebCommented) &&
         equalsNullable(this.extsWebTemplate, filesSettingsDto.extsWebTemplate) &&
         equalsNullable(this.extsMustConvert, filesSettingsDto.extsMustConvert) &&
-        equalsNullable(this.extsConvertible, filesSettingsDto.extsConvertible) &&
+        Objects.equals(this.extsConvertible, filesSettingsDto.extsConvertible) &&
         equalsNullable(this.extsUploadable, filesSettingsDto.extsUploadable) &&
         equalsNullable(this.extsArchive, filesSettingsDto.extsArchive) &&
         equalsNullable(this.extsVideo, filesSettingsDto.extsVideo) &&
@@ -2496,7 +2485,7 @@ public class FilesSettingsDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(extsImagePreviewed), hashCodeNullable(extsMediaPreviewed), hashCodeNullable(extsWebPreviewed), hashCodeNullable(extsWebEdited), hashCodeNullable(extsWebEncrypt), hashCodeNullable(extsWebReviewed), hashCodeNullable(extsWebCustomFilterEditing), hashCodeNullable(extsWebRestrictedEditing), hashCodeNullable(extsWebCommented), hashCodeNullable(extsWebTemplate), hashCodeNullable(extsMustConvert), hashCodeNullable(extsConvertible), hashCodeNullable(extsUploadable), hashCodeNullable(extsArchive), hashCodeNullable(extsVideo), hashCodeNullable(extsAudio), hashCodeNullable(extsImage), hashCodeNullable(extsSpreadsheet), hashCodeNullable(extsPresentation), hashCodeNullable(extsDocument), hashCodeNullable(extsDiagram), hashCodeNullable(internalFormats), hashCodeNullable(masterFormExtension), hashCodeNullable(paramVersion), hashCodeNullable(paramOutType), hashCodeNullable(fileDownloadUrlString), hashCodeNullable(fileWebViewerUrlString), hashCodeNullable(fileWebViewerExternalUrlString), hashCodeNullable(fileWebEditorUrlString), hashCodeNullable(fileWebEditorExternalUrlString), hashCodeNullable(fileRedirectPreviewUrlString), hashCodeNullable(fileThumbnailUrlString), confirmDelete, enableThirdParty, externalShare, externalShareSocialMedia, storeOriginalFiles, keepNewFileName, displayFileExtension, convertNotify, hideConfirmCancelOperation, hideConfirmConvertSave, hideConfirmConvertOpen, hideConfirmRoomLifetime, defaultOrder, forcesave, storeForcesave, recentSection, favoritesSection, templatesSection, downloadTarGz, automaticallyCleanUp, canSearchByContent, hashCodeNullable(defaultSharingAccessRights), maxUploadThreadCount, chunkUploadSize, openEditorInSameTab, organizeRoomsGrouping, defaultShareLinkInternal, externalShareApplyToDocuments, externalShareApplyToRooms, blockExistingLinksOnRestrict, hashCodeNullable(extsFilesVectorized), maxVectorizationFileSize);
+    return Objects.hash(hashCodeNullable(extsImagePreviewed), hashCodeNullable(extsMediaPreviewed), hashCodeNullable(extsWebPreviewed), hashCodeNullable(extsWebEdited), hashCodeNullable(extsWebEncrypt), hashCodeNullable(extsWebReviewed), hashCodeNullable(extsWebCustomFilterEditing), hashCodeNullable(extsWebRestrictedEditing), hashCodeNullable(extsWebCommented), hashCodeNullable(extsWebTemplate), hashCodeNullable(extsMustConvert), extsConvertible, hashCodeNullable(extsUploadable), hashCodeNullable(extsArchive), hashCodeNullable(extsVideo), hashCodeNullable(extsAudio), hashCodeNullable(extsImage), hashCodeNullable(extsSpreadsheet), hashCodeNullable(extsPresentation), hashCodeNullable(extsDocument), hashCodeNullable(extsDiagram), hashCodeNullable(internalFormats), hashCodeNullable(masterFormExtension), hashCodeNullable(paramVersion), hashCodeNullable(paramOutType), hashCodeNullable(fileDownloadUrlString), hashCodeNullable(fileWebViewerUrlString), hashCodeNullable(fileWebViewerExternalUrlString), hashCodeNullable(fileWebEditorUrlString), hashCodeNullable(fileWebEditorExternalUrlString), hashCodeNullable(fileRedirectPreviewUrlString), hashCodeNullable(fileThumbnailUrlString), confirmDelete, enableThirdParty, externalShare, externalShareSocialMedia, storeOriginalFiles, keepNewFileName, displayFileExtension, convertNotify, hideConfirmCancelOperation, hideConfirmConvertSave, hideConfirmConvertOpen, hideConfirmRoomLifetime, defaultOrder, forcesave, storeForcesave, recentSection, favoritesSection, templatesSection, downloadTarGz, automaticallyCleanUp, canSearchByContent, hashCodeNullable(defaultSharingAccessRights), maxUploadThreadCount, chunkUploadSize, openEditorInSameTab, organizeRoomsGrouping, defaultShareLinkInternal, externalShareApplyToDocuments, externalShareApplyToRooms, blockExistingLinksOnRestrict, hashCodeNullable(extsFilesVectorized), maxVectorizationFileSize);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

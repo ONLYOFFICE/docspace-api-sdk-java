@@ -10,7 +10,7 @@ The migration status parameters.
 |------------ | ------------- | ------------- | -------------|
 |**progress** | **Double** | The migration progress. |  [optional] |
 |**error** | **String** | The migration error. |  [optional] |
-|**parseResult** | [**MigrationApiInfo**](MigrationApiInfo.md) |  |  [optional] |
+|**parseResult** | [**MigrationApiInfo**](MigrationApiInfo.md) | The migration API information. |  [optional] |
 |**isCompleted** | **Boolean** | Specifies whether the migration is completed or not. |  [optional] |
 
 

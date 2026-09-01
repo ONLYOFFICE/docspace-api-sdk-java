@@ -18,6 +18,7 @@ The current tenant quota.
 |**serviceGroup** | **String** | The service group. |  [optional] |
 |**visible** | **Boolean** | Specifies if the tenant quota is visible or not. |  [optional] |
 |**wallet** | **Boolean** | Specifies if the tenant quota applies to the wallet or not |  [optional] |
+|**additional** | **Boolean** | Specifies if the tenant quota is primary or additional. |  [optional] |
 |**dueDate** | **OffsetDateTime** | The quota due date. |  [optional] |
 |**features** | **String** | The tenant quota features. |  [optional] |
 |**maxFileSize** | **Long** | The tenant maximum file size. |  [optional] |
@@ -49,6 +50,10 @@ The current tenant quota.
 |**backup** | **Boolean** | Specifies if the backup enabled as a wallet service or not. |  [optional] |
 |**countAIAgent** | **Integer** | The number of AI agents. |  [optional] |
 |**aiTools** | **Boolean** | Specifies if the AI tools enabled as a wallet service or not. |  [optional] |
+|**aiSearch** | **Boolean** | Specifies if the AI search enabled as a wallet service or not. |  [optional] |
+|**docsCloud** | **Integer** | The number of DocsCloud users. |  [optional] |
+|**docsCloudDevPack** | **Boolean** | Specifies if the DocsCloudDevPack enabled or not. |  [optional] |
+|**docsCloudTrial** | **Boolean** | Specifies if the DocsCloudTrial enabled or not. |  [optional] |
 
 
 

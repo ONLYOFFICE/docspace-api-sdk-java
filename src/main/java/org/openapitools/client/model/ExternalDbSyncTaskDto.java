@@ -185,7 +185,7 @@ public class ExternalDbSyncTaskDto {
   }
 
   /**
-   * Get status
+   * The status of the synchronization task.
    * @return status
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)

@@ -1281,9 +1281,9 @@ public class Example {
 
 ## emptyTrash
 
-> FileOperationArrayWrapper emptyTrash(single)
+> FileOperationArrayWrapper emptyTrash(single, folderType)
 
-Empty the Trash folderDeletes all the files and folders from the Trash folder.
+Empty the Trash folderDeletes all the files and folders from the Trash folder. If the folder types are specified, only the items originally located in the sections of these types are deleted.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/).
 
@@ -1293,6 +1293,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **single** | **Boolean**| Specifies whether to return only the current operation | [optional] |
+| **folderType** | [**List&lt;Integer&gt;**](Integer.md)| The parent folder types used to empty the trash only from the items originally located in the sections of the specified types. | [optional] [enum: 0, 1, 2, 3, 5, 6, 8, 10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36] |
 
 ### Return type
 
@@ -1346,8 +1347,9 @@ public class Example {
 
         OperationsApi apiInstance = new OperationsApi(defaultClient);
         Boolean single = false; // Boolean | Specifies whether to return only the current operation
+        List<Integer> folderType = Arrays.asList(); // List<Integer> | The parent folder types used to empty the trash only from the items originally located in the sections of the specified types.
         try {
-            FileOperationArrayWrapper result = apiInstance.emptyTrash(single);
+            FileOperationArrayWrapper result = apiInstance.emptyTrash(single, folderType);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling OperationsApi#emptyTrash");

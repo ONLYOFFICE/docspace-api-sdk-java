@@ -25,6 +25,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.openapitools.client.model.OperationOrderType;
 import org.openapitools.client.model.OperationStatus;
 import org.openapitools.client.model.OperationType;
@@ -57,7 +60,7 @@ import java.util.StringJoiner;
 
 public class CustomerOperationsReportRequestDto {
   public static final String JSON_PROPERTY_SERVICE_NAME = "serviceName";
-  @javax.annotation.Nullable  private JsonNullable<String> serviceName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> serviceName = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_START_DATE = "startDate";
   @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> startDate = JsonNullable.<OffsetDateTime>undefined();
@@ -90,35 +93,47 @@ public class CustomerOperationsReportRequestDto {
   }
 
 
-  public CustomerOperationsReportRequestDto serviceName(@javax.annotation.Nullable String serviceName) {
-    this.serviceName = JsonNullable.<String>of(serviceName);
+  public CustomerOperationsReportRequestDto serviceName(@javax.annotation.Nullable List<String> serviceName) {
+    this.serviceName = JsonNullable.<List<String>>of(serviceName);
     
     return this;
   }
 
+  public CustomerOperationsReportRequestDto addServiceNameItem(String serviceNameItem) {
+    if (this.serviceName == null || !this.serviceName.isPresent()) {
+      this.serviceName = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.serviceName.get().add(serviceNameItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
   /**
-   * The service name.
+   * The service name list. A single string is also accepted for backward compatibility.
    * @return serviceName
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public String getServiceName() {
+  public List<String> getServiceName() {
         return serviceName.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_SERVICE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getServiceName_JsonNullable() {
+  public JsonNullable<List<String>> getServiceName_JsonNullable() {
     return serviceName;
   }
   
   @JsonProperty(JSON_PROPERTY_SERVICE_NAME)
-  public void setServiceName_JsonNullable(JsonNullable<String> serviceName) {
+  public void setServiceName_JsonNullable(JsonNullable<List<String>> serviceName) {
     this.serviceName = serviceName;
   }
 
-  public void setServiceName(@javax.annotation.Nullable String serviceName) {
-    this.serviceName = JsonNullable.<String>of(serviceName);
+  public void setServiceName(@javax.annotation.Nullable List<String> serviceName) {
+    this.serviceName = JsonNullable.<List<String>>of(serviceName);
   }
 
   public CustomerOperationsReportRequestDto startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
@@ -283,7 +298,7 @@ public class CustomerOperationsReportRequestDto {
   }
 
   /**
-   * Get type
+   * The operation type to filter by.
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
@@ -307,7 +322,7 @@ public class CustomerOperationsReportRequestDto {
   }
 
   /**
-   * Get status
+   * The operation status to filter by.
    * @return status
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
@@ -362,7 +377,7 @@ public class CustomerOperationsReportRequestDto {
   }
 
   /**
-   * Get orderType
+   * Order direction: Ascending or Descending.
    * @return orderType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ORDER_TYPE, required = false)
@@ -479,11 +494,15 @@ public class CustomerOperationsReportRequestDto {
 
     // add `serviceName` to the URL query string
     if (getServiceName() != null) {
-      try {
-        joiner.add(String.format("%sserviceName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getServiceName()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
+      for (int i = 0; i < getServiceName().size(); i++) {
+        try {
+          joiner.add(String.format("%sserviceName%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getServiceName().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
       }
     }
 

@@ -54,7 +54,7 @@ public class Options {
   }
 
   /**
-   * Get watermarkOnDraw
+   * The document watermark parameters.
    * @return watermarkOnDraw
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WATERMARK_ON_DRAW, required = false)

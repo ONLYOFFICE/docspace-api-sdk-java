@@ -8,7 +8,7 @@ The confirmation parameters.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**result** | **ValidationResult** |  |  |
+|**result** | **ValidationResult** | The confirmation result. |  |
 |**roomId** | **String** | The confirmation room ID. |  [optional] |
 |**title** | **String** | The confirmation title. |  [optional] |
 |**email** | **String** | The confirmation email. |  [optional] |

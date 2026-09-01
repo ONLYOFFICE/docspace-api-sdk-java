@@ -102,7 +102,7 @@ public class BackupRestoreDto {
   }
 
   /**
-   * Get storageType
+   * The backup storage type.
    * @return storageType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STORAGE_TYPE, required = false)

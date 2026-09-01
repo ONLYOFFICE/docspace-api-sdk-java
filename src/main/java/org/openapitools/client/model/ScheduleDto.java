@@ -57,7 +57,7 @@ public class ScheduleDto {
   @javax.annotation.Nonnull  private BackupStorageType storageType;
 
   public static final String JSON_PROPERTY_STORAGE_PARAMS = "storageParams";
-  @javax.annotation.Nullable  private Map<String, String> storageParams;
+  @javax.annotation.Nonnull  private Map<String, String> storageParams = new HashMap<>();
 
   public static final String JSON_PROPERTY_CRON_PARAMS = "cronParams";
   @javax.annotation.Nonnull  private CronParams cronParams;
@@ -82,7 +82,7 @@ public class ScheduleDto {
   }
 
   /**
-   * Get storageType
+   * The backup storage type.
    * @return storageType
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STORAGE_TYPE, required = true)
@@ -99,7 +99,7 @@ public class ScheduleDto {
     this.storageType = storageType;
   }
 
-  public ScheduleDto storageParams(@javax.annotation.Nullable Map<String, String> storageParams) {
+  public ScheduleDto storageParams(@javax.annotation.Nonnull Map<String, String> storageParams) {
     
     this.storageParams = storageParams;
     return this;
@@ -114,7 +114,7 @@ public class ScheduleDto {
    * The backup storage parameters.
    * @return storageParams
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STORAGE_PARAMS, required = false)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STORAGE_PARAMS, required = true)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
 
   public Map<String, String> getStorageParams() {
@@ -122,9 +122,9 @@ public class ScheduleDto {
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_STORAGE_PARAMS, required = false)
+  @JsonProperty(value = JSON_PROPERTY_STORAGE_PARAMS, required = true)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
-  public void setStorageParams(@javax.annotation.Nullable Map<String, String> storageParams) {
+  public void setStorageParams(@javax.annotation.Nonnull Map<String, String> storageParams) {
     this.storageParams = storageParams;
   }
 
@@ -135,7 +135,7 @@ public class ScheduleDto {
   }
 
   /**
-   * Get cronParams
+   * The backup cron parameters.
    * @return cronParams
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CRON_PARAMS, required = true)

@@ -165,7 +165,7 @@ public class SsoSettingsV2 {
   }
 
   /**
-   * Get idpSettings
+   * The SSO IdP settings.
    * @return idpSettings
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IDP_SETTINGS, required = false)
@@ -232,7 +232,7 @@ public class SsoSettingsV2 {
   }
 
   /**
-   * Get idpCertificateAdvanced
+   * The IdP advanced certificate.
    * @return idpCertificateAdvanced
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IDP_CERTIFICATE_ADVANCED, required = false)
@@ -330,7 +330,7 @@ public class SsoSettingsV2 {
   }
 
   /**
-   * Get spCertificateAdvanced
+   * The SP advanced certificate.
    * @return spCertificateAdvanced
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SP_CERTIFICATE_ADVANCED, required = false)
@@ -354,7 +354,7 @@ public class SsoSettingsV2 {
   }
 
   /**
-   * Get fieldMapping
+   * The SSO field mapping.
    * @return fieldMapping
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FIELD_MAPPING, required = false)

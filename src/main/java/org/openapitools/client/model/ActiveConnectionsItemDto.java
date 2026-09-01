@@ -350,7 +350,7 @@ public class ActiveConnectionsItemDto {
   }
 
   /**
-   * Get date
+   * The API date and time parameters.
    * @return date
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)

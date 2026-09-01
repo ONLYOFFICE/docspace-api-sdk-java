@@ -235,7 +235,7 @@ public class Balance {
   }
 
   /**
-   * Get lastCredit
+   * The most recent credit transaction applied to the account.
    * @return lastCredit
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_CREDIT, required = false)

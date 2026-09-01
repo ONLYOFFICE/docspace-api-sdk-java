@@ -13,7 +13,7 @@ The authentication data.
 |**rawToken** | **String** | The authentication raw token. |  [optional] |
 |**url** | **URI** | The authentication URL. |  [optional] |
 |**provider** | **String** | The authentication provider. |  [optional] |
-|**token** | [**OAuth20Token**](OAuth20Token.md) |  |  [optional] |
+|**token** | [**OAuth20Token**](OAuth20Token.md) | The authentication token. |  [optional] |
 
 
 

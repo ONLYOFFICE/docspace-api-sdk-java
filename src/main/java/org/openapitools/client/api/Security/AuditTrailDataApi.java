@@ -27,12 +27,13 @@ import org.openapitools.client.Pair;
 import org.openapitools.client.model.ActionType;
 import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.AuditEventArrayWrapper;
+import org.openapitools.client.model.AuditReportFormat;
+import org.openapitools.client.model.DocumentBuilderTaskWrapper;
 import org.openapitools.client.model.EntryType;
 import org.openapitools.client.model.LocationType;
 import org.openapitools.client.model.MessageAction;
 import org.openapitools.client.model.ObjectWrapper;
 import org.openapitools.client.model.ProductType;
-import org.openapitools.client.model.StringWrapper;
 import org.openapitools.client.model.TenantAuditSettingsWrapper;
 import java.util.UUID;
 
@@ -67,32 +68,34 @@ public class AuditTrailDataApi extends BaseApi {
   }
 
   /**
-   * Generate the audit trail report
-   * Generates the audit trail report.
+   * Start the audit trail report generation
+   * Starts generating the audit trail report (XLSX by default, or CSV) and saves it to My documents.
    *
    * REST API Reference for createAuditTrailReport Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/
    *
-   * @return StringWrapper
+   * @param format The output file format of the report. Defaults to XLSX. (optional)
+   * @return DocumentBuilderTaskWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper createAuditTrailReport() throws ApiException {
-    return this.createAuditTrailReport(Collections.emptyMap());
+  public DocumentBuilderTaskWrapper createAuditTrailReport(@javax.annotation.Nullable AuditReportFormat format) throws ApiException {
+    return this.createAuditTrailReport(format, Collections.emptyMap());
   }
 
 
   /**
-   * Generate the audit trail report
-   * Generates the audit trail report.
+   * Start the audit trail report generation
+   * Starts generating the audit trail report (XLSX by default, or CSV) and saves it to My documents.
    *
    * REST API Reference for createAuditTrailReport Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/
    *
+   * @param format The output file format of the report. Defaults to XLSX. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return StringWrapper
+   * @return DocumentBuilderTaskWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper createAuditTrailReport(Map<String, String> additionalHeaders) throws ApiException {
+  public DocumentBuilderTaskWrapper createAuditTrailReport(@javax.annotation.Nullable AuditReportFormat format, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -106,6 +109,7 @@ public class AuditTrailDataApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPair("format", format));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -124,7 +128,7 @@ public class AuditTrailDataApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<StringWrapper> localVarReturnType = new TypeReference<StringWrapper>() {};
+    TypeReference<DocumentBuilderTaskWrapper> localVarReturnType = new TypeReference<DocumentBuilderTaskWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -411,6 +415,82 @@ public class AuditTrailDataApi extends BaseApi {
   }
 
   /**
+   * Get the audit trail report generation status
+   * Returns the status of generating the audit trail report.
+   *
+   * REST API Reference for getAuditTrailReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-report/
+   *
+   * @return DocumentBuilderTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentBuilderTaskWrapper getAuditTrailReport() throws ApiException {
+    return this.getAuditTrailReport(Collections.emptyMap());
+  }
+
+
+  /**
+   * Get the audit trail report generation status
+   * Returns the status of generating the audit trail report.
+   *
+   * REST API Reference for getAuditTrailReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-report/
+   *
+   * @param additionalHeaders additionalHeaders for this call
+   * @return DocumentBuilderTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentBuilderTaskWrapper getAuditTrailReport(Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/security/audit/events/report";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<DocumentBuilderTaskWrapper> localVarReturnType = new TypeReference<DocumentBuilderTaskWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Get audit trail types
    * Returns all the available audit trail types.
    *
@@ -640,6 +720,79 @@ public class AuditTrailDataApi extends BaseApi {
     );
   }
 
+  /**
+   * Terminate the audit trail report generation
+   * Terminates generating the audit trail report.
+   *
+   * REST API Reference for terminateAuditTrailReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-audit-trail-report/
+   *
+   * @throws ApiException if fails to make API call
+   */
+  public void terminateAuditTrailReport() throws ApiException {
+    this.terminateAuditTrailReport(Collections.emptyMap());
+  }
+
+
+  /**
+   * Terminate the audit trail report generation
+   * Terminates generating the audit trail report.
+   *
+   * REST API Reference for terminateAuditTrailReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-audit-trail-report/
+   *
+   * @param additionalHeaders additionalHeaders for this call
+   * @throws ApiException if fails to make API call
+   */
+  public void terminateAuditTrailReport(Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/security/audit/events/report";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    apiClient.invokeAPI(
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null
+    );
+  }
+
   @Override
   public <T> T invokeAPI(String url, String method, Object request, TypeReference<T> returnType, Map<String, String> additionalHeaders) throws ApiException {
     String localVarPath = url.replace(apiClient.getBaseURL(), "");
@@ -653,12 +806,12 @@ public class AuditTrailDataApi extends BaseApi {
     localVarHeaderParams.putAll(additionalHeaders);
 
     final String[] localVarAccepts = {
-      "application/json"
+      
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json"
+      
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 

@@ -62,7 +62,7 @@ public class RoomTemplateDto {
   @javax.annotation.Nonnull  private Integer roomId;
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  @javax.annotation.Nonnull  private String title;
 
   public static final String JSON_PROPERTY_LOGO = "logo";
   @javax.annotation.Nullable  private LogoRequest logo;
@@ -119,9 +119,9 @@ public class RoomTemplateDto {
     this.roomId = roomId;
   }
 
-  public RoomTemplateDto title(@javax.annotation.Nullable String title) {
-    this.title = JsonNullable.<String>of(title);
+  public RoomTemplateDto title(@javax.annotation.Nonnull String title) {
     
+    this.title = title;
     return this;
   }
 
@@ -129,25 +129,18 @@ public class RoomTemplateDto {
    * The room template title.
    * @return title
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TITLE, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getTitle() {
-        return title.orElse(null);
-  }
-
-  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  public void setTitle_JsonNullable(JsonNullable<String> title) {
-    this.title = title;
-  }
 
-  public void setTitle(@javax.annotation.Nullable String title) {
-    this.title = JsonNullable.<String>of(title);
+
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTitle(@javax.annotation.Nonnull String title) {
+    this.title = title;
   }
 
   public RoomTemplateDto logo(@javax.annotation.Nullable LogoRequest logo) {
@@ -157,7 +150,7 @@ public class RoomTemplateDto {
   }
 
   /**
-   * Get logo
+   * The logo request parameters.
    * @return logo
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
@@ -454,7 +447,7 @@ public class RoomTemplateDto {
     }
     RoomTemplateDto roomTemplateDto = (RoomTemplateDto) o;
     return Objects.equals(this.roomId, roomTemplateDto.roomId) &&
-        equalsNullable(this.title, roomTemplateDto.title) &&
+        Objects.equals(this.title, roomTemplateDto.title) &&
         Objects.equals(this.logo, roomTemplateDto.logo) &&
         Objects.equals(this.copyLogo, roomTemplateDto.copyLogo) &&
         equalsNullable(this.share, roomTemplateDto.share) &&
@@ -472,7 +465,7 @@ public class RoomTemplateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(roomId, hashCodeNullable(title), logo, copyLogo, hashCodeNullable(share), hashCodeNullable(groups), _public, hashCodeNullable(tags), hashCodeNullable(color), hashCodeNullable(cover), hashCodeNullable(quota));
+    return Objects.hash(roomId, title, logo, copyLogo, hashCodeNullable(share), hashCodeNullable(groups), _public, hashCodeNullable(tags), hashCodeNullable(color), hashCodeNullable(cover), hashCodeNullable(quota));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

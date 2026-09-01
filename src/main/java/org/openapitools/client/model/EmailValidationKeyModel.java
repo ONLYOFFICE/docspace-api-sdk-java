@@ -119,7 +119,7 @@ public class EmailValidationKeyModel {
   }
 
   /**
-   * Get emplType
+   * The user type.
    * @return emplType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMPL_TYPE, required = false)
@@ -236,7 +236,7 @@ public class EmailValidationKeyModel {
   }
 
   /**
-   * Get type
+   * The confirmation email type.
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)

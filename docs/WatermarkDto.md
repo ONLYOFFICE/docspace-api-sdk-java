@@ -8,7 +8,7 @@ The watermark settings.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**additions** | **WatermarkAdditions** |  |  |
+|**additions** | **WatermarkAdditions** | Specifies whether to display in the watermark: username, user email, user ip-adress, current date, and room name. |  |
 |**text** | **String** | The watermark text. |  [optional] |
 |**rotate** | **Integer** | The watermark text and image rotate. |  |
 |**imageScale** | **Integer** | The watermark image scale. |  |

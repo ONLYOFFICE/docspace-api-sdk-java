@@ -58,7 +58,7 @@ public class ChangeWalletServiceStateRequestDto {
   }
 
   /**
-   * Get service
+   * The wallet service type.
    * @return service
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SERVICE, required = false)

@@ -12,7 +12,7 @@ The external DB synchronization task parameters.
 |**error** | **String** | The error message if the synchronization failed. |  [optional] |
 |**percentage** | **Integer** | The progress percentage of the synchronization. |  |
 |**isCompleted** | **Boolean** | Specifies whether the synchronization is completed or not. |  |
-|**status** | **DistributedTaskStatus** |  |  |
+|**status** | **DistributedTaskStatus** | The status of the synchronization task. |  |
 |**forms** | [**List&lt;ExternalDbSyncFormResultDto&gt;**](ExternalDbSyncFormResultDto.md) | The synchronization results for all original forms in the room. |  |
 
 

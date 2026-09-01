@@ -10,7 +10,7 @@ The room invitation parameters.
 |------------ | ------------- | ------------- | -------------|
 |**email** | **String** | The email address. |  [optional] |
 |**id** | **UUID** | The ID of the user to share a room with. |  [optional] |
-|**access** | **FileShare** |  |  [optional] |
+|**access** | **FileShare** | The room sharing rights. |  [optional] |
 
 
 

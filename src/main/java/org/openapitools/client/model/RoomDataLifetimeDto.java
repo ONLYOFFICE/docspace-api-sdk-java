@@ -94,7 +94,7 @@ public class RoomDataLifetimeDto {
   }
 
   /**
-   * Get period
+   * Specifies the time period type of the room data lifetime.
    * @return period
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PERIOD, required = false)

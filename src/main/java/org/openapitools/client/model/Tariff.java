@@ -115,7 +115,7 @@ public class Tariff {
   }
 
   /**
-   * Get state
+   * The tariff state.
    * @return state
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATE, required = false)

@@ -18,17 +18,17 @@ The database tenant parameters.
 |**language** | **String** | The tenant language. |  [optional] |
 |**timeZone** | **String** | The tenant time zone. |  [optional] |
 |**trustedDomainsRaw** | **String** | The tenant trusted domains raw. |  [optional] |
-|**trustedDomainsEnabled** | **TenantTrustedDomainsType** |  |  [optional] |
-|**status** | **TenantStatus** |  |  [optional] |
+|**trustedDomainsEnabled** | **TenantTrustedDomainsType** | The type of the tenant trusted domains. |  [optional] |
+|**status** | **TenantStatus** | The tenant status. |  [optional] |
 |**statusChanged** | **OffsetDateTime** | The date and time when the tenant status was changed. |  [optional] |
 |**statusChangedHack** | **OffsetDateTime** | The hacked date and time when the tenant status was changed. |  [optional] |
 |**creationDateTime** | **OffsetDateTime** | The tenant creation date. |  [optional] |
 |**ownerId** | **UUID** | The tenant owner ID. |  [optional] |
 |**paymentId** | **String** | The tenant payment ID. |  [optional] |
-|**industry** | **TenantIndustry** |  |  [optional] |
+|**industry** | **TenantIndustry** | The tenant industry. |  [optional] |
 |**lastModified** | **OffsetDateTime** | The date and time when the tenant was last modified. |  [optional] |
 |**calls** | **Boolean** | Specifies if the calls are available for the current tenant or not. |  [optional] |
-|**partner** | [**DbTenantPartner**](DbTenantPartner.md) |  |  [optional] |
+|**partner** | [**DbTenantPartner**](DbTenantPartner.md) | The database tenant partner parameters. |  [optional] |
 
 
 

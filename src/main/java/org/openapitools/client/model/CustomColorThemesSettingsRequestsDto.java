@@ -62,7 +62,7 @@ public class CustomColorThemesSettingsRequestsDto {
   }
 
   /**
-   * Get theme
+   * The custom color theme settings.
    * @return theme
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_THEME, required = false)

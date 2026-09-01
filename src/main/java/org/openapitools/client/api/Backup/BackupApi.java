@@ -30,6 +30,7 @@ import org.openapitools.client.model.BackupProgressWrapper;
 import org.openapitools.client.model.BackupRestoreDto;
 import org.openapitools.client.model.BackupScheduleDto;
 import org.openapitools.client.model.BackupServiceStateWrapper;
+import org.openapitools.client.model.BackupsCountResultWrapper;
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.Int32Wrapper;
 import java.time.OffsetDateTime;
@@ -756,6 +757,91 @@ public class BackupApi extends BaseApi {
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<Int32Wrapper> localVarReturnType = new TypeReference<Int32Wrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get the number of free and paid backups
+   * Returns the number of free and paid backups for a period of time. The default is the current calendar month.
+   *
+   * REST API Reference for getBackupsCounts Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backups-counts/
+   *
+   * @param from The from date. (optional)
+   * @param to The to date. (optional)
+   * @param paid Specifies if the backups are paid or not. (optional)
+   * @return BackupsCountResultWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public BackupsCountResultWrapper getBackupsCounts(@javax.annotation.Nullable OffsetDateTime from, @javax.annotation.Nullable OffsetDateTime to, @javax.annotation.Nullable Boolean paid) throws ApiException {
+    return this.getBackupsCounts(from, to, paid, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get the number of free and paid backups
+   * Returns the number of free and paid backups for a period of time. The default is the current calendar month.
+   *
+   * REST API Reference for getBackupsCounts Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backups-counts/
+   *
+   * @param from The from date. (optional)
+   * @param to The to date. (optional)
+   * @param paid Specifies if the backups are paid or not. (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return BackupsCountResultWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public BackupsCountResultWrapper getBackupsCounts(@javax.annotation.Nullable OffsetDateTime from, @javax.annotation.Nullable OffsetDateTime to, @javax.annotation.Nullable Boolean paid, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/backup/getbackupscountbypaid";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("from", from));
+    localVarQueryParams.addAll(apiClient.parameterToPair("to", to));
+    localVarQueryParams.addAll(apiClient.parameterToPair("paid", paid));
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<BackupsCountResultWrapper> localVarReturnType = new TypeReference<BackupsCountResultWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",

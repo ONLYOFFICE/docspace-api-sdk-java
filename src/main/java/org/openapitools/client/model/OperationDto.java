@@ -111,7 +111,7 @@ public class OperationDto {
   }
 
   /**
-   * Get date
+   * The API date and time parameters.
    * @return date
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
@@ -486,7 +486,7 @@ public class OperationDto {
   }
 
   /**
-   * Get type
+   * The operation type
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)

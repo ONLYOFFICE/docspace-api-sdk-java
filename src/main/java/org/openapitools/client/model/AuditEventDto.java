@@ -159,7 +159,7 @@ public class AuditEventDto {
   }
 
   /**
-   * Get date
+   * The API date and time parameters.
    * @return date
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
@@ -269,7 +269,7 @@ public class AuditEventDto {
   }
 
   /**
-   * Get actionId
+   * The event action ID.
    * @return actionId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTION_ID, required = false)
@@ -479,7 +479,7 @@ public class AuditEventDto {
   }
 
   /**
-   * Get actionType
+   * The type of action performed in the audit event (e.g., Create, Update, Delete).
    * @return actionType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTION_TYPE, required = false)
@@ -503,7 +503,7 @@ public class AuditEventDto {
   }
 
   /**
-   * Get product
+   * The type of product related to the audit event.
    * @return product
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRODUCT, required = false)
@@ -527,7 +527,7 @@ public class AuditEventDto {
   }
 
   /**
-   * Get location
+   * The location where the audit event occurred.
    * @return location
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOCATION, required = false)

@@ -246,7 +246,7 @@ public class WebhooksConfigDto {
   }
 
   /**
-   * Get triggers
+   * The webhook trigger type.
    * @return triggers
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRIGGERS, required = false)
@@ -301,7 +301,7 @@ public class WebhooksConfigDto {
   }
 
   /**
-   * Get createdBy
+   * The user parameters.
    * @return createdBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED_BY, required = false)
@@ -356,7 +356,7 @@ public class WebhooksConfigDto {
   }
 
   /**
-   * Get modifiedBy
+   * The user parameters.
    * @return modifiedBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MODIFIED_BY, required = false)

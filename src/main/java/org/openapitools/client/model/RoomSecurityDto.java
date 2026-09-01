@@ -144,7 +144,7 @@ public class RoomSecurityDto {
   }
 
   /**
-   * Get error
+   * The error type.
    * @return error
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)

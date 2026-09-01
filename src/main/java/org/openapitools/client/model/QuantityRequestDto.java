@@ -26,10 +26,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.HashMap;
 import java.util.Map;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -46,27 +42,20 @@ import java.util.StringJoiner;
 
 public class QuantityRequestDto {
   public static final String JSON_PROPERTY_QUANTITY = "quantity";
-  @javax.annotation.Nullable  private JsonNullable<Map<String, Integer>> quantity = JsonNullable.<Map<String, Integer>>undefined();
+  @javax.annotation.Nonnull  private Map<String, Integer> quantity = new HashMap<>();
 
   public QuantityRequestDto() {
   }
 
 
-  public QuantityRequestDto quantity(@javax.annotation.Nullable Map<String, Integer> quantity) {
-    this.quantity = JsonNullable.<Map<String, Integer>>of(quantity);
+  public QuantityRequestDto quantity(@javax.annotation.Nonnull Map<String, Integer> quantity) {
     
+    this.quantity = quantity;
     return this;
   }
 
   public QuantityRequestDto putQuantityItem(String key, Integer quantityItem) {
-    if (this.quantity == null || !this.quantity.isPresent()) {
-      this.quantity = JsonNullable.<Map<String, Integer>>of(new HashMap<>());
-    }
-    try {
-      this.quantity.get().put(key, quantityItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.quantity.put(key, quantityItem);
     return this;
   }
 
@@ -74,25 +63,18 @@ public class QuantityRequestDto {
    * The mapping of item identifiers to their respective quantities in the payment.
    * @return quantity
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_QUANTITY, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Map<String, Integer> getQuantity() {
-        return quantity.orElse(null);
-  }
-
-  @JsonProperty(value = JSON_PROPERTY_QUANTITY, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Map<String, Integer>> getQuantity_JsonNullable() {
     return quantity;
   }
-  
-  @JsonProperty(JSON_PROPERTY_QUANTITY)
-  public void setQuantity_JsonNullable(JsonNullable<Map<String, Integer>> quantity) {
-    this.quantity = quantity;
-  }
 
-  public void setQuantity(@javax.annotation.Nullable Map<String, Integer> quantity) {
-    this.quantity = JsonNullable.<Map<String, Integer>>of(quantity);
+
+  @JsonProperty(value = JSON_PROPERTY_QUANTITY, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setQuantity(@javax.annotation.Nonnull Map<String, Integer> quantity) {
+    this.quantity = quantity;
   }
 
   @Override
@@ -104,23 +86,12 @@ public class QuantityRequestDto {
       return false;
     }
     QuantityRequestDto quantityRequestDto = (QuantityRequestDto) o;
-    return equalsNullable(this.quantity, quantityRequestDto.quantity);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.quantity, quantityRequestDto.quantity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(quantity));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(quantity);
   }
 
   @Override

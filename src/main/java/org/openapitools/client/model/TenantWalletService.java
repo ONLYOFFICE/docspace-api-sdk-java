@@ -30,9 +30,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * [-13 - AITools, -12 - Backup, -11 - Storage]
+ * [-18 - AISearch, -16 - DocsCloudDevPack, -15 - DocsCloud, -14 - Admin, -13 - AITools, -12 - Backup, -11 - Storage]
  */
 public enum TenantWalletService {
+  
+  AISearch(-18),
+  
+  DocsCloudDevPack(-16),
+  
+  DocsCloud(-15),
+  
+  Admin(-14),
   
   AITools(-13),
   

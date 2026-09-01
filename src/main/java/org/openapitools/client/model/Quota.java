@@ -38,7 +38,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The quota parameters.  <example>  {    id: 1,    quantity: 50,    wallet: false,    dueDate: 2026-03-31T00:00:00Z,    nextQuantity: 100,    state: Active  }  </example>
+ * The quota parameters.  <example>  {    id: 1,    quantity: 50,    wallet: false,    additional: false,    dueDate: 2026-03-31T00:00:00Z,    nextQuantity: 100,    state: Active  }  </example>
  */
 @JsonPropertyOrder({
   Quota.JSON_PROPERTY_ID,
@@ -46,6 +46,8 @@ import java.util.StringJoiner;
   Quota.JSON_PROPERTY_WALLET,
   Quota.JSON_PROPERTY_DUE_DATE,
   Quota.JSON_PROPERTY_NEXT_QUANTITY,
+  Quota.JSON_PROPERTY_ADDITIONAL,
+  Quota.JSON_PROPERTY_NEXT_QUOTA,
   Quota.JSON_PROPERTY_STATE
 })
 
@@ -64,6 +66,12 @@ public class Quota {
 
   public static final String JSON_PROPERTY_NEXT_QUANTITY = "nextQuantity";
   @javax.annotation.Nullable  private JsonNullable<Integer> nextQuantity = JsonNullable.<Integer>undefined();
+
+  public static final String JSON_PROPERTY_ADDITIONAL = "additional";
+  @javax.annotation.Nullable  private Boolean additional;
+
+  public static final String JSON_PROPERTY_NEXT_QUOTA = "nextQuota";
+  @javax.annotation.Nullable  private JsonNullable<Integer> nextQuota = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_STATE = "state";
   @javax.annotation.Nullable  private QuotaState state;
@@ -206,6 +214,61 @@ public class Quota {
     this.nextQuantity = JsonNullable.<Integer>of(nextQuantity);
   }
 
+  public Quota additional(@javax.annotation.Nullable Boolean additional) {
+    
+    this.additional = additional;
+    return this;
+  }
+
+  /**
+   * Indicates whether the quota is primary or additional.
+   * @return additional
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ADDITIONAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAdditional() {
+    return additional;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ADDITIONAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAdditional(@javax.annotation.Nullable Boolean additional) {
+    this.additional = additional;
+  }
+
+  public Quota nextQuota(@javax.annotation.Nullable Integer nextQuota) {
+    this.nextQuota = JsonNullable.<Integer>of(nextQuota);
+    
+    return this;
+  }
+
+  /**
+   * The quota ID to switch to at the next period.
+   * @return nextQuota
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Integer getNextQuota() {
+        return nextQuota.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_NEXT_QUOTA, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Integer> getNextQuota_JsonNullable() {
+    return nextQuota;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NEXT_QUOTA)
+  public void setNextQuota_JsonNullable(JsonNullable<Integer> nextQuota) {
+    this.nextQuota = nextQuota;
+  }
+
+  public void setNextQuota(@javax.annotation.Nullable Integer nextQuota) {
+    this.nextQuota = JsonNullable.<Integer>of(nextQuota);
+  }
+
   public Quota state(@javax.annotation.Nullable QuotaState state) {
     
     this.state = state;
@@ -213,7 +276,7 @@ public class Quota {
   }
 
   /**
-   * Get state
+   * The quota state.
    * @return state
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATE, required = false)
@@ -244,6 +307,8 @@ public class Quota {
         Objects.equals(this.wallet, quota.wallet) &&
         equalsNullable(this.dueDate, quota.dueDate) &&
         equalsNullable(this.nextQuantity, quota.nextQuantity) &&
+        Objects.equals(this.additional, quota.additional) &&
+        equalsNullable(this.nextQuota, quota.nextQuota) &&
         Objects.equals(this.state, quota.state);
   }
 
@@ -253,7 +318,7 @@ public class Quota {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, quantity, wallet, hashCodeNullable(dueDate), hashCodeNullable(nextQuantity), state);
+    return Objects.hash(id, quantity, wallet, hashCodeNullable(dueDate), hashCodeNullable(nextQuantity), additional, hashCodeNullable(nextQuota), state);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -272,6 +337,8 @@ public class Quota {
     sb.append("    wallet: ").append(toIndentedString(wallet)).append("\n");
     sb.append("    dueDate: ").append(toIndentedString(dueDate)).append("\n");
     sb.append("    nextQuantity: ").append(toIndentedString(nextQuantity)).append("\n");
+    sb.append("    additional: ").append(toIndentedString(additional)).append("\n");
+    sb.append("    nextQuota: ").append(toIndentedString(nextQuota)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -364,6 +431,26 @@ public class Quota {
     if (getNextQuantity() != null) {
       try {
         joiner.add(String.format("%snextQuantity%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNextQuantity()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `additional` to the URL query string
+    if (getAdditional() != null) {
+      try {
+        joiner.add(String.format("%sadditional%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAdditional()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `nextQuota` to the URL query string
+    if (getNextQuota() != null) {
+      try {
+        joiner.add(String.format("%snextQuota%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNextQuota()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

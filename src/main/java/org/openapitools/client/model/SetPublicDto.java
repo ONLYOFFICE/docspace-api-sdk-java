@@ -58,6 +58,8 @@ public class SetPublicDto {
 
   /**
    * The room template ID.
+   * minimum: 1
+   * maximum: 2147483647
    * @return id
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ID, required = true)

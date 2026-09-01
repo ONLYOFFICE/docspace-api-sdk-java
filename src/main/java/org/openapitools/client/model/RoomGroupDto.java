@@ -138,7 +138,7 @@ public class RoomGroupDto {
   }
 
   /**
-   * Get icon
+   * Group icon
    * @return icon
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ICON, required = false)

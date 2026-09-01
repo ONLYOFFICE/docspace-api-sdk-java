@@ -8,7 +8,7 @@ The theme settings request parameters.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**theme** | **DarkThemeSettingsType** |  |  |
+|**theme** | **DarkThemeSettingsType** | The theme type. |  |
 
 
 

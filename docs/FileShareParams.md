@@ -10,7 +10,7 @@ The collection of file sharing parameters.
 |------------ | ------------- | ------------- | -------------|
 |**email** | **String** | The email address. |  [optional] |
 |**shareTo** | **UUID** | The ID of the user to whom the file will be shared. |  [optional] |
-|**access** | **FileShare** |  |  [optional] |
+|**access** | **FileShare** | The sharing access rights. |  [optional] |
 
 
 

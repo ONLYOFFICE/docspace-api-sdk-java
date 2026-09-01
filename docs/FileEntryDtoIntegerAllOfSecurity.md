@@ -53,6 +53,8 @@ The actions that can be performed with the file entry.
 |**useChat** | **Boolean** |  |  [optional] |
 |**updateXlsx** | **Boolean** |  |  [optional] |
 |**analyzeResponses** | **Boolean** |  |  [optional] |
+|**canUseAi** | **Boolean** |  |  [optional] |
+|**historyExport** | **Boolean** |  |  [optional] |
 
 
 

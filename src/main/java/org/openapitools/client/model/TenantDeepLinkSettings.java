@@ -59,7 +59,7 @@ public class TenantDeepLinkSettings {
   }
 
   /**
-   * Get handlingMode
+   * The deep link handling mode.
    * @return handlingMode
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HANDLING_MODE, required = false)

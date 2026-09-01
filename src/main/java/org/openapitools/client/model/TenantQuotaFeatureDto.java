@@ -175,7 +175,7 @@ public class TenantQuotaFeatureDto {
   }
 
   /**
-   * The value of the tenant quota feature.
+   * Get value
    * @return value
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -237,7 +237,7 @@ public class TenantQuotaFeatureDto {
   }
 
   /**
-   * Get used
+   * The used space parameters of the tenant quota feature.
    * @return used
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USED, required = false)

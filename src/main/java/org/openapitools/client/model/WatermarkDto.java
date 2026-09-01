@@ -82,7 +82,7 @@ public class WatermarkDto {
   }
 
   /**
-   * Get additions
+   * Specifies whether to display in the watermark: username, user email, user ip-adress, current date, and room name.
    * @return additions
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ADDITIONS, required = true)

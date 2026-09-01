@@ -13,6 +13,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**getBackupProgress**](BackupApi.md#getBackupProgress) | **GET** /api/2.0/backup/getbackupprogress | Get the backup progress |
 | [**getBackupSchedule**](BackupApi.md#getBackupSchedule) | **GET** /api/2.0/backup/getbackupschedule | Get the backup schedule |
 | [**getBackupsCount**](BackupApi.md#getBackupsCount) | **GET** /api/2.0/backup/getbackupscount | Get the number of backups |
+| [**getBackupsCounts**](BackupApi.md#getBackupsCounts) | **GET** /api/2.0/backup/getbackupscountbypaid | Get the number of free and paid backups |
 | [**getBackupsServiceState**](BackupApi.md#getBackupsServiceState) | **GET** /api/2.0/backup/getservicestate | Get the backup service state |
 | [**getRestoreProgress**](BackupApi.md#getRestoreProgress) | **GET** /api/2.0/backup/getrestoreprogress | Get the restoring progress |
 | [**startBackup**](BackupApi.md#startBackup) | **POST** /api/2.0/backup/startbackup | Start the backup |
@@ -870,7 +871,7 @@ public class Example {
 
 
         BackupApi apiInstance = new BackupApi(defaultClient);
-        OffsetDateTime from = OffsetDateTime.parse("2025-01-01T00:00Z"); // OffsetDateTime | The from date.
+        OffsetDateTime from = OffsetDateTime.parse("2025-01-01T00:00:00Z"); // OffsetDateTime | The from date.
         OffsetDateTime to = OffsetDateTime.parse("2025-12-31T23:59:59Z"); // OffsetDateTime | The to date.
         Boolean paid = false; // Boolean | Specifies if the backups are paid or not.
         try {
@@ -897,6 +898,109 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Number of backups |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **400** | From date must be less than to date |  -  |
+| **403** | Access denied |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+
+## getBackupsCounts
+
+> BackupsCountResultWrapper getBackupsCounts(from, to, paid)
+
+Get the number of free and paid backupsReturns the number of free and paid backups for a period of time. The default is the current calendar month.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backups-counts/).
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **from** | **OffsetDateTime**| The from date. | [optional] |
+| **to** | **OffsetDateTime**| The to date. | [optional] |
+| **paid** | **Boolean**| Specifies if the backups are paid or not. | [optional] |
+
+### Return type
+
+[**BackupsCountResultWrapper**](BackupsCountResultWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.BackupApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        BackupApi apiInstance = new BackupApi(defaultClient);
+        OffsetDateTime from = OffsetDateTime.parse("2025-01-01T00:00:00Z"); // OffsetDateTime | The from date.
+        OffsetDateTime to = OffsetDateTime.parse("2025-12-31T23:59:59Z"); // OffsetDateTime | The to date.
+        Boolean paid = false; // Boolean | Specifies if the backups are paid or not.
+        try {
+            BackupsCountResultWrapper result = apiInstance.getBackupsCounts(from, to, paid);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling BackupApi#getBackupsCounts");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Number of free and paid backups |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **400** | From date must be less than to date |  -  |
 | **403** | Access denied |  -  |
 | **401** | Unauthorized |  -  |

@@ -24,14 +24,18 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
+import org.openapitools.client.model.ActiveServiceArrayWrapper;
 import org.openapitools.client.model.AiPricesResponseWrapper;
 import org.openapitools.client.model.BalanceWrapper;
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.ChangeWalletServiceStateRequestDto;
-import org.openapitools.client.model.CreditAiBalanceRequestDto;
 import org.openapitools.client.model.CurrenciesArrayWrapper;
 import org.openapitools.client.model.CustomerInfoWrapper;
+import org.openapitools.client.model.CustomerMonthlyUsageArrayWrapper;
+import org.openapitools.client.model.CustomerMonthlyUsageReportRequestDto;
 import org.openapitools.client.model.CustomerOperationsReportRequestDto;
+import org.openapitools.client.model.CustomerServiceUsageReportRequestDto;
+import org.openapitools.client.model.CustomerServiceUsageReportWrapper;
 import org.openapitools.client.model.DocumentBuilderTaskWrapper;
 import org.openapitools.client.model.GetPortalPrices200Response;
 import java.time.OffsetDateTime;
@@ -46,9 +50,9 @@ import org.openapitools.client.model.QuotaWrapper;
 import org.openapitools.client.model.ReportWrapper;
 import org.openapitools.client.model.RestrictedModelsResponseWrapper;
 import org.openapitools.client.model.SalesRequestsDto;
-import org.openapitools.client.model.ServicePaymentWrapper;
 import org.openapitools.client.model.SetRestrictedAiModelsRequestDto;
 import org.openapitools.client.model.StringWrapper;
+import org.openapitools.client.model.SubscriptionBalanceInfoWrapper;
 import org.openapitools.client.model.TenantWalletService;
 import org.openapitools.client.model.TenantWalletServiceSettingsWrapper;
 import org.openapitools.client.model.TenantWalletSettingsWrapper;
@@ -234,6 +238,84 @@ public class PaymentApi extends BaseApi {
   }
 
   /**
+   * Start the customer monthly usage report generation
+   * Starts generating a customer monthly usage report as an xlsx file and saves it in Documents.
+   *
+   * REST API Reference for createCustomerMonthlyUsageReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-monthly-usage-report/
+   *
+   * @param customerMonthlyUsageReportRequestDto  (optional)
+   * @return DocumentBuilderTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentBuilderTaskWrapper createCustomerMonthlyUsageReport(@javax.annotation.Nullable CustomerMonthlyUsageReportRequestDto customerMonthlyUsageReportRequestDto) throws ApiException {
+    return this.createCustomerMonthlyUsageReport(customerMonthlyUsageReportRequestDto, Collections.emptyMap());
+  }
+
+
+  /**
+   * Start the customer monthly usage report generation
+   * Starts generating a customer monthly usage report as an xlsx file and saves it in Documents.
+   *
+   * REST API Reference for createCustomerMonthlyUsageReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-monthly-usage-report/
+   *
+   * @param customerMonthlyUsageReportRequestDto  (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return DocumentBuilderTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentBuilderTaskWrapper createCustomerMonthlyUsageReport(@javax.annotation.Nullable CustomerMonthlyUsageReportRequestDto customerMonthlyUsageReportRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = customerMonthlyUsageReportRequestDto;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/portal/payment/customer/usage/monthly/report";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<DocumentBuilderTaskWrapper> localVarReturnType = new TypeReference<DocumentBuilderTaskWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Start the customer operations report generation
    * Starts generating a customer operations report as an xlsx file and saves it in Documents.
    *
@@ -312,38 +394,38 @@ public class PaymentApi extends BaseApi {
   }
 
   /**
-   * Credit AI balance
-   * Credits AI quota to the customer AI sub-account from their main balance.  Requires the customer to have a configured payment method.
+   * Start the customer service usage report generation
+   * Starts generating a customer service usage report as an xlsx file and saves it in Documents.
    *
-   * REST API Reference for creditAiBalance Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/credit-ai-balance/
+   * REST API Reference for createCustomerServiceUsageReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-service-usage-report/
    *
-   * @param creditAiBalanceRequestDto  (optional)
-   * @return ServicePaymentWrapper
+   * @param customerServiceUsageReportRequestDto  (optional)
+   * @return DocumentBuilderTaskWrapper
    * @throws ApiException if fails to make API call
    */
-  public ServicePaymentWrapper creditAiBalance(@javax.annotation.Nullable CreditAiBalanceRequestDto creditAiBalanceRequestDto) throws ApiException {
-    return this.creditAiBalance(creditAiBalanceRequestDto, Collections.emptyMap());
+  public DocumentBuilderTaskWrapper createCustomerServiceUsageReport(@javax.annotation.Nullable CustomerServiceUsageReportRequestDto customerServiceUsageReportRequestDto) throws ApiException {
+    return this.createCustomerServiceUsageReport(customerServiceUsageReportRequestDto, Collections.emptyMap());
   }
 
 
   /**
-   * Credit AI balance
-   * Credits AI quota to the customer AI sub-account from their main balance.  Requires the customer to have a configured payment method.
+   * Start the customer service usage report generation
+   * Starts generating a customer service usage report as an xlsx file and saves it in Documents.
    *
-   * REST API Reference for creditAiBalance Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/credit-ai-balance/
+   * REST API Reference for createCustomerServiceUsageReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-service-usage-report/
    *
-   * @param creditAiBalanceRequestDto  (optional)
+   * @param customerServiceUsageReportRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return ServicePaymentWrapper
+   * @return DocumentBuilderTaskWrapper
    * @throws ApiException if fails to make API call
    */
-  public ServicePaymentWrapper creditAiBalance(@javax.annotation.Nullable CreditAiBalanceRequestDto creditAiBalanceRequestDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = creditAiBalanceRequestDto;
+  public DocumentBuilderTaskWrapper createCustomerServiceUsageReport(@javax.annotation.Nullable CustomerServiceUsageReportRequestDto customerServiceUsageReportRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = customerServiceUsageReportRequestDto;
     
     // create path and map variables
-    String localVarPath = "/api/2.0/portal/payment/creditaibalance";
+    String localVarPath = "/api/2.0/portal/payment/customer/usage/report";
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -371,10 +453,86 @@ public class PaymentApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ServicePaymentWrapper> localVarReturnType = new TypeReference<ServicePaymentWrapper>() {};
+    TypeReference<DocumentBuilderTaskWrapper> localVarReturnType = new TypeReference<DocumentBuilderTaskWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get the active wallet services
+   * Returns all the active wallet services (quotas) of the current portal: the active additional quotas  from the tariff, plus the services enabled manually via the wallet service settings.
+   *
+   * REST API Reference for getActiveServices Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-active-services/
+   *
+   * @return ActiveServiceArrayWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ActiveServiceArrayWrapper getActiveServices() throws ApiException {
+    return this.getActiveServices(Collections.emptyMap());
+  }
+
+
+  /**
+   * Get the active wallet services
+   * Returns all the active wallet services (quotas) of the current portal: the active additional quotas  from the tariff, plus the services enabled manually via the wallet service settings.
+   *
+   * REST API Reference for getActiveServices Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-active-services/
+   *
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ActiveServiceArrayWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ActiveServiceArrayWrapper getActiveServices(Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/portal/payment/activeservices";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<ActiveServiceArrayWrapper> localVarReturnType = new TypeReference<ActiveServiceArrayWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),
@@ -558,85 +716,6 @@ public class PaymentApi extends BaseApi {
   }
 
   /**
-   * Get the customer AI balance
-   * Returns the AI quota balance of a customer from the accounting service.
-   *
-   * REST API Reference for getCustomerAiBalance Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-ai-balance/
-   *
-   * @param refresh Specifies whether to refresh the payment information cache or not. (optional)
-   * @return BalanceWrapper
-   * @throws ApiException if fails to make API call
-   */
-  public BalanceWrapper getCustomerAiBalance(@javax.annotation.Nullable Boolean refresh) throws ApiException {
-    return this.getCustomerAiBalance(refresh, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get the customer AI balance
-   * Returns the AI quota balance of a customer from the accounting service.
-   *
-   * REST API Reference for getCustomerAiBalance Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-ai-balance/
-   *
-   * @param refresh Specifies whether to refresh the payment information cache or not. (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return BalanceWrapper
-   * @throws ApiException if fails to make API call
-   */
-  public BalanceWrapper getCustomerAiBalance(@javax.annotation.Nullable Boolean refresh, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/2.0/portal/payment/customer/aibalance";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("refresh", refresh));
-      
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
-
-    TypeReference<BalanceWrapper> localVarReturnType = new TypeReference<BalanceWrapper>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
    * Get the customer balance
    * Returns the customer balance from the accounting service.
    *
@@ -795,6 +874,164 @@ public class PaymentApi extends BaseApi {
   }
 
   /**
+   * Get the customer monthly usage
+   * Returns the customer spending aggregated per calendar month from the accounting service.
+   *
+   * REST API Reference for getCustomerMonthlyUsage Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage/
+   *
+   * @param startDate Start of the period (inclusive). (optional)
+   * @param endDate End of the period (inclusive). (optional)
+   * @return CustomerMonthlyUsageArrayWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public CustomerMonthlyUsageArrayWrapper getCustomerMonthlyUsage(@javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate) throws ApiException {
+    return this.getCustomerMonthlyUsage(startDate, endDate, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get the customer monthly usage
+   * Returns the customer spending aggregated per calendar month from the accounting service.
+   *
+   * REST API Reference for getCustomerMonthlyUsage Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage/
+   *
+   * @param startDate Start of the period (inclusive). (optional)
+   * @param endDate End of the period (inclusive). (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return CustomerMonthlyUsageArrayWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public CustomerMonthlyUsageArrayWrapper getCustomerMonthlyUsage(@javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/portal/payment/customer/usage/monthly";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("startDate", startDate));
+    localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<CustomerMonthlyUsageArrayWrapper> localVarReturnType = new TypeReference<CustomerMonthlyUsageArrayWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get the status of the customer monthly usage report generation
+   * Returns the status of generating a customer monthly usage report.
+   *
+   * REST API Reference for getCustomerMonthlyUsageReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage-report/
+   *
+   * @return DocumentBuilderTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentBuilderTaskWrapper getCustomerMonthlyUsageReport() throws ApiException {
+    return this.getCustomerMonthlyUsageReport(Collections.emptyMap());
+  }
+
+
+  /**
+   * Get the status of the customer monthly usage report generation
+   * Returns the status of generating a customer monthly usage report.
+   *
+   * REST API Reference for getCustomerMonthlyUsageReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage-report/
+   *
+   * @param additionalHeaders additionalHeaders for this call
+   * @return DocumentBuilderTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentBuilderTaskWrapper getCustomerMonthlyUsageReport(Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/portal/payment/customer/usage/monthly/report";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<DocumentBuilderTaskWrapper> localVarReturnType = new TypeReference<DocumentBuilderTaskWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Get the customer operations
    * Returns the report of customer operations from the accounting service.
    *
@@ -803,7 +1040,7 @@ public class PaymentApi extends BaseApi {
    *
    * @param offset The number of items to skip for pagination. The default value is 0. (optional)
    * @param limit The maximum number of items to return for pagination. The default value is 25. (optional)
-   * @param serviceName The service name. (optional)
+   * @param serviceName The service name list. A single string is also accepted for backward compatibility. (optional)
    * @param startDate The report start date. (optional)
    * @param endDate The report end date. (optional)
    * @param participantName The participant name. (optional)
@@ -816,7 +1053,7 @@ public class PaymentApi extends BaseApi {
    * @return ReportWrapper
    * @throws ApiException if fails to make API call
    */
-  public ReportWrapper getCustomerOperations(@javax.annotation.Nullable Integer offset, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String serviceName, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String participantName, @javax.annotation.Nullable Boolean credit, @javax.annotation.Nullable Boolean debit, @javax.annotation.Nullable OperationType type, @javax.annotation.Nullable OperationStatus status, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable OperationOrderType orderType) throws ApiException {
+  public ReportWrapper getCustomerOperations(@javax.annotation.Nullable Integer offset, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable List<String> serviceName, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String participantName, @javax.annotation.Nullable Boolean credit, @javax.annotation.Nullable Boolean debit, @javax.annotation.Nullable OperationType type, @javax.annotation.Nullable OperationStatus status, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable OperationOrderType orderType) throws ApiException {
     return this.getCustomerOperations(offset, limit, serviceName, startDate, endDate, participantName, credit, debit, type, status, orderBy, orderType, Collections.emptyMap());
   }
 
@@ -830,7 +1067,7 @@ public class PaymentApi extends BaseApi {
    *
    * @param offset The number of items to skip for pagination. The default value is 0. (optional)
    * @param limit The maximum number of items to return for pagination. The default value is 25. (optional)
-   * @param serviceName The service name. (optional)
+   * @param serviceName The service name list. A single string is also accepted for backward compatibility. (optional)
    * @param startDate The report start date. (optional)
    * @param endDate The report end date. (optional)
    * @param participantName The participant name. (optional)
@@ -844,7 +1081,7 @@ public class PaymentApi extends BaseApi {
    * @return ReportWrapper
    * @throws ApiException if fails to make API call
    */
-  public ReportWrapper getCustomerOperations(@javax.annotation.Nullable Integer offset, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String serviceName, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String participantName, @javax.annotation.Nullable Boolean credit, @javax.annotation.Nullable Boolean debit, @javax.annotation.Nullable OperationType type, @javax.annotation.Nullable OperationStatus status, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable OperationOrderType orderType, Map<String, String> additionalHeaders) throws ApiException {
+  public ReportWrapper getCustomerOperations(@javax.annotation.Nullable Integer offset, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable List<String> serviceName, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String participantName, @javax.annotation.Nullable Boolean credit, @javax.annotation.Nullable Boolean debit, @javax.annotation.Nullable OperationType type, @javax.annotation.Nullable OperationStatus status, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable OperationOrderType orderType, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -860,7 +1097,7 @@ public class PaymentApi extends BaseApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
     localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
-    localVarQueryParams.addAll(apiClient.parameterToPair("ServiceName", serviceName));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "ServiceName", serviceName));
     localVarQueryParams.addAll(apiClient.parameterToPair("StartDate", startDate));
     localVarQueryParams.addAll(apiClient.parameterToPair("EndDate", endDate));
     localVarQueryParams.addAll(apiClient.parameterToPair("ParticipantName", participantName));
@@ -937,6 +1174,193 @@ public class PaymentApi extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/api/2.0/portal/payment/customer/operationsreport";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<DocumentBuilderTaskWrapper> localVarReturnType = new TypeReference<DocumentBuilderTaskWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get the customer service usage
+   * Returns the customer usage statistics aggregated per service from the accounting service.
+   *
+   * REST API Reference for getCustomerServiceUsage Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage/
+   *
+   * @param serviceName The service name list. (optional)
+   * @param participantName The participant name. (optional)
+   * @param status The operation status to filter by. (optional)
+   * @param startDate Start of the period (inclusive). (optional)
+   * @param endDate End of the period (inclusive). (optional)
+   * @param metadata Metadata key-value pairs to filter by. (optional)
+   * @param offset The number of items to skip for pagination. The default value is 0. (optional)
+   * @param limit The maximum number of items to return for pagination. The default value is 25. (optional)
+   * @param orderBy The field to order by. (optional)
+   * @param orderType Order direction: Ascending or Descending. (optional)
+   * @return CustomerServiceUsageReportWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public CustomerServiceUsageReportWrapper getCustomerServiceUsage(@javax.annotation.Nullable List<String> serviceName, @javax.annotation.Nullable String participantName, @javax.annotation.Nullable OperationStatus status, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Map<String, String> metadata, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable OperationOrderType orderType) throws ApiException {
+    return this.getCustomerServiceUsage(serviceName, participantName, status, startDate, endDate, metadata, offset, limit, orderBy, orderType, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get the customer service usage
+   * Returns the customer usage statistics aggregated per service from the accounting service.
+   *
+   * REST API Reference for getCustomerServiceUsage Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage/
+   *
+   * @param serviceName The service name list. (optional)
+   * @param participantName The participant name. (optional)
+   * @param status The operation status to filter by. (optional)
+   * @param startDate Start of the period (inclusive). (optional)
+   * @param endDate End of the period (inclusive). (optional)
+   * @param metadata Metadata key-value pairs to filter by. (optional)
+   * @param offset The number of items to skip for pagination. The default value is 0. (optional)
+   * @param limit The maximum number of items to return for pagination. The default value is 25. (optional)
+   * @param orderBy The field to order by. (optional)
+   * @param orderType Order direction: Ascending or Descending. (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return CustomerServiceUsageReportWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public CustomerServiceUsageReportWrapper getCustomerServiceUsage(@javax.annotation.Nullable List<String> serviceName, @javax.annotation.Nullable String participantName, @javax.annotation.Nullable OperationStatus status, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Map<String, String> metadata, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable OperationOrderType orderType, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/portal/payment/customer/usage";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "ServiceName", serviceName));
+    localVarQueryParams.addAll(apiClient.parameterToPair("ParticipantName", participantName));
+    localVarQueryParams.addAll(apiClient.parameterToPair("Status", status));
+    localVarQueryParams.addAll(apiClient.parameterToPair("StartDate", startDate));
+    localVarQueryParams.addAll(apiClient.parameterToPair("EndDate", endDate));
+    localVarQueryParameterBaseName = "Metadata";
+    if (metadata != null) {
+      for (Map.Entry<String, ?> _metadataEntry : metadata.entrySet()) {
+        localVarQueryParams.addAll(apiClient.parameterToPair("Metadata[" + _metadataEntry.getKey() + "]", _metadataEntry.getValue()));
+      }
+    }
+    localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
+    localVarQueryParams.addAll(apiClient.parameterToPair("OrderType", orderType));
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<CustomerServiceUsageReportWrapper> localVarReturnType = new TypeReference<CustomerServiceUsageReportWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get the status of the customer service usage report generation
+   * Returns the status of generating a customer service usage report.
+   *
+   * REST API Reference for getCustomerServiceUsageReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage-report/
+   *
+   * @return DocumentBuilderTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentBuilderTaskWrapper getCustomerServiceUsageReport() throws ApiException {
+    return this.getCustomerServiceUsageReport(Collections.emptyMap());
+  }
+
+
+  /**
+   * Get the status of the customer service usage report generation
+   * Returns the status of generating a customer service usage report.
+   *
+   * REST API Reference for getCustomerServiceUsageReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage-report/
+   *
+   * @param additionalHeaders additionalHeaders for this call
+   * @return DocumentBuilderTaskWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentBuilderTaskWrapper getCustomerServiceUsageReport(Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/portal/payment/customer/usage/report";
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1145,11 +1569,12 @@ public class PaymentApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-quotas/
    *
    * @param wallet Specifies whether to return the wallet quotas only. (optional)
+   * @param additional Specifies whether to return additional quotas only. (optional)
    * @return QuotaArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public QuotaArrayWrapper getPaymentQuotas(@javax.annotation.Nullable Boolean wallet) throws ApiException {
-    return this.getPaymentQuotas(wallet, Collections.emptyMap());
+  public QuotaArrayWrapper getPaymentQuotas(@javax.annotation.Nullable Boolean wallet, @javax.annotation.Nullable Boolean additional) throws ApiException {
+    return this.getPaymentQuotas(wallet, additional, Collections.emptyMap());
   }
 
 
@@ -1161,11 +1586,12 @@ public class PaymentApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-quotas/
    *
    * @param wallet Specifies whether to return the wallet quotas only. (optional)
+   * @param additional Specifies whether to return additional quotas only. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return QuotaArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public QuotaArrayWrapper getPaymentQuotas(@javax.annotation.Nullable Boolean wallet, Map<String, String> additionalHeaders) throws ApiException {
+  public QuotaArrayWrapper getPaymentQuotas(@javax.annotation.Nullable Boolean wallet, @javax.annotation.Nullable Boolean additional, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -1180,6 +1606,7 @@ public class PaymentApi extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPair("wallet", wallet));
+    localVarQueryParams.addAll(apiClient.parameterToPair("additional", additional));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -1526,6 +1953,82 @@ public class PaymentApi extends BaseApi {
   }
 
   /**
+   * Get the subscription balance information
+   * Returns the information about the current subscription and its unused (prorated) balance.
+   *
+   * REST API Reference for getSubscriptionBalanceInfo Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/
+   *
+   * @return SubscriptionBalanceInfoWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public SubscriptionBalanceInfoWrapper getSubscriptionBalanceInfo() throws ApiException {
+    return this.getSubscriptionBalanceInfo(Collections.emptyMap());
+  }
+
+
+  /**
+   * Get the subscription balance information
+   * Returns the information about the current subscription and its unused (prorated) balance.
+   *
+   * REST API Reference for getSubscriptionBalanceInfo Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/
+   *
+   * @param additionalHeaders additionalHeaders for this call
+   * @return SubscriptionBalanceInfoWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public SubscriptionBalanceInfoWrapper getSubscriptionBalanceInfo(Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/portal/payment/subscription/balance";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<SubscriptionBalanceInfoWrapper> localVarReturnType = new TypeReference<SubscriptionBalanceInfoWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Gets the wallet service settings for the tenant.
    * Retrieves configuration settings related to the wallet service associated with the current tenant.
    *
@@ -1838,6 +2341,84 @@ public class PaymentApi extends BaseApi {
   }
 
   /**
+   * Move the subscription balance to the wallet and purchase admins
+   * Cancels the current subscription, moves its unused balance to the wallet, and purchases the requested number of  admins from the wallet. If the wallet balance is not enough, it is topped up for the missing amount first  (with several attempts, as the balance may be consumed concurrently).
+   *
+   * REST API Reference for moveSubscriptionToWallet Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/move-subscription-to-wallet/
+   *
+   * @param quantityRequestDto  (optional)
+   * @return BooleanWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public BooleanWrapper moveSubscriptionToWallet(@javax.annotation.Nullable QuantityRequestDto quantityRequestDto) throws ApiException {
+    return this.moveSubscriptionToWallet(quantityRequestDto, Collections.emptyMap());
+  }
+
+
+  /**
+   * Move the subscription balance to the wallet and purchase admins
+   * Cancels the current subscription, moves its unused balance to the wallet, and purchases the requested number of  admins from the wallet. If the wallet balance is not enough, it is topped up for the missing amount first  (with several attempts, as the balance may be consumed concurrently).
+   *
+   * REST API Reference for moveSubscriptionToWallet Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/move-subscription-to-wallet/
+   *
+   * @param quantityRequestDto  (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return BooleanWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public BooleanWrapper moveSubscriptionToWallet(@javax.annotation.Nullable QuantityRequestDto quantityRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = quantityRequestDto;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/portal/payment/subscription/movetowallet";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<BooleanWrapper> localVarReturnType = new TypeReference<BooleanWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Send a payment request
    * Sends a request for the portal payment.
    *
@@ -1914,7 +2495,7 @@ public class PaymentApi extends BaseApi {
 
   /**
    * Set restricted AI models
-   * Overwrites the entire set of restricted AI model IDs for the current tenant.  The request body must contain the complete desired set — to add a restriction, include the new model alongside existing ones;  to remove one, omit it. An empty set lifts all restrictions. Only the portal payer can perform this action.
+   * Overwrites the entire set of restricted AI model IDs for the current tenant.  The request body must contain the complete desired set — to add a restriction, include the new model alongside existing ones;  to remove one, omit it. An empty set lifts all restrictions. Only portal administrators can perform this action.
    *
    * REST API Reference for setRestrictedAiModels Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-restricted-ai-models/
@@ -1930,7 +2511,7 @@ public class PaymentApi extends BaseApi {
 
   /**
    * Set restricted AI models
-   * Overwrites the entire set of restricted AI model IDs for the current tenant.  The request body must contain the complete desired set — to add a restriction, include the new model alongside existing ones;  to remove one, omit it. An empty set lifts all restrictions. Only the portal payer can perform this action.
+   * Overwrites the entire set of restricted AI model IDs for the current tenant.  The request body must contain the complete desired set — to add a restriction, include the new model alongside existing ones;  to remove one, omit it. An empty set lifts all restrictions. Only portal administrators can perform this action.
    *
    * REST API Reference for setRestrictedAiModels Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-restricted-ai-models/
@@ -2069,6 +2650,79 @@ public class PaymentApi extends BaseApi {
   }
 
   /**
+   * Terminate the customer monthly usage report generation
+   * Terminates generating a customer monthly usage report.
+   *
+   * REST API Reference for terminateCustomerMonthlyUsageReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-monthly-usage-report/
+   *
+   * @throws ApiException if fails to make API call
+   */
+  public void terminateCustomerMonthlyUsageReport() throws ApiException {
+    this.terminateCustomerMonthlyUsageReport(Collections.emptyMap());
+  }
+
+
+  /**
+   * Terminate the customer monthly usage report generation
+   * Terminates generating a customer monthly usage report.
+   *
+   * REST API Reference for terminateCustomerMonthlyUsageReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-monthly-usage-report/
+   *
+   * @param additionalHeaders additionalHeaders for this call
+   * @throws ApiException if fails to make API call
+   */
+  public void terminateCustomerMonthlyUsageReport(Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/portal/payment/customer/usage/monthly/report";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    apiClient.invokeAPI(
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null
+    );
+  }
+
+  /**
    * Terminate the customer operations report generation
    * Terminates generating a customer operations report.
    *
@@ -2097,6 +2751,79 @@ public class PaymentApi extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/api/2.0/portal/payment/customer/operationsreport";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    apiClient.invokeAPI(
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null
+    );
+  }
+
+  /**
+   * Terminate the customer service usage report generation
+   * Terminates generating a customer service usage report.
+   *
+   * REST API Reference for terminateCustomerServiceUsageReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-service-usage-report/
+   *
+   * @throws ApiException if fails to make API call
+   */
+  public void terminateCustomerServiceUsageReport() throws ApiException {
+    this.terminateCustomerServiceUsageReport(Collections.emptyMap());
+  }
+
+
+  /**
+   * Terminate the customer service usage report generation
+   * Terminates generating a customer service usage report.
+   *
+   * REST API Reference for terminateCustomerServiceUsageReport Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-service-usage-report/
+   *
+   * @param additionalHeaders additionalHeaders for this call
+   * @throws ApiException if fails to make API call
+   */
+  public void terminateCustomerServiceUsageReport(Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/portal/payment/customer/usage/report";
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;

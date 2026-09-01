@@ -54,7 +54,7 @@ public class TenantAuditSettingsWrapper {
   }
 
   /**
-   * Get settings
+   * The tenant audit settings parameters.
    * @return settings
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = false)

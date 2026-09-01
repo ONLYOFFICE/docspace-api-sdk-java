@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * [0 - Active, 1 - Archive, 2 - Any, 3 - Recent by links, 4 - Template, 5 - Knowledge, 6 - Result storage, 7 - AiAgents]
+ * [0 - Active, 1 - Archive, 2 - Any, 3 - Recent by links, 4 - Template, 5 - Knowledge, 6 - Result storage, 7 - AiAgents, 8 - Forms, 9 - Form templates]
  */
 public enum SearchArea {
   
@@ -48,7 +48,11 @@ public enum SearchArea {
   
   ResultStorage(6),
   
-  AiAgents(7);
+  AiAgents(7),
+  
+  Forms(8),
+  
+  FormTemplates(9);
 
   private Integer value;
 

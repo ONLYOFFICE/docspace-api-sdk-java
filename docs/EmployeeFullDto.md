@@ -23,9 +23,9 @@ The full list of user parameters.
 |**userName** | **String** | The user username. |  [optional] |
 |**email** | **String** | The user email. |  [optional] |
 |**contacts** | [**List&lt;Contact&gt;**](Contact.md) | The list of user contacts. |  [optional] |
-|**status** | **EmployeeStatus** |  |  [optional] |
-|**activationStatus** | **EmployeeActivationStatus** |  |  [optional] |
-|**terminated** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
+|**status** | **EmployeeStatus** | The user status. |  [optional] |
+|**activationStatus** | **EmployeeActivationStatus** | The user activation status. |  [optional] |
+|**terminated** | [**ApiDateTime**](ApiDateTime.md) | The date when the user account was terminated. |  [optional] |
 |**department** | **String** | The user department. |  [optional] |
 |**groups** | [**List&lt;GroupSummaryDto&gt;**](GroupSummaryDto.md) | The list of user groups. |  [optional] |
 |**location** | **String** | The user location. |  [optional] |
@@ -39,17 +39,17 @@ The full list of user parameters.
 |**isCollaborator** | **Boolean** | Specifies if the user is a portal collaborator or not. |  [optional] |
 |**cultureName** | **String** | The user culture code. |  [optional] |
 |**mobilePhone** | **String** | The user mobile phone number. |  [optional] |
-|**mobilePhoneActivationStatus** | **MobilePhoneActivationStatus** |  |  [optional] |
+|**mobilePhoneActivationStatus** | **MobilePhoneActivationStatus** | The user mobile phone activation status. |  [optional] |
 |**isSSO** | **Boolean** | Specifies if the SSO settings are enabled for the user or not. |  [optional] |
-|**theme** | **DarkThemeSettingsType** |  |  [optional] |
+|**theme** | **DarkThemeSettingsType** | The user theme settings. |  [optional] |
 |**quotaLimit** | **Long** | The user quota limit. |  [optional] |
 |**usedSpace** | **Double** | The portal used space of the user. |  [optional] |
 |**shared** | **Boolean** | Specifies if the user has access rights. |  [optional] |
 |**isCustomQuota** | **Boolean** | Specifies if the user has a custom quota or not. |  [optional] |
 |**loginEventId** | **Integer** | The current login event ID. |  [optional] |
 |**authCookieLifetime** | **Double** | The auth cookie lifetime in seconds. |  [optional] |
-|**createdBy** | [**EmployeeDto**](EmployeeDto.md) |  |  [optional] |
-|**registrationDate** | [**ApiDateTime**](ApiDateTime.md) |  |  [optional] |
+|**createdBy** | [**EmployeeDto**](EmployeeDto.md) | The user who created the current user. |  [optional] |
+|**registrationDate** | [**ApiDateTime**](ApiDateTime.md) | The user registration date. |  [optional] |
 |**hasPersonalFolder** | **Boolean** | Specifies if the user has a personal folder or not. |  [optional] |
 |**tfaAppEnabled** | **Boolean** | Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app. |  [optional] |
 

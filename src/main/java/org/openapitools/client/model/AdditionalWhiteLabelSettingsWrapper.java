@@ -54,7 +54,7 @@ public class AdditionalWhiteLabelSettingsWrapper {
   }
 
   /**
-   * Get settings
+   * The additional white label settings.
    * @return settings
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = false)

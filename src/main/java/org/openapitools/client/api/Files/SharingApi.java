@@ -28,6 +28,7 @@ import org.openapitools.client.model.AceShortWrapperArrayWrapper;
 import org.openapitools.client.model.BaseBatchRequestDto;
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.ChangeOwnerRequestDto;
+import org.openapitools.client.model.EncryptionKeyArrayWrapper;
 import org.openapitools.client.model.ExternalShareRequestParam;
 import org.openapitools.client.model.ExternalShareWrapper;
 import org.openapitools.client.model.FileEntryBaseArrayWrapper;
@@ -213,6 +214,90 @@ public class SharingApi extends BaseApi {
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get file encryption keys
+   * Returns the encryption keys to access a file with the ID specified in the request.
+   *
+   * REST API Reference for getEncryptionAccess Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-access/
+   *
+   * @param fileId The file unique identifier. (required)
+   * @return EncryptionKeyArrayWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public EncryptionKeyArrayWrapper getEncryptionAccess(@javax.annotation.Nonnull Integer fileId) throws ApiException {
+    return this.getEncryptionAccess(fileId, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get file encryption keys
+   * Returns the encryption keys to access a file with the ID specified in the request.
+   *
+   * REST API Reference for getEncryptionAccess Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-access/
+   *
+   * @param fileId The file unique identifier. (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return EncryptionKeyArrayWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public EncryptionKeyArrayWrapper getEncryptionAccess(@javax.annotation.Nonnull Integer fileId, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'fileId' is set
+    if (fileId == null) {
+      throw new ApiException(400, "Missing the required parameter 'fileId' when calling getEncryptionAccess");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/file/{fileId}/publickeys"
+      .replaceAll("\\{" + "fileId" + "\\}", apiClient.escapeString(apiClient.parameterToString(fileId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<EncryptionKeyArrayWrapper> localVarReturnType = new TypeReference<EncryptionKeyArrayWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),

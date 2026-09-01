@@ -2370,7 +2370,7 @@ public class Example {
 
 ## getRoomsFolder
 
-> FolderContentIntegerWrapper getRoomsFolder(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId)
+> FolderContentIntegerWrapper getRoomsFolder(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, quotaFilter, storageFilter, privacyFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId)
 
 Get roomsReturns the contents of the Rooms section by the parameters specified in the request.
 
@@ -2382,16 +2382,16 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **type** | [**List&lt;RoomType&gt;**](RoomType.md)| The filter by room type. | [optional] |
-| **subjectId** | **String**| The filter by user ID. | [optional] |
-| **subjectOwnerId** | **String**| The filter by room owner ID. | [optional] |
-| **searchArea** | [**SearchArea**](.md)| The room search area (Active, Archive, Any, Recent by links). | [optional] [enum: 0, 1, 2, 3, 4, 5, 6, 7] |
+| **subjectId** | **UUID**| The filter by user ID. | [optional] |
+| **subjectOwnerId** | **UUID**| The filter by room owner ID. | [optional] |
+| **searchArea** | [**SearchArea**](.md)| The room search area (Active, Archive, Any, Recent by links). | [optional] [enum: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9] |
 | **withoutTags** | **Boolean**| Specifies whether to search by tags or not. | [optional] |
 | **tags** | **String**| The tags in the serialized format. | [optional] |
 | **excludeSubject** | **Boolean**| Specifies whether to exclude search by user or group ID. | [optional] |
 | **provider** | [**ProviderFilter**](.md)| The filter by provider name (None, Box, DropBox, GoogleDrive, kDrive, OneDrive, SharePoint, WebDav, Yandex, Storage). | [optional] [enum: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9] |
-| **subjectFilter** | [**SubjectFilter**](.md)| The filter by user (Owner - 0, Member - 1). | [optional] [enum: 0, 1] |
 | **quotaFilter** | [**QuotaFilter**](.md)| The filter by quota (All - 0, Default - 1, Custom - 2). | [optional] [enum: 0, 1, 2] |
 | **storageFilter** | [**StorageFilter**](.md)| The filter by storage (None - 0, Internal - 1, ThirdParty - 2). | [optional] [enum: 0, 1, 2] |
+| **privacyFilter** | [**RoomPrivacyFilter**](.md)| The filter by room privacy (None - 0, Private - 1, NotPrivate - 2). When omitted, all rooms are returned. | [optional] [enum: 0, 1, 2] |
 | **count** | **Integer**| Specifies the maximum number of items to retrieve. | [optional] |
 | **startIndex** | **Integer**| The index from which to start retrieving the room content. | [optional] |
 | **sortBy** | **String**| Specifies the field by which the room content should be sorted. | [optional] |
@@ -2450,17 +2450,17 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        List<RoomType> type = Arrays.asList(new ArrayList<>()); // List<RoomType> | The filter by room type.
-        String subjectId = "00000000-0000-0000-0000-000000000000"; // String | The filter by user ID.
-        String subjectOwnerId = "00000000-0000-0000-0000-000000000000"; // String | The filter by room owner ID.
+        List<RoomType> type = Arrays.asList(); // List<RoomType> | The filter by room type.
+        UUID subjectId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The filter by user ID.
+        UUID subjectOwnerId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | The filter by room owner ID.
         SearchArea searchArea = SearchArea.fromValue("0"); // SearchArea | The room search area (Active, Archive, Any, Recent by links).
         Boolean withoutTags = false; // Boolean | Specifies whether to search by tags or not.
         String tags = "tag1"; // String | The tags in the serialized format.
         Boolean excludeSubject = false; // Boolean | Specifies whether to exclude search by user or group ID.
         ProviderFilter provider = ProviderFilter.fromValue("0"); // ProviderFilter | The filter by provider name (None, Box, DropBox, GoogleDrive, kDrive, OneDrive, SharePoint, WebDav, Yandex, Storage).
-        SubjectFilter subjectFilter = SubjectFilter.fromValue("0"); // SubjectFilter | The filter by user (Owner - 0, Member - 1).
         QuotaFilter quotaFilter = QuotaFilter.fromValue("0"); // QuotaFilter | The filter by quota (All - 0, Default - 1, Custom - 2).
         StorageFilter storageFilter = StorageFilter.fromValue("0"); // StorageFilter | The filter by storage (None - 0, Internal - 1, ThirdParty - 2).
+        RoomPrivacyFilter privacyFilter = RoomPrivacyFilter.fromValue("0"); // RoomPrivacyFilter | The filter by room privacy (None - 0, Private - 1, NotPrivate - 2). When omitted, all rooms are returned.
         Integer count = 25; // Integer | Specifies the maximum number of items to retrieve.
         Integer startIndex = 0; // Integer | The index from which to start retrieving the room content.
         String sortBy = "DateAndTime"; // String | Specifies the field by which the room content should be sorted.
@@ -2468,7 +2468,7 @@ public class Example {
         String filterValue = "My Document"; // String | The text filter value used to refine search or query operations.
         Integer groupId = 1; // Integer | The group ID
         try {
-            FolderContentIntegerWrapper result = apiInstance.getRoomsFolder(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId);
+            FolderContentIntegerWrapper result = apiInstance.getRoomsFolder(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, quotaFilter, storageFilter, privacyFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RoomsApi#getRoomsFolder");
@@ -3928,7 +3928,7 @@ public class Example {
 
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
-        Integer id = 56; // Integer | The room ID.
+        Integer id = file-id; // Integer | The room ID.
         UpdateRoomRequest updateRoomRequest = new UpdateRoomRequest(); // UpdateRoomRequest | The request parameters for updating a room.
         try {
             FolderIntegerWrapper result = apiInstance.updateRoom(id, updateRoomRequest);
@@ -4149,6 +4149,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Upload result |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **400** | The request carries no image, or the image cannot be used as a logo |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |

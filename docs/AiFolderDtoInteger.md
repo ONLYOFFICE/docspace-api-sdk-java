@@ -1,0 +1,76 @@
+
+
+# AiFolderDtoInteger
+
+The folder parameters.
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**title** | **String** | The file entry title. |  [optional] |
+|**access** | **AiFileShare** | The access rights to the file entry. |  [optional] |
+|**sharedBy** | [**AiEmployeeDto**](AiEmployeeDto.md) | Provides information about the employee who shared the file or folder. |  [optional] |
+|**ownedBy** | [**AiEmployeeDto**](AiEmployeeDto.md) | The information about the employee who owns the file entry. |  [optional] |
+|**shared** | **Boolean** | Specifies if the file entry is shared via link or not. |  [optional] |
+|**sharedForUser** | **Boolean** | Specifies if the file entry is shared for user or not. |  [optional] |
+|**sharedExternal** | **Boolean** | Specifies if the file entry is shared via a public (non-internal) external link. |  [optional] |
+|**parentShared** | **Boolean** | Indicates whether the parent entity is shared. |  [optional] |
+|**shortWebUrl** | **URI** | The short Web URL. |  [optional] |
+|**created** | [**AiApiDateTime**](AiApiDateTime.md) | The creation date and time of the file entry. |  [optional] |
+|**createdBy** | [**AiEmployeeDto**](AiEmployeeDto.md) | The file entry author. |  [optional] |
+|**updated** | [**AiApiDateTime**](AiApiDateTime.md) | The last date and time when the file entry was updated. |  [optional] |
+|**autoDelete** | [**AiApiDateTime**](AiApiDateTime.md) | The date and time when the file entry will be automatically deleted. |  [optional] |
+|**rootFolderType** | **AiFolderType** | The root folder type of the file entry. |  [optional] |
+|**parentRoomType** | **AiFolderType** | The parent room type of the file entry. |  [optional] |
+|**updatedBy** | [**AiEmployeeDto**](AiEmployeeDto.md) | The user who updated the file entry. |  [optional] |
+|**providerItem** | **Boolean** | Specifies if the file entry provider is specified or not. |  [optional] |
+|**providerKey** | **String** | The provider key of the file entry. |  [optional] |
+|**providerId** | **Integer** | The provider ID of the file entry. |  [optional] |
+|**order** | **String** | The order of the file entry. |  [optional] |
+|**isFavorite** | **Boolean** | Specifies if the file is a favorite or not. |  [optional] |
+|**fileEntryType** | **AiFileEntryType** | The file entry type. |  [optional] |
+|**id** | **Integer** | The file entry ID. |  [optional] |
+|**rootFolderId** | **Integer** | The root folder ID of the file entry. |  [optional] |
+|**originId** | **Integer** | The origin ID of the file entry. |  [optional] |
+|**originRoomId** | **Integer** | The origin room ID of the file entry. |  [optional] |
+|**originTitle** | **String** | The origin title of the file entry. |  [optional] |
+|**originRoomTitle** | **String** | The origin room title of the file entry. |  [optional] |
+|**canShare** | **Boolean** | Specifies if the file entry can be shared or not. |  [optional] |
+|**shareSettings** | [**FileEntryDtoIntegerAllOfShareSettings**](FileEntryDtoIntegerAllOfShareSettings.md) |  |  [optional] |
+|**security** | [**FileEntryDtoIntegerAllOfSecurity**](FileEntryDtoIntegerAllOfSecurity.md) |  |  [optional] |
+|**availableShareRights** | [**FileEntryDtoIntegerAllOfAvailableShareRights**](FileEntryDtoIntegerAllOfAvailableShareRights.md) |  |  [optional] |
+|**requestToken** | **String** | The request token of the file entry. |  [optional] |
+|**external** | **Boolean** | Specifies if the folder can be accessed via an external link or not. |  [optional] |
+|**expirationDate** | [**AiApiDateTime**](AiApiDateTime.md) | Represents the expiration date of the file entry. |  [optional] |
+|**isLinkExpired** | **Boolean** | Indicates whether the shareable link associated with the file or folder has expired. |  [optional] |
+|**parentId** | **Integer** | The parent folder ID of the folder. |  [optional] |
+|**filesCount** | **Integer** | The number of files that the folder contains. |  [optional] |
+|**foldersCount** | **Integer** | The number of folders that the folder contains. |  [optional] |
+|**isShareable** | **Boolean** | Specifies if the folder can be shared or not. |  [optional] |
+|**_new** | **Integer** | The new element index in the folder. |  [optional] |
+|**mute** | **Boolean** | Specifies if the folder notifications are enabled or not. |  [optional] |
+|**tags** | **List&lt;String&gt;** | The list of tags of the folder. |  [optional] |
+|**logo** | [**AiLogo**](AiLogo.md) | The folder logo. |  [optional] |
+|**pinned** | **Boolean** | Specifies if the folder is pinned or not. |  [optional] |
+|**roomType** | **AiRoomType** | The room type of the folder. |  [optional] |
+|**_private** | **Boolean** | Specifies if the folder is private or not. |  [optional] |
+|**indexing** | **Boolean** | Specifies if the folder is indexed or not. |  [optional] |
+|**denyDownload** | **Boolean** | Specifies if the folder can be downloaded or not. |  [optional] |
+|**lifetime** | [**AiRoomDataLifetimeDto**](AiRoomDataLifetimeDto.md) | The room data lifetime settings of the folder. |  [optional] |
+|**watermark** | [**AiWatermarkDto**](AiWatermarkDto.md) | The watermark settings of the folder. |  [optional] |
+|**type** | **AiFolderType** | The folder type. |  [optional] |
+|**inRoom** | **Boolean** | Specifies if the folder is placed in the room or not. |  [optional] |
+|**quotaLimit** | **Long** | The folder quota limit. |  [optional] |
+|**isCustomQuota** | **Boolean** | Specifies if the folder room has a custom quota or not. |  [optional] |
+|**usedSpace** | **Long** | How much folder space is used (counter). |  [optional] |
+|**passwordProtected** | **Boolean** | Specifies if the folder is password protected or not. |  [optional] |
+|**expired** | **Boolean** | Specifies if an external link to the folder is expired or not. |  [optional] |
+|**chatSettings** | [**AiChatSettingsDto**](AiChatSettingsDto.md) | The AI chat settings for the folder room. Contains configuration for AI provider, model selection, and custom prompts.  Only applicable to rooms with AI chat functionality enabled. Null if the room does not have chat settings configured. |  [optional] |
+|**rootRoomType** | **AiRoomType** | The room type of the root folder. Indicates the type of the parent room if the current folder is nested within a room hierarchy.  This property helps identify the context in which a nested folder exists. |  [optional] |
+|**saveFormAsXLSX** | **Boolean** | Specifies whether to save form data as XLSX file. |  [optional] |
+|**sendFormToExternalDB** | **Boolean** | Specifies whether to send form data to external database. |  [optional] |
+|**originalFormId** | **Integer** | The original form ID that corresponds to this FormFillingFolderDone folder. |  [optional] |
+
+
+

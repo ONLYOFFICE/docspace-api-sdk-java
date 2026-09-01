@@ -74,7 +74,7 @@ public class FormRoleDto {
   @javax.annotation.Nullable  private EmployeeFullDto stopedBy;
 
   public static final String JSON_PROPERTY_HISTORY = "history";
-  @javax.annotation.Nullable  private JsonNullable<Map<String, OffsetDateTime>> history = JsonNullable.<Map<String, OffsetDateTime>>undefined();
+  @javax.annotation.Nullable  private Map<String, OffsetDateTime> history = new HashMap<>();
 
   public static final String JSON_PROPERTY_ROLE_STATUS = "roleStatus";
   @javax.annotation.Nullable  private FormFillingStatus roleStatus;
@@ -145,7 +145,7 @@ public class FormRoleDto {
   }
 
   /**
-   * Get user
+   * The user of the role.
    * @return user
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER, required = false)
@@ -217,7 +217,7 @@ public class FormRoleDto {
   }
 
   /**
-   * Get stopedBy
+   * The user who stopped the role.
    * @return stopedBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STOPED_BY, required = false)
@@ -235,20 +235,16 @@ public class FormRoleDto {
   }
 
   public FormRoleDto history(@javax.annotation.Nullable Map<String, OffsetDateTime> history) {
-    this.history = JsonNullable.<Map<String, OffsetDateTime>>of(history);
     
+    this.history = history;
     return this;
   }
 
   public FormRoleDto putHistoryItem(String key, OffsetDateTime historyItem) {
-    if (this.history == null || !this.history.isPresent()) {
-      this.history = JsonNullable.<Map<String, OffsetDateTime>>of(new HashMap<>());
+    if (this.history == null) {
+      this.history = new HashMap<>();
     }
-    try {
-      this.history.get().put(key, historyItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.history.put(key, historyItem);
     return this;
   }
 
@@ -256,25 +252,18 @@ public class FormRoleDto {
    * The role history.
    * @return history
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HISTORY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, OffsetDateTime> getHistory() {
-        return history.orElse(null);
+    return history;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_HISTORY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Map<String, OffsetDateTime>> getHistory_JsonNullable() {
-    return history;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_HISTORY)
-  public void setHistory_JsonNullable(JsonNullable<Map<String, OffsetDateTime>> history) {
-    this.history = history;
-  }
-
   public void setHistory(@javax.annotation.Nullable Map<String, OffsetDateTime> history) {
-    this.history = JsonNullable.<Map<String, OffsetDateTime>>of(history);
+    this.history = history;
   }
 
   public FormRoleDto roleStatus(@javax.annotation.Nullable FormFillingStatus roleStatus) {
@@ -284,7 +273,7 @@ public class FormRoleDto {
   }
 
   /**
-   * Get roleStatus
+   * The role status.
    * @return roleStatus
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROLE_STATUS, required = false)
@@ -316,7 +305,7 @@ public class FormRoleDto {
         Objects.equals(this.sequence, formRoleDto.sequence) &&
         Objects.equals(this.submitted, formRoleDto.submitted) &&
         Objects.equals(this.stopedBy, formRoleDto.stopedBy) &&
-        equalsNullable(this.history, formRoleDto.history) &&
+        Objects.equals(this.history, formRoleDto.history) &&
         Objects.equals(this.roleStatus, formRoleDto.roleStatus);
   }
 
@@ -326,7 +315,7 @@ public class FormRoleDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(roleName, hashCodeNullable(roleColor), user, sequence, submitted, stopedBy, hashCodeNullable(history), roleStatus);
+    return Objects.hash(roleName, hashCodeNullable(roleColor), user, sequence, submitted, stopedBy, history, roleStatus);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
