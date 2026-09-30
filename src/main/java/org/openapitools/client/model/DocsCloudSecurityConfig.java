@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Represents the security configuration of a DocsCloud tenant.
+ * Represents the security configuration of a Docs Connect tenant.
  */
 @JsonPropertyOrder({
   DocsCloudSecurityConfig.JSON_PROPERTY_SECRET,

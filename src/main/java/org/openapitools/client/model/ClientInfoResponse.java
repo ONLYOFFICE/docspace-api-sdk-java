@@ -37,24 +37,23 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The response containing public client information.
+ * The consent-facing subset of a client: everything needed to render a consent screen, and nothing that would let a caller act as the client.
  */
 @JsonPropertyOrder({
   ClientInfoResponse.JSON_PROPERTY_NAME,
   ClientInfoResponse.JSON_PROPERTY_DESCRIPTION,
   ClientInfoResponse.JSON_PROPERTY_SCOPES,
-  ClientInfoResponse.JSON_PROPERTY_PUBLIC,
   ClientInfoResponse.JSON_PROPERTY_CLIENT_ID,
   ClientInfoResponse.JSON_PROPERTY_WEBSITE_URL,
   ClientInfoResponse.JSON_PROPERTY_TERMS_URL,
   ClientInfoResponse.JSON_PROPERTY_POLICY_URL,
   ClientInfoResponse.JSON_PROPERTY_LOGO,
   ClientInfoResponse.JSON_PROPERTY_AUTHENTICATION_METHODS,
-  ClientInfoResponse.JSON_PROPERTY_IS_PUBLIC,
   ClientInfoResponse.JSON_PROPERTY_CREATED_ON,
   ClientInfoResponse.JSON_PROPERTY_CREATED_BY,
   ClientInfoResponse.JSON_PROPERTY_MODIFIED_ON,
-  ClientInfoResponse.JSON_PROPERTY_MODIFIED_BY
+  ClientInfoResponse.JSON_PROPERTY_MODIFIED_BY,
+  ClientInfoResponse.JSON_PROPERTY_IS_PUBLIC
 })
 
 public class ClientInfoResponse {
@@ -66,9 +65,6 @@ public class ClientInfoResponse {
 
   public static final String JSON_PROPERTY_SCOPES = "scopes";
   @javax.annotation.Nullable  private Set<String> scopes = new LinkedHashSet<>();
-
-  public static final String JSON_PROPERTY_PUBLIC = "public";
-  @javax.annotation.Nullable  private Boolean _public;
 
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   @javax.annotation.Nullable  private String clientId;
@@ -88,9 +84,6 @@ public class ClientInfoResponse {
   public static final String JSON_PROPERTY_AUTHENTICATION_METHODS = "authentication_methods";
   @javax.annotation.Nullable  private Set<String> authenticationMethods = new LinkedHashSet<>();
 
-  public static final String JSON_PROPERTY_IS_PUBLIC = "is_public";
-  @javax.annotation.Nullable  private Boolean isPublic;
-
   public static final String JSON_PROPERTY_CREATED_ON = "created_on";
   @javax.annotation.Nullable  private OffsetDateTime createdOn;
 
@@ -103,6 +96,9 @@ public class ClientInfoResponse {
   public static final String JSON_PROPERTY_MODIFIED_BY = "modified_by";
   @javax.annotation.Nullable  private String modifiedBy;
 
+  public static final String JSON_PROPERTY_IS_PUBLIC = "is_public";
+  @javax.annotation.Nullable  private Boolean isPublic;
+
   public ClientInfoResponse() {
   }
 
@@ -114,7 +110,7 @@ public class ClientInfoResponse {
   }
 
   /**
-   * The client name.
+   * The display name shown to the user on the consent screen, between 3 and 256 characters.
    * @return name
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
@@ -138,7 +134,7 @@ public class ClientInfoResponse {
   }
 
   /**
-   * The client description.
+   * The free-text description shown next to the name on the consent screen, at most 255 characters.
    * @return description
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
@@ -170,7 +166,7 @@ public class ClientInfoResponse {
   }
 
   /**
-   * The client scopes.
+   * The permissions the client may ask for, named as they appear in the tenant scope catalogue - for example files:read, rooms:write or openid. A client cannot request a scope that is not listed here.
    * @return scopes
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SCOPES, required = false)
@@ -188,30 +184,6 @@ public class ClientInfoResponse {
     this.scopes = scopes;
   }
 
-  public ClientInfoResponse _public(@javax.annotation.Nullable Boolean _public) {
-    
-    this._public = _public;
-    return this;
-  }
-
-  /**
-   * Get _public
-   * @return _public
-   */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PUBLIC, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getPublic() {
-    return _public;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_PUBLIC, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPublic(@javax.annotation.Nullable Boolean _public) {
-    this._public = _public;
-  }
-
   public ClientInfoResponse clientId(@javax.annotation.Nullable String clientId) {
     
     this.clientId = clientId;
@@ -219,7 +191,7 @@ public class ClientInfoResponse {
   }
 
   /**
-   * The client ID.
+   * The generated identifier of the client, sent as client_id in every OAuth2 request. It is assigned when the client is registered and never changes afterwards.
    * @return clientId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = false)
@@ -243,7 +215,7 @@ public class ClientInfoResponse {
   }
 
   /**
-   * The URL to the client's website
+   * The URL of the client home page, offered to the user before they consent.
    * @return websiteUrl
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WEBSITE_URL, required = false)
@@ -267,7 +239,7 @@ public class ClientInfoResponse {
   }
 
   /**
-   * The URL to the client's terms of service.
+   * The URL of the client terms of service, linked from the consent screen.
    * @return termsUrl
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TERMS_URL, required = false)
@@ -291,7 +263,7 @@ public class ClientInfoResponse {
   }
 
   /**
-   * The URL to the client's privacy policy.
+   * The URL of the client privacy policy, linked from the consent screen.
    * @return policyUrl
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_POLICY_URL, required = false)
@@ -315,7 +287,7 @@ public class ClientInfoResponse {
   }
 
   /**
-   * The client logo in base64 format.
+   * The client logo as a data URI carrying base64 image data, shown on the consent screen. Only png, jpeg, jpg and svg+xml are accepted, the whole string may not exceed 2000000 characters and the decoded image may not exceed 256000 bytes.
    * @return logo
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
@@ -347,7 +319,7 @@ public class ClientInfoResponse {
   }
 
   /**
-   * The authentication methods supported by the client.
+   * How the client authenticates itself at the token endpoint: client_secret_post for a confidential client that sends its secret, none for a public client that proves itself with PKCE instead.
    * @return authenticationMethods
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTHENTICATION_METHODS, required = false)
@@ -365,30 +337,6 @@ public class ClientInfoResponse {
     this.authenticationMethods = authenticationMethods;
   }
 
-  public ClientInfoResponse isPublic(@javax.annotation.Nullable Boolean isPublic) {
-    
-    this.isPublic = isPublic;
-    return this;
-  }
-
-  /**
-   * Indicates whether the client is accessible by third-party tenants.
-   * @return isPublic
-   */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_PUBLIC, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getIsPublic() {
-    return isPublic;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_IS_PUBLIC, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsPublic(@javax.annotation.Nullable Boolean isPublic) {
-    this.isPublic = isPublic;
-  }
-
   public ClientInfoResponse createdOn(@javax.annotation.Nullable OffsetDateTime createdOn) {
     
     this.createdOn = createdOn;
@@ -396,7 +344,7 @@ public class ClientInfoResponse {
   }
 
   /**
-   * The date and time when the client was created.
+   * When the client was registered, as an ISO-8601 timestamp with a zone offset.
    * @return createdOn
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED_ON, required = false)
@@ -420,7 +368,7 @@ public class ClientInfoResponse {
   }
 
   /**
-   * The user who created the client.
+   * The identifier of the user who registered the client. A plain user may read and change only the clients where this is their own identifier.
    * @return createdBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED_BY, required = false)
@@ -444,7 +392,7 @@ public class ClientInfoResponse {
   }
 
   /**
-   * The date and time when the client was last modified.
+   * When the client was last changed, as an ISO-8601 timestamp with a zone offset.
    * @return modifiedOn
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MODIFIED_ON, required = false)
@@ -468,7 +416,7 @@ public class ClientInfoResponse {
   }
 
   /**
-   * The user who last modified the client.
+   * The identifier of the user who last changed the client.
    * @return modifiedBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MODIFIED_BY, required = false)
@@ -485,6 +433,30 @@ public class ClientInfoResponse {
     this.modifiedBy = modifiedBy;
   }
 
+  public ClientInfoResponse isPublic(@javax.annotation.Nullable Boolean isPublic) {
+    
+    this.isPublic = isPublic;
+    return this;
+  }
+
+  /**
+   * Whether the client is offered to third-party tenants rather than only to the tenant that registered it.
+   * @return isPublic
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_PUBLIC, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsPublic() {
+    return isPublic;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_IS_PUBLIC, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsPublic(@javax.annotation.Nullable Boolean isPublic) {
+    this.isPublic = isPublic;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -497,23 +469,22 @@ public class ClientInfoResponse {
     return Objects.equals(this.name, clientInfoResponse.name) &&
         Objects.equals(this.description, clientInfoResponse.description) &&
         Objects.equals(this.scopes, clientInfoResponse.scopes) &&
-        Objects.equals(this._public, clientInfoResponse._public) &&
         Objects.equals(this.clientId, clientInfoResponse.clientId) &&
         Objects.equals(this.websiteUrl, clientInfoResponse.websiteUrl) &&
         Objects.equals(this.termsUrl, clientInfoResponse.termsUrl) &&
         Objects.equals(this.policyUrl, clientInfoResponse.policyUrl) &&
         Objects.equals(this.logo, clientInfoResponse.logo) &&
         Objects.equals(this.authenticationMethods, clientInfoResponse.authenticationMethods) &&
-        Objects.equals(this.isPublic, clientInfoResponse.isPublic) &&
         Objects.equals(this.createdOn, clientInfoResponse.createdOn) &&
         Objects.equals(this.createdBy, clientInfoResponse.createdBy) &&
         Objects.equals(this.modifiedOn, clientInfoResponse.modifiedOn) &&
-        Objects.equals(this.modifiedBy, clientInfoResponse.modifiedBy);
+        Objects.equals(this.modifiedBy, clientInfoResponse.modifiedBy) &&
+        Objects.equals(this.isPublic, clientInfoResponse.isPublic);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, scopes, _public, clientId, websiteUrl, termsUrl, policyUrl, logo, authenticationMethods, isPublic, createdOn, createdBy, modifiedOn, modifiedBy);
+    return Objects.hash(name, description, scopes, clientId, websiteUrl, termsUrl, policyUrl, logo, authenticationMethods, createdOn, createdBy, modifiedOn, modifiedBy, isPublic);
   }
 
   @Override
@@ -523,18 +494,17 @@ public class ClientInfoResponse {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
-    sb.append("    _public: ").append(toIndentedString(_public)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    websiteUrl: ").append(toIndentedString(websiteUrl)).append("\n");
     sb.append("    termsUrl: ").append(toIndentedString(termsUrl)).append("\n");
     sb.append("    policyUrl: ").append(toIndentedString(policyUrl)).append("\n");
     sb.append("    logo: ").append(toIndentedString(logo)).append("\n");
     sb.append("    authenticationMethods: ").append(toIndentedString(authenticationMethods)).append("\n");
-    sb.append("    isPublic: ").append(toIndentedString(isPublic)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    modifiedOn: ").append(toIndentedString(modifiedOn)).append("\n");
     sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
+    sb.append("    isPublic: ").append(toIndentedString(isPublic)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -618,16 +588,6 @@ public class ClientInfoResponse {
       i++;
     }
 
-    // add `public` to the URL query string
-    if (getPublic() != null) {
-      try {
-        joiner.add(String.format("%spublic%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPublic()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
     // add `client_id` to the URL query string
     if (getClientId() != null) {
       try {
@@ -694,16 +654,6 @@ public class ClientInfoResponse {
       i++;
     }
 
-    // add `is_public` to the URL query string
-    if (getIsPublic() != null) {
-      try {
-        joiner.add(String.format("%sis_public%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsPublic()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
     // add `created_on` to the URL query string
     if (getCreatedOn() != null) {
       try {
@@ -738,6 +688,16 @@ public class ClientInfoResponse {
     if (getModifiedBy() != null) {
       try {
         joiner.add(String.format("%smodified_by%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getModifiedBy()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `is_public` to the URL query string
+    if (getIsPublic() != null) {
+      try {
+        joiner.add(String.format("%sis_public%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsPublic()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

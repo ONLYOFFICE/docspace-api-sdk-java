@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The confirmation parameters.
+ * Whether a confirmation link may still be used, and what it leads to when it invites into a room.
  */
 @JsonPropertyOrder({
   ConfirmDto.JSON_PROPERTY_RESULT,
@@ -74,7 +74,7 @@ public class ConfirmDto {
   }
 
   /**
-   * The confirmation result.
+   * The outcome of the check. Only `Ok` means the action behind the link may be carried out: `Invalid` and  `Expired` fault the key itself, while `UserExisted`, `UserExcluded`, `TariffLimit` and `QuotaFailed` mean  the key is sound but the invitation behind it cannot be accepted as it stands.
    * @return result
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_RESULT, required = true)
@@ -98,7 +98,7 @@ public class ConfirmDto {
   }
 
   /**
-   * The confirmation room ID.
+   * The room the invitation leads into - a numeric folder ID for a room of the portal, a provider-specific  string for a third-party one. It is empty for an invitation to the portal as a whole, for a room that has  been removed or that the invited account may not see, and whenever `result` is neither `Ok` nor  `UserExisted`.
    * @return roomId
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -129,7 +129,7 @@ public class ConfirmDto {
   }
 
   /**
-   * The confirmation title.
+   * The title of that room, present exactly when `roomId` is and meant to be shown on the confirmation page.
    * @return title
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -160,7 +160,7 @@ public class ConfirmDto {
   }
 
   /**
-   * The confirmation email.
+   * The address the link was issued for, echoed back only when `result` is `Ok` so that a sign-up form can be  prefilled with it. Every other outcome leaves it empty, `UserExisted` included.
    * @return email
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -191,7 +191,7 @@ public class ConfirmDto {
   }
 
   /**
-   * The confirmation is agent.
+   * Whether the room behind the link is an AI room rather than an ordinary one, which decides where the invited  person is taken. It is `false` whenever `roomId` is empty.
    * @return isAgent
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_AGENT, required = false)

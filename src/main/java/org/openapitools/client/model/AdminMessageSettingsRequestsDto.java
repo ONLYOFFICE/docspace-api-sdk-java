@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for configuring the administrator message content.
+ * The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it.
  */
 @JsonPropertyOrder({
   AdminMessageSettingsRequestsDto.JSON_PROPERTY_MESSAGE,
@@ -74,7 +74,7 @@ public class AdminMessageSettingsRequestsDto {
   }
 
   /**
-   * The content of the administrator message to be sent.
+   * What the sender wants to tell the portal administrators. Markup is stripped before the letter is written, so  a body that carries nothing but markup counts as empty and is refused with 400.
    * @return message
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
@@ -98,7 +98,7 @@ public class AdminMessageSettingsRequestsDto {
   }
 
   /**
-   * Email
+   * The address the sender can be answered at, which the letter is signed with. It has to be a well-formed email  address.
    * @return email
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
@@ -122,7 +122,7 @@ public class AdminMessageSettingsRequestsDto {
   }
 
   /**
-   * Culture
+   * The language the letter is written in, as a culture name such as `en-US`. A culture the installation does not  have falls back to the portal language rather than failing the call.
    * @return culture
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -153,7 +153,7 @@ public class AdminMessageSettingsRequestsDto {
   }
 
   /**
-   * The type of CAPTCHA validation used.
+   * Which CAPTCHA service the proof in `recaptchaResponse` came from. It has to match the service the  installation is configured with, which `GET api/2.0/capabilities` reports; the default value means the  installation is left to decide.
    * @return recaptchaType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RECAPTCHA_TYPE, required = false)
@@ -177,7 +177,7 @@ public class AdminMessageSettingsRequestsDto {
   }
 
   /**
-   * The user's response to the CAPTCHA challenge.
+   * The token the CAPTCHA widget produced in the browser, passed on unchanged for the portal to verify with the  CAPTCHA service. It is single-use and short-lived, so it cannot be reused for a second message.
    * @return recaptchaResponse
    */
   @javax.annotation.Nullable  @JsonIgnore

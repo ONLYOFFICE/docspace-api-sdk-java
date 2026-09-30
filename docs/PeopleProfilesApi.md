@@ -5,10 +5,10 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**addMember**](PeopleProfilesApi.md#addMember) | **POST** /api/2.0/people | Add a user |
-| [**checkUserExistsByEmail**](PeopleProfilesApi.md#checkUserExistsByEmail) | **GET** /api/2.0/people/exists | Check if a user exists by email |
+| [**checkUserExistsByEmail**](PeopleProfilesApi.md#checkUserExistsByEmail) | **GET** /api/2.0/people/exists | Check whether an email is taken |
 | [**deleteMember**](PeopleProfilesApi.md#deleteMember) | **DELETE** /api/2.0/people/{userid} | Delete a user |
-| [**deleteProfile**](PeopleProfilesApi.md#deleteProfile) | **DELETE** /api/2.0/people/@self | Delete my profile |
-| [**getAllProfiles**](PeopleProfilesApi.md#getAllProfiles) | **GET** /api/2.0/people | Get profiles |
+| [**deleteProfile**](PeopleProfilesApi.md#deleteProfile) | **DELETE** /api/2.0/people/@self | Close my own profile |
+| [**getAllProfiles**](PeopleProfilesApi.md#getAllProfiles) | **GET** /api/2.0/people | Get the active profiles |
 | [**getClaims**](PeopleProfilesApi.md#getClaims) | **GET** /api/2.0/people/tokendiagnostics | Get user claims |
 | [**getProfileByEmail**](PeopleProfilesApi.md#getProfileByEmail) | **GET** /api/2.0/people/email | Get a profile by user email |
 | [**getProfileByUserId**](PeopleProfilesApi.md#getProfileByUserId) | **GET** /api/2.0/people/{userid} | Get a profile by user ID |
@@ -25,7 +25,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > EmployeeFullWrapper addMember(memberRequestDto)
 
-Add a userAdds a new portal user with the first name, last name, email address, and several optional parameters specified in the request.
+Add a userCreates a portal profile, either by an administrator adding somebody directly or by a person accepting an  invitation link, which is why the operation accepts both an authenticated session and an invitation  confirmation token.  Set `fromInviteLink` to true and pass the invitation `key` for the second case: the resulting type then comes  from the link and the `type` in the request is ignored, and an invalid or expired link answers 403.  Without a link the caller needs the permission to add users of the requested type, cannot create a guest  through this operation at all, has to be a DocSpace admin to create a room admin and the portal owner to  create another DocSpace admin; either way the portal has to allow inviting members, or guests when the link  says so.  The password is optional: `passwordHash` is taken as it is, a plain `password` is checked against the portal  password policy and rejected with 400 when it is too weak, and when both are omitted a random password is  generated and the account is created without anybody knowing it.  When the portal has no free paid seat the account is still created, silently as a `User` instead of the  requested type, so read the `type` in the answer rather than assuming the request was honoured.  Creating a profile raises a `UserCreated` webhook, downloads the avatar named in `files` if one is given, and  answers with the new profile including its ID.  To invite several people by email at once instead, use `POST api/2.0/people/invite`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/add-member/).
 
@@ -111,12 +111,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Newly added user with the detailed information |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The invitation link is invalid or its validity has expired |  -  |
+| **200** | The new profile with its detailed information |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The password does not meet the portal password policy |  -  |
+| **403** | The invitation link is invalid or has expired, the portal does not allow inviting this kind of account, or the caller may not create an account of the requested type |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -125,7 +125,7 @@ public class Example {
 
 > UserExistsResponseWrapper checkUserExistsByEmail(email, encemail, culture)
 
-Check if a user exists by emailReturns data indicating whether a user with the specified email exists on the portal.
+Check whether an email is takenReports whether an email address already belongs to a portal profile, and in what state that profile is.  It is meant for the invitation and sign-up screens, which is why it accepts a confirmation token as well as an  ordinary session, and why it is available on an unpaid portal.  Pass the address either in plain text as `email` or, when it arrived inside an invitation link, encrypted as  `encemail`; one of the two is required and a malformed or overlong address answers 400.  The call is read-only, and the answer carries `exists` plus the `status` of the profile - `Active`,  `Terminated` or `Pending` - which is left out entirely when nothing matches, so a pending invitation can be  told apart from a working account and from a free address.  It reveals only that an address is taken and not who owns it - read `GET api/2.0/people/email` for the  profile itself, which needs the right to see that account.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/).
 
@@ -215,8 +215,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | User existence result |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | Incorrect email |  -  |
+| **200** | Whether the address is taken, and the status of the profile that holds it |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | Both email and encemail are missing, or the address is malformed or longer than 255 characters |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -228,7 +228,7 @@ public class Example {
 
 > EmployeeFullWrapper deleteMember(userid)
 
-Delete a userDeletes a user with the ID specified in the request from the portal.
+Delete a userDeletes a portal profile and queues the erasure of the data behind it.  The account has to be disabled first - set the `Terminated` status through  `PUT api/2.0/people/status/{status}`, otherwise the operation answers 403 - and it must not be a system  account or one imported from LDAP.  The caller needs the permission to add and remove users, and has to be the portal owner to delete a DocSpace  administrator.  The profile disappears at once, together with its avatar, its group memberships, its file shares and its  OAuth clients, while the data it owned is erased by a queued job afterwards, which can be watched through  `GET api/2.0/people/remove/progress/{userid}`.  The removal is permanent and cannot be undone, so hand the rooms and the shared files over first through  `POST api/2.0/people/reassign/start` - an account whose reassignment has not finished cannot be deleted.  The call raises a `UserDeleted` webhook and answers with the profile as it was just before it was removed.  To delete several accounts at once use `PUT api/2.0/people/delete`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member/).
 
@@ -314,9 +314,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Deleted user detailed information |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | You don't have enough permission to perform the operation or user is not suspended |  -  |
-| **404** | User not found |  -  |
+| **200** | The profile as it was just before it was deleted |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The account is not disabled, is a system or an LDAP account, or the caller may not delete a DocSpace administrator |  -  |
+| **404** | No user has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -329,7 +329,7 @@ public class Example {
 
 > EmployeeFullWrapper deleteProfile()
 
-Delete my profileDeletes the current user profile.
+Close my own profileCloses the calling account at its owner's request: it does not erase the profile, it disables it, ends every  session it has and tells the portal administrators that the account asked to be removed.  It is the second step of the self-service removal - the first is `PUT api/2.0/people/self/delete`, which mails  the confirmation link - so the request has to carry the confirmation token from that link rather than an  ordinary session.  It always acts on the calling account and takes no parameters; the portal owner and an account imported from  LDAP cannot close themselves and get 403.  After the call the account has the `Terminated` status and can no longer sign in, but its rooms, files and  group memberships are untouched, which is why an administrator still has to erase it through  `DELETE api/2.0/people/{userid}` - that operation requires exactly this disabled state.  The step is reversible until then: re-enabling the account through `PUT api/2.0/people/status/{status}`  restores it.  The call raises a `UserUpdated` webhook, not a delete one, and answers with the profile in its new state.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-profile/).
 
@@ -411,9 +411,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Detailed information about my profile |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | You don't have enough permission to perform the operation |  -  |
-| **404** | User not found |  -  |
+| **200** | The profile of the caller with the Terminated status |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller is the portal owner, an LDAP account or a system account |  -  |
+| **404** | The calling account no longer exists |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -425,7 +425,7 @@ public class Example {
 
 > EmployeeFullArrayWrapper getAllProfiles(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue)
 
-Get profilesReturns a list of profiles for all the portal users.
+Get the active profilesReturns a page of the working accounts of the portal, with the full profile of each of them.  It reports only the accounts whose status is `Active`, so disabled accounts and open invitations are never  listed - use `GET api/2.0/people/status/{status}` for those, or `GET api/2.0/people/filter` to search across  every state.  The caller has to be a room admin, a DocSpace admin or a People module admin; a member or a guest gets 403.  The call is read-only, paged by `count` and `startIndex`, ordered by `sortBy` and `sortOrder`, and reports  the number of matches in the total count of the response.  Narrow it with `filterValue` on the name and the email, and with `filterBy` set to `group` to keep only the  members of the group whose ID is passed in `filterValue`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-profiles/).
 
@@ -434,13 +434,13 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **count** | **Integer**| The maximum number of items to be retrieved in the response. | [optional] |
-| **startIndex** | **Integer**| The zero-based index of the first item to be retrieved in a filtered result set. | [optional] |
-| **filterBy** | **String**| Specifies the filter criteria for user-related queries. | [optional] |
-| **sortBy** | **String**| Specifies the property or field name by which the results should be sorted. | [optional] |
-| **sortOrder** | [**SortOrder**](.md)| The order in which the results are sorted. | [optional] [enum: 0, 1] |
-| **filterSeparator** | **String**| The character or string used to separate multiple filter values in a filtering query. | [optional] |
-| **filterValue** | **String**| The text value used as an additional filter criterion for profiles retrieval. | [optional] |
+| **count** | **Integer**| The size of the page. It defaults to 100, which is also the largest value the operation accepts. | [optional] |
+| **startIndex** | **Integer**| The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. | [optional] |
+| **filterBy** | **String**| The only recognised value is `group`, which makes `filterValue` the ID of the group to keep the members of.  Any other value, and omitting the field, applies no group filter. | [optional] |
+| **sortBy** | **String**| What to order the accounts by, compared without regard to case: `FirstName`, `LastName`, `DisplayName`,  `Type`, `Email`, `Department`, `UsedSpace`, `CreatedBy` or `RegistrationDate`. | [optional] |
+| **sortOrder** | [**SortOrder**](.md)| The direction of the ordering: `Ascending`, which is the default, or `Descending`. | [optional] [enum: 0, 1] |
+| **filterSeparator** | **String**| The character that splits `filterValue` into several terms, of which any one may match. Omit it to split  the value on spaces instead, in which case every term has to match. | [optional] |
+| **filterValue** | **String**| The text to match against the name and the email of the account, case-insensitively. Omit it to apply no  text filter. | [optional] |
 
 ### Return type
 
@@ -493,13 +493,13 @@ public class Example {
 
 
         ProfilesApi apiInstance = new ProfilesApi(defaultClient);
-        Integer count = 25; // Integer | The maximum number of items to be retrieved in the response.
-        Integer startIndex = 0; // Integer | The zero-based index of the first item to be retrieved in a filtered result set.
-        String filterBy = "displayName"; // String | Specifies the filter criteria for user-related queries.
-        String sortBy = "displayName"; // String | Specifies the property or field name by which the results should be sorted.
-        SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The order in which the results are sorted.
-        String filterSeparator = ","; // String | The character or string used to separate multiple filter values in a filtering query.
-        String filterValue = "John"; // String | The text value used as an additional filter criterion for profiles retrieval.
+        Integer count = 25; // Integer | The size of the page. It defaults to 100, which is also the largest value the operation accepts.
+        Integer startIndex = 0; // Integer | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response.
+        String filterBy = "group"; // String | The only recognised value is `group`, which makes `filterValue` the ID of the group to keep the members of.  Any other value, and omitting the field, applies no group filter.
+        String sortBy = "DisplayName"; // String | What to order the accounts by, compared without regard to case: `FirstName`, `LastName`, `DisplayName`,  `Type`, `Email`, `Department`, `UsedSpace`, `CreatedBy` or `RegistrationDate`.
+        SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The direction of the ordering: `Ascending`, which is the default, or `Descending`.
+        String filterSeparator = ","; // String | The character that splits `filterValue` into several terms, of which any one may match. Omit it to split  the value on spaces instead, in which case every term has to match.
+        String filterValue = "John"; // String | The text to match against the name and the email of the account, case-insensitively. Omit it to apply no  text filter.
         try {
             EmployeeFullArrayWrapper result = apiInstance.getAllProfiles(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue);
             System.out.println(result);
@@ -523,7 +523,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of users with the detailed information |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **200** | A page of active accounts, with their full profiles |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller is a member or a guest |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -534,9 +535,9 @@ public class Example {
 
 ## getClaims
 
-> ObjectWrapper getClaims()
+> TokenDiagnosticsWrapper getClaims()
 
-Get user claimsReturns the user claims.
+Get user claimsReturns the identity the current request was authenticated with, as the portal sees it: the account name and  the full list of claims attached to the token or the cookie.  It is a diagnostics operation meant for working out why a call is rejected - which account a token really  belongs to, and which scopes and roles it carries - rather than a source of profile data.  It needs no permission of its own and reports on the caller only, so it cannot be used to inspect another  account.  The call is read-only, and every claim comes back as a single `type:value` string, in the order the  authentication produced them.  An account name of `Unknown Name` means the identity carries no name claim, not that the request is  unauthenticated.  For the profile behind the identity, read `GET api/2.0/people/@self`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/).
 
@@ -546,7 +547,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ObjectWrapper**](ObjectWrapper.md)
+[**TokenDiagnosticsWrapper**](TokenDiagnosticsWrapper.md)
 
 ### Authorization
 
@@ -596,7 +597,7 @@ public class Example {
 
         ProfilesApi apiInstance = new ProfilesApi(defaultClient);
         try {
-            ObjectWrapper result = apiInstance.getClaims();
+            TokenDiagnosticsWrapper result = apiInstance.getClaims();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProfilesApi#getClaims");
@@ -618,7 +619,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Claims |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **200** | The account name and the claims of the current identity |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -630,7 +631,7 @@ public class Example {
 
 > EmployeeFullWrapper getProfileByEmail(email, encemail, culture)
 
-Get a profile by user emailReturns the detailed information about a profile of the user with the email specified in the request.
+Get a profile by user emailReturns the full profile of the account that owns an email address.  Pass the address either in plain text as `email` or, when it arrived inside an invitation link, encrypted as  `encemail`; one of the two is required and a malformed or overlong address answers 400.  The caller has to be allowed to see that account - a guest, for instance, only sees the accounts it is  related to - and an address that belongs to nobody answers 404.  The call is read-only, and `culture` changes nothing about the profile: it only picks the language of the  error message when the lookup fails.  To find out whether an address is taken without the right to see its owner, use  `GET api/2.0/people/exists`, and to look an account up by its ID or user name use  `GET api/2.0/people/{userid}`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-email/).
 
@@ -720,10 +721,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Detailed profile information |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | Incorrect email |  -  |
-| **403** | No permissions to perform this action |  -  |
-| **404** | User not found |  -  |
+| **200** | The full profile of the account that owns the address |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | Both email and encemail are missing, or the address is malformed or longer than 255 characters |  -  |
+| **403** | The caller is not allowed to see that account |  -  |
+| **404** | No account owns the specified address |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -735,7 +736,7 @@ public class Example {
 
 > EmployeeFullWrapper getProfileByUserId(userid)
 
-Get a profile by user IDReturns the detailed information about a profile of the user with the ID specified in the request.
+Get a profile by user IDReturns the profile of one account, looked up by its user name first and by its ID if the name matches  nothing, so both forms work in the route.  The caller has to be allowed to see that account - a guest, for instance, only sees the accounts it is  related to - and a value that matches neither a name nor an ID answers 404.  A request authenticated with an invitation link is treated differently: it skips that visibility check and  gets a reduced profile with the identifying fields only, which is what an invitation page needs.  The call is read-only and is available on an unpaid portal.  To read the calling account use `GET api/2.0/people/@self`, and to look an account up by address use  `GET api/2.0/people/email`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-user-id/).
 
@@ -821,12 +822,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Detailed profile information |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | Incorrect UserId |  -  |
-| **404** | User not found |  -  |
+| **200** | The full profile, or a reduced one for a request authenticated with an invitation link |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller is not allowed to see that account |  -  |
+| **404** | No account has the specified ID or user name |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
+| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -835,7 +837,7 @@ public class Example {
 
 > EmployeeFullWrapper getSelfProfile()
 
-Get my profileReturns the detailed information about the current user profile.
+Get my profileReturns the profile of the account the request is authenticated as, together with the session details only  this operation reports.  It takes no parameters, needs no permission and always describes the caller, so it is the operation to call  right after signing in to find out who the token belongs to and what that account may do.  The call is read-only and available on an unpaid portal.  Beyond the ordinary profile fields it fills in four that stay empty everywhere else: `theme` with the  interface theme the account chose, `loginEventId` with the identifier of the current session,  `hasPersonalFolder` with whether the account has a personal folder, and `authCookieLifetime` with the seconds  the session has left - the last one only when less than a day remains or the portal is configured to expose  it, so an absent value means neither, not an endless session.  To read somebody else use `GET api/2.0/people/{userid}`, which reports none of these four.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-self-profile/).
 
@@ -917,7 +919,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Detailed information about my profile |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **200** | The profile of the caller, with the theme, the session and the personal folder details |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -929,7 +931,7 @@ public class Example {
 
 > EmployeeArrayWrapper inviteUsers(inviteUsersRequestDto)
 
-Invite usersInvites users specified in the request to the current portal.
+Invite usersInvites people to the portal by email, creating a pending profile for each address and mailing it an  invitation link.  The caller has to be a room admin or a DocSpace admin - a member or a guest is rejected - the portal has to  allow inviting members, and inviting a room admin additionally requires DocSpace admin rights while inviting  another DocSpace admin requires the portal owner; a `Guest` type is not accepted here at all.  An address that already belongs to a profile is not mailed again: the existing account is only related to the  caller, and its type is raised when the invitation asks for a higher one, while a disabled account rejects  the whole call with 400.  The whole call is rejected before anything is sent when the invitations would need more paid seats than the  tariff has left, and a malformed or punycode address is rejected with 400, so the list is validated as a  batch but applied one address at a time - a failure partway through leaves the earlier invitations sent.  The answer is not the result of this call: it lists every profile of the portal that is still pending and  that the caller may see, so previously invited people appear in it as well.  Each newly invited profile raises a `UserInvited` webhook, and repeated calls are throttled.  Use `PUT api/2.0/people/invite` to send the invitation email again, and `POST api/2.0/people` to create a  profile without mailing anybody.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/invite-users/).
 
@@ -1015,9 +1017,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of users |  -  |
-| **400** | Incorrect email or User disabled |  -  |
-| **402** | The number of admins exceeds the limit |  -  |
+| **200** | Every pending profile the caller may see, not only the ones just invited |  -  |
+| **400** | An address is malformed or written in punycode, or it belongs to a disabled account |  -  |
+| **402** | The invitations would need more paid seats than the tariff has left |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **401** | Unauthorized |  -  |
 | **500** | Internal Server Error. |  -  |
@@ -1029,7 +1031,7 @@ public class Example {
 
 > EmployeeFullArrayWrapper removeUsers(updateMembersRequestDto)
 
-Delete usersDeletes a list of the users with the IDs specified in the request.
+Delete usersDeletes several portal profiles in one call and queues the erasure of the data behind each of them.  Every listed account has to be disabled already - set the `Terminated` status through  `PUT api/2.0/people/status/{status}` first, because a single account that is still active rejects the whole  call with 403 - and the caller needs the permission to add and remove users.  System and LDAP accounts are dropped from the list without an error, and so are the accounts the caller may  not delete: a room admin when the caller is not a DocSpace admin, and a DocSpace admin when the caller is not  the portal owner.  The answer lists every account that was asked for, including the ones that were skipped, so it is not proof  that an account was deleted - read `GET api/2.0/people/{userid}` for that, which then answers 404.  The removal is permanent and cannot be undone, and each deleted account raises a `UserDeleted` webhook while  its data is erased by a queued job that can be watched through  `GET api/2.0/people/remove/progress/{userid}`.  Hand the rooms and the shared files over first through `POST api/2.0/people/reassign/start` - an account with  an unfinished reassignment cannot be deleted.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-users/).
 
@@ -1115,10 +1117,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of users with the detailed information |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | Incorrect UserIds |  -  |
-| **403** | No permissions to perform this action or users are not suspended |  -  |
-| **409** | Data reassign process is not complete |  -  |
+| **200** | Every account that was asked for, including the ones that were skipped |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The userIds field is missing |  -  |
+| **403** | No permissions to perform this action, or one of the listed accounts is not disabled |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -1130,7 +1131,7 @@ public class Example {
 
 > EmployeeFullArrayWrapper resendUserInvites(updateMembersRequestDto)
 
-Resend activation emailsResends emails to the users who have not activated their emails.
+Resend activation emailsSends the invitation or activation email again to the accounts that have not finished joining the portal.  Set `resendAll` to true to reach every pending account of the portal, in which case `userIds` is ignored and  the caller has to be a room admin or a DocSpace admin; with the default false only the listed accounts are  reached, and a member or a guest may then list nothing but their own ID.  Which email goes out depends on the state of each account: a pending invitation gets a fresh invitation link,  while an account that exists but has not confirmed its address gets activation instructions instead.  Accounts that are already active or that are disabled are skipped, and so are the pending accounts the caller  has no right to invite, without an error.  The answer lists only the targeted accounts the caller is allowed to see, so it can be shorter than the  request and is not a delivery report.  Repeated calls are throttled, and each call issues new links that make the previously sent ones useless.  To invite an address that has no profile yet, use `POST api/2.0/people/invite`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-user-invites/).
 
@@ -1216,8 +1217,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of users with the detailed information |  * X-RateLimit-Limit - Rate limit: 5 requests per 15 minutes per user/IP. <br>  * X-RateLimit-Remaining - Requests remaining in the current 15-minute window. <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | No permissions to perform this action |  -  |
+| **200** | The targeted accounts the caller is allowed to see |  * X-RateLimit-Limit - Rate limit: 5 requests per 15 minutes per user/IP. <br>  * X-RateLimit-Remaining - Requests remaining in the current 15-minute window. <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | A member or a guest asked for resendAll, or listed an account other than their own |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying (5 req / 15 min limit per user/IP). <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -1230,7 +1231,7 @@ public class Example {
 
 > EmployeeFullWrapper updateMember(userid, updateMemberRequestDto)
 
-Update a userUpdates the data for the selected portal user with the first name, last name, email address, and/or optional parameters specified in the request.
+Update a userUpdates a portal profile, and which fields it accepts depends on whose profile it is - the two halves of this  operation do not overlap.  On the caller's own profile it applies `firstName`, `lastName`, `location`, `comment`, `spam`, `contacts`,  `department` and the avatar named in `files`, while `disable` and `isUser` are ignored; on somebody else's  profile only `disable` and `isUser` are applied and every descriptive field is ignored, so an administrator  cannot rename another account through this operation.  The caller needs the permission to edit that profile, cannot touch the portal owner, and has to be the portal  owner to touch another DocSpace administrator; on an account imported from LDAP or SSO the name and the  location are silently left alone even on one's own profile.  Omitted fields keep their current values, an unusable pair of names answers 400, and `disable` set to true  gives the account the `Terminated` status and ends every session it has, which is the state  `DELETE api/2.0/people/{userid}` then requires.  The `isUser` flag turns the account into a guest when true and back into a member when false, both of which  can answer 402 because either direction takes a seat; a request to make the portal owner, a DocSpace  administrator or a module administrator a guest is ignored without an error.  A change raises a `UserUpdated` webhook and the answer holds the profile as it is afterwards, so read it  instead of assuming the request was applied.  For the language use `PUT api/2.0/people/{userid}/culture`, for the type  `PUT api/2.0/people/type/{type}`, and for the status of several accounts at once  `PUT api/2.0/people/status/{status}`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member/).
 
@@ -1318,10 +1319,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Updated user with the detailed information |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | Incorrect user name |  -  |
-| **403** | You don't have enough permission to perform the operation |  -  |
-| **404** | User not found |  -  |
+| **200** | The profile as it is after the update |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The first and last name pair is not a valid user name |  -  |
+| **402** | The tariff or the user quota does not allow the requested guest or member seat |  -  |
+| **403** | The account is the portal owner or a system account, the caller may not edit it, or only the portal owner may edit a DocSpace administrator |  -  |
+| **404** | No user has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -1333,7 +1335,7 @@ public class Example {
 
 > EmployeeFullWrapper updateMemberCulture(userid, culture)
 
-Update a user cultureUpdates the user culture with the parameters specified in the request.
+Update a user cultureChanges the interface language of a profile, which decides the language of the portal for that account and of  the emails it receives.  The culture has to be one the portal has enabled, otherwise the operation answers 400; read the enabled list  from the portal settings rather than guessing a code.  A caller may only change their own language - the ID in the route has to be the calling account, and an  administrator gets 403 for anybody else - and the account must be allowed to edit its own profile.  The change takes effect immediately, raises a `UserUpdated` webhook, and answers with the profile carrying  the new `cultureName`.  Other profile fields are not touched here; use `PUT api/2.0/people/{userid}` for those.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-culture/).
 
@@ -1421,10 +1423,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Detailed user information |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The specified culture is not in the list of available ones |  -  |
-| **403** | You don't have enough permission to perform the operation |  -  |
-| **404** | User not found |  -  |
+| **200** | The profile with its new culture |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The specified culture is not enabled on the portal |  -  |
+| **403** | The ID in the route is not the calling account, or the account may not edit its own profile |  -  |
+| **404** | No user has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |

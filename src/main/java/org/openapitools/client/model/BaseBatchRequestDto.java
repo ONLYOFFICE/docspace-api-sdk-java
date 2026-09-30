@@ -41,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The base batch request parameters.
+ * The files and folders a background operation is applied to.
  */
 @JsonPropertyOrder({
   BaseBatchRequestDto.JSON_PROPERTY_RETURN_SINGLE_OPERATION,
@@ -70,7 +70,7 @@ public class BaseBatchRequestDto {
   }
 
   /**
-   * Specifies whether to return only the current operation
+   * Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list.
    * @return returnSingleOperation
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RETURN_SINGLE_OPERATION, required = false)
@@ -106,7 +106,7 @@ public class BaseBatchRequestDto {
   }
 
   /**
-   * The list of folder IDs of the base batch request.
+   * The folders to act on, by id, as reported by a folder listing such as `GET api/2.0/files/{folderId}`. A number  addresses a folder stored in the portal itself, a string addresses a folder on a connected third-party  account, and both kinds may be sent in one list.
    * @return folderIds
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -149,7 +149,7 @@ public class BaseBatchRequestDto {
   }
 
   /**
-   * The list of file IDs of the base batch request.
+   * The files to act on, by id, as reported by a folder listing such as `GET api/2.0/files/{folderId}`. A number  addresses a file stored in the portal itself, a string addresses a file on a connected third-party account,  and both kinds may be sent in one list.
    * @return fileIds
    */
   @javax.annotation.Nullable  @JsonIgnore

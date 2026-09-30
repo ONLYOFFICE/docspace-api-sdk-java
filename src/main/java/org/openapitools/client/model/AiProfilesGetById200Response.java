@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.math.BigDecimal;
 import org.openapitools.client.model.AiBuiltinProviderType;
 import org.openapitools.client.model.AiProviderType;
+import org.openapitools.client.model.AiReasoningSupport;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -45,6 +46,7 @@ import java.util.StringJoiner;
   AiProfilesGetById200Response.JSON_PROPERTY_BASE_URL,
   AiProfilesGetById200Response.JSON_PROPERTY_MODEL_ID,
   AiProfilesGetById200Response.JSON_PROPERTY_REASONING,
+  AiProfilesGetById200Response.JSON_PROPERTY_REASONING_SUPPORT,
   AiProfilesGetById200Response.JSON_PROPERTY_CAPABILITIES,
   AiProfilesGetById200Response.JSON_PROPERTY_CAN_USE_TOOL,
   AiProfilesGetById200Response.JSON_PROPERTY_USE_RESPONSES_API,
@@ -75,6 +77,9 @@ public class AiProfilesGetById200Response {
 
   public static final String JSON_PROPERTY_REASONING = "reasoning";
   @javax.annotation.Nullable  private Boolean reasoning;
+
+  public static final String JSON_PROPERTY_REASONING_SUPPORT = "reasoningSupport";
+  @javax.annotation.Nullable  private AiReasoningSupport reasoningSupport;
 
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
   @javax.annotation.Nullable  private BigDecimal capabilities;
@@ -266,6 +271,30 @@ public class AiProfilesGetById200Response {
     this.reasoning = reasoning;
   }
 
+  public AiProfilesGetById200Response reasoningSupport(@javax.annotation.Nullable AiReasoningSupport reasoningSupport) {
+    
+    this.reasoningSupport = reasoningSupport;
+    return this;
+  }
+
+  /**
+   * Extended-thinking capabilities of the selected model as reported by the provider's catalogue at save time (see `Model.reasoningSupport`). When present the composer's Effort row follows it exactly; when absent the provider's id-based table answers. Hosts persist it with the rest of the profile.
+   * @return reasoningSupport
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REASONING_SUPPORT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AiReasoningSupport getReasoningSupport() {
+    return reasoningSupport;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_REASONING_SUPPORT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReasoningSupport(@javax.annotation.Nullable AiReasoningSupport reasoningSupport) {
+    this.reasoningSupport = reasoningSupport;
+  }
+
   public AiProfilesGetById200Response capabilities(@javax.annotation.Nullable BigDecimal capabilities) {
     
     this.capabilities = capabilities;
@@ -426,6 +455,7 @@ public class AiProfilesGetById200Response {
         Objects.equals(this.baseUrl, aiProfilesGetById200Response.baseUrl) &&
         Objects.equals(this.modelId, aiProfilesGetById200Response.modelId) &&
         Objects.equals(this.reasoning, aiProfilesGetById200Response.reasoning) &&
+        Objects.equals(this.reasoningSupport, aiProfilesGetById200Response.reasoningSupport) &&
         Objects.equals(this.capabilities, aiProfilesGetById200Response.capabilities) &&
         Objects.equals(this.canUseTool, aiProfilesGetById200Response.canUseTool) &&
         Objects.equals(this.useResponsesApi, aiProfilesGetById200Response.useResponsesApi) &&
@@ -436,7 +466,7 @@ public class AiProfilesGetById200Response {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, providerType, basedOn, baseUrl, modelId, reasoning, capabilities, canUseTool, useResponsesApi, isCloudProvider, useProxy, createdAt);
+    return Objects.hash(id, name, providerType, basedOn, baseUrl, modelId, reasoning, reasoningSupport, capabilities, canUseTool, useResponsesApi, isCloudProvider, useProxy, createdAt);
   }
 
   @Override
@@ -450,6 +480,7 @@ public class AiProfilesGetById200Response {
     sb.append("    baseUrl: ").append(toIndentedString(baseUrl)).append("\n");
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    reasoning: ").append(toIndentedString(reasoning)).append("\n");
+    sb.append("    reasoningSupport: ").append(toIndentedString(reasoningSupport)).append("\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("    canUseTool: ").append(toIndentedString(canUseTool)).append("\n");
     sb.append("    useResponsesApi: ").append(toIndentedString(useResponsesApi)).append("\n");
@@ -566,6 +597,11 @@ public class AiProfilesGetById200Response {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
+    }
+
+    // add `reasoningSupport` to the URL query string
+    if (getReasoningSupport() != null) {
+      joiner.add(getReasoningSupport().toUrlQueryString(prefix + "reasoningSupport" + suffix));
     }
 
     // add `capabilities` to the URL query string

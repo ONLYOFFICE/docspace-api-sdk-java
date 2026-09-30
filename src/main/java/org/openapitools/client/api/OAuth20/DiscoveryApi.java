@@ -45,32 +45,30 @@ public class DiscoveryApi extends BaseApi {
 
 
   /**
-   * 
-   * 
+   * Probe the discovery endpoint
+   * Answers the CORS preflight for the OAuth 2.0 Authorization Server metadata endpoint. The endpoint needs no authentication and reads nothing from the request: it always answers 200 with an empty body, and the CORS headers are added by the surrounding filter chain rather than by this handler. It changes no state, and it does not return the authorization server metadata document - issue a GET against the same path for that.
    *
    * REST API Reference for handleOptions Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/handle-options/
    *
-   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object handleOptions() throws ApiException {
-    return this.handleOptions(Collections.emptyMap());
+  public void handleOptions() throws ApiException {
+    this.handleOptions(Collections.emptyMap());
   }
 
 
   /**
-   * 
-   * 
+   * Probe the discovery endpoint
+   * Answers the CORS preflight for the OAuth 2.0 Authorization Server metadata endpoint. The endpoint needs no authentication and reads nothing from the request: it always answers 200 with an empty body, and the CORS headers are added by the surrounding filter chain rather than by this handler. It changes no state, and it does not return the authorization server metadata document - issue a GET against the same path for that.
    *
    * REST API Reference for handleOptions Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/handle-options/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object handleOptions(Map<String, String> additionalHeaders) throws ApiException {
+  public void handleOptions(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -91,7 +89,7 @@ public class DiscoveryApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      "*/*"
+      
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -102,8 +100,7 @@ public class DiscoveryApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
+    apiClient.invokeAPI(
         localVarPath,
         "OPTIONS",
         localVarQueryParams,
@@ -116,7 +113,7 @@ public class DiscoveryApi extends BaseApi {
         localVarAccept,
         localVarContentType,
         localVarAuthNames,
-        localVarReturnType
+        null
     );
   }
 
@@ -133,7 +130,7 @@ public class DiscoveryApi extends BaseApi {
     localVarHeaderParams.putAll(additionalHeaders);
 
     final String[] localVarAccepts = {
-      "*/*"
+      
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

@@ -26,9 +26,9 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.AiErrorResponse;
 import org.openapitools.client.model.AiSuccessResponse;
-import org.openapitools.client.model.AiTMCPItem;
 import org.openapitools.client.model.AiToolsAddCustomServerRequest;
 import org.openapitools.client.model.AiToolsBulkResult;
+import org.openapitools.client.model.AiToolsListSystemTools200Response;
 import org.openapitools.client.model.AiToolsMutationResult;
 import org.openapitools.client.model.AiToolsRemoveCustomServerRequest;
 import org.openapitools.client.model.AiToolsReplaceAllCustomServersRequest;
@@ -57,7 +57,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Add custom server
-   * Registers a custom MCP server in the scope under the given name.
+   * Registers a custom MCP server under the given name so the model may call its tools. The name becomes a URL path segment, so it may not be `.`, `..`, or contain a path separator or a control character. `config` may be omitted in two cases: a name matching a host-configured system server pins the entry to that server's canonical settings as a whitelist marker, and a name already registered portal-wide copies the portal-level configuration into this scope; anything else without a config is rejected. `entityId` scopes the registration and has to name a room the caller can open - a room that is not an agent room folds to the portal-wide scope, while an unreachable one is refused so it cannot silently rewrite the portal's own registry.
    *
    * REST API Reference for aiToolsAddCustomServer Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-add-custom-server/
@@ -73,7 +73,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Add custom server
-   * Registers a custom MCP server in the scope under the given name.
+   * Registers a custom MCP server under the given name so the model may call its tools. The name becomes a URL path segment, so it may not be `.`, `..`, or contain a path separator or a control character. `config` may be omitted in two cases: a name matching a host-configured system server pins the entry to that server's canonical settings as a whitelist marker, and a name already registered portal-wide copies the portal-level configuration into this scope; anything else without a config is rejected. `entityId` scopes the registration and has to name a room the caller can open - a room that is not an agent room folds to the portal-wide scope, while an unreachable one is refused so it cannot silently rewrite the portal's own registry.
    *
    * REST API Reference for aiToolsAddCustomServer Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-add-custom-server/
@@ -118,7 +118,7 @@ public class ToolsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiToolsMutationResult> localVarReturnType = new TypeReference<AiToolsMutationResult>() {};
     return apiClient.invokeAPI(
@@ -140,7 +140,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Get allow always
-   * Lists the tools on the always-allow list of the scope.
+   * Returns the always-allow list of the scope - the tools whose calls run without pausing the round for approval. `entityId` picks the scope and omitting it reads the portal-wide setting. An empty answer means every tool call has to be approved through `POST api/2.0/ai/ai/approve-tool-call`. Use `GET api/2.0/ai/tools/is-allow-always` to ask about a single tool.
    *
    * REST API Reference for aiToolsGetAllowAlways Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-allow-always/
@@ -156,7 +156,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Get allow always
-   * Lists the tools on the always-allow list of the scope.
+   * Returns the always-allow list of the scope - the tools whose calls run without pausing the round for approval. `entityId` picks the scope and omitting it reads the portal-wide setting. An empty answer means every tool call has to be approved through `POST api/2.0/ai/ai/approve-tool-call`. Use `GET api/2.0/ai/tools/is-allow-always` to ask about a single tool.
    *
    * REST API Reference for aiToolsGetAllowAlways Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-allow-always/
@@ -197,7 +197,7 @@ public class ToolsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<List<String>> localVarReturnType = new TypeReference<List<String>>() {};
     return apiClient.invokeAPI(
@@ -219,7 +219,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Get custom server
-   * Returns the configuration of one custom MCP server, or an empty result when it is not registered.
+   * Returns the stored configuration of one registered custom MCP server. The name is required and is read from the query; `entityId` picks the scope, and omitting it reads the portal-wide registry. A name that is not registered answers a null body with status 200 rather than 404. The configuration of a system server is returned empty on purpose: those run server-side only, so neither their endpoint nor their credentials are handed to a browser.
    *
    * REST API Reference for aiToolsGetCustomServer Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-custom-server/
@@ -236,7 +236,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Get custom server
-   * Returns the configuration of one custom MCP server, or an empty result when it is not registered.
+   * Returns the stored configuration of one registered custom MCP server. The name is required and is read from the query; `entityId` picks the scope, and omitting it reads the portal-wide registry. A name that is not registered answers a null body with status 200 rather than 404. The configuration of a system server is returned empty on purpose: those run server-side only, so neither their endpoint nor their credentials are handed to a browser.
    *
    * REST API Reference for aiToolsGetCustomServer Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-custom-server/
@@ -284,7 +284,7 @@ public class ToolsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
@@ -306,7 +306,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Get disabled
-   * Returns the switched-off tools of the scope, grouped by server type.
+   * Returns the tools switched off in the scope, as a map of server type to tool names. `entityId` picks the scope and omitting it reads the portal-wide setting. An absent server type means nothing is switched off for it, so an empty answer means every tool is on offer. Use `GET api/2.0/ai/tools/is-tool-disabled` to ask about one tool instead of reading the whole map.
    *
    * REST API Reference for aiToolsGetDisabled Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-disabled/
@@ -322,7 +322,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Get disabled
-   * Returns the switched-off tools of the scope, grouped by server type.
+   * Returns the tools switched off in the scope, as a map of server type to tool names. `entityId` picks the scope and omitting it reads the portal-wide setting. An absent server type means nothing is switched off for it, so an empty answer means every tool is on offer. Use `GET api/2.0/ai/tools/is-tool-disabled` to ask about one tool instead of reading the whole map.
    *
    * REST API Reference for aiToolsGetDisabled Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-disabled/
@@ -363,7 +363,7 @@ public class ToolsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<Map<String, List<String>>> localVarReturnType = new TypeReference<Map<String, List<String>>>() {};
     return apiClient.invokeAPI(
@@ -385,7 +385,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Is allow always
-   * Tells whether one tool is on the always-allow list.
+   * Tells whether one named tool runs without an approval pause in the scope. Both `serverType` and `toolName` are required and are read from the query; `entityId` picks the scope. The answer is a bare boolean. A false answer means a call to that tool pauses the round, and the caller resumes it with the approve or deny operation.
    *
    * REST API Reference for aiToolsIsAllowAlways Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-allow-always/
@@ -403,7 +403,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Is allow always
-   * Tells whether one tool is on the always-allow list.
+   * Tells whether one named tool runs without an approval pause in the scope. Both `serverType` and `toolName` are required and are read from the query; `entityId` picks the scope. The answer is a bare boolean. A false answer means a call to that tool pauses the round, and the caller resumes it with the approve or deny operation.
    *
    * REST API Reference for aiToolsIsAllowAlways Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-allow-always/
@@ -458,7 +458,7 @@ public class ToolsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<Boolean> localVarReturnType = new TypeReference<Boolean>() {};
     return apiClient.invokeAPI(
@@ -480,7 +480,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Is tool disabled
-   * Tells whether one tool of a server type is switched off.
+   * Tells whether one named tool of one server type is switched off in the scope. Both `serverType` and `toolName` are required and are read from the query; `entityId` picks the scope. The answer is a bare boolean. It reflects only the disable list - a tool that is on offer may still require approval, which `GET api/2.0/ai/tools/is-allow-always` reports.
    *
    * REST API Reference for aiToolsIsToolDisabled Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-tool-disabled/
@@ -498,7 +498,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Is tool disabled
-   * Tells whether one tool of a server type is switched off.
+   * Tells whether one named tool of one server type is switched off in the scope. Both `serverType` and `toolName` are required and are read from the query; `entityId` picks the scope. The answer is a bare boolean. It reflects only the disable list - a tool that is on offer may still require approval, which `GET api/2.0/ai/tools/is-allow-always` reports.
    *
    * REST API Reference for aiToolsIsToolDisabled Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-tool-disabled/
@@ -553,7 +553,7 @@ public class ToolsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<Boolean> localVarReturnType = new TypeReference<Boolean>() {};
     return apiClient.invokeAPI(
@@ -575,7 +575,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * List custom servers
-   * Lists the custom MCP servers registered in the scope, keyed by name.
+   * Lists the custom MCP servers registered in the scope as a map of name to configuration. `entityId` picks the scope and omitting it lists the portal-wide registry. The configuration of any entry that names a host-configured system server comes back empty, for the same reason as in the single-server read, and the portal's own built-in MCP server is left out of the list entirely because it is always enabled and cannot be configured. The names in the answer are what the disable and always-allow operations accept as `serverType`.
    *
    * REST API Reference for aiToolsListCustomServers Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-custom-servers/
@@ -591,7 +591,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * List custom servers
-   * Lists the custom MCP servers registered in the scope, keyed by name.
+   * Lists the custom MCP servers registered in the scope as a map of name to configuration. `entityId` picks the scope and omitting it lists the portal-wide registry. The configuration of any entry that names a host-configured system server comes back empty, for the same reason as in the single-server read, and the portal's own built-in MCP server is left out of the list entirely because it is always enabled and cannot be configured. The names in the answer are what the disable and always-allow operations accept as `serverType`.
    *
    * REST API Reference for aiToolsListCustomServers Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-custom-servers/
@@ -632,7 +632,7 @@ public class ToolsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<Map<String, Object>> localVarReturnType = new TypeReference<Map<String, Object>>() {};
     return apiClient.invokeAPI(
@@ -654,33 +654,33 @@ public class ToolsApi extends BaseApi {
 
   /**
    * List system tools
-   * Lists the tools of the host-configured system MCP servers, grouped by server type. The servers are connected and listed server-side, so the client renders its permission cards from one request and never opens an MCP connection of its own.
+   * Lists every tool the scope can offer the model, as a map of server type to tool group. The answer merges two sources - the host-configured system servers and the live tools of the scope's registered custom MCP servers - and names the system ones separately in `system`, so a client can tell the two apart. `errors` carries the reason a registered server delivered no tools, which is the text to show on a permission card, because the browser cannot reach a server-executed MCP server to find out for itself. The connections are opened server-side, so one request is enough and the client never speaks MCP itself; the portal's own built-in server is left out because it is always enabled.
    *
    * REST API Reference for aiToolsListSystemTools Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-system-tools/
    *
    * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
-   * @return Map&lt;String, List&lt;AiTMCPItem&gt;&gt;
+   * @return AiToolsListSystemTools200Response
    * @throws ApiException if fails to make API call
    */
-  public Map<String, List<AiTMCPItem>> aiToolsListSystemTools(@javax.annotation.Nullable String entityId) throws ApiException {
+  public AiToolsListSystemTools200Response aiToolsListSystemTools(@javax.annotation.Nullable String entityId) throws ApiException {
     return this.aiToolsListSystemTools(entityId, Collections.emptyMap());
   }
 
 
   /**
    * List system tools
-   * Lists the tools of the host-configured system MCP servers, grouped by server type. The servers are connected and listed server-side, so the client renders its permission cards from one request and never opens an MCP connection of its own.
+   * Lists every tool the scope can offer the model, as a map of server type to tool group. The answer merges two sources - the host-configured system servers and the live tools of the scope's registered custom MCP servers - and names the system ones separately in `system`, so a client can tell the two apart. `errors` carries the reason a registered server delivered no tools, which is the text to show on a permission card, because the browser cannot reach a server-executed MCP server to find out for itself. The connections are opened server-side, so one request is enough and the client never speaks MCP itself; the portal's own built-in server is left out because it is always enabled.
    *
    * REST API Reference for aiToolsListSystemTools Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-system-tools/
    *
    * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return Map&lt;String, List&lt;AiTMCPItem&gt;&gt;
+   * @return AiToolsListSystemTools200Response
    * @throws ApiException if fails to make API call
    */
-  public Map<String, List<AiTMCPItem>> aiToolsListSystemTools(@javax.annotation.Nullable String entityId, Map<String, String> additionalHeaders) throws ApiException {
+  public AiToolsListSystemTools200Response aiToolsListSystemTools(@javax.annotation.Nullable String entityId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -711,9 +711,9 @@ public class ToolsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
-    TypeReference<Map<String, List<AiTMCPItem>>> localVarReturnType = new TypeReference<Map<String, List<AiTMCPItem>>>() {};
+    TypeReference<AiToolsListSystemTools200Response> localVarReturnType = new TypeReference<AiToolsListSystemTools200Response>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -733,7 +733,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Remove custom server
-   * Removes a custom MCP server from the registry.
+   * Unregisters a custom MCP server from the scope, so the model is no longer offered its tools. The name is required and may be sent in the body or as a query parameter, and `entityId` has to name a room the caller can open. A name that is not registered is not reported: the call answers success without removing anything. The server itself is untouched - only this portal's registration is dropped.
    *
    * REST API Reference for aiToolsRemoveCustomServer Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-remove-custom-server/
@@ -749,7 +749,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Remove custom server
-   * Removes a custom MCP server from the registry.
+   * Unregisters a custom MCP server from the scope, so the model is no longer offered its tools. The name is required and may be sent in the body or as a query parameter, and `entityId` has to name a room the caller can open. A name that is not registered is not reported: the call answers success without removing anything. The server itself is untouched - only this portal's registration is dropped.
    *
    * REST API Reference for aiToolsRemoveCustomServer Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-remove-custom-server/
@@ -794,7 +794,7 @@ public class ToolsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiSuccessResponse> localVarReturnType = new TypeReference<AiSuccessResponse>() {};
     return apiClient.invokeAPI(
@@ -816,7 +816,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Replace all custom servers
-   * Replaces the whole custom MCP server registry of the scope with the supplied map.
+   * Replaces the whole custom MCP server registry of the scope with the supplied map in one write, which makes it the operation a settings screen saves with. `map` is required: without it the registry would be emptied, so a missing or non-object value is rejected rather than treated as none. Every name in the map is validated as a routable path segment and every configuration is resolved before anything is written, so a map with one bad entry changes nothing. `entityId` has to name a room the caller can open - this is the operation where an unreachable one would otherwise have wiped the portal-wide registry.
    *
    * REST API Reference for aiToolsReplaceAllCustomServers Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-replace-all-custom-servers/
@@ -832,7 +832,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Replace all custom servers
-   * Replaces the whole custom MCP server registry of the scope with the supplied map.
+   * Replaces the whole custom MCP server registry of the scope with the supplied map in one write, which makes it the operation a settings screen saves with. `map` is required: without it the registry would be emptied, so a missing or non-object value is rejected rather than treated as none. Every name in the map is validated as a routable path segment and every configuration is resolved before anything is written, so a map with one bad entry changes nothing. `entityId` has to name a room the caller can open - this is the operation where an unreachable one would otherwise have wiped the portal-wide registry.
    *
    * REST API Reference for aiToolsReplaceAllCustomServers Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-replace-all-custom-servers/
@@ -877,7 +877,7 @@ public class ToolsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiToolsBulkResult> localVarReturnType = new TypeReference<AiToolsBulkResult>() {};
     return apiClient.invokeAPI(
@@ -899,7 +899,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Set allow always
-   * Adds a tool to the always-allow list, or removes it - the tools on that list run without an approval dialog.
+   * Adds one tool to the scope's always-allow list, or takes it off, which decides whether a call to it pauses the round for approval. `value` is coerced to a boolean, so any truthy value adds and any falsy one removes. Unlike the disable operation, `serverType` is not validated here: an unknown one is stored and then simply never matches, so a wrong value fails silently. `entityId` has to name a room the caller can open.
    *
    * REST API Reference for aiToolsSetAllowAlways Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-set-allow-always/
@@ -915,7 +915,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Set allow always
-   * Adds a tool to the always-allow list, or removes it - the tools on that list run without an approval dialog.
+   * Adds one tool to the scope's always-allow list, or takes it off, which decides whether a call to it pauses the round for approval. `value` is coerced to a boolean, so any truthy value adds and any falsy one removes. Unlike the disable operation, `serverType` is not validated here: an unknown one is stored and then simply never matches, so a wrong value fails silently. `entityId` has to name a room the caller can open.
    *
    * REST API Reference for aiToolsSetAllowAlways Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-set-allow-always/
@@ -960,7 +960,7 @@ public class ToolsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiSuccessResponse> localVarReturnType = new TypeReference<AiSuccessResponse>() {};
     return apiClient.invokeAPI(
@@ -982,7 +982,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Set disabled
-   * Marks the listed tools of one server type as switched off, so the model is no longer offered them.
+   * Switches off the listed tools of one server type in the scope, so the model is no longer offered them. `serverType` has to be a key the round's tool filter actually matches - a host-configured system server, one of the two DocSpace integration groups, web search, image generation, or one of the scope's registered custom servers - and an unknown value is rejected with the list of valid ones in the message, rather than stored and silently ignored. `toolNames` replaces the previous selection for that server type, so send the full list and pass an empty one to switch everything back on. `entityId` has to name a room the caller can open.
    *
    * REST API Reference for aiToolsSetDisabled Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-set-disabled/
@@ -998,7 +998,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Set disabled
-   * Marks the listed tools of one server type as switched off, so the model is no longer offered them.
+   * Switches off the listed tools of one server type in the scope, so the model is no longer offered them. `serverType` has to be a key the round's tool filter actually matches - a host-configured system server, one of the two DocSpace integration groups, web search, image generation, or one of the scope's registered custom servers - and an unknown value is rejected with the list of valid ones in the message, rather than stored and silently ignored. `toolNames` replaces the previous selection for that server type, so send the full list and pass an empty one to switch everything back on. `entityId` has to name a room the caller can open.
    *
    * REST API Reference for aiToolsSetDisabled Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-set-disabled/
@@ -1043,7 +1043,7 @@ public class ToolsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiSuccessResponse> localVarReturnType = new TypeReference<AiSuccessResponse>() {};
     return apiClient.invokeAPI(
@@ -1065,7 +1065,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Update custom server
-   * Updates the configuration of a registered custom MCP server.
+   * Replaces the stored configuration of a registered custom MCP server, under the same name and scope rules as the add operation. The name is re-validated as a routable path segment, and an omitted `config` resolves the same way - to a system server's canonical settings, or to the portal-level entry of that name. `entityId` has to name a room the caller can open. The answer carries the stored registry entry.
    *
    * REST API Reference for aiToolsUpdateCustomServer Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-update-custom-server/
@@ -1081,7 +1081,7 @@ public class ToolsApi extends BaseApi {
 
   /**
    * Update custom server
-   * Updates the configuration of a registered custom MCP server.
+   * Replaces the stored configuration of a registered custom MCP server, under the same name and scope rules as the add operation. The name is re-validated as a routable path segment, and an omitted `config` resolves the same way - to a system server's canonical settings, or to the portal-level entry of that name. `entityId` has to name a room the caller can open. The answer carries the stored registry entry.
    *
    * REST API Reference for aiToolsUpdateCustomServer Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-update-custom-server/
@@ -1126,7 +1126,7 @@ public class ToolsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiToolsMutationResult> localVarReturnType = new TypeReference<AiToolsMutationResult>() {};
     return apiClient.invokeAPI(
@@ -1168,7 +1168,7 @@ public class ToolsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

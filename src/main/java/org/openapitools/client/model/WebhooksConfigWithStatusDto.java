@@ -33,7 +33,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The webhook configuration with its status.
+ * A webhook subscription together with how its last delivery ended.
  */
 @JsonPropertyOrder({
   WebhooksConfigWithStatusDto.JSON_PROPERTY_CONFIGS,
@@ -58,7 +58,7 @@ public class WebhooksConfigWithStatusDto {
   }
 
   /**
-   * The webhook configuration.
+   * The subscription itself. Despite the plural name it is one subscription, not a list.
    * @return configs
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONFIGS, required = false)
@@ -82,7 +82,7 @@ public class WebhooksConfigWithStatusDto {
   }
 
   /**
-   * The webhook status.
+   * The HTTP status code the target answered on the last attempt. `0` means nothing has been delivered yet,  which is not the same as a failure.
    * @return status
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)

@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The form gallery parameters.
+ * Where the ready-made form templates are served from, for browsing them and for submitting new ones.
  */
 @JsonPropertyOrder({
   FormGalleryDto.JSON_PROPERTY_PATH,
@@ -77,7 +77,7 @@ public class FormGalleryDto {
   }
 
   /**
-   * The form gallery path.
+   * The path under `domain` that the gallery's own listing API is reached at. It is joined to `domain` by the  client; the portal only relays the values from its configuration.
    * @return path
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PATH, required = false)
@@ -101,7 +101,7 @@ public class FormGalleryDto {
   }
 
   /**
-   * The form gallery domain.
+   * The address of the gallery service, which is a service of the vendor rather than part of the portal. Every  field of this object is empty on an installation that configures no gallery, and a client should then not  offer the gallery at all.
    * @return domain
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOMAIN, required = false)
@@ -125,7 +125,7 @@ public class FormGalleryDto {
   }
 
   /**
-   * The form gallery extension.
+   * The file extension to ask the gallery for, which decides which rendition of a template is downloaded when  several are published.
    * @return ext
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXT, required = false)
@@ -149,7 +149,7 @@ public class FormGalleryDto {
   }
 
   /**
-   * The form gallery upload path.
+   * The path used for submitting a form of one's own to the gallery, the counterpart of `path` for the upload  side. The four `upload` fields are empty when the installation allows browsing but not submitting.
    * @return uploadPath
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPLOAD_PATH, required = false)
@@ -173,7 +173,7 @@ public class FormGalleryDto {
   }
 
   /**
-   * The form gallery upload domain.
+   * The address the submission is sent to, which may differ from `domain`.
    * @return uploadDomain
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPLOAD_DOMAIN, required = false)
@@ -197,7 +197,7 @@ public class FormGalleryDto {
   }
 
   /**
-   * The form gallery upload extension.
+   * The file extension a submitted form has to carry.
    * @return uploadExt
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPLOAD_EXT, required = false)
@@ -221,7 +221,7 @@ public class FormGalleryDto {
   }
 
   /**
-   * The form gallery upload dashboard.
+   * The page a person is sent to in order to follow up on a submission, joined to `uploadDomain` the same way  as `uploadPath`.
    * @return uploadDashboard
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPLOAD_DASHBOARD, required = false)

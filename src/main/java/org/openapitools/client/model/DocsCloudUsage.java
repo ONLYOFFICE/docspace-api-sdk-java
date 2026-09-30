@@ -33,7 +33,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Represents the usage statistics of a DocsCloud tenant.
+ * Represents the usage statistics of a Docs Connect tenant.
  */
 @JsonPropertyOrder({
   DocsCloudUsage.JSON_PROPERTY_SINCE,

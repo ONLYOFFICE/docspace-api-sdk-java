@@ -96,7 +96,7 @@ public class FeedbackConfig {
   }
 
   /**
-   * Shows or hides the Feedback & Support menu button.
+   * Whether the support button is shown. The portal always asks for it to be shown.
    * @return visible
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VISIBLE, required = false)

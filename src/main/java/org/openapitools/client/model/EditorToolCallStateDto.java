@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.client.model.EditorToolCallParametersDto;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -32,7 +33,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The editor tool call state. Used to run the agent flow in the editor.
+ * A generation the editor is expected to run as soon as the document opens, left behind by an AI agent that created  the file but not its content.
  */
 @JsonPropertyOrder({
   EditorToolCallStateDto.JSON_PROPERTY_TOOL_NAME,
@@ -44,7 +45,7 @@ public class EditorToolCallStateDto {
   @javax.annotation.Nullable  private String toolName;
 
   public static final String JSON_PROPERTY_PARAMETERS = "parameters";
-  @javax.annotation.Nonnull  private Object parameters;
+  @javax.annotation.Nonnull  private EditorToolCallParametersDto parameters;
 
   public EditorToolCallStateDto() {
   }
@@ -57,7 +58,7 @@ public class EditorToolCallStateDto {
   }
 
   /**
-   * The tool name.
+   * Which generation to run, which also decides the shape of the parameters below.
    * @return toolName
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOOL_NAME, required = false)
@@ -74,27 +75,27 @@ public class EditorToolCallStateDto {
     this.toolName = toolName;
   }
 
-  public EditorToolCallStateDto parameters(@javax.annotation.Nonnull Object parameters) {
+  public EditorToolCallStateDto parameters(@javax.annotation.Nonnull EditorToolCallParametersDto parameters) {
     
     this.parameters = parameters;
     return this;
   }
 
   /**
-   * The tool call parameters.
+   * The arguments of the generation named above.
    * @return parameters
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PARAMETERS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Object getParameters() {
+  public EditorToolCallParametersDto getParameters() {
     return parameters;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_PARAMETERS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setParameters(@javax.annotation.Nonnull Object parameters) {
+  public void setParameters(@javax.annotation.Nonnull EditorToolCallParametersDto parameters) {
     this.parameters = parameters;
   }
 
@@ -181,12 +182,7 @@ public class EditorToolCallStateDto {
 
     // add `parameters` to the URL query string
     if (getParameters() != null) {
-      try {
-        joiner.add(String.format("%sparameters%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getParameters()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getParameters().toUrlQueryString(prefix + "parameters" + suffix));
     }
 
     return joiner.toString();

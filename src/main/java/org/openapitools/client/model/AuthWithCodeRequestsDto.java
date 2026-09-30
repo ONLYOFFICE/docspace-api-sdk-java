@@ -38,7 +38,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The parameters required for the user two-factor authentication requests.
+ * The same credentials as an ordinary sign-in, plus the one-time code that completes it.
  */
 @JsonPropertyOrder({
   AuthWithCodeRequestsDto.JSON_PROPERTY_USER_NAME,
@@ -107,7 +107,7 @@ public class AuthWithCodeRequestsDto {
   }
 
   /**
-   * The username or email used for authentication.
+   * The account signing in, given as its email address or its portal user name. It is required for a password  sign-in and ignored when the credentials are a confirmation key or a third-party account.
    * @return userName
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER_NAME, required = false)
@@ -131,7 +131,7 @@ public class AuthWithCodeRequestsDto {
   }
 
   /**
-   * The password in plain text for user authentication.
+   * The password in the clear. Send either this or `passwordHash`, never both; hashing it in the client with the  parameters from `GET api/2.0/settings?withpassword=true` and sending `passwordHash` instead keeps the plain  password off the wire.
    * @return password
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PASSWORD, required = false)
@@ -155,7 +155,7 @@ public class AuthWithCodeRequestsDto {
   }
 
   /**
-   * The hashed password for secure verification.
+   * The password already hashed in the client. It has to be produced with the `salt`, iteration count and hash  size that `GET api/2.0/settings?withpassword=true` publishes, or the portal cannot recognise it; a value sent  here takes the place of `password`.
    * @return passwordHash
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PASSWORD_HASH, required = false)
@@ -179,7 +179,7 @@ public class AuthWithCodeRequestsDto {
   }
 
   /**
-   * The type of authentication provider (e.g., internal, Google, Azure).
+   * The third-party identity provider the account is being signed in through, by its internal key such as  `google` or `linkedin`. Sending it switches the call to a third-party sign-in, which needs `accessToken` or  `serializedProfile` and is only allowed on a self-hosted installation or a tariff that includes third-party  sign-in.
    * @return provider
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROVIDER, required = false)
@@ -203,7 +203,7 @@ public class AuthWithCodeRequestsDto {
   }
 
   /**
-   * The access token used for authentication with external providers.
+   * The access token the provider named in `provider` issued for the account, passed on unchanged for the portal  to verify with that provider. The portal then matches the address it gets back against its own accounts, so a  valid token for an address unknown here is answered as no such user.
    * @return accessToken
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS_TOKEN, required = false)
@@ -227,7 +227,7 @@ public class AuthWithCodeRequestsDto {
   }
 
   /**
-   * The serialized user profile data, if applicable.
+   * The third-party profile already fetched and serialised by the caller, as an alternative to `accessToken` for  a provider whose profile the client holds. It identifies the account by the address it carries.
    * @return serializedProfile
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SERIALIZED_PROFILE, required = false)
@@ -251,7 +251,7 @@ public class AuthWithCodeRequestsDto {
   }
 
   /**
-   * The authorization code used for obtaining OAuth tokens.
+   * The OAuth authorization code obtained from the provider, for a flow that has not been exchanged for an access  token yet. It is recorded with the sign-in rather than replacing `accessToken`.
    * @return codeOAuth
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CODE_O_AUTH, required = false)
@@ -275,7 +275,7 @@ public class AuthWithCodeRequestsDto {
   }
 
   /**
-   * Specifies whether the authentication is session-based.
+   * Whether the issued token is tied to the browser session. When it is, the answer carries no `expires` and the  token dies with the session; otherwise it lives for the portal session lifetime.
    * @return session
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SESSION, required = false)
@@ -299,7 +299,7 @@ public class AuthWithCodeRequestsDto {
   }
 
   /**
-   * The additional confirmation data required for authentication.
+   * The confirmation link data, as a third way to identify the account beside a password and a third-party  account. Send it when the sign-in comes from a link the portal mailed, in which case `userName` and the  password fields are not read.
    * @return confirmData
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONFIRM_DATA, required = false)
@@ -323,7 +323,7 @@ public class AuthWithCodeRequestsDto {
   }
 
   /**
-   * The type of CAPTCHA validation used.
+   * Which CAPTCHA service the proof in `recaptchaResponse` came from. It has to match the service the  installation is configured with, which `GET api/2.0/settings` publishes together with the site key.
    * @return recaptchaType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RECAPTCHA_TYPE, required = false)
@@ -347,7 +347,7 @@ public class AuthWithCodeRequestsDto {
   }
 
   /**
-   * The user's response to the CAPTCHA challenge.
+   * The token the CAPTCHA widget produced in the browser, passed on unchanged for the portal to verify. It is  only demanded once repeated failures have made the portal ask for a challenge, and it is single-use, so a  retry needs a freshly solved one.
    * @return recaptchaResponse
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RECAPTCHA_RESPONSE, required = false)
@@ -371,7 +371,7 @@ public class AuthWithCodeRequestsDto {
   }
 
   /**
-   * The culture code for localization during authentication.
+   * The language the sign-in messages and any letter that follows are written in, as a culture name such as  `en-US`. A culture the installation does not have falls back to the portal language.
    * @return culture
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CULTURE, required = false)
@@ -395,7 +395,7 @@ public class AuthWithCodeRequestsDto {
   }
 
   /**
-   * The code for two-factor authentication.
+   * The one-time code from the SMS the portal sent or from the authenticator app, whichever second factor the  portal has enabled for this user. It is single-use and expires; a wrong, empty or expired value fails the  sign-in and counts against the brute-force limit.
    * @return code
    */
   @javax.annotation.Nullable  @JsonIgnore

@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for generating a customer monthly usage report.
+ * The period covered by the monthly wallet spending report.
  */
 @JsonPropertyOrder({
   CustomerMonthlyUsageReportRequestDto.JSON_PROPERTY_START_DATE,
@@ -62,7 +62,7 @@ public class CustomerMonthlyUsageReportRequestDto {
   }
 
   /**
-   * The report start date.
+   * The beginning of the reported period, inclusive. The months are cut in the portal time zone rather than in  UTC, so spending at the turn of a month falls where the portal sees it; defaults to the portal creation date.
    * @return startDate
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -93,7 +93,7 @@ public class CustomerMonthlyUsageReportRequestDto {
   }
 
   /**
-   * The report end date.
+   * The end of the reported period, inclusive. Cut in the portal time zone in the same way as `startDate`, and  defaults to the moment the call is made.
    * @return endDate
    */
   @javax.annotation.Nullable  @JsonIgnore

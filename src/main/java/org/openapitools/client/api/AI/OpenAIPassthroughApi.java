@@ -25,7 +25,7 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.AiErrorResponse;
-import org.openapitools.client.model.AiSuccessResponse;
+import org.openapitools.client.model.AiOpenaiChatCompletions403Response;
 
 
 import java.util.ArrayList;
@@ -47,36 +47,36 @@ public class OpenAIPassthroughApi extends BaseApi {
 
 
   /**
-   * OpenAI-compatible chat completions proxied to the profile's provider
+   * OpenAI chat completions passthrough
    * OpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
    *
    * REST API Reference for aiOpenaiChatCompletions Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/
    *
    * @param profileId The AI provider profile identifier. (required)
-   * @param requestBody  (required)
-   * @return AiSuccessResponse
+   * @param requestBody An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here. (required)
+   * @return Map&lt;String, Object&gt;
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiOpenaiChatCompletions(@javax.annotation.Nonnull String profileId, @javax.annotation.Nonnull Map<String, Object> requestBody) throws ApiException {
+  public Map<String, Object> aiOpenaiChatCompletions(@javax.annotation.Nonnull String profileId, @javax.annotation.Nonnull Map<String, Object> requestBody) throws ApiException {
     return this.aiOpenaiChatCompletions(profileId, requestBody, Collections.emptyMap());
   }
 
 
   /**
-   * OpenAI-compatible chat completions proxied to the profile's provider
+   * OpenAI chat completions passthrough
    * OpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
    *
    * REST API Reference for aiOpenaiChatCompletions Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/
    *
    * @param profileId The AI provider profile identifier. (required)
-   * @param requestBody  (required)
+   * @param requestBody An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here. (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return AiSuccessResponse
+   * @return Map&lt;String, Object&gt;
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiOpenaiChatCompletions(@javax.annotation.Nonnull String profileId, @javax.annotation.Nonnull Map<String, Object> requestBody, Map<String, String> additionalHeaders) throws ApiException {
+  public Map<String, Object> aiOpenaiChatCompletions(@javax.annotation.Nonnull String profileId, @javax.annotation.Nonnull Map<String, Object> requestBody, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = requestBody;
     
     // verify the required parameter 'profileId' is set
@@ -117,9 +117,9 @@ public class OpenAIPassthroughApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
-    TypeReference<AiSuccessResponse> localVarReturnType = new TypeReference<AiSuccessResponse>() {};
+    TypeReference<Map<String, Object>> localVarReturnType = new TypeReference<Map<String, Object>>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -138,36 +138,36 @@ public class OpenAIPassthroughApi extends BaseApi {
   }
 
   /**
-   * OpenAI-compatible image generation proxied to the profile's provider
-   * OpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
+   * OpenAI image generation passthrough
+   * OpenAI-compatible image generation for the document editor's AI plugin, working exactly as the chat-completions passthrough does: the profile named by `profileId` is resolved server-side, its credentials are attached, and the body reaches the provider unchanged. The provider's status and body are relayed verbatim, so its 429 and its own error envelope surface as they stand. A body larger than this route accepts is refused before it is forwarded. A client disconnect aborts the provider call.
    *
    * REST API Reference for aiOpenaiImagesGenerations Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/
    *
    * @param profileId The AI provider profile identifier. (required)
-   * @param requestBody  (required)
-   * @return AiSuccessResponse
+   * @param requestBody An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path. (required)
+   * @return Map&lt;String, Object&gt;
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiOpenaiImagesGenerations(@javax.annotation.Nonnull String profileId, @javax.annotation.Nonnull Map<String, Object> requestBody) throws ApiException {
+  public Map<String, Object> aiOpenaiImagesGenerations(@javax.annotation.Nonnull String profileId, @javax.annotation.Nonnull Map<String, Object> requestBody) throws ApiException {
     return this.aiOpenaiImagesGenerations(profileId, requestBody, Collections.emptyMap());
   }
 
 
   /**
-   * OpenAI-compatible image generation proxied to the profile's provider
-   * OpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
+   * OpenAI image generation passthrough
+   * OpenAI-compatible image generation for the document editor's AI plugin, working exactly as the chat-completions passthrough does: the profile named by `profileId` is resolved server-side, its credentials are attached, and the body reaches the provider unchanged. The provider's status and body are relayed verbatim, so its 429 and its own error envelope surface as they stand. A body larger than this route accepts is refused before it is forwarded. A client disconnect aborts the provider call.
    *
    * REST API Reference for aiOpenaiImagesGenerations Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/
    *
    * @param profileId The AI provider profile identifier. (required)
-   * @param requestBody  (required)
+   * @param requestBody An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path. (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return AiSuccessResponse
+   * @return Map&lt;String, Object&gt;
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiOpenaiImagesGenerations(@javax.annotation.Nonnull String profileId, @javax.annotation.Nonnull Map<String, Object> requestBody, Map<String, String> additionalHeaders) throws ApiException {
+  public Map<String, Object> aiOpenaiImagesGenerations(@javax.annotation.Nonnull String profileId, @javax.annotation.Nonnull Map<String, Object> requestBody, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = requestBody;
     
     // verify the required parameter 'profileId' is set
@@ -208,9 +208,9 @@ public class OpenAIPassthroughApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
-    TypeReference<AiSuccessResponse> localVarReturnType = new TypeReference<AiSuccessResponse>() {};
+    TypeReference<Map<String, Object>> localVarReturnType = new TypeReference<Map<String, Object>>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -250,7 +250,7 @@ public class OpenAIPassthroughApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

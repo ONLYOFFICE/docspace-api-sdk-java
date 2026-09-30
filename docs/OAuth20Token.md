@@ -8,14 +8,14 @@ The OAuth 2.0 token issued by a third-party provider.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**accessToken** | **String** | Access token |  [optional] |
-|**refreshToken** | **String** | Refresh token |  [optional] |
-|**expiresIn** | **Long** | Expires in |  [optional] |
-|**clientId** | **String** | Client id |  [optional] |
-|**clientSecret** | **String** | Client secret |  [optional] |
-|**redirectUri** | **URI** | Redirect uri |  [optional] |
-|**timestamp** | **OffsetDateTime** | Timestamp |  [optional] |
-|**isExpired** | **Boolean** | Is expired |  [optional] [readonly] |
+|**accessToken** | **String** | The token sent to the provider with every request made on behalf of the account. |  [optional] |
+|**refreshToken** | **String** | The token used to obtain a new access token when the current one expires. A provider that issues no refresh  token leaves it empty, and the account then has to be connected again to keep working. |  [optional] |
+|**expiresIn** | **Long** | How long the access token stays usable, in seconds counted from `timestamp`. Zero means the provider did not  say, and the token is then treated as expired. |  [optional] |
+|**clientId** | **String** | The OAuth 2.0 client ID of the application the token was issued to. |  [optional] |
+|**clientSecret** | **String** | The client secret of the application the token was issued to, needed when the token is refreshed. |  [optional] |
+|**redirectUri** | **URI** | The redirect URL the authorization code behind this token was obtained with; providers require the same value  again when the token is refreshed. |  [optional] |
+|**timestamp** | **OffsetDateTime** | When the token was issued, in UTC. This is the point `expires_in` is counted from. |  [optional] |
+|**isExpired** | **Boolean** | Whether the access token can no longer be used and has to be refreshed. It is also true when the provider did  not say how long the token lives. |  [optional] [readonly] |
 
 
 

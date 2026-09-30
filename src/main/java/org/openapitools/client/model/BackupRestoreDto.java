@@ -41,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The backup restoring parameters.
+ * The request parameters for restoring a portal from a backup.
  */
 @JsonPropertyOrder({
   BackupRestoreDto.JSON_PROPERTY_BACKUP_ID,
@@ -78,7 +78,7 @@ public class BackupRestoreDto {
   }
 
   /**
-   * The backup ID.
+   * The ID of the backup to restore from, as listed by `GET api/2.0/backup/getbackuphistory`. Send  anything that is not a GUID to restore from a file given by `storageParams` instead; an all-zero GUID  selects neither, because it parses as a GUID and then matches no record.
    * @return backupId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_BACKUP_ID, required = false)
@@ -102,7 +102,7 @@ public class BackupRestoreDto {
   }
 
   /**
-   * The backup storage type.
+   * The storage the archive is read from. It defaults to `Documents` and is only used when `backupId` is  not a GUID, because a known backup carries the storage of its own record.
    * @return storageType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STORAGE_TYPE, required = false)
@@ -138,7 +138,7 @@ public class BackupRestoreDto {
   }
 
   /**
-   * The backup storage parameters.
+   * The location of the archive, as an array of key and value pairs. The key read here is `filePath` -  not the `folderId` a backup is started with - and it holds a file ID for `Documents`, a  provider-specific file ID for `ThridpartyDocuments` and a path on the server for `Local`. It is only  used when `backupId` is not a GUID.
    * @return storageParams
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -169,7 +169,7 @@ public class BackupRestoreDto {
   }
 
   /**
-   * Notifies users about the portal restoring process or not.
+   * Chooses who is emailed when the restoring starts and when it finishes: every active user of the  portal when true, and its owner alone when false. Mail goes only to accounts that have been  activated, so this decides the audience rather than whether anybody is notified at all.
    * @return notify
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NOTIFY, required = false)
@@ -193,7 +193,7 @@ public class BackupRestoreDto {
   }
 
   /**
-   * Specifies if a dump will be created or not.
+   * Restores the whole server rather than this one portal. It requires the space access permission.
    * @return dump
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DUMP, required = false)

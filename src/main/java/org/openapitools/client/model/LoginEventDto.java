@@ -24,8 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.time.OffsetDateTime;
 import java.util.UUID;
+import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.MessageAction;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -39,7 +39,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The login event parameters.
+ * One entry of the portal login history: a sign-in, a sign-out or a failed attempt, and where it came from.
  */
 @JsonPropertyOrder({
   LoginEventDto.JSON_PROPERTY_ID,
@@ -62,7 +62,7 @@ public class LoginEventDto {
   @javax.annotation.Nullable  private Integer id;
 
   public static final String JSON_PROPERTY_DATE = "date";
-  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> date = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private ApiDateTime date;
 
   public static final String JSON_PROPERTY_USER = "user";
   @javax.annotation.Nullable  private JsonNullable<String> user = JsonNullable.<String>undefined();
@@ -108,7 +108,7 @@ public class LoginEventDto {
   }
 
   /**
-   * The login event ID.
+   * The ID of the recorded sign-in. When the entry is a successful sign-in that is still open, this is also  the value `GET api/2.0/security/activeconnections` reports as the connection's `id`.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -125,35 +125,28 @@ public class LoginEventDto {
     this.id = id;
   }
 
-  public LoginEventDto date(@javax.annotation.Nullable OffsetDateTime date) {
-    this.date = JsonNullable.<OffsetDateTime>of(date);
+  public LoginEventDto date(@javax.annotation.Nullable ApiDateTime date) {
     
+    this.date = date;
     return this;
   }
 
   /**
-   * The login event date.
+   * When the attempt was made, in the portal time zone. The `from` and `to` filters are read as UTC instants,  so the two do not line up on a portal that is not on UTC.
    * @return date
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getDate() {
-        return date.orElse(null);
+  public ApiDateTime getDate() {
+    return date;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<OffsetDateTime> getDate_JsonNullable() {
-    return date;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_DATE)
-  public void setDate_JsonNullable(JsonNullable<OffsetDateTime> date) {
+  public void setDate(@javax.annotation.Nullable ApiDateTime date) {
     this.date = date;
-  }
-
-  public void setDate(@javax.annotation.Nullable OffsetDateTime date) {
-    this.date = JsonNullable.<OffsetDateTime>of(date);
   }
 
   public LoginEventDto user(@javax.annotation.Nullable String user) {
@@ -163,7 +156,7 @@ public class LoginEventDto {
   }
 
   /**
-   * The user name of the login event.
+   * The display name of the account the attempt was made against, taken from the account as it stands now  rather than as it stood at the time. A localised placeholder stands in when there is no account to read,  which is the usual case for a failed attempt on an address nobody owns.
    * @return user
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -194,7 +187,7 @@ public class LoginEventDto {
   }
 
   /**
-   * The user ID of the login event.
+   * The ID of that account, which is what the `userId` filter of this operation matches on. It is the empty  GUID when the attempt could not be tied to an account.
    * @return userId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = false)
@@ -218,7 +211,7 @@ public class LoginEventDto {
   }
 
   /**
-   * The user login of the login event.
+   * The login string as it was typed - normally the email address. It is the only field that survives a failed  attempt against an unknown account, which makes it the one to read when `user` is a placeholder.
    * @return login
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -249,7 +242,7 @@ public class LoginEventDto {
   }
 
   /**
-   * The login event action.
+   * The event as a readable sentence in the portal language. On `GET api/2.0/security/audit/login/last` each  substituted value is cut to 50 characters; the filtered operation substitutes them in full.
    * @return action
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -280,7 +273,7 @@ public class LoginEventDto {
   }
 
   /**
-   * The login-related action to filter events by.
+   * What happened, as the `action` filter of this operation spells it: a successful sign-in, a failed one, a  sign-out. Use this rather than parsing `action`, which is prose and changes with the portal language.
    * @return actionId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTION_ID, required = false)
@@ -304,7 +297,7 @@ public class LoginEventDto {
   }
 
   /**
-   * The login event IP.
+   * The IP address the attempt came from, with the port stripped off.
    * @return ip
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -335,7 +328,7 @@ public class LoginEventDto {
   }
 
   /**
-   * The login event country.
+   * The English name of the country the IP address is located in, empty when the address cannot be located -  the normal outcome for private and loopback addresses.
    * @return country
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -366,7 +359,7 @@ public class LoginEventDto {
   }
 
   /**
-   * The login event city.
+   * The city the IP address is located in, empty under the same conditions as `country`.
    * @return city
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -397,7 +390,7 @@ public class LoginEventDto {
   }
 
   /**
-   * The login event browser.
+   * The browser and its version as parsed from the user agent of the attempt, empty when the client sent none  that could be parsed.
    * @return browser
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -428,7 +421,7 @@ public class LoginEventDto {
   }
 
   /**
-   * The login event platform.
+   * The operating system as parsed from the same user agent, empty under the same conditions as `browser`.
    * @return platform
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -459,7 +452,7 @@ public class LoginEventDto {
   }
 
   /**
-   * The login event page.
+   * Where in the portal the attempt was made from: the referrer of the request, or that request's own path  when it carried no referrer. Long values are cut off at 512 characters.
    * @return page
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -493,7 +486,7 @@ public class LoginEventDto {
     }
     LoginEventDto loginEventDto = (LoginEventDto) o;
     return Objects.equals(this.id, loginEventDto.id) &&
-        equalsNullable(this.date, loginEventDto.date) &&
+        Objects.equals(this.date, loginEventDto.date) &&
         equalsNullable(this.user, loginEventDto.user) &&
         Objects.equals(this.userId, loginEventDto.userId) &&
         equalsNullable(this.login, loginEventDto.login) &&
@@ -513,7 +506,7 @@ public class LoginEventDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(date), hashCodeNullable(user), userId, hashCodeNullable(login), hashCodeNullable(action), actionId, hashCodeNullable(ip), hashCodeNullable(country), hashCodeNullable(city), hashCodeNullable(browser), hashCodeNullable(platform), hashCodeNullable(page));
+    return Objects.hash(id, date, hashCodeNullable(user), userId, hashCodeNullable(login), hashCodeNullable(action), actionId, hashCodeNullable(ip), hashCodeNullable(country), hashCodeNullable(city), hashCodeNullable(browser), hashCodeNullable(platform), hashCodeNullable(page));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -599,12 +592,7 @@ public class LoginEventDto {
 
     // add `date` to the URL query string
     if (getDate() != null) {
-      try {
-        joiner.add(String.format("%sdate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDate()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getDate().toUrlQueryString(prefix + "date" + suffix));
     }
 
     // add `user` to the URL query string

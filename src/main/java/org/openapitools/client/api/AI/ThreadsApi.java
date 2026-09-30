@@ -29,9 +29,11 @@ import org.openapitools.client.model.AiOpenOrCreateResult;
 import org.openapitools.client.model.AiSuccessResponse;
 import org.openapitools.client.model.AiThread;
 import org.openapitools.client.model.AiThreadMessageLike;
+import org.openapitools.client.model.AiThreadsAppendUserMessage200Response;
 import org.openapitools.client.model.AiThreadsAppendUserMessageRequest;
 import org.openapitools.client.model.AiThreadsCreateRequest;
 import org.openapitools.client.model.AiThreadsOpenOrCreateRequest;
+import org.openapitools.client.model.AiThreadsRegenerateTitle200Response;
 import org.openapitools.client.model.AiThreadsRegenerateTitleRequest;
 import org.openapitools.client.model.AiThreadsRenameRequest;
 import org.openapitools.client.model.AiThreadsTouchRequest;
@@ -69,33 +71,33 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Append user message
-   * Persists a user message in a thread and bumps the thread's last-edit date so it resurfaces in the sidebar. Optionally rebinds the thread to another profile when the model changed mid-conversation.
+   * Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
    *
    * REST API Reference for aiThreadsAppendUserMessage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-append-user-message/
    *
    * @param aiThreadsAppendUserMessageRequest  (required)
-   * @return AiThreadMessageLike
+   * @return AiThreadsAppendUserMessage200Response
    * @throws ApiException if fails to make API call
    */
-  public AiThreadMessageLike aiThreadsAppendUserMessage(@javax.annotation.Nonnull AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest) throws ApiException {
+  public AiThreadsAppendUserMessage200Response aiThreadsAppendUserMessage(@javax.annotation.Nonnull AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest) throws ApiException {
     return this.aiThreadsAppendUserMessage(aiThreadsAppendUserMessageRequest, Collections.emptyMap());
   }
 
 
   /**
    * Append user message
-   * Persists a user message in a thread and bumps the thread's last-edit date so it resurfaces in the sidebar. Optionally rebinds the thread to another profile when the model changed mid-conversation.
+   * Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
    *
    * REST API Reference for aiThreadsAppendUserMessage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-append-user-message/
    *
    * @param aiThreadsAppendUserMessageRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return AiThreadMessageLike
+   * @return AiThreadsAppendUserMessage200Response
    * @throws ApiException if fails to make API call
    */
-  public AiThreadMessageLike aiThreadsAppendUserMessage(@javax.annotation.Nonnull AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public AiThreadsAppendUserMessage200Response aiThreadsAppendUserMessage(@javax.annotation.Nonnull AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = aiThreadsAppendUserMessageRequest;
     
     // verify the required parameter 'aiThreadsAppendUserMessageRequest' is set
@@ -130,9 +132,9 @@ public class ThreadsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
-    TypeReference<AiThreadMessageLike> localVarReturnType = new TypeReference<AiThreadMessageLike>() {};
+    TypeReference<AiThreadsAppendUserMessage200Response> localVarReturnType = new TypeReference<AiThreadsAppendUserMessage200Response>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -152,12 +154,12 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Clear messages
-   * Drops every message of a thread while keeping the thread itself, and bumps its last-edit date.
+   * Removes every message of a thread while keeping the thread, its title and its model binding, and bumps its last-edit date. The messages are gone for good. Unlike `delete` this does not verify that the thread exists, so clearing an unknown `threadId` reports success rather than 404. The answer only confirms the write.
    *
    * REST API Reference for aiThreadsClearMessages Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/
    *
-   * @param body  (required)
+   * @param body The ID of the thread to empty, as a bare JSON string. (required)
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
@@ -168,12 +170,12 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Clear messages
-   * Drops every message of a thread while keeping the thread itself, and bumps its last-edit date.
+   * Removes every message of a thread while keeping the thread, its title and its model binding, and bumps its last-edit date. The messages are gone for good. Unlike `delete` this does not verify that the thread exists, so clearing an unknown `threadId` reports success rather than 404. The answer only confirms the write.
    *
    * REST API Reference for aiThreadsClearMessages Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/
    *
-   * @param body  (required)
+   * @param body The ID of the thread to empty, as a bare JSON string. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
@@ -213,7 +215,7 @@ public class ThreadsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiSuccessResponse> localVarReturnType = new TypeReference<AiSuccessResponse>() {};
     return apiClient.invokeAPI(
@@ -234,8 +236,8 @@ public class ThreadsApi extends BaseApi {
   }
 
   /**
-   * Create
-   * Creates a chat thread with a caller-supplied title. Use `open-or-create` instead when the title should be generated from the first user message.
+   * Create a chat thread
+   * Creates a chat thread with a title supplied by the caller and returns it. A scoped thread requires that `entityId` names a room the caller can open, and a model has to resolve for the scope - an explicit `profileId`, or the room's `Chat` assignment - otherwise there is nothing to run the thread against and the call answers 404. In an agent room the agent's own assignment overrides any `profileId` sent with the request, so a thread there always starts on the agent's model. Use `POST api/2.0/ai/threads/open-or-create` instead when the title should be generated from the first user message.
    *
    * REST API Reference for aiThreadsCreate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-create/
@@ -250,8 +252,8 @@ public class ThreadsApi extends BaseApi {
 
 
   /**
-   * Create
-   * Creates a chat thread with a caller-supplied title. Use `open-or-create` instead when the title should be generated from the first user message.
+   * Create a chat thread
+   * Creates a chat thread with a title supplied by the caller and returns it. A scoped thread requires that `entityId` names a room the caller can open, and a model has to resolve for the scope - an explicit `profileId`, or the room's `Chat` assignment - otherwise there is nothing to run the thread against and the call answers 404. In an agent room the agent's own assignment overrides any `profileId` sent with the request, so a thread there always starts on the agent's model. Use `POST api/2.0/ai/threads/open-or-create` instead when the title should be generated from the first user message.
    *
    * REST API Reference for aiThreadsCreate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-create/
@@ -296,7 +298,7 @@ public class ThreadsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiThread> localVarReturnType = new TypeReference<AiThread>() {};
     return apiClient.invokeAPI(
@@ -317,13 +319,13 @@ public class ThreadsApi extends BaseApi {
   }
 
   /**
-   * Delete
-   * Deletes a chat thread together with its messages.
+   * Delete a chat thread
+   * Deletes a thread together with every message in it. The thread has to exist: unlike the other operations that take a `threadId`, this one checks first and answers 404 for an unknown or already-deleted thread rather than reporting success. The deletion is permanent and the messages cannot be recovered. To empty a thread but keep it, use `DELETE api/2.0/ai/threads/clear-messages`.
    *
    * REST API Reference for aiThreadsDelete Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/
    *
-   * @param body  (required)
+   * @param body The ID of the thread to delete, as a bare JSON string. (required)
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
@@ -333,13 +335,13 @@ public class ThreadsApi extends BaseApi {
 
 
   /**
-   * Delete
-   * Deletes a chat thread together with its messages.
+   * Delete a chat thread
+   * Deletes a thread together with every message in it. The thread has to exist: unlike the other operations that take a `threadId`, this one checks first and answers 404 for an unknown or already-deleted thread rather than reporting success. The deletion is permanent and the messages cannot be recovered. To empty a thread but keep it, use `DELETE api/2.0/ai/threads/clear-messages`.
    *
    * REST API Reference for aiThreadsDelete Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/
    *
-   * @param body  (required)
+   * @param body The ID of the thread to delete, as a bare JSON string. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
@@ -379,7 +381,7 @@ public class ThreadsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiSuccessResponse> localVarReturnType = new TypeReference<AiSuccessResponse>() {};
     return apiClient.invokeAPI(
@@ -401,12 +403,12 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Delete message
-   * Deletes one chat message, leaving the rest of the thread untouched.
+   * Deletes one message and leaves the rest of the thread untouched. `messageId` is required and may be sent either in the body or as a query parameter. An unknown ID is not reported: the call answers success without having deleted anything, so verify with `GET api/2.0/ai/threads/read-messages` when it matters. The deletion is permanent.
    *
    * REST API Reference for aiThreadsDeleteMessage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/
    *
-   * @param body  (required)
+   * @param body The ID of the message to delete, as a bare JSON string. (required)
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
@@ -417,12 +419,12 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Delete message
-   * Deletes one chat message, leaving the rest of the thread untouched.
+   * Deletes one message and leaves the rest of the thread untouched. `messageId` is required and may be sent either in the body or as a query parameter. An unknown ID is not reported: the call answers success without having deleted anything, so verify with `GET api/2.0/ai/threads/read-messages` when it matters. The deletion is permanent.
    *
    * REST API Reference for aiThreadsDeleteMessage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/
    *
-   * @param body  (required)
+   * @param body The ID of the message to delete, as a bare JSON string. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
@@ -462,7 +464,7 @@ public class ThreadsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiSuccessResponse> localVarReturnType = new TypeReference<AiSuccessResponse>() {};
     return apiClient.invokeAPI(
@@ -483,8 +485,8 @@ public class ThreadsApi extends BaseApi {
   }
 
   /**
-   * Get by id
-   * Returns one chat thread, or an empty result when the identifier is unknown.
+   * Get a chat thread
+   * Returns one thread by its ID, without its messages - read those with `GET api/2.0/ai/threads/read-messages`. `threadId` is required and an unknown one answers 404, so the result is never an empty body. The answer carries the thread's title, its model binding and its last-edit date. This is a read-only operation and does not bump that date.
    *
    * REST API Reference for aiThreadsGetById Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/
@@ -499,8 +501,8 @@ public class ThreadsApi extends BaseApi {
 
 
   /**
-   * Get by id
-   * Returns one chat thread, or an empty result when the identifier is unknown.
+   * Get a chat thread
+   * Returns one thread by its ID, without its messages - read those with `GET api/2.0/ai/threads/read-messages`. `threadId` is required and an unknown one answers 404, so the result is never an empty body. The answer carries the thread's title, its model binding and its last-edit date. This is a read-only operation and does not bump that date.
    *
    * REST API Reference for aiThreadsGetById Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/
@@ -546,7 +548,7 @@ public class ThreadsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiThread> localVarReturnType = new TypeReference<AiThread>() {};
     return apiClient.invokeAPI(
@@ -567,8 +569,8 @@ public class ThreadsApi extends BaseApi {
   }
 
   /**
-   * Get message by id
-   * Returns one chat message by its globally unique identifier.
+   * Get one chat message
+   * Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required. Unlike `GET api/2.0/ai/threads/get-by-id` an unknown ID is not reported as 404: the answer is an empty body with status 200, so a client has to treat a missing payload as no such message. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
    *
    * REST API Reference for aiThreadsGetMessageById Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/
@@ -583,8 +585,8 @@ public class ThreadsApi extends BaseApi {
 
 
   /**
-   * Get message by id
-   * Returns one chat message by its globally unique identifier.
+   * Get one chat message
+   * Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required. Unlike `GET api/2.0/ai/threads/get-by-id` an unknown ID is not reported as 404: the answer is an empty body with status 200, so a client has to treat a missing payload as no such message. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
    *
    * REST API Reference for aiThreadsGetMessageById Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/
@@ -630,7 +632,7 @@ public class ThreadsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiThreadMessageLike> localVarReturnType = new TypeReference<AiThreadMessageLike>() {};
     return apiClient.invokeAPI(
@@ -651,8 +653,8 @@ public class ThreadsApi extends BaseApi {
   }
 
   /**
-   * List
-   * Lists the chat threads of the scope, most recently edited first. Supports cursor pagination and a server-side case-insensitive title search.
+   * List chat threads
+   * Lists the threads of a scope, most recently edited first, and searches their titles case-insensitively when `query` is given. Every parameter is optional: omitting `entityId` lists the global scope, and omitting `count` lets the engine apply its own page size. Pagination is by cursor, and the cursor is a JSON object passed as a string in the query - `{id: <last thread id>, lastEditDate: <its date>}` - taken from the last entry of the previous page. A cursor that is not valid JSON, or that lacks an `id`, is ignored rather than rejected, and the read silently starts from the first page again.
    *
    * REST API Reference for aiThreadsList Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/
@@ -664,14 +666,14 @@ public class ThreadsApi extends BaseApi {
    * @return List&lt;AiThread&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<AiThread> aiThreadsList(@javax.annotation.Nullable String entityId, @javax.annotation.Nullable String count, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String query) throws ApiException {
+  public List<AiThread> aiThreadsList(@javax.annotation.Nullable String entityId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String query) throws ApiException {
     return this.aiThreadsList(entityId, count, cursor, query, Collections.emptyMap());
   }
 
 
   /**
-   * List
-   * Lists the chat threads of the scope, most recently edited first. Supports cursor pagination and a server-side case-insensitive title search.
+   * List chat threads
+   * Lists the threads of a scope, most recently edited first, and searches their titles case-insensitively when `query` is given. Every parameter is optional: omitting `entityId` lists the global scope, and omitting `count` lets the engine apply its own page size. Pagination is by cursor, and the cursor is a JSON object passed as a string in the query - `{id: <last thread id>, lastEditDate: <its date>}` - taken from the last entry of the previous page. A cursor that is not valid JSON, or that lacks an `id`, is ignored rather than rejected, and the read silently starts from the first page again.
    *
    * REST API Reference for aiThreadsList Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/
@@ -684,7 +686,7 @@ public class ThreadsApi extends BaseApi {
    * @return List&lt;AiThread&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<AiThread> aiThreadsList(@javax.annotation.Nullable String entityId, @javax.annotation.Nullable String count, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
+  public List<AiThread> aiThreadsList(@javax.annotation.Nullable String entityId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -720,7 +722,7 @@ public class ThreadsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<List<AiThread>> localVarReturnType = new TypeReference<List<AiThread>>() {};
     return apiClient.invokeAPI(
@@ -742,7 +744,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Open or create
-   * Opens a chat thread and returns its history, or creates one with a title generated from the supplied first message. That first message is not persisted - the caller decides whether to follow up with `append-user-message`.
+   * Opens a chat thread and returns it with its history, or creates one whose title is generated from the first message supplied in the request. That first message is not persisted: follow up with `POST api/2.0/ai/threads/append-user-message` to store it, or start the round directly with `POST api/2.0/ai/ai/send-with-stream`. Unlike `create` this takes a whole resolved `profile` object rather than an ID, and a request without one answers 404 because no model could be bound. A supplied `entityId` has to be a room the caller can open; anything that is not an agent room folds to the global scope instead of being rejected.
    *
    * REST API Reference for aiThreadsOpenOrCreate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-open-or-create/
@@ -758,7 +760,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Open or create
-   * Opens a chat thread and returns its history, or creates one with a title generated from the supplied first message. That first message is not persisted - the caller decides whether to follow up with `append-user-message`.
+   * Opens a chat thread and returns it with its history, or creates one whose title is generated from the first message supplied in the request. That first message is not persisted: follow up with `POST api/2.0/ai/threads/append-user-message` to store it, or start the round directly with `POST api/2.0/ai/ai/send-with-stream`. Unlike `create` this takes a whole resolved `profile` object rather than an ID, and a request without one answers 404 because no model could be bound. A supplied `entityId` has to be a room the caller can open; anything that is not an agent room folds to the global scope instead of being rejected.
    *
    * REST API Reference for aiThreadsOpenOrCreate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-open-or-create/
@@ -803,7 +805,7 @@ public class ThreadsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiOpenOrCreateResult> localVarReturnType = new TypeReference<AiOpenOrCreateResult>() {};
     return apiClient.invokeAPI(
@@ -825,7 +827,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Read messages
-   * Reads the messages of a thread, with the same cursor pagination as the thread list.
+   * Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. Omitting `threadId` is not an error: the call answers 200 with an empty list, so an empty result does not distinguish a thread with no messages from a request that forgot the ID. A malformed cursor is ignored and the read starts from the beginning.
    *
    * REST API Reference for aiThreadsReadMessages Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/
@@ -837,14 +839,14 @@ public class ThreadsApi extends BaseApi {
    * @return List&lt;AiThreadMessageLike&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<AiThreadMessageLike> aiThreadsReadMessages(@javax.annotation.Nonnull String threadId, @javax.annotation.Nullable String count, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String direction) throws ApiException {
+  public List<AiThreadMessageLike> aiThreadsReadMessages(@javax.annotation.Nonnull String threadId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String direction) throws ApiException {
     return this.aiThreadsReadMessages(threadId, count, cursor, direction, Collections.emptyMap());
   }
 
 
   /**
    * Read messages
-   * Reads the messages of a thread, with the same cursor pagination as the thread list.
+   * Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. Omitting `threadId` is not an error: the call answers 200 with an empty list, so an empty result does not distinguish a thread with no messages from a request that forgot the ID. A malformed cursor is ignored and the read starts from the beginning.
    *
    * REST API Reference for aiThreadsReadMessages Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/
@@ -857,7 +859,7 @@ public class ThreadsApi extends BaseApi {
    * @return List&lt;AiThreadMessageLike&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<AiThreadMessageLike> aiThreadsReadMessages(@javax.annotation.Nonnull String threadId, @javax.annotation.Nullable String count, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String direction, Map<String, String> additionalHeaders) throws ApiException {
+  public List<AiThreadMessageLike> aiThreadsReadMessages(@javax.annotation.Nonnull String threadId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String direction, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'threadId' is set
@@ -898,7 +900,7 @@ public class ThreadsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<List<AiThreadMessageLike>> localVarReturnType = new TypeReference<List<AiThreadMessageLike>>() {};
     return apiClient.invokeAPI(
@@ -920,33 +922,33 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Regenerate title
-   * Generates a fresh title from the thread's first user message and persists it. Fails when the thread has no user message yet.
+   * Asks the model to produce a title from the thread's first user message, stores it, and returns the new title. Both `threadId` and a resolved `profile` object are required; a thread with no user message yet has nothing to title and fails. This costs a model call, unlike `POST api/2.0/ai/threads/rename`, which just stores the string it is given. An `entityMeta` sent with the request is only read for its `entityId` hint - the source itself is resolved server-side under the caller's credentials, so a client cannot attribute the call to somebody else's room.
    *
    * REST API Reference for aiThreadsRegenerateTitle Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-regenerate-title/
    *
    * @param aiThreadsRegenerateTitleRequest  (required)
-   * @return String
+   * @return AiThreadsRegenerateTitle200Response
    * @throws ApiException if fails to make API call
    */
-  public String aiThreadsRegenerateTitle(@javax.annotation.Nonnull AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest) throws ApiException {
+  public AiThreadsRegenerateTitle200Response aiThreadsRegenerateTitle(@javax.annotation.Nonnull AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest) throws ApiException {
     return this.aiThreadsRegenerateTitle(aiThreadsRegenerateTitleRequest, Collections.emptyMap());
   }
 
 
   /**
    * Regenerate title
-   * Generates a fresh title from the thread's first user message and persists it. Fails when the thread has no user message yet.
+   * Asks the model to produce a title from the thread's first user message, stores it, and returns the new title. Both `threadId` and a resolved `profile` object are required; a thread with no user message yet has nothing to title and fails. This costs a model call, unlike `POST api/2.0/ai/threads/rename`, which just stores the string it is given. An `entityMeta` sent with the request is only read for its `entityId` hint - the source itself is resolved server-side under the caller's credentials, so a client cannot attribute the call to somebody else's room.
    *
    * REST API Reference for aiThreadsRegenerateTitle Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-regenerate-title/
    *
    * @param aiThreadsRegenerateTitleRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return String
+   * @return AiThreadsRegenerateTitle200Response
    * @throws ApiException if fails to make API call
    */
-  public String aiThreadsRegenerateTitle(@javax.annotation.Nonnull AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public AiThreadsRegenerateTitle200Response aiThreadsRegenerateTitle(@javax.annotation.Nonnull AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = aiThreadsRegenerateTitleRequest;
     
     // verify the required parameter 'aiThreadsRegenerateTitleRequest' is set
@@ -981,9 +983,9 @@ public class ThreadsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
-    TypeReference<String> localVarReturnType = new TypeReference<String>() {};
+    TypeReference<AiThreadsRegenerateTitle200Response> localVarReturnType = new TypeReference<AiThreadsRegenerateTitle200Response>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -1002,8 +1004,8 @@ public class ThreadsApi extends BaseApi {
   }
 
   /**
-   * Rename
-   * Renames a chat thread and bumps its last-edit date so the new title shows up in the sidebar.
+   * Rename a chat thread
+   * Replaces a thread's title with the one supplied and bumps its last-edit date. Both `threadId` and a title with at least one non-whitespace character are required - a blank title is rejected rather than silently stored, so a thread cannot end up nameless. The answer only confirms the write. To have the model produce a title instead of supplying one, use `POST api/2.0/ai/threads/regenerate-title`.
    *
    * REST API Reference for aiThreadsRename Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-rename/
@@ -1018,8 +1020,8 @@ public class ThreadsApi extends BaseApi {
 
 
   /**
-   * Rename
-   * Renames a chat thread and bumps its last-edit date so the new title shows up in the sidebar.
+   * Rename a chat thread
+   * Replaces a thread's title with the one supplied and bumps its last-edit date. Both `threadId` and a title with at least one non-whitespace character are required - a blank title is rejected rather than silently stored, so a thread cannot end up nameless. The answer only confirms the write. To have the model produce a title instead of supplying one, use `POST api/2.0/ai/threads/regenerate-title`.
    *
    * REST API Reference for aiThreadsRename Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-rename/
@@ -1064,7 +1066,7 @@ public class ThreadsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiSuccessResponse> localVarReturnType = new TypeReference<AiSuccessResponse>() {};
     return apiClient.invokeAPI(
@@ -1085,8 +1087,8 @@ public class ThreadsApi extends BaseApi {
   }
 
   /**
-   * Touch
-   * Bumps a thread's last-edit date, and optionally rebinds it to another profile, when something other than a new message - a model switch, say - should resurface it.
+   * Bump a thread's activity
+   * Bumps a thread's last-edit date without adding a message, which resurfaces it in the list. Passing `profileId` also rebinds the thread to another model, so this is the operation to call when a model switch alone should count as activity. Nothing else about the thread changes and the answer only confirms the write. It is idempotent: repeating it simply moves the date forward again.
    *
    * REST API Reference for aiThreadsTouch Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-touch/
@@ -1101,8 +1103,8 @@ public class ThreadsApi extends BaseApi {
 
 
   /**
-   * Touch
-   * Bumps a thread's last-edit date, and optionally rebinds it to another profile, when something other than a new message - a model switch, say - should resurface it.
+   * Bump a thread's activity
+   * Bumps a thread's last-edit date without adding a message, which resurfaces it in the list. Passing `profileId` also rebinds the thread to another model, so this is the operation to call when a model switch alone should count as activity. Nothing else about the thread changes and the answer only confirms the write. It is idempotent: repeating it simply moves the date forward again.
    *
    * REST API Reference for aiThreadsTouch Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-touch/
@@ -1147,7 +1149,7 @@ public class ThreadsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiSuccessResponse> localVarReturnType = new TypeReference<AiSuccessResponse>() {};
     return apiClient.invokeAPI(
@@ -1169,7 +1171,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Update message
-   * Replaces the content of a chat message - used by the edit and regenerate flows that change a message outside the streaming lifecycle.
+   * Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object. Neither the ID nor the payload is validated here, so a malformed request surfaces as an error relayed from storage rather than as a 400. The answer only confirms the write.
    *
    * REST API Reference for aiThreadsUpdateMessage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-update-message/
@@ -1185,7 +1187,7 @@ public class ThreadsApi extends BaseApi {
 
   /**
    * Update message
-   * Replaces the content of a chat message - used by the edit and regenerate flows that change a message outside the streaming lifecycle.
+   * Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object. Neither the ID nor the payload is validated here, so a malformed request surfaces as an error relayed from storage rather than as a 400. The answer only confirms the write.
    *
    * REST API Reference for aiThreadsUpdateMessage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-update-message/
@@ -1230,7 +1232,7 @@ public class ThreadsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiSuccessResponse> localVarReturnType = new TypeReference<AiSuccessResponse>() {};
     return apiClient.invokeAPI(
@@ -1272,7 +1274,7 @@ public class ThreadsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

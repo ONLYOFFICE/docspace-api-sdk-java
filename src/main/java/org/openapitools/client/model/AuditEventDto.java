@@ -24,12 +24,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.client.model.ActionType;
+import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.EntryType;
 import org.openapitools.client.model.LocationType;
 import org.openapitools.client.model.MessageAction;
@@ -46,7 +46,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The audit event parameters.
+ * One entry of the portal audit trail: who changed what, from where, and where it belongs in the product.
  */
 @JsonPropertyOrder({
   AuditEventDto.JSON_PROPERTY_ID,
@@ -74,7 +74,7 @@ public class AuditEventDto {
   @javax.annotation.Nullable  private Integer id;
 
   public static final String JSON_PROPERTY_DATE = "date";
-  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> date = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private ApiDateTime date;
 
   public static final String JSON_PROPERTY_USER = "user";
   @javax.annotation.Nullable  private JsonNullable<String> user = JsonNullable.<String>undefined();
@@ -135,7 +135,7 @@ public class AuditEventDto {
   }
 
   /**
-   * The audit event ID.
+   * The ID of the recorded entry. Nothing accepts it as an argument - no operation fetches a single audit event  - so it serves only to tell two otherwise identical entries apart.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -152,35 +152,28 @@ public class AuditEventDto {
     this.id = id;
   }
 
-  public AuditEventDto date(@javax.annotation.Nullable OffsetDateTime date) {
-    this.date = JsonNullable.<OffsetDateTime>of(date);
+  public AuditEventDto date(@javax.annotation.Nullable ApiDateTime date) {
     
+    this.date = date;
     return this;
   }
 
   /**
-   * The audit event date.
+   * When the action happened, in the portal time zone. The `from` and `to` filters are read as UTC instants, so  the two do not line up on a portal that is not on UTC.
    * @return date
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getDate() {
-        return date.orElse(null);
+  public ApiDateTime getDate() {
+    return date;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<OffsetDateTime> getDate_JsonNullable() {
-    return date;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_DATE)
-  public void setDate_JsonNullable(JsonNullable<OffsetDateTime> date) {
+  public void setDate(@javax.annotation.Nullable ApiDateTime date) {
     this.date = date;
-  }
-
-  public void setDate(@javax.annotation.Nullable OffsetDateTime date) {
-    this.date = JsonNullable.<OffsetDateTime>of(date);
   }
 
   public AuditEventDto user(@javax.annotation.Nullable String user) {
@@ -190,7 +183,7 @@ public class AuditEventDto {
   }
 
   /**
-   * The name of the user who triggered the audit event.
+   * The display name of the user who acted, taken from the account as it stands now rather than as it stood  when the entry was written. A localised placeholder stands in when there is no account to read: a portal  background job, an anonymous guest, or a user who has since been deleted.
    * @return user
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -221,7 +214,7 @@ public class AuditEventDto {
   }
 
   /**
-   * The ID of the user who triggered the audit event.
+   * The ID of the user who acted, which is what the `userId` filter of this operation matches on. It stays  readable after the account is deleted, which is when `user` falls back to a placeholder.
    * @return userId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = false)
@@ -245,7 +238,7 @@ public class AuditEventDto {
   }
 
   /**
-   * The audit event action.
+   * The whole event as a readable sentence in the portal language, with the names of the objects involved  substituted into it. On the two `audit/.../last` operations each substituted value is cut to 50 characters;  the filtered operations substitute them in full. It is empty when the build has no wording for the action.
    * @return action
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -276,7 +269,7 @@ public class AuditEventDto {
   }
 
   /**
-   * The specific action that occurred within the audit event.
+   * The action itself, as the `action` filter of this operation spells it and as  `GET api/2.0/security/audit/mappers` lists it under `messageAction`. Use this rather than parsing `action`,  which is prose and changes with the portal language.
    * @return actionId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTION_ID, required = false)
@@ -300,7 +293,7 @@ public class AuditEventDto {
   }
 
   /**
-   * The audit event IP.
+   * The IP address the request came from, with the port stripped off. It is empty for an action a portal  background job performed, which has no request behind it.
    * @return ip
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -331,7 +324,7 @@ public class AuditEventDto {
   }
 
   /**
-   * The audit event country.
+   * The English name of the country the IP address is located in, empty when the address cannot be located -  the normal outcome for private and loopback addresses.
    * @return country
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -362,7 +355,7 @@ public class AuditEventDto {
   }
 
   /**
-   * The audit event city.
+   * The city the IP address is located in, empty under the same conditions as `country`.
    * @return city
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -393,7 +386,7 @@ public class AuditEventDto {
   }
 
   /**
-   * The audit event browser.
+   * The browser and its version as parsed from the user agent of the request, empty when the client sent none  that could be parsed or when no request was involved.
    * @return browser
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -424,7 +417,7 @@ public class AuditEventDto {
   }
 
   /**
-   * The audit event platform.
+   * The operating system as parsed from the same user agent, empty under the same conditions as `browser`.
    * @return platform
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -455,7 +448,7 @@ public class AuditEventDto {
   }
 
   /**
-   * The audit event page.
+   * Where in the portal the action was made from: the referrer of the request, or that request's own path when  it carried no referrer. Long values are cut off at 512 characters.
    * @return page
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -486,7 +479,7 @@ public class AuditEventDto {
   }
 
   /**
-   * The type of action performed in the audit event (e.g., Create, Update, Delete).
+   * The kind of change the action stands for, as the `actionType` filter of this operation spells it. It is  derived from `actionId`, not stored per entry, so it is the same on every entry of one action.
    * @return actionType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTION_TYPE, required = false)
@@ -510,7 +503,7 @@ public class AuditEventDto {
   }
 
   /**
-   * The type of product related to the audit event.
+   * The product the action belongs to. It cannot be filtered on here; the tree that groups actions by product  is `GET api/2.0/security/audit/mappers`.
    * @return product
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRODUCT, required = false)
@@ -534,7 +527,7 @@ public class AuditEventDto {
   }
 
   /**
-   * The location where the audit event occurred.
+   * The location inside that product, as the `moduleType` filter of this operation spells it. It is also  derived from `actionId` rather than stored per entry.
    * @return location
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOCATION, required = false)
@@ -570,7 +563,7 @@ public class AuditEventDto {
   }
 
   /**
-   * The list of target objects affected by the audit event (e.g., document ID, user account).
+   * The objects the action was applied to, as the trail recorded them - a title, an account, an ID - one string  each. It is empty for an action that targets nothing, such as a settings change, and the `target` filter of  this operation matches one of these values in full.
    * @return target
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -613,7 +606,7 @@ public class AuditEventDto {
   }
 
   /**
-   * The list of audit entry types (e.g., Folder, User, File).
+   * The kinds of object the action applies to, holding at most two entries and none at all for an action that  targets nothing. Only the first of them can be filtered on, through `entryType`.
    * @return entries
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -644,7 +637,7 @@ public class AuditEventDto {
   }
 
   /**
-   * The audit event context.
+   * Where the action took place, spelled out in the portal language rather than as a code: for a Documents  event the room or the root folder it happened in, and for anything else the name of the module. Nothing  filters on it.
    * @return context
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -678,7 +671,7 @@ public class AuditEventDto {
     }
     AuditEventDto auditEventDto = (AuditEventDto) o;
     return Objects.equals(this.id, auditEventDto.id) &&
-        equalsNullable(this.date, auditEventDto.date) &&
+        Objects.equals(this.date, auditEventDto.date) &&
         equalsNullable(this.user, auditEventDto.user) &&
         Objects.equals(this.userId, auditEventDto.userId) &&
         equalsNullable(this.action, auditEventDto.action) &&
@@ -703,7 +696,7 @@ public class AuditEventDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(date), hashCodeNullable(user), userId, hashCodeNullable(action), actionId, hashCodeNullable(ip), hashCodeNullable(country), hashCodeNullable(city), hashCodeNullable(browser), hashCodeNullable(platform), hashCodeNullable(page), actionType, product, location, hashCodeNullable(target), hashCodeNullable(entries), hashCodeNullable(context));
+    return Objects.hash(id, date, hashCodeNullable(user), userId, hashCodeNullable(action), actionId, hashCodeNullable(ip), hashCodeNullable(country), hashCodeNullable(city), hashCodeNullable(browser), hashCodeNullable(platform), hashCodeNullable(page), actionType, product, location, hashCodeNullable(target), hashCodeNullable(entries), hashCodeNullable(context));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -794,12 +787,7 @@ public class AuditEventDto {
 
     // add `date` to the URL query string
     if (getDate() != null) {
-      try {
-        joiner.add(String.format("%sdate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDate()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getDate().toUrlQueryString(prefix + "date" + suffix));
     }
 
     // add `user` to the URL query string

@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for managing the Developer Tools access settings for the current tenant.
+ * Whether the `User` role is barred from the portal developer tools.
  */
 @JsonPropertyOrder({
   TenantDevToolsAccessSettingsDto.JSON_PROPERTY_LIMITED_ACCESS_FOR_USERS
@@ -53,7 +53,7 @@ public class TenantDevToolsAccessSettingsDto {
   }
 
   /**
-   * Determines if users have restricted access to the Developer Tools.
+   * Whether members holding the `User` role are barred from the developer tools - API keys, OAuth applications  and webhooks. Room administrators and DocSpace administrators keep their access either way.
    * @return limitedAccessForUsers
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIMITED_ACCESS_FOR_USERS, required = false)

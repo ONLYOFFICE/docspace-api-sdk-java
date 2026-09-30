@@ -39,7 +39,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The configuration settings to connect the special add-ons.
+ * Which editor add-ons the portal connects. It currently connects none.
  */
 @JsonPropertyOrder({
   PluginsConfig.JSON_PROPERTY_PLUGINS_DATA

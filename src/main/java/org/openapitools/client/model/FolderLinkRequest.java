@@ -24,8 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.time.OffsetDateTime;
 import java.util.UUID;
+import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.FileShare;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -39,7 +39,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The folder link parameters.
+ * The external link of a folder, as it is to be created or rewritten.
  */
 @JsonPropertyOrder({
   FolderLinkRequest.JSON_PROPERTY_LINK_ID,
@@ -60,7 +60,7 @@ public class FolderLinkRequest {
   @javax.annotation.Nullable  private FileShare access;
 
   public static final String JSON_PROPERTY_EXPIRATION_DATE = "expirationDate";
-  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> expirationDate = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private ApiDateTime expirationDate;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
@@ -88,7 +88,7 @@ public class FolderLinkRequest {
   }
 
   /**
-   * The folder link ID.
+   * Which link the request addresses: the identifier of an existing link rewrites that link, while an identifier  that is not in use, the empty one included, creates a new link. Take an existing identifier from  `GET api/2.0/files/folder/{id}/links`.
    * @return linkId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LINK_ID, required = false)
@@ -112,7 +112,7 @@ public class FolderLinkRequest {
   }
 
   /**
-   * The link sharing rights.
+   * The rights a visitor following the link is given. The value that grants nothing revokes the link instead of  setting it, and the answer is then empty.
    * @return access
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
@@ -129,35 +129,28 @@ public class FolderLinkRequest {
     this.access = access;
   }
 
-  public FolderLinkRequest expirationDate(@javax.annotation.Nullable OffsetDateTime expirationDate) {
-    this.expirationDate = JsonNullable.<OffsetDateTime>of(expirationDate);
+  public FolderLinkRequest expirationDate(@javax.annotation.Nullable ApiDateTime expirationDate) {
     
+    this.expirationDate = expirationDate;
     return this;
   }
 
   /**
-   * The link expiration date.
+   * The moment the link stops working, sent as an ISO-8601 stamp. A moment that lies in the past is ignored,  and leaving the field out gives the link no expiry.
    * @return expirationDate
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getExpirationDate() {
-        return expirationDate.orElse(null);
+  public ApiDateTime getExpirationDate() {
+    return expirationDate;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<OffsetDateTime> getExpirationDate_JsonNullable() {
-    return expirationDate;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
-  public void setExpirationDate_JsonNullable(JsonNullable<OffsetDateTime> expirationDate) {
+  public void setExpirationDate(@javax.annotation.Nullable ApiDateTime expirationDate) {
     this.expirationDate = expirationDate;
-  }
-
-  public void setExpirationDate(@javax.annotation.Nullable OffsetDateTime expirationDate) {
-    this.expirationDate = JsonNullable.<OffsetDateTime>of(expirationDate);
   }
 
   public FolderLinkRequest title(@javax.annotation.Nullable String title) {
@@ -167,7 +160,7 @@ public class FolderLinkRequest {
   }
 
   /**
-   * The link name.
+   * The name the link is listed under for the people who manage the folder; a visitor following it never sees the  name.
    * @return title
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -198,7 +191,7 @@ public class FolderLinkRequest {
   }
 
   /**
-   * The link password.
+   * The secret a visitor has to enter before the link opens. Leave it out for a link that opens without one; the  secret itself is never given back, only the fact that one is set.
    * @return password
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -229,7 +222,7 @@ public class FolderLinkRequest {
   }
 
   /**
-   * Specifies if downloading the file from the link is disabled or not.
+   * Whether visitors are left with viewing alone: with true downloading and copying through the link are blocked,  with false they are allowed.
    * @return denyDownload
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DENY_DOWNLOAD, required = false)
@@ -253,7 +246,7 @@ public class FolderLinkRequest {
   }
 
   /**
-   * The link scope, whether it is internal or not.
+   * Whether the link admits signed-in portal members only: with true a visitor has to sign in before the link  opens, with false anyone holding the address may follow it.
    * @return internal
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INTERNAL, required = false)
@@ -277,7 +270,7 @@ public class FolderLinkRequest {
   }
 
   /**
-   * Specifies whether the folder link is primary or not.
+   * Whether this link becomes the primary link of the folder, the one the Copy link action of a client hands  out; a folder has one primary link at a time.
    * @return primary
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRIMARY, required = false)
@@ -305,7 +298,7 @@ public class FolderLinkRequest {
     FolderLinkRequest folderLinkRequest = (FolderLinkRequest) o;
     return Objects.equals(this.linkId, folderLinkRequest.linkId) &&
         Objects.equals(this.access, folderLinkRequest.access) &&
-        equalsNullable(this.expirationDate, folderLinkRequest.expirationDate) &&
+        Objects.equals(this.expirationDate, folderLinkRequest.expirationDate) &&
         equalsNullable(this.title, folderLinkRequest.title) &&
         equalsNullable(this.password, folderLinkRequest.password) &&
         Objects.equals(this.denyDownload, folderLinkRequest.denyDownload) &&
@@ -319,7 +312,7 @@ public class FolderLinkRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(linkId, access, hashCodeNullable(expirationDate), hashCodeNullable(title), hashCodeNullable(password), denyDownload, internal, primary);
+    return Objects.hash(linkId, access, expirationDate, hashCodeNullable(title), hashCodeNullable(password), denyDownload, internal, primary);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -410,12 +403,7 @@ public class FolderLinkRequest {
 
     // add `expirationDate` to the URL query string
     if (getExpirationDate() != null) {
-      try {
-        joiner.add(String.format("%sexpirationDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpirationDate()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getExpirationDate().toUrlQueryString(prefix + "expirationDate" + suffix));
     }
 
     // add `title` to the URL query string

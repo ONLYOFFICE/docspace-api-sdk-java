@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.net.URI;
-import java.time.OffsetDateTime;
+import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.EmployeeDto;
 import org.openapitools.client.model.FileEntryType;
 import org.openapitools.client.model.FileShare;
@@ -42,7 +42,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The file entry information.
+ * What every file and folder in an answer has in common; the concrete shape is a file or a folder, told apart by the  entry type.
  */
 @JsonPropertyOrder({
   FileEntryBaseDto.JSON_PROPERTY_TITLE,
@@ -98,16 +98,16 @@ public class FileEntryBaseDto {
   @javax.annotation.Nullable  private JsonNullable<URI> shortWebUrl = JsonNullable.<URI>undefined();
 
   public static final String JSON_PROPERTY_CREATED = "created";
-  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> created = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private ApiDateTime created;
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
   @javax.annotation.Nullable  private EmployeeDto createdBy;
 
   public static final String JSON_PROPERTY_UPDATED = "updated";
-  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> updated = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private ApiDateTime updated;
 
   public static final String JSON_PROPERTY_AUTO_DELETE = "autoDelete";
-  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> autoDelete = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private ApiDateTime autoDelete;
 
   public static final String JSON_PROPERTY_ROOT_FOLDER_TYPE = "rootFolderType";
   @javax.annotation.Nullable  private FolderType rootFolderType;
@@ -147,7 +147,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * The file entry title.
+   * The name shown for the entry. For a file it carries the extension, which is how the format is recognised, and  for a room it is the room name.
    * @return title
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -178,7 +178,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * The access rights to the file entry.
+   * The level the calling account holds on this entry, resolved from its own rights, the groups it belongs to and  any link it came in through. It is the level itself, not what the account may do with it - the action flags  below answer that.
    * @return access
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
@@ -202,7 +202,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * Provides information about the employee who shared the file or folder.
+   * Who gave the calling account the access it is using. It is filled in only while the entry is being read  through a share, and never for a caller without an account.
    * @return sharedBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARED_BY, required = false)
@@ -226,7 +226,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * The information about the employee who owns the file entry.
+   * Who owns the place the entry is shared from - the creator of the room it lies in, or of the personal section  that holds it. It is filled in only while the entry is being read through a share, and never for a caller  without an account.
    * @return ownedBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OWNED_BY, required = false)
@@ -250,7 +250,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * Specifies if the file entry is shared via link or not.
+   * Whether at least one external link exists for the entry, whichever kind. It says nothing about accounts and  groups - those are counted by the flag for members below.
    * @return shared
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARED, required = false)
@@ -274,7 +274,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * Specifies if the file entry is shared for user or not.
+   * Whether at least one account or group has been given rights on the entry directly, as opposed to reaching it  through a link or through the room around it.
    * @return sharedForUser
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARED_FOR_USER, required = false)
@@ -298,7 +298,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * Specifies if the file entry is shared via a public (non-internal) external link.
+   * Whether one of the entry's links is open to people outside the portal, as opposed to a link that only its own  members can follow. This is the flag to watch when the concern is who can reach the content from outside.
    * @return sharedExternal
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARED_EXTERNAL, required = false)
@@ -322,7 +322,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * Indicates whether the parent entity is shared.
+   * Whether the entry is reachable because the room or folder around it is shared, rather than through rights of  its own. A copy or a move takes the entry out of that scope.
    * @return parentShared
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PARENT_SHARED, required = false)
@@ -346,7 +346,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * The short Web URL.
+   * A shortened address that opens the entry through the link it is being read with. It is an empty string  whenever no link applies, which is the usual case for a member browsing their own rooms.
    * @return shortWebUrl
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -370,35 +370,28 @@ public class FileEntryBaseDto {
     this.shortWebUrl = JsonNullable.<URI>of(shortWebUrl);
   }
 
-  public FileEntryBaseDto created(@javax.annotation.Nullable OffsetDateTime created) {
-    this.created = JsonNullable.<OffsetDateTime>of(created);
+  public FileEntryBaseDto created(@javax.annotation.Nullable ApiDateTime created) {
     
+    this.created = created;
     return this;
   }
 
   /**
-   * The creation date and time of the file entry.
+   * When the entry was created, written with the offset of the portal's time zone. For a file restored from an  older version this is still the moment the file first appeared.
    * @return created
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getCreated() {
-        return created.orElse(null);
+  public ApiDateTime getCreated() {
+    return created;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_CREATED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<OffsetDateTime> getCreated_JsonNullable() {
-    return created;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED)
-  public void setCreated_JsonNullable(JsonNullable<OffsetDateTime> created) {
+  public void setCreated(@javax.annotation.Nullable ApiDateTime created) {
     this.created = created;
-  }
-
-  public void setCreated(@javax.annotation.Nullable OffsetDateTime created) {
-    this.created = JsonNullable.<OffsetDateTime>of(created);
   }
 
   public FileEntryBaseDto createdBy(@javax.annotation.Nullable EmployeeDto createdBy) {
@@ -408,7 +401,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * The file entry author.
+   * Who created the entry. It is null for a caller without an account, who is told nothing about the portal's  members.
    * @return createdBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED_BY, required = false)
@@ -425,66 +418,52 @@ public class FileEntryBaseDto {
     this.createdBy = createdBy;
   }
 
-  public FileEntryBaseDto updated(@javax.annotation.Nullable OffsetDateTime updated) {
-    this.updated = JsonNullable.<OffsetDateTime>of(updated);
+  public FileEntryBaseDto updated(@javax.annotation.Nullable ApiDateTime updated) {
     
+    this.updated = updated;
     return this;
   }
 
   /**
-   * The last date and time when the file entry was updated.
+   * When the entry last changed, written with the offset of the portal's time zone. It is never reported as  earlier than the creation moment, so the two can be compared safely.
    * @return updated
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPDATED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getUpdated() {
-        return updated.orElse(null);
+  public ApiDateTime getUpdated() {
+    return updated;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_UPDATED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<OffsetDateTime> getUpdated_JsonNullable() {
-    return updated;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_UPDATED)
-  public void setUpdated_JsonNullable(JsonNullable<OffsetDateTime> updated) {
+  public void setUpdated(@javax.annotation.Nullable ApiDateTime updated) {
     this.updated = updated;
   }
 
-  public void setUpdated(@javax.annotation.Nullable OffsetDateTime updated) {
-    this.updated = JsonNullable.<OffsetDateTime>of(updated);
-  }
-
-  public FileEntryBaseDto autoDelete(@javax.annotation.Nullable OffsetDateTime autoDelete) {
-    this.autoDelete = JsonNullable.<OffsetDateTime>of(autoDelete);
+  public FileEntryBaseDto autoDelete(@javax.annotation.Nullable ApiDateTime autoDelete) {
     
+    this.autoDelete = autoDelete;
     return this;
   }
 
   /**
-   * The date and time when the file entry will be automatically deleted.
+   * When the entry will disappear on its own, written with the offset of the portal's time zone. It is filled in  only where a removal is actually scheduled - something in the trash while the portal cleans it up  automatically, or a guest's own documents - so a null means nothing is scheduled rather than that the entry is  permanent.
    * @return autoDelete
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTO_DELETE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getAutoDelete() {
-        return autoDelete.orElse(null);
+  public ApiDateTime getAutoDelete() {
+    return autoDelete;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_AUTO_DELETE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<OffsetDateTime> getAutoDelete_JsonNullable() {
-    return autoDelete;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_AUTO_DELETE)
-  public void setAutoDelete_JsonNullable(JsonNullable<OffsetDateTime> autoDelete) {
+  public void setAutoDelete(@javax.annotation.Nullable ApiDateTime autoDelete) {
     this.autoDelete = autoDelete;
-  }
-
-  public void setAutoDelete(@javax.annotation.Nullable OffsetDateTime autoDelete) {
-    this.autoDelete = JsonNullable.<OffsetDateTime>of(autoDelete);
   }
 
   public FileEntryBaseDto rootFolderType(@javax.annotation.Nullable FolderType rootFolderType) {
@@ -494,7 +473,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * The root folder type of the file entry.
+   * The section the entry ultimately belongs to, which is what tells a personal document from one inside a room,  from a template and from something in the trash or the archive.
    * @return rootFolderType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOT_FOLDER_TYPE, required = false)
@@ -518,7 +497,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * The parent room type of the file entry.
+   * The kind of room the entry lies in, which decides what the room allows - filling forms, public links,  indexing. It is null for an entry that is not inside a room at all.
    * @return parentRoomType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PARENT_ROOM_TYPE, required = false)
@@ -542,7 +521,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * The user who updated the file entry.
+   * Who changed the entry last. It is null for a caller without an account.
    * @return updatedBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UPDATED_BY, required = false)
@@ -566,7 +545,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * Specifies if the file entry provider is specified or not.
+   * Set when the entry is stored on a connected third-party account rather than on the portal, and null when it is  stored on the portal. Such an entry is identified by a string rather than a number, and some operations skip  it.
    * @return providerItem
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -597,7 +576,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * The provider key of the file entry.
+   * Which third-party service holds the entry, matching the keys accepted by the third-party operations. It is  null for an entry stored on the portal.
    * @return providerKey
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -628,7 +607,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * The provider ID of the file entry.
+   * The connected account the entry comes from, for telling apart two connections to the same service. It is null  for an entry stored on the portal.
    * @return providerId
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -659,7 +638,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * The order of the file entry.
+   * The place of the entry in a room where the members arrange the content themselves, given as the position of  the entry preceded by the positions of the folders leading to it, separated by dots. It is empty when nothing  has been arranged.
    * @return order
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -690,7 +669,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * Specifies if the file is a favorite or not.
+   * Set when the calling account has marked the entry as a favorite, which is what puts it into the favorites  listing. For a file that is not marked it is null rather than false.
    * @return isFavorite
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -721,7 +700,7 @@ public class FileEntryBaseDto {
   }
 
   /**
-   * The file entry type.
+   * Tells a folder from a file, and so which of the two shapes the rest of the object has. A room is reported as a  folder here.
    * @return fileEntryType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_ENTRY_TYPE, required = false)
@@ -756,10 +735,10 @@ public class FileEntryBaseDto {
         Objects.equals(this.sharedExternal, fileEntryBaseDto.sharedExternal) &&
         Objects.equals(this.parentShared, fileEntryBaseDto.parentShared) &&
         equalsNullable(this.shortWebUrl, fileEntryBaseDto.shortWebUrl) &&
-        equalsNullable(this.created, fileEntryBaseDto.created) &&
+        Objects.equals(this.created, fileEntryBaseDto.created) &&
         Objects.equals(this.createdBy, fileEntryBaseDto.createdBy) &&
-        equalsNullable(this.updated, fileEntryBaseDto.updated) &&
-        equalsNullable(this.autoDelete, fileEntryBaseDto.autoDelete) &&
+        Objects.equals(this.updated, fileEntryBaseDto.updated) &&
+        Objects.equals(this.autoDelete, fileEntryBaseDto.autoDelete) &&
         Objects.equals(this.rootFolderType, fileEntryBaseDto.rootFolderType) &&
         Objects.equals(this.parentRoomType, fileEntryBaseDto.parentRoomType) &&
         Objects.equals(this.updatedBy, fileEntryBaseDto.updatedBy) &&
@@ -777,7 +756,7 @@ public class FileEntryBaseDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(title), access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, hashCodeNullable(shortWebUrl), hashCodeNullable(created), createdBy, hashCodeNullable(updated), hashCodeNullable(autoDelete), rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), fileEntryType);
+    return Objects.hash(hashCodeNullable(title), access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, hashCodeNullable(shortWebUrl), created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), fileEntryType);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -942,12 +921,7 @@ public class FileEntryBaseDto {
 
     // add `created` to the URL query string
     if (getCreated() != null) {
-      try {
-        joiner.add(String.format("%screated%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreated()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getCreated().toUrlQueryString(prefix + "created" + suffix));
     }
 
     // add `createdBy` to the URL query string
@@ -957,22 +931,12 @@ public class FileEntryBaseDto {
 
     // add `updated` to the URL query string
     if (getUpdated() != null) {
-      try {
-        joiner.add(String.format("%supdated%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdated()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getUpdated().toUrlQueryString(prefix + "updated" + suffix));
     }
 
     // add `autoDelete` to the URL query string
     if (getAutoDelete() != null) {
-      try {
-        joiner.add(String.format("%sautoDelete%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAutoDelete()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getAutoDelete().toUrlQueryString(prefix + "autoDelete" + suffix));
     }
 
     // add `rootFolderType` to the URL query string

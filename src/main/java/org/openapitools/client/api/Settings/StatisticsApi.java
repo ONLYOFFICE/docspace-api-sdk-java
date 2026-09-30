@@ -49,12 +49,12 @@ public class StatisticsApi extends BaseApi {
 
   /**
    * Get the space usage statistics
-   * Returns the space usage statistics for the module with the ID specified in the request.
+   * Returns the storage space used by one portal module, broken down per data category the module tracks (for  example per room type), together with a human-readable size and whether the category is disabled. Requires  Owner or DocSpaceAdmin (the EditPortalSettings permission). `id` identifies the module by the same GUID the  portal's module catalog uses; a module that does not exist, or one that does not report space usage at all,  returns an empty list rather than an error. This is a read-only, idempotent call, and the list is not  paginated. Sizes are already formatted as display strings (for example `1.5 GB`), not raw byte counts.
    *
    * REST API Reference for getSpaceUsageStatistics Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-space-usage-statistics/
    *
-   * @param id The ID extracted from the route parameters. (required)
+   * @param id The identifier of the object the operation acts on, as the listing operation of that kind of object reports  it. It has to match the shape the route declares - a GUID where the route is typed as one - since a value of  another shape does not match the route at all and is answered as not found. (required)
    * @return UsageSpaceStatItemArrayWrapper
    * @throws ApiException if fails to make API call
    */
@@ -65,12 +65,12 @@ public class StatisticsApi extends BaseApi {
 
   /**
    * Get the space usage statistics
-   * Returns the space usage statistics for the module with the ID specified in the request.
+   * Returns the storage space used by one portal module, broken down per data category the module tracks (for  example per room type), together with a human-readable size and whether the category is disabled. Requires  Owner or DocSpaceAdmin (the EditPortalSettings permission). `id` identifies the module by the same GUID the  portal's module catalog uses; a module that does not exist, or one that does not report space usage at all,  returns an empty list rather than an error. This is a read-only, idempotent call, and the list is not  paginated. Sizes are already formatted as display strings (for example `1.5 GB`), not raw byte counts.
    *
    * REST API Reference for getSpaceUsageStatistics Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-space-usage-statistics/
    *
-   * @param id The ID extracted from the route parameters. (required)
+   * @param id The identifier of the object the operation acts on, as the listing operation of that kind of object reports  it. It has to match the shape the route declares - a GUID where the route is typed as one - since a value of  another shape does not match the route at all and is answered as not found. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return UsageSpaceStatItemArrayWrapper
    * @throws ApiException if fails to make API call

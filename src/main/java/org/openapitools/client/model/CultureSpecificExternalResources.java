@@ -36,6 +36,7 @@ import java.util.StringJoiner;
  * The external resources settings.
  */
 @JsonPropertyOrder({
+  CultureSpecificExternalResources.JSON_PROPERTY_ADMIN_PANEL,
   CultureSpecificExternalResources.JSON_PROPERTY_API,
   CultureSpecificExternalResources.JSON_PROPERTY_COMMON,
   CultureSpecificExternalResources.JSON_PROPERTY_FORUM,
@@ -48,6 +49,9 @@ import java.util.StringJoiner;
 })
 
 public class CultureSpecificExternalResources {
+  public static final String JSON_PROPERTY_ADMIN_PANEL = "adminPanel";
+  @javax.annotation.Nullable  private CultureSpecificExternalResource adminPanel;
+
   public static final String JSON_PROPERTY_API = "api";
   @javax.annotation.Nullable  private CultureSpecificExternalResource api;
 
@@ -78,6 +82,30 @@ public class CultureSpecificExternalResources {
   public CultureSpecificExternalResources() {
   }
 
+
+  public CultureSpecificExternalResources adminPanel(@javax.annotation.Nullable CultureSpecificExternalResource adminPanel) {
+    
+    this.adminPanel = adminPanel;
+    return this;
+  }
+
+  /**
+   * The link to the administration panel. It is returned only to the full administrators of a licensed (Enterprise) server (standalone) portal.
+   * @return adminPanel
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ADMIN_PANEL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CultureSpecificExternalResource getAdminPanel() {
+    return adminPanel;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ADMIN_PANEL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAdminPanel(@javax.annotation.Nullable CultureSpecificExternalResource adminPanel) {
+    this.adminPanel = adminPanel;
+  }
 
   public CultureSpecificExternalResources api(@javax.annotation.Nullable CultureSpecificExternalResource api) {
     
@@ -304,7 +332,8 @@ public class CultureSpecificExternalResources {
       return false;
     }
     CultureSpecificExternalResources cultureSpecificExternalResources = (CultureSpecificExternalResources) o;
-    return Objects.equals(this.api, cultureSpecificExternalResources.api) &&
+    return Objects.equals(this.adminPanel, cultureSpecificExternalResources.adminPanel) &&
+        Objects.equals(this.api, cultureSpecificExternalResources.api) &&
         Objects.equals(this.common, cultureSpecificExternalResources.common) &&
         Objects.equals(this.forum, cultureSpecificExternalResources.forum) &&
         Objects.equals(this.helpcenter, cultureSpecificExternalResources.helpcenter) &&
@@ -317,13 +346,14 @@ public class CultureSpecificExternalResources {
 
   @Override
   public int hashCode() {
-    return Objects.hash(api, common, forum, helpcenter, integrations, site, socialNetworks, support, videoguides);
+    return Objects.hash(adminPanel, api, common, forum, helpcenter, integrations, site, socialNetworks, support, videoguides);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CultureSpecificExternalResources {\n");
+    sb.append("    adminPanel: ").append(toIndentedString(adminPanel)).append("\n");
     sb.append("    api: ").append(toIndentedString(api)).append("\n");
     sb.append("    common: ").append(toIndentedString(common)).append("\n");
     sb.append("    forum: ").append(toIndentedString(forum)).append("\n");
@@ -379,6 +409,11 @@ public class CultureSpecificExternalResources {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `adminPanel` to the URL query string
+    if (getAdminPanel() != null) {
+      joiner.add(getAdminPanel().toUrlQueryString(prefix + "adminPanel" + suffix));
+    }
 
     // add `api` to the URL query string
     if (getApi() != null) {

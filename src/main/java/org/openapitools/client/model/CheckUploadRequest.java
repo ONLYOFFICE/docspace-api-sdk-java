@@ -39,7 +39,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for checking file uploads.
+ * The names to test against the files the folder already holds.
  */
 @JsonPropertyOrder({
   CheckUploadRequest.JSON_PROPERTY_FILES_TITLE
@@ -72,7 +72,7 @@ public class CheckUploadRequest {
   }
 
   /**
-   * The list of file titles.
+   * The names to test, extensions included, spelled as they would be sent to the upload. Matching ignores case,  and a name repeated in the list is answered once.
    * @return filesTitle
    */
   @javax.annotation.Nullable  @JsonIgnore

@@ -39,7 +39,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The configuration parameters of the user currently viewing or editing the document.
+ * The account the editors attribute the changes of this session to.
  */
 @JsonPropertyOrder({
   UserConfig.JSON_PROPERTY_ID,
@@ -76,7 +76,7 @@ public class UserConfig {
   }
 
   /**
-   * The user ID.
+   * The account the changes are recorded under. Two sessions carrying the same value are taken by the editors for  the same person.
    * @return id
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -107,7 +107,7 @@ public class UserConfig {
   }
 
   /**
-   * The full name of the user.
+   * The name shown next to the changes and in the list of participants.
    * @return name
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -138,7 +138,7 @@ public class UserConfig {
   }
 
   /**
-   * The path to the user's avatar.
+   * An absolute address of the avatar shown for this participant.
    * @return image
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -181,7 +181,7 @@ public class UserConfig {
   }
 
   /**
-   * Roles
+   * The filling roles this participant holds in the form being filled out. It is set only for a form in a virtual  data room, where the role decides which fields open for them.
    * @return roles
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -212,7 +212,7 @@ public class UserConfig {
   }
 
   /**
-   * Customer identifier associated with the user.
+   * Identifies the paying customer this participant belongs to, on deployments where the editors are licensed per  customer.
    * @return customerId
    */
   @javax.annotation.Nullable  @JsonIgnore

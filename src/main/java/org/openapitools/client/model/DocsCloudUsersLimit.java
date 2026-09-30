@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Represents the user limits of a DocsCloud license.
+ * Represents the user limits of a Docs Connect license.
  */
 @JsonPropertyOrder({
   DocsCloudUsersLimit.JSON_PROPERTY_EDIT,

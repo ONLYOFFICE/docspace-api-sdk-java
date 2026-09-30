@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The encryption key granting one user access to a file.
+ * The file key issued to one account.
  */
 @JsonPropertyOrder({
   AccessRequestKeyDto.JSON_PROPERTY_USER_ID,
@@ -66,7 +66,7 @@ public class AccessRequestKeyDto {
   }
 
   /**
-   * User ID
+   * The account that is to open the file with this key; it has to have read access to the file.
    * @return userId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = false)
@@ -90,7 +90,7 @@ public class AccessRequestKeyDto {
   }
 
   /**
-   * Public key ID
+   * The public key the file key was encrypted with, as reported for that account by  `GET api/2.0/files/file/{fileId}/publickeys`.
    * @return publicKeyId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PUBLIC_KEY_ID, required = false)
@@ -114,7 +114,7 @@ public class AccessRequestKeyDto {
   }
 
   /**
-   * Encrypted private key
+   * The key of the file itself, encrypted by the client with that public key, so that the plain key never reaches  the portal.
    * @return privateKeyEnc
    */
   @javax.annotation.Nullable  @JsonIgnore

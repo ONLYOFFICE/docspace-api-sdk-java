@@ -2,7 +2,7 @@
 
 # DocsCloudWopiConfig
 
-Represents the WOPI configuration of a DocsCloud tenant.
+Represents the WOPI configuration of a Docs Connect tenant.
 
 ## Properties
 

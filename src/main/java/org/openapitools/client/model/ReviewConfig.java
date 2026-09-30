@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Configuration for review display settings.
+ * How tracked changes are displayed when the document opens.
  */
 @JsonPropertyOrder({
   ReviewConfig.JSON_PROPERTY_REVIEW_DISPLAY
@@ -61,7 +61,7 @@ public class ReviewConfig {
 
 
   /**
-   * The review display string representation.
+   * How the editors render tracked changes at first: with the markup, in a simplified markup, as the final text,  or as the original text. A session that may not write opens on the final text.
    * @return reviewDisplay
    */
   @javax.annotation.Nullable  @JsonIgnore

@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The parameters of the button that starts filling out the form.
+ * The button the editor shows to begin filling out a form.
  */
 @JsonPropertyOrder({
   StartFillingForm.JSON_PROPERTY_TEXT
@@ -57,7 +57,7 @@ public class StartFillingForm {
   }
 
   /**
-   * The caption of the button that starts filling out the form.
+   * The caption to put on the button, already translated into the language of the caller.
    * @return text
    */
   @javax.annotation.Nullable  @JsonIgnore

@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The parameters for changing version history.
+ * The change to make to a revision group of a file.
  */
 @JsonPropertyOrder({
   ChangeHistory.JSON_PROPERTY_VERSION,
@@ -57,7 +57,7 @@ public class ChangeHistory {
   }
 
   /**
-   * The file version of the change history.
+   * The version the change applies to; 0 means the current version of the file.
    * @return version
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_VERSION, required = true)
@@ -81,7 +81,7 @@ public class ChangeHistory {
   }
 
   /**
-   * Specifies whether to start a new version or continue revision of the change history.
+   * What to do with the revision group: `false` completes the named version, storing its content again as a fresh  version that opens a new group, while `true` folds the last group back into the group before it, so the next  save continues that revision.
    * @return continueVersion
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONTINUE_VERSION, required = false)

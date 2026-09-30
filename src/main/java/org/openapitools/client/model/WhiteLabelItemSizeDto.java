@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The white label logo size parameters.
+ * The pixel box a logo slot is drawn in, in the shape the imaging library reports a geometry.
  */
 @JsonPropertyOrder({
   WhiteLabelItemSizeDto.JSON_PROPERTY_ASPECT_RATIO,
@@ -93,7 +93,7 @@ public class WhiteLabelItemSizeDto {
   }
 
   /**
-   * Specifies whether the size is an aspect ratio.
+   * Whether the numbers are to be read as an aspect ratio rather than as pixels. Always `false` on the sizes  this API reports.
    * @return aspectRatio
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ASPECT_RATIO, required = false)
@@ -117,7 +117,7 @@ public class WhiteLabelItemSizeDto {
   }
 
   /**
-   * Specifies whether the logo is resized based on the smallest fitting dimension.
+   * Whether an image would be scaled to cover the box rather than to fit inside it. Always `false` here.
    * @return fillArea
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILL_AREA, required = false)
@@ -141,7 +141,7 @@ public class WhiteLabelItemSizeDto {
   }
 
   /**
-   * Specifies whether the logo is resized only if it is greater than the size.
+   * Whether scaling would apply only to an image larger than the box. Always `false` here.
    * @return greater
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GREATER, required = false)
@@ -165,7 +165,7 @@ public class WhiteLabelItemSizeDto {
   }
 
   /**
-   * The logo height, in pixels.
+   * The height of the box in pixels - one of the two fields of this object that carry information.
    * @return height
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
@@ -189,7 +189,7 @@ public class WhiteLabelItemSizeDto {
   }
 
   /**
-   * Specifies whether the logo is resized without preserving the aspect ratio.
+   * Whether scaling would be allowed to distort the image. Always `false` here.
    * @return ignoreAspectRatio
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IGNORE_ASPECT_RATIO, required = false)
@@ -213,7 +213,7 @@ public class WhiteLabelItemSizeDto {
   }
 
   /**
-   * Specifies whether the width and height are expressed as percentages.
+   * Whether `width` and `height` are to be read as percentages. Always `false` here, so both are pixels.
    * @return isPercentage
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_PERCENTAGE, required = false)
@@ -237,7 +237,7 @@ public class WhiteLabelItemSizeDto {
   }
 
   /**
-   * Specifies whether the logo is resized only if it is less than the size.
+   * Whether scaling would apply only to an image smaller than the box. Always `false` here.
    * @return less
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LESS, required = false)
@@ -261,7 +261,7 @@ public class WhiteLabelItemSizeDto {
   }
 
   /**
-   * Specifies whether the logo is resized using a pixel area count limit.
+   * Whether the box is to be read as a total pixel-area budget instead of as two dimensions. Always `false`  here.
    * @return limitPixels
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIMIT_PIXELS, required = false)
@@ -285,7 +285,7 @@ public class WhiteLabelItemSizeDto {
   }
 
   /**
-   * The logo width, in pixels.
+   * The width of the box in pixels - the other field of this object that carries information.
    * @return width
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
@@ -309,7 +309,7 @@ public class WhiteLabelItemSizeDto {
   }
 
   /**
-   * The X offset from the origin, in pixels.
+   * The horizontal offset of the box from the origin. Always `0` here.
    * @return x
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_X, required = false)
@@ -333,7 +333,7 @@ public class WhiteLabelItemSizeDto {
   }
 
   /**
-   * The Y offset from the origin, in pixels.
+   * The vertical offset of the box from the origin. Always `0` here.
    * @return y
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_Y, required = false)

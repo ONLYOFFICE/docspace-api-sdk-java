@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The company white label settings.
+ * The vendor details the About page and the notification letters print, shared by the whole installation.
  */
 @JsonPropertyOrder({
   CompanyWhiteLabelSettingsDto.JSON_PROPERTY_COMPANY_NAME,
@@ -81,7 +81,7 @@ public class CompanyWhiteLabelSettingsDto {
   }
 
   /**
-   * The company name.
+   * The vendor name the About page shows and the letters sign off with. Until details are saved it holds  whatever the installation ships as its built-in vendor, and it is empty on an installation that ships none.
    * @return companyName
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COMPANY_NAME, required = false)
@@ -105,7 +105,7 @@ public class CompanyWhiteLabelSettingsDto {
   }
 
   /**
-   * The company site.
+   * The address the vendor name links to, as an absolute URL with its scheme. Empty under the same conditions  as `companyName`.
    * @return site
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SITE, required = false)
@@ -129,7 +129,7 @@ public class CompanyWhiteLabelSettingsDto {
   }
 
   /**
-   * The company email address.
+   * The mailbox the About page offers for reaching the vendor. It is not the portal's own support address, and  it is empty under the same conditions as `companyName`.
    * @return email
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
@@ -153,7 +153,7 @@ public class CompanyWhiteLabelSettingsDto {
   }
 
   /**
-   * The company address.
+   * The postal address of the vendor as one free-form line, in the shape it was saved in - no structure is  imposed on it.
    * @return address
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ADDRESS, required = false)
@@ -177,7 +177,7 @@ public class CompanyWhiteLabelSettingsDto {
   }
 
   /**
-   * The company phone number.
+   * The telephone number of the vendor in the shape it was saved in, with no dialling format enforced.
    * @return phone
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PHONE, required = false)
@@ -201,7 +201,7 @@ public class CompanyWhiteLabelSettingsDto {
   }
 
   /**
-   * Specifies if a company is a licensor or not.
+   * Whether these details are those of the licensor of the product itself rather than of a reseller. Saving  through `POST api/2.0/settings/rebranding/company` always clears it, so only details that came with the  installation can report `true`.
    * @return isLicensor
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_LICENSOR, required = true)
@@ -225,7 +225,7 @@ public class CompanyWhiteLabelSettingsDto {
   }
 
   /**
-   * Specifies if the About page is visible or not.
+   * Whether the About page is hidden from the interface. A plan that does not include branding cannot switch it  on: the value is stored as `false` in that case, so it can come back different from what was saved.
    * @return hideAbout
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_HIDE_ABOUT, required = true)
@@ -249,7 +249,7 @@ public class CompanyWhiteLabelSettingsDto {
   }
 
   /**
-   * Specifies if these settings are default or not.
+   * Whether every field above still matches the installation's built-in vendor details. It turns `false` as  soon as one of them is saved differently and `true` again after  `DELETE api/2.0/settings/rebranding/company`.
    * @return isDefault
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_DEFAULT, required = true)

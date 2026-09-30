@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Represents the DocsCloud server information.
+ * Represents the Docs Connect server information.
  */
 @JsonPropertyOrder({
   DocsCloudServerInfo.JSON_PROPERTY_VERSION,

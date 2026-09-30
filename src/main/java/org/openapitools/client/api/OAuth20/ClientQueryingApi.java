@@ -27,9 +27,9 @@ import org.openapitools.client.Pair;
 import org.openapitools.client.model.ClientInfoResponse;
 import org.openapitools.client.model.ClientResponse;
 import java.time.OffsetDateTime;
+import org.openapitools.client.model.PageableClientInfoResponse;
+import org.openapitools.client.model.PageableClientResponse;
 import org.openapitools.client.model.PageableModificationResponse;
-import org.openapitools.client.model.PageableResponse;
-import org.openapitools.client.model.PageableResponseClientInfoResponse;
 import org.openapitools.client.model.ProblemDetail;
 
 
@@ -53,7 +53,7 @@ public class ClientQueryingApi extends BaseApi {
 
   /**
    * Get client details
-   * Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
+   * Returns the whole stored record of one client: its name and description, its secret, scopes, redirect URIs, allowed origins, logout redirect URIs and audit fields. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. Whatever the caller may not see is reported as 404 rather than 403, so absence and lack of access are deliberately indistinguishable, and an identifier that is not a valid client ID is reported the same way. The response is a single object, not a collection.
    *
    * REST API Reference for getClient Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/
@@ -69,7 +69,7 @@ public class ClientQueryingApi extends BaseApi {
 
   /**
    * Get client details
-   * Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
+   * Returns the whole stored record of one client: its name and description, its secret, scopes, redirect URIs, allowed origins, logout redirect URIs and audit fields. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. Whatever the caller may not see is reported as 404 rather than 403, so absence and lack of access are deliberately indistinguishable, and an identifier that is not a valid client ID is reported the same way. The response is a single object, not a collection.
    *
    * REST API Reference for getClient Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/
@@ -88,7 +88,7 @@ public class ClientQueryingApi extends BaseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/api/2.0/clients/{clientId}"
+    String localVarPath = "/api/2.0/oauth2/clients/{clientId}"
       .replaceAll("\\{" + "clientId" + "\\}", apiClient.escapeString(apiClient.parameterToString(clientId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
@@ -136,8 +136,8 @@ public class ClientQueryingApi extends BaseApi {
   }
 
   /**
-   * Retrieves detailed information for a specific client
-   * Retrieves the detailed information for a client with the ID specified in the request.
+   * Get client info
+   * Retrieves the detailed information for a client with the ID specified in the request. It returns the consent-facing subset of the client - name, description, logo, the website, terms and policy URLs, authentication methods and scopes - and deliberately omits the secret, the redirect URIs and the allowed origins, which is what makes it safe to render on a consent screen. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. A client the caller may not see is reported as 404, exactly like an unknown one.
    *
    * REST API Reference for getClientInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/
@@ -152,8 +152,8 @@ public class ClientQueryingApi extends BaseApi {
 
 
   /**
-   * Retrieves detailed information for a specific client
-   * Retrieves the detailed information for a client with the ID specified in the request.
+   * Get client info
+   * Retrieves the detailed information for a client with the ID specified in the request. It returns the consent-facing subset of the client - name, description, logo, the website, terms and policy URLs, authentication methods and scopes - and deliberately omits the secret, the redirect URIs and the allowed origins, which is what makes it safe to render on a consent screen. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. A client the caller may not see is reported as 404, exactly like an unknown one.
    *
    * REST API Reference for getClientInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/
@@ -172,7 +172,7 @@ public class ClientQueryingApi extends BaseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/api/2.0/clients/{clientId}/info"
+    String localVarPath = "/api/2.0/oauth2/clients/{clientId}/info"
       .replaceAll("\\{" + "clientId" + "\\}", apiClient.escapeString(apiClient.parameterToString(clientId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
@@ -221,46 +221,41 @@ public class ClientQueryingApi extends BaseApi {
 
   /**
    * List clients
-   * Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
+   * Returns one page of the tenant's clients, newest first, each in the same full form as the single-client read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based rather than offset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page to ask for the next one. The limit defaults to 30 and has to lie between 1 and 50; a value outside that range, or a last_created_on that cannot be parsed as a date, is rejected with 400.
    *
    * REST API Reference for getClients Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/
    *
-   * @param limit Pagination limit (required)
+   * @param limit How many entries to return, between 1 and 50. Defaults to 30 when omitted. (optional, default to 30)
    * @param lastClientId ID of the last retrieved client (optional)
    * @param lastCreatedOn Date of the last retrieved client (optional)
-   * @return PageableResponse
+   * @return PageableClientResponse
    * @throws ApiException if fails to make API call
    */
-  public PageableResponse getClients(@javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String lastClientId, @javax.annotation.Nullable OffsetDateTime lastCreatedOn) throws ApiException {
+  public PageableClientResponse getClients(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String lastClientId, @javax.annotation.Nullable OffsetDateTime lastCreatedOn) throws ApiException {
     return this.getClients(limit, lastClientId, lastCreatedOn, Collections.emptyMap());
   }
 
 
   /**
    * List clients
-   * Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
+   * Returns one page of the tenant's clients, newest first, each in the same full form as the single-client read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based rather than offset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page to ask for the next one. The limit defaults to 30 and has to lie between 1 and 50; a value outside that range, or a last_created_on that cannot be parsed as a date, is rejected with 400.
    *
    * REST API Reference for getClients Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/
    *
-   * @param limit Pagination limit (required)
+   * @param limit How many entries to return, between 1 and 50. Defaults to 30 when omitted. (optional, default to 30)
    * @param lastClientId ID of the last retrieved client (optional)
    * @param lastCreatedOn Date of the last retrieved client (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return PageableResponse
+   * @return PageableClientResponse
    * @throws ApiException if fails to make API call
    */
-  public PageableResponse getClients(@javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String lastClientId, @javax.annotation.Nullable OffsetDateTime lastCreatedOn, Map<String, String> additionalHeaders) throws ApiException {
+  public PageableClientResponse getClients(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String lastClientId, @javax.annotation.Nullable OffsetDateTime lastCreatedOn, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'limit' is set
-    if (limit == null) {
-      throw new ApiException(400, "Missing the required parameter 'limit' when calling getClients");
-    }
-    
     // create path and map variables
-    String localVarPath = "/api/2.0/clients";
+    String localVarPath = "/api/2.0/oauth2/clients";
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -291,7 +286,7 @@ public class ClientQueryingApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "x-signature" };
 
-    TypeReference<PageableResponse> localVarReturnType = new TypeReference<PageableResponse>() {};
+    TypeReference<PageableClientResponse> localVarReturnType = new TypeReference<PageableClientResponse>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -310,38 +305,38 @@ public class ClientQueryingApi extends BaseApi {
   }
 
   /**
-   * Retrieves a pageable list of client information
-   * Retrieves a paginated list of information for all clients.
+   * List client info
+   * Retrieves a paginated list of information for all clients, each in the same consent-facing form as the single-client info read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page. Unlike the full client listing, limit has no default here - it has to be supplied on every call and has to lie between 1 and 50, and a missing or out-of-range value is rejected with 400.
    *
    * REST API Reference for getClientsInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/
    *
-   * @param limit Pagination limit (required)
+   * @param limit How many entries to return, between 1 and 50. It has no default and has to be sent on every call. (required)
    * @param lastClientId ID of the last retrieved client (optional)
    * @param lastCreatedOn Date of the last retrieved client (optional)
-   * @return PageableResponseClientInfoResponse
+   * @return PageableClientInfoResponse
    * @throws ApiException if fails to make API call
    */
-  public PageableResponseClientInfoResponse getClientsInfo(@javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String lastClientId, @javax.annotation.Nullable OffsetDateTime lastCreatedOn) throws ApiException {
+  public PageableClientInfoResponse getClientsInfo(@javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String lastClientId, @javax.annotation.Nullable OffsetDateTime lastCreatedOn) throws ApiException {
     return this.getClientsInfo(limit, lastClientId, lastCreatedOn, Collections.emptyMap());
   }
 
 
   /**
-   * Retrieves a pageable list of client information
-   * Retrieves a paginated list of information for all clients.
+   * List client info
+   * Retrieves a paginated list of information for all clients, each in the same consent-facing form as the single-client info read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page. Unlike the full client listing, limit has no default here - it has to be supplied on every call and has to lie between 1 and 50, and a missing or out-of-range value is rejected with 400.
    *
    * REST API Reference for getClientsInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/
    *
-   * @param limit Pagination limit (required)
+   * @param limit How many entries to return, between 1 and 50. It has no default and has to be sent on every call. (required)
    * @param lastClientId ID of the last retrieved client (optional)
    * @param lastCreatedOn Date of the last retrieved client (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return PageableResponseClientInfoResponse
+   * @return PageableClientInfoResponse
    * @throws ApiException if fails to make API call
    */
-  public PageableResponseClientInfoResponse getClientsInfo(@javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String lastClientId, @javax.annotation.Nullable OffsetDateTime lastCreatedOn, Map<String, String> additionalHeaders) throws ApiException {
+  public PageableClientInfoResponse getClientsInfo(@javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String lastClientId, @javax.annotation.Nullable OffsetDateTime lastCreatedOn, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'limit' is set
@@ -350,7 +345,7 @@ public class ClientQueryingApi extends BaseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/api/2.0/clients/info";
+    String localVarPath = "/api/2.0/oauth2/clients/info";
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -381,7 +376,7 @@ public class ClientQueryingApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "x-signature" };
 
-    TypeReference<PageableResponseClientInfoResponse> localVarReturnType = new TypeReference<PageableResponseClientInfoResponse>() {};
+    TypeReference<PageableClientInfoResponse> localVarReturnType = new TypeReference<PageableClientInfoResponse>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -400,13 +395,13 @@ public class ClientQueryingApi extends BaseApi {
   }
 
   /**
-   * Retrieves a pageable list of consents
-   * Retrieves a paginated list of user consents.
+   * List user consents
+   * Retrieves a paginated list of user consents: the clients the calling user has authorized, each with the scopes granted, the moment the consent was last changed and the client's consent-facing details. It always reports the caller's own consents and nothing else - there is no role check on this endpoint, so guests may call it too, and no parameter widens it to another user. The consents are read from the authorization service over gRPC, so an authorization service that cannot be reached surfaces as 503. Paging is keyset-based on last_modified_on, and limit has no default: it has to be supplied on every call and has to lie between 1 and 50.
    *
    * REST API Reference for getConsents Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/
    *
-   * @param limit Pagination limit (required)
+   * @param limit How many entries to return, between 1 and 50. It has no default and has to be sent on every call. (required)
    * @param lastModifiedOn Date of the last retrieved consent (optional)
    * @return PageableModificationResponse
    * @throws ApiException if fails to make API call
@@ -417,13 +412,13 @@ public class ClientQueryingApi extends BaseApi {
 
 
   /**
-   * Retrieves a pageable list of consents
-   * Retrieves a paginated list of user consents.
+   * List user consents
+   * Retrieves a paginated list of user consents: the clients the calling user has authorized, each with the scopes granted, the moment the consent was last changed and the client's consent-facing details. It always reports the caller's own consents and nothing else - there is no role check on this endpoint, so guests may call it too, and no parameter widens it to another user. The consents are read from the authorization service over gRPC, so an authorization service that cannot be reached surfaces as 503. Paging is keyset-based on last_modified_on, and limit has no default: it has to be supplied on every call and has to lie between 1 and 50.
    *
    * REST API Reference for getConsents Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/
    *
-   * @param limit Pagination limit (required)
+   * @param limit How many entries to return, between 1 and 50. It has no default and has to be sent on every call. (required)
    * @param lastModifiedOn Date of the last retrieved consent (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return PageableModificationResponse
@@ -438,7 +433,7 @@ public class ClientQueryingApi extends BaseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/api/2.0/clients/consents";
+    String localVarPath = "/api/2.0/oauth2/clients/consents";
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -487,8 +482,8 @@ public class ClientQueryingApi extends BaseApi {
   }
 
   /**
-   * Handles the GET request for public client information
-   * 
+   * Get public client info
+   * Returns the same consent-facing client information as the signed read, but without requiring a portal signature. It is meant for a login or consent page that has to render the client before the user is known, so it resolves the client by ID alone: there is no authentication, no tenant scoping and no creator check, and any caller who knows a client ID can read that client's public details. It still exposes no secret, no redirect URIs and no allowed origins. Being unauthenticated it is rate-limited on a separate, tighter budget than the signed endpoints. An unknown client ID, and an identifier that is not a client ID at all, are both reported as 404.
    *
    * REST API Reference for getPublicClientInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/
@@ -503,8 +498,8 @@ public class ClientQueryingApi extends BaseApi {
 
 
   /**
-   * Handles the GET request for public client information
-   * 
+   * Get public client info
+   * Returns the same consent-facing client information as the signed read, but without requiring a portal signature. It is meant for a login or consent page that has to render the client before the user is known, so it resolves the client by ID alone: there is no authentication, no tenant scoping and no creator check, and any caller who knows a client ID can read that client's public details. It still exposes no secret, no redirect URIs and no allowed origins. Being unauthenticated it is rate-limited on a separate, tighter budget than the signed endpoints. An unknown client ID, and an identifier that is not a client ID at all, are both reported as 404.
    *
    * REST API Reference for getPublicClientInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/
@@ -523,7 +518,7 @@ public class ClientQueryingApi extends BaseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/api/2.0/clients/{clientId}/public/info"
+    String localVarPath = "/api/2.0/oauth2/clients/{clientId}/public/info"
       .replaceAll("\\{" + "clientId" + "\\}", apiClient.escapeString(apiClient.parameterToString(clientId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");

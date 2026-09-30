@@ -24,10 +24,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.EmployeeDto;
 import org.openapitools.client.model.HistoryAction;
 import org.openapitools.client.model.HistoryData;
@@ -43,7 +43,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The file history information.
+ * One record of the activity log of a file or a folder.
  */
 @JsonPropertyOrder({
   HistoryDto.JSON_PROPERTY_ID,
@@ -65,10 +65,10 @@ public class HistoryDto {
   @javax.annotation.Nonnull  private EmployeeDto initiator;
 
   public static final String JSON_PROPERTY_DATE = "date";
-  @javax.annotation.Nullable  private OffsetDateTime date;
+  @javax.annotation.Nonnull  private ApiDateTime date;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  @javax.annotation.Nonnull  private HistoryData data;
+  @javax.annotation.Nullable  private HistoryData data;
 
   public static final String JSON_PROPERTY_RELATED = "related";
   @javax.annotation.Nullable  private JsonNullable<List<HistoryDto>> related = JsonNullable.<List<HistoryDto>>undefined();
@@ -84,7 +84,7 @@ public class HistoryDto {
   }
 
   /**
-   * The unique identifier for the file history entry.
+   * The identifier of the record, which tells two records of the same action apart and stays stable as long as the  portal keeps the log.
    * @return id
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
@@ -108,7 +108,7 @@ public class HistoryDto {
   }
 
   /**
-   * The action performed on the file.
+   * What happened - the kind of event the record stands for, such as a file being uploaded, renamed, moved or  shared - with the key a client can key its own wording off.
    * @return action
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ACTION, required = true)
@@ -132,7 +132,7 @@ public class HistoryDto {
   }
 
   /**
-   * The action initiator.
+   * Who caused the event. For an event caused by a visitor following an external link only the name they gave is  filled in, the account fields staying empty.
    * @return initiator
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_INITIATOR, required = true)
@@ -149,51 +149,51 @@ public class HistoryDto {
     this.initiator = initiator;
   }
 
-  public HistoryDto date(@javax.annotation.Nullable OffsetDateTime date) {
+  public HistoryDto date(@javax.annotation.Nonnull ApiDateTime date) {
     
     this.date = date;
     return this;
   }
 
   /**
-   * The date and time when an action on the file was performed.
+   * When the event happened, written with the offset of the portal's time zone.
    * @return date
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public OffsetDateTime getDate() {
+  public ApiDateTime getDate() {
     return date;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
+  @JsonProperty(value = JSON_PROPERTY_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDate(@javax.annotation.Nullable OffsetDateTime date) {
+  public void setDate(@javax.annotation.Nonnull ApiDateTime date) {
     this.date = date;
   }
 
-  public HistoryDto data(@javax.annotation.Nonnull HistoryData data) {
+  public HistoryDto data(@javax.annotation.Nullable HistoryData data) {
     
     this.data = data;
     return this;
   }
 
   /**
-   * The history data.
+   * The history data. Absent for actions that carry no payload of their own - changing a room's  logo, icon colour or cover, whose interpreter returns no data (see  `RoomLogoChangedInterpreter`). It used to be declared required, which put it in the  OpenAPI document's required list while the null-dropping serializer left it out of the  response, so a generated client threw on any history page holding one of those entries.
    * @return data
    */
-  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DATA, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATA, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public HistoryData getData() {
     return data;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_DATA, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setData(@javax.annotation.Nonnull HistoryData data) {
+  @JsonProperty(value = JSON_PROPERTY_DATA, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setData(@javax.annotation.Nullable HistoryData data) {
     this.data = data;
   }
 
@@ -216,7 +216,7 @@ public class HistoryDto {
   }
 
   /**
-   * The list of related history.
+   * The records folded into this one because they belong to the same action, the separate files of one upload for  instance. It is empty when the record stands alone, and the records inside it carry no further nesting.
    * @return related
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -352,12 +352,7 @@ public class HistoryDto {
 
     // add `date` to the URL query string
     if (getDate() != null) {
-      try {
-        joiner.add(String.format("%sdate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDate()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getDate().toUrlQueryString(prefix + "date" + suffix));
     }
 
     // add `data` to the URL query string

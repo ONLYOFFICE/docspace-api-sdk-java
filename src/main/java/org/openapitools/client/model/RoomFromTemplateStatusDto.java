@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The progress parameters of creating a room from the template.
+ * The progress of the job that creates a room out of a room template.
  */
 @JsonPropertyOrder({
   RoomFromTemplateStatusDto.JSON_PROPERTY_ROOM_ID,
@@ -65,7 +65,7 @@ public class RoomFromTemplateStatusDto {
   }
 
   /**
-   * The room ID.
+   * The room the job is creating. It is meaningful once the room exists, which is guaranteed only after  `isCompleted` turns true and `error` stays empty; until then it carries no usable id.
    * @return roomId
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ROOM_ID, required = true)
@@ -89,7 +89,7 @@ public class RoomFromTemplateStatusDto {
   }
 
   /**
-   * The progress of creating a room from the template.
+   * How far the job has got. The value climbs while the contents of the template are being copied into the new  room and reaches its maximum at the very end.
    * @return progress
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PROGRESS, required = true)
@@ -113,7 +113,7 @@ public class RoomFromTemplateStatusDto {
   }
 
   /**
-   * The error message that is sent when a room is not created successfully from the template.
+   * Why the job stopped. It is empty while the job runs and after a successful one, and a filled value means that  no room was created, so the request has to be repeated rather than waited out.
    * @return error
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
@@ -137,7 +137,7 @@ public class RoomFromTemplateStatusDto {
   }
 
   /**
-   * Specifies whether the process of creating a room from the template is completed.
+   * Whether the job has ended. It is set both after a successful creation and after a failure, so it is the flag  to poll for, while `error` is what separates the two outcomes.
    * @return isCompleted
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_COMPLETED, required = true)

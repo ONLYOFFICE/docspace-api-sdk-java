@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Represents dimensions with width and height values.
+ * A pixel size measured on the image itself.
  */
 @JsonPropertyOrder({
   Size.JSON_PROPERTY_HEIGHT,
@@ -57,7 +57,7 @@ public class Size {
   }
 
   /**
-   * Gets or sets the height dimension of an object, typically measured in pixels or other unit.  It defines the vertical size of the object.
+   * The height of the image in pixels, read from the stored file rather than from any display setting.
    * @return height
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
@@ -81,7 +81,7 @@ public class Size {
   }
 
   /**
-   * Gets or sets the width dimension of an object, typically measured in pixels or other unit.
+   * The width of the image in pixels, read from the stored file rather than from any display setting.
    * @return width
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)

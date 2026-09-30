@@ -40,7 +40,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The room new items information.
+ * The unseen entries of one room inside a day group.
  */
 @JsonPropertyOrder({
   RoomNewItemsDto.JSON_PROPERTY_ROOM,
@@ -65,7 +65,7 @@ public class RoomNewItemsDto {
   }
 
   /**
-   * The room file entry.
+   * The room the entries were found in, in its short form: only the identifier, the title, the room type and the  logo are filled in.
    * @return room
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOM, required = false)
@@ -101,7 +101,7 @@ public class RoomNewItemsDto {
   }
 
   /**
-   * The list of file entry items.
+   * The files of that room the caller has not opened yet, the most recently changed first. Reading them here does  not clear the badges; opening the room itself does.
    * @return items
    */
   @javax.annotation.Nullable  @JsonIgnore

@@ -41,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The external DB synchronization task parameters.
+ * The state of the job that exports the collected form data of a form filling room into the external database of the  portal.
  */
 @JsonPropertyOrder({
   ExternalDbSyncTaskDto.JSON_PROPERTY_ID,
@@ -82,7 +82,7 @@ public class ExternalDbSyncTaskDto {
   }
 
   /**
-   * The task ID.
+   * The identifier of the job, which stays the same while a job for this room exists and is worth quoting when a  failure has to be traced in the portal logs. Polling is done by room, so the value is not needed to read the  state again.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -106,7 +106,7 @@ public class ExternalDbSyncTaskDto {
   }
 
   /**
-   * The error message if the synchronization failed.
+   * The message of a failure that stopped the whole job. It is empty while the job is running and after a job that  ended without such a failure; a job that finished with individual forms rejected reports those in `forms` and  leaves this field empty.
    * @return error
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -137,7 +137,7 @@ public class ExternalDbSyncTaskDto {
   }
 
   /**
-   * The progress percentage of the synchronization.
+   * How much of the work is done, from 0 to 100. It advances as the forms of the room are processed one by one, so  it is a usable progress indicator for a room with many forms and jumps straight to the end for a room with  one.
    * @return percentage
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PERCENTAGE, required = true)
@@ -161,7 +161,7 @@ public class ExternalDbSyncTaskDto {
   }
 
   /**
-   * Specifies whether the synchronization is completed or not.
+   * Whether the job has ended. It is set both for a job that finished its work and for one that stopped on an  error, so this is the flag to poll for, and `status` and `error` are what tell the two apart.
    * @return isCompleted
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_COMPLETED, required = true)
@@ -185,7 +185,7 @@ public class ExternalDbSyncTaskDto {
   }
 
   /**
-   * The status of the synchronization task.
+   * How the job ended, or how far it has got: queued, running, finished, cancelled or failed. It is the only field  that separates a successful end from a failed one once `isCompleted` is set.
    * @return status
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)
@@ -217,7 +217,7 @@ public class ExternalDbSyncTaskDto {
   }
 
   /**
-   * The synchronization results for all original forms in the room.
+   * The outcome for every original form of the room, one entry each. The list is empty while the job is running  and is filled in only when the job ends, so it is what to read after `isCompleted` turns true; it stays empty  for a room that holds no forms at all.
    * @return forms
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FORMS, required = false)

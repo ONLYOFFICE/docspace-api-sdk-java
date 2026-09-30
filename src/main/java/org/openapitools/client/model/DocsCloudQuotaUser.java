@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Represents a single user entry of a DocsCloud quota.
+ * Represents a single user entry of a Docs Connect quota.
  */
 @JsonPropertyOrder({
   DocsCloudQuotaUser.JSON_PROPERTY_USER_ID,

@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The parameters for deleting a file.
+ * The parameters of a single file deletion.
  */
 @JsonPropertyOrder({
   Delete.JSON_PROPERTY_DELETE_AFTER,
@@ -57,7 +57,7 @@ public class Delete {
   }
 
   /**
-   * Specifies whether to delete a file after the editing session is finished or not.
+   * When to delete: `true` waits until the editing session on the file has ended, `false` deletes at once, pulling  the file away from whoever is working on it.
    * @return deleteAfter
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DELETE_AFTER, required = false)
@@ -81,7 +81,7 @@ public class Delete {
   }
 
   /**
-   * Specifies whether to move a file to the \\Trash\\ folder or delete it immediately.
+   * Where the file goes: `false` moves it to Trash, from where it can be restored, `true` deletes it for good.  Inside a room, where there is no Trash, deletion is always final.
    * @return immediately
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMMEDIATELY, required = false)

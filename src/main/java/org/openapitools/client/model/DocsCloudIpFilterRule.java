@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Represents the IP filter rule of a DocsCloud tenant.
+ * Represents the IP filter rule of a Docs Connect tenant.
  */
 @JsonPropertyOrder({
   DocsCloudIpFilterRule.JSON_PROPERTY_ADDRESS,

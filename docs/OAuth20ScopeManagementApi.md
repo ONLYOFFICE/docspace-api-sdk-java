@@ -4,15 +4,15 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getScopes**](OAuth20ScopeManagementApi.md#getScopes) | **GET** /api/2.0/scopes | List available OAuth2 scopes |
+| [**getScopes**](OAuth20ScopeManagementApi.md#getScopes) | **GET** /api/2.0/oauth2/scopes | List available OAuth2 scopes |
 
 
 
 ## getScopes
 
-> ScopeResponse getScopes()
+> List&lt;ScopeResponse&gt; getScopes()
 
-List available OAuth2 scopesRetrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
+List available OAuth2 scopesRetrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first. It is a read-only catalogue that does not depend on which clients exist: a valid portal signature is the only requirement, with no role restriction, and every caller of the portal sees the same list.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/).
 
@@ -22,7 +22,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ScopeResponse**](ScopeResponse.md)
+[**List&lt;ScopeResponse&gt;**](ScopeResponse.md)
 
 ### Authorization
 
@@ -52,7 +52,7 @@ public class Example {
 
         ScopeManagementApi apiInstance = new ScopeManagementApi(defaultClient);
         try {
-            ScopeResponse result = apiInstance.getScopes();
+            List<ScopeResponse> result = apiInstance.getScopes();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ScopeManagementApi#getScopes");
@@ -75,8 +75,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Scopes successfully retrieved |  -  |
-| **400** | Invalid request parameters |  -  |
 | **403** | Insufficient permissions to list scopes |  -  |
+| **406** | The Accept header does not allow application/json |  -  |
 | **429** | Too many requests - rate limit exceeded |  -  |
 | **500** | Internal server error occurred |  -  |
+| **405** | The HTTP method is not allowed for this path |  -  |
 

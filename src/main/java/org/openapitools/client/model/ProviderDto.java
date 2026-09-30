@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The provider information.
+ * One storage service this portal can connect, with the values a connection form needs.
  */
 @JsonPropertyOrder({
   ProviderDto.JSON_PROPERTY_NAME,
@@ -81,7 +81,7 @@ public class ProviderDto {
   }
 
   /**
-   * The provider name.
+   * The display name of the service, and the only thing that tells the WebDAV presets apart: `kDrive`, `Yandex`,  `WebDav`, `Nextcloud` and `ownCloud` all report the same key.
    * @return name
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -112,7 +112,7 @@ public class ProviderDto {
   }
 
   /**
-   * The provider key.
+   * The value to send as `providerKey` when an account of this service is connected.
    * @return key
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -143,7 +143,7 @@ public class ProviderDto {
   }
 
   /**
-   * Specifies whether the provider is connected.
+   * Whether the service can be used on this portal: it is enabled in the configuration and, for an OAuth service,  its application is registered. It says nothing about whether an account of it is connected.
    * @return connected
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONNECTED, required = false)
@@ -167,7 +167,7 @@ public class ProviderDto {
   }
 
   /**
-   * Specifies if the provider is OAuth.
+   * Whether an account of this service is connected with an OAuth 2.0 authorization code in `token`; when false,  it is connected with `login` and `password`.
    * @return oauth
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OAUTH, required = false)
@@ -191,7 +191,7 @@ public class ProviderDto {
   }
 
   /**
-   * The provider redirect URL.
+   * The redirect URL this portal is registered with at the service, to build the consent screen URL from. It comes  back as null for the services that do not use OAuth.
    * @return redirectUrl
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -222,7 +222,7 @@ public class ProviderDto {
   }
 
   /**
-   * The required connection URL flag.
+   * Whether an account of this service cannot be connected without `url`, which is the case for the WebDAV servers  whose address is not known in advance. The presets with a fixed address and the OAuth services do not need it.
    * @return requiredConnectionUrl
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REQUIRED_CONNECTION_URL, required = false)
@@ -246,7 +246,7 @@ public class ProviderDto {
   }
 
   /**
-   * The provider OAuth client ID.
+   * The OAuth 2.0 client ID this portal is registered with at the service, to build the consent screen URL from.  It comes back as null for the services that do not use OAuth.
    * @return clientId
    */
   @javax.annotation.Nullable  @JsonIgnore

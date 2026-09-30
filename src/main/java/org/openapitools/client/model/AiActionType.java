@@ -50,7 +50,9 @@ public enum AiActionType {
   
   OCR("OCR"),
   
-  VISION("Vision");
+  VISION("Vision"),
+  
+  FORM_ANALYSIS("FormAnalysis");
 
   private String value;
 

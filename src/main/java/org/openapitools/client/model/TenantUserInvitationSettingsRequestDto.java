@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for updating the user invitation settings.
+ * Whether the portal still lets its members invite new members and new guests.
  */
 @JsonPropertyOrder({
   TenantUserInvitationSettingsRequestDto.JSON_PROPERTY_ALLOW_INVITING_MEMBERS,
@@ -57,7 +57,7 @@ public class TenantUserInvitationSettingsRequestDto {
   }
 
   /**
-   * Specifies whether to allow inviting new DocSpace members through the Contacts section.
+   * Whether new DocSpace members may be invited through the Contacts section. Switching it off only stops new  invitations being created; links already issued keep working and members already invited stay.
    * @return allowInvitingMembers
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ALLOW_INVITING_MEMBERS, required = false)
@@ -81,7 +81,7 @@ public class TenantUserInvitationSettingsRequestDto {
   }
 
   /**
-   * Specifies whether to allow all DocSpace members to invite external guests to the rooms.
+   * Whether every DocSpace member, and not only an administrator, may invite external guests into rooms.  Switching it off leaves the guests already invited in place.
    * @return allowInvitingGuests
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ALLOW_INVITING_GUESTS, required = false)

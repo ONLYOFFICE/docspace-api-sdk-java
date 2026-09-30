@@ -1,0 +1,64 @@
+
+
+# IAccountEntryDto
+
+One entry of an account search: either a user or a group.
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**id** | **UUID** | The group ID. |  |
+|**displayName** | **String** | The HTML-encoded user's display name formatted according to the default format for the current culture. |  [optional] |
+|**avatar** | **String** | The user avatar. |  [optional] |
+|**avatarOriginal** | **String** | The user original size avatar. |  [optional] |
+|**avatarMax** | **String** | The user maximum size avatar. |  [optional] |
+|**avatarMedium** | **String** | The user medium size avatar. |  [optional] |
+|**avatarSmall** | **String** | The user small size avatar. |  [optional] |
+|**profileUrl** | **String** | The user profile URL. |  [optional] |
+|**hasAvatar** | **Boolean** | Specifies if the user has an avatar or not. |  [optional] |
+|**isAnonim** | **Boolean** | Specifies if the user is anonymous or not. |  [optional] |
+|**firstName** | **String** | The user first name. |  [optional] |
+|**lastName** | **String** | The user last name. |  [optional] |
+|**userName** | **String** | The user username. |  [optional] |
+|**email** | **String** | The user email. |  [optional] |
+|**contacts** | [**List&lt;Contact&gt;**](Contact.md) | The list of user contacts. |  [optional] |
+|**status** | **EmployeeStatus** | The user status. |  [optional] |
+|**activationStatus** | **EmployeeActivationStatus** | The user activation status. |  [optional] |
+|**terminated** | [**ApiDateTime**](ApiDateTime.md) | The date when the user account was terminated. |  [optional] |
+|**department** | **String** | The user department. |  [optional] |
+|**groups** | [**List&lt;GroupSummaryDto&gt;**](GroupSummaryDto.md) | The list of user groups. |  [optional] |
+|**location** | **String** | The user location. |  [optional] |
+|**notes** | **String** | The user notes. |  [optional] |
+|**isAdmin** | **Boolean** | Specifies if the user is an administrator or not. |  [optional] |
+|**isRoomAdmin** | **Boolean** | Specifies if the user is a room administrator or not. |  [optional] |
+|**isLDAP** | **Boolean** | Specifies if the LDAP settings are enabled for the group or not. |  |
+|**listAdminModules** | **List&lt;String&gt;** | The list of the administrator modules. |  [optional] |
+|**isOwner** | **Boolean** | Specifies if the user is a portal owner or not. |  [optional] |
+|**isVisitor** | **Boolean** | Specifies if the user is a portal visitor or not. |  [optional] |
+|**isCollaborator** | **Boolean** | Specifies if the user is a portal collaborator or not. |  [optional] |
+|**cultureName** | **String** | The user culture code. |  [optional] |
+|**mobilePhone** | **String** | The user mobile phone number. |  [optional] |
+|**mobilePhoneActivationStatus** | **MobilePhoneActivationStatus** | The mobile phone activation status. |  [optional] |
+|**isSSO** | **Boolean** | Specifies if the SSO settings are enabled for the user or not. |  [optional] |
+|**theme** | **DarkThemeSettingsType** | The user theme settings. |  [optional] |
+|**quotaLimit** | **Long** | The user quota limit. |  [optional] |
+|**usedSpace** | **Double** | The portal used space of the user. |  [optional] |
+|**shared** | **Boolean** | Specifies whether the group can be shared or not. |  [optional] |
+|**isCustomQuota** | **Boolean** | Specifies if the user has a custom quota or not. |  [optional] |
+|**loginEventId** | **Integer** | The current login event ID. |  [optional] |
+|**authCookieLifetime** | **Double** | The auth cookie lifetime in seconds. |  [optional] |
+|**createdBy** | [**EmployeeDto**](EmployeeDto.md) | The user who created the current user. |  [optional] |
+|**registrationDate** | [**ApiDateTime**](ApiDateTime.md) | The user registration date. |  [optional] |
+|**hasPersonalFolder** | **Boolean** | Specifies if the user has a personal folder or not. |  [optional] |
+|**tfaAppEnabled** | **Boolean** | Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app. |  [optional] |
+|**name** | **String** | The group name. |  |
+|**parent** | **UUID** | The parent group ID. |  [optional] |
+|**category** | **UUID** | The group category ID. |  |
+|**isSystem** | **Boolean** | Indicates whether the group is a system group. |  [optional] |
+|**manager** | [**EmployeeFullDto**](EmployeeFullDto.md) | The group manager full information. |  [optional] |
+|**members** | [**List&lt;EmployeeFullDto&gt;**](EmployeeFullDto.md) | The list of group members. |  [optional] |
+|**membersCount** | **Integer** | The number of group members. |  [optional] |
+
+
+

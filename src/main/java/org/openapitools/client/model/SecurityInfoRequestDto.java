@@ -41,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The security information request parameters.
+ * The entries whose sharing rights are being changed, and the rights to apply to them.
  */
 @JsonPropertyOrder({
   SecurityInfoRequestDto.JSON_PROPERTY_FOLDER_IDS,
@@ -90,7 +90,7 @@ public class SecurityInfoRequestDto {
   }
 
   /**
-   * The list of the shared folder IDs.
+   * The folders and rooms whose rights are being changed, identified as a listing operation returns them - a  number on the portal, a string on a connected third-party account.
    * @return folderIds
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -133,7 +133,7 @@ public class SecurityInfoRequestDto {
   }
 
   /**
-   * The list of the shared file IDs.
+   * The files whose rights are being changed, identified as a listing operation returns them - a number on the  portal, a string on a connected third-party account.
    * @return fileIds
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -176,7 +176,7 @@ public class SecurityInfoRequestDto {
   }
 
   /**
-   * The collection of sharing parameters.
+   * One record per account or group whose rights are being set, each naming the subject and the level it gets on  all of the listed entries; a level of `None` takes the access away. An empty collection makes the call change  nothing.
    * @return share
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -207,7 +207,7 @@ public class SecurityInfoRequestDto {
   }
 
   /**
-   * Specifies whether to notify users about the shared file or not.
+   * Set to true to have every account named in `share` emailed about the access it just received; false changes  the rights without telling anyone.
    * @return notify
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NOTIFY, required = false)
@@ -231,7 +231,7 @@ public class SecurityInfoRequestDto {
   }
 
   /**
-   * The message to send when notifying about the shared file.
+   * The text put into that email, ignored while `notify` is false. Markup is stripped before sending, so only the  plain text of the value survives.
    * @return sharingMessage
    */
   @javax.annotation.Nullable  @JsonIgnore

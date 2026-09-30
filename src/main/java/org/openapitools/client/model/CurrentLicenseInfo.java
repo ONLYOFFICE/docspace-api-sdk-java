@@ -33,7 +33,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The current license information.
+ * The two facts about the subscription in force that a payment page needs.
  */
 @JsonPropertyOrder({
   CurrentLicenseInfo.JSON_PROPERTY_TRIAL,
@@ -58,7 +58,7 @@ public class CurrentLicenseInfo {
   }
 
   /**
-   * Specifies whether the license is trial or not.
+   * Whether the portal is on a trial rather than a paid subscription. A trial expires at `dueDate` and is not  extended by paying - a plan has to be bought instead.
    * @return trial
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TRIAL, required = true)
@@ -82,7 +82,7 @@ public class CurrentLicenseInfo {
   }
 
   /**
-   * The date when the license expires.
+   * The day the subscription runs out, with the time of day cut off. The largest value a date can hold means  it never runs out, which is how a free or unlimited plan is expressed.
    * @return dueDate
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DUE_DATE, required = true)

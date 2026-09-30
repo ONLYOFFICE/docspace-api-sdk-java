@@ -24,7 +24,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.client.model.SetAppSettingsBodySettings;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -33,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Request body for saving application-specific settings.
+ * The configuration document a portal application keeps.
  */
 @JsonPropertyOrder({
   SetAppSettingsBody.JSON_PROPERTY_SETTINGS
@@ -41,15 +44,15 @@ import java.util.StringJoiner;
 
 public class SetAppSettingsBody {
   public static final String JSON_PROPERTY_SETTINGS = "settings";
-  @javax.annotation.Nullable  private SetAppSettingsBodySettings settings;
+  @javax.annotation.Nullable  private JsonNullable<Object> settings = JsonNullable.<Object>of(null);
 
   public SetAppSettingsBody() {
   }
 
 
-  public SetAppSettingsBody settings(@javax.annotation.Nullable SetAppSettingsBodySettings settings) {
+  public SetAppSettingsBody settings(@javax.annotation.Nullable Object settings) {
+    this.settings = JsonNullable.<Object>of(settings);
     
-    this.settings = settings;
     return this;
   }
 
@@ -57,18 +60,25 @@ public class SetAppSettingsBody {
    * Get settings
    * @return settings
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public SetAppSettingsBodySettings getSettings() {
-    return settings;
+  public Object getSettings() {
+        return settings.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSettings(@javax.annotation.Nullable SetAppSettingsBodySettings settings) {
+  public JsonNullable<Object> getSettings_JsonNullable() {
+    return settings;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  public void setSettings_JsonNullable(JsonNullable<Object> settings) {
     this.settings = settings;
+  }
+
+  public void setSettings(@javax.annotation.Nullable Object settings) {
+    this.settings = JsonNullable.<Object>of(settings);
   }
 
   @Override
@@ -80,12 +90,23 @@ public class SetAppSettingsBody {
       return false;
     }
     SetAppSettingsBody setAppSettingsBody = (SetAppSettingsBody) o;
-    return Objects.equals(this.settings, setAppSettingsBody.settings);
+    return equalsNullable(this.settings, setAppSettingsBody.settings);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(settings);
+    return Objects.hash(hashCodeNullable(settings));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -142,7 +163,12 @@ public class SetAppSettingsBody {
 
     // add `settings` to the URL query string
     if (getSettings() != null) {
-      joiner.add(getSettings().toUrlQueryString(prefix + "settings" + suffix));
+      try {
+        joiner.add(String.format("%ssettings%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSettings()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     return joiner.toString();

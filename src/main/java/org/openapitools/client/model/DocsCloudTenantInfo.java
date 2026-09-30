@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Represents the license and server information of a DocsCloud tenant, with usage statistics for the current period.
+ * Represents the license and server information of a Docs Connect tenant, with usage statistics for the current period.
  */
 @JsonPropertyOrder({
   DocsCloudTenantInfo.JSON_PROPERTY_LICENSE,
@@ -93,7 +93,7 @@ public class DocsCloudTenantInfo {
   }
 
   /**
-   * The DocsCloud server information.
+   * The Docs Connect server information.
    * @return server
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SERVER, required = false)

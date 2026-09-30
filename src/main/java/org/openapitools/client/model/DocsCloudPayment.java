@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Represents the payment information of a DocsCloud tenant.
+ * Represents the payment information of a Docs Connect tenant.
  */
 @JsonPropertyOrder({
   DocsCloudPayment.JSON_PROPERTY_CART_ID,

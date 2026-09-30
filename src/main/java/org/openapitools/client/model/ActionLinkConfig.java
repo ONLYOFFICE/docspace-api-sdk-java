@@ -33,7 +33,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The config parameter which contains the information about the action in the document that will be scrolled to.
+ * The place inside a document that a link should open at.
  */
 @JsonPropertyOrder({
   ActionLinkConfig.JSON_PROPERTY_ACTION
@@ -54,7 +54,7 @@ public class ActionLinkConfig {
   }
 
   /**
-   * The information about the action in the document that will be scrolled to.
+   * The anchor itself. It is passed on to the editor unchanged, so it has to be the value the editor produced for  the comment or the mention it points at.
    * @return action
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTION, required = false)

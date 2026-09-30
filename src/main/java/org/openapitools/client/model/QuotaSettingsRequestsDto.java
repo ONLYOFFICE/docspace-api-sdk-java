@@ -33,7 +33,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for managing the user storage quota configurations.
+ * The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced.
  */
 @JsonPropertyOrder({
   QuotaSettingsRequestsDto.JSON_PROPERTY_ENABLE_QUOTA,
@@ -58,7 +58,7 @@ public class QuotaSettingsRequestsDto {
   }
 
   /**
-   * Specifies whether the storage quota restrictions are enabled.
+   * Whether the limit is enforced at all. While it is false the size is ignored and nothing created afterwards  carries a limit; objects that already have one keep it either way.
    * @return enableQuota
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLE_QUOTA, required = false)

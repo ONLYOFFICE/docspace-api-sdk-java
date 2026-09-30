@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for managing the portal theme settings.
+ * The custom colour theme being saved, the theme being selected, or both.
  */
 @JsonPropertyOrder({
   CustomColorThemesSettingsRequestsDto.JSON_PROPERTY_THEME,
@@ -62,7 +62,7 @@ public class CustomColorThemesSettingsRequestsDto {
   }
 
   /**
-   * The custom color theme configuration.
+   * The theme to store, with its accent and button colours for the interface and for the text on it. An `id` that  matches a stored custom theme replaces it, an unknown `id` appends a new one, and an `id` belonging to a  built-in theme is treated as a request for a new custom theme rather than overwriting the built-in one. Once  the plan limit on custom themes is reached a new theme is silently not added, so compare the returned themes  against `limit` instead of assuming it was saved. Leave it out to change only the selection.
    * @return theme
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_THEME, required = false)
@@ -86,7 +86,7 @@ public class CustomColorThemesSettingsRequestsDto {
   }
 
   /**
-   * Specifies the optional value indicating the selected custom color theme.
+   * The theme the whole portal switches to, by theme ID. An ID matching no stored theme is ignored rather than  refused, and leaving it out keeps the selection as it is.
    * @return selected
    */
   @javax.annotation.Nullable  @JsonIgnore

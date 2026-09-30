@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for handling sales and payment inquiries in the portal.
+ * Who is writing to the ONLYOFFICE sales team, and what about.
  */
 @JsonPropertyOrder({
   SalesRequestsDto.JSON_PROPERTY_USER_NAME,
@@ -61,7 +61,7 @@ public class SalesRequestsDto {
   }
 
   /**
-   * The name of the user submitting the sales request.
+   * The name the sales team should address the reply to. It is sent as written and is not matched against any  portal account; an empty value fails the request with 400.
    * @return userName
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_USER_NAME, required = true)
@@ -85,7 +85,7 @@ public class SalesRequestsDto {
   }
 
   /**
-   * The contact email address for the sales inquiry.
+   * The address the answer is sent to. It has to be a well-formed email address and need not be the caller portal  address; an empty or malformed value fails the request with 400.
    * @return email
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = true)
@@ -109,7 +109,7 @@ public class SalesRequestsDto {
   }
 
   /**
-   * The details of the sales inquiry or payment request.
+   * What is being asked of the sales team - a quote, an invoice, or a plan that cannot be bought online. An empty  value fails the request with 400.
    * @return message
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = true)

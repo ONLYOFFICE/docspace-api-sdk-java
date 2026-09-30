@@ -4,15 +4,15 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**handleOptions**](OAuth20DiscoveryApi.md#handleOptions) | **OPTIONS** /.well-known/oauth-authorization-server |  |
+| [**handleOptions**](OAuth20DiscoveryApi.md#handleOptions) | **OPTIONS** /.well-known/oauth-authorization-server | Probe the discovery endpoint |
 
 
 
 ## handleOptions
 
-> Object handleOptions()
+> handleOptions()
 
-
+Probe the discovery endpointAnswers the CORS preflight for the OAuth 2.0 Authorization Server metadata endpoint. The endpoint needs no authentication and reads nothing from the request: it always answers 200 with an empty body, and the CORS headers are added by the surrounding filter chain rather than by this handler. It changes no state, and it does not return the authorization server metadata document - issue a GET against the same path for that.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/handle-options/).
 
@@ -22,7 +22,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+null (empty response body)
 
 ### Authorization
 
@@ -45,8 +45,7 @@ public class Example {
 
         DiscoveryApi apiInstance = new DiscoveryApi(defaultClient);
         try {
-            Object result = apiInstance.handleOptions();
-            System.out.println(result);
+            apiInstance.handleOptions();
         } catch (ApiException e) {
             System.err.println("Exception when calling DiscoveryApi#handleOptions");
             System.err.println("Status code: " + e.getCode());
@@ -61,11 +60,11 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: */*
+- **Accept**: Not defined
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | Preflight accepted; the response carries no body |  -  |
 

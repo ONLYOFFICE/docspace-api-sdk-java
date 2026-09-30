@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Aggregated customer usage statistics for a service over a period.
+ * What one wallet service was consumed and cost over the requested period, added up rather than listed.
  */
 @JsonPropertyOrder({
   CustomerServiceUsageDto.JSON_PROPERTY_SERVICE,
@@ -89,7 +89,7 @@ public class CustomerServiceUsageDto {
   }
 
   /**
-   * The name of the service.
+   * The stable key of the service, which is what the `serviceName` filter of this operation matches on and  what `GET api/2.0/portal/payment/walletservice` looks a service up by.
    * @return service
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -120,7 +120,7 @@ public class CustomerServiceUsageDto {
   }
 
   /**
-   * The title of the service.
+   * The service name in the portal language, for printing rather than matching.
    * @return title
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -151,7 +151,7 @@ public class CustomerServiceUsageDto {
   }
 
   /**
-   * The unit of measurement for the service.
+   * What `totalQuantity` counts, in the portal language. AI consumption is reported in tokens here rather  than in the AI credits the service is sold in, so it does not line up with the price list.
    * @return serviceUnit
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -182,7 +182,7 @@ public class CustomerServiceUsageDto {
   }
 
   /**
-   * The three-character ISO 4217 currency symbol of the amounts.
+   * The currency `totalAmount` and `price` are expressed in, as a three-letter ISO 4217 code.
    * @return currency
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -213,7 +213,7 @@ public class CustomerServiceUsageDto {
   }
 
   /**
-   * The total number of units consumed.
+   * How many units of the service were consumed over the period, in the unit named by `serviceUnit`.
    * @return totalQuantity
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOTAL_QUANTITY, required = false)
@@ -237,7 +237,7 @@ public class CustomerServiceUsageDto {
   }
 
   /**
-   * The total amount charged for the service.
+   * What that consumption cost over the period. It is what was actually charged, so it can differ from  `price` times `totalQuantity` when the price changed inside the period.
    * @return totalAmount
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOTAL_AMOUNT, required = false)
@@ -261,7 +261,7 @@ public class CustomerServiceUsageDto {
   }
 
   /**
-   * The number of individual purchase operations.
+   * How many separate charges the total was added up from. The charges themselves are in  `GET api/2.0/portal/payment/customer/operations`.
    * @return operationCount
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OPERATION_COUNT, required = false)
@@ -285,7 +285,7 @@ public class CustomerServiceUsageDto {
   }
 
   /**
-   * The price of the service.
+   * What one unit of the service costs today, not what it cost during the period. It is `0` when the service  is no longer on the installation's price list.
    * @return price
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRICE, required = false)
@@ -309,7 +309,7 @@ public class CustomerServiceUsageDto {
   }
 
   /**
-   * Indicates whether the service is subscription-based.
+   * Whether the service is billed as a standing subscription rather than per unit consumed. It is derived  from today's price list, so it describes the service as it is sold now.
    * @return subscription
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SUBSCRIPTION, required = false)

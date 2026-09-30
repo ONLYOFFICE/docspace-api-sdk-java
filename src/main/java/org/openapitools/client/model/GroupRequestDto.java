@@ -81,7 +81,7 @@ public class GroupRequestDto {
   }
 
   /**
-   * The list of group member IDs.
+   * The accounts to put into the new group. Every one of them has to be an active member that is not a guest,  otherwise the whole call is rejected. Omit it to create an empty group.
    * @return members
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -112,7 +112,7 @@ public class GroupRequestDto {
   }
 
   /**
-   * The group manager ID.
+   * The account to make the manager of the new group. It is added to the group as well, so it does not have to be  repeated in `members`. Omit it to create a group without a manager.
    * @return groupManager
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GROUP_MANAGER, required = false)
@@ -136,7 +136,7 @@ public class GroupRequestDto {
   }
 
   /**
-   * The group name.
+   * The name of the group, from 1 to 128 characters. It is required, it may not be blank, and it does not have to  be unique.
    * @return groupName
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GROUP_NAME, required = false)

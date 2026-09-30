@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Aggregated customer spending for a single calendar month.
+ * What the portal spent from its wallet in one calendar month, added up across every service.
  */
 @JsonPropertyOrder({
   CustomerMonthlyUsageDto.JSON_PROPERTY_YEAR,
@@ -73,7 +73,7 @@ public class CustomerMonthlyUsageDto {
   }
 
   /**
-   * The calendar year.
+   * The year the month belongs to. Months are cut in the portal time zone, so a movement at the edge of a  month falls where the portal sees it and not where UTC does.
    * @return year
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_YEAR, required = false)
@@ -97,7 +97,7 @@ public class CustomerMonthlyUsageDto {
   }
 
   /**
-   * The calendar month (1-12).
+   * The month itself, January being 1. Only months that had spending appear at all, so a gap in the list is a  month with nothing in it rather than missing data.
    * @return month
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MONTH, required = false)
@@ -121,7 +121,7 @@ public class CustomerMonthlyUsageDto {
   }
 
   /**
-   * The three-character ISO 4217 currency symbol of the amounts.
+   * The currency `totalAmount` is expressed in, as a three-letter ISO 4217 code - the accounting currency of  the wallet.
    * @return currency
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -152,7 +152,7 @@ public class CustomerMonthlyUsageDto {
   }
 
   /**
-   * The total amount charged across all services in this month.
+   * What the month came to across every service, as a positive amount spent rather than a signed balance.
    * @return totalAmount
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOTAL_AMOUNT, required = false)
@@ -176,7 +176,7 @@ public class CustomerMonthlyUsageDto {
   }
 
   /**
-   * The number of individual purchase operations in this month.
+   * How many separate movements that total was added up from, for a client that wants to show the weight  behind a figure. The movements themselves are in `GET api/2.0/portal/payment/customer/operations`.
    * @return operationCount
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OPERATION_COUNT, required = false)

@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The parameters for locking a file.
+ * The lock state a file is to be put into.
  */
 @JsonPropertyOrder({
   LockFileParameters.JSON_PROPERTY_LOCK_FILE
@@ -53,7 +53,7 @@ public class LockFileParameters {
   }
 
   /**
-   * Specifies whether to lock a file or not.
+   * The state to reach: `true` locks the file, which blocks editing, renaming and deleting for everybody but the  account that locked it and the room admins, and drops the others out of a running editing session; `false`  releases the lock.
    * @return lockFile
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOCK_FILE, required = false)

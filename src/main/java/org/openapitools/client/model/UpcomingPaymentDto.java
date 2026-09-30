@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.time.OffsetDateTime;
+import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The upcoming payment parameters.
+ * One charge the portal is going to be billed for at the start of the next period.
  */
 @JsonPropertyOrder({
   UpcomingPaymentDto.JSON_PROPERTY_ID,
@@ -71,7 +71,7 @@ public class UpcomingPaymentDto {
   @javax.annotation.Nullable  private Boolean wallet;
 
   public static final String JSON_PROPERTY_DUE_DATE = "dueDate";
-  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> dueDate = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private ApiDateTime dueDate;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   @javax.annotation.Nullable  private Double amount;
@@ -90,7 +90,7 @@ public class UpcomingPaymentDto {
   }
 
   /**
-   * The quota ID.
+   * The quota that is going to be charged. When a switch to another quota is scheduled, this is the quota  being switched to, so it can differ from what `GET api/2.0/portal/tariff` reports for today.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -114,7 +114,7 @@ public class UpcomingPaymentDto {
   }
 
   /**
-   * The quota name.
+   * The quota's stable key, which is the same identifier the wallet operations use for a service.
    * @return name
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -145,7 +145,7 @@ public class UpcomingPaymentDto {
   }
 
   /**
-   * The quota title.
+   * The quota name in the portal language, meant to be printed on an invoice preview.
    * @return title
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -176,7 +176,7 @@ public class UpcomingPaymentDto {
   }
 
   /**
-   * The quota unit of measure.
+   * What `quantity` counts, in the portal language - seats, administrators, gigabytes. It is empty for a quota  that is simply on or off.
    * @return unitOfMeasure
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -207,7 +207,7 @@ public class UpcomingPaymentDto {
   }
 
   /**
-   * The quantity that will be charged (the next quantity if set, otherwise the current quantity).
+   * How much is going to be charged for, which is the quantity scheduled for the next period when one has been  scheduled and today's quantity otherwise.
    * @return quantity
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_QUANTITY, required = false)
@@ -231,7 +231,7 @@ public class UpcomingPaymentDto {
   }
 
   /**
-   * The quota applies to the wallet or not.
+   * Whether the charge is paid out of the portal wallet rather than from the subscription.
    * @return wallet
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WALLET, required = false)
@@ -248,35 +248,28 @@ public class UpcomingPaymentDto {
     this.wallet = wallet;
   }
 
-  public UpcomingPaymentDto dueDate(@javax.annotation.Nullable OffsetDateTime dueDate) {
-    this.dueDate = JsonNullable.<OffsetDateTime>of(dueDate);
+  public UpcomingPaymentDto dueDate(@javax.annotation.Nullable ApiDateTime dueDate) {
     
+    this.dueDate = dueDate;
     return this;
   }
 
   /**
-   * The due date of the upcoming payment in the portal time zone.
+   * When the charge falls due, in the portal time zone.
    * @return dueDate
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DUE_DATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getDueDate() {
-        return dueDate.orElse(null);
+  public ApiDateTime getDueDate() {
+    return dueDate;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_DUE_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<OffsetDateTime> getDueDate_JsonNullable() {
-    return dueDate;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_DUE_DATE)
-  public void setDueDate_JsonNullable(JsonNullable<OffsetDateTime> dueDate) {
+  public void setDueDate(@javax.annotation.Nullable ApiDateTime dueDate) {
     this.dueDate = dueDate;
-  }
-
-  public void setDueDate(@javax.annotation.Nullable OffsetDateTime dueDate) {
-    this.dueDate = JsonNullable.<OffsetDateTime>of(dueDate);
   }
 
   public UpcomingPaymentDto amount(@javax.annotation.Nullable Double amount) {
@@ -286,7 +279,7 @@ public class UpcomingPaymentDto {
   }
 
   /**
-   * The amount that will be charged (unit price multiplied by the quantity).
+   * What the charge comes to: the unit price of the quota multiplied by `quantity`. Taxes are not part of it,  and a quota with no price of its own is not listed at all rather than listed with a zero.
    * @return amount
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AMOUNT, required = false)
@@ -310,7 +303,7 @@ public class UpcomingPaymentDto {
   }
 
   /**
-   * The three-character ISO 4217 currency symbol of the amount.
+   * The currency `amount` is expressed in, as a three-letter ISO 4217 code. It follows the portal's billing  account, so every entry of one answer carries the same code.
    * @return currency
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -349,7 +342,7 @@ public class UpcomingPaymentDto {
         equalsNullable(this.unitOfMeasure, upcomingPaymentDto.unitOfMeasure) &&
         Objects.equals(this.quantity, upcomingPaymentDto.quantity) &&
         Objects.equals(this.wallet, upcomingPaymentDto.wallet) &&
-        equalsNullable(this.dueDate, upcomingPaymentDto.dueDate) &&
+        Objects.equals(this.dueDate, upcomingPaymentDto.dueDate) &&
         Objects.equals(this.amount, upcomingPaymentDto.amount) &&
         equalsNullable(this.currency, upcomingPaymentDto.currency);
   }
@@ -360,7 +353,7 @@ public class UpcomingPaymentDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(name), hashCodeNullable(title), hashCodeNullable(unitOfMeasure), quantity, wallet, hashCodeNullable(dueDate), amount, hashCodeNullable(currency));
+    return Objects.hash(id, hashCodeNullable(name), hashCodeNullable(title), hashCodeNullable(unitOfMeasure), quantity, wallet, dueDate, amount, hashCodeNullable(currency));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -492,12 +485,7 @@ public class UpcomingPaymentDto {
 
     // add `dueDate` to the URL query string
     if (getDueDate() != null) {
-      try {
-        joiner.add(String.format("%sdueDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDueDate()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getDueDate().toUrlQueryString(prefix + "dueDate" + suffix));
     }
 
     // add `amount` to the URL query string

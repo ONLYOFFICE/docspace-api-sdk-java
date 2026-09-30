@@ -97,7 +97,7 @@ public class OAuth20Token {
   }
 
   /**
-   * Access token
+   * The token sent to the provider with every request made on behalf of the account.
    * @return accessToken
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -128,7 +128,7 @@ public class OAuth20Token {
   }
 
   /**
-   * Refresh token
+   * The token used to obtain a new access token when the current one expires. A provider that issues no refresh  token leaves it empty, and the account then has to be connected again to keep working.
    * @return refreshToken
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -159,7 +159,7 @@ public class OAuth20Token {
   }
 
   /**
-   * Expires in
+   * How long the access token stays usable, in seconds counted from `timestamp`. Zero means the provider did not  say, and the token is then treated as expired.
    * @return expiresIn
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRES_IN, required = false)
@@ -183,7 +183,7 @@ public class OAuth20Token {
   }
 
   /**
-   * Client id
+   * The OAuth 2.0 client ID of the application the token was issued to.
    * @return clientId
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -214,7 +214,7 @@ public class OAuth20Token {
   }
 
   /**
-   * Client secret
+   * The client secret of the application the token was issued to, needed when the token is refreshed.
    * @return clientSecret
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -245,7 +245,7 @@ public class OAuth20Token {
   }
 
   /**
-   * Redirect uri
+   * The redirect URL the authorization code behind this token was obtained with; providers require the same value  again when the token is refreshed.
    * @return redirectUri
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -276,7 +276,7 @@ public class OAuth20Token {
   }
 
   /**
-   * Timestamp
+   * When the token was issued, in UTC. This is the point `expires_in` is counted from.
    * @return timestamp
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TIMESTAMP, required = false)
@@ -294,7 +294,7 @@ public class OAuth20Token {
   }
 
   /**
-   * Is expired
+   * Whether the access token can no longer be used and has to be refreshed. It is also true when the provider did  not say how long the token lives.
    * @return isExpired
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_EXPIRED, required = false)

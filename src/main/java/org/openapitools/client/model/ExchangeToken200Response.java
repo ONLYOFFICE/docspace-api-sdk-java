@@ -66,7 +66,7 @@ public class ExchangeToken200Response {
   }
 
   /**
-   * The access token issued by the authorization server.
+   * The token to send as a Bearer credential when calling the portal on the user behalf.
    * @return accessToken
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS_TOKEN, required = false)
@@ -90,7 +90,7 @@ public class ExchangeToken200Response {
   }
 
   /**
-   * The type of token issued, typically 'Bearer'.
+   * How the access token is to be presented. It is always Bearer.
    * @return tokenType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOKEN_TYPE, required = false)
@@ -114,7 +114,7 @@ public class ExchangeToken200Response {
   }
 
   /**
-   * The number of seconds until the access token expires.
+   * How many seconds the access token stays valid, counted from the moment it was issued.
    * @return expiresIn
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRES_IN, required = false)
@@ -138,7 +138,7 @@ public class ExchangeToken200Response {
   }
 
   /**
-   * The token used to obtain a new access token when the current one expires.
+   * The token that buys a new access token once the current one expires. It is present only when the client is registered for the refresh token grant.
    * @return refreshToken
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REFRESH_TOKEN, required = false)

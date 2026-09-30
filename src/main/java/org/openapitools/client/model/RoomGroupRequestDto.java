@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.DuplicateRequestDtoAllOfFileIds;
+import org.openapitools.client.model.SearchArea;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -36,12 +37,13 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for creating a room group
+ * The name, the icon and the rooms of a room group to create.
  */
 @JsonPropertyOrder({
   RoomGroupRequestDto.JSON_PROPERTY_NAME,
   RoomGroupRequestDto.JSON_PROPERTY_ICON,
-  RoomGroupRequestDto.JSON_PROPERTY_ROOMS
+  RoomGroupRequestDto.JSON_PROPERTY_ROOMS,
+  RoomGroupRequestDto.JSON_PROPERTY_SEARCH_AREA
 })
 
 public class RoomGroupRequestDto {
@@ -54,6 +56,9 @@ public class RoomGroupRequestDto {
   public static final String JSON_PROPERTY_ROOMS = "rooms";
   @javax.annotation.Nonnull  private List<DuplicateRequestDtoAllOfFileIds> rooms = new ArrayList<>();
 
+  public static final String JSON_PROPERTY_SEARCH_AREA = "searchArea";
+  @javax.annotation.Nullable  private SearchArea searchArea;
+
   public RoomGroupRequestDto() {
   }
 
@@ -65,7 +70,7 @@ public class RoomGroupRequestDto {
   }
 
   /**
-   * Group name
+   * The name to show the group under. Surrounding spaces are trimmed before it is stored, a name that is blank  once trimmed is refused, and the name does not have to differ from the names of the caller's other groups.
    * @return name
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
@@ -89,7 +94,7 @@ public class RoomGroupRequestDto {
   }
 
   /**
-   * Group icon
+   * The icon of the group, given as the identifier of one of the built-in covers listed by  `GET api/2.0/files/rooms/covers`. An uploaded image cannot be used, and any value that is not one of those  identifiers is refused.
    * @return icon
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ICON, required = true)
@@ -121,7 +126,7 @@ public class RoomGroupRequestDto {
   }
 
   /**
-   * The list of room IDs.
+   * The rooms to gather in the group, each given as a number for a room stored in the portal or as a string for a  room on a connected third-party account. Every identifier has to name a room the caller can read; repeats are  collapsed, and an element of any other shape - a decimal number, a number sent as a string, null - is refused.
    * @return rooms
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ROOMS, required = true)
@@ -138,6 +143,30 @@ public class RoomGroupRequestDto {
     this.rooms = rooms;
   }
 
+  public RoomGroupRequestDto searchArea(@javax.annotation.Nullable SearchArea searchArea) {
+    
+    this.searchArea = searchArea;
+    return this;
+  }
+
+  /**
+   * The section the group belongs to: Active for Rooms and Forms for Forms. Active when omitted.
+   * @return searchArea
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SEARCH_AREA, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SearchArea getSearchArea() {
+    return searchArea;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SEARCH_AREA, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSearchArea(@javax.annotation.Nullable SearchArea searchArea) {
+    this.searchArea = searchArea;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -149,12 +178,13 @@ public class RoomGroupRequestDto {
     RoomGroupRequestDto roomGroupRequestDto = (RoomGroupRequestDto) o;
     return Objects.equals(this.name, roomGroupRequestDto.name) &&
         Objects.equals(this.icon, roomGroupRequestDto.icon) &&
-        Objects.equals(this.rooms, roomGroupRequestDto.rooms);
+        Objects.equals(this.rooms, roomGroupRequestDto.rooms) &&
+        Objects.equals(this.searchArea, roomGroupRequestDto.searchArea);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, icon, rooms);
+    return Objects.hash(name, icon, rooms, searchArea);
   }
 
   @Override
@@ -164,6 +194,7 @@ public class RoomGroupRequestDto {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
     sb.append("    rooms: ").append(toIndentedString(rooms)).append("\n");
+    sb.append("    searchArea: ").append(toIndentedString(searchArea)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -238,6 +269,16 @@ public class RoomGroupRequestDto {
           joiner.add(getRooms().get(i).toUrlQueryString(String.format("%srooms%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
+      }
+    }
+
+    // add `searchArea` to the URL query string
+    if (getSearchArea() != null) {
+      try {
+        joiner.add(String.format("%ssearchArea%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSearchArea()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
       }
     }
 

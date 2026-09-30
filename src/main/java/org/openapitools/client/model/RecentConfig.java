@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The presence or absence of the documents in the Open Recent... menu option.
+ * One entry of the recent-documents list the editor offers.
  */
 @JsonPropertyOrder({
   RecentConfig.JSON_PROPERTY_FOLDER,
@@ -66,7 +66,7 @@ public class RecentConfig {
   }
 
   /**
-   * The folder where the document is stored.
+   * The folder shown next to the entry, as a readable name rather than an id.
    * @return folder
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -97,7 +97,7 @@ public class RecentConfig {
   }
 
   /**
-   * The document title that will be displayed in the Open Recent... menu option.
+   * The name shown for the entry.
    * @return title
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -128,7 +128,7 @@ public class RecentConfig {
   }
 
   /**
-   * The absolute URL to the document where it is stored.
+   * Where the entry opens.
    * @return url
    */
   @javax.annotation.Nullable  @JsonIgnore

@@ -35,7 +35,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The parameters for managing room tags.
+ * The tag names a request attaches to a room or detaches from it.
  */
 @JsonPropertyOrder({
   BatchTagsRequestDto.JSON_PROPERTY_NAMES
@@ -64,7 +64,7 @@ public class BatchTagsRequestDto {
   }
 
   /**
-   * The list of tag names.
+   * The tags, by name: a tag has no identifier of its own, and the name is what links a room to it.  `GET api/2.0/files/tags` lists the names already in the portal catalogue. An empty list is accepted and does  nothing, while a blank or overlong entry makes the whole request invalid.
    * @return names
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_NAMES, required = true)

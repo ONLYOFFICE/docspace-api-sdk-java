@@ -57,7 +57,7 @@
 
 * `Knowledge` (value: `32`)
 
-* `ResultStorage` (value: `33`)
+* `ChatOutputs` (value: `33`)
 
 * `AiAgents` (value: `34`)
 

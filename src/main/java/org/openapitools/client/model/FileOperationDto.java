@@ -43,7 +43,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The file operation information.
+ * One background file operation of the caller, as it stood when the answer was built.
  */
 @JsonPropertyOrder({
   FileOperationDto.JSON_PROPERTY_ID,
@@ -100,7 +100,7 @@ public class FileOperationDto {
   }
 
   /**
-   * The file operation ID.
+   * The identifier of the operation, the one to pass to `PUT api/2.0/files/fileops/terminate/{id}` to stop it.  Operations belong to the account that started them, so an identifier of somebody else is never listed here.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -124,7 +124,7 @@ public class FileOperationDto {
   }
 
   /**
-   * The file operation type.
+   * What the operation does with the entries, which also decides what else is reported: only a download fills  `url`, and a deletion leaves `files` and `folders` empty.
    * @return operation
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_OPERATION, required = true)
@@ -148,7 +148,7 @@ public class FileOperationDto {
   }
 
   /**
-   * The file operation progress in percentage.
+   * How far the operation has come, from 0 to 100. Reaching 100 only means it stopped; whether it did what it was  asked for is told by `error`.
    * @return progress
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PROGRESS, required = true)
@@ -172,7 +172,7 @@ public class FileOperationDto {
   }
 
   /**
-   * The file operation error message.
+   * The reason the operation could not finish its work, in the language of the request. Empty when nothing went  wrong, which is the only way to tell a successful operation from a failed one.
    * @return error
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
@@ -196,7 +196,7 @@ public class FileOperationDto {
   }
 
   /**
-   * The file operation processing status.
+   * How many entries the operation has handled so far, written as a decimal number in a string. It counts items,  not percent, and stays behind `progress` on operations that walk into subfolders.
    * @return processed
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROCESSED, required = false)
@@ -220,7 +220,7 @@ public class FileOperationDto {
   }
 
   /**
-   * Specifies if the file operation is finished or not.
+   * Whether the operation has stopped running. A finished operation is reported once and then dropped, so the next  read of the operation list no longer contains it.
    * @return finished
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_FINISHED, required = true)
@@ -244,7 +244,7 @@ public class FileOperationDto {
   }
 
   /**
-   * The file operation URL.
+   * The address the packed archive can be downloaded from once a bulk download has finished. Empty for every other  kind of operation.
    * @return url
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -287,7 +287,7 @@ public class FileOperationDto {
   }
 
   /**
-   * The list of files of the file operation.
+   * The files the operation produced or moved, in the order it wrote them down. Empty while nothing has been  written yet and for a deletion, which reports no entries at all.
    * @return files
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -330,7 +330,7 @@ public class FileOperationDto {
   }
 
   /**
-   * The list of folders of the file operation.
+   * The folders the operation produced or moved, in the order it wrote them down. Empty while nothing has been  written yet and for a deletion.
    * @return folders
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -361,7 +361,7 @@ public class FileOperationDto {
   }
 
   /**
-   * The status of the distributed task related to the file operation.
+   * The state of the background task behind the operation, which tells a task that was cancelled or that crashed  from one that ran to its end.
    * @return status
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)

@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Request body for toggling an application enabled state.
+ * Whether a portal application is switched on.
  */
 @JsonPropertyOrder({
   SetAppEnabledBody.JSON_PROPERTY_ENABLED
@@ -53,7 +53,7 @@ public class SetAppEnabledBody {
   }
 
   /**
-   * Whether the application should be enabled.
+   * Whether the application is available in this portal. Switching it off leaves its settings document stored, so  switching it back on restores the configuration it had; connected clients are told of the new state without a  reload.
    * @return enabled
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)

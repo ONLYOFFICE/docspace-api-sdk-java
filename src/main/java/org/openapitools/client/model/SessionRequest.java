@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.time.OffsetDateTime;
+import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The session request parameters.
+ * The file a chunked upload session is opened for, and how a clash with an existing name is settled.
  */
 @JsonPropertyOrder({
   SessionRequest.JSON_PROPERTY_FILE_NAME,
@@ -59,7 +59,7 @@ public class SessionRequest {
   @javax.annotation.Nullable  private JsonNullable<String> relativePath = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CREATE_ON = "createOn";
-  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> createOn = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private ApiDateTime createOn;
 
   public static final String JSON_PROPERTY_ENCRYPTED = "encrypted";
   @javax.annotation.Nullable  private Boolean encrypted;
@@ -78,7 +78,7 @@ public class SessionRequest {
   }
 
   /**
-   * The file name.
+   * The name to store the file under, extension included. Characters a title cannot hold are replaced and the name  is truncated, so the stored title can differ from the one sent.
    * @return fileName
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_NAME, required = false)
@@ -102,7 +102,7 @@ public class SessionRequest {
   }
 
   /**
-   * The file size.
+   * The exact number of bytes that will be sent. The size is reserved when the session opens and compared with the  parts as they arrive; below the portal chunk size the session takes the whole payload in one part, and above  the portal limit for chunked uploads it is refused.
    * @return fileSize
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_SIZE, required = false)
@@ -126,7 +126,7 @@ public class SessionRequest {
   }
 
   /**
-   * The relative path to the file.
+   * A slash-separated chain of folder titles under the target folder to store the file in; folders in the chain  that do not exist yet are created. Leave it empty to store the file in the folder from the path itself.
    * @return relativePath
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -150,35 +150,28 @@ public class SessionRequest {
     this.relativePath = JsonNullable.<String>of(relativePath);
   }
 
-  public SessionRequest createOn(@javax.annotation.Nullable OffsetDateTime createOn) {
-    this.createOn = JsonNullable.<OffsetDateTime>of(createOn);
+  public SessionRequest createOn(@javax.annotation.Nullable ApiDateTime createOn) {
     
+    this.createOn = createOn;
     return this;
   }
 
   /**
-   * The date and time when the file was created.
+   * The creation time to stamp on a newly created file instead of the moment the upload finishes. It is ignored  when the upload lands on a file that already exists.
    * @return createOn
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_ON, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getCreateOn() {
-        return createOn.orElse(null);
+  public ApiDateTime getCreateOn() {
+    return createOn;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_CREATE_ON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<OffsetDateTime> getCreateOn_JsonNullable() {
-    return createOn;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_CREATE_ON)
-  public void setCreateOn_JsonNullable(JsonNullable<OffsetDateTime> createOn) {
+  public void setCreateOn(@javax.annotation.Nullable ApiDateTime createOn) {
     this.createOn = createOn;
-  }
-
-  public void setCreateOn(@javax.annotation.Nullable OffsetDateTime createOn) {
-    this.createOn = JsonNullable.<OffsetDateTime>of(createOn);
   }
 
   public SessionRequest encrypted(@javax.annotation.Nullable Boolean encrypted) {
@@ -188,7 +181,7 @@ public class SessionRequest {
   }
 
   /**
-   * Specifies whether the file is encrypted or not.
+   * Marks the stored file as client-side encrypted, which is how content uploaded into a private room is kept;  with false the bytes are stored as they arrive.
    * @return encrypted
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENCRYPTED, required = false)
@@ -212,7 +205,7 @@ public class SessionRequest {
   }
 
   /**
-   * Specifies whether to create a new file if it already exists.
+   * Settles the clash when the folder already holds a file with this name: true stores the upload beside it under  a name with a numeric suffix, false takes the existing file over and adds the content to it as a new version.
    * @return createNewIfExist
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_NEW_IF_EXIST, required = false)
@@ -241,7 +234,7 @@ public class SessionRequest {
     return Objects.equals(this.fileName, sessionRequest.fileName) &&
         Objects.equals(this.fileSize, sessionRequest.fileSize) &&
         equalsNullable(this.relativePath, sessionRequest.relativePath) &&
-        equalsNullable(this.createOn, sessionRequest.createOn) &&
+        Objects.equals(this.createOn, sessionRequest.createOn) &&
         Objects.equals(this.encrypted, sessionRequest.encrypted) &&
         Objects.equals(this.createNewIfExist, sessionRequest.createNewIfExist);
   }
@@ -252,7 +245,7 @@ public class SessionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileName, fileSize, hashCodeNullable(relativePath), hashCodeNullable(createOn), encrypted, createNewIfExist);
+    return Objects.hash(fileName, fileSize, hashCodeNullable(relativePath), createOn, encrypted, createNewIfExist);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -351,12 +344,7 @@ public class SessionRequest {
 
     // add `createOn` to the URL query string
     if (getCreateOn() != null) {
-      try {
-        joiner.add(String.format("%screateOn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreateOn()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getCreateOn().toUrlQueryString(prefix + "createOn" + suffix));
     }
 
     // add `encrypted` to the URL query string

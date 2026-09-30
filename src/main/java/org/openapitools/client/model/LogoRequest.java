@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The logo request parameters.
+ * The part of an uploaded picture to use as the logo.
  */
 @JsonPropertyOrder({
   LogoRequest.JSON_PROPERTY_TMP_FILE,
@@ -69,7 +69,7 @@ public class LogoRequest {
   }
 
   /**
-   * The path to the temporary image file.
+   * The picture to cut the logo out of, named by the path that `POST api/2.0/files/logos` returned for it. The  path may be used once and only by the account that uploaded it.
    * @return tmpFile
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TMP_FILE, required = true)
@@ -93,7 +93,7 @@ public class LogoRequest {
   }
 
   /**
-   * The X coordinate of the rectangle starting point.
+   * The left edge of the rectangle cut out of the uploaded picture, counted in pixels from its left side. The  picture itself was already scaled down to fit 1280 by 1280 pixels when it was uploaded.
    * minimum: 0
    * maximum: 1280
    * @return x
@@ -119,7 +119,7 @@ public class LogoRequest {
   }
 
   /**
-   * The Y coordinate of the rectangle starting point.
+   * The top edge of the rectangle cut out of the uploaded picture, counted in pixels from its top.
    * minimum: 0
    * maximum: 1280
    * @return y
@@ -145,7 +145,7 @@ public class LogoRequest {
   }
 
   /**
-   * The rectangle width.
+   * How wide a piece of the uploaded picture to cut out, in pixels. It has to be sent together with the height,  and the portal builds the four logo sizes out of the piece.
    * minimum: 1
    * maximum: 1280
    * @return width
@@ -171,7 +171,7 @@ public class LogoRequest {
   }
 
   /**
-   * The rectangle height.
+   * How tall a piece of the uploaded picture to cut out, in pixels. It has to be sent together with the width.
    * minimum: 1
    * maximum: 1280
    * @return height

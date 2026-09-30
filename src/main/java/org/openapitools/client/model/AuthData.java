@@ -38,7 +38,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The authentication data.
+ * The credentials of a third-party storage account. The portal takes them when an account is connected and does not  give them back afterwards.
  */
 @JsonPropertyOrder({
   AuthData.JSON_PROPERTY_LOGIN,
@@ -79,7 +79,7 @@ public class AuthData {
   }
 
   /**
-   * The authentication login.
+   * The account name at the storage service.
    * @return login
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -110,7 +110,7 @@ public class AuthData {
   }
 
   /**
-   * The authentication password.
+   * The password of the account at the storage service.
    * @return password
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -141,7 +141,7 @@ public class AuthData {
   }
 
   /**
-   * The authentication raw token.
+   * The token of the account, kept as the raw JSON document the storage service issued it in.
    * @return rawToken
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -172,7 +172,7 @@ public class AuthData {
   }
 
   /**
-   * The authentication URL.
+   * The address of the storage server the account lives on.
    * @return url
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -203,7 +203,7 @@ public class AuthData {
   }
 
   /**
-   * The authentication provider.
+   * The storage service the credentials belong to, as the provider key the account was connected with.
    * @return provider
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -234,7 +234,7 @@ public class AuthData {
   }
 
   /**
-   * The authentication token.
+   * The same token as in `rawToken`, parsed into its OAuth 2.0 fields.
    * @return token
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOKEN, required = false)

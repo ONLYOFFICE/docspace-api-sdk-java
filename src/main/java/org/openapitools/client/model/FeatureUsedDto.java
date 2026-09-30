@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The used space parameters of the tenant quota feature.
+ * How much of one quota feature the portal has already consumed.
  */
 @JsonPropertyOrder({
   FeatureUsedDto.JSON_PROPERTY_VALUE,
@@ -85,7 +85,7 @@ public class FeatureUsedDto {
   }
 
   /**
-   * The used space title.
+   * The same figure as a sentence in the portal language, ready to print. It is empty when this build ships no  wording for the feature.
    * @return title
    */
   @javax.annotation.Nullable  @JsonIgnore

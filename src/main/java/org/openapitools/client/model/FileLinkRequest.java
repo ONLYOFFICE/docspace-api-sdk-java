@@ -24,8 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.time.OffsetDateTime;
 import java.util.UUID;
+import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.FileShare;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -39,7 +39,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The external link request parameters.
+ * The settings of an external link to a file.
  */
 @JsonPropertyOrder({
   FileLinkRequest.JSON_PROPERTY_LINK_ID,
@@ -60,7 +60,7 @@ public class FileLinkRequest {
   @javax.annotation.Nullable  private FileShare access;
 
   public static final String JSON_PROPERTY_EXPIRATION_DATE = "expirationDate";
-  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> expirationDate = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private ApiDateTime expirationDate;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
@@ -88,7 +88,7 @@ public class FileLinkRequest {
   }
 
   /**
-   * The external link ID.
+   * The link to rewrite, as reported by `GET api/2.0/files/file/{id}/links`. An identifier that is not yet in use,  the empty one included, creates a link instead.
    * @return linkId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LINK_ID, required = false)
@@ -112,7 +112,7 @@ public class FileLinkRequest {
   }
 
   /**
-   * The link sharing rights.
+   * The rights the link grants to whoever follows it. The value that denies everything revokes the link.
    * @return access
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
@@ -129,35 +129,28 @@ public class FileLinkRequest {
     this.access = access;
   }
 
-  public FileLinkRequest expirationDate(@javax.annotation.Nullable OffsetDateTime expirationDate) {
-    this.expirationDate = JsonNullable.<OffsetDateTime>of(expirationDate);
+  public FileLinkRequest expirationDate(@javax.annotation.Nullable ApiDateTime expirationDate) {
     
+    this.expirationDate = expirationDate;
     return this;
   }
 
   /**
-   * The link expiration date.
+   * The moment the link stops working, read in the time zone of the portal. A date more than a few years ahead is  rejected as an invalid request; left out, the link does not expire on its own.
    * @return expirationDate
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getExpirationDate() {
-        return expirationDate.orElse(null);
+  public ApiDateTime getExpirationDate() {
+    return expirationDate;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<OffsetDateTime> getExpirationDate_JsonNullable() {
-    return expirationDate;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
-  public void setExpirationDate_JsonNullable(JsonNullable<OffsetDateTime> expirationDate) {
+  public void setExpirationDate(@javax.annotation.Nullable ApiDateTime expirationDate) {
     this.expirationDate = expirationDate;
-  }
-
-  public void setExpirationDate(@javax.annotation.Nullable OffsetDateTime expirationDate) {
-    this.expirationDate = JsonNullable.<OffsetDateTime>of(expirationDate);
   }
 
   public FileLinkRequest title(@javax.annotation.Nullable String title) {
@@ -167,7 +160,7 @@ public class FileLinkRequest {
   }
 
   /**
-   * The link name.
+   * The name the link carries in the sharing list of the file, for the people who manage it; it is not shown to  whoever follows the link.
    * @return title
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -198,7 +191,7 @@ public class FileLinkRequest {
   }
 
   /**
-   * The link scope, whether it is internal or not.
+   * Who may follow the link: `true` admits only accounts that are signed in to the portal, `false` admits anybody  who has the address.
    * @return internal
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INTERNAL, required = false)
@@ -222,7 +215,7 @@ public class FileLinkRequest {
   }
 
   /**
-   * Specifies whether the file link is primary or not.
+   * Whether this link becomes the primary link of the file - the one the Copy link action of a client hands out.  A file has one primary link at a time.
    * @return primary
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRIMARY, required = false)
@@ -246,7 +239,7 @@ public class FileLinkRequest {
   }
 
   /**
-   * Specifies whether to deny downloading the file or not.
+   * What a visitor may do with the content: `true` leaves them with viewing in the browser, `false` lets them  download and print it as their rights allow.
    * @return denyDownload
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DENY_DOWNLOAD, required = false)
@@ -270,7 +263,7 @@ public class FileLinkRequest {
   }
 
   /**
-   * Password for access via link.
+   * The secret a visitor has to type before the file opens; left out, the link opens without one.
    * @return password
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -305,7 +298,7 @@ public class FileLinkRequest {
     FileLinkRequest fileLinkRequest = (FileLinkRequest) o;
     return Objects.equals(this.linkId, fileLinkRequest.linkId) &&
         Objects.equals(this.access, fileLinkRequest.access) &&
-        equalsNullable(this.expirationDate, fileLinkRequest.expirationDate) &&
+        Objects.equals(this.expirationDate, fileLinkRequest.expirationDate) &&
         equalsNullable(this.title, fileLinkRequest.title) &&
         Objects.equals(this.internal, fileLinkRequest.internal) &&
         Objects.equals(this.primary, fileLinkRequest.primary) &&
@@ -319,7 +312,7 @@ public class FileLinkRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(linkId, access, hashCodeNullable(expirationDate), hashCodeNullable(title), internal, primary, denyDownload, hashCodeNullable(password));
+    return Objects.hash(linkId, access, expirationDate, hashCodeNullable(title), internal, primary, denyDownload, hashCodeNullable(password));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -410,12 +403,7 @@ public class FileLinkRequest {
 
     // add `expirationDate` to the URL query string
     if (getExpirationDate() != null) {
-      try {
-        joiner.add(String.format("%sexpirationDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpirationDate()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getExpirationDate().toUrlQueryString(prefix + "expirationDate" + suffix));
     }
 
     // add `title` to the URL query string

@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
-import org.openapitools.client.model.Tariff;
+import org.openapitools.client.model.TariffDto;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The successful API response containing the Tariff object.
+ * The successful API response containing the TariffDto object.
  */
 @JsonPropertyOrder({
   TariffWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class TariffWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private Tariff response;
+  @javax.annotation.Nullable  private TariffDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class TariffWrapper {
   }
 
 
-  public TariffWrapper response(@javax.annotation.Nullable Tariff response) {
+  public TariffWrapper response(@javax.annotation.Nullable TariffDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * The Tariff object returned by the operation.
+   * The TariffDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Tariff getResponse() {
+  public TariffDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable Tariff response) {
+  public void setResponse(@javax.annotation.Nullable TariffDto response) {
     this.response = response;
   }
 

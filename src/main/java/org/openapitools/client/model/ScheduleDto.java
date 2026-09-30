@@ -41,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The backup schedule parameters.
+ * The backup schedule of a portal.
  */
 @JsonPropertyOrder({
   ScheduleDto.JSON_PROPERTY_STORAGE_TYPE,
@@ -82,7 +82,7 @@ public class ScheduleDto {
   }
 
   /**
-   * The backup storage type.
+   * The storage the scheduled archives are written to, reported as a number rather than as the name the  schedule was created with.
    * @return storageType
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STORAGE_TYPE, required = true)
@@ -111,7 +111,7 @@ public class ScheduleDto {
   }
 
   /**
-   * The backup storage parameters.
+   * The settings of the storage, as an object keyed by parameter name - not as the array of key and value  pairs the schedule was created with, so it cannot be sent back unchanged. For every storage type  except `ThirdPartyConsumer` the `folderId` key is built from the stored base path.
    * @return storageParams
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STORAGE_PARAMS, required = true)
@@ -135,7 +135,7 @@ public class ScheduleDto {
   }
 
   /**
-   * The backup cron parameters.
+   * When the backup runs, read back from the stored cron expression. `day` is 0 for a daily schedule,  because a daily one has no day.
    * @return cronParams
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CRON_PARAMS, required = true)
@@ -159,7 +159,7 @@ public class ScheduleDto {
   }
 
   /**
-   * The maximum number of the stored backup copies.
+   * The number of scheduled copies kept. It is null, not 0, when the schedule keeps an unlimited number.
    * @return backupsStored
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -190,7 +190,7 @@ public class ScheduleDto {
   }
 
   /**
-   * The date and time when the last backup was reated.
+   * The date and time the schedule last ran at. It is `0001-01-01T00:00:00` until the schedule has run  for the first time.
    * @return lastBackupTime
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_LAST_BACKUP_TIME, required = true)
@@ -214,7 +214,7 @@ public class ScheduleDto {
   }
 
   /**
-   * Specifies if a dump will be created or not.
+   * Specifies whether this schedule backs up the whole server instead of one portal.
    * @return dump
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DUMP, required = true)

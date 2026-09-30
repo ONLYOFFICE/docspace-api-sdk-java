@@ -40,7 +40,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Represents the current user quota of a DocsCloud tenant.
+ * Represents the current user quota of a Docs Connect tenant.
  */
 @JsonPropertyOrder({
   DocsCloudQuota.JSON_PROPERTY_USERS,

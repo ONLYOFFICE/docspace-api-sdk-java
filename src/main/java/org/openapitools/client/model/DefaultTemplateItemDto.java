@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Default template setting
+ * The blank document configured for one extension.
  */
 @JsonPropertyOrder({
   DefaultTemplateItemDto.JSON_PROPERTY_SELECTED_FILE,
@@ -78,7 +78,7 @@ public class DefaultTemplateItemDto {
   }
 
   /**
-   * File id to use as a default template
+   * The copy stored in the portal that serves as the blank for this extension. A null means no custom blank has  been chosen and new documents start from the portal's built-in one; the other fields of the entry are then  empty as well.
    * @return selectedFile
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -109,7 +109,7 @@ public class DefaultTemplateItemDto {
   }
 
   /**
-   * Extension of a default template
+   * The extension the entry describes, in lower case with the leading dot. It is the value to send back when this  blank is replaced or reset.
    * @return fileExtension
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_EXTENSION, required = false)
@@ -133,7 +133,7 @@ public class DefaultTemplateItemDto {
   }
 
   /**
-   * Title of a default template
+   * The name the custom blank was copied under, useful for showing which document was chosen. Empty while the  built-in blank is in use.
    * @return fileTitle
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -164,7 +164,7 @@ public class DefaultTemplateItemDto {
   }
 
   /**
-   * Last modified date of a default template
+   * When the custom blank was last changed, in the time zone of the portal. Null while the built-in blank is in  use.
    * @return lastModified
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -195,7 +195,7 @@ public class DefaultTemplateItemDto {
   }
 
   /**
-   * Filesize (in bytes) of a default template
+   * The size of the custom blank in bytes. Null while the built-in blank is in use.
    * @return fileSize
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -226,7 +226,7 @@ public class DefaultTemplateItemDto {
   }
 
   /**
-   * View url of a default template
+   * The address the custom blank can be downloaded from, already carrying the access key of the calling account.  Empty while the built-in blank is in use.
    * @return viewUrl
    */
   @javax.annotation.Nullable  @JsonIgnore

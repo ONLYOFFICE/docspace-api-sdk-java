@@ -40,7 +40,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Represents the configuration of a DocsCloud tenant.
+ * Represents the configuration of a Docs Connect tenant.
  */
 @JsonPropertyOrder({
   DocsCloudConfig.JSON_PROPERTY_TENANT_NAME,

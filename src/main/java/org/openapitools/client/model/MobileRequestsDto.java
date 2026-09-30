@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The parameters required for the mobile phone verification.
+ * The phone number a user going through phone activation registers for SMS codes.
  */
 @JsonPropertyOrder({
   MobileRequestsDto.JSON_PROPERTY_MOBILE_PHONE
@@ -57,7 +57,7 @@ public class MobileRequestsDto {
   }
 
   /**
-   * The user's mobile phone number.
+   * The number the SMS codes are sent to, in international form with the leading `+` and no spaces. It is stored  as not yet activated and only becomes the confirmed number once a code sent to it is accepted; an already  activated number is not replaced this way and has to be erased first.
    * @return mobilePhone
    */
   @javax.annotation.Nullable  @JsonIgnore

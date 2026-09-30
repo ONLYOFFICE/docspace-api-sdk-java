@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The response containing the regenerated client secret.
+ * The response carrying a regenerated client secret.
  */
 @JsonPropertyOrder({
   ClientSecretResponse.JSON_PROPERTY_CLIENT_SECRET
@@ -53,7 +53,7 @@ public class ClientSecretResponse {
   }
 
   /**
-   * The newly generated client secret.
+   * The newly generated client secret. It replaces the previous one immediately, so every deployed copy of the client has to be updated with this value.
    * @return clientSecret
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CLIENT_SECRET, required = false)

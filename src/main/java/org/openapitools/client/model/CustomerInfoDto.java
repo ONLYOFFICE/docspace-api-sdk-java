@@ -38,11 +38,13 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The customer information.
+ * The billing customer behind the portal, and which portal member pays for it.
  */
 @JsonPropertyOrder({
   CustomerInfoDto.JSON_PROPERTY_PORTAL_ID,
   CustomerInfoDto.JSON_PROPERTY_PAYMENT_METHOD_STATUS,
+  CustomerInfoDto.JSON_PROPERTY_PAYMENT_METHOD_TYPE,
+  CustomerInfoDto.JSON_PROPERTY_IS_DELAYED_PAYMENT_METHOD,
   CustomerInfoDto.JSON_PROPERTY_EMAIL,
   CustomerInfoDto.JSON_PROPERTY_PAYER
 })
@@ -53,6 +55,12 @@ public class CustomerInfoDto {
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD_STATUS = "paymentMethodStatus";
   @javax.annotation.Nullable  private PaymentMethodStatus paymentMethodStatus;
+
+  public static final String JSON_PROPERTY_PAYMENT_METHOD_TYPE = "paymentMethodType";
+  @javax.annotation.Nullable  private JsonNullable<String> paymentMethodType = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_IS_DELAYED_PAYMENT_METHOD = "isDelayedPaymentMethod";
+  @javax.annotation.Nullable  private Boolean isDelayedPaymentMethod;
 
   public static final String JSON_PROPERTY_EMAIL = "email";
   @javax.annotation.Nullable  private JsonNullable<String> email = JsonNullable.<String>undefined();
@@ -68,16 +76,20 @@ public class CustomerInfoDto {
   @JsonCreator
   public CustomerInfoDto(
     @JsonProperty(JSON_PROPERTY_PORTAL_ID) String portalId, 
+    @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE) String paymentMethodType, 
+    @JsonProperty(JSON_PROPERTY_IS_DELAYED_PAYMENT_METHOD) Boolean isDelayedPaymentMethod, 
     @JsonProperty(JSON_PROPERTY_EMAIL) String email
   ) {
     this();
     this.portalId = portalId == null ? JsonNullable.<String>undefined() : JsonNullable.of(portalId);
+    this.paymentMethodType = paymentMethodType == null ? JsonNullable.<String>undefined() : JsonNullable.of(paymentMethodType);
+    this.isDelayedPaymentMethod = isDelayedPaymentMethod;
     this.email = email == null ? JsonNullable.<String>undefined() : JsonNullable.of(email);
   }
 
 
   /**
-   * The portal ID.
+   * The portal's identifier in the billing system, which is what support and invoices refer to. It is not the  portal alias.
    * @return portalId
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -109,7 +121,7 @@ public class CustomerInfoDto {
   }
 
   /**
-   * The customer's payment method.
+   * Whether a payment method is stored for the account and usable. Without one the portal can hold a wallet  balance but cannot be charged automatically.
    * @return paymentMethodStatus
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PAYMENT_METHOD_STATUS, required = false)
@@ -127,7 +139,46 @@ public class CustomerInfoDto {
   }
 
   /**
-   * The customer email address.
+   * The customer's payment method type.
+   * @return paymentMethodType
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getPaymentMethodType() {
+    
+    if (paymentMethodType == null) {
+      paymentMethodType = JsonNullable.<String>undefined();
+    }
+    return paymentMethodType.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_PAYMENT_METHOD_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getPaymentMethodType_JsonNullable() {
+    return paymentMethodType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
+  private void setPaymentMethodType_JsonNullable(JsonNullable<String> paymentMethodType) {
+    this.paymentMethodType = paymentMethodType;
+  }
+
+
+  /**
+   * Indicates whether the customer's payment method is delayed, i.e. the money reaches the wallet only after  the transfer settles rather than immediately.
+   * @return isDelayedPaymentMethod
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_DELAYED_PAYMENT_METHOD, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsDelayedPaymentMethod() {
+    return isDelayedPaymentMethod;
+  }
+
+
+
+  /**
+   * The address the billing account is registered to, lower-cased. It need not belong to a portal member,  which is exactly when `payer` stays empty.
    * @return email
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -159,7 +210,7 @@ public class CustomerInfoDto {
   }
 
   /**
-   * The paying user.
+   * The portal member whose account is behind the billing address. It is empty when `email` matches no member  of this portal, and while it is empty every operation of this group that only the payer may call is out  of reach for everybody.
    * @return payer
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PAYER, required = false)
@@ -187,6 +238,8 @@ public class CustomerInfoDto {
     CustomerInfoDto customerInfoDto = (CustomerInfoDto) o;
     return equalsNullable(this.portalId, customerInfoDto.portalId) &&
         Objects.equals(this.paymentMethodStatus, customerInfoDto.paymentMethodStatus) &&
+        equalsNullable(this.paymentMethodType, customerInfoDto.paymentMethodType) &&
+        Objects.equals(this.isDelayedPaymentMethod, customerInfoDto.isDelayedPaymentMethod) &&
         equalsNullable(this.email, customerInfoDto.email) &&
         Objects.equals(this.payer, customerInfoDto.payer);
   }
@@ -197,7 +250,7 @@ public class CustomerInfoDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(portalId), paymentMethodStatus, hashCodeNullable(email), payer);
+    return Objects.hash(hashCodeNullable(portalId), paymentMethodStatus, hashCodeNullable(paymentMethodType), isDelayedPaymentMethod, hashCodeNullable(email), payer);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -213,6 +266,8 @@ public class CustomerInfoDto {
     sb.append("class CustomerInfoDto {\n");
     sb.append("    portalId: ").append(toIndentedString(portalId)).append("\n");
     sb.append("    paymentMethodStatus: ").append(toIndentedString(paymentMethodStatus)).append("\n");
+    sb.append("    paymentMethodType: ").append(toIndentedString(paymentMethodType)).append("\n");
+    sb.append("    isDelayedPaymentMethod: ").append(toIndentedString(isDelayedPaymentMethod)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    payer: ").append(toIndentedString(payer)).append("\n");
     sb.append("}");
@@ -276,6 +331,26 @@ public class CustomerInfoDto {
     if (getPaymentMethodStatus() != null) {
       try {
         joiner.add(String.format("%spaymentMethodStatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPaymentMethodStatus()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `paymentMethodType` to the URL query string
+    if (getPaymentMethodType() != null) {
+      try {
+        joiner.add(String.format("%spaymentMethodType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPaymentMethodType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `isDelayedPaymentMethod` to the URL query string
+    if (getIsDelayedPaymentMethod() != null) {
+      try {
+        joiner.add(String.format("%sisDelayedPaymentMethod%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsDelayedPaymentMethod()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The information about the file editing history author.
+ * The person a saved revision of a file, or one single change in it, is attributed to.
  */
 @JsonPropertyOrder({
   EditHistoryAuthor.JSON_PROPERTY_ID,
@@ -61,7 +61,7 @@ public class EditHistoryAuthor {
   }
 
   /**
-   * The author ID.
+   * The account the revision or the change is attributed to, as the editing service stored it. It is normally the  identifier of a portal account; the empty identifier stands for a change nobody could be named for.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -85,7 +85,7 @@ public class EditHistoryAuthor {
   }
 
   /**
-   * The author name.
+   * The display name of that account as the portal spells it now, which need not be the name that was stored with  the revision. An account that cannot be resolved - one removed from the portal, or a change made through an  anonymous link - is reported as a guest.
    * @return name
    */
   @javax.annotation.Nullable  @JsonIgnore

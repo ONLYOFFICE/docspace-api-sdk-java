@@ -2,19 +2,19 @@
 
 # AdditionalWhiteLabelSettingsDto
 
-The additional white label settings parameters.
+Which of the ONLYOFFICE help and community entries the interface may offer, installation-wide.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**startDocsEnabled** | **Boolean** | Specifies if the sample documents are displayed or hidden. |  |
-|**helpCenterEnabled** | **Boolean** | Specifies if the Help Center link is available or not. |  |
-|**feedbackAndSupportEnabled** | **Boolean** | Specifies if the Feedback & Support link is available or not. |  |
-|**userForumEnabled** | **Boolean** | Specifies if the user forum is available or not. |  |
-|**videoGuidesEnabled** | **Boolean** | Specifies if the Video Guides link is available or not. |  |
-|**licenseAgreementsEnabled** | **Boolean** | Specifies if the License Agreements link is available or not. |  |
-|**isDefault** | **Boolean** | Specifies if the additional white label settings are default or not. |  |
+|**startDocsEnabled** | **Boolean** | Whether the sample documents that ONLYOFFICE ships may be placed in a new user's Documents. Unlike the link  flags below it depends on nothing that has to be configured, so its built-in value is always `true`. |  |
+|**helpCenterEnabled** | **Boolean** | Whether the interface may offer the Help Center entry. It is `false` both when the entry was switched off  for the installation and when the installation configures no Help Center address at all; the addresses  themselves are not part of this answer and arrive in `externalResources` of `GET api/2.0/settings`. |  |
+|**feedbackAndSupportEnabled** | **Boolean** | Whether the interface may offer the Feedback and Support entry, `false` for the same two reasons as  `helpCenterEnabled`. |  |
+|**userForumEnabled** | **Boolean** | Whether the interface may offer the user forum entry, `false` for the same two reasons as  `helpCenterEnabled`. |  |
+|**videoGuidesEnabled** | **Boolean** | Whether the interface may offer the Video Guides entry, `false` for the same two reasons as  `helpCenterEnabled`. |  |
+|**licenseAgreementsEnabled** | **Boolean** | Whether the interface may offer the License Agreements entry, `false` for the same two reasons as  `helpCenterEnabled`. |  |
+|**isDefault** | **Boolean** | Whether all six flags still hold the values the installation starts out with. It turns `false` as soon as  one of them is saved differently and `true` again after `DELETE api/2.0/settings/rebranding/additional`.  Because a link flag starts out off when no address is configured for it, `true` does not mean every entry  is on. |  |
 
 
 

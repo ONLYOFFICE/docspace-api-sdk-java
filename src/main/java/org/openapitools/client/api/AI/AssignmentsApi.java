@@ -27,6 +27,7 @@ import org.openapitools.client.Pair;
 import org.openapitools.client.model.AiActionType;
 import org.openapitools.client.model.AiAssignmentMutationResult;
 import org.openapitools.client.model.AiAssignmentsAssignRequest;
+import org.openapitools.client.model.AiAssignmentsCascadeProfileDeleteRequest;
 import org.openapitools.client.model.AiBulkAssignmentResult;
 import org.openapitools.client.model.AiErrorResponse;
 import org.openapitools.client.model.AiResolvedAssignment;
@@ -52,8 +53,8 @@ public class AssignmentsApi extends BaseApi {
 
 
   /**
-   * Assign
-   * Binds a profile to an AI action, creating the assignment or updating it in place. The profile's declared capabilities are validated against the action, except for the `Default` slot.
+   * Bind a profile to an action
+   * Binds a profile to one AI action portal-wide, creating the assignment or replacing it in place, and returns the result. Both `actionType` and `profileId` are required. The profile's declared capabilities are checked against the action, so a model that cannot generate images cannot be bound to `ImageGeneration` - the `Default` slot is exempt, because it stands in for every action. There is no room-scoped form of this write: a room's own binding is created by the agent that owns it, while reads accept an `entityId`.
    *
    * REST API Reference for aiAssignmentsAssign Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-assign/
@@ -68,8 +69,8 @@ public class AssignmentsApi extends BaseApi {
 
 
   /**
-   * Assign
-   * Binds a profile to an AI action, creating the assignment or updating it in place. The profile's declared capabilities are validated against the action, except for the `Default` slot.
+   * Bind a profile to an action
+   * Binds a profile to one AI action portal-wide, creating the assignment or replacing it in place, and returns the result. Both `actionType` and `profileId` are required. The profile's declared capabilities are checked against the action, so a model that cannot generate images cannot be bound to `ImageGeneration` - the `Default` slot is exempt, because it stands in for every action. There is no room-scoped form of this write: a room's own binding is created by the agent that owns it, while reads accept an `entityId`.
    *
    * REST API Reference for aiAssignmentsAssign Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-assign/
@@ -114,7 +115,7 @@ public class AssignmentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiAssignmentMutationResult> localVarReturnType = new TypeReference<AiAssignmentMutationResult>() {};
     return apiClient.invokeAPI(
@@ -136,12 +137,12 @@ public class AssignmentsApi extends BaseApi {
 
   /**
    * Bulk assign
-   * Applies many action-to-profile bindings at once. Every entry is validated first and nothing is written if any of them fails, so the assignment set is never left half-written.
+   * Applies many action-to-profile bindings in one write, which is how a settings screen saves the whole set. The body is a plain map of action type to profile ID, and every entry is validated before anything is written: one unknown action or one non-string profile ID rejects the request whole, so the set is never left half-applied. Each entry behaves as the single assign operation does, capability checks included. The answer carries the resulting assignment set.
    *
    * REST API Reference for aiAssignmentsBulkAssign Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-bulk-assign/
    *
-   * @param requestBody  (required)
+   * @param requestBody A map of action type to profile ID. Every key has to be a known action type and every value a profile ID; one bad entry rejects the whole map. (required)
    * @return AiBulkAssignmentResult
    * @throws ApiException if fails to make API call
    */
@@ -152,12 +153,12 @@ public class AssignmentsApi extends BaseApi {
 
   /**
    * Bulk assign
-   * Applies many action-to-profile bindings at once. Every entry is validated first and nothing is written if any of them fails, so the assignment set is never left half-written.
+   * Applies many action-to-profile bindings in one write, which is how a settings screen saves the whole set. The body is a plain map of action type to profile ID, and every entry is validated before anything is written: one unknown action or one non-string profile ID rejects the request whole, so the set is never left half-applied. Each entry behaves as the single assign operation does, capability checks included. The answer carries the resulting assignment set.
    *
    * REST API Reference for aiAssignmentsBulkAssign Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-bulk-assign/
    *
-   * @param requestBody  (required)
+   * @param requestBody A map of action type to profile ID. Every key has to be a known action type and every value a profile ID; one bad entry rejects the whole map. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiBulkAssignmentResult
    * @throws ApiException if fails to make API call
@@ -197,7 +198,7 @@ public class AssignmentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiBulkAssignmentResult> localVarReturnType = new TypeReference<AiBulkAssignmentResult>() {};
     return apiClient.invokeAPI(
@@ -219,38 +220,38 @@ public class AssignmentsApi extends BaseApi {
 
   /**
    * Cascade profile delete
-   * Cleans up the assignments pointing at a profile that is about to be deleted: the `Default` slot is promoted to the first remaining profile (or dropped when none is left), and every other slot holding that profile is unbound.
+   * Detaches a profile from every assignment that points at it, which is the cleanup step before the profile itself is removed. The `Default` slot is promoted to the first remaining profile, or dropped when none is left, and every other slot holding the profile is cleared. `profileId` is required and may be sent in the body or as a query parameter. `DELETE api/2.0/ai/profiles/delete` already does this, so call it directly only when the profile is being removed by some other means.
    *
    * REST API Reference for aiAssignmentsCascadeProfileDelete Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-cascade-profile-delete/
    *
-   * @param body  (required)
+   * @param aiAssignmentsCascadeProfileDeleteRequest The profile to detach from every assignment. May be sent as the `profileId` query parameter instead of in the body. (required)
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiAssignmentsCascadeProfileDelete(@javax.annotation.Nonnull String body) throws ApiException {
-    return this.aiAssignmentsCascadeProfileDelete(body, Collections.emptyMap());
+  public AiSuccessResponse aiAssignmentsCascadeProfileDelete(@javax.annotation.Nonnull AiAssignmentsCascadeProfileDeleteRequest aiAssignmentsCascadeProfileDeleteRequest) throws ApiException {
+    return this.aiAssignmentsCascadeProfileDelete(aiAssignmentsCascadeProfileDeleteRequest, Collections.emptyMap());
   }
 
 
   /**
    * Cascade profile delete
-   * Cleans up the assignments pointing at a profile that is about to be deleted: the `Default` slot is promoted to the first remaining profile (or dropped when none is left), and every other slot holding that profile is unbound.
+   * Detaches a profile from every assignment that points at it, which is the cleanup step before the profile itself is removed. The `Default` slot is promoted to the first remaining profile, or dropped when none is left, and every other slot holding the profile is cleared. `profileId` is required and may be sent in the body or as a query parameter. `DELETE api/2.0/ai/profiles/delete` already does this, so call it directly only when the profile is being removed by some other means.
    *
    * REST API Reference for aiAssignmentsCascadeProfileDelete Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-cascade-profile-delete/
    *
-   * @param body  (required)
+   * @param aiAssignmentsCascadeProfileDeleteRequest The profile to detach from every assignment. May be sent as the `profileId` query parameter instead of in the body. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiAssignmentsCascadeProfileDelete(@javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = body;
+  public AiSuccessResponse aiAssignmentsCascadeProfileDelete(@javax.annotation.Nonnull AiAssignmentsCascadeProfileDeleteRequest aiAssignmentsCascadeProfileDeleteRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiAssignmentsCascadeProfileDeleteRequest;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling aiAssignmentsCascadeProfileDelete");
+    // verify the required parameter 'aiAssignmentsCascadeProfileDeleteRequest' is set
+    if (aiAssignmentsCascadeProfileDeleteRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiAssignmentsCascadeProfileDeleteRequest' when calling aiAssignmentsCascadeProfileDelete");
     }
     
     // create path and map variables
@@ -280,7 +281,7 @@ public class AssignmentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiSuccessResponse> localVarReturnType = new TypeReference<AiSuccessResponse>() {};
     return apiClient.invokeAPI(
@@ -302,7 +303,7 @@ public class AssignmentsApi extends BaseApi {
 
   /**
    * Get all assignments
-   * Returns the full action-to-profile assignment map of the scope.
+   * Returns every action-to-profile binding of a scope as one map, which is what a settings screen loads. `entityId` narrows it to a room and has to name one the caller can open; a room that is not an agent room degrades to the portal-wide set rather than answering empty, and omitting the parameter reads the portal-wide set directly. Actions with no binding are simply absent from the map. The `Default` slot is reported as an entry of its own rather than being folded into the others.
    *
    * REST API Reference for aiAssignmentsGetAllAssignments Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/
@@ -318,7 +319,7 @@ public class AssignmentsApi extends BaseApi {
 
   /**
    * Get all assignments
-   * Returns the full action-to-profile assignment map of the scope.
+   * Returns every action-to-profile binding of a scope as one map, which is what a settings screen loads. `entityId` narrows it to a room and has to name one the caller can open; a room that is not an agent room degrades to the portal-wide set rather than answering empty, and omitting the parameter reads the portal-wide set directly. Actions with no binding are simply absent from the map. The `Default` slot is reported as an entry of its own rather than being folded into the others.
    *
    * REST API Reference for aiAssignmentsGetAllAssignments Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/
@@ -359,7 +360,7 @@ public class AssignmentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<Map<String, String>> localVarReturnType = new TypeReference<Map<String, String>>() {};
     return apiClient.invokeAPI(
@@ -381,12 +382,12 @@ public class AssignmentsApi extends BaseApi {
 
   /**
    * Get assignment
-   * Returns the profile bound to one AI action, without the `Default` fallback.
+   * Returns the profile bound to one AI action, without applying the `Default` fallback - an empty answer means this action has no profile of its own, not that nothing is configured. `actionType` is required and is read from the query. Use `GET api/2.0/ai/assignments/resolve-for-action` to learn which profile would actually serve the action. This reads the portal-wide binding and accepts no `entityId`.
    *
    * REST API Reference for aiAssignmentsGetAssignment Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-assignment/
    *
-   * @param actionType The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision. (required)
+   * @param actionType The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis. (required)
    * @return String
    * @throws ApiException if fails to make API call
    */
@@ -397,12 +398,12 @@ public class AssignmentsApi extends BaseApi {
 
   /**
    * Get assignment
-   * Returns the profile bound to one AI action, without the `Default` fallback.
+   * Returns the profile bound to one AI action, without applying the `Default` fallback - an empty answer means this action has no profile of its own, not that nothing is configured. `actionType` is required and is read from the query. Use `GET api/2.0/ai/assignments/resolve-for-action` to learn which profile would actually serve the action. This reads the portal-wide binding and accepts no `entityId`.
    *
    * REST API Reference for aiAssignmentsGetAssignment Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-assignment/
    *
-   * @param actionType The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision. (required)
+   * @param actionType The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return String
    * @throws ApiException if fails to make API call
@@ -443,7 +444,7 @@ public class AssignmentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<String> localVarReturnType = new TypeReference<String>() {};
     return apiClient.invokeAPI(
@@ -465,12 +466,12 @@ public class AssignmentsApi extends BaseApi {
 
   /**
    * Resolve for action
-   * Resolves the profile bound to an AI action, falling back to the `Default` slot when the action itself has none. Fails when neither slot is set or the bound profile no longer exists - use `try-resolve-for-action` for an empty answer instead.
+   * Returns the profile that will serve one AI action, falling back to the `Default` slot when the action has no profile of its own. `actionType` is required and has to be one of the known actions - an unknown or misspelled value is rejected rather than resolved to the default. `entityId` narrows the lookup to a room, and a room with no assignment of its own degrades to the portal-wide one. This fails when neither slot is set or the bound profile is gone, so use `GET api/2.0/ai/assignments/try-resolve-for-action` when an unconfigured portal should answer empty instead.
    *
    * REST API Reference for aiAssignmentsResolveForAction Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-resolve-for-action/
    *
-   * @param actionType The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision. (required)
+   * @param actionType The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis. (required)
    * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @return AiResolvedAssignment
    * @throws ApiException if fails to make API call
@@ -482,12 +483,12 @@ public class AssignmentsApi extends BaseApi {
 
   /**
    * Resolve for action
-   * Resolves the profile bound to an AI action, falling back to the `Default` slot when the action itself has none. Fails when neither slot is set or the bound profile no longer exists - use `try-resolve-for-action` for an empty answer instead.
+   * Returns the profile that will serve one AI action, falling back to the `Default` slot when the action has no profile of its own. `actionType` is required and has to be one of the known actions - an unknown or misspelled value is rejected rather than resolved to the default. `entityId` narrows the lookup to a room, and a room with no assignment of its own degrades to the portal-wide one. This fails when neither slot is set or the bound profile is gone, so use `GET api/2.0/ai/assignments/try-resolve-for-action` when an unconfigured portal should answer empty instead.
    *
    * REST API Reference for aiAssignmentsResolveForAction Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-resolve-for-action/
    *
-   * @param actionType The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision. (required)
+   * @param actionType The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis. (required)
    * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiResolvedAssignment
@@ -530,7 +531,7 @@ public class AssignmentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiResolvedAssignment> localVarReturnType = new TypeReference<AiResolvedAssignment>() {};
     return apiClient.invokeAPI(
@@ -552,12 +553,12 @@ public class AssignmentsApi extends BaseApi {
 
   /**
    * Try resolve for action
-   * Resolves the profile bound to an AI action exactly like `resolve-for-action`, but answers with an empty result instead of failing when nothing is configured.
+   * Returns the profile that will serve one AI action, exactly as `GET api/2.0/ai/assignments/resolve-for-action` does, but answers with an empty result rather than failing when nothing is configured. `actionType` is required and is validated the same way, and `entityId` narrows the lookup to a room. This is the operation to call when the absence of a profile is a normal state to render - a settings screen, or a feature that hides itself. Both operations are read-only.
    *
    * REST API Reference for aiAssignmentsTryResolveForAction Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-try-resolve-for-action/
    *
-   * @param actionType The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision. (required)
+   * @param actionType The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis. (required)
    * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @return AiResolvedAssignment
    * @throws ApiException if fails to make API call
@@ -569,12 +570,12 @@ public class AssignmentsApi extends BaseApi {
 
   /**
    * Try resolve for action
-   * Resolves the profile bound to an AI action exactly like `resolve-for-action`, but answers with an empty result instead of failing when nothing is configured.
+   * Returns the profile that will serve one AI action, exactly as `GET api/2.0/ai/assignments/resolve-for-action` does, but answers with an empty result rather than failing when nothing is configured. `actionType` is required and is validated the same way, and `entityId` narrows the lookup to a room. This is the operation to call when the absence of a profile is a normal state to render - a settings screen, or a feature that hides itself. Both operations are read-only.
    *
    * REST API Reference for aiAssignmentsTryResolveForAction Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-try-resolve-for-action/
    *
-   * @param actionType The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision. (required)
+   * @param actionType The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision, FormAnalysis. (required)
    * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiResolvedAssignment
@@ -617,7 +618,7 @@ public class AssignmentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiResolvedAssignment> localVarReturnType = new TypeReference<AiResolvedAssignment>() {};
     return apiClient.invokeAPI(
@@ -638,8 +639,8 @@ public class AssignmentsApi extends BaseApi {
   }
 
   /**
-   * Unassign
-   * Removes the profile binding of an AI action. Does nothing when that slot is already empty.
+   * Clear an action's profile
+   * Clears the portal-wide binding of one AI action, after which the action falls back to the `Default` slot. `actionType` is required and may be sent in the body or as a query parameter. An action whose slot is already empty is not reported as an error - the call answers success either way, so it is safe to repeat. Clearing `Default` itself leaves the actions that relied on it unresolvable.
    *
    * REST API Reference for aiAssignmentsUnassign Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-unassign/
@@ -654,8 +655,8 @@ public class AssignmentsApi extends BaseApi {
 
 
   /**
-   * Unassign
-   * Removes the profile binding of an AI action. Does nothing when that slot is already empty.
+   * Clear an action's profile
+   * Clears the portal-wide binding of one AI action, after which the action falls back to the `Default` slot. `actionType` is required and may be sent in the body or as a query parameter. An action whose slot is already empty is not reported as an error - the call answers success either way, so it is safe to repeat. Clearing `Default` itself leaves the actions that relied on it unresolvable.
    *
    * REST API Reference for aiAssignmentsUnassign Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-unassign/
@@ -700,7 +701,7 @@ public class AssignmentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     TypeReference<AiSuccessResponse> localVarReturnType = new TypeReference<AiSuccessResponse>() {};
     return apiClient.invokeAPI(
@@ -742,7 +743,7 @@ public class AssignmentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

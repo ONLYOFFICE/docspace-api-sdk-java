@@ -51,9 +51,9 @@ The current tenant quota.
 |**countAIAgent** | **Integer** | The number of AI agents. |  [optional] |
 |**aiTools** | **Boolean** | Specifies if the AI tools enabled as a wallet service or not. |  [optional] |
 |**aiSearch** | **Boolean** | Specifies if the AI search enabled as a wallet service or not. |  [optional] |
-|**docsCloud** | **Integer** | The number of DocsCloud users. |  [optional] |
-|**docsCloudDevPack** | **Boolean** | Specifies if the DocsCloudDevPack enabled or not. |  [optional] |
-|**docsCloudTrial** | **Boolean** | Specifies if the DocsCloudTrial enabled or not. |  [optional] |
+|**docsCloud** | **Integer** | The number of Docs Connect users. |  [optional] |
+|**docsCloudDevPack** | **Boolean** | Specifies if the Docs Connect Dev Pack enabled or not. |  [optional] |
+|**docsCloudTrial** | **Boolean** | Specifies if the Docs Connect trial enabled or not. |  [optional] |
 
 
 

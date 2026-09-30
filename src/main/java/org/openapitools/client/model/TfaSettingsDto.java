@@ -40,7 +40,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The parameters representing the Two-Factor Authentication (TFA) configuration settings.
+ * One two-factor authentication method the portal offers, with the portal-wide state of that method.
  */
 @JsonPropertyOrder({
   TfaSettingsDto.JSON_PROPERTY_ID,
@@ -85,7 +85,7 @@ public class TfaSettingsDto {
   }
 
   /**
-   * The ID of the TFA configuration.
+   * Which method this entry describes: `sms` for a code sent by text message, `app` for a code from an  authenticator application. It is the value `PUT api/2.0/settings/tfaapp` takes as its `type`, and no other  value ever appears here.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -109,7 +109,7 @@ public class TfaSettingsDto {
   }
 
   /**
-   * The display name or description of the TFA configuration.
+   * The label for the method in the portal language, meant for a button or a radio option. It is not stable  enough to branch on - match `id` for that.
    * @return title
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
@@ -133,7 +133,7 @@ public class TfaSettingsDto {
   }
 
   /**
-   * Indicates whether the TFA configuration is currently active.
+   * Whether this method is the portal's current policy. At most one entry can have it set, and none has it  while the portal challenges nobody. It says nothing about the caller's own account, which may be exempt  through `trustedIps` or forced through `mandatoryUsers`.
    * @return enabled
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = true)
@@ -157,7 +157,7 @@ public class TfaSettingsDto {
   }
 
   /**
-   * Indicates whether the TFA configuration can be used.
+   * Whether the method could be switched on at all. For `sms` it is `false` until the installation has a  working SMS provider, so a method can be offered here and still be impossible to enable; for `app` it is  always `true`.
    * @return available
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_AVAILABLE, required = true)
@@ -193,7 +193,7 @@ public class TfaSettingsDto {
   }
 
   /**
-   * The list of IP addresses that are exempt from TFA requirements.
+   * The addresses that skip the challenge, each either a single address, a `from-to` pair or a CIDR range. It  is empty when no address is exempt, which means every account is challenged.
    * @return trustedIps
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -236,7 +236,7 @@ public class TfaSettingsDto {
   }
 
   /**
-   * The list of user IDs that are required to use TFA.
+   * The accounts that are challenged even from a trusted address, by user ID. Empty means the exemption in  `trustedIps` holds for everyone.
    * @return mandatoryUsers
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -279,7 +279,7 @@ public class TfaSettingsDto {
   }
 
   /**
-   * The list of group IDs whose members are required to use TFA.
+   * The groups whose members are challenged even from a trusted address, by group ID, with the same reading of  an empty list as `mandatoryUsers`.
    * @return mandatoryGroups
    */
   @javax.annotation.Nullable  @JsonIgnore

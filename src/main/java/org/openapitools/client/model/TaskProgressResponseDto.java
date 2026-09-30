@@ -74,7 +74,7 @@ public class TaskProgressResponseDto {
   }
 
   /**
-   * The task progress ID.
+   * The ID of the queued job. It identifies this run of the job and changes every time the job is started again.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -98,7 +98,7 @@ public class TaskProgressResponseDto {
   }
 
   /**
-   * The task progress error message.
+   * The message of the error that stopped the job. It is empty while the job is running and after a job that  succeeded, and it is the only place where the reason for a failure is reported.
    * @return error
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -129,7 +129,7 @@ public class TaskProgressResponseDto {
   }
 
   /**
-   * The percentage of the task progress.
+   * The share of the job that is already done, from 0 to 100.
    * @return percentage
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PERCENTAGE, required = true)
@@ -153,7 +153,7 @@ public class TaskProgressResponseDto {
   }
 
   /**
-   * Specifies if the task peogress is completed or not.
+   * Specifies whether the job has stopped running. This is the field to poll: true means the job will not change  any more, whether it succeeded, failed or was cancelled, and `status` tells which of the three it is.
    * @return isCompleted
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_COMPLETED, required = true)
@@ -177,7 +177,7 @@ public class TaskProgressResponseDto {
   }
 
   /**
-   * The status of the distributed task.
+   * The state of the job: `Created` while it waits in the queue, `Running` while it works, `Completed` once it has  finished on its own, `Canceled` after a terminate operation, and `Failted` when it stopped on an error, in  which case `error` carries the reason.
    * @return status
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)

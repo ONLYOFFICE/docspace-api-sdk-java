@@ -2,7 +2,7 @@
 
 # DocsCloudConfig
 
-Represents the configuration of a DocsCloud tenant.
+Represents the configuration of a Docs Connect tenant.
 
 ## Properties
 

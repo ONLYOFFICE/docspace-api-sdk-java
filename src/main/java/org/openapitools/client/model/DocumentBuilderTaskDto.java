@@ -33,7 +33,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The Document Builder task parameters.
+ * The state of a background document building task: how far it has got, how it ended, and the file it produced.
  */
 @JsonPropertyOrder({
   DocumentBuilderTaskDto.JSON_PROPERTY_ID,
@@ -82,7 +82,7 @@ public class DocumentBuilderTaskDto {
   }
 
   /**
-   * The Document Builder task ID.
+   * The identifier of the task. It is derived from the portal, the account and the kind of report, so starting the  same report again while it runs returns this same value, which is how a resumed poll is told from a newly  queued build.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -106,7 +106,7 @@ public class DocumentBuilderTaskDto {
   }
 
   /**
-   * The error message occurred during the document building process.
+   * The message of the failure that stopped the build. It is filled in only for a task that ended in the failed  state, and stays empty while the task runs and after it succeeds.
    * @return error
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
@@ -130,7 +130,7 @@ public class DocumentBuilderTaskDto {
   }
 
   /**
-   * The progress percentage of the document building process.
+   * How far the build has got, from 0 to 100. It advances in a few coarse steps rather than smoothly, so it is a  progress hint and not a measure of the time left; wait on the completion flag instead.
    * @return percentage
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PERCENTAGE, required = true)
@@ -154,7 +154,7 @@ public class DocumentBuilderTaskDto {
   }
 
   /**
-   * Specifies whether the document building process is completed or not.
+   * True once the task has stopped for any reason, a failure and a cancellation included. It is the field to poll  on, and the status tells those outcomes apart.
    * @return isCompleted
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_COMPLETED, required = true)
@@ -178,7 +178,7 @@ public class DocumentBuilderTaskDto {
   }
 
   /**
-   * The status of the document building process.
+   * How the task ended, or that it has not started yet. Read it together with the completion flag: a stopped task  can be a finished build, a cancelled one or a failure, and only this field separates them.
    * @return status
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)
@@ -226,7 +226,7 @@ public class DocumentBuilderTaskDto {
   }
 
   /**
-   * The result file name.
+   * The name the produced file was saved with, extension included. The name is built from the subject of the  report and is not unique: a second build adds another file instead of replacing the first.
    * @return resultFileName
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESULT_FILE_NAME, required = false)
@@ -250,7 +250,7 @@ public class DocumentBuilderTaskDto {
   }
 
   /**
-   * The result file URL.
+   * The address of the produced file in the document editor, relative to the portal root, so prefix it with the  portal address to open it. It stays empty until the build succeeds.
    * @return resultFileUrl
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESULT_FILE_URL, required = false)

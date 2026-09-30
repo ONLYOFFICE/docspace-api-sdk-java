@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.UUID;
 import org.openapitools.client.model.FileEntryBaseDto;
 import org.openapitools.client.model.MultiSizeLogoCover;
+import org.openapitools.client.model.SearchArea;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -42,13 +43,14 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The room security parameters.
+ * A personal collection of rooms: the name and icon it was given, the account that owns it, and the rooms it gathers  at the moment it was read.
  */
 @JsonPropertyOrder({
   RoomGroupDto.JSON_PROPERTY_ID,
   RoomGroupDto.JSON_PROPERTY_NAME,
   RoomGroupDto.JSON_PROPERTY_ICON,
   RoomGroupDto.JSON_PROPERTY_USER_ID,
+  RoomGroupDto.JSON_PROPERTY_SEARCH_AREA,
   RoomGroupDto.JSON_PROPERTY_ROOMS,
   RoomGroupDto.JSON_PROPERTY_TOTAL_ROOMS
 })
@@ -65,6 +67,9 @@ public class RoomGroupDto {
 
   public static final String JSON_PROPERTY_USER_ID = "userId";
   @javax.annotation.Nullable  private UUID userId;
+
+  public static final String JSON_PROPERTY_SEARCH_AREA = "searchArea";
+  @javax.annotation.Nullable  private SearchArea searchArea;
 
   public static final String JSON_PROPERTY_ROOMS = "rooms";
   @javax.annotation.Nullable  private JsonNullable<List<FileEntryBaseDto>> rooms = JsonNullable.<List<FileEntryBaseDto>>undefined();
@@ -83,7 +88,7 @@ public class RoomGroupDto {
   }
 
   /**
-   * The group ID.
+   * The identifier of the group, which addresses it in every other group operation and is kept for as long as the  group exists.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -107,7 +112,7 @@ public class RoomGroupDto {
   }
 
   /**
-   * Group name
+   * The name its owner gave the group, stored trimmed of surrounding spaces. Names are not unique, so two groups  of the same account can be told apart only by their identifier.
    * @return name
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -138,7 +143,7 @@ public class RoomGroupDto {
   }
 
   /**
-   * Group icon
+   * The built-in cover chosen for the group, carrying the cover identifier and its rendering in each available  size. Null when the group has no icon, either because it was never given one or because the icon was cleared  by setting it to an empty value.
    * @return icon
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ICON, required = false)
@@ -162,7 +167,7 @@ public class RoomGroupDto {
   }
 
   /**
-   * The user ID.
+   * The account that created the group and the only one able to read, change or delete it; for any other member of  the portal the group does not exist.
    * @return userId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = false)
@@ -177,6 +182,30 @@ public class RoomGroupDto {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUserId(@javax.annotation.Nullable UUID userId) {
     this.userId = userId;
+  }
+
+  public RoomGroupDto searchArea(@javax.annotation.Nullable SearchArea searchArea) {
+    
+    this.searchArea = searchArea;
+    return this;
+  }
+
+  /**
+   * The section the group belongs to, which categorizes it within the application's structure. This property determines  which area of the interface the group is associated with and affects how its rooms are filtered and displayed.  Common values include Active for standard rooms, Forms for form-based rooms, Archive for archived content, and  Templates for template rooms. The search area ensures that when retrieving a group, only rooms that belong to  the specified section are included in the results, maintaining proper organizational boundaries within the system.
+   * @return searchArea
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SEARCH_AREA, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SearchArea getSearchArea() {
+    return searchArea;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SEARCH_AREA, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSearchArea(@javax.annotation.Nullable SearchArea searchArea) {
+    this.searchArea = searchArea;
   }
 
   public RoomGroupDto rooms(@javax.annotation.Nullable List<FileEntryBaseDto> rooms) {
@@ -198,7 +227,7 @@ public class RoomGroupDto {
   }
 
   /**
-   * The list of rooms in the group.
+   * The rooms the group gathers, those stored in the portal first and those on connected third-party accounts  after them. Null when the group was asked for without its members, and an empty array when the group holds no  room the caller can still see. A room moved to the archive is left out until it is taken out of the archive.
    * @return rooms
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -229,7 +258,7 @@ public class RoomGroupDto {
   }
 
   /**
-   * Total number of rooms in the group.
+   * How many rooms the group shows: the same rooms `rooms` lists, so archived ones are not counted either. It is  filled even when the rooms themselves were not asked for, which makes it the cheap way to tell an empty group  from a populated one.
    * @return totalRooms
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOTAL_ROOMS, required = false)
@@ -259,6 +288,7 @@ public class RoomGroupDto {
         equalsNullable(this.name, roomGroupDto.name) &&
         Objects.equals(this.icon, roomGroupDto.icon) &&
         Objects.equals(this.userId, roomGroupDto.userId) &&
+        Objects.equals(this.searchArea, roomGroupDto.searchArea) &&
         equalsNullable(this.rooms, roomGroupDto.rooms) &&
         Objects.equals(this.totalRooms, roomGroupDto.totalRooms);
   }
@@ -269,7 +299,7 @@ public class RoomGroupDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(name), icon, userId, hashCodeNullable(rooms), totalRooms);
+    return Objects.hash(id, hashCodeNullable(name), icon, userId, searchArea, hashCodeNullable(rooms), totalRooms);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -287,6 +317,7 @@ public class RoomGroupDto {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    searchArea: ").append(toIndentedString(searchArea)).append("\n");
     sb.append("    rooms: ").append(toIndentedString(rooms)).append("\n");
     sb.append("    totalRooms: ").append(toIndentedString(totalRooms)).append("\n");
     sb.append("}");
@@ -365,6 +396,16 @@ public class RoomGroupDto {
     if (getUserId() != null) {
       try {
         joiner.add(String.format("%suserId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUserId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `searchArea` to the URL query string
+    if (getSearchArea() != null) {
+      try {
+        joiner.add(String.format("%ssearchArea%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSearchArea()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

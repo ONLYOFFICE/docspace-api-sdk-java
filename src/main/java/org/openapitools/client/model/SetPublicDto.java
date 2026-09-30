@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The public settings of the room template to set.
+ * The public access to set on a room template.
  */
 @JsonPropertyOrder({
   SetPublicDto.JSON_PROPERTY_ID,
@@ -57,7 +57,7 @@ public class SetPublicDto {
   }
 
   /**
-   * The room template ID.
+   * The identifier of the room template. Take it from `templateId` of `GET api/2.0/files/roomtemplate/status`, or  from the folder list of `GET api/2.0/files/rooms` called with `searchArea` set to 4; an identifier of an  ordinary room is not accepted.
    * minimum: 1
    * maximum: 2147483647
    * @return id
@@ -83,7 +83,7 @@ public class SetPublicDto {
   }
 
   /**
-   * Specifies whether the room template is public or not.
+   * Whether the Everyone group keeps read access to the template. True shares it with every member allowed to  create rooms; false leaves it reachable only for its owner.
    * @return _public
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PUBLIC, required = false)

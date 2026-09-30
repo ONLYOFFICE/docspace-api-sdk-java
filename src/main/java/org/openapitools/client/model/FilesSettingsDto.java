@@ -45,7 +45,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The file settings parameters.
+ * Everything a client needs to work with documents in this portal: the format tables, the address templates, the  upload limits, the portal-wide switches and the preferences of the calling account.
  */
 @JsonPropertyOrder({
   FilesSettingsDto.JSON_PROPERTY_EXTS_IMAGE_PREVIEWED,
@@ -87,6 +87,7 @@ import java.util.StringJoiner;
   FilesSettingsDto.JSON_PROPERTY_STORE_ORIGINAL_FILES,
   FilesSettingsDto.JSON_PROPERTY_KEEP_NEW_FILE_NAME,
   FilesSettingsDto.JSON_PROPERTY_DISPLAY_FILE_EXTENSION,
+  FilesSettingsDto.JSON_PROPERTY_SHOW_QUICK_ACTIONS,
   FilesSettingsDto.JSON_PROPERTY_CONVERT_NOTIFY,
   FilesSettingsDto.JSON_PROPERTY_HIDE_CONFIRM_CANCEL_OPERATION,
   FilesSettingsDto.JSON_PROPERTY_HIDE_CONFIRM_CONVERT_SAVE,
@@ -232,6 +233,9 @@ public class FilesSettingsDto {
   public static final String JSON_PROPERTY_DISPLAY_FILE_EXTENSION = "displayFileExtension";
   @javax.annotation.Nullable  private Boolean displayFileExtension;
 
+  public static final String JSON_PROPERTY_SHOW_QUICK_ACTIONS = "showQuickActions";
+  @javax.annotation.Nullable  private Boolean showQuickActions;
+
   public static final String JSON_PROPERTY_CONVERT_NOTIFY = "convertNotify";
   @javax.annotation.Nullable  private Boolean convertNotify;
 
@@ -275,7 +279,7 @@ public class FilesSettingsDto {
   @javax.annotation.Nullable  private Boolean canSearchByContent;
 
   /**
-   * The default access rights in sharing settings.
+   * The access rights the sharing dialog offers the caller by default. The portal normalises the set it stores, so  this can be shorter than what was last sent.
    */
   public enum DefaultSharingAccessRightsEnum {
     None(Integer.valueOf(0)),
@@ -384,7 +388,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of extensions of the viewed images.
+   * Images the portal can show in its own viewer. Anything outside the list has to be downloaded to be seen.
    * @return extsImagePreviewed
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -427,7 +431,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of extensions of the viewed media files.
+   * Audio and video the portal can play in its own player.
    * @return extsMediaPreviewed
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -470,7 +474,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of extensions of the viewed files.
+   * Documents the editor can open read-only. A format that is here but not in the edited list can be viewed and  not changed.
    * @return extsWebPreviewed
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -513,7 +517,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of extensions of the edited files.
+   * Documents the editor can open for editing. Uploading a format outside this list and outside the convertible  list leaves a file that can only be downloaded.
    * @return extsWebEdited
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -556,7 +560,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of extensions of the encrypted files.
+   * Documents that can be edited inside a private room, where the content is encrypted on the client.
    * @return extsWebEncrypt
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -599,7 +603,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of extensions of the reviewed files.
+   * Documents that support the reviewing mode, so that granting review access to them is meaningful.
    * @return extsWebReviewed
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -642,7 +646,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of extensions of the custom filter files.
+   * Spreadsheets that support the custom filter mode, where a filter applied by one editor does not disturb the  others.
    * @return extsWebCustomFilterEditing
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -685,7 +689,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of extensions of the files that are restricted for editing.
+   * Documents that can only be filled in or commented on rather than edited freely, whatever access the caller  holds.
    * @return extsWebRestrictedEditing
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -728,7 +732,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of extensions of the commented files.
+   * Documents that support comments, so that granting comment access to them is meaningful.
    * @return extsWebCommented
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -771,7 +775,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of extensions of the template files.
+   * Documents the portal treats as templates to create new files from.
    * @return extsWebTemplate
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -814,7 +818,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of extensions of the files that must be converted.
+   * Formats that cannot be edited as they are and are converted on upload or on first opening. Which target each  one has is in the convertible table below.
    * @return extsMustConvert
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -853,7 +857,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of the convertible extensions.
+   * The conversion map of the portal: for each source extension, the extensions it can be converted into. Use it  to fill the target format of a conversion request instead of guessing one.
    * @return extsConvertible
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTS_CONVERTIBLE, required = false)
@@ -889,7 +893,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of the uploadable extensions.
+   * Formats the portal offers to create and upload as documents. It is not an upload filter: files of other  formats are stored as they are.
    * @return extsUploadable
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -932,7 +936,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of extensions of the archive files.
+   * Formats recognised as archives, which is what decides the archive icon and the offer to unpack.
    * @return extsArchive
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -975,7 +979,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of the video extensions.
+   * Formats classified as video. The classification lists drive icons and the media filters of the listing  operations, and are wider than what the built-in player can show.
    * @return extsVideo
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1018,7 +1022,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of the audio extensions.
+   * Formats classified as audio.
    * @return extsAudio
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1061,7 +1065,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of the image extensions.
+   * Formats classified as images.
    * @return extsImage
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1104,7 +1108,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of the spreadsheet extensions.
+   * Formats classified as spreadsheets.
    * @return extsSpreadsheet
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1147,7 +1151,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of the presentation extensions.
+   * Formats classified as presentations.
    * @return extsPresentation
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1190,7 +1194,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of the text document extensions.
+   * Formats classified as text documents.
    * @return extsDocument
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1233,7 +1237,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The list of the diagram extensions.
+   * Formats classified as diagrams.
    * @return extsDiagram
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1295,7 +1299,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The master form extension.
+   * The extension of a fillable form template in this portal. It is configurable, so read it rather than assuming  the product default.
    * @return masterFormExtension
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1326,7 +1330,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The URL parameter which specifies the file version.
+   * The name of the query parameter that pins a document address to one version. Append it to the addresses below  instead of composing a version address by hand.
    * @return paramVersion
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1357,7 +1361,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The URL parameter which specifies the output type of the converted file.
+   * The name of the query parameter that asks a download address for a converted copy in another format.
    * @return paramOutType
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1388,7 +1392,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The URL to download a file.
+   * The template of the address a file is downloaded from: substitute the file identifier for the `{0}`  placeholder. Add the version and output-type parameters named above for a particular version or format.
    * @return fileDownloadUrlString
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1419,7 +1423,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The URL to the file web viewer.
+   * The template of the address that opens a file in the viewer inside the portal, with `{0}` for the file  identifier. It is a portal-relative address, meant to be opened in a browser rather than called as an API.
    * @return fileWebViewerUrlString
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1450,7 +1454,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The external URL to the file web viewer.
+   * The same viewer address as an absolute one, for a message or a page outside the portal.
    * @return fileWebViewerExternalUrlString
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1481,7 +1485,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The URL to the file web editor.
+   * The template of the address that opens a file for editing inside the portal, with `{0}` for the file  identifier. Whether the session really becomes editable still depends on the access the caller holds.
    * @return fileWebEditorUrlString
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1512,7 +1516,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The external URL to the file web editor.
+   * The same editing address as an absolute one, for use outside the portal.
    * @return fileWebEditorExternalUrlString
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1543,7 +1547,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The redirect URL to the file viewer.
+   * The template of the address that sends the browser on to whichever viewer or editor suits the file, with `{0}`  for the file identifier. Use it when the kind of the file is not known in advance.
    * @return fileRedirectPreviewUrlString
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1574,7 +1578,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The URL to the file thumbnail.
+   * The template of the address a file thumbnail is fetched from, with `{0}` for the file identifier. A thumbnail  is built in the background, so the address can answer with nothing for a while after the file appears.
    * @return fileThumbnailUrlString
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1605,7 +1609,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies whether to confirm the file deletion or not.
+   * Whether the caller asked to be prompted before a deletion. Written by `PUT api/2.0/files/changedeleteconfrim`.
    * @return confirmDelete
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONFIRM_DELETE, required = false)
@@ -1629,7 +1633,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies whether to allow users to connect the third-party storages.
+   * Whether this portal allows third-party storages to be connected at all. It is set portal-wide by an  administrator, so a member sees it as read-only.
    * @return enableThirdParty
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLE_THIRD_PARTY, required = false)
@@ -1653,7 +1657,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies whether to enable sharing external links to the files.
+   * Whether links that open an entry without a portal account may be created in this portal. Set portal-wide by an  administrator.
    * @return externalShare
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_SHARE, required = false)
@@ -1677,7 +1681,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies whether to enable sharing files on social media.
+   * Whether the share-to-network buttons are offered next to an external link. It is reported as false whenever  external sharing itself is off.
    * @return externalShareSocialMedia
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_SHARE_SOCIAL_MEDIA, required = false)
@@ -1701,7 +1705,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies whether to enable storing original files.
+   * Whether the caller's uploads keep the original file when the portal converts them. With false the conversion  replaces the uploaded file with a new version of it.
    * @return storeOriginalFiles
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STORE_ORIGINAL_FILES, required = false)
@@ -1725,7 +1729,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies whether to keep the new file name.
+   * Whether the caller asked for new documents to be created with the default name instead of being prompted for  one.
    * @return keepNewFileName
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_KEEP_NEW_FILE_NAME, required = false)
@@ -1749,7 +1753,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies whether to display the file extension.
+   * Whether the caller asked to see extensions in file titles. Stored titles always carry the extension whatever  this says.
    * @return displayFileExtension
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DISPLAY_FILE_EXTENSION, required = false)
@@ -1766,6 +1770,30 @@ public class FilesSettingsDto {
     this.displayFileExtension = displayFileExtension;
   }
 
+  public FilesSettingsDto showQuickActions(@javax.annotation.Nullable Boolean showQuickActions) {
+    
+    this.showQuickActions = showQuickActions;
+    return this;
+  }
+
+  /**
+   * Specifies whether to display the quick action buttons.
+   * @return showQuickActions
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHOW_QUICK_ACTIONS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getShowQuickActions() {
+    return showQuickActions;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SHOW_QUICK_ACTIONS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setShowQuickActions(@javax.annotation.Nullable Boolean showQuickActions) {
+    this.showQuickActions = showQuickActions;
+  }
+
   public FilesSettingsDto convertNotify(@javax.annotation.Nullable Boolean convertNotify) {
     
     this.convertNotify = convertNotify;
@@ -1773,7 +1801,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies whether to display the conversion notification.
+   * Whether the caller is told about the result of a conversion. There is no operation in this document that  writes it.
    * @return convertNotify
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CONVERT_NOTIFY, required = false)
@@ -1797,7 +1825,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies whether to hide the confirmation dialog for the cancel operation.
+   * Whether the prompt shown before a running operation is abandoned is hidden for the caller.
    * @return hideConfirmCancelOperation
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HIDE_CONFIRM_CANCEL_OPERATION, required = false)
@@ -1821,7 +1849,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies whether to hide the confirmation dialog  for saving the file copy in the original format when converting a file.
+   * Whether the prompt that offers to keep a copy in the original format on conversion is hidden for the caller.  Once true it cannot be turned back through the API.
    * @return hideConfirmConvertSave
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HIDE_CONFIRM_CONVERT_SAVE, required = false)
@@ -1845,7 +1873,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies whether to hide the confirmation dialog  for opening the conversion result.
+   * Whether the prompt that offers to open the conversion result is hidden for the caller. Once true it cannot be  turned back through the API.
    * @return hideConfirmConvertOpen
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HIDE_CONFIRM_CONVERT_OPEN, required = false)
@@ -1869,7 +1897,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies whether to hide the confirmation dialog about the file lifetime in the room.
+   * Whether the warning shown before the lifetime settings of a room are changed is hidden for the caller.
    * @return hideConfirmRoomLifetime
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HIDE_CONFIRM_ROOM_LIFETIME, required = false)
@@ -1893,7 +1921,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The default order of files.
+   * The ordering the listing operations fall back to when a request names none. It follows the last order the  caller asked a listing for, so it changes on its own as the account is used.
    * @return defaultOrder
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEFAULT_ORDER, required = false)
@@ -1917,7 +1945,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies whether to forcesave the files or not.
+   * Whether the editor writes a document back to storage while the session is still open. It is on for every  portal and cannot be switched off.
    * @return forcesave
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FORCESAVE, required = false)
@@ -1941,7 +1969,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies whether to store the forcesaved file versions or not.
+   * Whether those intermediate saves are kept as separate versions. They are not, in any portal: they update the  current version instead.
    * @return storeForcesave
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STORE_FORCESAVE, required = false)
@@ -1965,7 +1993,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies if the Recent section is displayed or not.
+   * Whether the Recent section is offered to the caller among the section roots.
    * @return recentSection
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RECENT_SECTION, required = false)
@@ -1989,7 +2017,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies if the Favorites section is displayed or not.
+   * Whether the Favorites section is offered to the caller among the section roots.
    * @return favoritesSection
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FAVORITES_SECTION, required = false)
@@ -2013,7 +2041,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies if the Templates section is displayed or not.
+   * Whether the Templates section is offered to the caller among the section roots.
    * @return templatesSection
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TEMPLATES_SECTION, required = false)
@@ -2037,7 +2065,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies whether to download the .tar.gz files or not.
+   * The archive format the caller's multi-item downloads are packed into: true for `.tar.gz`, false for `.zip`.
    * @return downloadTarGz
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOWNLOAD_TAR_GZ, required = false)
@@ -2061,7 +2089,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The auto-clearing setting parameters.
+   * The trash auto-clearing setting of the caller, the same pair `GET api/2.0/files/settings/autocleanup` returns.
    * @return automaticallyCleanUp
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTOMATICALLY_CLEAN_UP, required = false)
@@ -2085,7 +2113,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies whether the file can be searched by its content or not.
+   * Whether documents in this portal can be searched by what is inside them and not only by title. It depends on  the full-text search service being configured and having indexed the portal.
    * @return canSearchByContent
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CAN_SEARCH_BY_CONTENT, required = false)
@@ -2121,7 +2149,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The default access rights in sharing settings.
+   * The access rights the sharing dialog offers the caller by default. The portal normalises the set it stores, so  this can be shorter than what was last sent.
    * @return defaultSharingAccessRights
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -2152,7 +2180,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The maximum number of upload threads.
+   * How many upload requests the portal accepts from one account at a time. Sending more than this in parallel  gets the extra ones refused rather than queued.
    * @return maxUploadThreadCount
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MAX_UPLOAD_THREAD_COUNT, required = false)
@@ -2176,7 +2204,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The size of a large file that is uploaded in chunks.
+   * The size in bytes of one chunk of a chunked upload. Split a large file exactly along this size: a chunk that  does not match is refused by the upload session.
    * @return chunkUploadSize
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CHUNK_UPLOAD_SIZE, required = false)
@@ -2200,7 +2228,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies whether to open the editor in the same tab or not.
+   * Whether the caller asked for documents to open in the current browser tab.
    * @return openEditorInSameTab
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OPEN_EDITOR_IN_SAME_TAB, required = false)
@@ -2224,7 +2252,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies whether the grouping of rooms is enabled or not.
+   * Whether the caller asked to see rooms arranged by the groups they belong to.
    * @return organizeRoomsGrouping
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ORGANIZE_ROOMS_GROUPING, required = false)
@@ -2248,7 +2276,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * Specifies the default sharing link type: true = DocSpace users only (internal), false = Anyone with the link.
+   * The kind of external link this portal offers first: true for a link only its own accounts can open, false for  one anyone holding it can open.
    * @return defaultShareLinkInternal
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEFAULT_SHARE_LINK_INTERNAL, required = false)
@@ -2272,7 +2300,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * When external sharing is restricted, specifies whether the restriction applies to the My Documents section.
+   * Whether the external sharing restriction covers personal documents. It matters only while external sharing is  off.
    * @return externalShareApplyToDocuments
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_SHARE_APPLY_TO_DOCUMENTS, required = false)
@@ -2296,7 +2324,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * When external sharing is restricted, specifies whether the restriction applies to the Rooms section.
+   * Whether the external sharing restriction covers rooms, including making a new one public. It matters only  while external sharing is off.
    * @return externalShareApplyToRooms
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_SHARE_APPLY_TO_ROOMS, required = false)
@@ -2320,7 +2348,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * When external sharing is restricted, specifies whether existing public links are blocked immediately.
+   * Whether links created before the restriction stop opening as well, rather than only new ones being refused.
    * @return blockExistingLinksOnRestrict
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_BLOCK_EXISTING_LINKS_ON_RESTRICT, required = false)
@@ -2356,7 +2384,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * List of extensions available for vectorization
+   * Formats whose content can be indexed for the AI features of the portal. A file outside the list is left out of  that index.
    * @return extsFilesVectorized
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -2387,7 +2415,7 @@ public class FilesSettingsDto {
   }
 
   /**
-   * The maximum file size for vectorization
+   * The largest file size in bytes that is indexed for the AI features. A larger file is skipped even when its  format is listed above.
    * @return maxVectorizationFileSize
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MAX_VECTORIZATION_FILE_SIZE, required = false)
@@ -2452,6 +2480,7 @@ public class FilesSettingsDto {
         Objects.equals(this.storeOriginalFiles, filesSettingsDto.storeOriginalFiles) &&
         Objects.equals(this.keepNewFileName, filesSettingsDto.keepNewFileName) &&
         Objects.equals(this.displayFileExtension, filesSettingsDto.displayFileExtension) &&
+        Objects.equals(this.showQuickActions, filesSettingsDto.showQuickActions) &&
         Objects.equals(this.convertNotify, filesSettingsDto.convertNotify) &&
         Objects.equals(this.hideConfirmCancelOperation, filesSettingsDto.hideConfirmCancelOperation) &&
         Objects.equals(this.hideConfirmConvertSave, filesSettingsDto.hideConfirmConvertSave) &&
@@ -2485,7 +2514,7 @@ public class FilesSettingsDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(extsImagePreviewed), hashCodeNullable(extsMediaPreviewed), hashCodeNullable(extsWebPreviewed), hashCodeNullable(extsWebEdited), hashCodeNullable(extsWebEncrypt), hashCodeNullable(extsWebReviewed), hashCodeNullable(extsWebCustomFilterEditing), hashCodeNullable(extsWebRestrictedEditing), hashCodeNullable(extsWebCommented), hashCodeNullable(extsWebTemplate), hashCodeNullable(extsMustConvert), extsConvertible, hashCodeNullable(extsUploadable), hashCodeNullable(extsArchive), hashCodeNullable(extsVideo), hashCodeNullable(extsAudio), hashCodeNullable(extsImage), hashCodeNullable(extsSpreadsheet), hashCodeNullable(extsPresentation), hashCodeNullable(extsDocument), hashCodeNullable(extsDiagram), hashCodeNullable(internalFormats), hashCodeNullable(masterFormExtension), hashCodeNullable(paramVersion), hashCodeNullable(paramOutType), hashCodeNullable(fileDownloadUrlString), hashCodeNullable(fileWebViewerUrlString), hashCodeNullable(fileWebViewerExternalUrlString), hashCodeNullable(fileWebEditorUrlString), hashCodeNullable(fileWebEditorExternalUrlString), hashCodeNullable(fileRedirectPreviewUrlString), hashCodeNullable(fileThumbnailUrlString), confirmDelete, enableThirdParty, externalShare, externalShareSocialMedia, storeOriginalFiles, keepNewFileName, displayFileExtension, convertNotify, hideConfirmCancelOperation, hideConfirmConvertSave, hideConfirmConvertOpen, hideConfirmRoomLifetime, defaultOrder, forcesave, storeForcesave, recentSection, favoritesSection, templatesSection, downloadTarGz, automaticallyCleanUp, canSearchByContent, hashCodeNullable(defaultSharingAccessRights), maxUploadThreadCount, chunkUploadSize, openEditorInSameTab, organizeRoomsGrouping, defaultShareLinkInternal, externalShareApplyToDocuments, externalShareApplyToRooms, blockExistingLinksOnRestrict, hashCodeNullable(extsFilesVectorized), maxVectorizationFileSize);
+    return Objects.hash(hashCodeNullable(extsImagePreviewed), hashCodeNullable(extsMediaPreviewed), hashCodeNullable(extsWebPreviewed), hashCodeNullable(extsWebEdited), hashCodeNullable(extsWebEncrypt), hashCodeNullable(extsWebReviewed), hashCodeNullable(extsWebCustomFilterEditing), hashCodeNullable(extsWebRestrictedEditing), hashCodeNullable(extsWebCommented), hashCodeNullable(extsWebTemplate), hashCodeNullable(extsMustConvert), extsConvertible, hashCodeNullable(extsUploadable), hashCodeNullable(extsArchive), hashCodeNullable(extsVideo), hashCodeNullable(extsAudio), hashCodeNullable(extsImage), hashCodeNullable(extsSpreadsheet), hashCodeNullable(extsPresentation), hashCodeNullable(extsDocument), hashCodeNullable(extsDiagram), hashCodeNullable(internalFormats), hashCodeNullable(masterFormExtension), hashCodeNullable(paramVersion), hashCodeNullable(paramOutType), hashCodeNullable(fileDownloadUrlString), hashCodeNullable(fileWebViewerUrlString), hashCodeNullable(fileWebViewerExternalUrlString), hashCodeNullable(fileWebEditorUrlString), hashCodeNullable(fileWebEditorExternalUrlString), hashCodeNullable(fileRedirectPreviewUrlString), hashCodeNullable(fileThumbnailUrlString), confirmDelete, enableThirdParty, externalShare, externalShareSocialMedia, storeOriginalFiles, keepNewFileName, displayFileExtension, showQuickActions, convertNotify, hideConfirmCancelOperation, hideConfirmConvertSave, hideConfirmConvertOpen, hideConfirmRoomLifetime, defaultOrder, forcesave, storeForcesave, recentSection, favoritesSection, templatesSection, downloadTarGz, automaticallyCleanUp, canSearchByContent, hashCodeNullable(defaultSharingAccessRights), maxUploadThreadCount, chunkUploadSize, openEditorInSameTab, organizeRoomsGrouping, defaultShareLinkInternal, externalShareApplyToDocuments, externalShareApplyToRooms, blockExistingLinksOnRestrict, hashCodeNullable(extsFilesVectorized), maxVectorizationFileSize);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -2538,6 +2567,7 @@ public class FilesSettingsDto {
     sb.append("    storeOriginalFiles: ").append(toIndentedString(storeOriginalFiles)).append("\n");
     sb.append("    keepNewFileName: ").append(toIndentedString(keepNewFileName)).append("\n");
     sb.append("    displayFileExtension: ").append(toIndentedString(displayFileExtension)).append("\n");
+    sb.append("    showQuickActions: ").append(toIndentedString(showQuickActions)).append("\n");
     sb.append("    convertNotify: ").append(toIndentedString(convertNotify)).append("\n");
     sb.append("    hideConfirmCancelOperation: ").append(toIndentedString(hideConfirmCancelOperation)).append("\n");
     sb.append("    hideConfirmConvertSave: ").append(toIndentedString(hideConfirmConvertSave)).append("\n");
@@ -3073,6 +3103,16 @@ public class FilesSettingsDto {
     if (getDisplayFileExtension() != null) {
       try {
         joiner.add(String.format("%sdisplayFileExtension%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDisplayFileExtension()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `showQuickActions` to the URL query string
+    if (getShowQuickActions() != null) {
+      try {
+        joiner.add(String.format("%sshowQuickActions%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getShowQuickActions()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

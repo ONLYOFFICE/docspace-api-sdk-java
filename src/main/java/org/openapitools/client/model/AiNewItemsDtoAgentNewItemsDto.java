@@ -24,11 +24,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.AiAgentNewItemsDto;
+import org.openapitools.client.model.AiApiDateTime;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The new item parameters.
+ * One day of the entries the caller has not opened yet, the groups running from the most recent day backwards.
  */
 @JsonPropertyOrder({
   AiNewItemsDtoAgentNewItemsDto.JSON_PROPERTY_DATE,
@@ -46,7 +46,7 @@ import java.util.StringJoiner;
 
 public class AiNewItemsDtoAgentNewItemsDto {
   public static final String JSON_PROPERTY_DATE = "date";
-  @javax.annotation.Nullable  private OffsetDateTime date;
+  @javax.annotation.Nonnull  private AiApiDateTime date;
 
   public static final String JSON_PROPERTY_ITEMS = "items";
   @javax.annotation.Nullable  private List<AiAgentNewItemsDto> items;
@@ -55,27 +55,27 @@ public class AiNewItemsDtoAgentNewItemsDto {
   }
 
 
-  public AiNewItemsDtoAgentNewItemsDto date(@javax.annotation.Nullable OffsetDateTime date) {
+  public AiNewItemsDtoAgentNewItemsDto date(@javax.annotation.Nonnull AiApiDateTime date) {
     
     this.date = date;
     return this;
   }
 
   /**
-   * The date and time when the new item was created.
+   * The day the grouped entries were last changed, written with the offset of the portal time zone. The time part  is the moment of the newest entry of the group.
    * @return date
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public OffsetDateTime getDate() {
+  public AiApiDateTime getDate() {
     return date;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
+  @JsonProperty(value = JSON_PROPERTY_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDate(@javax.annotation.Nullable OffsetDateTime date) {
+  public void setDate(@javax.annotation.Nonnull AiApiDateTime date) {
     this.date = date;
   }
 
@@ -94,7 +94,7 @@ public class AiNewItemsDtoAgentNewItemsDto {
   }
 
   /**
-   * The list of items.
+   * What changed on that day, the most recent first. Folders are left out of it, so an entry here is always a file  or a room that holds them.
    * @return items
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ITEMS, required = false)
@@ -184,12 +184,7 @@ public class AiNewItemsDtoAgentNewItemsDto {
 
     // add `date` to the URL query string
     if (getDate() != null) {
-      try {
-        joiner.add(String.format("%sdate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDate()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getDate().toUrlQueryString(prefix + "date" + suffix));
     }
 
     // add `items` to the URL query string

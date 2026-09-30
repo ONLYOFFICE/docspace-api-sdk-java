@@ -24,11 +24,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.Contact;
 import org.openapitools.client.model.DarkThemeSettingsType;
 import org.openapitools.client.model.EmployeeActivationStatus;
@@ -150,7 +150,7 @@ public class EmployeeFullDto {
   @javax.annotation.Nullable  private EmployeeActivationStatus activationStatus;
 
   public static final String JSON_PROPERTY_TERMINATED = "terminated";
-  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> terminated = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private ApiDateTime terminated;
 
   public static final String JSON_PROPERTY_DEPARTMENT = "department";
   @javax.annotation.Nullable  private JsonNullable<String> department = JsonNullable.<String>undefined();
@@ -222,7 +222,7 @@ public class EmployeeFullDto {
   @javax.annotation.Nullable  private EmployeeDto createdBy;
 
   public static final String JSON_PROPERTY_REGISTRATION_DATE = "registrationDate";
-  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> registrationDate = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private ApiDateTime registrationDate;
 
   public static final String JSON_PROPERTY_HAS_PERSONAL_FOLDER = "hasPersonalFolder";
   @javax.annotation.Nullable  private JsonNullable<Boolean> hasPersonalFolder = JsonNullable.<Boolean>undefined();
@@ -689,9 +689,9 @@ public class EmployeeFullDto {
     this.activationStatus = activationStatus;
   }
 
-  public EmployeeFullDto terminated(@javax.annotation.Nullable OffsetDateTime terminated) {
-    this.terminated = JsonNullable.<OffsetDateTime>of(terminated);
+  public EmployeeFullDto terminated(@javax.annotation.Nullable ApiDateTime terminated) {
     
+    this.terminated = terminated;
     return this;
   }
 
@@ -699,25 +699,18 @@ public class EmployeeFullDto {
    * The date when the user account was terminated.
    * @return terminated
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TERMINATED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getTerminated() {
-        return terminated.orElse(null);
+  public ApiDateTime getTerminated() {
+    return terminated;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_TERMINATED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<OffsetDateTime> getTerminated_JsonNullable() {
-    return terminated;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_TERMINATED)
-  public void setTerminated_JsonNullable(JsonNullable<OffsetDateTime> terminated) {
+  public void setTerminated(@javax.annotation.Nullable ApiDateTime terminated) {
     this.terminated = terminated;
-  }
-
-  public void setTerminated(@javax.annotation.Nullable OffsetDateTime terminated) {
-    this.terminated = JsonNullable.<OffsetDateTime>of(terminated);
   }
 
   public EmployeeFullDto department(@javax.annotation.Nullable String department) {
@@ -1387,9 +1380,9 @@ public class EmployeeFullDto {
     this.createdBy = createdBy;
   }
 
-  public EmployeeFullDto registrationDate(@javax.annotation.Nullable OffsetDateTime registrationDate) {
-    this.registrationDate = JsonNullable.<OffsetDateTime>of(registrationDate);
+  public EmployeeFullDto registrationDate(@javax.annotation.Nullable ApiDateTime registrationDate) {
     
+    this.registrationDate = registrationDate;
     return this;
   }
 
@@ -1397,25 +1390,18 @@ public class EmployeeFullDto {
    * The user registration date.
    * @return registrationDate
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REGISTRATION_DATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getRegistrationDate() {
-        return registrationDate.orElse(null);
+  public ApiDateTime getRegistrationDate() {
+    return registrationDate;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_REGISTRATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<OffsetDateTime> getRegistrationDate_JsonNullable() {
-    return registrationDate;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_REGISTRATION_DATE)
-  public void setRegistrationDate_JsonNullable(JsonNullable<OffsetDateTime> registrationDate) {
+  public void setRegistrationDate(@javax.annotation.Nullable ApiDateTime registrationDate) {
     this.registrationDate = registrationDate;
-  }
-
-  public void setRegistrationDate(@javax.annotation.Nullable OffsetDateTime registrationDate) {
-    this.registrationDate = JsonNullable.<OffsetDateTime>of(registrationDate);
   }
 
   public EmployeeFullDto hasPersonalFolder(@javax.annotation.Nullable Boolean hasPersonalFolder) {
@@ -1506,7 +1492,7 @@ public class EmployeeFullDto {
         equalsNullable(this.contacts, employeeFullDto.contacts) &&
         Objects.equals(this.status, employeeFullDto.status) &&
         Objects.equals(this.activationStatus, employeeFullDto.activationStatus) &&
-        equalsNullable(this.terminated, employeeFullDto.terminated) &&
+        Objects.equals(this.terminated, employeeFullDto.terminated) &&
         equalsNullable(this.department, employeeFullDto.department) &&
         equalsNullable(this.groups, employeeFullDto.groups) &&
         equalsNullable(this.location, employeeFullDto.location) &&
@@ -1530,7 +1516,7 @@ public class EmployeeFullDto {
         equalsNullable(this.loginEventId, employeeFullDto.loginEventId) &&
         equalsNullable(this.authCookieLifetime, employeeFullDto.authCookieLifetime) &&
         Objects.equals(this.createdBy, employeeFullDto.createdBy) &&
-        equalsNullable(this.registrationDate, employeeFullDto.registrationDate) &&
+        Objects.equals(this.registrationDate, employeeFullDto.registrationDate) &&
         equalsNullable(this.hasPersonalFolder, employeeFullDto.hasPersonalFolder) &&
         equalsNullable(this.tfaAppEnabled, employeeFullDto.tfaAppEnabled);
   }
@@ -1541,7 +1527,7 @@ public class EmployeeFullDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, displayName, avatar, avatarOriginal, avatarMax, avatarMedium, avatarSmall, profileUrl, hasAvatar, isAnonim, hashCodeNullable(firstName), hashCodeNullable(lastName), hashCodeNullable(userName), hashCodeNullable(email), hashCodeNullable(contacts), status, activationStatus, hashCodeNullable(terminated), hashCodeNullable(department), hashCodeNullable(groups), hashCodeNullable(location), hashCodeNullable(notes), isAdmin, isRoomAdmin, isLDAP, hashCodeNullable(listAdminModules), isOwner, isVisitor, isCollaborator, hashCodeNullable(cultureName), hashCodeNullable(mobilePhone), mobilePhoneActivationStatus, isSSO, theme, hashCodeNullable(quotaLimit), hashCodeNullable(usedSpace), hashCodeNullable(shared), hashCodeNullable(isCustomQuota), hashCodeNullable(loginEventId), hashCodeNullable(authCookieLifetime), createdBy, hashCodeNullable(registrationDate), hashCodeNullable(hasPersonalFolder), hashCodeNullable(tfaAppEnabled));
+    return Objects.hash(id, displayName, avatar, avatarOriginal, avatarMax, avatarMedium, avatarSmall, profileUrl, hasAvatar, isAnonim, hashCodeNullable(firstName), hashCodeNullable(lastName), hashCodeNullable(userName), hashCodeNullable(email), hashCodeNullable(contacts), status, activationStatus, terminated, hashCodeNullable(department), hashCodeNullable(groups), hashCodeNullable(location), hashCodeNullable(notes), isAdmin, isRoomAdmin, isLDAP, hashCodeNullable(listAdminModules), isOwner, isVisitor, isCollaborator, hashCodeNullable(cultureName), hashCodeNullable(mobilePhone), mobilePhoneActivationStatus, isSSO, theme, hashCodeNullable(quotaLimit), hashCodeNullable(usedSpace), hashCodeNullable(shared), hashCodeNullable(isCustomQuota), hashCodeNullable(loginEventId), hashCodeNullable(authCookieLifetime), createdBy, registrationDate, hashCodeNullable(hasPersonalFolder), hashCodeNullable(tfaAppEnabled));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1818,12 +1804,7 @@ public class EmployeeFullDto {
 
     // add `terminated` to the URL query string
     if (getTerminated() != null) {
-      try {
-        joiner.add(String.format("%sterminated%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTerminated()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getTerminated().toUrlQueryString(prefix + "terminated" + suffix));
     }
 
     // add `department` to the URL query string
@@ -2057,12 +2038,7 @@ public class EmployeeFullDto {
 
     // add `registrationDate` to the URL query string
     if (getRegistrationDate() != null) {
-      try {
-        joiner.add(String.format("%sregistrationDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRegistrationDate()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getRegistrationDate().toUrlQueryString(prefix + "registrationDate" + suffix));
     }
 
     // add `hasPersonalFolder` to the URL query string

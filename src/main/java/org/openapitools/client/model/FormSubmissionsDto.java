@@ -41,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * All submissions of a form, together with the metadata of its fields.
+ * All completed copies of a form, together with the description of the fields they were filled into.
  */
 @JsonPropertyOrder({
   FormSubmissionsDto.JSON_PROPERTY_METADATA,
@@ -78,7 +78,7 @@ public class FormSubmissionsDto {
   }
 
   /**
-   * The form field metadata.
+   * Describes the fields of the form version that is being filled - the key each value is stored under, the type  and format of the field and, where the field offers a fixed set of answers, those answers - in the order the  fields are laid out, which is the order to build a results table in. It comes back empty when the portal holds  no indexed description of that version.
    * @return metadata
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -121,7 +121,7 @@ public class FormSubmissionsDto {
   }
 
   /**
-   * All submissions.
+   * One entry per completed copy, ordered by the copy number that `formsData` carries. An empty list means nothing  has been completed for the version that is currently being filled; the copies of earlier versions of the form  are not reported here.
    * @return submissions
    */
   @javax.annotation.Nullable  @JsonIgnore

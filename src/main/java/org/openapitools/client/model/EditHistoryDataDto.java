@@ -38,7 +38,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The file editing history data.
+ * Everything an editor needs in order to show what one revision of a file changed.
  */
 @JsonPropertyOrder({
   EditHistoryDataDto.JSON_PROPERTY_CHANGES_URL,
@@ -83,7 +83,7 @@ public class EditHistoryDataDto {
   }
 
   /**
-   * The URL address of the file with the document changes data.
+   * The address the editor downloads the recorded changes of this revision from. It is filled in only when the  portal has a change record for the revision; without it the revision can be shown as a whole document but not  as a set of changes.
    * @return changesUrl
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -114,7 +114,7 @@ public class EditHistoryDataDto {
   }
 
   /**
-   * The document identifier used to unambiguously identify the document file.
+   * The document key of the revision being shown, which the editing service uses to identify it and to reuse the  copy it has cached.
    * @return key
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_KEY, required = false)
@@ -138,7 +138,7 @@ public class EditHistoryDataDto {
   }
 
   /**
-   * The object of the previous version of the document.
+   * The revision this one is compared against. It arrives together with `changesUrl`, and when the revision shown  is the first one the file ever had, it points at the blank template the file was created from instead of at an  earlier revision.
    * @return previous
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PREVIOUS, required = false)
@@ -162,7 +162,7 @@ public class EditHistoryDataDto {
   }
 
   /**
-   * The encrypted signature added to the parameter in the form of a token.
+   * The signature over the whole answer, as a JSON Web Token that the editing service verifies before it accepts  the addresses in it. Empty when the portal runs without a document-service secret.
    * @return token
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -193,7 +193,7 @@ public class EditHistoryDataDto {
   }
 
   /**
-   * The URL address of the current document version.
+   * The address the content of this revision is served from. It is meant for the editing service and carries its  own key, which is valid for a limited time.
    * @return url
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_URL, required = false)
@@ -217,7 +217,7 @@ public class EditHistoryDataDto {
   }
 
   /**
-   * The document version number.
+   * Echoes the revision that was asked for, so it reports 0 when the request named no version and the current  revision was taken.
    * @return version
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_VERSION, required = true)
@@ -241,7 +241,7 @@ public class EditHistoryDataDto {
   }
 
   /**
-   * The document extension.
+   * The format of the revision being shown, as an extension without the leading dot.
    * @return fileType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_TYPE, required = false)

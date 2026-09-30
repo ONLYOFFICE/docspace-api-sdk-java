@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Represents the WOPI configuration of a DocsCloud tenant.
+ * Represents the WOPI configuration of a Docs Connect tenant.
  */
 @JsonPropertyOrder({
   DocsCloudWopiConfig.JSON_PROPERTY_ENABLE

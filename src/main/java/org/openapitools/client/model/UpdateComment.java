@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The parameters for updating a comment.
+ * The comment to store on one version of a file.
  */
 @JsonPropertyOrder({
   UpdateComment.JSON_PROPERTY_VERSION,
@@ -61,7 +61,7 @@ public class UpdateComment {
   }
 
   /**
-   * The comment version.
+   * The version the comment belongs to, as reported by `GET api/2.0/files/file/{fileId}/edit/history`. A version  that does not exist is rejected as an invalid request.
    * minimum: 1
    * maximum: 2147483647
    * @return version
@@ -87,7 +87,7 @@ public class UpdateComment {
   }
 
   /**
-   * The comment text.
+   * The note that explains what changed in that version, as the version history shows it. An empty text clears the  note, and a longer one is cut rather than refused, so read the stored text from the answer.
    * @return comment
    */
   @javax.annotation.Nullable  @JsonIgnore

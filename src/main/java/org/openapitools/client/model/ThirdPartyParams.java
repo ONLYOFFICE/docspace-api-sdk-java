@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The third-party account parameters.
+ * A third-party storage account connected to the portal.
  */
 @JsonPropertyOrder({
   ThirdPartyParams.JSON_PROPERTY_AUTH_DATA,
@@ -78,7 +78,7 @@ public class ThirdPartyParams {
   }
 
   /**
-   * The authentication data.
+   * The stored credentials of the account. They are not filled in here: the portal does not give back credentials  once an account is saved.
    * @return authData
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTH_DATA, required = false)
@@ -102,7 +102,7 @@ public class ThirdPartyParams {
   }
 
   /**
-   * Specifies if this is a corporate account or not.
+   * Whether the account is attached to the legacy Common section, which is the case only for accounts inherited  from an older portal.
    * @return corporate
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CORPORATE, required = false)
@@ -126,7 +126,7 @@ public class ThirdPartyParams {
   }
 
   /**
-   * Specifies if this is a room storage or not.
+   * Whether the account is attached to the Rooms section, room templates and the archive counted in. This is where  `POST api/2.0/files/thirdparty` puts every account it connects.
    * @return roomsStorage
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOMS_STORAGE, required = false)
@@ -150,7 +150,7 @@ public class ThirdPartyParams {
   }
 
   /**
-   * The customer title.
+   * The name the account is shown under in the portal, as it was saved when the account was connected.
    * @return customerTitle
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -181,7 +181,7 @@ public class ThirdPartyParams {
   }
 
   /**
-   * The provider ID.
+   * The account ID to send to `DELETE api/2.0/files/thirdparty/{providerId}`, or as `providerId` to  re-authenticate the account.
    * @return providerId
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -212,7 +212,7 @@ public class ThirdPartyParams {
   }
 
   /**
-   * The provider key.
+   * The storage service behind the account. `WebDav` stands for every WebDAV preset, so it does not tell which of  them was chosen when the account was connected.
    * @return providerKey
    */
   @javax.annotation.Nullable  @JsonIgnore

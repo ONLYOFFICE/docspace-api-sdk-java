@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The Firebase-related request parameters.
+ * Which mobile device receives the Documents push notifications, and whether it is subscribed.
  */
 @JsonPropertyOrder({
   FirebaseRequestsDto.JSON_PROPERTY_FIREBASE_DEVICE_TOKEN,
@@ -61,7 +61,7 @@ public class FirebaseRequestsDto {
   }
 
   /**
-   * The Firebase device token.
+   * The registration token Firebase issued to the mobile client for this device, obtained on the device itself.  It is kept as an opaque string of up to 255 characters and is never verified here; it identifies the device  and is matched but never changed, and a token belonging to another member or another portal matches nothing.
    * @return firebaseDeviceToken
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -92,7 +92,7 @@ public class FirebaseRequestsDto {
   }
 
   /**
-   * Specifies whether the user is subscribed to the push notifications or not.
+   * Whether the device is to receive the room activity messages - an invitation, a role change, an archived room,  a new document. On a first registration it is stored as given; on a registration that already exists it is  ignored, because registering does not update, and the subscription is changed with  `PUT api/2.0/settings/push/docsubscribe` instead.
    * @return isSubscribed
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_SUBSCRIBED, required = false)

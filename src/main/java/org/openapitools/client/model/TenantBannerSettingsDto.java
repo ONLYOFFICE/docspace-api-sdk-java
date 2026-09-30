@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for managing the visibility settings of the promotional banners for the current tenant.
+ * Whether the portal promotional banners are hidden.
  */
 @JsonPropertyOrder({
   TenantBannerSettingsDto.JSON_PROPERTY_HIDDEN
@@ -53,7 +53,7 @@ public class TenantBannerSettingsDto {
   }
 
   /**
-   * The banners visibility flag.
+   * Whether the promotional banners are hidden from every user of the portal. The flag is only honoured on a  self-hosted installation; a SaaS portal keeps showing the banners whatever is stored here.
    * @return hidden
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HIDDEN, required = false)

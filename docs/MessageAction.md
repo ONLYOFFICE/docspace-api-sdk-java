@@ -443,6 +443,8 @@
 
 * `FileNotSavedDueToTenantQuota` (value: `5206`)
 
+* `DocumentsShowQuickActionsUpdated` (value: `5207`)
+
 * `LdapEnabled` (value: `5501`)
 
 * `LdapDisabled` (value: `5502`)
@@ -678,6 +680,8 @@
 * `GuestCreatedAndAddedToRoom` (value: `7003`)
 
 * `ContactSalesMailSent` (value: `7004`)
+
+* `SuspiciousLoginDetected` (value: `7005`)
 
 * `CreateClient` (value: `9901`)
 

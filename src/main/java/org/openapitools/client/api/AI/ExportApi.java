@@ -25,7 +25,7 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.AiErrorResponse;
-import org.openapitools.client.model.AiExportTextToDocx200Response;
+import org.openapitools.client.model.AiExportTextToDocx202Response;
 import org.openapitools.client.model.AiExportTextToDocxRequest;
 
 
@@ -48,34 +48,34 @@ public class ExportApi extends BaseApi {
 
 
   /**
-   * Start markdown → docx export
-   * Starts an asynchronous markdown-to-docx export. The response only acknowledges the task: the AI Worker converts the content and saves the .docx into the target folder (an agent room resolves to its result-storage subfolder), and completion reaches the client as the usual folder-modified socket event.
+   * Start markdown export
+   * Queues a markdown export and answers 202 as soon as the job is accepted, without waiting for it. `title`, `content` and `folderId` are all required, and a `content` of only whitespace counts as missing even though it is not empty. `format` is optional and selects the output - `Docx` (the default), `Pdf`, or `Md`, which stores the markdown verbatim instead of converting it. The conversion runs in the AI worker, which saves the .docx into the target folder - an agent room resolves to its own result-storage subfolder - so there is nothing to poll here: completion arrives as the ordinary folder-modified socket event. This route accepts a body of up to 15 MB rather than the 100 KB the rest of the API allows, because a whole thread transcript is sent in one request.
    *
    * REST API Reference for aiExportTextToDocx Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-export-text-to-docx/
    *
    * @param aiExportTextToDocxRequest  (required)
-   * @return AiExportTextToDocx200Response
+   * @return AiExportTextToDocx202Response
    * @throws ApiException if fails to make API call
    */
-  public AiExportTextToDocx200Response aiExportTextToDocx(@javax.annotation.Nonnull AiExportTextToDocxRequest aiExportTextToDocxRequest) throws ApiException {
+  public AiExportTextToDocx202Response aiExportTextToDocx(@javax.annotation.Nonnull AiExportTextToDocxRequest aiExportTextToDocxRequest) throws ApiException {
     return this.aiExportTextToDocx(aiExportTextToDocxRequest, Collections.emptyMap());
   }
 
 
   /**
-   * Start markdown → docx export
-   * Starts an asynchronous markdown-to-docx export. The response only acknowledges the task: the AI Worker converts the content and saves the .docx into the target folder (an agent room resolves to its result-storage subfolder), and completion reaches the client as the usual folder-modified socket event.
+   * Start markdown export
+   * Queues a markdown export and answers 202 as soon as the job is accepted, without waiting for it. `title`, `content` and `folderId` are all required, and a `content` of only whitespace counts as missing even though it is not empty. `format` is optional and selects the output - `Docx` (the default), `Pdf`, or `Md`, which stores the markdown verbatim instead of converting it. The conversion runs in the AI worker, which saves the .docx into the target folder - an agent room resolves to its own result-storage subfolder - so there is nothing to poll here: completion arrives as the ordinary folder-modified socket event. This route accepts a body of up to 15 MB rather than the 100 KB the rest of the API allows, because a whole thread transcript is sent in one request.
    *
    * REST API Reference for aiExportTextToDocx Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-export-text-to-docx/
    *
    * @param aiExportTextToDocxRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return AiExportTextToDocx200Response
+   * @return AiExportTextToDocx202Response
    * @throws ApiException if fails to make API call
    */
-  public AiExportTextToDocx200Response aiExportTextToDocx(@javax.annotation.Nonnull AiExportTextToDocxRequest aiExportTextToDocxRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public AiExportTextToDocx202Response aiExportTextToDocx(@javax.annotation.Nonnull AiExportTextToDocxRequest aiExportTextToDocxRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = aiExportTextToDocxRequest;
     
     // verify the required parameter 'aiExportTextToDocxRequest' is set
@@ -110,9 +110,9 @@ public class ExportApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
-    TypeReference<AiExportTextToDocx200Response> localVarReturnType = new TypeReference<AiExportTextToDocx200Response>() {};
+    TypeReference<AiExportTextToDocx202Response> localVarReturnType = new TypeReference<AiExportTextToDocx202Response>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -152,7 +152,7 @@ public class ExportApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

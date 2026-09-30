@@ -106,7 +106,7 @@ public class UpdateMemberRequestDto {
   }
 
   /**
-   * The user ID.
+   * The account the change applies to. It is read from this body by `POST api/2.0/people/email`, while  `PUT api/2.0/people/{userid}` takes the account from the route and ignores this field.
    * @return userId
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -137,7 +137,7 @@ public class UpdateMemberRequestDto {
   }
 
   /**
-   * Specifies whether to disable a user or not.
+   * Set it to true to give the account the `Terminated` status and end every session it has, and to false to  bring it back. It is applied only when the caller edits somebody else, and omitting it keeps the current  status.
    * @return disable
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -168,7 +168,7 @@ public class UpdateMemberRequestDto {
   }
 
   /**
-   * The user email address.
+   * The new email address, up to 255 characters. It is read only by `POST api/2.0/people/email`, which either  mails a confirmation letter or, for an administrator acting on somebody else, applies the address at once;  `PUT api/2.0/people/{userid}` ignores it.
    * @return email
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -199,7 +199,7 @@ public class UpdateMemberRequestDto {
   }
 
   /**
-   * Specifies if this is a guest or a user.
+   * Set it to true to turn the account into a guest and to false to turn it back into a member. Either direction  takes a seat and can answer 402, it is applied only when the caller edits somebody else, and a request to  make the portal owner, a DocSpace administrator or a module administrator a guest is ignored.
    * @return isUser
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -230,7 +230,7 @@ public class UpdateMemberRequestDto {
   }
 
   /**
-   * The user first name.
+   * The new first name, up to 255 characters. It is applied only to the caller's own profile, is left alone on an  LDAP or SSO account, and a pair the portal does not accept as a name answers 400.
    * @return firstName
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -261,7 +261,7 @@ public class UpdateMemberRequestDto {
   }
 
   /**
-   * The user last name.
+   * The new last name, up to 255 characters. It is applied only to the caller's own profile, is left alone on an  LDAP or SSO account, and a pair the portal does not accept as a name answers 400.
    * @return lastName
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -304,7 +304,7 @@ public class UpdateMemberRequestDto {
   }
 
   /**
-   * The list of the user departments.
+   * The groups the profile should belong to, by group ID, replacing the current ones. It is applied only to the  caller's own profile.
    * @return department
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -335,7 +335,7 @@ public class UpdateMemberRequestDto {
   }
 
   /**
-   * The user location.
+   * The new free-text location shown on the profile. It is applied only to the caller's own profile and is left  alone on an LDAP or SSO account.
    * @return location
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -366,7 +366,7 @@ public class UpdateMemberRequestDto {
   }
 
   /**
-   * The user comment.
+   * The new free-text note kept with the profile. It is applied only to the caller's own profile.
    * @return comment
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -409,7 +409,7 @@ public class UpdateMemberRequestDto {
   }
 
   /**
-   * The list of the user contacts.
+   * The additional ways to reach the person, replacing the current ones. Each entry is a free-text type such as  `email`, `phone`, `skype` or `telegram` and its value, an entry with an empty value is dropped, and the field  is applied only to the caller's own profile.
    * @return contacts
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -440,7 +440,7 @@ public class UpdateMemberRequestDto {
   }
 
   /**
-   * The user avatar photo URL.
+   * The address the portal downloads the new avatar from. It is applied only to the caller's own profile, has to  use HTTPS unless the request itself came over HTTP, and passing the address the profile already uses  downloads nothing.
    * @return files
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -471,7 +471,7 @@ public class UpdateMemberRequestDto {
   }
 
   /**
-   * Specifies if tips, updates and offers are allowed to be sent to the user or not.
+   * Whether the account agrees to receive tips, updates and offers. It is applied only to the caller's own  profile, and omitting it on such a request stores false rather than keeping the current value.
    * @return spam
    */
   @javax.annotation.Nullable  @JsonIgnore

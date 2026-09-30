@@ -33,7 +33,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Represents the license information of a DocsCloud tenant.
+ * Represents the license information of a Docs Connect tenant.
  */
 @JsonPropertyOrder({
   DocsCloudLicenseInfo.JSON_PROPERTY_VALID,

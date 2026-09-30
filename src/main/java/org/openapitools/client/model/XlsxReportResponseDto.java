@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.DocumentBuilderTaskDto;
-import org.openapitools.client.model.FileDtoInteger;
+import org.openapitools.client.model.FileDto;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -34,7 +34,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The XLSX report task response parameters.
+ * The answer to a report generation request: the queued task, the form whose answers are collected, and whether the  report file is being created or refreshed.
  */
 @JsonPropertyOrder({
   XlsxReportResponseDto.JSON_PROPERTY_FORM,
@@ -44,7 +44,7 @@ import java.util.StringJoiner;
 
 public class XlsxReportResponseDto {
   public static final String JSON_PROPERTY_FORM = "form";
-  @javax.annotation.Nullable  private FileDtoInteger form;
+  @javax.annotation.Nullable  private FileDto form;
 
   public static final String JSON_PROPERTY_TASK = "task";
   @javax.annotation.Nullable  private DocumentBuilderTaskDto task;
@@ -56,27 +56,27 @@ public class XlsxReportResponseDto {
   }
 
 
-  public XlsxReportResponseDto form(@javax.annotation.Nullable FileDtoInteger form) {
+  public XlsxReportResponseDto form(@javax.annotation.Nullable FileDto form) {
     
     this.form = form;
     return this;
   }
 
   /**
-   * The original form file information.
+   * The original form the answers are collected from. It is not the produced spreadsheet - that one arrives with  the task, once the task reports completion.
    * @return form
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public FileDtoInteger getForm() {
+  public FileDto getForm() {
     return form;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_FORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setForm(@javax.annotation.Nullable FileDtoInteger form) {
+  public void setForm(@javax.annotation.Nullable FileDto form) {
     this.form = form;
   }
 
@@ -87,7 +87,7 @@ public class XlsxReportResponseDto {
   }
 
   /**
-   * The Document Builder task information.
+   * The queued generation. Poll it with `GET api/2.0/files/file/{fileId}/xlsx` until it reports completion, and  take the produced file from it then.
    * @return task
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TASK, required = false)
@@ -111,7 +111,7 @@ public class XlsxReportResponseDto {
   }
 
   /**
-   * Specifies whether the XLSX report file is newly created or an existing file will be updated.
+   * True when this run creates the report file, false when an existing report is rewritten in place, which means  it keeps its id and the links already shared for it.
    * @return isNewFile
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_NEW_FILE, required = false)

@@ -2,14 +2,14 @@
 
 # DocsCloudTenantInfo
 
-Represents the license and server information of a DocsCloud tenant, with usage statistics for the current period.
+Represents the license and server information of a Docs Connect tenant, with usage statistics for the current period.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**license** | [**DocsCloudLicenseInfo**](DocsCloudLicenseInfo.md) | The license information. |  [optional] |
-|**server** | [**DocsCloudServerInfo**](DocsCloudServerInfo.md) | The DocsCloud server information. |  [optional] |
+|**server** | [**DocsCloudServerInfo**](DocsCloudServerInfo.md) | The Docs Connect server information. |  [optional] |
 |**usersLimit** | [**DocsCloudUsersLimit**](DocsCloudUsersLimit.md) | The user limits of the license. |  [optional] |
 |**stats** | [**DocsCloudStats**](DocsCloudStats.md) | The usage statistics for the current period. |  [optional] |
 

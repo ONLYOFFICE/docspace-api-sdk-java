@@ -24,8 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.time.OffsetDateTime;
 import java.util.UUID;
+import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.EmployeeType;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -39,7 +39,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The invitation link parameters.
+ * The portal's standing invitation link for one role: what it grants, how long it lasts, how often it was used.
  */
 @JsonPropertyOrder({
   InvitationLinkDto.JSON_PROPERTY_ID,
@@ -59,7 +59,7 @@ public class InvitationLinkDto {
   @javax.annotation.Nonnull  private EmployeeType employeeType;
 
   public static final String JSON_PROPERTY_EXPIRATION = "expiration";
-  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> expiration = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private ApiDateTime expiration;
 
   public static final String JSON_PROPERTY_IS_EXPIRED = "isExpired";
   @javax.annotation.Nullable  private Boolean isExpired;
@@ -84,7 +84,7 @@ public class InvitationLinkDto {
   }
 
   /**
-   * The ID of the invitation link.
+   * The identifier to address the link by in `PUT api/2.0/portal/users/invitationlink` and  `DELETE api/2.0/portal/users/invitationlink`. It survives a change of deadline or use limit, so it is  worth storing rather than re-reading.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -108,7 +108,7 @@ public class InvitationLinkDto {
   }
 
   /**
-   * The type of employee role for the invitation link.
+   * The role an account gets by joining through this link. A portal keeps at most one link per role, and the  role of an existing link cannot be changed - the link has to be deleted and created again.
    * @return employeeType
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_EMPLOYEE_TYPE, required = true)
@@ -125,35 +125,28 @@ public class InvitationLinkDto {
     this.employeeType = employeeType;
   }
 
-  public InvitationLinkDto expiration(@javax.annotation.Nullable OffsetDateTime expiration) {
-    this.expiration = JsonNullable.<OffsetDateTime>of(expiration);
+  public InvitationLinkDto expiration(@javax.annotation.Nullable ApiDateTime expiration) {
     
+    this.expiration = expiration;
     return this;
   }
 
   /**
-   * The expiration date of the invitation link.
+   * When the link stops working, in the portal time zone. It is empty for a link that never expires, which is  what omitting the deadline on create or update leaves behind.
    * @return expiration
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getExpiration() {
-        return expiration.orElse(null);
+  public ApiDateTime getExpiration() {
+    return expiration;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_EXPIRATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<OffsetDateTime> getExpiration_JsonNullable() {
-    return expiration;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_EXPIRATION)
-  public void setExpiration_JsonNullable(JsonNullable<OffsetDateTime> expiration) {
+  public void setExpiration(@javax.annotation.Nullable ApiDateTime expiration) {
     this.expiration = expiration;
-  }
-
-  public void setExpiration(@javax.annotation.Nullable OffsetDateTime expiration) {
-    this.expiration = JsonNullable.<OffsetDateTime>of(expiration);
   }
 
   public InvitationLinkDto isExpired(@javax.annotation.Nullable Boolean isExpired) {
@@ -163,7 +156,7 @@ public class InvitationLinkDto {
   }
 
   /**
-   * Indicates whether the invitation link has expired.
+   * Whether that deadline has already passed. A link without a deadline always reports `false`, and an expired  link is still returned rather than treated as gone - it can be revived by moving `expiration`.
    * @return isExpired
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_EXPIRED, required = false)
@@ -187,7 +180,7 @@ public class InvitationLinkDto {
   }
 
   /**
-   * The maximum number of times the invitation link can be used.
+   * How many accounts may join through the link in total. It is empty for a link with no use limit, and an  update may not lower it below `currentUseCount`.
    * @return maxUseCount
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -218,7 +211,7 @@ public class InvitationLinkDto {
   }
 
   /**
-   * The current number of times the invitation link has been used.
+   * How many accounts have already joined through the link. It only ever grows, and reaching `maxUseCount`  retires the link as surely as a passed deadline.
    * @return currentUseCount
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CURRENT_USE_COUNT, required = false)
@@ -242,7 +235,7 @@ public class InvitationLinkDto {
   }
 
   /**
-   * The URL of the invitation link.
+   * The shortened address to hand to the people being invited. It is signed for the account that read it, so  two administrators are given two different URLs for one and the same link and both of them work; the `id`  above, not this string, is what identifies the link.
    * @return url
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -277,7 +270,7 @@ public class InvitationLinkDto {
     InvitationLinkDto invitationLinkDto = (InvitationLinkDto) o;
     return Objects.equals(this.id, invitationLinkDto.id) &&
         Objects.equals(this.employeeType, invitationLinkDto.employeeType) &&
-        equalsNullable(this.expiration, invitationLinkDto.expiration) &&
+        Objects.equals(this.expiration, invitationLinkDto.expiration) &&
         Objects.equals(this.isExpired, invitationLinkDto.isExpired) &&
         equalsNullable(this.maxUseCount, invitationLinkDto.maxUseCount) &&
         Objects.equals(this.currentUseCount, invitationLinkDto.currentUseCount) &&
@@ -290,7 +283,7 @@ public class InvitationLinkDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, employeeType, hashCodeNullable(expiration), isExpired, hashCodeNullable(maxUseCount), currentUseCount, hashCodeNullable(url));
+    return Objects.hash(id, employeeType, expiration, isExpired, hashCodeNullable(maxUseCount), currentUseCount, hashCodeNullable(url));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -380,12 +373,7 @@ public class InvitationLinkDto {
 
     // add `expiration` to the URL query string
     if (getExpiration() != null) {
-      try {
-        joiner.add(String.format("%sexpiration%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpiration()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getExpiration().toUrlQueryString(prefix + "expiration" + suffix));
     }
 
     // add `isExpired` to the URL query string

@@ -24,7 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.time.OffsetDateTime;
+import org.openapitools.client.model.ApiDateTime;
+import org.openapitools.client.model.OperationTokenUsage;
 import org.openapitools.client.model.OperationType;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -38,7 +39,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Represents an operation.
+ * One movement on the portal wallet: what it was for, who caused it, and how much money it moved.
  */
 @JsonPropertyOrder({
   OperationDto.JSON_PROPERTY_DATE,
@@ -52,14 +53,16 @@ import java.util.StringJoiner;
   OperationDto.JSON_PROPERTY_DEBIT,
   OperationDto.JSON_PROPERTY_PARTICIPANT_NAME,
   OperationDto.JSON_PROPERTY_PARTICIPANT_DISPLAY_NAME,
-  OperationDto.JSON_PROPERTY_AGENT_ID,
-  OperationDto.JSON_PROPERTY_AGENT_TITLE,
+  OperationDto.JSON_PROPERTY_SOURCE_TYPE,
+  OperationDto.JSON_PROPERTY_SOURCE_TITLE,
+  OperationDto.JSON_PROPERTY_SOURCE_ID,
+  OperationDto.JSON_PROPERTY_TOKEN_USAGE,
   OperationDto.JSON_PROPERTY_TYPE
 })
 
 public class OperationDto {
   public static final String JSON_PROPERTY_DATE = "date";
-  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> date = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private ApiDateTime date;
 
   public static final String JSON_PROPERTY_SERVICE = "service";
   @javax.annotation.Nullable  private JsonNullable<String> service = JsonNullable.<String>undefined();
@@ -91,11 +94,17 @@ public class OperationDto {
   public static final String JSON_PROPERTY_PARTICIPANT_DISPLAY_NAME = "participantDisplayName";
   @javax.annotation.Nullable  private JsonNullable<String> participantDisplayName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_AGENT_ID = "agentId";
-  @javax.annotation.Nullable  private JsonNullable<String> agentId = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_SOURCE_TYPE = "sourceType";
+  @javax.annotation.Nullable  private JsonNullable<String> sourceType = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_AGENT_TITLE = "agentTitle";
-  @javax.annotation.Nullable  private JsonNullable<String> agentTitle = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_SOURCE_TITLE = "sourceTitle";
+  @javax.annotation.Nullable  private JsonNullable<String> sourceTitle = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_SOURCE_ID = "sourceId";
+  @javax.annotation.Nullable  private JsonNullable<String> sourceId = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_TOKEN_USAGE = "tokenUsage";
+  @javax.annotation.Nullable  private OperationTokenUsage tokenUsage;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   @javax.annotation.Nullable  private OperationType type;
@@ -104,35 +113,28 @@ public class OperationDto {
   }
 
 
-  public OperationDto date(@javax.annotation.Nullable OffsetDateTime date) {
-    this.date = JsonNullable.<OffsetDateTime>of(date);
+  public OperationDto date(@javax.annotation.Nullable ApiDateTime date) {
     
+    this.date = date;
     return this;
   }
 
   /**
-   * The date when the operation took place.
+   * When the movement was booked, in the portal time zone - the same zone the `startDate` and `endDate`  filters are read in, so the two do line up here.
    * @return date
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getDate() {
-        return date.orElse(null);
+  public ApiDateTime getDate() {
+    return date;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<OffsetDateTime> getDate_JsonNullable() {
-    return date;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_DATE)
-  public void setDate_JsonNullable(JsonNullable<OffsetDateTime> date) {
+  public void setDate(@javax.annotation.Nullable ApiDateTime date) {
     this.date = date;
-  }
-
-  public void setDate(@javax.annotation.Nullable OffsetDateTime date) {
-    this.date = JsonNullable.<OffsetDateTime>of(date);
   }
 
   public OperationDto service(@javax.annotation.Nullable String service) {
@@ -142,7 +144,7 @@ public class OperationDto {
   }
 
   /**
-   * The service related to the operation.
+   * The wallet service the movement belongs to, by its stable key. It is what the `serviceName` filter  matches on, and it is empty for a movement that belongs to no service, such as a top-up.
    * @return service
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -173,7 +175,7 @@ public class OperationDto {
   }
 
   /**
-   * The brief operation description.
+   * A one-line summary of the movement in the portal language, already composed from the service and the  quantity - meant to be printed as it is rather than parsed.
    * @return description
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -204,7 +206,7 @@ public class OperationDto {
   }
 
   /**
-   * The detailed information about the operation.
+   * The longer explanation of the same movement, where the service recorded one. It is empty for a movement  that has nothing to add to `description`.
    * @return details
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -235,7 +237,7 @@ public class OperationDto {
   }
 
   /**
-   * The service unit.
+   * What `quantity` counts for this service, in the portal language. AI consumption is reported in tokens  here rather than in the AI credits the service is sold in.
    * @return serviceUnit
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -266,7 +268,7 @@ public class OperationDto {
   }
 
   /**
-   * The quantity of the service used.
+   * How many units the movement covers, in the unit named by `serviceUnit`. It is `0` for a movement that  moves money without consuming a service.
    * @return quantity
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_QUANTITY, required = false)
@@ -290,7 +292,7 @@ public class OperationDto {
   }
 
   /**
-   * The three-character ISO 4217 currency symbol of the operation.
+   * The currency `credit` and `debit` are expressed in, as a three-letter ISO 4217 code. It is the accounting  currency of the wallet, which need not be the currency the subscription is priced in.
    * @return currency
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -321,7 +323,7 @@ public class OperationDto {
   }
 
   /**
-   * The credit amount of the operation.
+   * The amount that went into the wallet. It is `0` on a movement that only took money out, so the pair of  `credit` and `debit` is what shows which way the money went; the `credit` and `debit` filters of the  operation select the two directions by exactly this.
    * @return credit
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREDIT, required = false)
@@ -345,7 +347,7 @@ public class OperationDto {
   }
 
   /**
-   * The debit amount of the operation.
+   * The amount that was taken out of the wallet, `0` on a movement that put money in.
    * @return debit
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEBIT, required = false)
@@ -369,7 +371,7 @@ public class OperationDto {
   }
 
   /**
-   * The participant original name.
+   * Who caused the movement, as the billing service records them - an internal name, which is what the  `participantName` filter matches on. Show `participantDisplayName` instead.
    * @return participantName
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -400,7 +402,7 @@ public class OperationDto {
   }
 
   /**
-   * The participant display name.
+   * The same person as their portal display name. It falls back to `participantName` when the name belongs to  no portal account, so it is never empty while `participantName` is filled.
    * @return participantDisplayName
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -424,66 +426,121 @@ public class OperationDto {
     this.participantDisplayName = JsonNullable.<String>of(participantDisplayName);
   }
 
-  public OperationDto agentId(@javax.annotation.Nullable String agentId) {
-    this.agentId = JsonNullable.<String>of(agentId);
+  public OperationDto sourceType(@javax.annotation.Nullable String sourceType) {
+    this.sourceType = JsonNullable.<String>of(sourceType);
     
     return this;
   }
 
   /**
-   * AI Agent id.
-   * @return agentId
+   * What kind of thing an AI operation was run on - an agent, a file, a folder, a room or a form. It is empty  on any movement that is not an AI charge.
+   * @return sourceType
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public String getAgentId() {
-        return agentId.orElse(null);
+  public String getSourceType() {
+        return sourceType.orElse(null);
   }
 
-  @JsonProperty(value = JSON_PROPERTY_AGENT_ID, required = false)
+  @JsonProperty(value = JSON_PROPERTY_SOURCE_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getAgentId_JsonNullable() {
-    return agentId;
+  public JsonNullable<String> getSourceType_JsonNullable() {
+    return sourceType;
   }
   
-  @JsonProperty(JSON_PROPERTY_AGENT_ID)
-  public void setAgentId_JsonNullable(JsonNullable<String> agentId) {
-    this.agentId = agentId;
+  @JsonProperty(JSON_PROPERTY_SOURCE_TYPE)
+  public void setSourceType_JsonNullable(JsonNullable<String> sourceType) {
+    this.sourceType = sourceType;
   }
 
-  public void setAgentId(@javax.annotation.Nullable String agentId) {
-    this.agentId = JsonNullable.<String>of(agentId);
+  public void setSourceType(@javax.annotation.Nullable String sourceType) {
+    this.sourceType = JsonNullable.<String>of(sourceType);
   }
 
-  public OperationDto agentTitle(@javax.annotation.Nullable String agentTitle) {
-    this.agentTitle = JsonNullable.<String>of(agentTitle);
+  public OperationDto sourceTitle(@javax.annotation.Nullable String sourceTitle) {
+    this.sourceTitle = JsonNullable.<String>of(sourceTitle);
     
     return this;
   }
 
   /**
-   * AI Agent name.
-   * @return agentTitle
+   * The title that thing had when the operation ran, kept as recorded, so it does not follow a later rename.  Empty under the same conditions as `sourceType`.
+   * @return sourceTitle
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public String getAgentTitle() {
-        return agentTitle.orElse(null);
+  public String getSourceTitle() {
+        return sourceTitle.orElse(null);
   }
 
-  @JsonProperty(value = JSON_PROPERTY_AGENT_TITLE, required = false)
+  @JsonProperty(value = JSON_PROPERTY_SOURCE_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getAgentTitle_JsonNullable() {
-    return agentTitle;
+  public JsonNullable<String> getSourceTitle_JsonNullable() {
+    return sourceTitle;
   }
   
-  @JsonProperty(JSON_PROPERTY_AGENT_TITLE)
-  public void setAgentTitle_JsonNullable(JsonNullable<String> agentTitle) {
-    this.agentTitle = agentTitle;
+  @JsonProperty(JSON_PROPERTY_SOURCE_TITLE)
+  public void setSourceTitle_JsonNullable(JsonNullable<String> sourceTitle) {
+    this.sourceTitle = sourceTitle;
   }
 
-  public void setAgentTitle(@javax.annotation.Nullable String agentTitle) {
-    this.agentTitle = JsonNullable.<String>of(agentTitle);
+  public void setSourceTitle(@javax.annotation.Nullable String sourceTitle) {
+    this.sourceTitle = JsonNullable.<String>of(sourceTitle);
+  }
+
+  public OperationDto sourceId(@javax.annotation.Nullable String sourceId) {
+    this.sourceId = JsonNullable.<String>of(sourceId);
+    
+    return this;
+  }
+
+  /**
+   * The identifier of that thing, to look it up in the module it belongs to. Empty under the same conditions  as `sourceType`.
+   * @return sourceId
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getSourceId() {
+        return sourceId.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_SOURCE_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getSourceId_JsonNullable() {
+    return sourceId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SOURCE_ID)
+  public void setSourceId_JsonNullable(JsonNullable<String> sourceId) {
+    this.sourceId = sourceId;
+  }
+
+  public void setSourceId(@javax.annotation.Nullable String sourceId) {
+    this.sourceId = JsonNullable.<String>of(sourceId);
+  }
+
+  public OperationDto tokenUsage(@javax.annotation.Nullable OperationTokenUsage tokenUsage) {
+    
+    this.tokenUsage = tokenUsage;
+    return this;
+  }
+
+  /**
+   * The tokens an AI operation consumed, broken down by kind - prompt, completion, cache reads and writes,  reasoning, images. It is `null` on any movement that is not an AI charge, and on an AI charge the billing  service recorded without token counts.
+   * @return tokenUsage
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOKEN_USAGE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OperationTokenUsage getTokenUsage() {
+    return tokenUsage;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_TOKEN_USAGE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTokenUsage(@javax.annotation.Nullable OperationTokenUsage tokenUsage) {
+    this.tokenUsage = tokenUsage;
   }
 
   public OperationDto type(@javax.annotation.Nullable OperationType type) {
@@ -493,7 +550,7 @@ public class OperationDto {
   }
 
   /**
-   * Type of the operation
+   * What kind of movement this is - a payment, a charge, a refund, a correction. It is what the `type` filter  matches on, and `Unknown` covers a movement the billing service reported under a kind this build does not  recognise.
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
@@ -519,7 +576,7 @@ public class OperationDto {
       return false;
     }
     OperationDto operationDto = (OperationDto) o;
-    return equalsNullable(this.date, operationDto.date) &&
+    return Objects.equals(this.date, operationDto.date) &&
         equalsNullable(this.service, operationDto.service) &&
         equalsNullable(this.description, operationDto.description) &&
         equalsNullable(this.details, operationDto.details) &&
@@ -530,8 +587,10 @@ public class OperationDto {
         Objects.equals(this.debit, operationDto.debit) &&
         equalsNullable(this.participantName, operationDto.participantName) &&
         equalsNullable(this.participantDisplayName, operationDto.participantDisplayName) &&
-        equalsNullable(this.agentId, operationDto.agentId) &&
-        equalsNullable(this.agentTitle, operationDto.agentTitle) &&
+        equalsNullable(this.sourceType, operationDto.sourceType) &&
+        equalsNullable(this.sourceTitle, operationDto.sourceTitle) &&
+        equalsNullable(this.sourceId, operationDto.sourceId) &&
+        Objects.equals(this.tokenUsage, operationDto.tokenUsage) &&
         Objects.equals(this.type, operationDto.type);
   }
 
@@ -541,7 +600,7 @@ public class OperationDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(date), hashCodeNullable(service), hashCodeNullable(description), hashCodeNullable(details), hashCodeNullable(serviceUnit), quantity, hashCodeNullable(currency), credit, debit, hashCodeNullable(participantName), hashCodeNullable(participantDisplayName), hashCodeNullable(agentId), hashCodeNullable(agentTitle), type);
+    return Objects.hash(date, hashCodeNullable(service), hashCodeNullable(description), hashCodeNullable(details), hashCodeNullable(serviceUnit), quantity, hashCodeNullable(currency), credit, debit, hashCodeNullable(participantName), hashCodeNullable(participantDisplayName), hashCodeNullable(sourceType), hashCodeNullable(sourceTitle), hashCodeNullable(sourceId), tokenUsage, type);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -566,8 +625,10 @@ public class OperationDto {
     sb.append("    debit: ").append(toIndentedString(debit)).append("\n");
     sb.append("    participantName: ").append(toIndentedString(participantName)).append("\n");
     sb.append("    participantDisplayName: ").append(toIndentedString(participantDisplayName)).append("\n");
-    sb.append("    agentId: ").append(toIndentedString(agentId)).append("\n");
-    sb.append("    agentTitle: ").append(toIndentedString(agentTitle)).append("\n");
+    sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
+    sb.append("    sourceTitle: ").append(toIndentedString(sourceTitle)).append("\n");
+    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
+    sb.append("    tokenUsage: ").append(toIndentedString(tokenUsage)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -618,12 +679,7 @@ public class OperationDto {
 
     // add `date` to the URL query string
     if (getDate() != null) {
-      try {
-        joiner.add(String.format("%sdate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDate()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getDate().toUrlQueryString(prefix + "date" + suffix));
     }
 
     // add `service` to the URL query string
@@ -726,24 +782,39 @@ public class OperationDto {
       }
     }
 
-    // add `agentId` to the URL query string
-    if (getAgentId() != null) {
+    // add `sourceType` to the URL query string
+    if (getSourceType() != null) {
       try {
-        joiner.add(String.format("%sagentId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAgentId()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%ssourceType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSourceType()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
     }
 
-    // add `agentTitle` to the URL query string
-    if (getAgentTitle() != null) {
+    // add `sourceTitle` to the URL query string
+    if (getSourceTitle() != null) {
       try {
-        joiner.add(String.format("%sagentTitle%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAgentTitle()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%ssourceTitle%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSourceTitle()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
+    }
+
+    // add `sourceId` to the URL query string
+    if (getSourceId() != null) {
+      try {
+        joiner.add(String.format("%ssourceId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSourceId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `tokenUsage` to the URL query string
+    if (getTokenUsage() != null) {
+      joiner.add(getTokenUsage().toUrlQueryString(prefix + "tokenUsage" + suffix));
     }
 
     // add `type` to the URL query string

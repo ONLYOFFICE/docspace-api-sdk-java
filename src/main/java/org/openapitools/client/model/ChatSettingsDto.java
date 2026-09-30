@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The chat settings parameters.
+ * The chat configuration of an AI room.
  */
 @JsonPropertyOrder({
   ChatSettingsDto.JSON_PROPERTY_PROMPT
@@ -57,7 +57,7 @@ public class ChatSettingsDto {
   }
 
   /**
-   * The system prompt for the chat.
+   * The instruction put in front of every conversation held in the room, which sets the role the assistant takes  and the way it answers. Empty when the room was left on the behaviour the portal provides by default.
    * @return prompt
    */
   @javax.annotation.Nullable  @JsonIgnore

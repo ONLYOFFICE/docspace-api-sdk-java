@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for managing the DNS (Domain Name System) settings.
+ * The custom domain the portal answers on, and whether that mapping is in force.
  */
 @JsonPropertyOrder({
   DnsSettingsRequestsDto.JSON_PROPERTY_DNS_NAME,
@@ -61,7 +61,7 @@ public class DnsSettingsRequestsDto {
   }
 
   /**
-   * The DNS (Domain Name System) configuration name.
+   * The domain the portal is to be reachable under, as a bare hostname without a scheme. It must not collide with  the reserved base domain of the installation, and a name that fails validation is refused without disturbing  the mapping in force. It is read only while `enable` is true.
    * @return dnsName
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -92,7 +92,7 @@ public class DnsSettingsRequestsDto {
   }
 
   /**
-   * Specifies whether the DNS settings are enabled.
+   * Whether the custom domain is put in force. Setting it false clears the mapping and ignores `dnsName`; setting  it true also stops the previous domain from answering and rewrites any Content Security Policy entry that  named it.
    * @return enable
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLE, required = false)

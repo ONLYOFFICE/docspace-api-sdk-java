@@ -34,7 +34,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The collection of file sharing parameters.
+ * One sharing entry: an account, a group or an email address, and the access level it is given.
  */
 @JsonPropertyOrder({
   FileShareParams.JSON_PROPERTY_EMAIL,
@@ -63,7 +63,7 @@ public class FileShareParams {
   }
 
   /**
-   * The email address.
+   * The address of somebody who has no portal account yet. An invitation is sent to it and an account is created  once it is accepted, so this is the field to use instead of an account identifier when the person is new to  the portal.
    * @return email
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
@@ -87,7 +87,7 @@ public class FileShareParams {
   }
 
   /**
-   * The ID of the user to whom the file will be shared.
+   * The account or the group the entry is about, taken from the portal people and group listings. Leave it out and  give an email address instead to share with somebody who has no account yet.
    * @return shareTo
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARE_TO, required = false)
@@ -111,7 +111,7 @@ public class FileShareParams {
   }
 
   /**
-   * The sharing access rights.
+   * What the subject may do with the shared item. The value 0 takes the access away again, and which of the other  levels are accepted depends on what is being shared.
    * @return access
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)

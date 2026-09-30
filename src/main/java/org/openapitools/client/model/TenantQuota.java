@@ -1326,7 +1326,7 @@ public class TenantQuota {
   }
 
   /**
-   * The number of DocsCloud users.
+   * The number of Docs Connect users.
    * @return docsCloud
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOCS_CLOUD, required = false)
@@ -1350,7 +1350,7 @@ public class TenantQuota {
   }
 
   /**
-   * Specifies if the DocsCloudDevPack enabled or not.
+   * Specifies if the Docs Connect Dev Pack enabled or not.
    * @return docsCloudDevPack
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOCS_CLOUD_DEV_PACK, required = false)
@@ -1374,7 +1374,7 @@ public class TenantQuota {
   }
 
   /**
-   * Specifies if the DocsCloudTrial enabled or not.
+   * Specifies if the Docs Connect trial enabled or not.
    * @return docsCloudTrial
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOCS_CLOUD_TRIAL, required = false)

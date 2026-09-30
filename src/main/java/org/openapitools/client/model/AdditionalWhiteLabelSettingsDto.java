@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The additional white label settings parameters.
+ * Which of the ONLYOFFICE help and community entries the interface may offer, installation-wide.
  */
 @JsonPropertyOrder({
   AdditionalWhiteLabelSettingsDto.JSON_PROPERTY_START_DOCS_ENABLED,
@@ -77,7 +77,7 @@ public class AdditionalWhiteLabelSettingsDto {
   }
 
   /**
-   * Specifies if the sample documents are displayed or hidden.
+   * Whether the sample documents that ONLYOFFICE ships may be placed in a new user's Documents. Unlike the link  flags below it depends on nothing that has to be configured, so its built-in value is always `true`.
    * @return startDocsEnabled
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_START_DOCS_ENABLED, required = true)
@@ -101,7 +101,7 @@ public class AdditionalWhiteLabelSettingsDto {
   }
 
   /**
-   * Specifies if the Help Center link is available or not.
+   * Whether the interface may offer the Help Center entry. It is `false` both when the entry was switched off  for the installation and when the installation configures no Help Center address at all; the addresses  themselves are not part of this answer and arrive in `externalResources` of `GET api/2.0/settings`.
    * @return helpCenterEnabled
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_HELP_CENTER_ENABLED, required = true)
@@ -125,7 +125,7 @@ public class AdditionalWhiteLabelSettingsDto {
   }
 
   /**
-   * Specifies if the Feedback & Support link is available or not.
+   * Whether the interface may offer the Feedback and Support entry, `false` for the same two reasons as  `helpCenterEnabled`.
    * @return feedbackAndSupportEnabled
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_FEEDBACK_AND_SUPPORT_ENABLED, required = true)
@@ -149,7 +149,7 @@ public class AdditionalWhiteLabelSettingsDto {
   }
 
   /**
-   * Specifies if the user forum is available or not.
+   * Whether the interface may offer the user forum entry, `false` for the same two reasons as  `helpCenterEnabled`.
    * @return userForumEnabled
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_USER_FORUM_ENABLED, required = true)
@@ -173,7 +173,7 @@ public class AdditionalWhiteLabelSettingsDto {
   }
 
   /**
-   * Specifies if the Video Guides link is available or not.
+   * Whether the interface may offer the Video Guides entry, `false` for the same two reasons as  `helpCenterEnabled`.
    * @return videoGuidesEnabled
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_VIDEO_GUIDES_ENABLED, required = true)
@@ -197,7 +197,7 @@ public class AdditionalWhiteLabelSettingsDto {
   }
 
   /**
-   * Specifies if the License Agreements link is available or not.
+   * Whether the interface may offer the License Agreements entry, `false` for the same two reasons as  `helpCenterEnabled`.
    * @return licenseAgreementsEnabled
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_LICENSE_AGREEMENTS_ENABLED, required = true)
@@ -221,7 +221,7 @@ public class AdditionalWhiteLabelSettingsDto {
   }
 
   /**
-   * Specifies if the additional white label settings are default or not.
+   * Whether all six flags still hold the values the installation starts out with. It turns `false` as soon as  one of them is saved differently and `true` again after `DELETE api/2.0/settings/rebranding/additional`.  Because a link flag starts out off when no address is configured for it, `true` does not mean every entry  is on.
    * @return isDefault
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_DEFAULT, required = true)

@@ -41,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The file sharing information and access rights.
+ * One access entry on a file, a folder or a room: who holds it, at which level, and what the caller may change about  it.
  */
 @JsonPropertyOrder({
   FileShareDto.JSON_PROPERTY_ACCESS,
@@ -110,7 +110,7 @@ public class FileShareDto {
   }
 
   /**
-   * The access rights type.
+   * The level the subject holds on the entry. On a link entry it is the level the link hands to whoever opens it,  and in a batch answer `Varies` means the subject holds different levels on the listed entries.
    * @return access
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
@@ -165,7 +165,7 @@ public class FileShareDto {
   }
 
   /**
-   * The user who has the access to the specified file.
+   * The account the entry belongs to. It is filled in only when `subjectType` says an account, and is null for a  group entry and for a link.
    * @return sharedToUser
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARED_TO_USER, required = false)
@@ -189,7 +189,7 @@ public class FileShareDto {
   }
 
   /**
-   * The user who has the access to the specified file.
+   * The portal group the entry belongs to, which hands the level to everybody in it. It is filled in only for a  group entry, and is null otherwise.
    * @return sharedToGroup
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARED_TO_GROUP, required = false)
@@ -213,7 +213,7 @@ public class FileShareDto {
   }
 
   /**
-   * The user who has the access to the specified file.
+   * The sharing link the entry stands for, together with everything set on it. It is filled in only for a link  entry, and is null for an account or a group.
    * @return sharedLink
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHARED_LINK, required = false)
@@ -237,7 +237,7 @@ public class FileShareDto {
   }
 
   /**
-   * Specifies if the access right is locked or not.
+   * Whether this entry is the caller's own, which is why they cannot change its level. Link entries never report  it.
    * @return isLocked
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_LOCKED, required = true)
@@ -261,7 +261,7 @@ public class FileShareDto {
   }
 
   /**
-   * Specifies if the user is an owner of the specified file or not.
+   * Whether the subject created the entry the access is given on, and so cannot be removed from it.
    * @return isOwner
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_OWNER, required = true)
@@ -285,7 +285,7 @@ public class FileShareDto {
   }
 
   /**
-   * Specifies if the user can edit the access to the specified file or not.
+   * Whether the caller may change the level of this entry. It is false on the caller's own entry, on every link,  and whenever the caller may not hand out access at all.
    * @return canEditAccess
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CAN_EDIT_ACCESS, required = true)
@@ -309,7 +309,7 @@ public class FileShareDto {
   }
 
   /**
-   * Indicates whether internal editing permissions are granted.
+   * Whether the caller may switch this link between being open to anybody and asking the visitor to sign in to the  portal first.
    * @return canEditInternal
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CAN_EDIT_INTERNAL, required = true)
@@ -333,7 +333,7 @@ public class FileShareDto {
   }
 
   /**
-   * Determines whether the user has permission to modify the deny download setting for the file share.
+   * Whether the caller may forbid downloading through this link. Only a link of a virtual data room reports true,  and only while the room itself still allows downloads.
    * @return canEditDenyDownload
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CAN_EDIT_DENY_DOWNLOAD, required = true)
@@ -357,7 +357,7 @@ public class FileShareDto {
   }
 
   /**
-   * Indicates whether the expiration date of access permissions can be edited.
+   * Whether the caller may move the moment this link stops working.
    * @return canEditExpirationDate
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CAN_EDIT_EXPIRATION_DATE, required = true)
@@ -381,7 +381,7 @@ public class FileShareDto {
   }
 
   /**
-   * Specifies whether the file sharing access can be revoked by the current user.
+   * Whether the caller may take this entry away altogether, which for a link means deleting the link.
    * @return canRevoke
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CAN_REVOKE, required = true)
@@ -405,7 +405,7 @@ public class FileShareDto {
   }
 
   /**
-   * The subject type.
+   * What the entry was given to, which tells which of the three subject fields is filled in: an account, a group,  or one of the kinds of link.
    * @return subjectType
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SUBJECT_TYPE, required = true)

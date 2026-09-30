@@ -52,13 +52,13 @@ public class PasswordApi extends BaseApi {
 
   /**
    * Change a user password
-   * Sets a new password to the user with the ID specified in the request.
+   * Sets a new password on an account, which is the step that completes a password change or a password  recovery.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, so the password of a disabled account or of an open invitation  cannot be set, and only the portal owner may set the owner's own password.  Send either `passwordHash`, which is taken as it is, or a plain `password`, which is checked against the  portal password policy; sending neither, or a password the policy rejects, answers 400.  The change ends every other session of that account and emails it a notice that the password was changed.  The answer is the profile, which does not carry the password in any form.  To have the recovery link sent in the first place, use `POST api/2.0/people/password`.
    *
    * REST API Reference for changeUserPassword Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/
    *
-   * @param userid The user ID. (required)
-   * @param changePasswordRequest The request parameters for updating a user password. (required)
+   * @param userid The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active. (required)
+   * @param changePasswordRequest The new password, sent either in plain text or already hashed. Exactly one of the two fields is needed. (required)
    * @return EmployeeFullWrapper
    * @throws ApiException if fails to make API call
    */
@@ -69,13 +69,13 @@ public class PasswordApi extends BaseApi {
 
   /**
    * Change a user password
-   * Sets a new password to the user with the ID specified in the request.
+   * Sets a new password on an account, which is the step that completes a password change or a password  recovery.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, so the password of a disabled account or of an open invitation  cannot be set, and only the portal owner may set the owner's own password.  Send either `passwordHash`, which is taken as it is, or a plain `password`, which is checked against the  portal password policy; sending neither, or a password the policy rejects, answers 400.  The change ends every other session of that account and emails it a notice that the password was changed.  The answer is the profile, which does not carry the password in any form.  To have the recovery link sent in the first place, use `POST api/2.0/people/password`.
    *
    * REST API Reference for changeUserPassword Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/
    *
-   * @param userid The user ID. (required)
-   * @param changePasswordRequest The request parameters for updating a user password. (required)
+   * @param userid The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active. (required)
+   * @param changePasswordRequest The new password, sent either in plain text or already hashed. Exactly one of the two fields is needed. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return EmployeeFullWrapper
    * @throws ApiException if fails to make API call
@@ -143,7 +143,7 @@ public class PasswordApi extends BaseApi {
 
   /**
    * Remind a user password
-   * Sends a password recovery email to the specified user address.  For unauthenticated requests, CAPTCHA validation is required when CAPTCHA is enabled in the configuration.
+   * Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userid}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
    *
    * REST API Reference for sendUserPassword Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-user-password/
@@ -159,7 +159,7 @@ public class PasswordApi extends BaseApi {
 
   /**
    * Remind a user password
-   * Sends a password recovery email to the specified user address.  For unauthenticated requests, CAPTCHA validation is required when CAPTCHA is enabled in the configuration.
+   * Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userid}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
    *
    * REST API Reference for sendUserPassword Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-user-password/
@@ -199,7 +199,7 @@ public class PasswordApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     TypeReference<StringWrapper> localVarReturnType = new TypeReference<StringWrapper>() {};
     return apiClient.invokeAPI(
@@ -241,7 +241,7 @@ public class PasswordApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
     return apiClient.invokeAPI(
       localVarPath,

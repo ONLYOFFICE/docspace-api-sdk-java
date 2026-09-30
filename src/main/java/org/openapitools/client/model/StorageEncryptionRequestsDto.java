@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for managing storage encryption operations and notifications.
+ * Whether the users are warned before the portals go down for the storage encryption pass.
  */
 @JsonPropertyOrder({
   StorageEncryptionRequestsDto.JSON_PROPERTY_NOTIFY_USERS
@@ -53,7 +53,7 @@ public class StorageEncryptionRequestsDto {
   }
 
   /**
-   * Specifies whether the users receive notifications about the storage encryption operations.
+   * Whether every user of every portal on the server is mailed before the encryption or decryption pass starts.  The pass runs either way; the flag only decides whether people are told that their portal is about to become  unavailable.
    * @return notifyUsers
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NOTIFY_USERS, required = false)

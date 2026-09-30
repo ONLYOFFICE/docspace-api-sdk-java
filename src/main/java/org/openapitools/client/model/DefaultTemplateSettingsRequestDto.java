@@ -33,7 +33,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Default templates settings request parameters.
+ * The document to use as the blank the portal creates for one extension.
  */
 @JsonPropertyOrder({
   DefaultTemplateSettingsRequestDto.JSON_PROPERTY_SELECTED_FILE,
@@ -82,7 +82,7 @@ public class DefaultTemplateSettingsRequestDto {
   }
 
   /**
-   * File extension of a template to replace
+   * The extension the blank is set for, written in lower case with the leading dot. Only the extensions the  portal's built-in template set covers are accepted, and `GET api/2.0/files/settings/defaulttemplate` returns  exactly that list; an extension outside it leaves the settings unchanged instead of failing.
    * @return fileExtension
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILE_EXTENSION, required = false)

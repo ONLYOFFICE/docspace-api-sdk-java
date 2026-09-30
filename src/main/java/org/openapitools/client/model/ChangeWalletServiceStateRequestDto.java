@@ -33,7 +33,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for changing the tenant wallet service state.
+ * Which wallet service is switched, and which way.
  */
 @JsonPropertyOrder({
   ChangeWalletServiceStateRequestDto.JSON_PROPERTY_SERVICE,
@@ -58,7 +58,7 @@ public class ChangeWalletServiceStateRequestDto {
   }
 
   /**
-   * The wallet service type.
+   * The service being switched, given by its catalogue name. Switching it on only makes it available to the  portal; its units are still bought with `PUT api/2.0/portal/payment/updatewallet`.
    * @return service
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SERVICE, required = false)
@@ -82,7 +82,7 @@ public class ChangeWalletServiceStateRequestDto {
   }
 
   /**
-   * Specifies whether the wallet service is enabled.
+   * Which way the service is switched: `true` makes it available to the portal, `false` withdraws it. Setting the  state the service already has changes nothing.
    * @return enabled
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)

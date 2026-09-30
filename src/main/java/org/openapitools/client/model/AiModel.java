@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.math.BigDecimal;
 import org.openapitools.client.model.AiProviderType;
+import org.openapitools.client.model.AiReasoningSupport;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -41,6 +42,7 @@ import java.util.StringJoiner;
   AiModel.JSON_PROPERTY_NAME,
   AiModel.JSON_PROPERTY_PROVIDER,
   AiModel.JSON_PROPERTY_REASONING,
+  AiModel.JSON_PROPERTY_REASONING_SUPPORT,
   AiModel.JSON_PROPERTY_CAPABILITIES
 })
 
@@ -56,6 +58,9 @@ public class AiModel {
 
   public static final String JSON_PROPERTY_REASONING = "reasoning";
   @javax.annotation.Nullable  private Boolean reasoning;
+
+  public static final String JSON_PROPERTY_REASONING_SUPPORT = "reasoningSupport";
+  @javax.annotation.Nullable  private AiReasoningSupport reasoningSupport;
 
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
   @javax.annotation.Nullable  private BigDecimal capabilities;
@@ -160,6 +165,30 @@ public class AiModel {
     this.reasoning = reasoning;
   }
 
+  public AiModel reasoningSupport(@javax.annotation.Nullable AiReasoningSupport reasoningSupport) {
+    
+    this.reasoningSupport = reasoningSupport;
+    return this;
+  }
+
+  /**
+   * What the model can do with extended thinking, when the provider's catalogue says so (OpenRouter and the ONLYOFFICE route report a per-model `reasoning` object). Copied onto the profile at save time; absent, the widget falls back to the provider's id-based table.
+   * @return reasoningSupport
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REASONING_SUPPORT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AiReasoningSupport getReasoningSupport() {
+    return reasoningSupport;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_REASONING_SUPPORT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReasoningSupport(@javax.annotation.Nullable AiReasoningSupport reasoningSupport) {
+    this.reasoningSupport = reasoningSupport;
+  }
+
   public AiModel capabilities(@javax.annotation.Nullable BigDecimal capabilities) {
     
     this.capabilities = capabilities;
@@ -197,12 +226,13 @@ public class AiModel {
         Objects.equals(this.name, aiModel.name) &&
         Objects.equals(this.provider, aiModel.provider) &&
         Objects.equals(this.reasoning, aiModel.reasoning) &&
+        Objects.equals(this.reasoningSupport, aiModel.reasoningSupport) &&
         Objects.equals(this.capabilities, aiModel.capabilities);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, provider, reasoning, capabilities);
+    return Objects.hash(id, name, provider, reasoning, reasoningSupport, capabilities);
   }
 
   @Override
@@ -213,6 +243,7 @@ public class AiModel {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    reasoning: ").append(toIndentedString(reasoning)).append("\n");
+    sb.append("    reasoningSupport: ").append(toIndentedString(reasoningSupport)).append("\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -294,6 +325,11 @@ public class AiModel {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
+    }
+
+    // add `reasoningSupport` to the URL query string
+    if (getReasoningSupport() != null) {
+      joiner.add(getReasoningSupport().toUrlQueryString(prefix + "reasoningSupport" + suffix));
     }
 
     // add `capabilities` to the URL query string

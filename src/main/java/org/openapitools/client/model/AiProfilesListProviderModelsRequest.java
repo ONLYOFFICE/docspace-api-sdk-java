@@ -50,7 +50,7 @@ public class AiProfilesListProviderModelsRequest {
   @javax.annotation.Nonnull  private String baseUrl;
 
   public static final String JSON_PROPERTY_API_KEY = "apiKey";
-  @javax.annotation.Nonnull  private String apiKey;
+  @javax.annotation.Nullable  private String apiKey;
 
   public AiProfilesListProviderModelsRequest() {
   }
@@ -104,27 +104,27 @@ public class AiProfilesListProviderModelsRequest {
     this.baseUrl = baseUrl;
   }
 
-  public AiProfilesListProviderModelsRequest apiKey(@javax.annotation.Nonnull String apiKey) {
+  public AiProfilesListProviderModelsRequest apiKey(@javax.annotation.Nullable String apiKey) {
     
     this.apiKey = apiKey;
     return this;
   }
 
   /**
-   * Provider API key.
+   * Provider API key. Omit it for a provider that needs none; the request is then made without one.
    * @return apiKey
    */
-  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_API_KEY, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_API_KEY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getApiKey() {
     return apiKey;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_API_KEY, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setApiKey(@javax.annotation.Nonnull String apiKey) {
+  @JsonProperty(value = JSON_PROPERTY_API_KEY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setApiKey(@javax.annotation.Nullable String apiKey) {
     this.apiKey = apiKey;
   }
 

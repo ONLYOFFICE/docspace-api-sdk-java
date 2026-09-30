@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.client.model.AIConfig;
 import org.openapitools.client.model.AnonymousConfigDto;
 import org.openapitools.client.model.CustomerConfigDto;
 import org.openapitools.client.model.FeedbackConfig;
@@ -44,7 +45,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The customization config parameters.
+ * How the editor interface is dressed: branding, the buttons that lead back into the portal, and the behaviour of  review, mentions and form submission.
  */
 @JsonPropertyOrder({
   CustomizationConfigDto.JSON_PROPERTY_ABOUT,
@@ -57,7 +58,8 @@ import java.util.StringJoiner;
   CustomizationConfigDto.JSON_PROPERTY_LOGO,
   CustomizationConfigDto.JSON_PROPERTY_MENTION_SHARE,
   CustomizationConfigDto.JSON_PROPERTY_SUBMIT_FORM,
-  CustomizationConfigDto.JSON_PROPERTY_START_FILLING_FORM
+  CustomizationConfigDto.JSON_PROPERTY_START_FILLING_FORM,
+  CustomizationConfigDto.JSON_PROPERTY_AI
 })
 
 public class CustomizationConfigDto {
@@ -94,6 +96,9 @@ public class CustomizationConfigDto {
   public static final String JSON_PROPERTY_START_FILLING_FORM = "startFillingForm";
   @javax.annotation.Nullable  private StartFillingForm startFillingForm;
 
+  public static final String JSON_PROPERTY_AI = "ai";
+  @javax.annotation.Nullable  private AIConfig ai;
+
   public CustomizationConfigDto() {
   }
 
@@ -105,7 +110,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * Specifies if the customization is about.
+   * Whether the About entry of the editor menu is shown.
    * @return about
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ABOUT, required = false)
@@ -129,7 +134,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * The customization customer configuration.
+   * The branding of the organization running the portal. It is filled in on a server installation only and is  empty in the cloud.
    * @return customer
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CUSTOMER, required = false)
@@ -153,7 +158,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * The anonymous configuration of the customization.
+   * How an anonymous participant is treated in this session.
    * @return anonymous
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ANONYMOUS, required = false)
@@ -177,7 +182,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * The feedback configuration of the customization.
+   * The support link the editor offers behind its feedback button.
    * @return feedback
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FEEDBACK, required = false)
@@ -201,7 +206,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * Specifies if the customization should be force saved.
+   * Whether the editors write intermediate revisions while the document stays open. It is empty when the portal  leaves the decision to the editors themselves.
    * @return forcesave
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -232,7 +237,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * The go back configuration of the customization.
+   * Where the editor returns the user to when they leave the document. It is empty when there is nowhere to go  back to, as in an embedded opening.
    * @return goback
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GOBACK, required = false)
@@ -256,7 +261,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * The review configuration of the customization.
+   * How tracked changes are displayed when the document opens; it depends on whether this session may write.
    * @return review
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REVIEW, required = false)
@@ -280,7 +285,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * The logo of the customization.
+   * The logo the editor shows, in the variants the current layout and file type need.
    * @return logo
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
@@ -304,7 +309,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * Specifies if the share should be mentioned.
+   * Whether mentioning a user who cannot yet open the document offers to share it with them, instead of silently  notifying nobody.
    * @return mentionShare
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MENTION_SHARE, required = false)
@@ -328,7 +333,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * The Complete & Submit button settings.
+   * The submit button of a form: whether it is shown and what it says.
    * @return submitForm
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SUBMIT_FORM, required = false)
@@ -352,7 +357,7 @@ public class CustomizationConfigDto {
   }
 
   /**
-   * The parameters of the button that starts filling out the form.
+   * The button that starts filling out the form. It is empty when this opening offers no such button.
    * @return startFillingForm
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_START_FILLING_FORM, required = false)
@@ -367,6 +372,30 @@ public class CustomizationConfigDto {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartFillingForm(@javax.annotation.Nullable StartFillingForm startFillingForm) {
     this.startFillingForm = startFillingForm;
+  }
+
+  public CustomizationConfigDto ai(@javax.annotation.Nullable AIConfig ai) {
+    
+    this.ai = ai;
+    return this;
+  }
+
+  /**
+   * The AI configuration settings.
+   * @return ai
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AI, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AIConfig getAi() {
+    return ai;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_AI, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAi(@javax.annotation.Nullable AIConfig ai) {
+    this.ai = ai;
   }
 
   @Override
@@ -388,7 +417,8 @@ public class CustomizationConfigDto {
         Objects.equals(this.logo, customizationConfigDto.logo) &&
         Objects.equals(this.mentionShare, customizationConfigDto.mentionShare) &&
         Objects.equals(this.submitForm, customizationConfigDto.submitForm) &&
-        Objects.equals(this.startFillingForm, customizationConfigDto.startFillingForm);
+        Objects.equals(this.startFillingForm, customizationConfigDto.startFillingForm) &&
+        Objects.equals(this.ai, customizationConfigDto.ai);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -397,7 +427,7 @@ public class CustomizationConfigDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(about, customer, anonymous, feedback, hashCodeNullable(forcesave), goback, review, logo, mentionShare, submitForm, startFillingForm);
+    return Objects.hash(about, customer, anonymous, feedback, hashCodeNullable(forcesave), goback, review, logo, mentionShare, submitForm, startFillingForm, ai);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -422,6 +452,7 @@ public class CustomizationConfigDto {
     sb.append("    mentionShare: ").append(toIndentedString(mentionShare)).append("\n");
     sb.append("    submitForm: ").append(toIndentedString(submitForm)).append("\n");
     sb.append("    startFillingForm: ").append(toIndentedString(startFillingForm)).append("\n");
+    sb.append("    ai: ").append(toIndentedString(ai)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -537,6 +568,11 @@ public class CustomizationConfigDto {
     // add `startFillingForm` to the URL query string
     if (getStartFillingForm() != null) {
       joiner.add(getStartFillingForm().toUrlQueryString(prefix + "startFillingForm" + suffix));
+    }
+
+    // add `ai` to the URL query string
+    if (getAi() != null) {
+      joiner.add(getAi().toUrlQueryString(prefix + "ai" + suffix));
     }
 
     return joiner.toString();

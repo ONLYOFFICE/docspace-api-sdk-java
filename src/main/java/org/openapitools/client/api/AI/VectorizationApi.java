@@ -25,7 +25,8 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.AiErrorResponse;
-import org.openapitools.client.model.AiSuccessResponse;
+import org.openapitools.client.model.AiVectorizationStartTask200Response;
+import org.openapitools.client.model.AiVectorizationStartTaskRequest;
 
 
 import java.util.ArrayList;
@@ -48,38 +49,38 @@ public class VectorizationApi extends BaseApi {
 
   /**
    * Start a vectorization task
-   * Starts a vectorization task over the supplied portal files. The indexing itself runs asynchronously on the .NET side.
+   * Queues the indexing of the portal files named in the body so their contents can be retrieved during a chat round. The body is proxied unchanged to the DocSpace AI service, which validates it and owns the job. Indexing is asynchronous and fire-and-forget: the answer acknowledges the request without carrying a job handle, so there is nothing to poll and progress is not reported here. The embedding provider used is the one in `GET api/2.0/ai/config/vectorization`, and changing that setting does not re-index anything already indexed - queue it again for that.
    *
    * REST API Reference for aiVectorizationStartTask Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-vectorization-start-task/
    *
-   * @param requestBody  (required)
-   * @return AiSuccessResponse
+   * @param aiVectorizationStartTaskRequest The files to index, proxied unchanged to the DocSpace AI service, which owns and validates the shape. (required)
+   * @return AiVectorizationStartTask200Response
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiVectorizationStartTask(@javax.annotation.Nonnull Map<String, Object> requestBody) throws ApiException {
-    return this.aiVectorizationStartTask(requestBody, Collections.emptyMap());
+  public AiVectorizationStartTask200Response aiVectorizationStartTask(@javax.annotation.Nonnull AiVectorizationStartTaskRequest aiVectorizationStartTaskRequest) throws ApiException {
+    return this.aiVectorizationStartTask(aiVectorizationStartTaskRequest, Collections.emptyMap());
   }
 
 
   /**
    * Start a vectorization task
-   * Starts a vectorization task over the supplied portal files. The indexing itself runs asynchronously on the .NET side.
+   * Queues the indexing of the portal files named in the body so their contents can be retrieved during a chat round. The body is proxied unchanged to the DocSpace AI service, which validates it and owns the job. Indexing is asynchronous and fire-and-forget: the answer acknowledges the request without carrying a job handle, so there is nothing to poll and progress is not reported here. The embedding provider used is the one in `GET api/2.0/ai/config/vectorization`, and changing that setting does not re-index anything already indexed - queue it again for that.
    *
    * REST API Reference for aiVectorizationStartTask Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-vectorization-start-task/
    *
-   * @param requestBody  (required)
+   * @param aiVectorizationStartTaskRequest The files to index, proxied unchanged to the DocSpace AI service, which owns and validates the shape. (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return AiSuccessResponse
+   * @return AiVectorizationStartTask200Response
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiVectorizationStartTask(@javax.annotation.Nonnull Map<String, Object> requestBody, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = requestBody;
+  public AiVectorizationStartTask200Response aiVectorizationStartTask(@javax.annotation.Nonnull AiVectorizationStartTaskRequest aiVectorizationStartTaskRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiVectorizationStartTaskRequest;
     
-    // verify the required parameter 'requestBody' is set
-    if (requestBody == null) {
-      throw new ApiException(400, "Missing the required parameter 'requestBody' when calling aiVectorizationStartTask");
+    // verify the required parameter 'aiVectorizationStartTaskRequest' is set
+    if (aiVectorizationStartTaskRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiVectorizationStartTaskRequest' when calling aiVectorizationStartTask");
     }
     
     // create path and map variables
@@ -109,9 +110,9 @@ public class VectorizationApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
-    TypeReference<AiSuccessResponse> localVarReturnType = new TypeReference<AiSuccessResponse>() {};
+    TypeReference<AiVectorizationStartTask200Response> localVarReturnType = new TypeReference<AiVectorizationStartTask200Response>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -151,7 +152,7 @@ public class VectorizationApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

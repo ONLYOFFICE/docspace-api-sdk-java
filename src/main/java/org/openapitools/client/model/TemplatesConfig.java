@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The presence or absence of the templates in the Create New... menu option.
+ * One creation template offered in the editor. The portal no longer offers any, so this never appears in an editor  configuration.
  */
 @JsonPropertyOrder({
   TemplatesConfig.JSON_PROPERTY_IMAGE,

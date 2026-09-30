@@ -38,7 +38,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Represents a DocsCloud tenant of a portal.
+ * Represents a Docs Connect tenant of a portal.
  */
 @JsonPropertyOrder({
   DocsCloudTenant.JSON_PROPERTY_DEDICATED_RESOURCE_EX_ID,

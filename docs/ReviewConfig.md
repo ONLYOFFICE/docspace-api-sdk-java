@@ -2,13 +2,13 @@
 
 # ReviewConfig
 
-Configuration for review display settings.
+How tracked changes are displayed when the document opens.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**reviewDisplay** | **String** | The review display string representation. |  [optional] [readonly] |
+|**reviewDisplay** | **String** | How the editors render tracked changes at first: with the markup, in a simplified markup, as the final text,  or as the original text. A session that may not write opens on the final text. |  [optional] [readonly] |
 
 
 

@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Represents an active wallet service (quota) of the current portal.
+ * One wallet service the portal is running right now, with the allowance it grants where that is counted.
  */
 @JsonPropertyOrder({
   ActiveServiceDto.JSON_PROPERTY_SERVICE,
@@ -77,7 +77,7 @@ public class ActiveServiceDto {
   }
 
   /**
-   * The name of the service.
+   * The stable key of the service, which is what `POST api/2.0/portal/payment/servicestate` takes to switch  it off again.
    * @return service
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -108,7 +108,7 @@ public class ActiveServiceDto {
   }
 
   /**
-   * The unit of measurement for the service.
+   * What `limit` and `used` count, in the portal language - gigabytes, editor seats, credits.
    * @return serviceUnit
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -139,7 +139,7 @@ public class ActiveServiceDto {
   }
 
   /**
-   * Indicates whether the service is subscription-based.
+   * Whether the service is billed as a standing subscription rather than per unit consumed. Only a  subscription can carry `limit` and `used`.
    * @return subscription
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SUBSCRIPTION, required = false)
@@ -163,7 +163,7 @@ public class ActiveServiceDto {
   }
 
   /**
-   * The title of the service.
+   * The service name in the portal language, for printing rather than matching.
    * @return title
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -194,7 +194,7 @@ public class ActiveServiceDto {
   }
 
   /**
-   * The service limit. Populated only for the subscription-based services.
+   * How much of the service the portal is entitled to. It is empty for a service whose consumption is not  counted this way, which is not the same as a service without a limit.
    * @return limit
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -225,7 +225,7 @@ public class ActiveServiceDto {
   }
 
   /**
-   * The current service usage. Populated only for the subscription-based services.
+   * How much of that allowance is in use - the editors currently active for the cloud editors, the units  already consumed for disk storage. Empty under the same conditions as `limit`.
    * @return used
    */
   @javax.annotation.Nullable  @JsonIgnore

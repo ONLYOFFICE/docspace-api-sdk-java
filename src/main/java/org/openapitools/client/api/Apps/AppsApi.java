@@ -27,7 +27,7 @@ import org.openapitools.client.Pair;
 import org.openapitools.client.model.AppArrayWrapper;
 import org.openapitools.client.model.AppWrapper;
 import org.openapitools.client.model.ErrorApiResponse;
-import org.openapitools.client.model.ObjectWrapper;
+import org.openapitools.client.model.JsonValueWrapper;
 import org.openapitools.client.model.SetAppEnabledBody;
 import org.openapitools.client.model.SetAppSettingsBody;
 
@@ -51,13 +51,13 @@ public class AppsApi extends BaseApi {
 
 
   /**
-   * Get a single app
-   * Returns a single application by id with the per-tenant enabled state and settings JSON.
+   * Get an app
+   * Returns one portal application by its identifier - one of the feature modules the portal can turn on, such as  `ai-rooms` or `docs-cloud` - with the enabled state and the settings document stored for the current portal.  The identifier must be an application declared in the installation configuration: take it  from `GET api/2.0/apps`, because an unknown identifier is rejected instead of creating anything. Any  authenticated portal member may read it. The call is read-only and idempotent. The result carries the  identifier, the enabled flag of the current portal and the settings JSON document, which is empty while the  portal has never saved settings for this application. An application that is not configured on this  installation fails with 404, so this is also the way to find out whether an application exists here at all.  Use `GET api/2.0/apps` to read all applications in one call, or `GET api/2.0/apps/{id}/settings` when only the  settings document is needed.
    *
    * REST API Reference for get Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get/
    *
-   * @param id The application identifier. (required)
+   * @param id The application to read, by the identifier `GET api/2.0/apps` reports - one of the feature modules the portal  can turn on, such as `ai-room` or `docs-cloud`. An identifier not declared in the installation configuration  answers 404, which is also how a caller learns that an application does not exist here. (required)
    * @return AppWrapper
    * @throws ApiException if fails to make API call
    */
@@ -67,13 +67,13 @@ public class AppsApi extends BaseApi {
 
 
   /**
-   * Get a single app
-   * Returns a single application by id with the per-tenant enabled state and settings JSON.
+   * Get an app
+   * Returns one portal application by its identifier - one of the feature modules the portal can turn on, such as  `ai-rooms` or `docs-cloud` - with the enabled state and the settings document stored for the current portal.  The identifier must be an application declared in the installation configuration: take it  from `GET api/2.0/apps`, because an unknown identifier is rejected instead of creating anything. Any  authenticated portal member may read it. The call is read-only and idempotent. The result carries the  identifier, the enabled flag of the current portal and the settings JSON document, which is empty while the  portal has never saved settings for this application. An application that is not configured on this  installation fails with 404, so this is also the way to find out whether an application exists here at all.  Use `GET api/2.0/apps` to read all applications in one call, or `GET api/2.0/apps/{id}/settings` when only the  settings document is needed.
    *
    * REST API Reference for get Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get/
    *
-   * @param id The application identifier. (required)
+   * @param id The application to read, by the identifier `GET api/2.0/apps` reports - one of the feature modules the portal  can turn on, such as `ai-room` or `docs-cloud`. An identifier not declared in the installation configuration  answers 404, which is also how a caller learns that an application does not exist here. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AppWrapper
    * @throws ApiException if fails to make API call
@@ -136,7 +136,7 @@ public class AppsApi extends BaseApi {
 
   /**
    * Get all apps
-   * Returns the full list of portal applications declared in configuration, merged with per-tenant overrides  (enabled state and JSON settings).
+   * Returns every portal application available on this installation, each with the state it has for the current  portal: the feature modules the portal can turn on and configure, such as `ai-rooms` or `docs-cloud`. The set  of applications and their initial enabled state come from the installation configuration and cannot be changed  through the API; only the enabled flag and the settings document are stored per portal, by  `PUT api/2.0/apps/{id}/enabled` and `PUT api/2.0/apps/{id}/settings`. Any authenticated portal member may read  the list. The call is read-only and idempotent. The list follows the order of the configuration, and every item  carries the application identifier, whether the application is enabled for the current portal, and the settings  JSON document saved for it, which is empty while the portal has never saved one. An empty list means that no  applications are configured on this installation, not that they are all disabled. There is neither paging nor  filtering here: to read a single application use `GET api/2.0/apps/{id}`.
    *
    * REST API Reference for getAll Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all/
@@ -151,7 +151,7 @@ public class AppsApi extends BaseApi {
 
   /**
    * Get all apps
-   * Returns the full list of portal applications declared in configuration, merged with per-tenant overrides  (enabled state and JSON settings).
+   * Returns every portal application available on this installation, each with the state it has for the current  portal: the feature modules the portal can turn on and configure, such as `ai-rooms` or `docs-cloud`. The set  of applications and their initial enabled state come from the installation configuration and cannot be changed  through the API; only the enabled flag and the settings document are stored per portal, by  `PUT api/2.0/apps/{id}/enabled` and `PUT api/2.0/apps/{id}/settings`. Any authenticated portal member may read  the list. The call is read-only and idempotent. The list follows the order of the configuration, and every item  carries the application identifier, whether the application is enabled for the current portal, and the settings  JSON document saved for it, which is empty while the portal has never saved one. An empty list means that no  applications are configured on this installation, not that they are all disabled. There is neither paging nor  filtering here: to read a single application use `GET api/2.0/apps/{id}`.
    *
    * REST API Reference for getAll Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all/
@@ -212,33 +212,33 @@ public class AppsApi extends BaseApi {
 
   /**
    * Get app settings
-   * Returns the JSON settings document saved for the specified application, or null if no overrides exist.
+   * Returns only the settings document of one portal application, such as `ai-rooms` or `docs-cloud`: the JSON  that the current portal has saved for it through `PUT api/2.0/apps/{id}/settings`, with no wrapper around it.  The identifier must be an application declared in the installation configuration, as listed by  `GET api/2.0/apps`. Any authenticated portal member  may read it. The call is read-only and idempotent. The document comes back exactly as it was saved: its shape  is defined by the application itself and is not validated by the portal, and an empty result means that the  portal has never saved settings for this application, so the application uses its own defaults. The enabled  state is not part of the answer: read it from `GET api/2.0/apps/{id}`.
    *
    * REST API Reference for getSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-settings/
    *
-   * @param id The application identifier. (required)
-   * @return ObjectWrapper
+   * @param id The application to read, by the identifier `GET api/2.0/apps` reports - one of the feature modules the portal  can turn on, such as `ai-room` or `docs-cloud`. An identifier not declared in the installation configuration  answers 404, which is also how a caller learns that an application does not exist here. (required)
+   * @return JsonValueWrapper
    * @throws ApiException if fails to make API call
    */
-  public ObjectWrapper getSettings(@javax.annotation.Nonnull String id) throws ApiException {
+  public JsonValueWrapper getSettings(@javax.annotation.Nonnull String id) throws ApiException {
     return this.getSettings(id, Collections.emptyMap());
   }
 
 
   /**
    * Get app settings
-   * Returns the JSON settings document saved for the specified application, or null if no overrides exist.
+   * Returns only the settings document of one portal application, such as `ai-rooms` or `docs-cloud`: the JSON  that the current portal has saved for it through `PUT api/2.0/apps/{id}/settings`, with no wrapper around it.  The identifier must be an application declared in the installation configuration, as listed by  `GET api/2.0/apps`. Any authenticated portal member  may read it. The call is read-only and idempotent. The document comes back exactly as it was saved: its shape  is defined by the application itself and is not validated by the portal, and an empty result means that the  portal has never saved settings for this application, so the application uses its own defaults. The enabled  state is not part of the answer: read it from `GET api/2.0/apps/{id}`.
    *
    * REST API Reference for getSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-settings/
    *
-   * @param id The application identifier. (required)
+   * @param id The application to read, by the identifier `GET api/2.0/apps` reports - one of the feature modules the portal  can turn on, such as `ai-room` or `docs-cloud`. An identifier not declared in the installation configuration  answers 404, which is also how a caller learns that an application does not exist here. (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return ObjectWrapper
+   * @return JsonValueWrapper
    * @throws ApiException if fails to make API call
    */
-  public ObjectWrapper getSettings(@javax.annotation.Nonnull String id, Map<String, String> additionalHeaders) throws ApiException {
+  public JsonValueWrapper getSettings(@javax.annotation.Nonnull String id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -276,7 +276,7 @@ public class AppsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ObjectWrapper> localVarReturnType = new TypeReference<ObjectWrapper>() {};
+    TypeReference<JsonValueWrapper> localVarReturnType = new TypeReference<JsonValueWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -296,13 +296,13 @@ public class AppsApi extends BaseApi {
 
   /**
    * Enable or disable an app
-   * Toggles the enabled state of the application for the current tenant. Requires portal administrator permissions.
+   * Turns one portal application on or off for the current portal, and notifies the clients connected to the portal  so that they can show or hide it without being reloaded. The identifier must be an application declared in the  installation configuration, as listed by `GET api/2.0/apps`. The caller must be a portal administrator allowed  to edit the portal settings. The call is mutating and idempotent: it stores the flag for this portal, overriding  the default that the configuration gives the application, and repeating it with the same value changes nothing.  Disabling an application does not delete its settings document, which stays saved and applies again as soon as  the application is enabled. The response is the application in its new state, including that settings document.  Only the enabled flag is affected here: to change the settings document use `PUT api/2.0/apps/{id}/settings`.
    *
    * REST API Reference for setEnabled Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-enabled/
    *
-   * @param id The application identifier. (required)
-   * @param setAppEnabledBody New enabled state. (required)
+   * @param id The application to switch, by the identifier `GET api/2.0/apps` reports. It has to be an application declared  in the installation configuration; an unknown identifier answers 404 rather than creating anything. (required)
+   * @param setAppEnabledBody The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`. (required)
    * @return AppWrapper
    * @throws ApiException if fails to make API call
    */
@@ -313,13 +313,13 @@ public class AppsApi extends BaseApi {
 
   /**
    * Enable or disable an app
-   * Toggles the enabled state of the application for the current tenant. Requires portal administrator permissions.
+   * Turns one portal application on or off for the current portal, and notifies the clients connected to the portal  so that they can show or hide it without being reloaded. The identifier must be an application declared in the  installation configuration, as listed by `GET api/2.0/apps`. The caller must be a portal administrator allowed  to edit the portal settings. The call is mutating and idempotent: it stores the flag for this portal, overriding  the default that the configuration gives the application, and repeating it with the same value changes nothing.  Disabling an application does not delete its settings document, which stays saved and applies again as soon as  the application is enabled. The response is the application in its new state, including that settings document.  Only the enabled flag is affected here: to change the settings document use `PUT api/2.0/apps/{id}/settings`.
    *
    * REST API Reference for setEnabled Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-enabled/
    *
-   * @param id The application identifier. (required)
-   * @param setAppEnabledBody New enabled state. (required)
+   * @param id The application to switch, by the identifier `GET api/2.0/apps` reports. It has to be an application declared  in the installation configuration; an unknown identifier answers 404 rather than creating anything. (required)
+   * @param setAppEnabledBody The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AppWrapper
    * @throws ApiException if fails to make API call
@@ -387,13 +387,13 @@ public class AppsApi extends BaseApi {
 
   /**
    * Save app settings
-   * Saves an arbitrary JSON settings document for the specified application for the current tenant.  Requires portal administrator permissions.
+   * Stores the application-specific settings document of one portal application for the current portal. The  identifier must be an application declared in the installation configuration, as listed by `GET api/2.0/apps`.  The caller must be a portal administrator allowed to edit the portal settings. The call is mutating and  idempotent, and it replaces the whole document instead of merging into it: read the current one with  `GET api/2.0/apps/{id}/settings`, change it and send it back complete, or send `null` to drop the saved document  and let the application fall back to its own defaults. Any valid JSON value is accepted, since the content is  stored as it is and is interpreted by the application rather than by the portal, while a body that is not valid  JSON fails with 400 and stores nothing. The response is the application in its new state, with the stored  document echoed back. Unlike `PUT api/2.0/apps/{id}/enabled`, this operation sends no notification to the  connected clients, which pick the new settings up on their next read.
    *
    * REST API Reference for setSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-settings/
    *
-   * @param id The application identifier. (required)
-   * @param setAppSettingsBody New settings document. (required)
+   * @param id The application whose configuration is stored, by the identifier `GET api/2.0/apps` reports. An identifier  not declared in the installation configuration answers 404. (required)
+   * @param setAppSettingsBody The configuration to store for this portal, replacing whatever was stored before. (required)
    * @return AppWrapper
    * @throws ApiException if fails to make API call
    */
@@ -404,13 +404,13 @@ public class AppsApi extends BaseApi {
 
   /**
    * Save app settings
-   * Saves an arbitrary JSON settings document for the specified application for the current tenant.  Requires portal administrator permissions.
+   * Stores the application-specific settings document of one portal application for the current portal. The  identifier must be an application declared in the installation configuration, as listed by `GET api/2.0/apps`.  The caller must be a portal administrator allowed to edit the portal settings. The call is mutating and  idempotent, and it replaces the whole document instead of merging into it: read the current one with  `GET api/2.0/apps/{id}/settings`, change it and send it back complete, or send `null` to drop the saved document  and let the application fall back to its own defaults. Any valid JSON value is accepted, since the content is  stored as it is and is interpreted by the application rather than by the portal, while a body that is not valid  JSON fails with 400 and stores nothing. The response is the application in its new state, with the stored  document echoed back. Unlike `PUT api/2.0/apps/{id}/enabled`, this operation sends no notification to the  connected clients, which pick the new settings up on their next read.
    *
    * REST API Reference for setSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-settings/
    *
-   * @param id The application identifier. (required)
-   * @param setAppSettingsBody New settings document. (required)
+   * @param id The application whose configuration is stored, by the identifier `GET api/2.0/apps` reports. An identifier  not declared in the installation configuration answers 404. (required)
+   * @param setAppSettingsBody The configuration to store for this portal, replacing whatever was stored before. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AppWrapper
    * @throws ApiException if fails to make API call

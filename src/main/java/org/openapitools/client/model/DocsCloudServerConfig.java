@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Represents the server configuration of a DocsCloud tenant.
+ * Represents the server configuration of a Docs Connect tenant.
  */
 @JsonPropertyOrder({
   DocsCloudServerConfig.JSON_PROPERTY_IS_ANONYMOUS_SUPPORT,

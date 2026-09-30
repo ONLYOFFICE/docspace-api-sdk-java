@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The number of backups.
+ * The backups of a portal, split by who paid for them.
  */
 @JsonPropertyOrder({
   BackupsCountResultDto.JSON_PROPERTY_FREE,
@@ -57,7 +57,7 @@ public class BackupsCountResultDto {
   }
 
   /**
-   * The number of free backups.
+   * The number of backups covered by the free monthly allowance.
    * @return free
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FREE, required = false)
@@ -81,7 +81,7 @@ public class BackupsCountResultDto {
   }
 
   /**
-   * The number of paid backups.
+   * The number of backups charged to the portal wallet.
    * @return paid
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PAID, required = false)

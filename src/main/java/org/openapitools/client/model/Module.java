@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The module information.
+ * The descriptor of a portal module: what it is called, where it starts and how it is pictured.
  */
 @JsonPropertyOrder({
   Module.JSON_PROPERTY_ID,
@@ -90,7 +90,7 @@ public class Module {
   }
 
   /**
-   * The module ID.
+   * The identifier of the module. It is the same in every portal and in every language, so use it rather than the  title to tell modules apart.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -114,7 +114,7 @@ public class Module {
   }
 
   /**
-   * The module product class name.
+   * The short system name of the module, the one that appears in its addresses and in the portal configuration.  Unlike the title it is not translated.
    * @return appName
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -145,7 +145,7 @@ public class Module {
   }
 
   /**
-   * The module product class name.
+   * The display name of the module, already translated for the calling account, so it changes with the language  and must not be compared against a fixed string.
    * @return title
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -176,7 +176,7 @@ public class Module {
   }
 
   /**
-   * The URL to the module start page.
+   * The address of the start page of the module, to be opened in a browser rather than called as an API.
    * @return link
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -207,7 +207,7 @@ public class Module {
   }
 
   /**
-   * The module icon URL.
+   * The address of the small icon of the module, meant for a menu entry.
    * @return iconUrl
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -238,7 +238,7 @@ public class Module {
   }
 
   /**
-   * The module large image URL.
+   * The address of the large image of the module, meant for a tile or a start screen.
    * @return imageUrl
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -269,7 +269,7 @@ public class Module {
   }
 
   /**
-   * The module help URL.
+   * The address of the help section of the module. It is empty when the portal publishes no help for it.
    * @return helpUrl
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -300,7 +300,7 @@ public class Module {
   }
 
   /**
-   * The module description.
+   * The one-line description of the module shown next to its title, translated for the calling account.
    * @return description
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -331,7 +331,7 @@ public class Module {
   }
 
   /**
-   * Specifies if the module is primary or not.
+   * Whether the portal opens this module first when no other destination is given.
    * @return isPrimary
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_PRIMARY, required = false)

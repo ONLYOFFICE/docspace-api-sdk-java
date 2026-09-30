@@ -30,38 +30,38 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * [0 - Active, 1 - Archive, 2 - Any, 3 - Recent by links, 4 - Template, 5 - Knowledge, 6 - Result storage, 7 - AiAgents, 8 - Forms, 9 - Form templates]
+ * [Active - Active, Archive - Archive, Any - Any, RecentByLinks - Recent by links, Templates - Template, Knowledge - Knowledge, ResultStorage - Result storage, AiAgents - AiAgents, Forms - Forms, FormTemplates - Form templates]
  */
 public enum SearchArea {
   
-  Active(0),
+  ACTIVE("Active"),
   
-  Archive(1),
+  ARCHIVE("Archive"),
   
-  Any(2),
+  ANY("Any"),
   
-  RecentByLinks(3),
+  RECENT_BY_LINKS("RecentByLinks"),
   
-  Templates(4),
+  TEMPLATES("Templates"),
   
-  Knowledge(5),
+  KNOWLEDGE("Knowledge"),
   
-  ResultStorage(6),
+  RESULT_STORAGE("ResultStorage"),
   
-  AiAgents(7),
+  AI_AGENTS("AiAgents"),
   
-  Forms(8),
+  FORMS("Forms"),
   
-  FormTemplates(9);
+  FORM_TEMPLATES("FormTemplates");
 
-  private Integer value;
+  private String value;
 
-  SearchArea(Integer value) {
+  SearchArea(String value) {
     this.value = value;
   }
 
   @JsonValue
-  public Integer getValue() {
+  public String getValue() {
     return value;
   }
 
@@ -71,7 +71,7 @@ public enum SearchArea {
   }
 
   @JsonCreator
-  public static SearchArea fromValue(Integer value) {
+  public static SearchArea fromValue(String value) {
     for (SearchArea b : SearchArea.values()) {
       if (b.value.equals(value)) {
         return b;

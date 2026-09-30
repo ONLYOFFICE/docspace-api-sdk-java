@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The parameters for updating a file.
+ * The changes to make to a file: a new title, an earlier version to restore, or both.
  */
 @JsonPropertyOrder({
   UpdateFile.JSON_PROPERTY_TITLE,
@@ -61,7 +61,7 @@ public class UpdateFile {
   }
 
   /**
-   * The file title to update.
+   * The new title of the file, without an extension - the stored extension is kept whatever the title says, so a  rename cannot change the format. Left empty, the file keeps its name.
    * @return title
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -92,7 +92,7 @@ public class UpdateFile {
   }
 
   /**
-   * The number of the latest file version.
+   * The version to restore on top of the history, as reported by `GET api/2.0/files/file/{fileId}/history`; 0 or  less leaves the versions untouched.
    * @return lastVersion
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_VERSION, required = false)

@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The deep link parameters.
+ * What a mobile client needs to hand a portal link to the installed application instead of the browser.
  */
 @JsonPropertyOrder({
   DeepLinkDto.JSON_PROPERTY_ANDROID_PACKAGE_NAME,
@@ -61,7 +61,7 @@ public class DeepLinkDto {
   }
 
   /**
-   * The Android package name.
+   * The package name to look for on Android, and to build a store link from when the application is missing.  All three fields are empty strings on an installation that ships no mobile application, which is the  signal to keep opening links in the browser.
    * @return androidPackageName
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ANDROID_PACKAGE_NAME, required = false)
@@ -85,7 +85,7 @@ public class DeepLinkDto {
   }
 
   /**
-   * The deep link URL.
+   * The address the client redirects a portal link through so that the application can claim it. It is the  installation's own deep-link host, not a link to any particular document.
    * @return url
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_URL, required = false)
@@ -109,7 +109,7 @@ public class DeepLinkDto {
   }
 
   /**
-   * The deep link IOS package ID.
+   * The bundle identifier to look for on iOS, used the same way as `androidPackageName`.
    * @return iosPackageId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IOS_PACKAGE_ID, required = false)

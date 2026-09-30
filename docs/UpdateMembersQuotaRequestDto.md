@@ -8,7 +8,7 @@ The request parameters for updating a user quota.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**userIds** | **List&lt;UUID&gt;** | The list of user IDs. |  [optional] |
+|**userIds** | **List&lt;UUID&gt;** | The accounts the operation applies to. System accounts are dropped from the list without an error. |  [optional] |
 |**quota** | [**UpdateMembersQuotaRequestDtoQuota**](UpdateMembersQuotaRequestDtoQuota.md) |  |  [optional] |
 
 

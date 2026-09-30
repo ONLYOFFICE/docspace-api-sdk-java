@@ -145,13 +145,13 @@ public class ApiClient extends JavaTimeFormatter {
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
+    authentications.put("cookieAuth", new ApiKeyAuth("query", "asc_auth_key"));
+    authentications.put("bearerAuth", new HttpBearerAuth("bearer"));
     authentications.put("asc_auth_key", new ApiKeyAuth("query", "asc_auth_key"));
     authentications.put("Basic", new HttpBasicAuth());
     authentications.put("Bearer", new HttpBearerAuth("bearer"));
     authentications.put("ApiKeyBearer", new ApiKeyAuth("header", "ApiKeyBearer"));
     authentications.put("OAuth2", new OAuth());
-    authentications.put("cookieAuth", new ApiKeyAuth("query", "asc_auth_key"));
-    authentications.put("bearerAuth", new HttpBearerAuth("bearer"));
     authentications.put("x-signature", new ApiKeyAuth("query", "x-signature"));
     authentications.put("OpenId", new OpenIdAuth());
     // Prevent the authentications from being modified.

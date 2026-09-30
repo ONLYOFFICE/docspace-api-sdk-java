@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.AiAiActionArgsPrompt;
+import org.openapitools.client.model.AiAiReasoningLevel;
 import org.openapitools.client.model.AiTMCPItem;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,11 +38,12 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Wire-serializable subset of the engine's `ActionArgs` — drops the engine-injected `signal`/`fetch`; `profile`/`messages` are owned by the engine and never sent by the caller.
+ * AiAiActionArgs
  */
 @JsonPropertyOrder({
   AiAiActionArgs.JSON_PROPERTY_TOOLS,
   AiAiActionArgs.JSON_PROPERTY_IS_REASONING,
+  AiAiActionArgs.JSON_PROPERTY_REASONING_LEVEL,
   AiAiActionArgs.JSON_PROPERTY_PROMPT
 })
 
@@ -51,6 +53,9 @@ public class AiAiActionArgs {
 
   public static final String JSON_PROPERTY_IS_REASONING = "isReasoning";
   @javax.annotation.Nullable  private Boolean isReasoning;
+
+  public static final String JSON_PROPERTY_REASONING_LEVEL = "reasoningLevel";
+  @javax.annotation.Nullable  private AiAiReasoningLevel reasoningLevel;
 
   public static final String JSON_PROPERTY_PROMPT = "prompt";
   @javax.annotation.Nullable  private AiAiActionArgsPrompt prompt;
@@ -98,7 +103,7 @@ public class AiAiActionArgs {
   }
 
   /**
-   * Enable extended thinking / reasoning for this request.
+   * Legacy extended-thinking switch; stands for `medium`. `reasoningLevel` wins when both are set.
    * @return isReasoning
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_REASONING, required = false)
@@ -113,6 +118,30 @@ public class AiAiActionArgs {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsReasoning(@javax.annotation.Nullable Boolean isReasoning) {
     this.isReasoning = isReasoning;
+  }
+
+  public AiAiActionArgs reasoningLevel(@javax.annotation.Nullable AiAiReasoningLevel reasoningLevel) {
+    
+    this.reasoningLevel = reasoningLevel;
+    return this;
+  }
+
+  /**
+   * Depth of extended thinking for the round; providers clamp it to what the model accepts.
+   * @return reasoningLevel
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REASONING_LEVEL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AiAiReasoningLevel getReasoningLevel() {
+    return reasoningLevel;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_REASONING_LEVEL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReasoningLevel(@javax.annotation.Nullable AiAiReasoningLevel reasoningLevel) {
+    this.reasoningLevel = reasoningLevel;
   }
 
   public AiAiActionArgs prompt(@javax.annotation.Nullable AiAiActionArgsPrompt prompt) {
@@ -150,12 +179,13 @@ public class AiAiActionArgs {
     AiAiActionArgs aiAiActionArgs = (AiAiActionArgs) o;
     return Objects.equals(this.tools, aiAiActionArgs.tools) &&
         Objects.equals(this.isReasoning, aiAiActionArgs.isReasoning) &&
+        Objects.equals(this.reasoningLevel, aiAiActionArgs.reasoningLevel) &&
         Objects.equals(this.prompt, aiAiActionArgs.prompt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tools, isReasoning, prompt);
+    return Objects.hash(tools, isReasoning, reasoningLevel, prompt);
   }
 
   @Override
@@ -164,6 +194,7 @@ public class AiAiActionArgs {
     sb.append("class AiAiActionArgs {\n");
     sb.append("    tools: ").append(toIndentedString(tools)).append("\n");
     sb.append("    isReasoning: ").append(toIndentedString(isReasoning)).append("\n");
+    sb.append("    reasoningLevel: ").append(toIndentedString(reasoningLevel)).append("\n");
     sb.append("    prompt: ").append(toIndentedString(prompt)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -226,6 +257,16 @@ public class AiAiActionArgs {
     if (getIsReasoning() != null) {
       try {
         joiner.add(String.format("%sisReasoning%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsReasoning()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `reasoningLevel` to the URL query string
+    if (getReasoningLevel() != null) {
+      try {
+        joiner.add(String.format("%sreasoningLevel%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReasoningLevel()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

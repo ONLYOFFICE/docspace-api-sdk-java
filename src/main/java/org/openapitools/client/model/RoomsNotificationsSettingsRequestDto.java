@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for configuring notification settings for the chat or collaboration rooms.
+ * Which single room the calling user silences, and which way.
  */
 @JsonPropertyOrder({
   RoomsNotificationsSettingsRequestDto.JSON_PROPERTY_ROOMS_ID,
@@ -92,7 +92,7 @@ public class RoomsNotificationsSettingsRequestDto {
   }
 
   /**
-   * Specifies whether the notifications will be delivered to the specified room or not.
+   * Which way the room goes: `true` adds it to the caller silenced list, `false` takes it off again. While a room  is silenced its activity is left out of the hourly and daily digests, the letters it would send at once are  not sent, and its new-item counters are hidden.
    * @return mute
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MUTE, required = false)

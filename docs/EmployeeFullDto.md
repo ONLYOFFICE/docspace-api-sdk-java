@@ -25,7 +25,7 @@ The full list of user parameters.
 |**contacts** | [**List&lt;Contact&gt;**](Contact.md) | The list of user contacts. |  [optional] |
 |**status** | **EmployeeStatus** | The user status. |  [optional] |
 |**activationStatus** | **EmployeeActivationStatus** | The user activation status. |  [optional] |
-|**terminated** | **OffsetDateTime** | The date when the user account was terminated. |  [optional] |
+|**terminated** | [**ApiDateTime**](ApiDateTime.md) | The date when the user account was terminated. |  [optional] |
 |**department** | **String** | The user department. |  [optional] |
 |**groups** | [**List&lt;GroupSummaryDto&gt;**](GroupSummaryDto.md) | The list of user groups. |  [optional] |
 |**location** | **String** | The user location. |  [optional] |
@@ -49,7 +49,7 @@ The full list of user parameters.
 |**loginEventId** | **Integer** | The current login event ID. |  [optional] |
 |**authCookieLifetime** | **Double** | The auth cookie lifetime in seconds. |  [optional] |
 |**createdBy** | [**EmployeeDto**](EmployeeDto.md) | The user who created the current user. |  [optional] |
-|**registrationDate** | **OffsetDateTime** | The user registration date. |  [optional] |
+|**registrationDate** | [**ApiDateTime**](ApiDateTime.md) | The user registration date. |  [optional] |
 |**hasPersonalFolder** | **Boolean** | Specifies if the user has a personal folder or not. |  [optional] |
 |**tfaAppEnabled** | **Boolean** | Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app. |  [optional] |
 

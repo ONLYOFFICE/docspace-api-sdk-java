@@ -24,8 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.time.OffsetDateTime;
 import java.util.UUID;
+import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -38,7 +38,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The active connection item parameters.
+ * One open connection of a user: where the sign-in behind it came from, and the ID it can be closed by.
  */
 @JsonPropertyOrder({
   ActiveConnectionsItemDto.JSON_PROPERTY_ID,
@@ -83,7 +83,7 @@ public class ActiveConnectionsItemDto {
   @javax.annotation.Nullable  private JsonNullable<String> platform = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DATE = "date";
-  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> date = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private ApiDateTime date;
 
   public static final String JSON_PROPERTY_PAGE = "page";
   @javax.annotation.Nullable  private JsonNullable<String> page = JsonNullable.<String>undefined();
@@ -99,7 +99,7 @@ public class ActiveConnectionsItemDto {
   }
 
   /**
-   * The active connection ID.
+   * The ID of the sign-in this connection was opened by. Pass it as `loginEventId` to  `PUT api/2.0/security/activeconnections/logout/{loginEventId}` to end this one connection; the item whose  value equals `loginEvent` is the connection the current request uses.
    * @return id
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
@@ -123,7 +123,7 @@ public class ActiveConnectionsItemDto {
   }
 
   /**
-   * The tenant ID.
+   * The portal the sign-in was made on. The operation never crosses portals, so it is the current one on every  item.
    * @return tenantId
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TENANT_ID, required = true)
@@ -147,7 +147,7 @@ public class ActiveConnectionsItemDto {
   }
 
   /**
-   * The user ID.
+   * The user the connection belongs to, which is the calling user on every item - the operation cannot report  anyone else's connections.
    * @return userId
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = true)
@@ -171,7 +171,7 @@ public class ActiveConnectionsItemDto {
   }
 
   /**
-   * Specifies if the active connection has a mobile phone or not.
+   * Whether the sign-in came from a mobile client. No mobile marker is stored with a connection, so the value  is `false` on every item and tells a caller nothing about the device.
    * @return mobile
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MOBILE, required = false)
@@ -195,7 +195,7 @@ public class ActiveConnectionsItemDto {
   }
 
   /**
-   * The IP address of the active connection.
+   * The IP address the sign-in came from, with the port stripped off. On the item that matches `loginEvent` it  is taken from the address the current request arrives from instead of the one stored at sign-in.
    * @return ip
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -226,7 +226,7 @@ public class ActiveConnectionsItemDto {
   }
 
   /**
-   * The active connection country.
+   * The English name of the country the IP address is located in. It is empty when the address cannot be  located, which is the normal outcome for private and loopback addresses.
    * @return country
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -257,7 +257,7 @@ public class ActiveConnectionsItemDto {
   }
 
   /**
-   * The active connection city.
+   * The city the IP address is located in, empty under the same conditions as `country`.
    * @return city
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -288,7 +288,7 @@ public class ActiveConnectionsItemDto {
   }
 
   /**
-   * The active connection browser.
+   * The browser and its version as parsed from the user agent of the sign-in, empty when the client sent no  recognisable one. It is refreshed from the current request on the item that matches `loginEvent`.
    * @return browser
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -319,7 +319,7 @@ public class ActiveConnectionsItemDto {
   }
 
   /**
-   * The active connection platform.
+   * The operating system as parsed from the user agent of the sign-in, refreshed and left empty under the same  conditions as `browser`.
    * @return platform
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -343,35 +343,28 @@ public class ActiveConnectionsItemDto {
     this.platform = JsonNullable.<String>of(platform);
   }
 
-  public ActiveConnectionsItemDto date(@javax.annotation.Nullable OffsetDateTime date) {
-    this.date = JsonNullable.<OffsetDateTime>of(date);
+  public ActiveConnectionsItemDto date(@javax.annotation.Nullable ApiDateTime date) {
     
+    this.date = date;
     return this;
   }
 
   /**
-   * The active connection date.
+   * When the sign-in happened, in the portal time zone rather than in UTC.
    * @return date
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getDate() {
-        return date.orElse(null);
+  public ApiDateTime getDate() {
+    return date;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<OffsetDateTime> getDate_JsonNullable() {
-    return date;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_DATE)
-  public void setDate_JsonNullable(JsonNullable<OffsetDateTime> date) {
+  public void setDate(@javax.annotation.Nullable ApiDateTime date) {
     this.date = date;
-  }
-
-  public void setDate(@javax.annotation.Nullable OffsetDateTime date) {
-    this.date = JsonNullable.<OffsetDateTime>of(date);
   }
 
   public ActiveConnectionsItemDto page(@javax.annotation.Nullable String page) {
@@ -381,7 +374,7 @@ public class ActiveConnectionsItemDto {
   }
 
   /**
-   * The active connection page.
+   * Where in the portal the sign-in was made from: the referrer of the request that created it, or that  request's own path when it carried no referrer. Long values are cut off at 512 characters.
    * @return page
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -423,7 +416,7 @@ public class ActiveConnectionsItemDto {
         equalsNullable(this.city, activeConnectionsItemDto.city) &&
         equalsNullable(this.browser, activeConnectionsItemDto.browser) &&
         equalsNullable(this.platform, activeConnectionsItemDto.platform) &&
-        equalsNullable(this.date, activeConnectionsItemDto.date) &&
+        Objects.equals(this.date, activeConnectionsItemDto.date) &&
         equalsNullable(this.page, activeConnectionsItemDto.page);
   }
 
@@ -433,7 +426,7 @@ public class ActiveConnectionsItemDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, userId, mobile, hashCodeNullable(ip), hashCodeNullable(country), hashCodeNullable(city), hashCodeNullable(browser), hashCodeNullable(platform), hashCodeNullable(date), hashCodeNullable(page));
+    return Objects.hash(id, tenantId, userId, mobile, hashCodeNullable(ip), hashCodeNullable(country), hashCodeNullable(city), hashCodeNullable(browser), hashCodeNullable(platform), date, hashCodeNullable(page));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -597,12 +590,7 @@ public class ActiveConnectionsItemDto {
 
     // add `date` to the URL query string
     if (getDate() != null) {
-      try {
-        joiner.add(String.format("%sdate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDate()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getDate().toUrlQueryString(prefix + "date" + suffix));
     }
 
     // add `page` to the URL query string

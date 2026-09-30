@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The information about the action in the document that will be scrolled to.
+ * An anchor inside a document, as the editor writes it.
  */
 @JsonPropertyOrder({
   ActionConfig.JSON_PROPERTY_DATA,
@@ -61,7 +61,7 @@ public class ActionConfig {
   }
 
   /**
-   * The action data that will be scrolled to.
+   * The anchor value produced by the editor, opaque to the portal: it names the comment, the mention or the  place the document is scrolled to.
    * @return data
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -92,7 +92,7 @@ public class ActionConfig {
   }
 
   /**
-   * The action type.
+   * What the anchor points at, as the editor names it - a comment thread, for instance.
    * @return type
    */
   @javax.annotation.Nullable  @JsonIgnore

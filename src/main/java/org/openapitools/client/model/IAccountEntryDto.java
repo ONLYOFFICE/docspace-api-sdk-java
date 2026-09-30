@@ -1,0 +1,2426 @@
+/*
+ * (c) Copyright Ascensio System SIA 2026
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+package org.openapitools.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
+import org.openapitools.client.model.ApiDateTime;
+import org.openapitools.client.model.Contact;
+import org.openapitools.client.model.DarkThemeSettingsType;
+import org.openapitools.client.model.EmployeeActivationStatus;
+import org.openapitools.client.model.EmployeeDto;
+import org.openapitools.client.model.EmployeeFullDto;
+import org.openapitools.client.model.EmployeeStatus;
+import org.openapitools.client.model.GroupSummaryDto;
+import org.openapitools.client.model.MobilePhoneActivationStatus;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
+
+/**
+ * One entry of an account search: either a user or a group.
+ */
+@JsonPropertyOrder({
+  IAccountEntryDto.JSON_PROPERTY_ID,
+  IAccountEntryDto.JSON_PROPERTY_DISPLAY_NAME,
+  IAccountEntryDto.JSON_PROPERTY_AVATAR,
+  IAccountEntryDto.JSON_PROPERTY_AVATAR_ORIGINAL,
+  IAccountEntryDto.JSON_PROPERTY_AVATAR_MAX,
+  IAccountEntryDto.JSON_PROPERTY_AVATAR_MEDIUM,
+  IAccountEntryDto.JSON_PROPERTY_AVATAR_SMALL,
+  IAccountEntryDto.JSON_PROPERTY_PROFILE_URL,
+  IAccountEntryDto.JSON_PROPERTY_HAS_AVATAR,
+  IAccountEntryDto.JSON_PROPERTY_IS_ANONIM,
+  IAccountEntryDto.JSON_PROPERTY_FIRST_NAME,
+  IAccountEntryDto.JSON_PROPERTY_LAST_NAME,
+  IAccountEntryDto.JSON_PROPERTY_USER_NAME,
+  IAccountEntryDto.JSON_PROPERTY_EMAIL,
+  IAccountEntryDto.JSON_PROPERTY_CONTACTS,
+  IAccountEntryDto.JSON_PROPERTY_STATUS,
+  IAccountEntryDto.JSON_PROPERTY_ACTIVATION_STATUS,
+  IAccountEntryDto.JSON_PROPERTY_TERMINATED,
+  IAccountEntryDto.JSON_PROPERTY_DEPARTMENT,
+  IAccountEntryDto.JSON_PROPERTY_GROUPS,
+  IAccountEntryDto.JSON_PROPERTY_LOCATION,
+  IAccountEntryDto.JSON_PROPERTY_NOTES,
+  IAccountEntryDto.JSON_PROPERTY_IS_ADMIN,
+  IAccountEntryDto.JSON_PROPERTY_IS_ROOM_ADMIN,
+  IAccountEntryDto.JSON_PROPERTY_IS_L_D_A_P,
+  IAccountEntryDto.JSON_PROPERTY_LIST_ADMIN_MODULES,
+  IAccountEntryDto.JSON_PROPERTY_IS_OWNER,
+  IAccountEntryDto.JSON_PROPERTY_IS_VISITOR,
+  IAccountEntryDto.JSON_PROPERTY_IS_COLLABORATOR,
+  IAccountEntryDto.JSON_PROPERTY_CULTURE_NAME,
+  IAccountEntryDto.JSON_PROPERTY_MOBILE_PHONE,
+  IAccountEntryDto.JSON_PROPERTY_MOBILE_PHONE_ACTIVATION_STATUS,
+  IAccountEntryDto.JSON_PROPERTY_IS_S_S_O,
+  IAccountEntryDto.JSON_PROPERTY_THEME,
+  IAccountEntryDto.JSON_PROPERTY_QUOTA_LIMIT,
+  IAccountEntryDto.JSON_PROPERTY_USED_SPACE,
+  IAccountEntryDto.JSON_PROPERTY_SHARED,
+  IAccountEntryDto.JSON_PROPERTY_IS_CUSTOM_QUOTA,
+  IAccountEntryDto.JSON_PROPERTY_LOGIN_EVENT_ID,
+  IAccountEntryDto.JSON_PROPERTY_AUTH_COOKIE_LIFETIME,
+  IAccountEntryDto.JSON_PROPERTY_CREATED_BY,
+  IAccountEntryDto.JSON_PROPERTY_REGISTRATION_DATE,
+  IAccountEntryDto.JSON_PROPERTY_HAS_PERSONAL_FOLDER,
+  IAccountEntryDto.JSON_PROPERTY_TFA_APP_ENABLED,
+  IAccountEntryDto.JSON_PROPERTY_NAME,
+  IAccountEntryDto.JSON_PROPERTY_PARENT,
+  IAccountEntryDto.JSON_PROPERTY_CATEGORY,
+  IAccountEntryDto.JSON_PROPERTY_IS_SYSTEM,
+  IAccountEntryDto.JSON_PROPERTY_MANAGER,
+  IAccountEntryDto.JSON_PROPERTY_MEMBERS,
+  IAccountEntryDto.JSON_PROPERTY_MEMBERS_COUNT
+})
+
+public class IAccountEntryDto {
+  public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nonnull  private UUID id;
+
+  public static final String JSON_PROPERTY_DISPLAY_NAME = "displayName";
+  @javax.annotation.Nullable  private JsonNullable<String> displayName = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_AVATAR = "avatar";
+  @javax.annotation.Nullable  private JsonNullable<String> avatar = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_AVATAR_ORIGINAL = "avatarOriginal";
+  @javax.annotation.Nullable  private JsonNullable<String> avatarOriginal = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_AVATAR_MAX = "avatarMax";
+  @javax.annotation.Nullable  private JsonNullable<String> avatarMax = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_AVATAR_MEDIUM = "avatarMedium";
+  @javax.annotation.Nullable  private JsonNullable<String> avatarMedium = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_AVATAR_SMALL = "avatarSmall";
+  @javax.annotation.Nullable  private JsonNullable<String> avatarSmall = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_PROFILE_URL = "profileUrl";
+  @javax.annotation.Nullable  private JsonNullable<String> profileUrl = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_HAS_AVATAR = "hasAvatar";
+  @javax.annotation.Nullable  private Boolean hasAvatar;
+
+  public static final String JSON_PROPERTY_IS_ANONIM = "isAnonim";
+  @javax.annotation.Nullable  private Boolean isAnonim;
+
+  public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
+  @javax.annotation.Nullable  private JsonNullable<String> firstName = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_LAST_NAME = "lastName";
+  @javax.annotation.Nullable  private JsonNullable<String> lastName = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_USER_NAME = "userName";
+  @javax.annotation.Nullable  private JsonNullable<String> userName = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_EMAIL = "email";
+  @javax.annotation.Nullable  private JsonNullable<String> email = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_CONTACTS = "contacts";
+  @javax.annotation.Nullable  private JsonNullable<List<Contact>> contacts = JsonNullable.<List<Contact>>undefined();
+
+  public static final String JSON_PROPERTY_STATUS = "status";
+  @javax.annotation.Nullable  private EmployeeStatus status;
+
+  public static final String JSON_PROPERTY_ACTIVATION_STATUS = "activationStatus";
+  @javax.annotation.Nullable  private EmployeeActivationStatus activationStatus;
+
+  public static final String JSON_PROPERTY_TERMINATED = "terminated";
+  @javax.annotation.Nullable  private ApiDateTime terminated;
+
+  public static final String JSON_PROPERTY_DEPARTMENT = "department";
+  @javax.annotation.Nullable  private JsonNullable<String> department = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_GROUPS = "groups";
+  @javax.annotation.Nullable  private JsonNullable<List<GroupSummaryDto>> groups = JsonNullable.<List<GroupSummaryDto>>undefined();
+
+  public static final String JSON_PROPERTY_LOCATION = "location";
+  @javax.annotation.Nullable  private JsonNullable<String> location = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_NOTES = "notes";
+  @javax.annotation.Nullable  private JsonNullable<String> notes = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_IS_ADMIN = "isAdmin";
+  @javax.annotation.Nullable  private Boolean isAdmin;
+
+  public static final String JSON_PROPERTY_IS_ROOM_ADMIN = "isRoomAdmin";
+  @javax.annotation.Nullable  private Boolean isRoomAdmin;
+
+  public static final String JSON_PROPERTY_IS_L_D_A_P = "isLDAP";
+  @javax.annotation.Nonnull  private Boolean isLDAP;
+
+  public static final String JSON_PROPERTY_LIST_ADMIN_MODULES = "listAdminModules";
+  @javax.annotation.Nullable  private JsonNullable<List<String>> listAdminModules = JsonNullable.<List<String>>undefined();
+
+  public static final String JSON_PROPERTY_IS_OWNER = "isOwner";
+  @javax.annotation.Nullable  private Boolean isOwner;
+
+  public static final String JSON_PROPERTY_IS_VISITOR = "isVisitor";
+  @javax.annotation.Nullable  private Boolean isVisitor;
+
+  public static final String JSON_PROPERTY_IS_COLLABORATOR = "isCollaborator";
+  @javax.annotation.Nullable  private Boolean isCollaborator;
+
+  public static final String JSON_PROPERTY_CULTURE_NAME = "cultureName";
+  @javax.annotation.Nullable  private JsonNullable<String> cultureName = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_MOBILE_PHONE = "mobilePhone";
+  @javax.annotation.Nullable  private JsonNullable<String> mobilePhone = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_MOBILE_PHONE_ACTIVATION_STATUS = "mobilePhoneActivationStatus";
+  @javax.annotation.Nullable  private MobilePhoneActivationStatus mobilePhoneActivationStatus;
+
+  public static final String JSON_PROPERTY_IS_S_S_O = "isSSO";
+  @javax.annotation.Nullable  private Boolean isSSO;
+
+  public static final String JSON_PROPERTY_THEME = "theme";
+  @javax.annotation.Nullable  private DarkThemeSettingsType theme;
+
+  public static final String JSON_PROPERTY_QUOTA_LIMIT = "quotaLimit";
+  @javax.annotation.Nullable  private JsonNullable<Long> quotaLimit = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_USED_SPACE = "usedSpace";
+  @javax.annotation.Nullable  private JsonNullable<Double> usedSpace = JsonNullable.<Double>undefined();
+
+  public static final String JSON_PROPERTY_SHARED = "shared";
+  @javax.annotation.Nullable  private JsonNullable<Boolean> shared = JsonNullable.<Boolean>undefined();
+
+  public static final String JSON_PROPERTY_IS_CUSTOM_QUOTA = "isCustomQuota";
+  @javax.annotation.Nullable  private JsonNullable<Boolean> isCustomQuota = JsonNullable.<Boolean>undefined();
+
+  public static final String JSON_PROPERTY_LOGIN_EVENT_ID = "loginEventId";
+  @javax.annotation.Nullable  private JsonNullable<Integer> loginEventId = JsonNullable.<Integer>undefined();
+
+  public static final String JSON_PROPERTY_AUTH_COOKIE_LIFETIME = "authCookieLifetime";
+  @javax.annotation.Nullable  private JsonNullable<Double> authCookieLifetime = JsonNullable.<Double>undefined();
+
+  public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
+  @javax.annotation.Nullable  private EmployeeDto createdBy;
+
+  public static final String JSON_PROPERTY_REGISTRATION_DATE = "registrationDate";
+  @javax.annotation.Nullable  private ApiDateTime registrationDate;
+
+  public static final String JSON_PROPERTY_HAS_PERSONAL_FOLDER = "hasPersonalFolder";
+  @javax.annotation.Nullable  private JsonNullable<Boolean> hasPersonalFolder = JsonNullable.<Boolean>undefined();
+
+  public static final String JSON_PROPERTY_TFA_APP_ENABLED = "tfaAppEnabled";
+  @javax.annotation.Nullable  private JsonNullable<Boolean> tfaAppEnabled = JsonNullable.<Boolean>undefined();
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable  private String name;
+
+  public static final String JSON_PROPERTY_PARENT = "parent";
+  @javax.annotation.Nullable  private JsonNullable<UUID> parent = JsonNullable.<UUID>undefined();
+
+  public static final String JSON_PROPERTY_CATEGORY = "category";
+  @javax.annotation.Nonnull  private UUID category;
+
+  public static final String JSON_PROPERTY_IS_SYSTEM = "isSystem";
+  @javax.annotation.Nullable  private JsonNullable<Boolean> isSystem = JsonNullable.<Boolean>undefined();
+
+  public static final String JSON_PROPERTY_MANAGER = "manager";
+  @javax.annotation.Nullable  private EmployeeFullDto manager;
+
+  public static final String JSON_PROPERTY_MEMBERS = "members";
+  @javax.annotation.Nullable  private JsonNullable<List<EmployeeFullDto>> members = JsonNullable.<List<EmployeeFullDto>>undefined();
+
+  public static final String JSON_PROPERTY_MEMBERS_COUNT = "membersCount";
+  @javax.annotation.Nullable  private Integer membersCount;
+
+  public IAccountEntryDto() {
+  }
+
+
+  public IAccountEntryDto id(@javax.annotation.Nonnull UUID id) {
+    
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The group ID.
+   * @return id
+   */
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public UUID getId() {
+    return id;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setId(@javax.annotation.Nonnull UUID id) {
+    this.id = id;
+  }
+
+  public IAccountEntryDto displayName(@javax.annotation.Nullable String displayName) {
+    this.displayName = JsonNullable.<String>of(displayName);
+    
+    return this;
+  }
+
+  /**
+   * The HTML-encoded user's display name formatted according to the default format for the current culture.
+   * @return displayName
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getDisplayName() {
+        return displayName.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_DISPLAY_NAME, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getDisplayName_JsonNullable() {
+    return displayName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  public void setDisplayName_JsonNullable(JsonNullable<String> displayName) {
+    this.displayName = displayName;
+  }
+
+  public void setDisplayName(@javax.annotation.Nullable String displayName) {
+    this.displayName = JsonNullable.<String>of(displayName);
+  }
+
+  public IAccountEntryDto avatar(@javax.annotation.Nullable String avatar) {
+    this.avatar = JsonNullable.<String>of(avatar);
+    
+    return this;
+  }
+
+  /**
+   * The user avatar.
+   * @return avatar
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getAvatar() {
+        return avatar.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_AVATAR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getAvatar_JsonNullable() {
+    return avatar;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AVATAR)
+  public void setAvatar_JsonNullable(JsonNullable<String> avatar) {
+    this.avatar = avatar;
+  }
+
+  public void setAvatar(@javax.annotation.Nullable String avatar) {
+    this.avatar = JsonNullable.<String>of(avatar);
+  }
+
+  public IAccountEntryDto avatarOriginal(@javax.annotation.Nullable String avatarOriginal) {
+    this.avatarOriginal = JsonNullable.<String>of(avatarOriginal);
+    
+    return this;
+  }
+
+  /**
+   * The user original size avatar.
+   * @return avatarOriginal
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getAvatarOriginal() {
+        return avatarOriginal.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_AVATAR_ORIGINAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getAvatarOriginal_JsonNullable() {
+    return avatarOriginal;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AVATAR_ORIGINAL)
+  public void setAvatarOriginal_JsonNullable(JsonNullable<String> avatarOriginal) {
+    this.avatarOriginal = avatarOriginal;
+  }
+
+  public void setAvatarOriginal(@javax.annotation.Nullable String avatarOriginal) {
+    this.avatarOriginal = JsonNullable.<String>of(avatarOriginal);
+  }
+
+  public IAccountEntryDto avatarMax(@javax.annotation.Nullable String avatarMax) {
+    this.avatarMax = JsonNullable.<String>of(avatarMax);
+    
+    return this;
+  }
+
+  /**
+   * The user maximum size avatar.
+   * @return avatarMax
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getAvatarMax() {
+        return avatarMax.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_AVATAR_MAX, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getAvatarMax_JsonNullable() {
+    return avatarMax;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AVATAR_MAX)
+  public void setAvatarMax_JsonNullable(JsonNullable<String> avatarMax) {
+    this.avatarMax = avatarMax;
+  }
+
+  public void setAvatarMax(@javax.annotation.Nullable String avatarMax) {
+    this.avatarMax = JsonNullable.<String>of(avatarMax);
+  }
+
+  public IAccountEntryDto avatarMedium(@javax.annotation.Nullable String avatarMedium) {
+    this.avatarMedium = JsonNullable.<String>of(avatarMedium);
+    
+    return this;
+  }
+
+  /**
+   * The user medium size avatar.
+   * @return avatarMedium
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getAvatarMedium() {
+        return avatarMedium.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_AVATAR_MEDIUM, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getAvatarMedium_JsonNullable() {
+    return avatarMedium;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AVATAR_MEDIUM)
+  public void setAvatarMedium_JsonNullable(JsonNullable<String> avatarMedium) {
+    this.avatarMedium = avatarMedium;
+  }
+
+  public void setAvatarMedium(@javax.annotation.Nullable String avatarMedium) {
+    this.avatarMedium = JsonNullable.<String>of(avatarMedium);
+  }
+
+  public IAccountEntryDto avatarSmall(@javax.annotation.Nullable String avatarSmall) {
+    this.avatarSmall = JsonNullable.<String>of(avatarSmall);
+    
+    return this;
+  }
+
+  /**
+   * The user small size avatar.
+   * @return avatarSmall
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getAvatarSmall() {
+        return avatarSmall.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_AVATAR_SMALL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getAvatarSmall_JsonNullable() {
+    return avatarSmall;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AVATAR_SMALL)
+  public void setAvatarSmall_JsonNullable(JsonNullable<String> avatarSmall) {
+    this.avatarSmall = avatarSmall;
+  }
+
+  public void setAvatarSmall(@javax.annotation.Nullable String avatarSmall) {
+    this.avatarSmall = JsonNullable.<String>of(avatarSmall);
+  }
+
+  public IAccountEntryDto profileUrl(@javax.annotation.Nullable String profileUrl) {
+    this.profileUrl = JsonNullable.<String>of(profileUrl);
+    
+    return this;
+  }
+
+  /**
+   * The user profile URL.
+   * @return profileUrl
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getProfileUrl() {
+        return profileUrl.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_PROFILE_URL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getProfileUrl_JsonNullable() {
+    return profileUrl;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PROFILE_URL)
+  public void setProfileUrl_JsonNullable(JsonNullable<String> profileUrl) {
+    this.profileUrl = profileUrl;
+  }
+
+  public void setProfileUrl(@javax.annotation.Nullable String profileUrl) {
+    this.profileUrl = JsonNullable.<String>of(profileUrl);
+  }
+
+  public IAccountEntryDto hasAvatar(@javax.annotation.Nullable Boolean hasAvatar) {
+    
+    this.hasAvatar = hasAvatar;
+    return this;
+  }
+
+  /**
+   * Specifies if the user has an avatar or not.
+   * @return hasAvatar
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HAS_AVATAR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getHasAvatar() {
+    return hasAvatar;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_HAS_AVATAR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setHasAvatar(@javax.annotation.Nullable Boolean hasAvatar) {
+    this.hasAvatar = hasAvatar;
+  }
+
+  public IAccountEntryDto isAnonim(@javax.annotation.Nullable Boolean isAnonim) {
+    
+    this.isAnonim = isAnonim;
+    return this;
+  }
+
+  /**
+   * Specifies if the user is anonymous or not.
+   * @return isAnonim
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_ANONIM, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsAnonim() {
+    return isAnonim;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_IS_ANONIM, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsAnonim(@javax.annotation.Nullable Boolean isAnonim) {
+    this.isAnonim = isAnonim;
+  }
+
+  public IAccountEntryDto firstName(@javax.annotation.Nullable String firstName) {
+    this.firstName = JsonNullable.<String>of(firstName);
+    
+    return this;
+  }
+
+  /**
+   * The user first name.
+   * @return firstName
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getFirstName() {
+        return firstName.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_FIRST_NAME, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getFirstName_JsonNullable() {
+    return firstName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FIRST_NAME)
+  public void setFirstName_JsonNullable(JsonNullable<String> firstName) {
+    this.firstName = firstName;
+  }
+
+  public void setFirstName(@javax.annotation.Nullable String firstName) {
+    this.firstName = JsonNullable.<String>of(firstName);
+  }
+
+  public IAccountEntryDto lastName(@javax.annotation.Nullable String lastName) {
+    this.lastName = JsonNullable.<String>of(lastName);
+    
+    return this;
+  }
+
+  /**
+   * The user last name.
+   * @return lastName
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getLastName() {
+        return lastName.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_LAST_NAME, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getLastName_JsonNullable() {
+    return lastName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LAST_NAME)
+  public void setLastName_JsonNullable(JsonNullable<String> lastName) {
+    this.lastName = lastName;
+  }
+
+  public void setLastName(@javax.annotation.Nullable String lastName) {
+    this.lastName = JsonNullable.<String>of(lastName);
+  }
+
+  public IAccountEntryDto userName(@javax.annotation.Nullable String userName) {
+    this.userName = JsonNullable.<String>of(userName);
+    
+    return this;
+  }
+
+  /**
+   * The user username.
+   * @return userName
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getUserName() {
+        return userName.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_USER_NAME, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getUserName_JsonNullable() {
+    return userName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_USER_NAME)
+  public void setUserName_JsonNullable(JsonNullable<String> userName) {
+    this.userName = userName;
+  }
+
+  public void setUserName(@javax.annotation.Nullable String userName) {
+    this.userName = JsonNullable.<String>of(userName);
+  }
+
+  public IAccountEntryDto email(@javax.annotation.Nullable String email) {
+    this.email = JsonNullable.<String>of(email);
+    
+    return this;
+  }
+
+  /**
+   * The user email.
+   * @return email
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getEmail() {
+        return email.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getEmail_JsonNullable() {
+    return email;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  public void setEmail_JsonNullable(JsonNullable<String> email) {
+    this.email = email;
+  }
+
+  public void setEmail(@javax.annotation.Nullable String email) {
+    this.email = JsonNullable.<String>of(email);
+  }
+
+  public IAccountEntryDto contacts(@javax.annotation.Nullable List<Contact> contacts) {
+    this.contacts = JsonNullable.<List<Contact>>of(contacts);
+    
+    return this;
+  }
+
+  public IAccountEntryDto addContactsItem(Contact contactsItem) {
+    if (this.contacts == null || !this.contacts.isPresent()) {
+      this.contacts = JsonNullable.<List<Contact>>of(new ArrayList<>());
+    }
+    try {
+      this.contacts.get().add(contactsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * The list of user contacts.
+   * @return contacts
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public List<Contact> getContacts() {
+        return contacts.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_CONTACTS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<Contact>> getContacts_JsonNullable() {
+    return contacts;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CONTACTS)
+  public void setContacts_JsonNullable(JsonNullable<List<Contact>> contacts) {
+    this.contacts = contacts;
+  }
+
+  public void setContacts(@javax.annotation.Nullable List<Contact> contacts) {
+    this.contacts = JsonNullable.<List<Contact>>of(contacts);
+  }
+
+  public IAccountEntryDto status(@javax.annotation.Nullable EmployeeStatus status) {
+    
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * The user status.
+   * @return status
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public EmployeeStatus getStatus() {
+    return status;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStatus(@javax.annotation.Nullable EmployeeStatus status) {
+    this.status = status;
+  }
+
+  public IAccountEntryDto activationStatus(@javax.annotation.Nullable EmployeeActivationStatus activationStatus) {
+    
+    this.activationStatus = activationStatus;
+    return this;
+  }
+
+  /**
+   * The user activation status.
+   * @return activationStatus
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACTIVATION_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public EmployeeActivationStatus getActivationStatus() {
+    return activationStatus;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ACTIVATION_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setActivationStatus(@javax.annotation.Nullable EmployeeActivationStatus activationStatus) {
+    this.activationStatus = activationStatus;
+  }
+
+  public IAccountEntryDto terminated(@javax.annotation.Nullable ApiDateTime terminated) {
+    
+    this.terminated = terminated;
+    return this;
+  }
+
+  /**
+   * The date when the user account was terminated.
+   * @return terminated
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TERMINATED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public ApiDateTime getTerminated() {
+    return terminated;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_TERMINATED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTerminated(@javax.annotation.Nullable ApiDateTime terminated) {
+    this.terminated = terminated;
+  }
+
+  public IAccountEntryDto department(@javax.annotation.Nullable String department) {
+    this.department = JsonNullable.<String>of(department);
+    
+    return this;
+  }
+
+  /**
+   * The user department.
+   * @return department
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getDepartment() {
+        return department.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_DEPARTMENT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getDepartment_JsonNullable() {
+    return department;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DEPARTMENT)
+  public void setDepartment_JsonNullable(JsonNullable<String> department) {
+    this.department = department;
+  }
+
+  public void setDepartment(@javax.annotation.Nullable String department) {
+    this.department = JsonNullable.<String>of(department);
+  }
+
+  public IAccountEntryDto groups(@javax.annotation.Nullable List<GroupSummaryDto> groups) {
+    this.groups = JsonNullable.<List<GroupSummaryDto>>of(groups);
+    
+    return this;
+  }
+
+  public IAccountEntryDto addGroupsItem(GroupSummaryDto groupsItem) {
+    if (this.groups == null || !this.groups.isPresent()) {
+      this.groups = JsonNullable.<List<GroupSummaryDto>>of(new ArrayList<>());
+    }
+    try {
+      this.groups.get().add(groupsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * The list of user groups.
+   * @return groups
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public List<GroupSummaryDto> getGroups() {
+        return groups.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_GROUPS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<GroupSummaryDto>> getGroups_JsonNullable() {
+    return groups;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_GROUPS)
+  public void setGroups_JsonNullable(JsonNullable<List<GroupSummaryDto>> groups) {
+    this.groups = groups;
+  }
+
+  public void setGroups(@javax.annotation.Nullable List<GroupSummaryDto> groups) {
+    this.groups = JsonNullable.<List<GroupSummaryDto>>of(groups);
+  }
+
+  public IAccountEntryDto location(@javax.annotation.Nullable String location) {
+    this.location = JsonNullable.<String>of(location);
+    
+    return this;
+  }
+
+  /**
+   * The user location.
+   * @return location
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getLocation() {
+        return location.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_LOCATION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getLocation_JsonNullable() {
+    return location;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LOCATION)
+  public void setLocation_JsonNullable(JsonNullable<String> location) {
+    this.location = location;
+  }
+
+  public void setLocation(@javax.annotation.Nullable String location) {
+    this.location = JsonNullable.<String>of(location);
+  }
+
+  public IAccountEntryDto notes(@javax.annotation.Nullable String notes) {
+    this.notes = JsonNullable.<String>of(notes);
+    
+    return this;
+  }
+
+  /**
+   * The user notes.
+   * @return notes
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getNotes() {
+        return notes.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_NOTES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getNotes_JsonNullable() {
+    return notes;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NOTES)
+  public void setNotes_JsonNullable(JsonNullable<String> notes) {
+    this.notes = notes;
+  }
+
+  public void setNotes(@javax.annotation.Nullable String notes) {
+    this.notes = JsonNullable.<String>of(notes);
+  }
+
+  public IAccountEntryDto isAdmin(@javax.annotation.Nullable Boolean isAdmin) {
+    
+    this.isAdmin = isAdmin;
+    return this;
+  }
+
+  /**
+   * Specifies if the user is an administrator or not.
+   * @return isAdmin
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_ADMIN, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsAdmin() {
+    return isAdmin;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_IS_ADMIN, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsAdmin(@javax.annotation.Nullable Boolean isAdmin) {
+    this.isAdmin = isAdmin;
+  }
+
+  public IAccountEntryDto isRoomAdmin(@javax.annotation.Nullable Boolean isRoomAdmin) {
+    
+    this.isRoomAdmin = isRoomAdmin;
+    return this;
+  }
+
+  /**
+   * Specifies if the user is a room administrator or not.
+   * @return isRoomAdmin
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_ROOM_ADMIN, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsRoomAdmin() {
+    return isRoomAdmin;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_IS_ROOM_ADMIN, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsRoomAdmin(@javax.annotation.Nullable Boolean isRoomAdmin) {
+    this.isRoomAdmin = isRoomAdmin;
+  }
+
+  public IAccountEntryDto isLDAP(@javax.annotation.Nonnull Boolean isLDAP) {
+    
+    this.isLDAP = isLDAP;
+    return this;
+  }
+
+  /**
+   * Specifies if the LDAP settings are enabled for the group or not.
+   * @return isLDAP
+   */
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_L_D_A_P, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getIsLDAP() {
+    return isLDAP;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_IS_L_D_A_P, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setIsLDAP(@javax.annotation.Nonnull Boolean isLDAP) {
+    this.isLDAP = isLDAP;
+  }
+
+  public IAccountEntryDto listAdminModules(@javax.annotation.Nullable List<String> listAdminModules) {
+    this.listAdminModules = JsonNullable.<List<String>>of(listAdminModules);
+    
+    return this;
+  }
+
+  public IAccountEntryDto addListAdminModulesItem(String listAdminModulesItem) {
+    if (this.listAdminModules == null || !this.listAdminModules.isPresent()) {
+      this.listAdminModules = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.listAdminModules.get().add(listAdminModulesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * The list of the administrator modules.
+   * @return listAdminModules
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public List<String> getListAdminModules() {
+        return listAdminModules.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_LIST_ADMIN_MODULES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<String>> getListAdminModules_JsonNullable() {
+    return listAdminModules;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LIST_ADMIN_MODULES)
+  public void setListAdminModules_JsonNullable(JsonNullable<List<String>> listAdminModules) {
+    this.listAdminModules = listAdminModules;
+  }
+
+  public void setListAdminModules(@javax.annotation.Nullable List<String> listAdminModules) {
+    this.listAdminModules = JsonNullable.<List<String>>of(listAdminModules);
+  }
+
+  public IAccountEntryDto isOwner(@javax.annotation.Nullable Boolean isOwner) {
+    
+    this.isOwner = isOwner;
+    return this;
+  }
+
+  /**
+   * Specifies if the user is a portal owner or not.
+   * @return isOwner
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_OWNER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsOwner() {
+    return isOwner;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_IS_OWNER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsOwner(@javax.annotation.Nullable Boolean isOwner) {
+    this.isOwner = isOwner;
+  }
+
+  public IAccountEntryDto isVisitor(@javax.annotation.Nullable Boolean isVisitor) {
+    
+    this.isVisitor = isVisitor;
+    return this;
+  }
+
+  /**
+   * Specifies if the user is a portal visitor or not.
+   * @return isVisitor
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_VISITOR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsVisitor() {
+    return isVisitor;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_IS_VISITOR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsVisitor(@javax.annotation.Nullable Boolean isVisitor) {
+    this.isVisitor = isVisitor;
+  }
+
+  public IAccountEntryDto isCollaborator(@javax.annotation.Nullable Boolean isCollaborator) {
+    
+    this.isCollaborator = isCollaborator;
+    return this;
+  }
+
+  /**
+   * Specifies if the user is a portal collaborator or not.
+   * @return isCollaborator
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_COLLABORATOR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsCollaborator() {
+    return isCollaborator;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_IS_COLLABORATOR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsCollaborator(@javax.annotation.Nullable Boolean isCollaborator) {
+    this.isCollaborator = isCollaborator;
+  }
+
+  public IAccountEntryDto cultureName(@javax.annotation.Nullable String cultureName) {
+    this.cultureName = JsonNullable.<String>of(cultureName);
+    
+    return this;
+  }
+
+  /**
+   * The user culture code.
+   * @return cultureName
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getCultureName() {
+        return cultureName.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_CULTURE_NAME, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getCultureName_JsonNullable() {
+    return cultureName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CULTURE_NAME)
+  public void setCultureName_JsonNullable(JsonNullable<String> cultureName) {
+    this.cultureName = cultureName;
+  }
+
+  public void setCultureName(@javax.annotation.Nullable String cultureName) {
+    this.cultureName = JsonNullable.<String>of(cultureName);
+  }
+
+  public IAccountEntryDto mobilePhone(@javax.annotation.Nullable String mobilePhone) {
+    this.mobilePhone = JsonNullable.<String>of(mobilePhone);
+    
+    return this;
+  }
+
+  /**
+   * The user mobile phone number.
+   * @return mobilePhone
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getMobilePhone() {
+        return mobilePhone.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_MOBILE_PHONE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getMobilePhone_JsonNullable() {
+    return mobilePhone;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MOBILE_PHONE)
+  public void setMobilePhone_JsonNullable(JsonNullable<String> mobilePhone) {
+    this.mobilePhone = mobilePhone;
+  }
+
+  public void setMobilePhone(@javax.annotation.Nullable String mobilePhone) {
+    this.mobilePhone = JsonNullable.<String>of(mobilePhone);
+  }
+
+  public IAccountEntryDto mobilePhoneActivationStatus(@javax.annotation.Nullable MobilePhoneActivationStatus mobilePhoneActivationStatus) {
+    
+    this.mobilePhoneActivationStatus = mobilePhoneActivationStatus;
+    return this;
+  }
+
+  /**
+   * The mobile phone activation status.
+   * @return mobilePhoneActivationStatus
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MOBILE_PHONE_ACTIVATION_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public MobilePhoneActivationStatus getMobilePhoneActivationStatus() {
+    return mobilePhoneActivationStatus;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_MOBILE_PHONE_ACTIVATION_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMobilePhoneActivationStatus(@javax.annotation.Nullable MobilePhoneActivationStatus mobilePhoneActivationStatus) {
+    this.mobilePhoneActivationStatus = mobilePhoneActivationStatus;
+  }
+
+  public IAccountEntryDto isSSO(@javax.annotation.Nullable Boolean isSSO) {
+    
+    this.isSSO = isSSO;
+    return this;
+  }
+
+  /**
+   * Specifies if the SSO settings are enabled for the user or not.
+   * @return isSSO
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_S_S_O, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsSSO() {
+    return isSSO;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_IS_S_S_O, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsSSO(@javax.annotation.Nullable Boolean isSSO) {
+    this.isSSO = isSSO;
+  }
+
+  public IAccountEntryDto theme(@javax.annotation.Nullable DarkThemeSettingsType theme) {
+    
+    this.theme = theme;
+    return this;
+  }
+
+  /**
+   * The user theme settings.
+   * @return theme
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_THEME, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public DarkThemeSettingsType getTheme() {
+    return theme;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_THEME, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTheme(@javax.annotation.Nullable DarkThemeSettingsType theme) {
+    this.theme = theme;
+  }
+
+  public IAccountEntryDto quotaLimit(@javax.annotation.Nullable Long quotaLimit) {
+    this.quotaLimit = JsonNullable.<Long>of(quotaLimit);
+    
+    return this;
+  }
+
+  /**
+   * The user quota limit.
+   * @return quotaLimit
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Long getQuotaLimit() {
+        return quotaLimit.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_QUOTA_LIMIT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getQuotaLimit_JsonNullable() {
+    return quotaLimit;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_QUOTA_LIMIT)
+  public void setQuotaLimit_JsonNullable(JsonNullable<Long> quotaLimit) {
+    this.quotaLimit = quotaLimit;
+  }
+
+  public void setQuotaLimit(@javax.annotation.Nullable Long quotaLimit) {
+    this.quotaLimit = JsonNullable.<Long>of(quotaLimit);
+  }
+
+  public IAccountEntryDto usedSpace(@javax.annotation.Nullable Double usedSpace) {
+    this.usedSpace = JsonNullable.<Double>of(usedSpace);
+    
+    return this;
+  }
+
+  /**
+   * The portal used space of the user.
+   * @return usedSpace
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Double getUsedSpace() {
+        return usedSpace.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_USED_SPACE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getUsedSpace_JsonNullable() {
+    return usedSpace;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_USED_SPACE)
+  public void setUsedSpace_JsonNullable(JsonNullable<Double> usedSpace) {
+    this.usedSpace = usedSpace;
+  }
+
+  public void setUsedSpace(@javax.annotation.Nullable Double usedSpace) {
+    this.usedSpace = JsonNullable.<Double>of(usedSpace);
+  }
+
+  public IAccountEntryDto shared(@javax.annotation.Nullable Boolean shared) {
+    this.shared = JsonNullable.<Boolean>of(shared);
+    
+    return this;
+  }
+
+  /**
+   * Specifies whether the group can be shared or not.
+   * @return shared
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Boolean getShared() {
+        return shared.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_SHARED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Boolean> getShared_JsonNullable() {
+    return shared;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SHARED)
+  public void setShared_JsonNullable(JsonNullable<Boolean> shared) {
+    this.shared = shared;
+  }
+
+  public void setShared(@javax.annotation.Nullable Boolean shared) {
+    this.shared = JsonNullable.<Boolean>of(shared);
+  }
+
+  public IAccountEntryDto isCustomQuota(@javax.annotation.Nullable Boolean isCustomQuota) {
+    this.isCustomQuota = JsonNullable.<Boolean>of(isCustomQuota);
+    
+    return this;
+  }
+
+  /**
+   * Specifies if the user has a custom quota or not.
+   * @return isCustomQuota
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Boolean getIsCustomQuota() {
+        return isCustomQuota.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_IS_CUSTOM_QUOTA, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Boolean> getIsCustomQuota_JsonNullable() {
+    return isCustomQuota;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_CUSTOM_QUOTA)
+  public void setIsCustomQuota_JsonNullable(JsonNullable<Boolean> isCustomQuota) {
+    this.isCustomQuota = isCustomQuota;
+  }
+
+  public void setIsCustomQuota(@javax.annotation.Nullable Boolean isCustomQuota) {
+    this.isCustomQuota = JsonNullable.<Boolean>of(isCustomQuota);
+  }
+
+  public IAccountEntryDto loginEventId(@javax.annotation.Nullable Integer loginEventId) {
+    this.loginEventId = JsonNullable.<Integer>of(loginEventId);
+    
+    return this;
+  }
+
+  /**
+   * The current login event ID.
+   * @return loginEventId
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Integer getLoginEventId() {
+        return loginEventId.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_LOGIN_EVENT_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Integer> getLoginEventId_JsonNullable() {
+    return loginEventId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LOGIN_EVENT_ID)
+  public void setLoginEventId_JsonNullable(JsonNullable<Integer> loginEventId) {
+    this.loginEventId = loginEventId;
+  }
+
+  public void setLoginEventId(@javax.annotation.Nullable Integer loginEventId) {
+    this.loginEventId = JsonNullable.<Integer>of(loginEventId);
+  }
+
+  public IAccountEntryDto authCookieLifetime(@javax.annotation.Nullable Double authCookieLifetime) {
+    this.authCookieLifetime = JsonNullable.<Double>of(authCookieLifetime);
+    
+    return this;
+  }
+
+  /**
+   * The auth cookie lifetime in seconds.
+   * @return authCookieLifetime
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Double getAuthCookieLifetime() {
+        return authCookieLifetime.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_AUTH_COOKIE_LIFETIME, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getAuthCookieLifetime_JsonNullable() {
+    return authCookieLifetime;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AUTH_COOKIE_LIFETIME)
+  public void setAuthCookieLifetime_JsonNullable(JsonNullable<Double> authCookieLifetime) {
+    this.authCookieLifetime = authCookieLifetime;
+  }
+
+  public void setAuthCookieLifetime(@javax.annotation.Nullable Double authCookieLifetime) {
+    this.authCookieLifetime = JsonNullable.<Double>of(authCookieLifetime);
+  }
+
+  public IAccountEntryDto createdBy(@javax.annotation.Nullable EmployeeDto createdBy) {
+    
+    this.createdBy = createdBy;
+    return this;
+  }
+
+  /**
+   * The user who created the current user.
+   * @return createdBy
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED_BY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public EmployeeDto getCreatedBy() {
+    return createdBy;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CREATED_BY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCreatedBy(@javax.annotation.Nullable EmployeeDto createdBy) {
+    this.createdBy = createdBy;
+  }
+
+  public IAccountEntryDto registrationDate(@javax.annotation.Nullable ApiDateTime registrationDate) {
+    
+    this.registrationDate = registrationDate;
+    return this;
+  }
+
+  /**
+   * The user registration date.
+   * @return registrationDate
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REGISTRATION_DATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public ApiDateTime getRegistrationDate() {
+    return registrationDate;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_REGISTRATION_DATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRegistrationDate(@javax.annotation.Nullable ApiDateTime registrationDate) {
+    this.registrationDate = registrationDate;
+  }
+
+  public IAccountEntryDto hasPersonalFolder(@javax.annotation.Nullable Boolean hasPersonalFolder) {
+    this.hasPersonalFolder = JsonNullable.<Boolean>of(hasPersonalFolder);
+    
+    return this;
+  }
+
+  /**
+   * Specifies if the user has a personal folder or not.
+   * @return hasPersonalFolder
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Boolean getHasPersonalFolder() {
+        return hasPersonalFolder.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_HAS_PERSONAL_FOLDER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Boolean> getHasPersonalFolder_JsonNullable() {
+    return hasPersonalFolder;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_HAS_PERSONAL_FOLDER)
+  public void setHasPersonalFolder_JsonNullable(JsonNullable<Boolean> hasPersonalFolder) {
+    this.hasPersonalFolder = hasPersonalFolder;
+  }
+
+  public void setHasPersonalFolder(@javax.annotation.Nullable Boolean hasPersonalFolder) {
+    this.hasPersonalFolder = JsonNullable.<Boolean>of(hasPersonalFolder);
+  }
+
+  public IAccountEntryDto tfaAppEnabled(@javax.annotation.Nullable Boolean tfaAppEnabled) {
+    this.tfaAppEnabled = JsonNullable.<Boolean>of(tfaAppEnabled);
+    
+    return this;
+  }
+
+  /**
+   * Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app.
+   * @return tfaAppEnabled
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Boolean getTfaAppEnabled() {
+        return tfaAppEnabled.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_TFA_APP_ENABLED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Boolean> getTfaAppEnabled_JsonNullable() {
+    return tfaAppEnabled;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TFA_APP_ENABLED)
+  public void setTfaAppEnabled_JsonNullable(JsonNullable<Boolean> tfaAppEnabled) {
+    this.tfaAppEnabled = tfaAppEnabled;
+  }
+
+  public void setTfaAppEnabled(@javax.annotation.Nullable Boolean tfaAppEnabled) {
+    this.tfaAppEnabled = JsonNullable.<Boolean>of(tfaAppEnabled);
+  }
+
+  public IAccountEntryDto name(@javax.annotation.Nullable String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * The group name.
+   * @return name
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getName() {
+    return name;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setName(@javax.annotation.Nullable String name) {
+    this.name = name;
+  }
+
+  public IAccountEntryDto parent(@javax.annotation.Nullable UUID parent) {
+    this.parent = JsonNullable.<UUID>of(parent);
+    
+    return this;
+  }
+
+  /**
+   * The parent group ID.
+   * @return parent
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public UUID getParent() {
+        return parent.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_PARENT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<UUID> getParent_JsonNullable() {
+    return parent;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PARENT)
+  public void setParent_JsonNullable(JsonNullable<UUID> parent) {
+    this.parent = parent;
+  }
+
+  public void setParent(@javax.annotation.Nullable UUID parent) {
+    this.parent = JsonNullable.<UUID>of(parent);
+  }
+
+  public IAccountEntryDto category(@javax.annotation.Nonnull UUID category) {
+    
+    this.category = category;
+    return this;
+  }
+
+  /**
+   * The group category ID.
+   * @return category
+   */
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CATEGORY, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public UUID getCategory() {
+    return category;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CATEGORY, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCategory(@javax.annotation.Nonnull UUID category) {
+    this.category = category;
+  }
+
+  public IAccountEntryDto isSystem(@javax.annotation.Nullable Boolean isSystem) {
+    this.isSystem = JsonNullable.<Boolean>of(isSystem);
+    
+    return this;
+  }
+
+  /**
+   * Indicates whether the group is a system group.
+   * @return isSystem
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Boolean getIsSystem() {
+        return isSystem.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_IS_SYSTEM, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Boolean> getIsSystem_JsonNullable() {
+    return isSystem;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_SYSTEM)
+  public void setIsSystem_JsonNullable(JsonNullable<Boolean> isSystem) {
+    this.isSystem = isSystem;
+  }
+
+  public void setIsSystem(@javax.annotation.Nullable Boolean isSystem) {
+    this.isSystem = JsonNullable.<Boolean>of(isSystem);
+  }
+
+  public IAccountEntryDto manager(@javax.annotation.Nullable EmployeeFullDto manager) {
+    
+    this.manager = manager;
+    return this;
+  }
+
+  /**
+   * The group manager full information.
+   * @return manager
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MANAGER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public EmployeeFullDto getManager() {
+    return manager;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_MANAGER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setManager(@javax.annotation.Nullable EmployeeFullDto manager) {
+    this.manager = manager;
+  }
+
+  public IAccountEntryDto members(@javax.annotation.Nullable List<EmployeeFullDto> members) {
+    this.members = JsonNullable.<List<EmployeeFullDto>>of(members);
+    
+    return this;
+  }
+
+  public IAccountEntryDto addMembersItem(EmployeeFullDto membersItem) {
+    if (this.members == null || !this.members.isPresent()) {
+      this.members = JsonNullable.<List<EmployeeFullDto>>of(new ArrayList<>());
+    }
+    try {
+      this.members.get().add(membersItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * The list of group members.
+   * @return members
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public List<EmployeeFullDto> getMembers() {
+        return members.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_MEMBERS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<EmployeeFullDto>> getMembers_JsonNullable() {
+    return members;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MEMBERS)
+  public void setMembers_JsonNullable(JsonNullable<List<EmployeeFullDto>> members) {
+    this.members = members;
+  }
+
+  public void setMembers(@javax.annotation.Nullable List<EmployeeFullDto> members) {
+    this.members = JsonNullable.<List<EmployeeFullDto>>of(members);
+  }
+
+  public IAccountEntryDto membersCount(@javax.annotation.Nullable Integer membersCount) {
+    
+    this.membersCount = membersCount;
+    return this;
+  }
+
+  /**
+   * The number of group members.
+   * @return membersCount
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MEMBERS_COUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getMembersCount() {
+    return membersCount;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_MEMBERS_COUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMembersCount(@javax.annotation.Nullable Integer membersCount) {
+    this.membersCount = membersCount;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    IAccountEntryDto iaccountEntryDto = (IAccountEntryDto) o;
+    return Objects.equals(this.id, iaccountEntryDto.id) &&
+        equalsNullable(this.displayName, iaccountEntryDto.displayName) &&
+        equalsNullable(this.avatar, iaccountEntryDto.avatar) &&
+        equalsNullable(this.avatarOriginal, iaccountEntryDto.avatarOriginal) &&
+        equalsNullable(this.avatarMax, iaccountEntryDto.avatarMax) &&
+        equalsNullable(this.avatarMedium, iaccountEntryDto.avatarMedium) &&
+        equalsNullable(this.avatarSmall, iaccountEntryDto.avatarSmall) &&
+        equalsNullable(this.profileUrl, iaccountEntryDto.profileUrl) &&
+        Objects.equals(this.hasAvatar, iaccountEntryDto.hasAvatar) &&
+        Objects.equals(this.isAnonim, iaccountEntryDto.isAnonim) &&
+        equalsNullable(this.firstName, iaccountEntryDto.firstName) &&
+        equalsNullable(this.lastName, iaccountEntryDto.lastName) &&
+        equalsNullable(this.userName, iaccountEntryDto.userName) &&
+        equalsNullable(this.email, iaccountEntryDto.email) &&
+        equalsNullable(this.contacts, iaccountEntryDto.contacts) &&
+        Objects.equals(this.status, iaccountEntryDto.status) &&
+        Objects.equals(this.activationStatus, iaccountEntryDto.activationStatus) &&
+        Objects.equals(this.terminated, iaccountEntryDto.terminated) &&
+        equalsNullable(this.department, iaccountEntryDto.department) &&
+        equalsNullable(this.groups, iaccountEntryDto.groups) &&
+        equalsNullable(this.location, iaccountEntryDto.location) &&
+        equalsNullable(this.notes, iaccountEntryDto.notes) &&
+        Objects.equals(this.isAdmin, iaccountEntryDto.isAdmin) &&
+        Objects.equals(this.isRoomAdmin, iaccountEntryDto.isRoomAdmin) &&
+        Objects.equals(this.isLDAP, iaccountEntryDto.isLDAP) &&
+        equalsNullable(this.listAdminModules, iaccountEntryDto.listAdminModules) &&
+        Objects.equals(this.isOwner, iaccountEntryDto.isOwner) &&
+        Objects.equals(this.isVisitor, iaccountEntryDto.isVisitor) &&
+        Objects.equals(this.isCollaborator, iaccountEntryDto.isCollaborator) &&
+        equalsNullable(this.cultureName, iaccountEntryDto.cultureName) &&
+        equalsNullable(this.mobilePhone, iaccountEntryDto.mobilePhone) &&
+        Objects.equals(this.mobilePhoneActivationStatus, iaccountEntryDto.mobilePhoneActivationStatus) &&
+        Objects.equals(this.isSSO, iaccountEntryDto.isSSO) &&
+        Objects.equals(this.theme, iaccountEntryDto.theme) &&
+        equalsNullable(this.quotaLimit, iaccountEntryDto.quotaLimit) &&
+        equalsNullable(this.usedSpace, iaccountEntryDto.usedSpace) &&
+        equalsNullable(this.shared, iaccountEntryDto.shared) &&
+        equalsNullable(this.isCustomQuota, iaccountEntryDto.isCustomQuota) &&
+        equalsNullable(this.loginEventId, iaccountEntryDto.loginEventId) &&
+        equalsNullable(this.authCookieLifetime, iaccountEntryDto.authCookieLifetime) &&
+        Objects.equals(this.createdBy, iaccountEntryDto.createdBy) &&
+        Objects.equals(this.registrationDate, iaccountEntryDto.registrationDate) &&
+        equalsNullable(this.hasPersonalFolder, iaccountEntryDto.hasPersonalFolder) &&
+        equalsNullable(this.tfaAppEnabled, iaccountEntryDto.tfaAppEnabled) &&
+        Objects.equals(this.name, iaccountEntryDto.name) &&
+        equalsNullable(this.parent, iaccountEntryDto.parent) &&
+        Objects.equals(this.category, iaccountEntryDto.category) &&
+        equalsNullable(this.isSystem, iaccountEntryDto.isSystem) &&
+        Objects.equals(this.manager, iaccountEntryDto.manager) &&
+        equalsNullable(this.members, iaccountEntryDto.members) &&
+        Objects.equals(this.membersCount, iaccountEntryDto.membersCount);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, hashCodeNullable(displayName), hashCodeNullable(avatar), hashCodeNullable(avatarOriginal), hashCodeNullable(avatarMax), hashCodeNullable(avatarMedium), hashCodeNullable(avatarSmall), hashCodeNullable(profileUrl), hasAvatar, isAnonim, hashCodeNullable(firstName), hashCodeNullable(lastName), hashCodeNullable(userName), hashCodeNullable(email), hashCodeNullable(contacts), status, activationStatus, terminated, hashCodeNullable(department), hashCodeNullable(groups), hashCodeNullable(location), hashCodeNullable(notes), isAdmin, isRoomAdmin, isLDAP, hashCodeNullable(listAdminModules), isOwner, isVisitor, isCollaborator, hashCodeNullable(cultureName), hashCodeNullable(mobilePhone), mobilePhoneActivationStatus, isSSO, theme, hashCodeNullable(quotaLimit), hashCodeNullable(usedSpace), hashCodeNullable(shared), hashCodeNullable(isCustomQuota), hashCodeNullable(loginEventId), hashCodeNullable(authCookieLifetime), createdBy, registrationDate, hashCodeNullable(hasPersonalFolder), hashCodeNullable(tfaAppEnabled), name, hashCodeNullable(parent), category, hashCodeNullable(isSystem), manager, hashCodeNullable(members), membersCount);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class IAccountEntryDto {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    avatar: ").append(toIndentedString(avatar)).append("\n");
+    sb.append("    avatarOriginal: ").append(toIndentedString(avatarOriginal)).append("\n");
+    sb.append("    avatarMax: ").append(toIndentedString(avatarMax)).append("\n");
+    sb.append("    avatarMedium: ").append(toIndentedString(avatarMedium)).append("\n");
+    sb.append("    avatarSmall: ").append(toIndentedString(avatarSmall)).append("\n");
+    sb.append("    profileUrl: ").append(toIndentedString(profileUrl)).append("\n");
+    sb.append("    hasAvatar: ").append(toIndentedString(hasAvatar)).append("\n");
+    sb.append("    isAnonim: ").append(toIndentedString(isAnonim)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    contacts: ").append(toIndentedString(contacts)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    activationStatus: ").append(toIndentedString(activationStatus)).append("\n");
+    sb.append("    terminated: ").append(toIndentedString(terminated)).append("\n");
+    sb.append("    department: ").append(toIndentedString(department)).append("\n");
+    sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
+    sb.append("    isAdmin: ").append(toIndentedString(isAdmin)).append("\n");
+    sb.append("    isRoomAdmin: ").append(toIndentedString(isRoomAdmin)).append("\n");
+    sb.append("    isLDAP: ").append(toIndentedString(isLDAP)).append("\n");
+    sb.append("    listAdminModules: ").append(toIndentedString(listAdminModules)).append("\n");
+    sb.append("    isOwner: ").append(toIndentedString(isOwner)).append("\n");
+    sb.append("    isVisitor: ").append(toIndentedString(isVisitor)).append("\n");
+    sb.append("    isCollaborator: ").append(toIndentedString(isCollaborator)).append("\n");
+    sb.append("    cultureName: ").append(toIndentedString(cultureName)).append("\n");
+    sb.append("    mobilePhone: ").append(toIndentedString(mobilePhone)).append("\n");
+    sb.append("    mobilePhoneActivationStatus: ").append(toIndentedString(mobilePhoneActivationStatus)).append("\n");
+    sb.append("    isSSO: ").append(toIndentedString(isSSO)).append("\n");
+    sb.append("    theme: ").append(toIndentedString(theme)).append("\n");
+    sb.append("    quotaLimit: ").append(toIndentedString(quotaLimit)).append("\n");
+    sb.append("    usedSpace: ").append(toIndentedString(usedSpace)).append("\n");
+    sb.append("    shared: ").append(toIndentedString(shared)).append("\n");
+    sb.append("    isCustomQuota: ").append(toIndentedString(isCustomQuota)).append("\n");
+    sb.append("    loginEventId: ").append(toIndentedString(loginEventId)).append("\n");
+    sb.append("    authCookieLifetime: ").append(toIndentedString(authCookieLifetime)).append("\n");
+    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    registrationDate: ").append(toIndentedString(registrationDate)).append("\n");
+    sb.append("    hasPersonalFolder: ").append(toIndentedString(hasPersonalFolder)).append("\n");
+    sb.append("    tfaAppEnabled: ").append(toIndentedString(tfaAppEnabled)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    isSystem: ").append(toIndentedString(isSystem)).append("\n");
+    sb.append("    manager: ").append(toIndentedString(manager)).append("\n");
+    sb.append("    members: ").append(toIndentedString(members)).append("\n");
+    sb.append("    membersCount: ").append(toIndentedString(membersCount)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `id` to the URL query string
+    if (getId() != null) {
+      try {
+        joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `displayName` to the URL query string
+    if (getDisplayName() != null) {
+      try {
+        joiner.add(String.format("%sdisplayName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDisplayName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `avatar` to the URL query string
+    if (getAvatar() != null) {
+      try {
+        joiner.add(String.format("%savatar%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAvatar()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `avatarOriginal` to the URL query string
+    if (getAvatarOriginal() != null) {
+      try {
+        joiner.add(String.format("%savatarOriginal%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAvatarOriginal()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `avatarMax` to the URL query string
+    if (getAvatarMax() != null) {
+      try {
+        joiner.add(String.format("%savatarMax%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAvatarMax()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `avatarMedium` to the URL query string
+    if (getAvatarMedium() != null) {
+      try {
+        joiner.add(String.format("%savatarMedium%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAvatarMedium()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `avatarSmall` to the URL query string
+    if (getAvatarSmall() != null) {
+      try {
+        joiner.add(String.format("%savatarSmall%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAvatarSmall()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `profileUrl` to the URL query string
+    if (getProfileUrl() != null) {
+      try {
+        joiner.add(String.format("%sprofileUrl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getProfileUrl()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `hasAvatar` to the URL query string
+    if (getHasAvatar() != null) {
+      try {
+        joiner.add(String.format("%shasAvatar%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHasAvatar()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `isAnonim` to the URL query string
+    if (getIsAnonim() != null) {
+      try {
+        joiner.add(String.format("%sisAnonim%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsAnonim()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `firstName` to the URL query string
+    if (getFirstName() != null) {
+      try {
+        joiner.add(String.format("%sfirstName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFirstName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `lastName` to the URL query string
+    if (getLastName() != null) {
+      try {
+        joiner.add(String.format("%slastName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLastName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `userName` to the URL query string
+    if (getUserName() != null) {
+      try {
+        joiner.add(String.format("%suserName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUserName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `email` to the URL query string
+    if (getEmail() != null) {
+      try {
+        joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmail()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `contacts` to the URL query string
+    if (getContacts() != null) {
+      for (int i = 0; i < getContacts().size(); i++) {
+        if (getContacts().get(i) != null) {
+          joiner.add(getContacts().get(i).toUrlQueryString(String.format("%scontacts%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `status` to the URL query string
+    if (getStatus() != null) {
+      try {
+        joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `activationStatus` to the URL query string
+    if (getActivationStatus() != null) {
+      try {
+        joiner.add(String.format("%sactivationStatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getActivationStatus()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `terminated` to the URL query string
+    if (getTerminated() != null) {
+      joiner.add(getTerminated().toUrlQueryString(prefix + "terminated" + suffix));
+    }
+
+    // add `department` to the URL query string
+    if (getDepartment() != null) {
+      try {
+        joiner.add(String.format("%sdepartment%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDepartment()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `groups` to the URL query string
+    if (getGroups() != null) {
+      for (int i = 0; i < getGroups().size(); i++) {
+        if (getGroups().get(i) != null) {
+          joiner.add(getGroups().get(i).toUrlQueryString(String.format("%sgroups%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `location` to the URL query string
+    if (getLocation() != null) {
+      try {
+        joiner.add(String.format("%slocation%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLocation()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `notes` to the URL query string
+    if (getNotes() != null) {
+      try {
+        joiner.add(String.format("%snotes%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNotes()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `isAdmin` to the URL query string
+    if (getIsAdmin() != null) {
+      try {
+        joiner.add(String.format("%sisAdmin%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsAdmin()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `isRoomAdmin` to the URL query string
+    if (getIsRoomAdmin() != null) {
+      try {
+        joiner.add(String.format("%sisRoomAdmin%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsRoomAdmin()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `isLDAP` to the URL query string
+    if (getIsLDAP() != null) {
+      try {
+        joiner.add(String.format("%sisLDAP%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsLDAP()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `listAdminModules` to the URL query string
+    if (getListAdminModules() != null) {
+      for (int i = 0; i < getListAdminModules().size(); i++) {
+        try {
+          joiner.add(String.format("%slistAdminModules%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getListAdminModules().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `isOwner` to the URL query string
+    if (getIsOwner() != null) {
+      try {
+        joiner.add(String.format("%sisOwner%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsOwner()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `isVisitor` to the URL query string
+    if (getIsVisitor() != null) {
+      try {
+        joiner.add(String.format("%sisVisitor%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsVisitor()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `isCollaborator` to the URL query string
+    if (getIsCollaborator() != null) {
+      try {
+        joiner.add(String.format("%sisCollaborator%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsCollaborator()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `cultureName` to the URL query string
+    if (getCultureName() != null) {
+      try {
+        joiner.add(String.format("%scultureName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCultureName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `mobilePhone` to the URL query string
+    if (getMobilePhone() != null) {
+      try {
+        joiner.add(String.format("%smobilePhone%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMobilePhone()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `mobilePhoneActivationStatus` to the URL query string
+    if (getMobilePhoneActivationStatus() != null) {
+      try {
+        joiner.add(String.format("%smobilePhoneActivationStatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMobilePhoneActivationStatus()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `isSSO` to the URL query string
+    if (getIsSSO() != null) {
+      try {
+        joiner.add(String.format("%sisSSO%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsSSO()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `theme` to the URL query string
+    if (getTheme() != null) {
+      try {
+        joiner.add(String.format("%stheme%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTheme()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `quotaLimit` to the URL query string
+    if (getQuotaLimit() != null) {
+      try {
+        joiner.add(String.format("%squotaLimit%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getQuotaLimit()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `usedSpace` to the URL query string
+    if (getUsedSpace() != null) {
+      try {
+        joiner.add(String.format("%susedSpace%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUsedSpace()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `shared` to the URL query string
+    if (getShared() != null) {
+      try {
+        joiner.add(String.format("%sshared%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getShared()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `isCustomQuota` to the URL query string
+    if (getIsCustomQuota() != null) {
+      try {
+        joiner.add(String.format("%sisCustomQuota%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsCustomQuota()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `loginEventId` to the URL query string
+    if (getLoginEventId() != null) {
+      try {
+        joiner.add(String.format("%sloginEventId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLoginEventId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `authCookieLifetime` to the URL query string
+    if (getAuthCookieLifetime() != null) {
+      try {
+        joiner.add(String.format("%sauthCookieLifetime%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAuthCookieLifetime()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `createdBy` to the URL query string
+    if (getCreatedBy() != null) {
+      joiner.add(getCreatedBy().toUrlQueryString(prefix + "createdBy" + suffix));
+    }
+
+    // add `registrationDate` to the URL query string
+    if (getRegistrationDate() != null) {
+      joiner.add(getRegistrationDate().toUrlQueryString(prefix + "registrationDate" + suffix));
+    }
+
+    // add `hasPersonalFolder` to the URL query string
+    if (getHasPersonalFolder() != null) {
+      try {
+        joiner.add(String.format("%shasPersonalFolder%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHasPersonalFolder()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `tfaAppEnabled` to the URL query string
+    if (getTfaAppEnabled() != null) {
+      try {
+        joiner.add(String.format("%stfaAppEnabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTfaAppEnabled()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      try {
+        joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `parent` to the URL query string
+    if (getParent() != null) {
+      try {
+        joiner.add(String.format("%sparent%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getParent()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `category` to the URL query string
+    if (getCategory() != null) {
+      try {
+        joiner.add(String.format("%scategory%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCategory()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `isSystem` to the URL query string
+    if (getIsSystem() != null) {
+      try {
+        joiner.add(String.format("%sisSystem%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsSystem()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `manager` to the URL query string
+    if (getManager() != null) {
+      joiner.add(getManager().toUrlQueryString(prefix + "manager" + suffix));
+    }
+
+    // add `members` to the URL query string
+    if (getMembers() != null) {
+      for (int i = 0; i < getMembers().size(); i++) {
+        if (getMembers().get(i) != null) {
+          joiner.add(getMembers().get(i).toUrlQueryString(String.format("%smembers%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `membersCount` to the URL query string
+    if (getMembersCount() != null) {
+      try {
+        joiner.add(String.format("%smembersCount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMembersCount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
+  }
+
+}
+

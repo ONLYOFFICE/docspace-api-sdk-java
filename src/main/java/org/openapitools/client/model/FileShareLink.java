@@ -24,8 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.time.OffsetDateTime;
 import java.util.UUID;
+import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.LinkType;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -39,7 +39,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * A shareable link for a file with its configuration and status.
+ * A sharing link of a file, a folder or a room, with everything set on it.
  */
 @JsonPropertyOrder({
   FileShareLink.JSON_PROPERTY_ID,
@@ -68,7 +68,7 @@ public class FileShareLink {
   @javax.annotation.Nullable  private JsonNullable<String> shareLink = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EXPIRATION_DATE = "expirationDate";
-  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> expirationDate = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private ApiDateTime expirationDate;
 
   public static final String JSON_PROPERTY_LINK_TYPE = "linkType";
   @javax.annotation.Nullable  private LinkType linkType;
@@ -108,7 +108,7 @@ public class FileShareLink {
   }
 
   /**
-   * The unique identifier of the shared link.
+   * The identifier of the link, the one to send back as `linkId` to change or delete it.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -132,7 +132,7 @@ public class FileShareLink {
   }
 
   /**
-   * The title of the shared content.
+   * The name the link is listed under, which its author is free to choose and to leave empty.
    * @return title
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -163,7 +163,7 @@ public class FileShareLink {
   }
 
   /**
-   * The URL for accessing the shared content.
+   * The shortened address to hand out. Opening it is what turns the link into access; the address stays the same  while the link exists.
    * @return shareLink
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -187,35 +187,28 @@ public class FileShareLink {
     this.shareLink = JsonNullable.<String>of(shareLink);
   }
 
-  public FileShareLink expirationDate(@javax.annotation.Nullable OffsetDateTime expirationDate) {
-    this.expirationDate = JsonNullable.<OffsetDateTime>of(expirationDate);
+  public FileShareLink expirationDate(@javax.annotation.Nullable ApiDateTime expirationDate) {
     
+    this.expirationDate = expirationDate;
     return this;
   }
 
   /**
-   * The date when the shared link expires.
+   * The moment the link stops working, written with the offset of the portal time zone. Null when the link was  left without an end.
    * @return expirationDate
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getExpirationDate() {
-        return expirationDate.orElse(null);
+  public ApiDateTime getExpirationDate() {
+    return expirationDate;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<OffsetDateTime> getExpirationDate_JsonNullable() {
-    return expirationDate;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
-  public void setExpirationDate_JsonNullable(JsonNullable<OffsetDateTime> expirationDate) {
+  public void setExpirationDate(@javax.annotation.Nullable ApiDateTime expirationDate) {
     this.expirationDate = expirationDate;
-  }
-
-  public void setExpirationDate(@javax.annotation.Nullable OffsetDateTime expirationDate) {
-    this.expirationDate = JsonNullable.<OffsetDateTime>of(expirationDate);
   }
 
   public FileShareLink linkType(@javax.annotation.Nullable LinkType linkType) {
@@ -225,7 +218,7 @@ public class FileShareLink {
   }
 
   /**
-   * The sharing link type (e.g., Invitation).
+   * Which of the two jobs the link does: letting somebody into the room as a member, or handing out the entry  itself. The counters of uses are filled in for the first kind only.
    * @return linkType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LINK_TYPE, required = false)
@@ -249,7 +242,7 @@ public class FileShareLink {
   }
 
   /**
-   * The password protection for accessing the shared content.
+   * The password a visitor has to send before the link resolves, readable only by those who may manage the link.  Empty when the link asks for none.
    * @return password
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -280,7 +273,7 @@ public class FileShareLink {
   }
 
   /**
-   * Indicates whether downloading of the shared content is prohibited.
+   * Whether visitors coming through this link may only read the entry in the editor and not download or print it.
    * @return denyDownload
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -311,7 +304,7 @@ public class FileShareLink {
   }
 
   /**
-   * Indicates whether the shared link has expired.
+   * Whether the moment in `expirationDate` has already passed, which leaves the link in place but refuses  everybody who opens it.
    * @return isExpired
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -342,7 +335,7 @@ public class FileShareLink {
   }
 
   /**
-   * Indicates whether this is the primary shared link.
+   * Whether this is the one link the entry always keeps: a public or a form-filling room is given it at creation,  and deleting it there only makes a new one.
    * @return primary
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRIMARY, required = false)
@@ -366,7 +359,7 @@ public class FileShareLink {
   }
 
   /**
-   * Indicates whether the link is for the internal sharing only.
+   * Whether the visitor has to sign in to the portal before the link resolves, as opposed to it being open to  anybody who has the address.
    * @return internal
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -397,7 +390,7 @@ public class FileShareLink {
   }
 
   /**
-   * The token for validating access requests.
+   * The key that stands for this link in the calls that resolve it, such as `GET api/2.0/files/share/{key}`. It is  filled in for links that hand out the entry, and empty for the ones that invite into a room.
    * @return requestToken
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -428,7 +421,7 @@ public class FileShareLink {
   }
 
   /**
-   * The maximum number of times the invitation link can be used.
+   * How many accounts may still join the room through this invitation link in total. Null on a link that hands out  the entry, where nothing is counted.
    * @return maxUseCount
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -459,7 +452,7 @@ public class FileShareLink {
   }
 
   /**
-   * The current number of times the invitation link has been used.
+   * How many accounts have already joined through this invitation link. Once it reaches `maxUseCount` the link  stops letting anybody else in. Null on a link that hands out the entry.
    * @return currentUseCount
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -495,7 +488,7 @@ public class FileShareLink {
     return Objects.equals(this.id, fileShareLink.id) &&
         equalsNullable(this.title, fileShareLink.title) &&
         equalsNullable(this.shareLink, fileShareLink.shareLink) &&
-        equalsNullable(this.expirationDate, fileShareLink.expirationDate) &&
+        Objects.equals(this.expirationDate, fileShareLink.expirationDate) &&
         Objects.equals(this.linkType, fileShareLink.linkType) &&
         equalsNullable(this.password, fileShareLink.password) &&
         equalsNullable(this.denyDownload, fileShareLink.denyDownload) &&
@@ -513,7 +506,7 @@ public class FileShareLink {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(title), hashCodeNullable(shareLink), hashCodeNullable(expirationDate), linkType, hashCodeNullable(password), hashCodeNullable(denyDownload), hashCodeNullable(isExpired), primary, hashCodeNullable(internal), hashCodeNullable(requestToken), hashCodeNullable(maxUseCount), hashCodeNullable(currentUseCount));
+    return Objects.hash(id, hashCodeNullable(title), hashCodeNullable(shareLink), expirationDate, linkType, hashCodeNullable(password), hashCodeNullable(denyDownload), hashCodeNullable(isExpired), primary, hashCodeNullable(internal), hashCodeNullable(requestToken), hashCodeNullable(maxUseCount), hashCodeNullable(currentUseCount));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -619,12 +612,7 @@ public class FileShareLink {
 
     // add `expirationDate` to the URL query string
     if (getExpirationDate() != null) {
-      try {
-        joiner.add(String.format("%sexpirationDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpirationDate()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getExpirationDate().toUrlQueryString(prefix + "expirationDate" + suffix));
     }
 
     // add `linkType` to the URL query string

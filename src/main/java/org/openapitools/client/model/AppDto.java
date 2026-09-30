@@ -24,7 +24,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.client.model.AppDtoSettings;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -37,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The portal application information.
+ * One feature module of the portal: whether it is switched on here, and the settings stored for it.
  */
 @JsonPropertyOrder({
   AppDto.JSON_PROPERTY_ID,
@@ -53,7 +52,7 @@ public class AppDto {
   @javax.annotation.Nullable  private Boolean enabled;
 
   public static final String JSON_PROPERTY_SETTINGS = "settings";
-  @javax.annotation.Nullable  private AppDtoSettings settings;
+  @javax.annotation.Nullable  private JsonNullable<Object> settings = JsonNullable.<Object>of(null);
 
   public AppDto() {
   }
@@ -66,7 +65,7 @@ public class AppDto {
   }
 
   /**
-   * The application identifier (stable slug). The client maps this to its title, description and icon.
+   * The application's stable key, declared in the installation configuration - `ai-rooms`, `docs-cloud` and  the like. It is what every other operation of this group addresses an application by, and a client maps it  to a title and an icon of its own; the portal ships no display name for it.
    * @return id
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -97,7 +96,7 @@ public class AppDto {
   }
 
   /**
-   * Whether the application is enabled for the current tenant.
+   * Whether the application is switched on for this portal. It is the portal's own flag where one has been  saved, and the default the installation configuration gives the application otherwise.
    * @return enabled
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)
@@ -114,9 +113,9 @@ public class AppDto {
     this.enabled = enabled;
   }
 
-  public AppDto settings(@javax.annotation.Nullable AppDtoSettings settings) {
+  public AppDto settings(@javax.annotation.Nullable Object settings) {
+    this.settings = JsonNullable.<Object>of(settings);
     
-    this.settings = settings;
     return this;
   }
 
@@ -124,18 +123,25 @@ public class AppDto {
    * Get settings
    * @return settings
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public AppDtoSettings getSettings() {
-    return settings;
+  public Object getSettings() {
+        return settings.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSettings(@javax.annotation.Nullable AppDtoSettings settings) {
+  public JsonNullable<Object> getSettings_JsonNullable() {
+    return settings;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  public void setSettings_JsonNullable(JsonNullable<Object> settings) {
     this.settings = settings;
+  }
+
+  public void setSettings(@javax.annotation.Nullable Object settings) {
+    this.settings = JsonNullable.<Object>of(settings);
   }
 
   @Override
@@ -149,7 +155,7 @@ public class AppDto {
     AppDto appDto = (AppDto) o;
     return equalsNullable(this.id, appDto.id) &&
         Objects.equals(this.enabled, appDto.enabled) &&
-        Objects.equals(this.settings, appDto.settings);
+        equalsNullable(this.settings, appDto.settings);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -158,7 +164,7 @@ public class AppDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(id), enabled, settings);
+    return Objects.hash(hashCodeNullable(id), enabled, hashCodeNullable(settings));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -244,7 +250,12 @@ public class AppDto {
 
     // add `settings` to the URL query string
     if (getSettings() != null) {
-      joiner.add(getSettings().toUrlQueryString(prefix + "settings" + suffix));
+      try {
+        joiner.add(String.format("%ssettings%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSettings()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     return joiner.toString();

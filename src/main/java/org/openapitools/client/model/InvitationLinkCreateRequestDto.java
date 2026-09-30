@@ -38,7 +38,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for creating an invitation link.
+ * The role a new invitation link grants, and the limits placed on it.
  */
 @JsonPropertyOrder({
   InvitationLinkCreateRequestDto.JSON_PROPERTY_EMPLOYEE_TYPE,
@@ -67,7 +67,7 @@ public class InvitationLinkCreateRequestDto {
   }
 
   /**
-   * The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).
+   * The role whoever follows the link joins with. Only `DocSpaceAdmin`, `RoomAdmin` and `User` are accepted, and  the role cannot be changed afterwards - delete the link and create one for the other role instead.
    * @return employeeType
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_EMPLOYEE_TYPE, required = true)
@@ -91,7 +91,7 @@ public class InvitationLinkCreateRequestDto {
   }
 
   /**
-   * The expiration date of the invitation link.
+   * When the link stops letting anyone in, read in the portal time zone. It has to lie in the future; leaving it  out creates a link with no deadline at all.
    * @return expiration
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -122,7 +122,7 @@ public class InvitationLinkCreateRequestDto {
   }
 
   /**
-   * The maximum number of times the invitation link can be used.
+   * How many accounts may join through the link in total. Leaving it out creates a link with no use limit; the  uses spent so far are reported as `currentUseCount`.
    * minimum: 1
    * maximum: 1000
    * @return maxUseCount

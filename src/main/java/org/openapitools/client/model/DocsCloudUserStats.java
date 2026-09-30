@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Represents the usage statistics of a single DocsCloud user category (editor or viewer).
+ * Represents the usage statistics of a single Docs Connect user category (editor or viewer).
  */
 @JsonPropertyOrder({
   DocsCloudUserStats.JSON_PROPERTY_ACTIVE,
