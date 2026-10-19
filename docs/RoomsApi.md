@@ -28,6 +28,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**getNewRoomItems**](RoomsApi.md#getNewRoomItems) | **GET** /api/2.0/files/rooms/{id}/news | Get new items in a room |
 | [**getNewRoomItems**](RoomsApi.md#getNewRoomItems-third-party-storage) | **GET** /api/2.0/files/rooms/{id}/news | Get new items in a room (third-party storage) |
 | [**getPublicSettings**](RoomsApi.md#getPublicSettings) | **GET** /api/2.0/files/roomtemplate/{id}/public | Get room template public access |
+| [**getRoomAiFolder**](RoomsApi.md#getRoomAiFolder) | **GET** /api/2.0/files/rooms/{id}/ai | Get the .ai folder of a room |
 | [**getRoomCovers**](RoomsApi.md#getRoomCovers) | **GET** /api/2.0/files/rooms/covers | Get room cover gallery |
 | [**getRoomCreatingStatus**](RoomsApi.md#getRoomCreatingStatus) | **GET** /api/2.0/files/rooms/fromtemplate/status | Get the room creation progress |
 | [**getRoomIndexExport**](RoomsApi.md#getRoomIndexExport) | **GET** /api/2.0/files/rooms/indexexport | Get the room index export |
@@ -50,6 +51,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**reorderRoom**](RoomsApi.md#reorderRoom-third-party-storage) | **PUT** /api/2.0/files/rooms/{id}/reorder | Reorder room contents (third-party storage) |
 | [**resendEmailInvitations**](RoomsApi.md#resendEmailInvitations) | **POST** /api/2.0/files/rooms/{id}/resend | Resend the room invitations |
 | [**resendEmailInvitations**](RoomsApi.md#resendEmailInvitations-third-party-storage) | **POST** /api/2.0/files/rooms/{id}/resend | Resend the room invitations (third-party storage) |
+| [**searchRooms**](RoomsApi.md#searchRooms) | **POST** /api/2.0/files/rooms/search | Search the rooms by metadata |
 | [**setPublicSettings**](RoomsApi.md#setPublicSettings) | **PUT** /api/2.0/files/roomtemplate/public | Set room template public access |
 | [**setRoomLink**](RoomsApi.md#setRoomLink) | **PUT** /api/2.0/files/rooms/{id}/links | Set the room external or invitation link |
 | [**setRoomLink**](RoomsApi.md#setRoomLink-third-party-storage) | **PUT** /api/2.0/files/rooms/{id}/links | Set the room external or invitation link (third-party storage) |
@@ -162,11 +164,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room with its tag set after the change |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `names`, a name is null, blank or longer than 255 characters, or a third-party identifier refers to a storage account that is not connected |  -  |
 | **403** | The caller may not edit this room, or the room is archived |  -  |
+| **404** | The room does not exist, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -264,11 +267,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room with its tag set after the change |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `names`, a name is null, blank or longer than 255 characters, or a third-party identifier refers to a storage account that is not connected |  -  |
 | **403** | The caller may not edit this room, or the room is archived |  -  |
+| **404** | The room does not exist, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -366,10 +370,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The queued archive operation to poll |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller may not read or archive this room, the id names a folder that is not a room, or a file in the room is locked or being edited |  -  |
+| **404** | The room does not exist or is a room template, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -467,10 +473,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The queued archive operation to poll |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller may not read or archive this room, the id names a folder that is not a room, or a file in the room is locked or being edited |  -  |
+| **404** | The room does not exist or is a room template, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -568,12 +576,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room as it is after the cover change |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, `color` is not six hexadecimal digits, `cover` is not an identifier from the cover gallery, or a third-party identifier refers to a storage account that is not connected |  -  |
 | **403** | The caller may not edit this room, or the room is archived |  -  |
-| **404** | No room with this ID is visible to the caller |  -  |
+| **404** | No room with this ID exists, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -671,12 +679,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room as it is after the cover change |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, `color` is not six hexadecimal digits, `cover` is not an identifier from the cover gallery, or a third-party identifier refers to a storage account that is not connected |  -  |
 | **403** | The caller may not edit this room, or the room is archived |  -  |
-| **404** | No room with this ID is visible to the caller |  -  |
+| **404** | No room with this ID exists, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -772,10 +780,13 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The created room with its id, type, settings, logo and tags |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `title` or `roomType`, `title` is blank or longer than 170 characters, `roomType` is not a known room type, `color` is not six hexadecimal digits, `cover` is longer than 50 characters or not a known cover, `share` is not empty, `lifetime` has an unknown `period` or a `value` outside 1-999, the `watermark` text is longer than 255 characters, `logo` has no `tmpFile`, a position outside 0-1280, a size outside 1-1280 or a position outside the uploaded picture, or a tag name is empty |  -  |
+| **402** | The portal has reached the room limit of its pricing plan or its payment is overdue, or the logo does not fit into the portal storage quota |  -  |
+| **403** | The caller is a user or a guest, `roomType` is a public room while the portal forbids external sharing, `private` is set while the caller has no encryption keys, `quota` is set while the storage quota for rooms is turned off or exceeds the portal storage limit, or `logo.tmpFile` is not a picture the caller uploaded |  -  |
+| **404** | `logo.tmpFile` names no uploaded picture, or one already used |  -  |
+| **500** | `logo.width` or `logo.height` is larger than 2147483647 |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -871,10 +882,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The progress record of the room creation job |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `templateId` or `title`, `title` is blank or longer than 170 characters, `color` is longer than 6 or `cover` longer than 50 characters, `logo` has no `tmpFile`, a position outside 0-1280 or a size outside 1-1280, `lifetime` has an unknown `period` or a `value` outside 1-999, or the `watermark` text is longer than 255 characters |  -  |
+| **403** | The caller cannot read the template or is a user or a guest, or `quota` is set while the storage quota for rooms (for an AI agent template, for agents) is turned off |  -  |
+| **404** | No room template with `templateId` exists |  -  |
+| **500** | `logo.width` or `logo.height` is larger than 2147483647 |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -972,11 +985,13 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room with the addresses of its new logo |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **404** | No room with this ID is visible to the caller |  -  |
+| **400** | The request body cannot be read or has no `tmpFile`, `x` or `y` is outside 0-1280, `width` or `height` is missing or outside 1-1280, the crop position lies outside the uploaded picture, or a third-party identifier refers to a storage account that is not connected |  -  |
+| **402** | The logo does not fit into the portal storage quota |  -  |
+| **403** | The caller may not edit this room, the room is archived, or `tmpFile` is not a picture the caller uploaded |  -  |
+| **404** | No room with this ID exists, `tmpFile` names no uploaded picture or one already used, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | `width` or `height` is larger than 2147483647, or a third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1074,11 +1089,13 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room with the addresses of its new logo |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **404** | No room with this ID is visible to the caller |  -  |
+| **400** | The request body cannot be read or has no `tmpFile`, `x` or `y` is outside 0-1280, `width` or `height` is missing or outside 1-1280, the crop position lies outside the uploaded picture, or a third-party identifier refers to a storage account that is not connected |  -  |
+| **402** | The logo does not fit into the portal storage quota |  -  |
+| **403** | The caller may not edit this room, the room is archived, or `tmpFile` is not a picture the caller uploaded |  -  |
+| **404** | No room with this ID exists, `tmpFile` names no uploaded picture or one already used, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | `width` or `height` is larger than 2147483647, or a third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1174,11 +1191,11 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The name of the created tag, or of the tag that already carried this name |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `name`, or the name is empty, blank or longer than 255 characters |  -  |
 | **403** | Only a room manager or a portal administrator can create tags |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1274,19 +1291,21 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The state of the template creation just queued: `isCompleted` is still false, so the job has to be polled for its result |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `roomId`, `title` is empty or longer than 400 characters, `color` is longer than 6 or `cover` longer than 50 characters, or `logo` has no `tmpFile` or a position or size outside 0-1280 |  -  |
+| **403** | The source room is archived, the caller cannot edit it, or `quota` is set while the storage quota for rooms (for an AI agent, for agents) is turned off |  -  |
+| **404** | No room with `roomId` exists in the Rooms section |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## createRoomThirdParty
 
-> ThirdPartyFolderWrapper createRoomThirdParty(id, createThirdPartyRoom)
+> ThirdPartyFolderWrapper createRoomThirdParty(id, createThirdPartyRoomRequest)
 
-Create a third-party roomTurns a folder of a connected third-party storage account into a room of the `Rooms` section, so that the  files of the room keep living in that storage instead of the portal. Connect the account first with  `POST api/2.0/files/thirdparty` and take the path parameter from a folder listing of that account: it is the  identifier of a folder in the storage, not of a room. One connected account can back one room only, so a  second call over the same account is refused, and so is an account that was not connected for room storage.  The caller needs the right to create rooms, which a portal user and a guest do not have; a public room is  refused while the administrator restricts external access, and reaching the room limit of the tariff is  refused too. With `createAsNewFolder` the room is a new subfolder named after `title`, otherwise the folder  from the path becomes the room itself and `indexing`, `denyDownload`, `tags` and `logo` are then dropped. The  answer is the new room, whose identifiers are strings; a public or a form-filling room already has its primary  link, readable with `GET api/2.0/files/rooms/{id}/link`.
+Create a third-party roomTurns a folder of a connected third-party storage account into a room of the `Rooms` section, so that the  files of the room keep living in that storage instead of the portal. Connect the account first with  `POST api/2.0/files/thirdparty` and take the path parameter from a folder listing of that account: it is the  identifier of a folder in the storage, not of a room. One connected account can back one room only, so a  second call over the same account is refused, and so is an account that was not connected for room storage.  The caller needs the right to create rooms, which a portal user and a guest do not have; a public room is  refused while the administrator restricts external access, and reaching the room limit of the tariff is  refused too. With `createAsNewFolder` the room is a new subfolder named after `title`, otherwise the folder  from the path becomes the room itself and `tags` and `logo` are then dropped. A third-party room keeps neither  `indexing` nor `denyDownload` in either mode: both are accepted and ignored, and the room reads back with them  off. The  answer is the new room, whose identifiers are strings; a public or a form-filling room already has its primary  link, readable with `GET api/2.0/files/rooms/{id}/link`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/).
 
@@ -1296,7 +1315,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The identifier of the folder in the connected third-party storage that becomes the room, or receives it as a  subfolder. Folder identifiers of a connected account are strings and are returned by the folder listings of  that account. | |
-| **createThirdPartyRoom** | [**CreateThirdPartyRoom**](CreateThirdPartyRoom.md)| The settings of the room to be created out of the folder. | |
+| **createThirdPartyRoomRequest** | [**CreateThirdPartyRoomRequest**](CreateThirdPartyRoomRequest.md)| The settings of the room to be created out of the folder. | |
 
 ### Return type
 
@@ -1350,9 +1369,9 @@ public class Example {
 
         RoomsApi apiInstance = new RoomsApi(defaultClient);
         String id = "box-12-|280143035119"; // String | The identifier of the folder in the connected third-party storage that becomes the room, or receives it as a  subfolder. Folder identifiers of a connected account are strings and are returned by the folder listings of  that account.
-        CreateThirdPartyRoom createThirdPartyRoom = new CreateThirdPartyRoom(); // CreateThirdPartyRoom | The settings of the room to be created out of the folder.
+        CreateThirdPartyRoomRequest createThirdPartyRoomRequest = new CreateThirdPartyRoomRequest(); // CreateThirdPartyRoomRequest | The settings of the room to be created out of the folder.
         try {
-            ThirdPartyFolderWrapper result = apiInstance.createRoomThirdParty(id, createThirdPartyRoom);
+            ThirdPartyFolderWrapper result = apiInstance.createRoomThirdParty(id, createThirdPartyRoomRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RoomsApi#createRoomThirdParty");
@@ -1375,10 +1394,13 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room created out of the third-party folder, with string identifiers |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `title` or `roomType`, `roomType` is not a known room type, `logo` has no `tmpFile`, a position outside 0-1280 or a size outside 1-1280, or the identifier refers to a storage account that is not connected |  -  |
+| **402** | The portal has reached the room limit of its pricing plan or its payment is overdue |  -  |
+| **403** | The caller is not the account that connected the storage or may not create rooms, the storage account was not connected for room storage or already backs a room, the room would be public while the portal forbids external sharing, or, with `createAsNewFolder`, the subfolder cannot be created, as when `title` is blank, `cover` is not a known cover, a tag name is empty or the logo cannot be applied |  -  |
+| **404** | `id` is not a folder of a connected third-party storage: a plain number, an identifier with a storage type the portal does not know, or a folder the storage does not have |  -  |
+| **500** | The identifier carries a storage account number beyond the 32-bit range, or `logo.width` or `logo.height` is larger than 2147483647 |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1473,11 +1495,11 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The tags were removed from the catalog and from every room |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `names`, or a name is empty, blank or longer than 255 characters |  -  |
 | **403** | Only a portal administrator can delete tags |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1575,10 +1597,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The queued delete operation to poll |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller may not delete this room |  -  |
+| **404** | The room does not exist, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1676,10 +1700,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The queued delete operation to poll |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller may not delete this room |  -  |
+| **404** | The room does not exist, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1775,10 +1801,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room with its logo removed |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The room has a logo and the caller may not edit it, or the room is archived |  -  |
+| **404** | No room with this ID exists, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1874,10 +1902,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room with its logo removed |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The room has a logo and the caller may not edit it, or the room is archived |  -  |
+| **404** | No room with this ID exists, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1975,11 +2005,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room with its tag set after the change |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `names`, a name is null, blank or longer than 255 characters, or a third-party identifier refers to a storage account that is not connected |  -  |
 | **403** | The caller may not edit this room, or the room is archived |  -  |
+| **404** | The room does not exist, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2077,11 +2108,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room with its tag set after the change |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `names`, a name is null, blank or longer than 255 characters, or a third-party identifier refers to a storage account that is not connected |  -  |
 | **403** | The caller may not edit this room, or the room is archived |  -  |
+| **404** | The room does not exist, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2177,7 +2209,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The synchronization job record, or an empty body when the room has no job |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **404** | No room with this ID is visible to the caller |  -  |
+| **403** | The room is not a form filling room, or the caller cannot edit it |  -  |
+| **404** | No folder with this ID exists |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -2277,10 +2310,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The new files of the room, grouped by day |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller cannot read this room, or the id names a folder in the Trash |  -  |
+| **404** | No room with this ID exists, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2376,10 +2411,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The new files of the room, grouped by day |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller cannot read this room, or the id names a folder in the Trash |  -  |
+| **404** | No room with this ID exists, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2475,10 +2512,125 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | True when the template is shared with everyone, false when only its owner and the accounts it was shared with can reach it |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or `id` is less than 1 |  -  |
+| **403** | The caller has no read access to the template |  -  |
+| **404** | `id` does not identify a room template |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+
+## getRoomAiFolder
+
+> FolderContentWrapper getRoomAiFolder(id, filterType, count, startIndex, sortBy, sortOrder, filterValue)
+
+Get the .ai folder of a roomReturns one page of the contents of the .ai folder that lies in the root of a room, in the same shape as  `GET api/2.0/files/{folderId}` returns for any other folder. The rooms that hold such a folder are listed with  `GET api/2.0/files/rooms?withAiFolder=true`. Any member who can read the room may call it; somebody who cannot  is refused, and a room that does not exist is answered as not found. A room that holds no .ai folder is  answered with an empty page: no files and folders, a zero `total`, no `current` folder and empty `pathParts`.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-ai-folder/).
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **Integer**| The room whose .ai folder is listed, named by the identifier that `GET api/2.0/files/rooms` reports for it. | |
+| **filterType** | [**FilterType**](.md)| Narrows the listing to a single kind of entry, such as documents, spreadsheets or images. Omit it to list every  kind the folder holds. | [optional] [enum: 0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 17, 20, 22, 23, 24, 25, 26] |
+| **count** | **Integer**| The size of one page of the listing. Pair it with `startIndex` to walk through the result, and compare the two  with `total` in the response to see when the last page has been read. | [optional] |
+| **startIndex** | **Integer**| The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. | [optional] |
+| **sortBy** | **String**| The name of the field the entries are ordered by, matched case-insensitively against the file sort fields,  such as `DateAndTime`, `AZ`, `Size` or `Type`. | [optional] |
+| **sortOrder** | [**SortOrder**](.md)| The direction in which the `sortBy` field is ordered. | [optional] [enum: 0, 1] |
+| **filterValue** | **String**| The search string the listing is filtered by: it is matched as a substring of entry titles. Omit it to list  the folder unfiltered. | [optional] |
+
+### Return type
+
+[**FolderContentWrapper**](FolderContentWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.RoomsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        RoomsApi apiInstance = new RoomsApi(defaultClient);
+        Integer id = 1; // Integer | The room whose .ai folder is listed, named by the identifier that `GET api/2.0/files/rooms` reports for it.
+        FilterType filterType = FilterType.fromValue("0"); // FilterType | Narrows the listing to a single kind of entry, such as documents, spreadsheets or images. Omit it to list every  kind the folder holds.
+        Integer count = 25; // Integer | The size of one page of the listing. Pair it with `startIndex` to walk through the result, and compare the two  with `total` in the response to see when the last page has been read.
+        Integer startIndex = 0; // Integer | The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page.
+        String sortBy = "DateAndTime"; // String | The name of the field the entries are ordered by, matched case-insensitively against the file sort fields,  such as `DateAndTime`, `AZ`, `Size` or `Type`.
+        SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The direction in which the `sortBy` field is ordered.
+        String filterValue = "skill"; // String | The search string the listing is filtered by: it is matched as a substring of entry titles. Omit it to list  the folder unfiltered.
+        try {
+            FolderContentWrapper result = apiInstance.getRoomAiFolder(id, filterType, count, startIndex, sortBy, sortOrder, filterValue);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RoomsApi#getRoomAiFolder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | One page of the .ai folder contents, with the folder itself and the chain of its parents, or an empty page without `current` when the room holds no .ai folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, or the `startIndex` is negative |  -  |
+| **403** | The caller may not read this room |  -  |
+| **404** | The room does not exist |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2570,6 +2722,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The built-in room covers with their identifiers and vector markup |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller is a guest with whom nothing on the portal has been shared |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -2856,9 +3009,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room with its settings and the access level of the caller |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **401** | An anonymous caller has no external link that grants access to the room |  -  |
+| **403** | The caller may not read this room |  -  |
+| **404** | The room does not exist, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2954,9 +3110,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room with its settings and the access level of the caller |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **401** | An anonymous caller has no external link that grants access to the room |  -  |
+| **403** | The caller may not read this room |  -  |
+| **404** | The room does not exist, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -3054,10 +3213,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The sharing links of the room |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or a third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller may not read the room |  -  |
+| **404** | The room does not exist, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -3155,10 +3316,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The sharing links of the room |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or a third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller may not read the room |  -  |
+| **404** | The room does not exist, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -3262,10 +3425,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | One page of the room access entries, ordered by role and then by name |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, or a third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller may not read the room |  -  |
+| **404** | The room does not exist, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -3369,17 +3534,19 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | One page of the room access entries, ordered by role and then by name |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, or a third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller may not read the room |  -  |
+| **404** | The room does not exist, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getRoomTagsInfo
 
-> STRINGArrayWrapper getRoomTagsInfo(count, startIndex, filterValue)
+> StringArrayWrapper getRoomTagsInfo(count, startIndex, filterValue)
 
 Get available room tagsReturns the custom room tags available to the caller as a flat array of names, not of objects. What the array  holds depends on the account: a portal administrator gets the whole catalog, including tags that no room uses  yet, while every other account gets only the tags attached to rooms it can see, with duplicates removed. An  empty answer therefore means that this caller sees no tagged room, not that the portal has no tags.  `filterValue` keeps the names that contain the given text, ignoring case, while `count` and `startIndex` page  the result; no total is returned, so a page shorter than `count` is the signal that the list is exhausted. The  names are exactly the values accepted by the `tags` filter of `GET api/2.0/files/rooms` and by the room tag  calls, which makes this the call to fill a tag picker with. Add a tag with `POST api/2.0/files/tags` and check  whether one is still in use with `GET api/2.0/files/tags/{tagName}/haslinks`.
 
@@ -3396,7 +3563,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**STRINGArrayWrapper**](STRINGArrayWrapper.md)
+[**StringArrayWrapper**](StringArrayWrapper.md)
 
 ### Authorization
 
@@ -3449,7 +3616,7 @@ public class Example {
         Integer startIndex = 0; // Integer | How many tag names to skip before the page begins. Raise it by the number of names already received to read  the next page.
         String filterValue = "conf"; // String | Keeps only the tag names that contain this text, ignoring case. It is a substring match, so a fragment from  the middle of a name is enough.
         try {
-            STRINGArrayWrapper result = apiInstance.getRoomTagsInfo(count, startIndex, filterValue);
+            StringArrayWrapper result = apiInstance.getRoomTagsInfo(count, startIndex, filterValue);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RoomsApi#getRoomTagsInfo");
@@ -3472,10 +3639,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The tag names available to the caller |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, or the `startIndex` is negative |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -3576,7 +3743,7 @@ public class Example {
 
 ## getRoomsFolder
 
-> FolderContentWrapper getRoomsFolder(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, quotaFilter, storageFilter, privacyFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId)
+> FolderContentWrapper getRoomsFolder(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, quotaFilter, storageFilter, privacyFilter, withAiFolder, count, startIndex, sortBy, sortOrder, filterValue, groupId, metadataTemplateId, metadataFilters, includeHiddenMetadata)
 
 Get roomsLists the rooms of one section of the portal: the active rooms by default, or the archive, the form-filling  section or the room templates, chosen with `searchArea`. The rooms arrive in `folders` while `files` stays  empty, `current` describes the section itself, and `total` counts every room that matched the filters before  paging. A caller sees only the rooms they created or were invited to, while a portal administrator sees all of  them, so an empty answer means nothing is visible to this account rather than nothing exists. The remaining  parameters narrow the same set, by room type, title, tags, member, owner, storage, quota and privacy, and they  combine with each other. Sorting is not free of side effects: a `sortBy` value is also stored as this  account's default order for later listings, and omitting it reuses the stored order. Page the result with  `count` and `startIndex`. Read a single room with `GET api/2.0/files/rooms/{id}`, and create one with  `POST api/2.0/files/rooms`.
 
@@ -3598,12 +3765,16 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **quotaFilter** | [**QuotaFilter**](.md)| Splits the rooms by whether a storage quota was set on the room itself or it follows the portal default, which  is how rooms with a custom limit are found. | [optional] [enum: 0, 1, 2] |
 | **storageFilter** | [**StorageFilter**](.md)| Splits the rooms by where their content is stored, in the portal itself or in a connected third-party account.  It is the coarse form of the provider filter. | [optional] [enum: 0, 1, 2] |
 | **privacyFilter** | [**RoomPrivacyFilter**](.md)| Splits the rooms by whether they are private, that is encrypted rooms whose content the portal cannot read.  Omitting it returns both kinds. | [optional] [enum: 0, 1, 2] |
+| **withAiFolder** | **Boolean**| Keeps only the rooms that hold a .ai folder in their root. The content of that folder is read with  `GET api/2.0/files/rooms/{id}/ai`. Omitting it returns rooms with and without the folder. | [optional] |
 | **count** | **Integer**| How many rooms one page may carry. Ask for the next page by raising the start index by the number of rooms  already received. | [optional] |
 | **startIndex** | **Integer**| How many matching rooms to skip before the page begins. Page through the answer until the skip plus the rooms  received reaches the total it reports. | [optional] |
 | **sortBy** | **String**| The field to order the rooms by, named as in the file listings: `AZ` for the title, `DateAndTime` for the last  change, `DateAndTimeCreation`, `Author`, `Size`, `Type`, `RoomType`, `Tags`, `UsedSpace`, `LastOpened`. The  name is matched ignoring case, an unknown one is rejected rather than ignored, and the accepted one also  becomes this account's stored order. | [optional] |
 | **sortOrder** | [**SortOrder**](.md)| The direction of the order chosen by the sort field. It has no effect when no sort field is given and the  stored order of the account is used. | [optional] [enum: 0, 1] |
 | **filterValue** | **String**| Keeps only the rooms whose title contains this text, ignoring case. It is a substring match over the title  alone: room content and tags are not searched. | [optional] |
 | **groupId** | **Integer**| Keeps only the rooms that belong to this room group. The identifier comes from `GET api/2.0/files/group`; the  groups of portal members are a different concept and their identifiers do not match here. | [optional] |
+| **metadataTemplateId** | **Integer**| The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to. | [optional] |
+| **metadataFilters** | **String**| The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq (the whole value) or contains (a part of it); a number or a date field takes range with inclusive bounds,  or gt, gte, lt, lte with the single bound in value; a choice field takes in. A date-only bound covers the whole day,  so to:2026-06-30 includes the values stored on 30 June and gt:2026-06-30 starts after it.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/rooms/search. | [optional] |
+| **includeHiddenMetadata** | **Boolean**| Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. | [optional] |
 
 ### Return type
 
@@ -3667,14 +3838,18 @@ public class Example {
         QuotaFilter quotaFilter = QuotaFilter.fromValue("0"); // QuotaFilter | Splits the rooms by whether a storage quota was set on the room itself or it follows the portal default, which  is how rooms with a custom limit are found.
         StorageFilter storageFilter = StorageFilter.fromValue("0"); // StorageFilter | Splits the rooms by where their content is stored, in the portal itself or in a connected third-party account.  It is the coarse form of the provider filter.
         RoomPrivacyFilter privacyFilter = RoomPrivacyFilter.fromValue("0"); // RoomPrivacyFilter | Splits the rooms by whether they are private, that is encrypted rooms whose content the portal cannot read.  Omitting it returns both kinds.
+        Boolean withAiFolder = true; // Boolean | Keeps only the rooms that hold a .ai folder in their root. The content of that folder is read with  `GET api/2.0/files/rooms/{id}/ai`. Omitting it returns rooms with and without the folder.
         Integer count = 25; // Integer | How many rooms one page may carry. Ask for the next page by raising the start index by the number of rooms  already received.
         Integer startIndex = 0; // Integer | How many matching rooms to skip before the page begins. Page through the answer until the skip plus the rooms  received reaches the total it reports.
         String sortBy = "DateAndTime"; // String | The field to order the rooms by, named as in the file listings: `AZ` for the title, `DateAndTime` for the last  change, `DateAndTimeCreation`, `Author`, `Size`, `Type`, `RoomType`, `Tags`, `UsedSpace`, `LastOpened`. The  name is matched ignoring case, an unknown one is rejected rather than ignored, and the accepted one also  becomes this account's stored order.
         SortOrder sortOrder = SortOrder.fromValue("0"); // SortOrder | The direction of the order chosen by the sort field. It has no effect when no sort field is given and the  stored order of the account is used.
         String filterValue = "Sales"; // String | Keeps only the rooms whose title contains this text, ignoring case. It is a substring match over the title  alone: room content and tags are not searched.
         Integer groupId = 1; // Integer | Keeps only the rooms that belong to this room group. The identifier comes from `GET api/2.0/files/group`; the  groups of portal members are a different concept and their identifiers do not match here.
+        Integer metadataTemplateId = 1; // Integer | The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.
+        String metadataFilters = "[{\"fieldId\":1,\"op\":\"eq\",\"value\":\"ACME\"}]"; // String | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq (the whole value) or contains (a part of it); a number or a date field takes range with inclusive bounds,  or gt, gte, lt, lte with the single bound in value; a choice field takes in. A date-only bound covers the whole day,  so to:2026-06-30 includes the values stored on 30 June and gt:2026-06-30 starts after it.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/rooms/search.
+        Boolean includeHiddenMetadata = false; // Boolean | Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way.
         try {
-            FolderContentWrapper result = apiInstance.getRoomsFolder(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, quotaFilter, storageFilter, privacyFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId);
+            FolderContentWrapper result = apiInstance.getRoomsFolder(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, quotaFilter, storageFilter, privacyFilter, withAiFolder, count, startIndex, sortBy, sortOrder, filterValue, groupId, metadataTemplateId, metadataFilters, includeHiddenMetadata);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RoomsApi#getRoomsFolder");
@@ -3697,11 +3872,11 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The rooms of the selected section with the paging counters |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, the `startIndex` is negative, or `tags` is not a JSON array of strings |  -  |
 | **403** | The caller cannot read the selected section |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -3891,12 +4066,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The primary external link of the room |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not see the links of this room |  -  |
-| **404** | No room with this ID is visible to the caller, or its primary link was revoked |  -  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller may not read the room, or the room has no primary link yet and the caller may not manage its links, its type takes no external links, or the admin restricts external links to public rooms |  -  |
+| **404** | The room does not exist or its primary link was revoked, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -3992,12 +4167,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The primary external link of the room |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not see the links of this room |  -  |
-| **404** | No room with this ID is visible to the caller, or its primary link was revoked |  -  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller may not read the room, or the room has no primary link yet and the caller may not manage its links, its type takes no external links, or the admin restricts external links to public rooms |  -  |
+| **404** | The room does not exist or its primary link was revoked, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -4095,7 +4270,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | True when at least one room still carries the tag |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **404** | No tag with this name exists in the catalog |  -  |
+| **403** | Only a portal administrator can check tag usage |  -  |
+| **404** | No tag with this name exists in the catalog, or the `tagName` query parameter is missing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -4195,10 +4371,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room with its pinned flag set for the caller |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller cannot read this room, the room is archived or is not a room, or the caller already has the maximum number of pinned rooms (AI agents are counted separately) |  -  |
+| **404** | No room with this ID exists, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -4294,10 +4472,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room with its pinned flag set for the caller |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller cannot read this room, the room is archived or is not a room, or the caller already has the maximum number of pinned rooms (AI agents are counted separately) |  -  |
+| **404** | No room with this ID exists, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -4393,10 +4573,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room whose contents were renumbered |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller may not edit this room, or the room is archived |  -  |
+| **404** | No room with this ID exists, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -4492,10 +4674,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room whose contents were renumbered |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller may not edit this room, or the room is archived |  -  |
+| **404** | No room with this ID exists, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -4592,10 +4776,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The invitations that were still pending have been sent again |  * X-RateLimit-Limit - Rate limit: 5 requests per 15 minutes per user/IP. <br>  * X-RateLimit-Remaining - Requests remaining in the current 15-minute window. <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, or a third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller is not a manager of the room, or the room is archived |  -  |
+| **404** | The room does not exist or is a room template, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying (5 req / 15 min limit per user/IP). <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -4692,10 +4878,112 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The invitations that were still pending have been sent again |  * X-RateLimit-Limit - Rate limit: 5 requests per 15 minutes per user/IP. <br>  * X-RateLimit-Remaining - Requests remaining in the current 15-minute window. <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, or a third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller is not a manager of the room, or the room is archived |  -  |
+| **404** | The room does not exist or is a room template, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying (5 req / 15 min limit per user/IP). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+
+## searchRooms
+
+> FolderContentWrapper searchRooms(roomsMetadataSearchRequestDto)
+
+Search the rooms by metadataSearches the rooms by metadata. The same filter the rooms listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/search-rooms/).
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **roomsMetadataSearchRequestDto** | [**RoomsMetadataSearchRequestDto**](RoomsMetadataSearchRequestDto.md)|  | [optional] |
+
+### Return type
+
+[**FolderContentWrapper**](FolderContentWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.RoomsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        RoomsApi apiInstance = new RoomsApi(defaultClient);
+        RoomsMetadataSearchRequestDto roomsMetadataSearchRequestDto = new RoomsMetadataSearchRequestDto(); // RoomsMetadataSearchRequestDto | 
+        try {
+            FolderContentWrapper result = apiInstance.searchRooms(roomsMetadataSearchRequestDto);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RoomsApi#searchRooms");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns the matching rooms of the section |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | Invalid metadata filter |  -  |
+| **403** | You don't have enough permission to view the room content |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -4790,10 +5078,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The recipient list of the template has been rewritten to match the requested access; nothing is returned |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `id`, or `id` is less than 1 |  -  |
+| **403** | The caller is not allowed to change who the template is shared with |  -  |
+| **404** | `id` does not identify a room template |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -4891,10 +5181,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The link as it is after the change, or an empty body when nothing was created |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, `linkType` or `access` is not a known value, the title or password is longer than 255 characters, `maxUseCount` is outside 1-1000 or below the number of times the invitation link was already used, the password does not meet the portal password policy, `expirationDate` lies more than 10 years ahead or, for an invitation link, in the past, or a third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller may not manage the links of this room, the access level is not available for this kind of link in this room, the room already has its invitation link or the link limit is reached, or the admin's restriction on external links forbids the change |  -  |
+| **404** | The room does not exist, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | `linkType` is `Invitation` and `linkId` is the id of the room owner's account, or a third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -4992,10 +5284,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The link as it is after the change, or an empty body when nothing was created |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, `linkType` or `access` is not a known value, the title or password is longer than 255 characters, `maxUseCount` is outside 1-1000 or below the number of times the invitation link was already used, the password does not meet the portal password policy, `expirationDate` lies more than 10 years ahead or, for an invitation link, in the past, or a third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller may not manage the links of this room, the access level is not available for this kind of link in this room, the room already has its invitation link or the link limit is reached, or the admin's restriction on external links forbids the change |  -  |
+| **404** | The room does not exist, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | `linkType` is `Invitation` and `linkId` is the id of the room owner's account, or a third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -5093,9 +5387,11 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The access entries of the named subjects, plus a warning or an error when something was not applied |  -  |
+| **400** | The request body cannot be read, an `email` in `invitations` is malformed or longer than 255 characters, `invitations` invites more addresses by email than the portal allows at once, `culture` is not a valid culture name while an invitation email is sent, or a third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | Email invitations are sent while the portal forbids inviting guests, the caller may not read the room or change its members, a listed subject cannot be given the requested access in this room, or the room is private and a listed account or invited address has no encryption keys |  -  |
+| **404** | The room does not exist, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -5193,9 +5489,11 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The access entries of the named subjects, plus a warning or an error when something was not applied |  -  |
+| **400** | The request body cannot be read, an `email` in `invitations` is malformed or longer than 255 characters, `invitations` invites more addresses by email than the portal allows at once, `culture` is not a valid culture name while an invitation email is sent, or a third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | Email invitations are sent while the portal forbids inviting guests, the caller may not read the room or change its members, a listed subject cannot be given the requested access in this room, or the room is private and a listed account or invited address has no encryption keys |  -  |
+| **404** | The room does not exist, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -5291,12 +5589,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The synchronization job record to poll |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The portal has no external database configured |  -  |
 | **403** | The room is not a form filling room, or the caller cannot edit it |  -  |
-| **404** | No room with this ID is visible to the caller |  -  |
+| **404** | No folder with this ID exists |  -  |
+| **500** | The portal has no external database configured |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
+| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -5392,7 +5690,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The queued export job to poll |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **501** | Folder indexing is turned off |  -  |
+| **403** | The caller may not read the folder, the folder lies in the archive or is not a room with indexing turned on, or the caller is neither its room manager nor a portal administrator |  -  |
+| **404** | The folder does not exist or lies in the room templates section |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -5587,10 +5886,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The queued unarchive operation to poll |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller may not read or unarchive this room, the id names a folder that is not a room, or a file in the room is locked or being edited |  -  |
+| **404** | The room does not exist or is a room template, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -5688,10 +5989,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The queued unarchive operation to poll |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller may not read or unarchive this room, the id names a folder that is not a room, or a file in the room is locked or being edited |  -  |
+| **404** | The room does not exist or is a room template, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -5787,10 +6090,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room with its pinned flag cleared for the caller |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller cannot read this room, or the room is archived or is not a room |  -  |
+| **404** | No room with this ID exists, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -5886,10 +6191,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room with its pinned flag cleared for the caller |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party identifier refers to a storage account that is not connected |  -  |
+| **403** | The caller cannot read this room, or the room is archived or is not a room |  -  |
+| **404** | No room with this ID exists, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -5987,10 +6294,13 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room as it is after the update |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or holds a property the room update does not define, `title` is longer than 170 characters, `color` is not six hexadecimal digits, `cover` is longer than 50 characters or not a known cover, `lifetime` has an unknown `period` or a `value` outside 1-999, `logo` has no `tmpFile`, a position outside 0-1280, a size outside 1-1280 or a position outside the uploaded picture, the `watermark` text is longer than 255 characters, a tag name is empty, `chatSettings` is sent for a room that is not an AI room, or a third-party identifier refers to a storage account that is not connected |  -  |
+| **402** | The new logo or watermark image does not fit into the portal storage quota |  -  |
+| **403** | The caller may not edit this room, the room lies in Trash or in the archive, `quota` exceeds the storage limit of the portal, or `logo.tmpFile` or a relative `watermark.imageUrl` is not an image the caller uploaded |  -  |
+| **404** | No room has this id, the uploaded image named by `logo.tmpFile` or `watermark.imageUrl` no longer exists, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range, or `logo.width` or `logo.height` is larger than 2147483647 |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -6088,10 +6398,13 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room as it is after the update |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or holds a property the room update does not define, `title` is longer than 170 characters, `color` is not six hexadecimal digits, `cover` is longer than 50 characters or not a known cover, `lifetime` has an unknown `period` or a `value` outside 1-999, `logo` has no `tmpFile`, a position outside 0-1280, a size outside 1-1280 or a position outside the uploaded picture, the `watermark` text is longer than 255 characters, a tag name is empty, `chatSettings` is sent for a room that is not an AI room, or a third-party identifier refers to a storage account that is not connected |  -  |
+| **402** | The new logo or watermark image does not fit into the portal storage quota |  -  |
+| **403** | The caller may not edit this room, the room lies in Trash or in the archive, `quota` exceeds the storage limit of the portal, or `logo.tmpFile` or a relative `watermark.imageUrl` is not an image the caller uploaded |  -  |
+| **404** | No room has this id, the uploaded image named by `logo.tmpFile` or `watermark.imageUrl` no longer exists, or the id is neither a 32-bit number nor a third-party identifier of a known storage type |  -  |
+| **500** | A third-party identifier carries a storage account number beyond the 32-bit range, or `logo.width` or `logo.height` is larger than 2147483647 |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -6187,11 +6500,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The new name of the renamed tag |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `oldName` or `newName`, a name is empty, blank or longer than 255 characters, or a tag with the new name already exists |  -  |
 | **403** | Only a portal administrator can rename a tag |  -  |
+| **404** | No tag with the old name exists in the catalog |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -6287,7 +6601,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The path of the stored temporary image |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The request carries no image, or the image cannot be used as a logo |  -  |
+| **400** | The request is not a multipart form or carries no file, or the first file is empty, larger than the portal limit for uploaded images, or not a readable PNG or JPEG image |  -  |
 | **403** | Only a room manager or a portal administrator can upload a logo |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |

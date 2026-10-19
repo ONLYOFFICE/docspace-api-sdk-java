@@ -142,12 +142,12 @@ public class AssignmentsApi extends BaseApi {
    * REST API Reference for aiAssignmentsBulkAssign Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-bulk-assign/
    *
-   * @param requestBody A map of action type to profile ID. Every key has to be a known action type and every value a profile ID; one bad entry rejects the whole map. (required)
+   * @param aiAssignmentsBulkAssignRequest A map of action type to profile ID. Every key has to be a known action type and every value a profile ID; one bad entry rejects the whole map. (required)
    * @return AiBulkAssignmentResult
    * @throws ApiException if fails to make API call
    */
-  public AiBulkAssignmentResult aiAssignmentsBulkAssign(@javax.annotation.Nonnull Map<String, String> requestBody) throws ApiException {
-    return this.aiAssignmentsBulkAssign(requestBody, Collections.emptyMap());
+  public AiBulkAssignmentResult aiAssignmentsBulkAssign(@javax.annotation.Nonnull Map<String, String> aiAssignmentsBulkAssignRequest) throws ApiException {
+    return this.aiAssignmentsBulkAssign(aiAssignmentsBulkAssignRequest, Collections.emptyMap());
   }
 
 
@@ -158,17 +158,17 @@ public class AssignmentsApi extends BaseApi {
    * REST API Reference for aiAssignmentsBulkAssign Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-bulk-assign/
    *
-   * @param requestBody A map of action type to profile ID. Every key has to be a known action type and every value a profile ID; one bad entry rejects the whole map. (required)
+   * @param aiAssignmentsBulkAssignRequest A map of action type to profile ID. Every key has to be a known action type and every value a profile ID; one bad entry rejects the whole map. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiBulkAssignmentResult
    * @throws ApiException if fails to make API call
    */
-  public AiBulkAssignmentResult aiAssignmentsBulkAssign(@javax.annotation.Nonnull Map<String, String> requestBody, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = requestBody;
+  public AiBulkAssignmentResult aiAssignmentsBulkAssign(@javax.annotation.Nonnull Map<String, String> aiAssignmentsBulkAssignRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiAssignmentsBulkAssignRequest;
     
-    // verify the required parameter 'requestBody' is set
-    if (requestBody == null) {
-      throw new ApiException(400, "Missing the required parameter 'requestBody' when calling aiAssignmentsBulkAssign");
+    // verify the required parameter 'aiAssignmentsBulkAssignRequest' is set
+    if (aiAssignmentsBulkAssignRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiAssignmentsBulkAssignRequest' when calling aiAssignmentsBulkAssign");
     }
     
     // create path and map variables
@@ -466,7 +466,7 @@ public class AssignmentsApi extends BaseApi {
 
   /**
    * Resolve for action
-   * Returns the profile that will serve one AI action, falling back to the `Default` slot when the action has no profile of its own. `actionType` is required and has to be one of the known actions - an unknown or misspelled value is rejected rather than resolved to the default. `entityId` narrows the lookup to a room, and a room with no assignment of its own degrades to the portal-wide one. This fails when neither slot is set or the bound profile is gone, so use `GET api/2.0/ai/assignments/try-resolve-for-action` when an unconfigured portal should answer empty instead.
+   * Returns the profile that will serve one AI action, falling back to the `Default` slot when the action has no profile of its own. `actionType` is required and has to be one of the known actions - an unknown or misspelled value is rejected rather than resolved to the default. `entityId` narrows the lookup to a room and has to name one the caller can open - an unknown room answers 404 rather than quietly resolving portal-wide - while an accessible room with no assignment of its own degrades to the portal-wide one. When neither slot is set, the slot names a profile that no longer exists, or the `Default` profile cannot serve the action, the call answers 404, so use `GET api/2.0/ai/assignments/try-resolve-for-action` when an unconfigured portal should answer empty instead.
    *
    * REST API Reference for aiAssignmentsResolveForAction Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-resolve-for-action/
@@ -483,7 +483,7 @@ public class AssignmentsApi extends BaseApi {
 
   /**
    * Resolve for action
-   * Returns the profile that will serve one AI action, falling back to the `Default` slot when the action has no profile of its own. `actionType` is required and has to be one of the known actions - an unknown or misspelled value is rejected rather than resolved to the default. `entityId` narrows the lookup to a room, and a room with no assignment of its own degrades to the portal-wide one. This fails when neither slot is set or the bound profile is gone, so use `GET api/2.0/ai/assignments/try-resolve-for-action` when an unconfigured portal should answer empty instead.
+   * Returns the profile that will serve one AI action, falling back to the `Default` slot when the action has no profile of its own. `actionType` is required and has to be one of the known actions - an unknown or misspelled value is rejected rather than resolved to the default. `entityId` narrows the lookup to a room and has to name one the caller can open - an unknown room answers 404 rather than quietly resolving portal-wide - while an accessible room with no assignment of its own degrades to the portal-wide one. When neither slot is set, the slot names a profile that no longer exists, or the `Default` profile cannot serve the action, the call answers 404, so use `GET api/2.0/ai/assignments/try-resolve-for-action` when an unconfigured portal should answer empty instead.
    *
    * REST API Reference for aiAssignmentsResolveForAction Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-resolve-for-action/
@@ -553,7 +553,7 @@ public class AssignmentsApi extends BaseApi {
 
   /**
    * Try resolve for action
-   * Returns the profile that will serve one AI action, exactly as `GET api/2.0/ai/assignments/resolve-for-action` does, but answers with an empty result rather than failing when nothing is configured. `actionType` is required and is validated the same way, and `entityId` narrows the lookup to a room. This is the operation to call when the absence of a profile is a normal state to render - a settings screen, or a feature that hides itself. Both operations are read-only.
+   * Returns the profile that will serve one AI action, exactly as `GET api/2.0/ai/assignments/resolve-for-action` does, but answers with an empty result rather than failing when nothing is configured. `actionType` is required and is validated the same way, and `entityId` narrows the lookup to a room the caller can open - an unknown one answers 404 here as well. This is the operation to call when the absence of a profile is a normal state to render - a settings screen, or a feature that hides itself. Both operations are read-only.
    *
    * REST API Reference for aiAssignmentsTryResolveForAction Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-try-resolve-for-action/
@@ -570,7 +570,7 @@ public class AssignmentsApi extends BaseApi {
 
   /**
    * Try resolve for action
-   * Returns the profile that will serve one AI action, exactly as `GET api/2.0/ai/assignments/resolve-for-action` does, but answers with an empty result rather than failing when nothing is configured. `actionType` is required and is validated the same way, and `entityId` narrows the lookup to a room. This is the operation to call when the absence of a profile is a normal state to render - a settings screen, or a feature that hides itself. Both operations are read-only.
+   * Returns the profile that will serve one AI action, exactly as `GET api/2.0/ai/assignments/resolve-for-action` does, but answers with an empty result rather than failing when nothing is configured. `actionType` is required and is validated the same way, and `entityId` narrows the lookup to a room the caller can open - an unknown one answers 404 here as well. This is the operation to call when the absence of a profile is a normal state to render - a settings screen, or a feature that hides itself. Both operations are read-only.
    *
    * REST API Reference for aiAssignmentsTryResolveForAction Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-try-resolve-for-action/
@@ -645,12 +645,12 @@ public class AssignmentsApi extends BaseApi {
    * REST API Reference for aiAssignmentsUnassign Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-unassign/
    *
-   * @param body  (required)
+   * @param aiActionType  (required)
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiAssignmentsUnassign(@javax.annotation.Nonnull String body) throws ApiException {
-    return this.aiAssignmentsUnassign(body, Collections.emptyMap());
+  public AiSuccessResponse aiAssignmentsUnassign(@javax.annotation.Nonnull String aiActionType) throws ApiException {
+    return this.aiAssignmentsUnassign(aiActionType, Collections.emptyMap());
   }
 
 
@@ -661,17 +661,17 @@ public class AssignmentsApi extends BaseApi {
    * REST API Reference for aiAssignmentsUnassign Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-unassign/
    *
-   * @param body  (required)
+   * @param aiActionType  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiAssignmentsUnassign(@javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = body;
+  public AiSuccessResponse aiAssignmentsUnassign(@javax.annotation.Nonnull String aiActionType, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiActionType;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling aiAssignmentsUnassign");
+    // verify the required parameter 'aiActionType' is set
+    if (aiActionType == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiActionType' when calling aiAssignmentsUnassign");
     }
     
     // create path and map variables

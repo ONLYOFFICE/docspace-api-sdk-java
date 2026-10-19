@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
-import org.openapitools.client.model.PaymentCalculation;
+import org.openapitools.client.model.PaymentCalculationDto;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The successful API response containing the PaymentCalculation object.
+ * The successful API response containing the PaymentCalculationDto object.
  */
 @JsonPropertyOrder({
   PaymentCalculationWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class PaymentCalculationWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private PaymentCalculation response;
+  @javax.annotation.Nullable  private PaymentCalculationDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class PaymentCalculationWrapper {
   }
 
 
-  public PaymentCalculationWrapper response(@javax.annotation.Nullable PaymentCalculation response) {
+  public PaymentCalculationWrapper response(@javax.annotation.Nullable PaymentCalculationDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * The PaymentCalculation object returned by the operation.
+   * The PaymentCalculationDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public PaymentCalculation getResponse() {
+  public PaymentCalculationDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable PaymentCalculation response) {
+  public void setResponse(@javax.annotation.Nullable PaymentCalculationDto response) {
     this.response = response;
   }
 

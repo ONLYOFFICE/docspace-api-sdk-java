@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.AuthKey;
+import org.openapitools.client.model.AuthKeyDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -58,7 +58,7 @@ public class StorageDto {
   @javax.annotation.Nullable  private String title;
 
   public static final String JSON_PROPERTY_PROPERTIES = "properties";
-  @javax.annotation.Nullable  private JsonNullable<List<AuthKey>> properties = JsonNullable.<List<AuthKey>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<AuthKeyDto>> properties = JsonNullable.<List<AuthKeyDto>>undefined();
 
   public static final String JSON_PROPERTY_CURRENT = "current";
   @javax.annotation.Nonnull  private Boolean current;
@@ -118,15 +118,15 @@ public class StorageDto {
     this.title = title;
   }
 
-  public StorageDto properties(@javax.annotation.Nullable List<AuthKey> properties) {
-    this.properties = JsonNullable.<List<AuthKey>>of(properties);
+  public StorageDto properties(@javax.annotation.Nullable List<AuthKeyDto> properties) {
+    this.properties = JsonNullable.<List<AuthKeyDto>>of(properties);
     
     return this;
   }
 
-  public StorageDto addPropertiesItem(AuthKey propertiesItem) {
+  public StorageDto addPropertiesItem(AuthKeyDto propertiesItem) {
     if (this.properties == null || !this.properties.isPresent()) {
-      this.properties = JsonNullable.<List<AuthKey>>of(new ArrayList<>());
+      this.properties = JsonNullable.<List<AuthKeyDto>>of(new ArrayList<>());
     }
     try {
       this.properties.get().add(propertiesItem);
@@ -142,23 +142,23 @@ public class StorageDto {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public List<AuthKey> getProperties() {
+  public List<AuthKeyDto> getProperties() {
         return properties.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_PROPERTIES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<List<AuthKey>> getProperties_JsonNullable() {
+  public JsonNullable<List<AuthKeyDto>> getProperties_JsonNullable() {
     return properties;
   }
   
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
-  public void setProperties_JsonNullable(JsonNullable<List<AuthKey>> properties) {
+  public void setProperties_JsonNullable(JsonNullable<List<AuthKeyDto>> properties) {
     this.properties = properties;
   }
 
-  public void setProperties(@javax.annotation.Nullable List<AuthKey> properties) {
-    this.properties = JsonNullable.<List<AuthKey>>of(properties);
+  public void setProperties(@javax.annotation.Nullable List<AuthKeyDto> properties) {
+    this.properties = JsonNullable.<List<AuthKeyDto>>of(properties);
   }
 
   public StorageDto current(@javax.annotation.Nonnull Boolean current) {

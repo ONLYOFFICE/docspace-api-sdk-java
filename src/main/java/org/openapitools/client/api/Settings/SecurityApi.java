@@ -28,14 +28,14 @@ import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.EmployeeArrayWrapper;
 import org.openapitools.client.model.EnabledModuleArrayWrapper;
 import org.openapitools.client.model.ErrorApiResponse;
-import org.openapitools.client.model.PasswordSettingsRequestsDto;
+import org.openapitools.client.model.PasswordSettingsRequestDto;
 import org.openapitools.client.model.PasswordSettingsWrapper;
 import org.openapitools.client.model.ProductAdministratorWrapper;
 import org.openapitools.client.model.SecurityArrayWrapper;
-import org.openapitools.client.model.SecurityRequestsDto;
+import org.openapitools.client.model.SecurityRequestDto;
 import java.util.UUID;
-import org.openapitools.client.model.WebItemSecurityRequestsDto;
-import org.openapitools.client.model.WebItemsSecurityRequestsDto;
+import org.openapitools.client.model.WebItemSecurityRequestDto;
+import org.openapitools.client.model.WebItemsSecurityRequestDto;
 
 
 import java.util.ArrayList;
@@ -134,45 +134,45 @@ public class SecurityApi extends BaseApi {
 
   /**
    * Check product administrator
-   * Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productid}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
+   * Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productId}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
    *
    * REST API Reference for getIsProductAdministrator Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/
    *
-   * @param productid The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module. (required)
-   * @param userid The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists. (required)
+   * @param productId The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module. (required)
+   * @param userId The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists. (required)
    * @return ProductAdministratorWrapper
    * @throws ApiException if fails to make API call
    */
-  public ProductAdministratorWrapper getIsProductAdministrator(@javax.annotation.Nonnull UUID productid, @javax.annotation.Nonnull UUID userid) throws ApiException {
-    return this.getIsProductAdministrator(productid, userid, Collections.emptyMap());
+  public ProductAdministratorWrapper getIsProductAdministrator(@javax.annotation.Nonnull UUID productId, @javax.annotation.Nonnull UUID userId) throws ApiException {
+    return this.getIsProductAdministrator(productId, userId, Collections.emptyMap());
   }
 
 
   /**
    * Check product administrator
-   * Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productid}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
+   * Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productId}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
    *
    * REST API Reference for getIsProductAdministrator Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/
    *
-   * @param productid The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module. (required)
-   * @param userid The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists. (required)
+   * @param productId The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module. (required)
+   * @param userId The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ProductAdministratorWrapper
    * @throws ApiException if fails to make API call
    */
-  public ProductAdministratorWrapper getIsProductAdministrator(@javax.annotation.Nonnull UUID productid, @javax.annotation.Nonnull UUID userid, Map<String, String> additionalHeaders) throws ApiException {
+  public ProductAdministratorWrapper getIsProductAdministrator(@javax.annotation.Nonnull UUID productId, @javax.annotation.Nonnull UUID userId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'productid' is set
-    if (productid == null) {
-      throw new ApiException(400, "Missing the required parameter 'productid' when calling getIsProductAdministrator");
+    // verify the required parameter 'productId' is set
+    if (productId == null) {
+      throw new ApiException(400, "Missing the required parameter 'productId' when calling getIsProductAdministrator");
     }
     
-    // verify the required parameter 'userid' is set
-    if (userid == null) {
-      throw new ApiException(400, "Missing the required parameter 'userid' when calling getIsProductAdministrator");
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling getIsProductAdministrator");
     }
     
     // create path and map variables
@@ -186,8 +186,8 @@ public class SecurityApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("productid", productid));
-    localVarQueryParams.addAll(apiClient.parameterToPair("userid", userid));
+    localVarQueryParams.addAll(apiClient.parameterToPair("productId", productId));
+    localVarQueryParams.addAll(apiClient.parameterToPair("userId", userId));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -307,12 +307,12 @@ public class SecurityApi extends BaseApi {
    * REST API Reference for getProductAdministrators Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-product-administrators/
    *
-   * @param productid The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure. (required)
+   * @param productId The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure. (required)
    * @return EmployeeArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeArrayWrapper getProductAdministrators(@javax.annotation.Nonnull UUID productid) throws ApiException {
-    return this.getProductAdministrators(productid, Collections.emptyMap());
+  public EmployeeArrayWrapper getProductAdministrators(@javax.annotation.Nonnull UUID productId) throws ApiException {
+    return this.getProductAdministrators(productId, Collections.emptyMap());
   }
 
 
@@ -323,22 +323,22 @@ public class SecurityApi extends BaseApi {
    * REST API Reference for getProductAdministrators Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-product-administrators/
    *
-   * @param productid The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure. (required)
+   * @param productId The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return EmployeeArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeArrayWrapper getProductAdministrators(@javax.annotation.Nonnull UUID productid, Map<String, String> additionalHeaders) throws ApiException {
+  public EmployeeArrayWrapper getProductAdministrators(@javax.annotation.Nonnull UUID productId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'productid' is set
-    if (productid == null) {
-      throw new ApiException(400, "Missing the required parameter 'productid' when calling getProductAdministrators");
+    // verify the required parameter 'productId' is set
+    if (productId == null) {
+      throw new ApiException(400, "Missing the required parameter 'productId' when calling getProductAdministrators");
     }
     
     // create path and map variables
-    String localVarPath = "/api/2.0/settings/security/administrator/{productid}"
-      .replaceAll("\\{" + "productid" + "\\}", apiClient.escapeString(apiClient.parameterToString(productid)));
+    String localVarPath = "/api/2.0/settings/security/administrator/{productId}"
+      .replaceAll("\\{" + "productId" + "\\}", apiClient.escapeString(apiClient.parameterToString(productId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -554,12 +554,12 @@ public class SecurityApi extends BaseApi {
    * REST API Reference for setAccessToWebItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-access-to-web-items/
    *
-   * @param webItemsSecurityRequestsDto  (optional)
+   * @param webItemsSecurityRequestDto  (optional)
    * @return SecurityArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public SecurityArrayWrapper setAccessToWebItems(@javax.annotation.Nullable WebItemsSecurityRequestsDto webItemsSecurityRequestsDto) throws ApiException {
-    return this.setAccessToWebItems(webItemsSecurityRequestsDto, Collections.emptyMap());
+  public SecurityArrayWrapper setAccessToWebItems(@javax.annotation.Nullable WebItemsSecurityRequestDto webItemsSecurityRequestDto) throws ApiException {
+    return this.setAccessToWebItems(webItemsSecurityRequestDto, Collections.emptyMap());
   }
 
 
@@ -570,13 +570,13 @@ public class SecurityApi extends BaseApi {
    * REST API Reference for setAccessToWebItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-access-to-web-items/
    *
-   * @param webItemsSecurityRequestsDto  (optional)
+   * @param webItemsSecurityRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return SecurityArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public SecurityArrayWrapper setAccessToWebItems(@javax.annotation.Nullable WebItemsSecurityRequestsDto webItemsSecurityRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = webItemsSecurityRequestsDto;
+  public SecurityArrayWrapper setAccessToWebItems(@javax.annotation.Nullable WebItemsSecurityRequestDto webItemsSecurityRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = webItemsSecurityRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/security/access";
@@ -632,12 +632,12 @@ public class SecurityApi extends BaseApi {
    * REST API Reference for setProductAdministrator Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-product-administrator/
    *
-   * @param securityRequestsDto  (optional)
+   * @param securityRequestDto  (optional)
    * @return ProductAdministratorWrapper
    * @throws ApiException if fails to make API call
    */
-  public ProductAdministratorWrapper setProductAdministrator(@javax.annotation.Nullable SecurityRequestsDto securityRequestsDto) throws ApiException {
-    return this.setProductAdministrator(securityRequestsDto, Collections.emptyMap());
+  public ProductAdministratorWrapper setProductAdministrator(@javax.annotation.Nullable SecurityRequestDto securityRequestDto) throws ApiException {
+    return this.setProductAdministrator(securityRequestDto, Collections.emptyMap());
   }
 
 
@@ -648,13 +648,13 @@ public class SecurityApi extends BaseApi {
    * REST API Reference for setProductAdministrator Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-product-administrator/
    *
-   * @param securityRequestsDto  (optional)
+   * @param securityRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return ProductAdministratorWrapper
    * @throws ApiException if fails to make API call
    */
-  public ProductAdministratorWrapper setProductAdministrator(@javax.annotation.Nullable SecurityRequestsDto securityRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = securityRequestsDto;
+  public ProductAdministratorWrapper setProductAdministrator(@javax.annotation.Nullable SecurityRequestDto securityRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = securityRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/security/administrator";
@@ -710,12 +710,12 @@ public class SecurityApi extends BaseApi {
    * REST API Reference for setWebItemSecurity Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-item-security/
    *
-   * @param webItemSecurityRequestsDto  (optional)
+   * @param webItemSecurityRequestDto  (optional)
    * @return SecurityArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public SecurityArrayWrapper setWebItemSecurity(@javax.annotation.Nullable WebItemSecurityRequestsDto webItemSecurityRequestsDto) throws ApiException {
-    return this.setWebItemSecurity(webItemSecurityRequestsDto, Collections.emptyMap());
+  public SecurityArrayWrapper setWebItemSecurity(@javax.annotation.Nullable WebItemSecurityRequestDto webItemSecurityRequestDto) throws ApiException {
+    return this.setWebItemSecurity(webItemSecurityRequestDto, Collections.emptyMap());
   }
 
 
@@ -726,13 +726,13 @@ public class SecurityApi extends BaseApi {
    * REST API Reference for setWebItemSecurity Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-item-security/
    *
-   * @param webItemSecurityRequestsDto  (optional)
+   * @param webItemSecurityRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return SecurityArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public SecurityArrayWrapper setWebItemSecurity(@javax.annotation.Nullable WebItemSecurityRequestsDto webItemSecurityRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = webItemSecurityRequestsDto;
+  public SecurityArrayWrapper setWebItemSecurity(@javax.annotation.Nullable WebItemSecurityRequestDto webItemSecurityRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = webItemSecurityRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/security";
@@ -788,12 +788,12 @@ public class SecurityApi extends BaseApi {
    * REST API Reference for updatePasswordSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-password-settings/
    *
-   * @param passwordSettingsRequestsDto  (optional)
+   * @param passwordSettingsRequestDto  (optional)
    * @return PasswordSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public PasswordSettingsWrapper updatePasswordSettings(@javax.annotation.Nullable PasswordSettingsRequestsDto passwordSettingsRequestsDto) throws ApiException {
-    return this.updatePasswordSettings(passwordSettingsRequestsDto, Collections.emptyMap());
+  public PasswordSettingsWrapper updatePasswordSettings(@javax.annotation.Nullable PasswordSettingsRequestDto passwordSettingsRequestDto) throws ApiException {
+    return this.updatePasswordSettings(passwordSettingsRequestDto, Collections.emptyMap());
   }
 
 
@@ -804,13 +804,13 @@ public class SecurityApi extends BaseApi {
    * REST API Reference for updatePasswordSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-password-settings/
    *
-   * @param passwordSettingsRequestsDto  (optional)
+   * @param passwordSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return PasswordSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public PasswordSettingsWrapper updatePasswordSettings(@javax.annotation.Nullable PasswordSettingsRequestsDto passwordSettingsRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = passwordSettingsRequestsDto;
+  public PasswordSettingsWrapper updatePasswordSettings(@javax.annotation.Nullable PasswordSettingsRequestDto passwordSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = passwordSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/security/password";

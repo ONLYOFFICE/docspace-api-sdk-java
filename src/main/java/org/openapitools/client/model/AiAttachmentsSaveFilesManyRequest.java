@@ -42,7 +42,6 @@ import java.util.StringJoiner;
   AiAttachmentsSaveFilesManyRequest.JSON_PROPERTY_INPUTS,
   AiAttachmentsSaveFilesManyRequest.JSON_PROPERTY_ENTITY_ID
 })
-@JsonTypeName("aiAttachmentsSaveFilesMany_request")
 
 public class AiAttachmentsSaveFilesManyRequest {
   public static final String JSON_PROPERTY_INPUTS = "inputs";

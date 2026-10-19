@@ -28,7 +28,7 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import org.openapitools.client.model.BackupStorageType;
-import org.openapitools.client.model.CronParams;
+import org.openapitools.client.model.CronParamsDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -60,7 +60,7 @@ public class ScheduleDto {
   @javax.annotation.Nonnull  private Map<String, String> storageParams = new HashMap<>();
 
   public static final String JSON_PROPERTY_CRON_PARAMS = "cronParams";
-  @javax.annotation.Nonnull  private CronParams cronParams;
+  @javax.annotation.Nonnull  private CronParamsDto cronParams;
 
   public static final String JSON_PROPERTY_BACKUPS_STORED = "backupsStored";
   @javax.annotation.Nullable  private JsonNullable<Integer> backupsStored = JsonNullable.<Integer>undefined();
@@ -128,7 +128,7 @@ public class ScheduleDto {
     this.storageParams = storageParams;
   }
 
-  public ScheduleDto cronParams(@javax.annotation.Nonnull CronParams cronParams) {
+  public ScheduleDto cronParams(@javax.annotation.Nonnull CronParamsDto cronParams) {
     
     this.cronParams = cronParams;
     return this;
@@ -141,14 +141,14 @@ public class ScheduleDto {
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CRON_PARAMS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public CronParams getCronParams() {
+  public CronParamsDto getCronParams() {
     return cronParams;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_CRON_PARAMS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCronParams(@javax.annotation.Nonnull CronParams cronParams) {
+  public void setCronParams(@javax.annotation.Nonnull CronParamsDto cronParams) {
     this.cronParams = cronParams;
   }
 

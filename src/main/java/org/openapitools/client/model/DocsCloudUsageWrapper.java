@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.DocsCloudUsage;
+import org.openapitools.client.model.DocsCloudUsageDto;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The successful API response containing the DocsCloudUsage object.
+ * The successful API response containing the DocsCloudUsageDto object.
  */
 @JsonPropertyOrder({
   DocsCloudUsageWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class DocsCloudUsageWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private DocsCloudUsage response;
+  @javax.annotation.Nullable  private DocsCloudUsageDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class DocsCloudUsageWrapper {
   }
 
 
-  public DocsCloudUsageWrapper response(@javax.annotation.Nullable DocsCloudUsage response) {
+  public DocsCloudUsageWrapper response(@javax.annotation.Nullable DocsCloudUsageDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * The DocsCloudUsage object returned by the operation.
+   * The DocsCloudUsageDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DocsCloudUsage getResponse() {
+  public DocsCloudUsageDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable DocsCloudUsage response) {
+  public void setResponse(@javax.annotation.Nullable DocsCloudUsageDto response) {
     this.response = response;
   }
 

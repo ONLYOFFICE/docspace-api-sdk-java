@@ -41,7 +41,6 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   AiAgentsResetQuotaRequest.JSON_PROPERTY_ROOM_IDS
 })
-@JsonTypeName("aiAgentsResetQuota_request")
 
 public class AiAgentsResetQuotaRequest {
   public static final String JSON_PROPERTY_ROOM_IDS = "roomIds";

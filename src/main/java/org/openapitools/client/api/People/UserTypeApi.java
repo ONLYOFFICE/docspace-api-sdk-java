@@ -59,12 +59,12 @@ public class UserTypeApi extends BaseApi {
    * REST API Reference for getUserTypeUpdateProgress Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-type-update-progress/
    *
-   * @param userid The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started. (required)
+   * @param userId The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started. (required)
    * @return TaskProgressResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public TaskProgressResponseWrapper getUserTypeUpdateProgress(@javax.annotation.Nonnull UUID userid) throws ApiException {
-    return this.getUserTypeUpdateProgress(userid, Collections.emptyMap());
+  public TaskProgressResponseWrapper getUserTypeUpdateProgress(@javax.annotation.Nonnull UUID userId) throws ApiException {
+    return this.getUserTypeUpdateProgress(userId, Collections.emptyMap());
   }
 
 
@@ -75,22 +75,22 @@ public class UserTypeApi extends BaseApi {
    * REST API Reference for getUserTypeUpdateProgress Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-type-update-progress/
    *
-   * @param userid The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started. (required)
+   * @param userId The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return TaskProgressResponseWrapper
    * @throws ApiException if fails to make API call
    */
-  public TaskProgressResponseWrapper getUserTypeUpdateProgress(@javax.annotation.Nonnull UUID userid, Map<String, String> additionalHeaders) throws ApiException {
+  public TaskProgressResponseWrapper getUserTypeUpdateProgress(@javax.annotation.Nonnull UUID userId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'userid' is set
-    if (userid == null) {
-      throw new ApiException(400, "Missing the required parameter 'userid' when calling getUserTypeUpdateProgress");
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling getUserTypeUpdateProgress");
     }
     
     // create path and map variables
-    String localVarPath = "/api/2.0/people/type/progress/{userid}"
-      .replaceAll("\\{" + "userid" + "\\}", apiClient.escapeString(apiClient.parameterToString(userid)));
+    String localVarPath = "/api/2.0/people/type/progress/{userId}"
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -138,7 +138,7 @@ public class UserTypeApi extends BaseApi {
 
   /**
    * Start updating user type
-   * Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userid}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
+   * Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userId}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
    *
    * REST API Reference for startUserTypeUpdate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-user-type-update/
@@ -154,7 +154,7 @@ public class UserTypeApi extends BaseApi {
 
   /**
    * Start updating user type
-   * Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userid}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
+   * Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userId}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
    *
    * REST API Reference for startUserTypeUpdate Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-user-type-update/

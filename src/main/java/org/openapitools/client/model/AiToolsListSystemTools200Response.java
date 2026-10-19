@@ -29,7 +29,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.openapitools.client.model.AiTMCPItem;
+import org.openapitools.client.model.AiMCPItem;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class AiToolsListSystemTools200Response {
   public static final String JSON_PROPERTY_GROUPS = "groups";
-  @javax.annotation.Nonnull  private Map<String, List<AiTMCPItem>> groups = new HashMap<>();
+  @javax.annotation.Nonnull  private Map<String, List<AiMCPItem>> groups = new HashMap<>();
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
   @javax.annotation.Nonnull  private Map<String, String> errors = new HashMap<>();
@@ -61,13 +61,13 @@ public class AiToolsListSystemTools200Response {
   }
 
 
-  public AiToolsListSystemTools200Response groups(@javax.annotation.Nonnull Map<String, List<AiTMCPItem>> groups) {
+  public AiToolsListSystemTools200Response groups(@javax.annotation.Nonnull Map<String, List<AiMCPItem>> groups) {
     
     this.groups = groups;
     return this;
   }
 
-  public AiToolsListSystemTools200Response putGroupsItem(String key, List<AiTMCPItem> groupsItem) {
+  public AiToolsListSystemTools200Response putGroupsItem(String key, List<AiMCPItem> groupsItem) {
     this.groups.put(key, groupsItem);
     return this;
   }
@@ -79,14 +79,14 @@ public class AiToolsListSystemTools200Response {
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_GROUPS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Map<String, List<AiTMCPItem>> getGroups() {
+  public Map<String, List<AiMCPItem>> getGroups() {
     return groups;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_GROUPS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGroups(@javax.annotation.Nonnull Map<String, List<AiTMCPItem>> groups) {
+  public void setGroups(@javax.annotation.Nonnull Map<String, List<AiMCPItem>> groups) {
     this.groups = groups;
   }
 

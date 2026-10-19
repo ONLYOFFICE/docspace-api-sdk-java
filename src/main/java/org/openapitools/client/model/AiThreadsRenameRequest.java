@@ -38,7 +38,6 @@ import java.util.StringJoiner;
   AiThreadsRenameRequest.JSON_PROPERTY_THREAD_ID,
   AiThreadsRenameRequest.JSON_PROPERTY_TITLE
 })
-@JsonTypeName("aiThreadsRename_request")
 
 public class AiThreadsRenameRequest {
   public static final String JSON_PROPERTY_THREAD_ID = "threadId";

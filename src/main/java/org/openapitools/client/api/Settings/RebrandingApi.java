@@ -24,20 +24,20 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.AdditionalWhiteLabelSettingsDtoWrapper;
-import org.openapitools.client.model.AdditionalWhiteLabelSettingsResponseWrapper;
+import org.openapitools.client.model.AdditionalResourcesWrapper;
+import org.openapitools.client.model.AdditionalWhiteLabelSettingsRequestDto;
 import org.openapitools.client.model.AdditionalWhiteLabelSettingsWrapper;
 import org.openapitools.client.model.BooleanWrapper;
-import org.openapitools.client.model.CompanyWhiteLabelSettingsArrayWrapper;
-import org.openapitools.client.model.CompanyWhiteLabelSettingsDtoWrapper;
-import org.openapitools.client.model.CompanyWhiteLabelSettingsResponseWrapper;
+import org.openapitools.client.model.CompanyWhiteLabelSettingsRequestDto;
 import org.openapitools.client.model.CompanyWhiteLabelSettingsWrapper;
 import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.IsDefaultWhiteLabelLogosArrayWrapper;
 import org.openapitools.client.model.IsDefaultWhiteLabelLogosWrapper;
+import org.openapitools.client.model.LicensorDetailsArrayWrapper;
+import org.openapitools.client.model.LicensorDetailsWrapper;
 import org.openapitools.client.model.StringWrapper;
 import org.openapitools.client.model.WhiteLabelItemArrayWrapper;
-import org.openapitools.client.model.WhiteLabelRequestsDto;
+import org.openapitools.client.model.WhiteLabelRequestDto;
 
 
 import java.util.ArrayList;
@@ -60,31 +60,31 @@ public class RebrandingApi extends BaseApi {
 
   /**
    * Delete the additional white label settings
-   * Discards the resource flags stored for the installation and brings back the built-in set, so the sample  documents, the Help Center link, the Feedback and Support link, the user forum, the video guides and the  license agreements are offered as they are out of the box. Requires a DocSpace administrator and a server  installation with unrestricted space access; on a SaaS portal the call is refused. Unlike  `POST api/2.0/settings/rebranding/additional` it does not need a plan that includes branding, so an  installation whose subscription no longer covers it can still be reset. The call is destructive for the stored  flags, which have to be set again to come back, and it is idempotent. Instead of a flag it answers the set  that is now in effect, so no follow-up read is needed. The reset is installation-wide and reaches every  portal, and it leaves the visibility of the About page alone. The company details are reset separately by  `DELETE api/2.0/settings/rebranding/company`.
+   * Discards the resource flags stored for the installation and brings back the built-in set, so the sample  documents, the Help Center link, the Feedback and Support link, the user forum, the video guides and the  license agreements are offered as they are out of the box. Requires a DocSpace administrator and a server  installation with unrestricted space access; on a SaaS portal the call is refused. Unlike  `POST api/2.0/settings/rebranding/additional` it does not need a plan that includes customization, so an  installation whose subscription no longer covers it can still be reset. The call is destructive for the stored  flags, which have to be set again to come back, and it is idempotent. Instead of a flag it answers the set  that is now in effect, so no follow-up read is needed. The reset is installation-wide and reaches every  portal, and it leaves the visibility of the About page alone. The company details are reset separately by  `DELETE api/2.0/settings/rebranding/company`.
    *
    * REST API Reference for deleteAdditionalWhiteLabelSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/
    *
-   * @return AdditionalWhiteLabelSettingsResponseWrapper
+   * @return AdditionalResourcesWrapper
    * @throws ApiException if fails to make API call
    */
-  public AdditionalWhiteLabelSettingsResponseWrapper deleteAdditionalWhiteLabelSettings() throws ApiException {
+  public AdditionalResourcesWrapper deleteAdditionalWhiteLabelSettings() throws ApiException {
     return this.deleteAdditionalWhiteLabelSettings(Collections.emptyMap());
   }
 
 
   /**
    * Delete the additional white label settings
-   * Discards the resource flags stored for the installation and brings back the built-in set, so the sample  documents, the Help Center link, the Feedback and Support link, the user forum, the video guides and the  license agreements are offered as they are out of the box. Requires a DocSpace administrator and a server  installation with unrestricted space access; on a SaaS portal the call is refused. Unlike  `POST api/2.0/settings/rebranding/additional` it does not need a plan that includes branding, so an  installation whose subscription no longer covers it can still be reset. The call is destructive for the stored  flags, which have to be set again to come back, and it is idempotent. Instead of a flag it answers the set  that is now in effect, so no follow-up read is needed. The reset is installation-wide and reaches every  portal, and it leaves the visibility of the About page alone. The company details are reset separately by  `DELETE api/2.0/settings/rebranding/company`.
+   * Discards the resource flags stored for the installation and brings back the built-in set, so the sample  documents, the Help Center link, the Feedback and Support link, the user forum, the video guides and the  license agreements are offered as they are out of the box. Requires a DocSpace administrator and a server  installation with unrestricted space access; on a SaaS portal the call is refused. Unlike  `POST api/2.0/settings/rebranding/additional` it does not need a plan that includes customization, so an  installation whose subscription no longer covers it can still be reset. The call is destructive for the stored  flags, which have to be set again to come back, and it is idempotent. Instead of a flag it answers the set  that is now in effect, so no follow-up read is needed. The reset is installation-wide and reaches every  portal, and it leaves the visibility of the About page alone. The company details are reset separately by  `DELETE api/2.0/settings/rebranding/company`.
    *
    * REST API Reference for deleteAdditionalWhiteLabelSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return AdditionalWhiteLabelSettingsResponseWrapper
+   * @return AdditionalResourcesWrapper
    * @throws ApiException if fails to make API call
    */
-  public AdditionalWhiteLabelSettingsResponseWrapper deleteAdditionalWhiteLabelSettings(Map<String, String> additionalHeaders) throws ApiException {
+  public AdditionalResourcesWrapper deleteAdditionalWhiteLabelSettings(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -116,7 +116,7 @@ public class RebrandingApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<AdditionalWhiteLabelSettingsResponseWrapper> localVarReturnType = new TypeReference<AdditionalWhiteLabelSettingsResponseWrapper>() {};
+    TypeReference<AdditionalResourcesWrapper> localVarReturnType = new TypeReference<AdditionalResourcesWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "DELETE",
@@ -136,31 +136,31 @@ public class RebrandingApi extends BaseApi {
 
   /**
    * Delete the company white label settings
-   * Discards the company details stored for the installation and brings back the built-in ONLYOFFICE name, site,  email, address and phone, so the About page and the notification letters print the original vendor again.  Requires a DocSpace administrator and a server installation with unrestricted space access; on a SaaS portal  the call is refused. Unlike `POST api/2.0/settings/rebranding/company` it does not need a plan that includes  branding, so an installation whose subscription no longer covers it can still be reset. The call is  destructive: the previous details are not kept anywhere and have to be entered again to come back. It is  idempotent, and instead of a flag it answers the details that are now in effect, so no follow-up read is  needed. The reset is installation-wide and reaches every portal. The help and support links are reset  separately by `DELETE api/2.0/settings/rebranding/additional`, and the logos and the wordmark of a single  portal by the restore operations under `api/2.0/settings/whitelabel`.
+   * Discards the company details stored for the installation and brings back the built-in ONLYOFFICE name, site,  email, address and phone, so the About page and the notification letters print the original vendor again.  Requires a DocSpace administrator and a server installation with unrestricted space access; on a SaaS portal  the call is refused. Unlike `POST api/2.0/settings/rebranding/company` it does not need a plan that includes  customization, so an installation whose subscription no longer covers it can still be reset. The call is  destructive: the previous details are not kept anywhere and have to be entered again to come back. It is  idempotent, and instead of a flag it answers the details that are now in effect, so no follow-up read is  needed. The reset is installation-wide and reaches every portal. The help and support links are reset  separately by `DELETE api/2.0/settings/rebranding/additional`, and the logos and the wordmark of a single  portal by the restore operations under `api/2.0/settings/whitelabel`.
    *
    * REST API Reference for deleteCompanyWhiteLabelSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/
    *
-   * @return CompanyWhiteLabelSettingsResponseWrapper
+   * @return LicensorDetailsWrapper
    * @throws ApiException if fails to make API call
    */
-  public CompanyWhiteLabelSettingsResponseWrapper deleteCompanyWhiteLabelSettings() throws ApiException {
+  public LicensorDetailsWrapper deleteCompanyWhiteLabelSettings() throws ApiException {
     return this.deleteCompanyWhiteLabelSettings(Collections.emptyMap());
   }
 
 
   /**
    * Delete the company white label settings
-   * Discards the company details stored for the installation and brings back the built-in ONLYOFFICE name, site,  email, address and phone, so the About page and the notification letters print the original vendor again.  Requires a DocSpace administrator and a server installation with unrestricted space access; on a SaaS portal  the call is refused. Unlike `POST api/2.0/settings/rebranding/company` it does not need a plan that includes  branding, so an installation whose subscription no longer covers it can still be reset. The call is  destructive: the previous details are not kept anywhere and have to be entered again to come back. It is  idempotent, and instead of a flag it answers the details that are now in effect, so no follow-up read is  needed. The reset is installation-wide and reaches every portal. The help and support links are reset  separately by `DELETE api/2.0/settings/rebranding/additional`, and the logos and the wordmark of a single  portal by the restore operations under `api/2.0/settings/whitelabel`.
+   * Discards the company details stored for the installation and brings back the built-in ONLYOFFICE name, site,  email, address and phone, so the About page and the notification letters print the original vendor again.  Requires a DocSpace administrator and a server installation with unrestricted space access; on a SaaS portal  the call is refused. Unlike `POST api/2.0/settings/rebranding/company` it does not need a plan that includes  customization, so an installation whose subscription no longer covers it can still be reset. The call is  destructive: the previous details are not kept anywhere and have to be entered again to come back. It is  idempotent, and instead of a flag it answers the details that are now in effect, so no follow-up read is  needed. The reset is installation-wide and reaches every portal. The help and support links are reset  separately by `DELETE api/2.0/settings/rebranding/additional`, and the logos and the wordmark of a single  portal by the restore operations under `api/2.0/settings/whitelabel`.
    *
    * REST API Reference for deleteCompanyWhiteLabelSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return CompanyWhiteLabelSettingsResponseWrapper
+   * @return LicensorDetailsWrapper
    * @throws ApiException if fails to make API call
    */
-  public CompanyWhiteLabelSettingsResponseWrapper deleteCompanyWhiteLabelSettings(Map<String, String> additionalHeaders) throws ApiException {
+  public LicensorDetailsWrapper deleteCompanyWhiteLabelSettings(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -192,7 +192,7 @@ public class RebrandingApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<CompanyWhiteLabelSettingsResponseWrapper> localVarReturnType = new TypeReference<CompanyWhiteLabelSettingsResponseWrapper>() {};
+    TypeReference<LicensorDetailsWrapper> localVarReturnType = new TypeReference<LicensorDetailsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "DELETE",
@@ -217,10 +217,10 @@ public class RebrandingApi extends BaseApi {
    * REST API Reference for getAdditionalWhiteLabelSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/
    *
-   * @return AdditionalWhiteLabelSettingsDtoWrapper
+   * @return AdditionalWhiteLabelSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public AdditionalWhiteLabelSettingsDtoWrapper getAdditionalWhiteLabelSettings() throws ApiException {
+  public AdditionalWhiteLabelSettingsWrapper getAdditionalWhiteLabelSettings() throws ApiException {
     return this.getAdditionalWhiteLabelSettings(Collections.emptyMap());
   }
 
@@ -233,10 +233,10 @@ public class RebrandingApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return AdditionalWhiteLabelSettingsDtoWrapper
+   * @return AdditionalWhiteLabelSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public AdditionalWhiteLabelSettingsDtoWrapper getAdditionalWhiteLabelSettings(Map<String, String> additionalHeaders) throws ApiException {
+  public AdditionalWhiteLabelSettingsWrapper getAdditionalWhiteLabelSettings(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -268,7 +268,7 @@ public class RebrandingApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<AdditionalWhiteLabelSettingsDtoWrapper> localVarReturnType = new TypeReference<AdditionalWhiteLabelSettingsDtoWrapper>() {};
+    TypeReference<AdditionalWhiteLabelSettingsWrapper> localVarReturnType = new TypeReference<AdditionalWhiteLabelSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -293,10 +293,10 @@ public class RebrandingApi extends BaseApi {
    * REST API Reference for getCompanyWhiteLabelSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/
    *
-   * @return CompanyWhiteLabelSettingsDtoWrapper
+   * @return CompanyWhiteLabelSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public CompanyWhiteLabelSettingsDtoWrapper getCompanyWhiteLabelSettings() throws ApiException {
+  public CompanyWhiteLabelSettingsWrapper getCompanyWhiteLabelSettings() throws ApiException {
     return this.getCompanyWhiteLabelSettings(Collections.emptyMap());
   }
 
@@ -309,10 +309,10 @@ public class RebrandingApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return CompanyWhiteLabelSettingsDtoWrapper
+   * @return CompanyWhiteLabelSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public CompanyWhiteLabelSettingsDtoWrapper getCompanyWhiteLabelSettings(Map<String, String> additionalHeaders) throws ApiException {
+  public CompanyWhiteLabelSettingsWrapper getCompanyWhiteLabelSettings(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -344,7 +344,7 @@ public class RebrandingApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<CompanyWhiteLabelSettingsDtoWrapper> localVarReturnType = new TypeReference<CompanyWhiteLabelSettingsDtoWrapper>() {};
+    TypeReference<CompanyWhiteLabelSettingsWrapper> localVarReturnType = new TypeReference<CompanyWhiteLabelSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -364,7 +364,7 @@ public class RebrandingApi extends BaseApi {
 
   /**
    * Check the white label availability
-   * Reports whether branding may be configured for the current portal at all, which is the check to make before  offering the rebranding interface or calling any of the save operations under `api/2.0/settings/whitelabel`.  Requires a DocSpace administrator. The call is read-only and idempotent. The answer is `true` only when both  conditions hold: the branding section is not switched off in the installation configuration, and the portal's  current plan includes customization. It comes back as `false` on a plan without branding, which is exactly the  case in which `POST api/2.0/settings/whitelabel/logos/save`,  `POST api/2.0/settings/whitelabel/logos/savefromfiles` and `POST api/2.0/settings/whitelabel/logotext/save`  are refused as payment required. The restore operations do not depend on this flag and stay available, so a  portal that loses branding can still be reset to the built-in logos and wordmark. The flag says nothing about  the installation-wide default branding, which additionally needs a server installation with unrestricted space  access, and nothing about the company details and help links under `api/2.0/settings/rebranding`.
+   * Reports whether branding may be configured for the current portal at all, which is the check to make before  offering the rebranding interface or calling any of the save operations under `api/2.0/settings/whitelabel`.  Requires a DocSpace administrator. The call is read-only and idempotent. The answer is `true` only when both  conditions hold: the branding section is not switched off in the installation configuration, and the portal's  current plan includes customization. It comes back as `false` on a plan without customization, which is  exactly the case in which `POST api/2.0/settings/whitelabel/logos/save`,  `POST api/2.0/settings/whitelabel/logos/savefromfiles` and `POST api/2.0/settings/whitelabel/logotext/save`  are refused as payment required. The restore operations do not depend on this flag and stay available, so a  portal that loses branding can still be reset to the built-in logos and wordmark. The flag says nothing about  the installation-wide default branding, which additionally needs a server installation with unrestricted space  access, and nothing about the company details and help links under `api/2.0/settings/rebranding`.
    *
    * REST API Reference for getEnableWhitelabel Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enable-whitelabel/
@@ -379,7 +379,7 @@ public class RebrandingApi extends BaseApi {
 
   /**
    * Check the white label availability
-   * Reports whether branding may be configured for the current portal at all, which is the check to make before  offering the rebranding interface or calling any of the save operations under `api/2.0/settings/whitelabel`.  Requires a DocSpace administrator. The call is read-only and idempotent. The answer is `true` only when both  conditions hold: the branding section is not switched off in the installation configuration, and the portal's  current plan includes customization. It comes back as `false` on a plan without branding, which is exactly the  case in which `POST api/2.0/settings/whitelabel/logos/save`,  `POST api/2.0/settings/whitelabel/logos/savefromfiles` and `POST api/2.0/settings/whitelabel/logotext/save`  are refused as payment required. The restore operations do not depend on this flag and stay available, so a  portal that loses branding can still be reset to the built-in logos and wordmark. The flag says nothing about  the installation-wide default branding, which additionally needs a server installation with unrestricted space  access, and nothing about the company details and help links under `api/2.0/settings/rebranding`.
+   * Reports whether branding may be configured for the current portal at all, which is the check to make before  offering the rebranding interface or calling any of the save operations under `api/2.0/settings/whitelabel`.  Requires a DocSpace administrator. The call is read-only and idempotent. The answer is `true` only when both  conditions hold: the branding section is not switched off in the installation configuration, and the portal's  current plan includes customization. It comes back as `false` on a plan without customization, which is  exactly the case in which `POST api/2.0/settings/whitelabel/logos/save`,  `POST api/2.0/settings/whitelabel/logos/savefromfiles` and `POST api/2.0/settings/whitelabel/logotext/save`  are refused as payment required. The restore operations do not depend on this flag and stay available, so a  portal that loses branding can still be reset to the built-in logos and wordmark. The flag says nothing about  the installation-wide default branding, which additionally needs a server installation with unrestricted space  access, and nothing about the company details and help links under `api/2.0/settings/rebranding`.
    *
    * REST API Reference for getEnableWhitelabel Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enable-whitelabel/
@@ -482,8 +482,8 @@ public class RebrandingApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("IsDark", isDark));
-    localVarQueryParams.addAll(apiClient.parameterToPair("IsDefault", isDefault));
+    localVarQueryParams.addAll(apiClient.parameterToPair("isDark", isDark));
+    localVarQueryParams.addAll(apiClient.parameterToPair("isDefault", isDefault));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -564,8 +564,8 @@ public class RebrandingApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("IsDark", isDark));
-    localVarQueryParams.addAll(apiClient.parameterToPair("IsDefault", isDefault));
+    localVarQueryParams.addAll(apiClient.parameterToPair("isDark", isDark));
+    localVarQueryParams.addAll(apiClient.parameterToPair("isDefault", isDefault));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -609,10 +609,10 @@ public class RebrandingApi extends BaseApi {
    * REST API Reference for getLicensorData Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-licensor-data/
    *
-   * @return CompanyWhiteLabelSettingsArrayWrapper
+   * @return LicensorDetailsArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public CompanyWhiteLabelSettingsArrayWrapper getLicensorData() throws ApiException {
+  public LicensorDetailsArrayWrapper getLicensorData() throws ApiException {
     return this.getLicensorData(Collections.emptyMap());
   }
 
@@ -625,10 +625,10 @@ public class RebrandingApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-licensor-data/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return CompanyWhiteLabelSettingsArrayWrapper
+   * @return LicensorDetailsArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public CompanyWhiteLabelSettingsArrayWrapper getLicensorData(Map<String, String> additionalHeaders) throws ApiException {
+  public LicensorDetailsArrayWrapper getLicensorData(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -660,7 +660,7 @@ public class RebrandingApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<CompanyWhiteLabelSettingsArrayWrapper> localVarReturnType = new TypeReference<CompanyWhiteLabelSettingsArrayWrapper>() {};
+    TypeReference<LicensorDetailsArrayWrapper> localVarReturnType = new TypeReference<LicensorDetailsArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -722,8 +722,8 @@ public class RebrandingApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("IsDark", isDark));
-    localVarQueryParams.addAll(apiClient.parameterToPair("IsDefault", isDefault));
+    localVarQueryParams.addAll(apiClient.parameterToPair("isDark", isDark));
+    localVarQueryParams.addAll(apiClient.parameterToPair("isDefault", isDefault));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -804,8 +804,8 @@ public class RebrandingApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("IsDark", isDark));
-    localVarQueryParams.addAll(apiClient.parameterToPair("IsDefault", isDefault));
+    localVarQueryParams.addAll(apiClient.parameterToPair("isDark", isDark));
+    localVarQueryParams.addAll(apiClient.parameterToPair("isDefault", isDefault));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -844,7 +844,7 @@ public class RebrandingApi extends BaseApi {
 
   /**
    * Restore the white label logo text
-   * Clears the wordmark stored for the current portal, so the built-in `ONLYOFFICE` is printed again next to or  instead of the logo images. Requires a DocSpace administrator. Unlike  `POST api/2.0/settings/whitelabel/logotext/save` it does not need a plan that includes branding, so a portal  whose subscription no longer covers branding can still be reset. The call is destructive for the stored text,  which is not kept anywhere and has to be typed again to come back, and it is idempotent: `true` comes back  both when a text was cleared and when there was none. Logo images are left untouched and have their own  `PUT api/2.0/settings/whitelabel/logos/restore`. Pass `isDefault=true` to reset the installation-wide default  wordmark instead of this portal's, which only a server installation allows. After the call  `GET api/2.0/settings/whitelabel/logotext` reports `ONLYOFFICE` and  `GET api/2.0/settings/whitelabel/logotext/isdefault` reports `default` as `true`. The wordmark is the only  setting this operation touches, so the company details and the help links of the installation are left as they  are.
+   * Clears the wordmark stored for the current portal, so the built-in `ONLYOFFICE` is printed again next to or  instead of the logo images. Requires a DocSpace administrator. Unlike  `POST api/2.0/settings/whitelabel/logotext/save` it does not need a plan that includes customization, so a  portal whose subscription no longer covers customization can still be reset. The call is destructive for the  stored text, which is not kept anywhere and has to be typed again to come back, and it is idempotent: `true`  comes back both when a text was cleared and when there was none. Logo images are left untouched and have their  own `PUT api/2.0/settings/whitelabel/logos/restore`. Pass `isDefault=true` to reset the installation-wide  default wordmark instead of this portal's, which only a server installation allows. After the call  `GET api/2.0/settings/whitelabel/logotext` reports `ONLYOFFICE` and  `GET api/2.0/settings/whitelabel/logotext/isdefault` reports `default` as `true`. The wordmark is the only  setting this operation touches, so the company details and the help links of the installation are left as they  are.
    *
    * REST API Reference for restoreWhiteLabelLogoText Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logo-text/
@@ -861,7 +861,7 @@ public class RebrandingApi extends BaseApi {
 
   /**
    * Restore the white label logo text
-   * Clears the wordmark stored for the current portal, so the built-in `ONLYOFFICE` is printed again next to or  instead of the logo images. Requires a DocSpace administrator. Unlike  `POST api/2.0/settings/whitelabel/logotext/save` it does not need a plan that includes branding, so a portal  whose subscription no longer covers branding can still be reset. The call is destructive for the stored text,  which is not kept anywhere and has to be typed again to come back, and it is idempotent: `true` comes back  both when a text was cleared and when there was none. Logo images are left untouched and have their own  `PUT api/2.0/settings/whitelabel/logos/restore`. Pass `isDefault=true` to reset the installation-wide default  wordmark instead of this portal's, which only a server installation allows. After the call  `GET api/2.0/settings/whitelabel/logotext` reports `ONLYOFFICE` and  `GET api/2.0/settings/whitelabel/logotext/isdefault` reports `default` as `true`. The wordmark is the only  setting this operation touches, so the company details and the help links of the installation are left as they  are.
+   * Clears the wordmark stored for the current portal, so the built-in `ONLYOFFICE` is printed again next to or  instead of the logo images. Requires a DocSpace administrator. Unlike  `POST api/2.0/settings/whitelabel/logotext/save` it does not need a plan that includes customization, so a  portal whose subscription no longer covers customization can still be reset. The call is destructive for the  stored text, which is not kept anywhere and has to be typed again to come back, and it is idempotent: `true`  comes back both when a text was cleared and when there was none. Logo images are left untouched and have their  own `PUT api/2.0/settings/whitelabel/logos/restore`. Pass `isDefault=true` to reset the installation-wide  default wordmark instead of this portal's, which only a server installation allows. After the call  `GET api/2.0/settings/whitelabel/logotext` reports `ONLYOFFICE` and  `GET api/2.0/settings/whitelabel/logotext/isdefault` reports `default` as `true`. The wordmark is the only  setting this operation touches, so the company details and the help links of the installation are left as they  are.
    *
    * REST API Reference for restoreWhiteLabelLogoText Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logo-text/
@@ -886,8 +886,8 @@ public class RebrandingApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("IsDark", isDark));
-    localVarQueryParams.addAll(apiClient.parameterToPair("IsDefault", isDefault));
+    localVarQueryParams.addAll(apiClient.parameterToPair("isDark", isDark));
+    localVarQueryParams.addAll(apiClient.parameterToPair("isDefault", isDefault));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -926,7 +926,7 @@ public class RebrandingApi extends BaseApi {
 
   /**
    * Restore the white label logos
-   * Drops every logo uploaded for the current portal and brings back the built-in images, so the portal looks  unbranded again on the login page, in the left menu, in the editors and in letters. Requires a DocSpace  administrator. Unlike the two save operations it does not need a plan that includes branding, so a portal  whose subscription no longer covers it can still be reset. The call is destructive: the stored image files are  deleted and cannot be recovered from the portal, only re-uploaded with  `POST api/2.0/settings/whitelabel/logos/save`. It is idempotent and answers `true` both when logos were  removed and when there was nothing to remove. All slots are reset together; there is no way to restore a  single one. For this portal the picture kept for the older mail templates is reset along with the logos, while  the logo text is left as it is and has its own `PUT api/2.0/settings/whitelabel/logotext/restore`. Pass  `isDefault=true` to reset the installation-wide default branding instead, which only a server installation  allows. Confirm the result with `GET api/2.0/settings/whitelabel/logos/isdefault`.
+   * Drops every logo uploaded for the current portal and brings back the built-in images, so the portal looks  unbranded again on the login page, in the left menu, in the editors and in letters. Requires a DocSpace  administrator. Unlike the two save operations it does not need a plan that includes customization, so a portal  whose subscription no longer covers it can still be reset. The call is destructive: the stored image files are  deleted and cannot be recovered from the portal, only re-uploaded with  `POST api/2.0/settings/whitelabel/logos/save`. It is idempotent and answers `true` both when logos were  removed and when there was nothing to remove. All slots are reset together; there is no way to restore a  single one. For this portal the picture kept for the older mail templates is reset along with the logos, while  the logo text is left as it is and has its own `PUT api/2.0/settings/whitelabel/logotext/restore`. Pass  `isDefault=true` to reset the installation-wide default branding instead, which only a server installation  allows. Confirm the result with `GET api/2.0/settings/whitelabel/logos/isdefault`.
    *
    * REST API Reference for restoreWhiteLabelLogos Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logos/
@@ -943,7 +943,7 @@ public class RebrandingApi extends BaseApi {
 
   /**
    * Restore the white label logos
-   * Drops every logo uploaded for the current portal and brings back the built-in images, so the portal looks  unbranded again on the login page, in the left menu, in the editors and in letters. Requires a DocSpace  administrator. Unlike the two save operations it does not need a plan that includes branding, so a portal  whose subscription no longer covers it can still be reset. The call is destructive: the stored image files are  deleted and cannot be recovered from the portal, only re-uploaded with  `POST api/2.0/settings/whitelabel/logos/save`. It is idempotent and answers `true` both when logos were  removed and when there was nothing to remove. All slots are reset together; there is no way to restore a  single one. For this portal the picture kept for the older mail templates is reset along with the logos, while  the logo text is left as it is and has its own `PUT api/2.0/settings/whitelabel/logotext/restore`. Pass  `isDefault=true` to reset the installation-wide default branding instead, which only a server installation  allows. Confirm the result with `GET api/2.0/settings/whitelabel/logos/isdefault`.
+   * Drops every logo uploaded for the current portal and brings back the built-in images, so the portal looks  unbranded again on the login page, in the left menu, in the editors and in letters. Requires a DocSpace  administrator. Unlike the two save operations it does not need a plan that includes customization, so a portal  whose subscription no longer covers it can still be reset. The call is destructive: the stored image files are  deleted and cannot be recovered from the portal, only re-uploaded with  `POST api/2.0/settings/whitelabel/logos/save`. It is idempotent and answers `true` both when logos were  removed and when there was nothing to remove. All slots are reset together; there is no way to restore a  single one. For this portal the picture kept for the older mail templates is reset along with the logos, while  the logo text is left as it is and has its own `PUT api/2.0/settings/whitelabel/logotext/restore`. Pass  `isDefault=true` to reset the installation-wide default branding instead, which only a server installation  allows. Confirm the result with `GET api/2.0/settings/whitelabel/logos/isdefault`.
    *
    * REST API Reference for restoreWhiteLabelLogos Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logos/
@@ -968,8 +968,8 @@ public class RebrandingApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("IsDark", isDark));
-    localVarQueryParams.addAll(apiClient.parameterToPair("IsDefault", isDefault));
+    localVarQueryParams.addAll(apiClient.parameterToPair("isDark", isDark));
+    localVarQueryParams.addAll(apiClient.parameterToPair("isDefault", isDefault));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -1008,34 +1008,34 @@ public class RebrandingApi extends BaseApi {
 
   /**
    * Save the additional white label settings
-   * Stores which of the ONLYOFFICE help and community resources the interface offers: the sample documents, the  Help Center link, the Feedback and Support link, the user forum, the video guides and the license agreements.  The whole set is replaced by the `settings` object of the request, so send every flag, not only the changed  ones - a flag left out is stored as off. A request without that object is rejected as an invalid request.  Requires a DocSpace administrator, a server installation with unrestricted space access and a plan that  includes branding, which `GET api/2.0/settings/enablewhitelabel` reports; on a SaaS portal the call is  refused. The flags are installation-wide, so the change reaches every portal of that installation. The call is  mutating and idempotent, and answers `true`. Only the visibility of these entries is controlled here, not the  addresses behind them. Read the result back with `GET api/2.0/settings/rebranding/additional` and undo it with  `DELETE api/2.0/settings/rebranding/additional`.
+   * Stores which of the ONLYOFFICE help and community resources the interface offers: the sample documents, the  Help Center link, the Feedback and Support link, the user forum, the video guides and the license agreements.  The whole set is replaced by the `settings` object of the request, so send every flag, not only the changed  ones - a flag left out is stored as off. A request without that object is rejected as an invalid request.  Requires a DocSpace administrator, a server installation with unrestricted space access and a plan that  includes customization, which `GET api/2.0/settings/enablewhitelabel` reports; on a SaaS portal the call is  refused. The flags are installation-wide, so the change reaches every portal of that installation. The call is  mutating and idempotent, and answers `true`. Only the visibility of these entries is controlled here, not the  addresses behind them. Read the result back with `GET api/2.0/settings/rebranding/additional` and undo it with  `DELETE api/2.0/settings/rebranding/additional`.
    *
    * REST API Reference for saveAdditionalWhiteLabelSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-additional-white-label-settings/
    *
-   * @param additionalWhiteLabelSettingsWrapper  (optional)
+   * @param additionalWhiteLabelSettingsRequestDto  (optional)
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper saveAdditionalWhiteLabelSettings(@javax.annotation.Nullable AdditionalWhiteLabelSettingsWrapper additionalWhiteLabelSettingsWrapper) throws ApiException {
-    return this.saveAdditionalWhiteLabelSettings(additionalWhiteLabelSettingsWrapper, Collections.emptyMap());
+  public BooleanWrapper saveAdditionalWhiteLabelSettings(@javax.annotation.Nullable AdditionalWhiteLabelSettingsRequestDto additionalWhiteLabelSettingsRequestDto) throws ApiException {
+    return this.saveAdditionalWhiteLabelSettings(additionalWhiteLabelSettingsRequestDto, Collections.emptyMap());
   }
 
 
   /**
    * Save the additional white label settings
-   * Stores which of the ONLYOFFICE help and community resources the interface offers: the sample documents, the  Help Center link, the Feedback and Support link, the user forum, the video guides and the license agreements.  The whole set is replaced by the `settings` object of the request, so send every flag, not only the changed  ones - a flag left out is stored as off. A request without that object is rejected as an invalid request.  Requires a DocSpace administrator, a server installation with unrestricted space access and a plan that  includes branding, which `GET api/2.0/settings/enablewhitelabel` reports; on a SaaS portal the call is  refused. The flags are installation-wide, so the change reaches every portal of that installation. The call is  mutating and idempotent, and answers `true`. Only the visibility of these entries is controlled here, not the  addresses behind them. Read the result back with `GET api/2.0/settings/rebranding/additional` and undo it with  `DELETE api/2.0/settings/rebranding/additional`.
+   * Stores which of the ONLYOFFICE help and community resources the interface offers: the sample documents, the  Help Center link, the Feedback and Support link, the user forum, the video guides and the license agreements.  The whole set is replaced by the `settings` object of the request, so send every flag, not only the changed  ones - a flag left out is stored as off. A request without that object is rejected as an invalid request.  Requires a DocSpace administrator, a server installation with unrestricted space access and a plan that  includes customization, which `GET api/2.0/settings/enablewhitelabel` reports; on a SaaS portal the call is  refused. The flags are installation-wide, so the change reaches every portal of that installation. The call is  mutating and idempotent, and answers `true`. Only the visibility of these entries is controlled here, not the  addresses behind them. Read the result back with `GET api/2.0/settings/rebranding/additional` and undo it with  `DELETE api/2.0/settings/rebranding/additional`.
    *
    * REST API Reference for saveAdditionalWhiteLabelSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-additional-white-label-settings/
    *
-   * @param additionalWhiteLabelSettingsWrapper  (optional)
+   * @param additionalWhiteLabelSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper saveAdditionalWhiteLabelSettings(@javax.annotation.Nullable AdditionalWhiteLabelSettingsWrapper additionalWhiteLabelSettingsWrapper, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = additionalWhiteLabelSettingsWrapper;
+  public BooleanWrapper saveAdditionalWhiteLabelSettings(@javax.annotation.Nullable AdditionalWhiteLabelSettingsRequestDto additionalWhiteLabelSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = additionalWhiteLabelSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/rebranding/additional";
@@ -1086,34 +1086,34 @@ public class RebrandingApi extends BaseApi {
 
   /**
    * Save the company white label settings
-   * Stores the company details - name, site, support email, postal address and phone - that the About page and the  notification letters print as the vendor. The whole set is replaced by the `settings` object of the request,  so send every field, not only the changed ones; a request without that object, or with an email or a site that  is not a valid value, is rejected as an invalid request. Requires a DocSpace administrator, a server  installation with unrestricted space access and a plan that includes branding, which  `GET api/2.0/settings/enablewhitelabel` reports; on a SaaS portal the call is refused. The values are  installation-wide, so the change reaches every portal of that installation. Two fields are not taken from the  request: the licensor flag is always stored as `false`, and hiding the About page is silently kept off unless  the plan allows it. The call is mutating and idempotent, and answers `true`. Read the result back with  `GET api/2.0/settings/rebranding/company` and undo it with `DELETE api/2.0/settings/rebranding/company`.
+   * Stores the company details - name, site, support email, postal address and phone - that the About page and the  notification letters print as the vendor. The whole set is replaced by the `settings` object of the request,  so send every field, not only the changed ones; a request without that object, or with an email or a site that  is not a valid value, is rejected as an invalid request. Requires a DocSpace administrator, a server  installation with unrestricted space access and a plan that includes customization, which  `GET api/2.0/settings/enablewhitelabel` reports; on a SaaS portal the call is refused. The values are  installation-wide, so the change reaches every portal of that installation. Two fields are not taken from the  request: the licensor flag is always stored as `false`, and hiding the About page is silently kept off unless  the plan allows it. The call is mutating and idempotent, and answers `true`. Read the result back with  `GET api/2.0/settings/rebranding/company` and undo it with `DELETE api/2.0/settings/rebranding/company`.
    *
    * REST API Reference for saveCompanyWhiteLabelSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-company-white-label-settings/
    *
-   * @param companyWhiteLabelSettingsWrapper  (optional)
+   * @param companyWhiteLabelSettingsRequestDto  (optional)
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper saveCompanyWhiteLabelSettings(@javax.annotation.Nullable CompanyWhiteLabelSettingsWrapper companyWhiteLabelSettingsWrapper) throws ApiException {
-    return this.saveCompanyWhiteLabelSettings(companyWhiteLabelSettingsWrapper, Collections.emptyMap());
+  public BooleanWrapper saveCompanyWhiteLabelSettings(@javax.annotation.Nullable CompanyWhiteLabelSettingsRequestDto companyWhiteLabelSettingsRequestDto) throws ApiException {
+    return this.saveCompanyWhiteLabelSettings(companyWhiteLabelSettingsRequestDto, Collections.emptyMap());
   }
 
 
   /**
    * Save the company white label settings
-   * Stores the company details - name, site, support email, postal address and phone - that the About page and the  notification letters print as the vendor. The whole set is replaced by the `settings` object of the request,  so send every field, not only the changed ones; a request without that object, or with an email or a site that  is not a valid value, is rejected as an invalid request. Requires a DocSpace administrator, a server  installation with unrestricted space access and a plan that includes branding, which  `GET api/2.0/settings/enablewhitelabel` reports; on a SaaS portal the call is refused. The values are  installation-wide, so the change reaches every portal of that installation. Two fields are not taken from the  request: the licensor flag is always stored as `false`, and hiding the About page is silently kept off unless  the plan allows it. The call is mutating and idempotent, and answers `true`. Read the result back with  `GET api/2.0/settings/rebranding/company` and undo it with `DELETE api/2.0/settings/rebranding/company`.
+   * Stores the company details - name, site, support email, postal address and phone - that the About page and the  notification letters print as the vendor. The whole set is replaced by the `settings` object of the request,  so send every field, not only the changed ones; a request without that object, or with an email or a site that  is not a valid value, is rejected as an invalid request. Requires a DocSpace administrator, a server  installation with unrestricted space access and a plan that includes customization, which  `GET api/2.0/settings/enablewhitelabel` reports; on a SaaS portal the call is refused. The values are  installation-wide, so the change reaches every portal of that installation. Two fields are not taken from the  request: the licensor flag is always stored as `false`, and hiding the About page is silently kept off unless  the plan allows it. The call is mutating and idempotent, and answers `true`. Read the result back with  `GET api/2.0/settings/rebranding/company` and undo it with `DELETE api/2.0/settings/rebranding/company`.
    *
    * REST API Reference for saveCompanyWhiteLabelSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-company-white-label-settings/
    *
-   * @param companyWhiteLabelSettingsWrapper  (optional)
+   * @param companyWhiteLabelSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper saveCompanyWhiteLabelSettings(@javax.annotation.Nullable CompanyWhiteLabelSettingsWrapper companyWhiteLabelSettingsWrapper, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = companyWhiteLabelSettingsWrapper;
+  public BooleanWrapper saveCompanyWhiteLabelSettings(@javax.annotation.Nullable CompanyWhiteLabelSettingsRequestDto companyWhiteLabelSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = companyWhiteLabelSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/rebranding/company";
@@ -1164,38 +1164,38 @@ public class RebrandingApi extends BaseApi {
 
   /**
    * Save the white label logo text
-   * Sets the wordmark that the portal prints next to or instead of a logo image, on the login page, in the editors  and in notification letters. Only `logoText` from the request body is used here, and it is limited to 40  characters; a longer value is rejected as an invalid request. Sending an empty or blank text, or exactly the  built-in `ONLYOFFICE`, clears the setting instead of storing it, which has the same effect as  `PUT api/2.0/settings/whitelabel/logotext/restore`. Requires a DocSpace administrator and a plan that includes  branding, which `GET api/2.0/settings/enablewhitelabel` reports; otherwise the call is refused as payment  required. The call is mutating and idempotent: the previous text is overwritten and `true` comes back. Logo  images are not touched - they are saved by `POST api/2.0/settings/whitelabel/logos/save` - and the text is not  rendered into them. Pass `isDefault=true` to write the installation-wide default wordmark instead of this  portal's, which only a server installation allows. Read the stored value back with  `GET api/2.0/settings/whitelabel/logotext`.
+   * Sets the wordmark that the portal prints next to or instead of a logo image, on the login page, in the editors  and in notification letters. Only `logoText` from the request body is used here, and it is limited to 40  characters; a longer value is rejected as an invalid request. Sending an empty or blank text, or exactly the  built-in `ONLYOFFICE`, clears the setting instead of storing it, which has the same effect as  `PUT api/2.0/settings/whitelabel/logotext/restore`. Requires a DocSpace administrator and a plan that includes  customization, which `GET api/2.0/settings/enablewhitelabel` reports; otherwise the call is refused as payment  required. The call is mutating and idempotent: the previous text is overwritten and `true` comes back. Logo  images are not touched - they are saved by `POST api/2.0/settings/whitelabel/logos/save` - and the text is not  rendered into them. Pass `isDefault=true` to write the installation-wide default wordmark instead of this  portal's, which only a server installation allows. Read the stored value back with  `GET api/2.0/settings/whitelabel/logotext`.
    *
    * REST API Reference for saveWhiteLabelLogoText Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-logo-text/
    *
    * @param isDark Which theme the answer is filled in for: `true` fills the dark image only, `false` the light one only.  Omitting it fills both, leaving the dark one empty for the slots that have no separate dark image. (optional)
    * @param isDefault Whether the installation-wide default branding is addressed instead of this portal own. Writing the default  branding is only allowed on a self-hosted installation; elsewhere it is refused with 403. (optional)
-   * @param whiteLabelRequestsDto  (optional)
+   * @param whiteLabelRequestDto  (optional)
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper saveWhiteLabelLogoText(@javax.annotation.Nullable Boolean isDark, @javax.annotation.Nullable Boolean isDefault, @javax.annotation.Nullable WhiteLabelRequestsDto whiteLabelRequestsDto) throws ApiException {
-    return this.saveWhiteLabelLogoText(isDark, isDefault, whiteLabelRequestsDto, Collections.emptyMap());
+  public BooleanWrapper saveWhiteLabelLogoText(@javax.annotation.Nullable Boolean isDark, @javax.annotation.Nullable Boolean isDefault, @javax.annotation.Nullable WhiteLabelRequestDto whiteLabelRequestDto) throws ApiException {
+    return this.saveWhiteLabelLogoText(isDark, isDefault, whiteLabelRequestDto, Collections.emptyMap());
   }
 
 
   /**
    * Save the white label logo text
-   * Sets the wordmark that the portal prints next to or instead of a logo image, on the login page, in the editors  and in notification letters. Only `logoText` from the request body is used here, and it is limited to 40  characters; a longer value is rejected as an invalid request. Sending an empty or blank text, or exactly the  built-in `ONLYOFFICE`, clears the setting instead of storing it, which has the same effect as  `PUT api/2.0/settings/whitelabel/logotext/restore`. Requires a DocSpace administrator and a plan that includes  branding, which `GET api/2.0/settings/enablewhitelabel` reports; otherwise the call is refused as payment  required. The call is mutating and idempotent: the previous text is overwritten and `true` comes back. Logo  images are not touched - they are saved by `POST api/2.0/settings/whitelabel/logos/save` - and the text is not  rendered into them. Pass `isDefault=true` to write the installation-wide default wordmark instead of this  portal's, which only a server installation allows. Read the stored value back with  `GET api/2.0/settings/whitelabel/logotext`.
+   * Sets the wordmark that the portal prints next to or instead of a logo image, on the login page, in the editors  and in notification letters. Only `logoText` from the request body is used here, and it is limited to 40  characters; a longer value is rejected as an invalid request. Sending an empty or blank text, or exactly the  built-in `ONLYOFFICE`, clears the setting instead of storing it, which has the same effect as  `PUT api/2.0/settings/whitelabel/logotext/restore`. Requires a DocSpace administrator and a plan that includes  customization, which `GET api/2.0/settings/enablewhitelabel` reports; otherwise the call is refused as payment  required. The call is mutating and idempotent: the previous text is overwritten and `true` comes back. Logo  images are not touched - they are saved by `POST api/2.0/settings/whitelabel/logos/save` - and the text is not  rendered into them. Pass `isDefault=true` to write the installation-wide default wordmark instead of this  portal's, which only a server installation allows. Read the stored value back with  `GET api/2.0/settings/whitelabel/logotext`.
    *
    * REST API Reference for saveWhiteLabelLogoText Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-logo-text/
    *
    * @param isDark Which theme the answer is filled in for: `true` fills the dark image only, `false` the light one only.  Omitting it fills both, leaving the dark one empty for the slots that have no separate dark image. (optional)
    * @param isDefault Whether the installation-wide default branding is addressed instead of this portal own. Writing the default  branding is only allowed on a self-hosted installation; elsewhere it is refused with 403. (optional)
-   * @param whiteLabelRequestsDto  (optional)
+   * @param whiteLabelRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper saveWhiteLabelLogoText(@javax.annotation.Nullable Boolean isDark, @javax.annotation.Nullable Boolean isDefault, @javax.annotation.Nullable WhiteLabelRequestsDto whiteLabelRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = whiteLabelRequestsDto;
+  public BooleanWrapper saveWhiteLabelLogoText(@javax.annotation.Nullable Boolean isDark, @javax.annotation.Nullable Boolean isDefault, @javax.annotation.Nullable WhiteLabelRequestDto whiteLabelRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = whiteLabelRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/whitelabel/logotext/save";
@@ -1208,8 +1208,8 @@ public class RebrandingApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("IsDark", isDark));
-    localVarQueryParams.addAll(apiClient.parameterToPair("IsDefault", isDefault));
+    localVarQueryParams.addAll(apiClient.parameterToPair("isDark", isDark));
+    localVarQueryParams.addAll(apiClient.parameterToPair("isDefault", isDefault));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -1248,38 +1248,38 @@ public class RebrandingApi extends BaseApi {
 
   /**
    * Save the white label logos
-   * Replaces the branding images of the current portal with the ones sent in the request, so that the logos on the  login page, in the left menu, in the editors and in letters come from this portal. Every entry of `logo` names  a logo slot in its `key` - the numeric type published by `GET api/2.0/settings/whitelabel/logos` - and carries  the light-theme and the dark-theme image in `light` and `dark`. An image is either a  `data:image/png;base64,...` payload (`png`, `jpg` and `svg` are accepted) or the name of a file already  uploaded to the temporary store; a slot left out of the request keeps its image. The dark image is stored only  for the slots that have a dark variant, that is `1`, `2`, `6`, `7` and `8`, and is ignored for the favicon and  the editor logos; saving slot `2` also rebuilds the notification logo `8` from it. Requires a DocSpace  administrator and a plan that includes branding, which `GET api/2.0/settings/enablewhitelabel` reports;  otherwise the call is refused as payment required. It answers `true` and is undone by  `PUT api/2.0/settings/whitelabel/logos/restore`. With `isDefault=true` it writes the installation-wide default  branding instead, which only a server installation allows. Uploaded files go to  `POST api/2.0/settings/whitelabel/logos/savefromfiles`.
+   * Replaces the branding images of the current portal with the ones sent in the request, so that the logos on the  login page, in the left menu, in the editors and in letters come from this portal. Every entry of `logo` names  a logo slot in its `key` - the numeric type published by `GET api/2.0/settings/whitelabel/logos` - and carries  the light-theme and the dark-theme image in `light` and `dark`. An image is either a  `data:image/png;base64,...` payload (`png`, `jpg` and `svg` are accepted) or the name of a file already  uploaded to the temporary store; a slot left out of the request keeps its image. The dark image is stored only  for the slots that have a dark variant, that is `1`, `2`, `6`, `7` and `8`, and is ignored for the favicon and  the editor logos; saving slot `2` also rebuilds the notification logo `8` from it. Requires a DocSpace  administrator and a plan that includes customization, which `GET api/2.0/settings/enablewhitelabel` reports;  otherwise the call is refused as payment required. It answers `true` and is undone by  `PUT api/2.0/settings/whitelabel/logos/restore`. With `isDefault=true` it writes the installation-wide default  branding instead, which only a server installation allows. Uploaded files go to  `POST api/2.0/settings/whitelabel/logos/savefromfiles`.
    *
    * REST API Reference for saveWhiteLabelSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings/
    *
    * @param isDark Which theme the answer is filled in for: `true` fills the dark image only, `false` the light one only.  Omitting it fills both, leaving the dark one empty for the slots that have no separate dark image. (optional)
    * @param isDefault Whether the installation-wide default branding is addressed instead of this portal own. Writing the default  branding is only allowed on a self-hosted installation; elsewhere it is refused with 403. (optional)
-   * @param whiteLabelRequestsDto  (optional)
+   * @param whiteLabelRequestDto  (optional)
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper saveWhiteLabelSettings(@javax.annotation.Nullable Boolean isDark, @javax.annotation.Nullable Boolean isDefault, @javax.annotation.Nullable WhiteLabelRequestsDto whiteLabelRequestsDto) throws ApiException {
-    return this.saveWhiteLabelSettings(isDark, isDefault, whiteLabelRequestsDto, Collections.emptyMap());
+  public BooleanWrapper saveWhiteLabelSettings(@javax.annotation.Nullable Boolean isDark, @javax.annotation.Nullable Boolean isDefault, @javax.annotation.Nullable WhiteLabelRequestDto whiteLabelRequestDto) throws ApiException {
+    return this.saveWhiteLabelSettings(isDark, isDefault, whiteLabelRequestDto, Collections.emptyMap());
   }
 
 
   /**
    * Save the white label logos
-   * Replaces the branding images of the current portal with the ones sent in the request, so that the logos on the  login page, in the left menu, in the editors and in letters come from this portal. Every entry of `logo` names  a logo slot in its `key` - the numeric type published by `GET api/2.0/settings/whitelabel/logos` - and carries  the light-theme and the dark-theme image in `light` and `dark`. An image is either a  `data:image/png;base64,...` payload (`png`, `jpg` and `svg` are accepted) or the name of a file already  uploaded to the temporary store; a slot left out of the request keeps its image. The dark image is stored only  for the slots that have a dark variant, that is `1`, `2`, `6`, `7` and `8`, and is ignored for the favicon and  the editor logos; saving slot `2` also rebuilds the notification logo `8` from it. Requires a DocSpace  administrator and a plan that includes branding, which `GET api/2.0/settings/enablewhitelabel` reports;  otherwise the call is refused as payment required. It answers `true` and is undone by  `PUT api/2.0/settings/whitelabel/logos/restore`. With `isDefault=true` it writes the installation-wide default  branding instead, which only a server installation allows. Uploaded files go to  `POST api/2.0/settings/whitelabel/logos/savefromfiles`.
+   * Replaces the branding images of the current portal with the ones sent in the request, so that the logos on the  login page, in the left menu, in the editors and in letters come from this portal. Every entry of `logo` names  a logo slot in its `key` - the numeric type published by `GET api/2.0/settings/whitelabel/logos` - and carries  the light-theme and the dark-theme image in `light` and `dark`. An image is either a  `data:image/png;base64,...` payload (`png`, `jpg` and `svg` are accepted) or the name of a file already  uploaded to the temporary store; a slot left out of the request keeps its image. The dark image is stored only  for the slots that have a dark variant, that is `1`, `2`, `6`, `7` and `8`, and is ignored for the favicon and  the editor logos; saving slot `2` also rebuilds the notification logo `8` from it. Requires a DocSpace  administrator and a plan that includes customization, which `GET api/2.0/settings/enablewhitelabel` reports;  otherwise the call is refused as payment required. It answers `true` and is undone by  `PUT api/2.0/settings/whitelabel/logos/restore`. With `isDefault=true` it writes the installation-wide default  branding instead, which only a server installation allows. Uploaded files go to  `POST api/2.0/settings/whitelabel/logos/savefromfiles`.
    *
    * REST API Reference for saveWhiteLabelSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings/
    *
    * @param isDark Which theme the answer is filled in for: `true` fills the dark image only, `false` the light one only.  Omitting it fills both, leaving the dark one empty for the slots that have no separate dark image. (optional)
    * @param isDefault Whether the installation-wide default branding is addressed instead of this portal own. Writing the default  branding is only allowed on a self-hosted installation; elsewhere it is refused with 403. (optional)
-   * @param whiteLabelRequestsDto  (optional)
+   * @param whiteLabelRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper saveWhiteLabelSettings(@javax.annotation.Nullable Boolean isDark, @javax.annotation.Nullable Boolean isDefault, @javax.annotation.Nullable WhiteLabelRequestsDto whiteLabelRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = whiteLabelRequestsDto;
+  public BooleanWrapper saveWhiteLabelSettings(@javax.annotation.Nullable Boolean isDark, @javax.annotation.Nullable Boolean isDefault, @javax.annotation.Nullable WhiteLabelRequestDto whiteLabelRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = whiteLabelRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/whitelabel/logos/save";
@@ -1292,8 +1292,8 @@ public class RebrandingApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("IsDark", isDark));
-    localVarQueryParams.addAll(apiClient.parameterToPair("IsDefault", isDefault));
+    localVarQueryParams.addAll(apiClient.parameterToPair("isDark", isDark));
+    localVarQueryParams.addAll(apiClient.parameterToPair("isDefault", isDefault));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -1332,7 +1332,7 @@ public class RebrandingApi extends BaseApi {
 
   /**
    * Save the logos from files
-   * Replaces the branding images of the current portal with the files sent as `multipart/form-data`, which is the  way to upload image files directly instead of embedding them as base64 in  `POST api/2.0/settings/whitelabel/logos/save`. The form field names are not used: each file is routed by its  own name, which has to start with the numeric logo slot published by `GET api/2.0/settings/whitelabel/logos`  and end with the image extension, as in `2.png`; a name that also contains `dark`, as in `2.dark.png`, is  stored as the dark-theme image of that slot. Slots that get no file keep the image they have, and a dark file  is ignored for the favicon and the editor logos, which have no dark variant. A request that carries no file at  all is rejected. Requires a DocSpace administrator and a plan that includes branding, which  `GET api/2.0/settings/enablewhitelabel` reports; otherwise the call is refused as payment required. It answers  `true`, overwrites in place and is undone by `PUT api/2.0/settings/whitelabel/logos/restore`. With  `isDefault=true` it writes the installation-wide default branding, which only a server installation allows.
+   * Replaces the branding images of the current portal with the files sent as `multipart/form-data`, which is the  way to upload image files directly instead of embedding them as base64 in  `POST api/2.0/settings/whitelabel/logos/save`. The form field names are not used: each file is routed by its  own name, which has to start with the numeric logo slot published by `GET api/2.0/settings/whitelabel/logos`  and end with the image extension, as in `2.png`; a name that also contains `dark`, as in `2.dark.png`, is  stored as the dark-theme image of that slot. Slots that get no file keep the image they have, and a dark file  is ignored for the favicon and the editor logos, which have no dark variant. A request that carries no file at  all is rejected. Requires a DocSpace administrator and a plan that includes customization, which  `GET api/2.0/settings/enablewhitelabel` reports; otherwise the call is refused as payment required. It answers  `true`, overwrites in place and is undone by `PUT api/2.0/settings/whitelabel/logos/restore`. With  `isDefault=true` it writes the installation-wide default branding, which only a server installation allows.
    *
    * REST API Reference for saveWhiteLabelSettingsFromFiles Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings-from-files/
@@ -1349,7 +1349,7 @@ public class RebrandingApi extends BaseApi {
 
   /**
    * Save the logos from files
-   * Replaces the branding images of the current portal with the files sent as `multipart/form-data`, which is the  way to upload image files directly instead of embedding them as base64 in  `POST api/2.0/settings/whitelabel/logos/save`. The form field names are not used: each file is routed by its  own name, which has to start with the numeric logo slot published by `GET api/2.0/settings/whitelabel/logos`  and end with the image extension, as in `2.png`; a name that also contains `dark`, as in `2.dark.png`, is  stored as the dark-theme image of that slot. Slots that get no file keep the image they have, and a dark file  is ignored for the favicon and the editor logos, which have no dark variant. A request that carries no file at  all is rejected. Requires a DocSpace administrator and a plan that includes branding, which  `GET api/2.0/settings/enablewhitelabel` reports; otherwise the call is refused as payment required. It answers  `true`, overwrites in place and is undone by `PUT api/2.0/settings/whitelabel/logos/restore`. With  `isDefault=true` it writes the installation-wide default branding, which only a server installation allows.
+   * Replaces the branding images of the current portal with the files sent as `multipart/form-data`, which is the  way to upload image files directly instead of embedding them as base64 in  `POST api/2.0/settings/whitelabel/logos/save`. The form field names are not used: each file is routed by its  own name, which has to start with the numeric logo slot published by `GET api/2.0/settings/whitelabel/logos`  and end with the image extension, as in `2.png`; a name that also contains `dark`, as in `2.dark.png`, is  stored as the dark-theme image of that slot. Slots that get no file keep the image they have, and a dark file  is ignored for the favicon and the editor logos, which have no dark variant. A request that carries no file at  all is rejected. Requires a DocSpace administrator and a plan that includes customization, which  `GET api/2.0/settings/enablewhitelabel` reports; otherwise the call is refused as payment required. It answers  `true`, overwrites in place and is undone by `PUT api/2.0/settings/whitelabel/logos/restore`. With  `isDefault=true` it writes the installation-wide default branding, which only a server installation allows.
    *
    * REST API Reference for saveWhiteLabelSettingsFromFiles Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings-from-files/
@@ -1374,8 +1374,8 @@ public class RebrandingApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("IsDark", isDark));
-    localVarQueryParams.addAll(apiClient.parameterToPair("IsDefault", isDefault));
+    localVarQueryParams.addAll(apiClient.parameterToPair("isDark", isDark));
+    localVarQueryParams.addAll(apiClient.parameterToPair("isDefault", isDefault));
       
     
     localVarHeaderParams.putAll(additionalHeaders);

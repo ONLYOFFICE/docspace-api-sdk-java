@@ -42,7 +42,6 @@ import java.util.StringJoiner;
   AiAttachmentsLinkToMessageRequest.JSON_PROPERTY_MESSAGE_ID,
   AiAttachmentsLinkToMessageRequest.JSON_PROPERTY_THREAD_ID
 })
-@JsonTypeName("aiAttachmentsLinkToMessage_request")
 
 public class AiAttachmentsLinkToMessageRequest {
   public static final String JSON_PROPERTY_IDS = "ids";

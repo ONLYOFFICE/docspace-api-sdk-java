@@ -103,6 +103,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **204** | The encryption key is deleted. Answered 200 with the remaining keys before DocSpace 4.0 |  -  |
 | **400** | The key identifier is not a valid GUID |  -  |
+| **403** | The caller is a guest, who cannot own encryption keys |  -  |
 | **404** | The encryption key is not found |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -296,10 +297,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The encryption keys associated with the privacy room |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The room is not a private room |  -  |
+| **403** | The caller has no read access to the room or holds no encryption key of their own |  -  |
+| **404** | The room is not found |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -396,6 +399,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | The encryption key is replaced |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The key material is missing, blank or too large to be stored |  -  |
+| **403** | The caller is a guest, who cannot own encryption keys |  -  |
 | **404** | The encryption key to replace is not found |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -496,6 +500,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | The encryption key is created. Answered 200 before DocSpace 4.0; the response body is unchanged |  -  |
 | **400** | The key material is missing, blank or too large to be stored |  -  |
+| **403** | The caller is a guest, who cannot own encryption keys |  -  |
 | **409** | A key with the same identifier already exists |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |

@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.DocsCloudQuota;
+import org.openapitools.client.model.DocsCloudQuotaDto;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The successful API response containing the DocsCloudQuota object.
+ * The successful API response containing the DocsCloudQuotaDto object.
  */
 @JsonPropertyOrder({
   DocsCloudQuotaWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class DocsCloudQuotaWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private DocsCloudQuota response;
+  @javax.annotation.Nullable  private DocsCloudQuotaDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class DocsCloudQuotaWrapper {
   }
 
 
-  public DocsCloudQuotaWrapper response(@javax.annotation.Nullable DocsCloudQuota response) {
+  public DocsCloudQuotaWrapper response(@javax.annotation.Nullable DocsCloudQuotaDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * The DocsCloudQuota object returned by the operation.
+   * The DocsCloudQuotaDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DocsCloudQuota getResponse() {
+  public DocsCloudQuotaDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable DocsCloudQuota response) {
+  public void setResponse(@javax.annotation.Nullable DocsCloudQuotaDto response) {
     this.response = response;
   }
 

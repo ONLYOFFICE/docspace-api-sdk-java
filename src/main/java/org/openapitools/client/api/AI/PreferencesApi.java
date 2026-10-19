@@ -24,10 +24,12 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.AiAiReasoningLevel;
+import org.openapitools.client.model.AiChatToolPermissionMode;
 import org.openapitools.client.model.AiErrorResponse;
 import org.openapitools.client.model.AiPreferencesSetDeepModeRequest;
 import org.openapitools.client.model.AiPreferencesSetReasoningLevelRequest;
+import org.openapitools.client.model.AiPreferencesSetToolPermissionModeRequest;
+import org.openapitools.client.model.AiReasoningLevel;
 import org.openapitools.client.model.AiSuccessResponse;
 
 
@@ -56,12 +58,12 @@ public class PreferencesApi extends BaseApi {
    * REST API Reference for aiPreferencesClearDeepMode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-clear-deep-mode/
    *
-   * @param body The ID of the room whose preference is cleared, as a bare JSON string. Send an empty body to clear the portal-wide preference. (required)
+   * @param aiPreferencesClearDeepModeRequest The ID of the room whose preference is cleared, as a bare JSON string. Send an empty body to clear the portal-wide preference. (required)
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiPreferencesClearDeepMode(@javax.annotation.Nonnull String body) throws ApiException {
-    return this.aiPreferencesClearDeepMode(body, Collections.emptyMap());
+  public AiSuccessResponse aiPreferencesClearDeepMode(@javax.annotation.Nonnull String aiPreferencesClearDeepModeRequest) throws ApiException {
+    return this.aiPreferencesClearDeepMode(aiPreferencesClearDeepModeRequest, Collections.emptyMap());
   }
 
 
@@ -72,17 +74,17 @@ public class PreferencesApi extends BaseApi {
    * REST API Reference for aiPreferencesClearDeepMode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-clear-deep-mode/
    *
-   * @param body The ID of the room whose preference is cleared, as a bare JSON string. Send an empty body to clear the portal-wide preference. (required)
+   * @param aiPreferencesClearDeepModeRequest The ID of the room whose preference is cleared, as a bare JSON string. Send an empty body to clear the portal-wide preference. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiPreferencesClearDeepMode(@javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = body;
+  public AiSuccessResponse aiPreferencesClearDeepMode(@javax.annotation.Nonnull String aiPreferencesClearDeepModeRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiPreferencesClearDeepModeRequest;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling aiPreferencesClearDeepMode");
+    // verify the required parameter 'aiPreferencesClearDeepModeRequest' is set
+    if (aiPreferencesClearDeepModeRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiPreferencesClearDeepModeRequest' when calling aiPreferencesClearDeepMode");
     }
     
     // create path and map variables
@@ -134,7 +136,7 @@ public class PreferencesApi extends BaseApi {
 
   /**
    * Get deep mode
-   * Returns the deep-mode toggle of a scope, as a bare boolean: whether the stored extended-thinking depth is above `off`. `entityId` picks a room and omitting it reads the portal-wide preference. A scope that has never had a value stored falls back to the configured default, so the answer never distinguishes off from unset - ask `GET api/2.0/ai/preferences/is-deep-mode-set` for that. This is a read-only operation.
+   * Returns the deep-mode toggle of a scope, as a bare boolean: whether the stored extended-thinking depth is above `off`. `entityId` picks a room and omitting it reads the portal-wide preference; a value that is not a room ID is refused with 400, as it is on the write. A scope that has never had a value stored falls back to the configured default, so the answer never distinguishes off from unset - ask `GET api/2.0/ai/preferences/is-deep-mode-set` for that. This is a read-only operation.
    *
    * REST API Reference for aiPreferencesGetDeepMode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-deep-mode/
@@ -150,7 +152,7 @@ public class PreferencesApi extends BaseApi {
 
   /**
    * Get deep mode
-   * Returns the deep-mode toggle of a scope, as a bare boolean: whether the stored extended-thinking depth is above `off`. `entityId` picks a room and omitting it reads the portal-wide preference. A scope that has never had a value stored falls back to the configured default, so the answer never distinguishes off from unset - ask `GET api/2.0/ai/preferences/is-deep-mode-set` for that. This is a read-only operation.
+   * Returns the deep-mode toggle of a scope, as a bare boolean: whether the stored extended-thinking depth is above `off`. `entityId` picks a room and omitting it reads the portal-wide preference; a value that is not a room ID is refused with 400, as it is on the write. A scope that has never had a value stored falls back to the configured default, so the answer never distinguishes off from unset - ask `GET api/2.0/ai/preferences/is-deep-mode-set` for that. This is a read-only operation.
    *
    * REST API Reference for aiPreferencesGetDeepMode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-deep-mode/
@@ -213,33 +215,33 @@ public class PreferencesApi extends BaseApi {
 
   /**
    * Get reasoning level
-   * Returns the effective extended-thinking depth of the scope: `off` while deep mode is off, otherwise the persisted depth (`low`, `medium`, `high`, `max`), falling back to the default depth (`medium`) when none has been stored. `entityId` picks a room and omitting it reads the portal-wide preference. Providers clamp the depth to what the model accepts.
+   * Returns the effective extended-thinking depth of the scope: `off` while deep mode is off, otherwise the persisted depth (`low`, `medium`, `high`, `max`), falling back to the default depth (`medium`) when none has been stored. `entityId` picks a room and omitting it reads the portal-wide preference; a value that is not a room ID is refused with 400. Providers clamp the depth to what the model accepts.
    *
    * REST API Reference for aiPreferencesGetReasoningLevel Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-reasoning-level/
    *
    * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
-   * @return AiAiReasoningLevel
+   * @return AiReasoningLevel
    * @throws ApiException if fails to make API call
    */
-  public AiAiReasoningLevel aiPreferencesGetReasoningLevel(@javax.annotation.Nullable String entityId) throws ApiException {
+  public AiReasoningLevel aiPreferencesGetReasoningLevel(@javax.annotation.Nullable String entityId) throws ApiException {
     return this.aiPreferencesGetReasoningLevel(entityId, Collections.emptyMap());
   }
 
 
   /**
    * Get reasoning level
-   * Returns the effective extended-thinking depth of the scope: `off` while deep mode is off, otherwise the persisted depth (`low`, `medium`, `high`, `max`), falling back to the default depth (`medium`) when none has been stored. `entityId` picks a room and omitting it reads the portal-wide preference. Providers clamp the depth to what the model accepts.
+   * Returns the effective extended-thinking depth of the scope: `off` while deep mode is off, otherwise the persisted depth (`low`, `medium`, `high`, `max`), falling back to the default depth (`medium`) when none has been stored. `entityId` picks a room and omitting it reads the portal-wide preference; a value that is not a room ID is refused with 400. Providers clamp the depth to what the model accepts.
    *
    * REST API Reference for aiPreferencesGetReasoningLevel Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-reasoning-level/
    *
    * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return AiAiReasoningLevel
+   * @return AiReasoningLevel
    * @throws ApiException if fails to make API call
    */
-  public AiAiReasoningLevel aiPreferencesGetReasoningLevel(@javax.annotation.Nullable String entityId, Map<String, String> additionalHeaders) throws ApiException {
+  public AiReasoningLevel aiPreferencesGetReasoningLevel(@javax.annotation.Nullable String entityId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -272,7 +274,86 @@ public class PreferencesApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
-    TypeReference<AiAiReasoningLevel> localVarReturnType = new TypeReference<AiAiReasoningLevel>() {};
+    TypeReference<AiReasoningLevel> localVarReturnType = new TypeReference<AiReasoningLevel>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get tool permission mode
+   * Returns how a tool call the model makes is approved for the calling user, in the chat library's spelling: `ask` prompts for every call bar the tools pinned as always allowed, `auto` also runs a tool that opted out of approval itself or is annotated read-only / non-destructive, `allow` runs everything without asking. The mode is one value per user, stored in the user's AI settings (the same value `GET api/2.0/ai/config/tool-mode` reports as the AI service's enum); `entityId` is accepted for symmetry with the depth routes and ignored, though a value that is not a room ID is still refused with 400. The AI service's default is `auto`.
+   *
+   * REST API Reference for aiPreferencesGetToolPermissionMode Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-tool-permission-mode/
+   *
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
+   * @return AiChatToolPermissionMode
+   * @throws ApiException if fails to make API call
+   */
+  public AiChatToolPermissionMode aiPreferencesGetToolPermissionMode(@javax.annotation.Nullable String entityId) throws ApiException {
+    return this.aiPreferencesGetToolPermissionMode(entityId, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get tool permission mode
+   * Returns how a tool call the model makes is approved for the calling user, in the chat library's spelling: `ask` prompts for every call bar the tools pinned as always allowed, `auto` also runs a tool that opted out of approval itself or is annotated read-only / non-destructive, `allow` runs everything without asking. The mode is one value per user, stored in the user's AI settings (the same value `GET api/2.0/ai/config/tool-mode` reports as the AI service's enum); `entityId` is accepted for symmetry with the depth routes and ignored, though a value that is not a room ID is still refused with 400. The AI service's default is `auto`.
+   *
+   * REST API Reference for aiPreferencesGetToolPermissionMode Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-tool-permission-mode/
+   *
+   * @param entityId The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return AiChatToolPermissionMode
+   * @throws ApiException if fails to make API call
+   */
+  public AiChatToolPermissionMode aiPreferencesGetToolPermissionMode(@javax.annotation.Nullable String entityId, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/ai/preferences/get-tool-permission-mode";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("entityId", entityId));
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
+
+    TypeReference<AiChatToolPermissionMode> localVarReturnType = new TypeReference<AiChatToolPermissionMode>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -292,7 +373,7 @@ public class PreferencesApi extends BaseApi {
 
   /**
    * Is deep mode set
-   * Tells whether a scope has an explicitly persisted extended-thinking setting of its own, as opposed to inheriting the configured default. `entityId` picks a room and omitting it asks about the portal-wide preference. A true answer means a value was stored, whether that value is on or off - read the value itself with `GET api/2.0/ai/preferences/get-deep-mode`. This is the check a settings screen uses to show an explicit override rather than an inherited state.
+   * Tells whether a scope has an explicitly persisted extended-thinking setting of its own, as opposed to inheriting the configured default. `entityId` picks a room and omitting it asks about the portal-wide preference; a value that is not a room ID is refused with 400. A true answer means a value was stored, whether that value is on or off - read the value itself with `GET api/2.0/ai/preferences/get-deep-mode`. This is the check a settings screen uses to show an explicit override rather than an inherited state.
    *
    * REST API Reference for aiPreferencesIsDeepModeSet Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-is-deep-mode-set/
@@ -308,7 +389,7 @@ public class PreferencesApi extends BaseApi {
 
   /**
    * Is deep mode set
-   * Tells whether a scope has an explicitly persisted extended-thinking setting of its own, as opposed to inheriting the configured default. `entityId` picks a room and omitting it asks about the portal-wide preference. A true answer means a value was stored, whether that value is on or off - read the value itself with `GET api/2.0/ai/preferences/get-deep-mode`. This is the check a settings screen uses to show an explicit override rather than an inherited state.
+   * Tells whether a scope has an explicitly persisted extended-thinking setting of its own, as opposed to inheriting the configured default. `entityId` picks a room and omitting it asks about the portal-wide preference; a value that is not a room ID is refused with 400. A true answer means a value was stored, whether that value is on or off - read the value itself with `GET api/2.0/ai/preferences/get-deep-mode`. This is the check a settings screen uses to show an explicit override rather than an inherited state.
    *
    * REST API Reference for aiPreferencesIsDeepModeSet Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-is-deep-mode-set/
@@ -490,6 +571,89 @@ public class PreferencesApi extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/api/2.0/ai/preferences/set-reasoning-level";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
+
+    TypeReference<AiSuccessResponse> localVarReturnType = new TypeReference<AiSuccessResponse>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Set tool permission mode
+   * Persists the tool permission mode of the calling user. `value` has to be one of `ask`, `auto`, `allow`: anything else is rejected rather than coerced, so an absent or mistyped value can never overwrite the stored mode. `entityId` is validated like on the other writes and otherwise ignored - the mode applies to every chat of the user. Idempotent.
+   *
+   * REST API Reference for aiPreferencesSetToolPermissionMode Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-tool-permission-mode/
+   *
+   * @param aiPreferencesSetToolPermissionModeRequest  (required)
+   * @return AiSuccessResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiSuccessResponse aiPreferencesSetToolPermissionMode(@javax.annotation.Nonnull AiPreferencesSetToolPermissionModeRequest aiPreferencesSetToolPermissionModeRequest) throws ApiException {
+    return this.aiPreferencesSetToolPermissionMode(aiPreferencesSetToolPermissionModeRequest, Collections.emptyMap());
+  }
+
+
+  /**
+   * Set tool permission mode
+   * Persists the tool permission mode of the calling user. `value` has to be one of `ask`, `auto`, `allow`: anything else is rejected rather than coerced, so an absent or mistyped value can never overwrite the stored mode. `entityId` is validated like on the other writes and otherwise ignored - the mode applies to every chat of the user. Idempotent.
+   *
+   * REST API Reference for aiPreferencesSetToolPermissionMode Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-tool-permission-mode/
+   *
+   * @param aiPreferencesSetToolPermissionModeRequest  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return AiSuccessResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiSuccessResponse aiPreferencesSetToolPermissionMode(@javax.annotation.Nonnull AiPreferencesSetToolPermissionModeRequest aiPreferencesSetToolPermissionModeRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiPreferencesSetToolPermissionModeRequest;
+    
+    // verify the required parameter 'aiPreferencesSetToolPermissionModeRequest' is set
+    if (aiPreferencesSetToolPermissionModeRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiPreferencesSetToolPermissionModeRequest' when calling aiPreferencesSetToolPermissionMode");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/ai/preferences/set-tool-permission-mode";
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;

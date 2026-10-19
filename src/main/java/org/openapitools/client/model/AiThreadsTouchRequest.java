@@ -38,7 +38,6 @@ import java.util.StringJoiner;
   AiThreadsTouchRequest.JSON_PROPERTY_THREAD_ID,
   AiThreadsTouchRequest.JSON_PROPERTY_PROFILE_ID
 })
-@JsonTypeName("aiThreadsTouch_request")
 
 public class AiThreadsTouchRequest {
   public static final String JSON_PROPERTY_THREAD_ID = "threadId";

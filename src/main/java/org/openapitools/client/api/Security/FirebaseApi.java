@@ -25,8 +25,8 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.ErrorApiResponse;
-import org.openapitools.client.model.FireBaseUserWrapper;
-import org.openapitools.client.model.FirebaseRequestsDto;
+import org.openapitools.client.model.FirebaseDeviceWrapper;
+import org.openapitools.client.model.FirebaseRequestDto;
 
 
 import java.util.ArrayList;
@@ -54,12 +54,12 @@ public class FirebaseApi extends BaseApi {
    * REST API Reference for docRegisterPusnNotificationDevice Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/
    *
-   * @param firebaseRequestsDto  (optional)
-   * @return FireBaseUserWrapper
+   * @param firebaseRequestDto  (optional)
+   * @return FirebaseDeviceWrapper
    * @throws ApiException if fails to make API call
    */
-  public FireBaseUserWrapper docRegisterPusnNotificationDevice(@javax.annotation.Nullable FirebaseRequestsDto firebaseRequestsDto) throws ApiException {
-    return this.docRegisterPusnNotificationDevice(firebaseRequestsDto, Collections.emptyMap());
+  public FirebaseDeviceWrapper docRegisterPusnNotificationDevice(@javax.annotation.Nullable FirebaseRequestDto firebaseRequestDto) throws ApiException {
+    return this.docRegisterPusnNotificationDevice(firebaseRequestDto, Collections.emptyMap());
   }
 
 
@@ -70,13 +70,13 @@ public class FirebaseApi extends BaseApi {
    * REST API Reference for docRegisterPusnNotificationDevice Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/
    *
-   * @param firebaseRequestsDto  (optional)
+   * @param firebaseRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FireBaseUserWrapper
+   * @return FirebaseDeviceWrapper
    * @throws ApiException if fails to make API call
    */
-  public FireBaseUserWrapper docRegisterPusnNotificationDevice(@javax.annotation.Nullable FirebaseRequestsDto firebaseRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = firebaseRequestsDto;
+  public FirebaseDeviceWrapper docRegisterPusnNotificationDevice(@javax.annotation.Nullable FirebaseRequestDto firebaseRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = firebaseRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/push/docregisterdevice";
@@ -107,7 +107,7 @@ public class FirebaseApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<FireBaseUserWrapper> localVarReturnType = new TypeReference<FireBaseUserWrapper>() {};
+    TypeReference<FirebaseDeviceWrapper> localVarReturnType = new TypeReference<FirebaseDeviceWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -132,12 +132,12 @@ public class FirebaseApi extends BaseApi {
    * REST API Reference for subscribeDocumentsPushNotification Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/
    *
-   * @param firebaseRequestsDto  (optional)
-   * @return FireBaseUserWrapper
+   * @param firebaseRequestDto  (optional)
+   * @return FirebaseDeviceWrapper
    * @throws ApiException if fails to make API call
    */
-  public FireBaseUserWrapper subscribeDocumentsPushNotification(@javax.annotation.Nullable FirebaseRequestsDto firebaseRequestsDto) throws ApiException {
-    return this.subscribeDocumentsPushNotification(firebaseRequestsDto, Collections.emptyMap());
+  public FirebaseDeviceWrapper subscribeDocumentsPushNotification(@javax.annotation.Nullable FirebaseRequestDto firebaseRequestDto) throws ApiException {
+    return this.subscribeDocumentsPushNotification(firebaseRequestDto, Collections.emptyMap());
   }
 
 
@@ -148,13 +148,13 @@ public class FirebaseApi extends BaseApi {
    * REST API Reference for subscribeDocumentsPushNotification Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/
    *
-   * @param firebaseRequestsDto  (optional)
+   * @param firebaseRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FireBaseUserWrapper
+   * @return FirebaseDeviceWrapper
    * @throws ApiException if fails to make API call
    */
-  public FireBaseUserWrapper subscribeDocumentsPushNotification(@javax.annotation.Nullable FirebaseRequestsDto firebaseRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = firebaseRequestsDto;
+  public FirebaseDeviceWrapper subscribeDocumentsPushNotification(@javax.annotation.Nullable FirebaseRequestDto firebaseRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = firebaseRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/push/docsubscribe";
@@ -185,7 +185,7 @@ public class FirebaseApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<FireBaseUserWrapper> localVarReturnType = new TypeReference<FireBaseUserWrapper>() {};
+    TypeReference<FirebaseDeviceWrapper> localVarReturnType = new TypeReference<FirebaseDeviceWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",

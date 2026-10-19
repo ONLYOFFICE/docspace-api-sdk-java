@@ -28,7 +28,7 @@ import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.FinishDto;
 import org.openapitools.client.model.MigrationApiInfo;
 import org.openapitools.client.model.MigrationStatusWrapper;
-import org.openapitools.client.model.STRINGArrayWrapper;
+import org.openapitools.client.model.StringArrayWrapper;
 
 
 import java.util.ArrayList;
@@ -426,10 +426,10 @@ public class MigrationApi extends BaseApi {
    * REST API Reference for listMigrations Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/list-migrations/
    *
-   * @return STRINGArrayWrapper
+   * @return StringArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public STRINGArrayWrapper listMigrations() throws ApiException {
+  public StringArrayWrapper listMigrations() throws ApiException {
     return this.listMigrations(Collections.emptyMap());
   }
 
@@ -442,10 +442,10 @@ public class MigrationApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/list-migrations/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return STRINGArrayWrapper
+   * @return StringArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public STRINGArrayWrapper listMigrations(Map<String, String> additionalHeaders) throws ApiException {
+  public StringArrayWrapper listMigrations(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -477,7 +477,7 @@ public class MigrationApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<STRINGArrayWrapper> localVarReturnType = new TypeReference<STRINGArrayWrapper>() {};
+    TypeReference<StringArrayWrapper> localVarReturnType = new TypeReference<StringArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",

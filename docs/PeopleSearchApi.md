@@ -26,7 +26,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 ## getAccountsEntriesWithFilesShared
 
-> IAccountEntryArrayWrapper getAccountsEntriesWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue)
+> AccountEntryArrayWrapper getAccountsEntriesWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue)
 
 Search accounts for a fileSearches the portal users and groups that can be given access to the file with the ID given in the route, and  reports for each of them whether it already has access to that file.  The caller has to be allowed to manage the access of that file, and the ID has to belong to an existing file,  so the operation answers 403 for a file the caller cannot share and 404 for an ID that matches nothing.  The search is read-only and needs `filterValue`: while it is empty the operation returns an empty list and a  total of 0 instead of every account, so it cannot be used to enumerate the portal.  `filterValue` is matched case-insensitively against the first name, the last name and the email; without  `filterSeparator` it is split on spaces and every term has to match, and with a separator it is split on that  separator and any term may match.  Matching groups are streamed first and users after them, both paged together by `count` and `startIndex`,  while the number of matches is reported in the total count of the response.  Pass `excludeShared` to keep only the accounts that have no access yet, `includeShared` to keep only those  that already have it, and neither to get both kinds with the `shared` field telling them apart.
 
@@ -44,7 +44,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **Boolean**| Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set. | [optional] |
 | **invitedByMe** | **Boolean**| Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation. | [optional] |
 | **inviterId** | **UUID**| Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional] |
-| **area** | [**Area**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
+| **area** | [**AccountSearchArea**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;**](EmployeeType.md)| Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional] |
 | **count** | **Integer**| The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts. | [optional] |
 | **startIndex** | **Integer**| The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. | [optional] |
@@ -53,7 +53,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**IAccountEntryArrayWrapper**](IAccountEntryArrayWrapper.md)
+[**AccountEntryArrayWrapper**](AccountEntryArrayWrapper.md)
 
 ### Authorization
 
@@ -109,14 +109,14 @@ public class Example {
         Boolean includeShared = false; // Boolean | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set.
         Boolean invitedByMe = false; // Boolean | Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation.
-        Area area = Area.fromValue("0"); // Area | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
+        AccountSearchArea area = AccountSearchArea.fromValue("0"); // AccountSearchArea | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
         List<EmployeeType> employeeTypes = Arrays.asList(); // List<EmployeeType> | Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type.
         Integer count = 25; // Integer | The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts.
         Integer startIndex = 0; // Integer | The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response.
         String filterSeparator = ","; // String | The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match.
         String filterValue = "John"; // String | The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account.
         try {
-            IAccountEntryArrayWrapper result = apiInstance.getAccountsEntriesWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+            AccountEntryArrayWrapper result = apiInstance.getAccountsEntriesWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SearchApi#getAccountsEntriesWithFilesShared");
@@ -139,19 +139,19 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching users and groups, each with its access state for the file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | No file has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getAccountsEntriesWithFilesShared (third-party storage)
 
-> IAccountEntryArrayWrapper getAccountsEntriesWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue)
+> AccountEntryArrayWrapper getAccountsEntriesWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue)
 
 Search accounts for a file (third-party storage)Searches the portal users and groups that can be given access to the file with the ID given in the route, and  reports for each of them whether it already has access to that file.  The caller has to be allowed to manage the access of that file, and the ID has to belong to an existing file,  so the operation answers 403 for a file the caller cannot share and 404 for an ID that matches nothing.  The search is read-only and needs `filterValue`: while it is empty the operation returns an empty list and a  total of 0 instead of every account, so it cannot be used to enumerate the portal.  `filterValue` is matched case-insensitively against the first name, the last name and the email; without  `filterSeparator` it is split on spaces and every term has to match, and with a separator it is split on that  separator and any term may match.  Matching groups are streamed first and users after them, both paged together by `count` and `startIndex`,  while the number of matches is reported in the total count of the response.  Pass `excludeShared` to keep only the accounts that have no access yet, `includeShared` to keep only those  that already have it, and neither to get both kinds with the `shared` field telling them apart.
 
@@ -169,7 +169,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **Boolean**| Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set. | [optional] |
 | **invitedByMe** | **Boolean**| Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation. | [optional] |
 | **inviterId** | **UUID**| Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional] |
-| **area** | [**Area**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
+| **area** | [**AccountSearchArea**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;**](EmployeeType.md)| Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional] |
 | **count** | **Integer**| The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts. | [optional] |
 | **startIndex** | **Integer**| The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. | [optional] |
@@ -178,7 +178,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**IAccountEntryArrayWrapper**](IAccountEntryArrayWrapper.md)
+[**AccountEntryArrayWrapper**](AccountEntryArrayWrapper.md)
 
 ### Authorization
 
@@ -234,14 +234,14 @@ public class Example {
         Boolean includeShared = false; // Boolean | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set.
         Boolean invitedByMe = false; // Boolean | Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation.
-        Area area = Area.fromValue("0"); // Area | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
+        AccountSearchArea area = AccountSearchArea.fromValue("0"); // AccountSearchArea | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
         List<EmployeeType> employeeTypes = Arrays.asList(); // List<EmployeeType> | Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type.
         Integer count = 25; // Integer | The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts.
         Integer startIndex = 0; // Integer | The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response.
         String filterSeparator = ","; // String | The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match.
         String filterValue = "John"; // String | The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account.
         try {
-            IAccountEntryArrayWrapper result = apiInstance.getAccountsEntriesWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+            AccountEntryArrayWrapper result = apiInstance.getAccountsEntriesWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SearchApi#getAccountsEntriesWithFilesShared");
@@ -264,19 +264,19 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching users and groups, each with its access state for the file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | No file has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getAccountsEntriesWithFoldersShared
 
-> IAccountEntryArrayWrapper getAccountsEntriesWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue)
+> AccountEntryArrayWrapper getAccountsEntriesWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue)
 
 Search accounts for a folderSearches the portal users and groups that can be given access to the folder with the ID given in the route,  and reports for each of them whether it already has access to that folder.  The caller has to be allowed to manage the access of that folder, and the ID has to belong to an existing  folder, so the operation answers 403 for a folder the caller cannot share and 404 for an ID that matches  nothing.  The search is read-only and needs `filterValue`: while it is empty the operation returns an empty list and a  total of 0 instead of every account, so it cannot be used to enumerate the portal.  `filterValue` is matched case-insensitively against the first name, the last name and the email; without  `filterSeparator` it is split on spaces and every term has to match, and with a separator it is split on that  separator and any term may match.  Matching groups are streamed first and users after them, both paged together by `count` and `startIndex`,  while the number of matches is reported in the total count of the response.  Pass `excludeShared` to keep only the accounts that have no access yet, `includeShared` to keep only those  that already have it, and neither to get both kinds with the `shared` field telling them apart.
 
@@ -294,7 +294,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **Boolean**| Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set. | [optional] |
 | **invitedByMe** | **Boolean**| Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation. | [optional] |
 | **inviterId** | **UUID**| Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional] |
-| **area** | [**Area**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
+| **area** | [**AccountSearchArea**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;**](EmployeeType.md)| Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional] |
 | **count** | **Integer**| The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts. | [optional] |
 | **startIndex** | **Integer**| The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. | [optional] |
@@ -303,7 +303,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**IAccountEntryArrayWrapper**](IAccountEntryArrayWrapper.md)
+[**AccountEntryArrayWrapper**](AccountEntryArrayWrapper.md)
 
 ### Authorization
 
@@ -359,14 +359,14 @@ public class Example {
         Boolean includeShared = false; // Boolean | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set.
         Boolean invitedByMe = false; // Boolean | Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation.
-        Area area = Area.fromValue("0"); // Area | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
+        AccountSearchArea area = AccountSearchArea.fromValue("0"); // AccountSearchArea | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
         List<EmployeeType> employeeTypes = Arrays.asList(); // List<EmployeeType> | Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type.
         Integer count = 25; // Integer | The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts.
         Integer startIndex = 0; // Integer | The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response.
         String filterSeparator = ","; // String | The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match.
         String filterValue = "John"; // String | The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account.
         try {
-            IAccountEntryArrayWrapper result = apiInstance.getAccountsEntriesWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+            AccountEntryArrayWrapper result = apiInstance.getAccountsEntriesWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SearchApi#getAccountsEntriesWithFoldersShared");
@@ -389,19 +389,19 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching users and groups, each with its access state for the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | No folder has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getAccountsEntriesWithFoldersShared (third-party storage)
 
-> IAccountEntryArrayWrapper getAccountsEntriesWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue)
+> AccountEntryArrayWrapper getAccountsEntriesWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue)
 
 Search accounts for a folder (third-party storage)Searches the portal users and groups that can be given access to the folder with the ID given in the route,  and reports for each of them whether it already has access to that folder.  The caller has to be allowed to manage the access of that folder, and the ID has to belong to an existing  folder, so the operation answers 403 for a folder the caller cannot share and 404 for an ID that matches  nothing.  The search is read-only and needs `filterValue`: while it is empty the operation returns an empty list and a  total of 0 instead of every account, so it cannot be used to enumerate the portal.  `filterValue` is matched case-insensitively against the first name, the last name and the email; without  `filterSeparator` it is split on spaces and every term has to match, and with a separator it is split on that  separator and any term may match.  Matching groups are streamed first and users after them, both paged together by `count` and `startIndex`,  while the number of matches is reported in the total count of the response.  Pass `excludeShared` to keep only the accounts that have no access yet, `includeShared` to keep only those  that already have it, and neither to get both kinds with the `shared` field telling them apart.
 
@@ -419,7 +419,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **Boolean**| Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set. | [optional] |
 | **invitedByMe** | **Boolean**| Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation. | [optional] |
 | **inviterId** | **UUID**| Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional] |
-| **area** | [**Area**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
+| **area** | [**AccountSearchArea**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;**](EmployeeType.md)| Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional] |
 | **count** | **Integer**| The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts. | [optional] |
 | **startIndex** | **Integer**| The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. | [optional] |
@@ -428,7 +428,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**IAccountEntryArrayWrapper**](IAccountEntryArrayWrapper.md)
+[**AccountEntryArrayWrapper**](AccountEntryArrayWrapper.md)
 
 ### Authorization
 
@@ -484,14 +484,14 @@ public class Example {
         Boolean includeShared = false; // Boolean | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set.
         Boolean invitedByMe = false; // Boolean | Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation.
-        Area area = Area.fromValue("0"); // Area | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
+        AccountSearchArea area = AccountSearchArea.fromValue("0"); // AccountSearchArea | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
         List<EmployeeType> employeeTypes = Arrays.asList(); // List<EmployeeType> | Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type.
         Integer count = 25; // Integer | The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts.
         Integer startIndex = 0; // Integer | The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response.
         String filterSeparator = ","; // String | The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match.
         String filterValue = "John"; // String | The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account.
         try {
-            IAccountEntryArrayWrapper result = apiInstance.getAccountsEntriesWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+            AccountEntryArrayWrapper result = apiInstance.getAccountsEntriesWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SearchApi#getAccountsEntriesWithFoldersShared");
@@ -514,19 +514,19 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching users and groups, each with its access state for the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | No folder has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getAccountsEntriesWithRoomsShared
 
-> IAccountEntryArrayWrapper getAccountsEntriesWithRoomsShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue)
+> AccountEntryArrayWrapper getAccountsEntriesWithRoomsShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue)
 
 Search accounts for a roomSearches the portal users and groups that can be given access to the room with the ID given in the route, and  reports for each of them whether it already has access to that room.  The caller has to be allowed to manage the access of that room, and the ID has to belong to an existing room,  so the operation answers 403 for a room the caller cannot share and 404 for an ID that matches nothing.  The search is read-only and needs `filterValue`: while it is empty the operation returns an empty list and a  total of 0 instead of every account, so it cannot be used to enumerate the portal.  `filterValue` is matched case-insensitively against the first name, the last name and the email; without  `filterSeparator` it is split on spaces and every term has to match, and with a separator it is split on that  separator and any term may match.  Matching groups are streamed first and users after them, both paged together by `count` and `startIndex`,  while the number of matches is reported in the total count of the response.  Pass `excludeShared` to keep only the accounts that have no access yet, `includeShared` to keep only those  that already have it, and neither to get both kinds with the `shared` field telling them apart.
 
@@ -544,7 +544,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **Boolean**| Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set. | [optional] |
 | **invitedByMe** | **Boolean**| Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation. | [optional] |
 | **inviterId** | **UUID**| Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional] |
-| **area** | [**Area**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
+| **area** | [**AccountSearchArea**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;**](EmployeeType.md)| Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional] |
 | **count** | **Integer**| The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts. | [optional] |
 | **startIndex** | **Integer**| The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. | [optional] |
@@ -553,7 +553,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**IAccountEntryArrayWrapper**](IAccountEntryArrayWrapper.md)
+[**AccountEntryArrayWrapper**](AccountEntryArrayWrapper.md)
 
 ### Authorization
 
@@ -609,14 +609,14 @@ public class Example {
         Boolean includeShared = false; // Boolean | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set.
         Boolean invitedByMe = false; // Boolean | Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation.
-        Area area = Area.fromValue("0"); // Area | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
+        AccountSearchArea area = AccountSearchArea.fromValue("0"); // AccountSearchArea | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
         List<EmployeeType> employeeTypes = Arrays.asList(); // List<EmployeeType> | Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type.
         Integer count = 25; // Integer | The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts.
         Integer startIndex = 0; // Integer | The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response.
         String filterSeparator = ","; // String | The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match.
         String filterValue = "John"; // String | The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account.
         try {
-            IAccountEntryArrayWrapper result = apiInstance.getAccountsEntriesWithRoomsShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+            AccountEntryArrayWrapper result = apiInstance.getAccountsEntriesWithRoomsShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SearchApi#getAccountsEntriesWithRoomsShared");
@@ -639,19 +639,19 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching users and groups, each with its access state for the room |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | No room has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getAccountsEntriesWithRoomsShared (third-party storage)
 
-> IAccountEntryArrayWrapper getAccountsEntriesWithRoomsShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue)
+> AccountEntryArrayWrapper getAccountsEntriesWithRoomsShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue)
 
 Search accounts for a room (third-party storage)Searches the portal users and groups that can be given access to the room with the ID given in the route, and  reports for each of them whether it already has access to that room.  The caller has to be allowed to manage the access of that room, and the ID has to belong to an existing room,  so the operation answers 403 for a room the caller cannot share and 404 for an ID that matches nothing.  The search is read-only and needs `filterValue`: while it is empty the operation returns an empty list and a  total of 0 instead of every account, so it cannot be used to enumerate the portal.  `filterValue` is matched case-insensitively against the first name, the last name and the email; without  `filterSeparator` it is split on spaces and every term has to match, and with a separator it is split on that  separator and any term may match.  Matching groups are streamed first and users after them, both paged together by `count` and `startIndex`,  while the number of matches is reported in the total count of the response.  Pass `excludeShared` to keep only the accounts that have no access yet, `includeShared` to keep only those  that already have it, and neither to get both kinds with the `shared` field telling them apart.
 
@@ -669,7 +669,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **Boolean**| Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set. | [optional] |
 | **invitedByMe** | **Boolean**| Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation. | [optional] |
 | **inviterId** | **UUID**| Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional] |
-| **area** | [**Area**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
+| **area** | [**AccountSearchArea**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;**](EmployeeType.md)| Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional] |
 | **count** | **Integer**| The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts. | [optional] |
 | **startIndex** | **Integer**| The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. | [optional] |
@@ -678,7 +678,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**IAccountEntryArrayWrapper**](IAccountEntryArrayWrapper.md)
+[**AccountEntryArrayWrapper**](AccountEntryArrayWrapper.md)
 
 ### Authorization
 
@@ -734,14 +734,14 @@ public class Example {
         Boolean includeShared = false; // Boolean | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set.
         Boolean invitedByMe = false; // Boolean | Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation.
-        Area area = Area.fromValue("0"); // Area | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
+        AccountSearchArea area = AccountSearchArea.fromValue("0"); // AccountSearchArea | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
         List<EmployeeType> employeeTypes = Arrays.asList(); // List<EmployeeType> | Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type.
         Integer count = 25; // Integer | The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts.
         Integer startIndex = 0; // Integer | The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response.
         String filterSeparator = ","; // String | The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match.
         String filterValue = "John"; // String | The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account.
         try {
-            IAccountEntryArrayWrapper result = apiInstance.getAccountsEntriesWithRoomsShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+            AccountEntryArrayWrapper result = apiInstance.getAccountsEntriesWithRoomsShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SearchApi#getAccountsEntriesWithRoomsShared");
@@ -764,12 +764,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching users and groups, each with its access state for the room |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | No room has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -904,7 +904,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **excludeGroup** | **Boolean**| Inverts `groupId`: with true the members of that group are left out instead of being the only ones kept. It  has no effect without `groupId`. | [optional] |
 | **invitedByMe** | **Boolean**| Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. | [optional] |
 | **inviterId** | **UUID**| Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional] |
-| **area** | [**Area**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only. It also cancels the type filters that contradict  it. | [optional] [enum: 0, 1, 2] |
+| **area** | [**AccountSearchArea**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only. It also cancels the type filters that contradict  it. | [optional] [enum: 0, 1, 2] |
 | **count** | **Integer**| The size of the page. It defaults to 100, which is also the largest value the operation accepts. | [optional] |
 | **startIndex** | **Integer**| The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. | [optional] |
 | **sortBy** | **String**| What to order the accounts by, compared without regard to case: `FirstName`, `LastName`, `DisplayName`,  `Type`, `Email`, `Department`, `UsedSpace`, `CreatedBy` or `RegistrationDate`. | [optional] |
@@ -976,7 +976,7 @@ public class Example {
         Boolean excludeGroup = false; // Boolean | Inverts `groupId`: with true the members of that group are left out instead of being the only ones kept. It  has no effect without `groupId`.
         Boolean invitedByMe = false; // Boolean | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation.
-        Area area = Area.fromValue("0"); // Area | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only. It also cancels the type filters that contradict  it.
+        AccountSearchArea area = AccountSearchArea.fromValue("0"); // AccountSearchArea | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only. It also cancels the type filters that contradict  it.
         Integer count = 25; // Integer | The size of the page. It defaults to 100, which is also the largest value the operation accepts.
         Integer startIndex = 0; // Integer | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response.
         String sortBy = "DisplayName"; // String | What to order the accounts by, compared without regard to case: `FirstName`, `LastName`, `DisplayName`,  `Type`, `Email`, `Department`, `UsedSpace`, `CreatedBy` or `RegistrationDate`.
@@ -1007,11 +1007,11 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A page of matching accounts, with their short profiles |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | The caller is a member or a guest |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1036,7 +1036,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **Boolean**| Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set. | [optional] |
 | **invitedByMe** | **Boolean**| Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. | [optional] |
 | **inviterId** | **UUID**| Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional] |
-| **area** | [**Area**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
+| **area** | [**AccountSearchArea**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;**](EmployeeType.md)| Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional] |
 | **count** | **Integer**| The size of the page. It defaults to 100, which is also the largest value the operation accepts. | [optional] |
 | **startIndex** | **Integer**| The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. | [optional] |
@@ -1101,7 +1101,7 @@ public class Example {
         Boolean includeShared = false; // Boolean | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set.
         Boolean invitedByMe = false; // Boolean | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation.
-        Area area = Area.fromValue("0"); // Area | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
+        AccountSearchArea area = AccountSearchArea.fromValue("0"); // AccountSearchArea | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
         List<EmployeeType> employeeTypes = Arrays.asList(); // List<EmployeeType> | Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type.
         Integer count = 25; // Integer | The size of the page. It defaults to 100, which is also the largest value the operation accepts.
         Integer startIndex = 0; // Integer | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response.
@@ -1131,12 +1131,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching accounts, each with its access state for the file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | The caller is a guest or cannot read the file |  -  |
 | **404** | No file has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1161,7 +1161,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **Boolean**| Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set. | [optional] |
 | **invitedByMe** | **Boolean**| Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. | [optional] |
 | **inviterId** | **UUID**| Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional] |
-| **area** | [**Area**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
+| **area** | [**AccountSearchArea**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;**](EmployeeType.md)| Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional] |
 | **count** | **Integer**| The size of the page. It defaults to 100, which is also the largest value the operation accepts. | [optional] |
 | **startIndex** | **Integer**| The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. | [optional] |
@@ -1226,7 +1226,7 @@ public class Example {
         Boolean includeShared = false; // Boolean | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set.
         Boolean invitedByMe = false; // Boolean | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation.
-        Area area = Area.fromValue("0"); // Area | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
+        AccountSearchArea area = AccountSearchArea.fromValue("0"); // AccountSearchArea | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
         List<EmployeeType> employeeTypes = Arrays.asList(); // List<EmployeeType> | Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type.
         Integer count = 25; // Integer | The size of the page. It defaults to 100, which is also the largest value the operation accepts.
         Integer startIndex = 0; // Integer | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response.
@@ -1256,12 +1256,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching accounts, each with its access state for the file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | The caller is a guest or cannot read the file |  -  |
 | **404** | No file has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1286,7 +1286,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **Boolean**| Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set. | [optional] |
 | **invitedByMe** | **Boolean**| Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. | [optional] |
 | **inviterId** | **UUID**| Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional] |
-| **area** | [**Area**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
+| **area** | [**AccountSearchArea**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;**](EmployeeType.md)| Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional] |
 | **count** | **Integer**| The size of the page. It defaults to 100, which is also the largest value the operation accepts. | [optional] |
 | **startIndex** | **Integer**| The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. | [optional] |
@@ -1351,7 +1351,7 @@ public class Example {
         Boolean includeShared = false; // Boolean | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set.
         Boolean invitedByMe = false; // Boolean | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation.
-        Area area = Area.fromValue("0"); // Area | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
+        AccountSearchArea area = AccountSearchArea.fromValue("0"); // AccountSearchArea | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
         List<EmployeeType> employeeTypes = Arrays.asList(); // List<EmployeeType> | Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type.
         Integer count = 25; // Integer | The size of the page. It defaults to 100, which is also the largest value the operation accepts.
         Integer startIndex = 0; // Integer | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response.
@@ -1381,12 +1381,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching accounts, each with its access state for the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | The caller is a guest or cannot read the folder |  -  |
 | **404** | No folder has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1411,7 +1411,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **Boolean**| Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set. | [optional] |
 | **invitedByMe** | **Boolean**| Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. | [optional] |
 | **inviterId** | **UUID**| Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional] |
-| **area** | [**Area**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
+| **area** | [**AccountSearchArea**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;**](EmployeeType.md)| Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional] |
 | **count** | **Integer**| The size of the page. It defaults to 100, which is also the largest value the operation accepts. | [optional] |
 | **startIndex** | **Integer**| The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. | [optional] |
@@ -1476,7 +1476,7 @@ public class Example {
         Boolean includeShared = false; // Boolean | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set.
         Boolean invitedByMe = false; // Boolean | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation.
-        Area area = Area.fromValue("0"); // Area | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
+        AccountSearchArea area = AccountSearchArea.fromValue("0"); // AccountSearchArea | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
         List<EmployeeType> employeeTypes = Arrays.asList(); // List<EmployeeType> | Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type.
         Integer count = 25; // Integer | The size of the page. It defaults to 100, which is also the largest value the operation accepts.
         Integer startIndex = 0; // Integer | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response.
@@ -1506,12 +1506,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching accounts, each with its access state for the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | The caller is a guest or cannot read the folder |  -  |
 | **404** | No folder has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1536,7 +1536,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **Boolean**| Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set. | [optional] |
 | **invitedByMe** | **Boolean**| Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. | [optional] |
 | **inviterId** | **UUID**| Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional] |
-| **area** | [**Area**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
+| **area** | [**AccountSearchArea**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;**](EmployeeType.md)| Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional] |
 | **count** | **Integer**| The size of the page. It defaults to 100, which is also the largest value the operation accepts. | [optional] |
 | **startIndex** | **Integer**| The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. | [optional] |
@@ -1601,7 +1601,7 @@ public class Example {
         Boolean includeShared = false; // Boolean | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set.
         Boolean invitedByMe = false; // Boolean | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation.
-        Area area = Area.fromValue("0"); // Area | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
+        AccountSearchArea area = AccountSearchArea.fromValue("0"); // AccountSearchArea | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
         List<EmployeeType> employeeTypes = Arrays.asList(); // List<EmployeeType> | Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type.
         Integer count = 25; // Integer | The size of the page. It defaults to 100, which is also the largest value the operation accepts.
         Integer startIndex = 0; // Integer | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response.
@@ -1631,12 +1631,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching accounts, each with its access state for the room |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | The caller is a guest or cannot read the room |  -  |
 | **404** | No room has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1661,7 +1661,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **Boolean**| Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set. | [optional] |
 | **invitedByMe** | **Boolean**| Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. | [optional] |
 | **inviterId** | **UUID**| Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional] |
-| **area** | [**Area**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
+| **area** | [**AccountSearchArea**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional] [enum: 0, 1, 2] |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;**](EmployeeType.md)| Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional] |
 | **count** | **Integer**| The size of the page. It defaults to 100, which is also the largest value the operation accepts. | [optional] |
 | **startIndex** | **Integer**| The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. | [optional] |
@@ -1726,7 +1726,7 @@ public class Example {
         Boolean includeShared = false; // Boolean | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set.
         Boolean invitedByMe = false; // Boolean | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation.
-        Area area = Area.fromValue("0"); // Area | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
+        AccountSearchArea area = AccountSearchArea.fromValue("0"); // AccountSearchArea | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to.
         List<EmployeeType> employeeTypes = Arrays.asList(); // List<EmployeeType> | Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type.
         Integer count = 25; // Integer | The size of the page. It defaults to 100, which is also the largest value the operation accepts.
         Integer startIndex = 0; // Integer | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response.
@@ -1756,12 +1756,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching accounts, each with its access state for the room |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | The caller is a guest or cannot read the room |  -  |
 | **404** | No room has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1792,7 +1792,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **excludeGroup** | **Boolean**| Inverts `groupId`: with true the members of that group are left out instead of being the only ones kept. It  has no effect without `groupId`. | [optional] |
 | **invitedByMe** | **Boolean**| Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. | [optional] |
 | **inviterId** | **UUID**| Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional] |
-| **area** | [**Area**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only. It also cancels the type filters that contradict  it. | [optional] [enum: 0, 1, 2] |
+| **area** | [**AccountSearchArea**](.md)| The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only. It also cancels the type filters that contradict  it. | [optional] [enum: 0, 1, 2] |
 | **count** | **Integer**| The size of the page. It defaults to 100, which is also the largest value the operation accepts. | [optional] |
 | **startIndex** | **Integer**| The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. | [optional] |
 | **sortBy** | **String**| What to order the accounts by, compared without regard to case: `FirstName`, `LastName`, `DisplayName`,  `Type`, `Email`, `Department`, `UsedSpace`, `CreatedBy` or `RegistrationDate`. | [optional] |
@@ -1864,7 +1864,7 @@ public class Example {
         Boolean excludeGroup = false; // Boolean | Inverts `groupId`: with true the members of that group are left out instead of being the only ones kept. It  has no effect without `groupId`.
         Boolean invitedByMe = false; // Boolean | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation.
         UUID inviterId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation.
-        Area area = Area.fromValue("0"); // Area | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only. It also cancels the type filters that contradict  it.
+        AccountSearchArea area = AccountSearchArea.fromValue("0"); // AccountSearchArea | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only. It also cancels the type filters that contradict  it.
         Integer count = 25; // Integer | The size of the page. It defaults to 100, which is also the largest value the operation accepts.
         Integer startIndex = 0; // Integer | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response.
         String sortBy = "DisplayName"; // String | What to order the accounts by, compared without regard to case: `FirstName`, `LastName`, `DisplayName`,  `Type`, `Email`, `Department`, `UsedSpace`, `CreatedBy` or `RegistrationDate`.
@@ -1895,11 +1895,11 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A page of matching accounts, with their full profiles |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | The caller is a member or a guest |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2101,11 +2101,11 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The full profiles of the matching accounts |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or `query` is missing |  -  |
 | **403** | The caller is not a DocSpace administrator |  -  |
+| **500** | The `filterBy` is `group` and the `filterValue` is not a GUID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

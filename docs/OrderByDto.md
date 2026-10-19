@@ -1,0 +1,15 @@
+
+
+# OrderByDto
+
+The sorting parameters.
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**isAsc** | **Boolean** | Specifies if the order is ascending. |  [optional] |
+|**property** | **SortedByType** | The parameters by which the files will be sorted. |  [optional] |
+
+
+

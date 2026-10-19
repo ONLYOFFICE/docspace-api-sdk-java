@@ -40,7 +40,6 @@ import java.util.StringJoiner;
   AiExportTextToDocxRequest.JSON_PROPERTY_CONTENT,
   AiExportTextToDocxRequest.JSON_PROPERTY_FOLDER_ID
 })
-@JsonTypeName("aiExportTextToDocx_request")
 
 public class AiExportTextToDocxRequest {
   public static final String JSON_PROPERTY_TITLE = "title";

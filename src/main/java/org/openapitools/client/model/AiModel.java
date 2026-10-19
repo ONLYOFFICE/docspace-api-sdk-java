@@ -43,7 +43,8 @@ import java.util.StringJoiner;
   AiModel.JSON_PROPERTY_PROVIDER,
   AiModel.JSON_PROPERTY_REASONING,
   AiModel.JSON_PROPERTY_REASONING_SUPPORT,
-  AiModel.JSON_PROPERTY_CAPABILITIES
+  AiModel.JSON_PROPERTY_CAPABILITIES,
+  AiModel.JSON_PROPERTY_CREATED
 })
 
 public class AiModel {
@@ -64,6 +65,9 @@ public class AiModel {
 
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
   @javax.annotation.Nullable  private BigDecimal capabilities;
+
+  public static final String JSON_PROPERTY_CREATED = "created";
+  @javax.annotation.Nullable  private BigDecimal created;
 
   public AiModel() {
   }
@@ -213,6 +217,30 @@ public class AiModel {
     this.capabilities = capabilities;
   }
 
+  public AiModel created(@javax.annotation.Nullable BigDecimal created) {
+    
+    this.created = created;
+    return this;
+  }
+
+  /**
+   * Release date as a Unix timestamp in **seconds**, when the provider's catalogue reports one (OpenAI-shaped `/models` responses and OpenRouter carry `created`; Anthropic carries an ISO `created_at`). The model picker sorts on it so the newest releases come first; entries without it fall back to alphabetical order.
+   * @return created
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getCreated() {
+    return created;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CREATED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCreated(@javax.annotation.Nullable BigDecimal created) {
+    this.created = created;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -227,12 +255,13 @@ public class AiModel {
         Objects.equals(this.provider, aiModel.provider) &&
         Objects.equals(this.reasoning, aiModel.reasoning) &&
         Objects.equals(this.reasoningSupport, aiModel.reasoningSupport) &&
-        Objects.equals(this.capabilities, aiModel.capabilities);
+        Objects.equals(this.capabilities, aiModel.capabilities) &&
+        Objects.equals(this.created, aiModel.created);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, provider, reasoning, reasoningSupport, capabilities);
+    return Objects.hash(id, name, provider, reasoning, reasoningSupport, capabilities, created);
   }
 
   @Override
@@ -245,6 +274,7 @@ public class AiModel {
     sb.append("    reasoning: ").append(toIndentedString(reasoning)).append("\n");
     sb.append("    reasoningSupport: ").append(toIndentedString(reasoningSupport)).append("\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
+    sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -336,6 +366,16 @@ public class AiModel {
     if (getCapabilities() != null) {
       try {
         joiner.add(String.format("%scapabilities%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCapabilities()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `created` to the URL query string
+    if (getCreated() != null) {
+      try {
+        joiner.add(String.format("%screated%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreated()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

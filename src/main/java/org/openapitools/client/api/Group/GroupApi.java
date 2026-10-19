@@ -409,12 +409,12 @@ public class GroupApi extends BaseApi {
    * REST API Reference for getGroupByUserId Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/
    *
-   * @param userid The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404. (required)
+   * @param userId The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404. (required)
    * @return GroupSummaryArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public GroupSummaryArrayWrapper getGroupByUserId(@javax.annotation.Nonnull UUID userid) throws ApiException {
-    return this.getGroupByUserId(userid, Collections.emptyMap());
+  public GroupSummaryArrayWrapper getGroupByUserId(@javax.annotation.Nonnull UUID userId) throws ApiException {
+    return this.getGroupByUserId(userId, Collections.emptyMap());
   }
 
 
@@ -425,22 +425,22 @@ public class GroupApi extends BaseApi {
    * REST API Reference for getGroupByUserId Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/
    *
-   * @param userid The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404. (required)
+   * @param userId The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return GroupSummaryArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public GroupSummaryArrayWrapper getGroupByUserId(@javax.annotation.Nonnull UUID userid, Map<String, String> additionalHeaders) throws ApiException {
+  public GroupSummaryArrayWrapper getGroupByUserId(@javax.annotation.Nonnull UUID userId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'userid' is set
-    if (userid == null) {
-      throw new ApiException(400, "Missing the required parameter 'userid' when calling getGroupByUserId");
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling getGroupByUserId");
     }
     
     // create path and map variables
-    String localVarPath = "/api/2.0/group/user/{userid}"
-      .replaceAll("\\{" + "userid" + "\\}", apiClient.escapeString(apiClient.parameterToString(userid)));
+    String localVarPath = "/api/2.0/group/user/{userId}"
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -488,7 +488,7 @@ public class GroupApi extends BaseApi {
 
   /**
    * Get groups
-   * Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userid}` to find the groups of a single account.
+   * Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userId}` to find the groups of a single account.
    *
    * REST API Reference for getGroups Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups/
@@ -510,7 +510,7 @@ public class GroupApi extends BaseApi {
 
   /**
    * Get groups
-   * Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userid}` to find the groups of a single account.
+   * Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userId}` to find the groups of a single account.
    *
    * REST API Reference for getGroups Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups/

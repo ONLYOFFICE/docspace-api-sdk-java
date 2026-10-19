@@ -118,9 +118,9 @@ public class Example {
 
 ## createBackupSchedule
 
-> BooleanWrapper createBackupSchedule(backupScheduleDto)
+> BooleanWrapper createBackupSchedule(createBackupScheduleRequestDto)
 
-Create the backup scheduleSets the backup schedule of the current portal. A portal keeps at most one schedule, so this replaces  the existing one rather than adding a second, and `dump` writes the schedule of the whole server  instead, which requires the space access permission and works on a standalone installation only.  Scheduled backups have to be allowed by the pricing plan of a portal that is not a standalone  installation.  `cronParams` is a period plus a time rather than a cron string: `hour` is the hour of the day from 0  to 23, and `day` has to be given for `EveryWeek`, where it is the day of the week from 1 to 7 with  Sunday as 1, and for `EveryMonth`, where it is the day of the month from 1 to 31. It is left out for  `EveryDay`, and because an omitted `day` is stored as 0, which neither period accepts, a weekly or  monthly schedule sent without it fails instead of falling back to a default.  `backupsStored` is the number of scheduled copies to keep, from 1 to 30, and it defaults to 1. Older  copies are removed by a background cleaner, and only the ones this schedule created: archives made by  `POST api/2.0/backup/startbackup` are not counted and not removed. A portal whose subscription stops  covering backups has its schedule deleted by the scheduler, not suspended, and its administrators are  notified that the scheduled backup failed.  The keys expected in `storageParams` are the same as for `POST api/2.0/backup/startbackup`, except  that they are sent as an array of key and value pairs here and returned as an object by  `GET api/2.0/backup/getbackupschedule`.
+Create the backup scheduleSets the backup schedule of the current portal. A portal keeps at most one schedule, so this replaces  the existing one rather than adding a second, and `dump` writes the schedule of the whole server  instead, which requires the space access permission and works on a standalone installation only.  Scheduled backups have to be allowed by the pricing plan of a portal that is not a standalone  installation.  `cronParams` is a period plus a time rather than a cron string: `hour` is the hour of the day from 0  to 23, and `day` has to be given for `EveryWeek`, where it is the day of the week from 1 to 7 with  Sunday as 1, and for `EveryMonth`, where it is the day of the month from 1 to 31. It is left out for  `EveryDay`, and a weekly or monthly schedule sent without it is rejected with 400 instead of falling  back to a default.  `backupsStored` is the number of scheduled copies to keep, from 1 to 30, and it defaults to 1. Older  copies are removed by a background cleaner, and only the ones this schedule created: archives made by  `POST api/2.0/backup/startbackup` are not counted and not removed. A portal whose subscription stops  covering backups has its schedule deleted by the scheduler, not suspended, and its administrators are  notified that the scheduled backup failed.  The keys expected in `storageParams` are the same as for `POST api/2.0/backup/startbackup`, except  that they are sent as an array of key and value pairs here and returned as an object by  `GET api/2.0/backup/getbackupschedule`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-backup-schedule/).
 
@@ -129,7 +129,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **backupScheduleDto** | [**BackupScheduleDto**](BackupScheduleDto.md)|  | [optional] |
+| **createBackupScheduleRequestDto** | [**CreateBackupScheduleRequestDto**](CreateBackupScheduleRequestDto.md)|  | [optional] |
 
 ### Return type
 
@@ -182,9 +182,9 @@ public class Example {
 
 
         BackupApi apiInstance = new BackupApi(defaultClient);
-        BackupScheduleDto backupScheduleDto = new BackupScheduleDto(); // BackupScheduleDto | 
+        CreateBackupScheduleRequestDto createBackupScheduleRequestDto = new CreateBackupScheduleRequestDto(); // CreateBackupScheduleRequestDto | 
         try {
-            BooleanWrapper result = apiInstance.createBackupSchedule(backupScheduleDto);
+            BooleanWrapper result = apiInstance.createBackupSchedule(createBackupScheduleRequestDto);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling BackupApi#createBackupSchedule");
@@ -207,13 +207,13 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | True if the schedule was saved |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The number of the stored copies is outside 1 - 30, or a dump was requested on a portal that is not a standalone installation |  -  |
+| **400** | The request body cannot be read, `cronParams` is missing, its period is not a defined value, its hour or day is out of range for the period, which includes a weekly or monthly schedule sent without `day`, the number of the stored copies is outside 1-30, `storageType` is not a storage the backups can be written to, a `ThirdPartyConsumer` schedule has no known `module`, the `folderId` or `filePath` key the storage type needs is missing, the `folderId` of a `Documents` schedule is not a number, a dump was requested on a portal that is not a standalone installation, or `storageParams` repeats a key or, on a dump, contains `tenantId` |  -  |
 | **402** | The portal subscription does not cover scheduled backups, has expired or has not been paid |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | The target folder was not found |  -  |
+| **500** | A key or value of `storageParams` is null, or `Local` storage was requested on a portal that is not a standalone installation |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -222,7 +222,7 @@ public class Example {
 
 > BooleanWrapper deleteBackup(id)
 
-Delete the backupDeletes one backup: first its history record, then the archive in the storage the record points at.  The ID is the one listed by `GET api/2.0/backup/getbackuphistory`, which is also the `taskId` the  backup was started with.  Deleting a backup of the whole server rather than of one portal additionally requires the space  access permission. A record that belongs to another portal is left untouched and the call still  answers true, so the result confirms that the request was accepted rather than that anything was  deleted - check with `GET api/2.0/backup/getbackuphistory` if it matters.  The record is removed before the archive, so when the storage can no longer be reached the archive  stays behind with nothing pointing at it.
+Delete the backupDeletes one backup: first its history record, then the archive in the storage the record points at.  The ID is the one listed by `GET api/2.0/backup/getbackuphistory`, which is also the `taskId` the  backup was started with.  Deleting a backup of the whole server rather than of one portal additionally requires the space  access permission. A record that belongs to another portal is left untouched and the call still  answers true, so the result confirms that the request was accepted rather than that anything was  deleted - check with `GET api/2.0/backup/getbackuphistory` if it matters.  The record is removed before the archive, so when the storage can no longer be reached the archive  stays behind with nothing pointing at it. An ID that no backup has ever had is answered with 404.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup/).
 
@@ -311,6 +311,7 @@ public class Example {
 | **200** | True once the request has been accepted, whether or not a backup was deleted |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **402** | The portal subscription has expired or has not been paid |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **404** | There is no backup record with this ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -918,7 +919,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The number of backups created within the period |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The start of the period is later than its end |  -  |
+| **400** | The start of the period is later than its end, or `from`, `to` or `paid` cannot be parsed |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -1022,7 +1023,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The number of free and of paid backups created within the period |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The start of the period is later than its end |  -  |
+| **400** | The start of the period is later than its end, or `from`, `to` or `paid` cannot be parsed |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -1226,7 +1227,7 @@ public class Example {
 
 ## startBackup
 
-> BackupProgressWrapper startBackup(backupDto)
+> BackupProgressWrapper startBackup(startBackupRequestDto)
 
 Start the backupQueues a backup of the current portal and returns straight away: the archive itself is written by the  separate backup worker service, which picks the job up from an integration event, so the response  reports a progress of 0 and the `Created` status, and its `taskId` is the handle to poll with  `GET api/2.0/backup/getbackupprogress`. The caller needs the portal settings permission, and  `dump` - a backup of the whole server instead of this one portal - additionally requires the space  access permission and is rejected outside a standalone installation.  The keys expected in `storageParams` depend on `storageType`: `Documents` takes an integer `folderId`,  `ThridpartyDocuments` takes a provider-specific non-integer `folderId`, `Local` takes `filePath` and  works on a standalone installation only, `ThirdPartyConsumer` takes `module` together with the settings  of that consumer, and `DataStore` takes no keys at all; the `subdir` key is added by the operation  itself and must not be sent.  A portal that has already used up the free backups of the current calendar month is charged through the  paid backup service instead, and the call is rejected with 402 when that service is not available to it.
 
@@ -1237,7 +1238,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **backupDto** | [**BackupDto**](BackupDto.md)|  | [optional] |
+| **startBackupRequestDto** | [**StartBackupRequestDto**](StartBackupRequestDto.md)|  | [optional] |
 
 ### Return type
 
@@ -1290,9 +1291,9 @@ public class Example {
 
 
         BackupApi apiInstance = new BackupApi(defaultClient);
-        BackupDto backupDto = new BackupDto(); // BackupDto | 
+        StartBackupRequestDto startBackupRequestDto = new StartBackupRequestDto(); // StartBackupRequestDto | 
         try {
-            BackupProgressWrapper result = apiInstance.startBackup(backupDto);
+            BackupProgressWrapper result = apiInstance.startBackup(startBackupRequestDto);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling BackupApi#startBackup");
@@ -1315,20 +1316,20 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The state of the queued backup job |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The folder ID does not match the storage type, or a dump was requested on a portal that is not a standalone installation |  -  |
-| **402** | The free backups of the current month are used up and the paid backup service is not available to this portal |  -  |
+| **400** | The request body cannot be read, the folder ID does not match the storage type or is missing, an item of `storageParams` is null, has no key or no value, or repeats a key, or a dump was requested on a portal that is not a standalone installation |  -  |
+| **402** | The portal already uses more storage than its plan allows and the backup goes to `Documents`, or the free backups of the current month are used up and the paid backup service is not available to this portal or cannot be charged |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | The target folder or the backup quota was not found |  -  |
+| **500** | `Local` storage has no `filePath` or was requested on a portal that is not a standalone installation |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## startBackupRestore
 
-> BackupProgressWrapper startBackupRestore(backupRestoreDto)
+> BackupProgressWrapper startBackupRestore(startBackupRestoreRequestDto)
 
 Start the restoring processQueues the restoring of the current portal from a backup and returns straight away: the work itself is  done by the separate backup worker service, which picks the job up from an integration event, so the  response reports a progress of 0 and the `Created` status, and the returned `taskId` is the handle to  poll with `GET api/2.0/backup/getrestoreprogress` - the one operation of this service that stays  reachable while the portal is being restored, because every other one answers 403 in that state.  The source is given either by `backupId`, which is the ID of a record from  `GET api/2.0/backup/getbackuphistory`, or, when `backupId` is not a GUID, by the `filePath` key of  `storageParams` together with the matching `storageType`; an all-zero GUID is parsed as a GUID and  therefore reaches neither branch.  The caller needs the portal settings permission, restoring has to be allowed by the pricing plan of a  portal that is not a standalone installation, and `dump` - restoring the whole server rather than this  one portal - additionally requires the space access permission.
 
@@ -1339,7 +1340,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **backupRestoreDto** | [**BackupRestoreDto**](BackupRestoreDto.md)|  | [optional] |
+| **startBackupRestoreRequestDto** | [**StartBackupRestoreRequestDto**](StartBackupRestoreRequestDto.md)|  | [optional] |
 
 ### Return type
 
@@ -1392,9 +1393,9 @@ public class Example {
 
 
         BackupApi apiInstance = new BackupApi(defaultClient);
-        BackupRestoreDto backupRestoreDto = new BackupRestoreDto(); // BackupRestoreDto | 
+        StartBackupRestoreRequestDto startBackupRestoreRequestDto = new StartBackupRestoreRequestDto(); // StartBackupRestoreRequestDto | 
         try {
-            BackupProgressWrapper result = apiInstance.startBackupRestore(backupRestoreDto);
+            BackupProgressWrapper result = apiInstance.startBackupRestore(startBackupRestoreRequestDto);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling BackupApi#startBackupRestore");
@@ -1417,13 +1418,13 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The state of the queued restoring job |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `backupId`, `backupId` is not a GUID and `storageParams` has no `filePath`, or an item of `storageParams` is null, has no key or no value, or repeats a key |  -  |
 | **402** | The pricing plan of this portal does not allow restoring |  -  |
 | **403** | No permissions to perform this action |  -  |
-| **404** | The backup record was not found, or the file it points to is missing |  -  |
+| **404** | The backup record was not found, the file given in `filePath` or its folder was not found, or, for `Local` storage, no backup archive has been uploaded to the portal |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

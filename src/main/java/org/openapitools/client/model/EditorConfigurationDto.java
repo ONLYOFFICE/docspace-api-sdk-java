@@ -28,14 +28,14 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.CoEditingConfig;
+import org.openapitools.client.model.CoEditingConfigDto;
 import org.openapitools.client.model.CustomizationConfigDto;
-import org.openapitools.client.model.EmbeddedConfig;
+import org.openapitools.client.model.EmbeddedConfigDto;
 import org.openapitools.client.model.EncryptionKeyDto;
-import org.openapitools.client.model.PluginsConfig;
-import org.openapitools.client.model.RecentConfig;
-import org.openapitools.client.model.TemplatesConfig;
-import org.openapitools.client.model.UserConfig;
+import org.openapitools.client.model.PluginsConfigDto;
+import org.openapitools.client.model.RecentConfigDto;
+import org.openapitools.client.model.TemplatesConfigDto;
+import org.openapitools.client.model.UserConfigDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -71,7 +71,7 @@ public class EditorConfigurationDto {
   @javax.annotation.Nullable  private JsonNullable<URI> callbackUrl = JsonNullable.<URI>undefined();
 
   public static final String JSON_PROPERTY_CO_EDITING = "coEditing";
-  @javax.annotation.Nullable  private CoEditingConfig coEditing;
+  @javax.annotation.Nullable  private CoEditingConfigDto coEditing;
 
   public static final String JSON_PROPERTY_CREATE_URL = "createUrl";
   @javax.annotation.Nullable  private JsonNullable<String> createUrl = JsonNullable.<String>undefined();
@@ -80,7 +80,7 @@ public class EditorConfigurationDto {
   @javax.annotation.Nullable  private CustomizationConfigDto customization;
 
   public static final String JSON_PROPERTY_EMBEDDED = "embedded";
-  @javax.annotation.Nullable  private EmbeddedConfig embedded;
+  @javax.annotation.Nullable  private EmbeddedConfigDto embedded;
 
   public static final String JSON_PROPERTY_ENCRYPTION_KEYS = "encryptionKeys";
   @javax.annotation.Nullable  private JsonNullable<List<EncryptionKeyDto>> encryptionKeys = JsonNullable.<List<EncryptionKeyDto>>undefined();
@@ -95,16 +95,16 @@ public class EditorConfigurationDto {
   @javax.annotation.Nullable  private Boolean modeWrite;
 
   public static final String JSON_PROPERTY_PLUGINS = "plugins";
-  @javax.annotation.Nullable  private PluginsConfig plugins;
+  @javax.annotation.Nullable  private PluginsConfigDto plugins;
 
   public static final String JSON_PROPERTY_RECENT = "recent";
-  @javax.annotation.Nullable  private JsonNullable<List<RecentConfig>> recent = JsonNullable.<List<RecentConfig>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<RecentConfigDto>> recent = JsonNullable.<List<RecentConfigDto>>undefined();
 
   public static final String JSON_PROPERTY_TEMPLATES = "templates";
-  @javax.annotation.Nullable  private JsonNullable<List<TemplatesConfig>> templates = JsonNullable.<List<TemplatesConfig>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<TemplatesConfigDto>> templates = JsonNullable.<List<TemplatesConfigDto>>undefined();
 
   public static final String JSON_PROPERTY_USER = "user";
-  @javax.annotation.Nullable  private UserConfig user;
+  @javax.annotation.Nullable  private UserConfigDto user;
 
   public EditorConfigurationDto() {
   }
@@ -141,7 +141,7 @@ public class EditorConfigurationDto {
     this.callbackUrl = JsonNullable.<URI>of(callbackUrl);
   }
 
-  public EditorConfigurationDto coEditing(@javax.annotation.Nullable CoEditingConfig coEditing) {
+  public EditorConfigurationDto coEditing(@javax.annotation.Nullable CoEditingConfigDto coEditing) {
     
     this.coEditing = coEditing;
     return this;
@@ -154,14 +154,14 @@ public class EditorConfigurationDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CO_EDITING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public CoEditingConfig getCoEditing() {
+  public CoEditingConfigDto getCoEditing() {
     return coEditing;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_CO_EDITING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCoEditing(@javax.annotation.Nullable CoEditingConfig coEditing) {
+  public void setCoEditing(@javax.annotation.Nullable CoEditingConfigDto coEditing) {
     this.coEditing = coEditing;
   }
 
@@ -220,7 +220,7 @@ public class EditorConfigurationDto {
     this.customization = customization;
   }
 
-  public EditorConfigurationDto embedded(@javax.annotation.Nullable EmbeddedConfig embedded) {
+  public EditorConfigurationDto embedded(@javax.annotation.Nullable EmbeddedConfigDto embedded) {
     
     this.embedded = embedded;
     return this;
@@ -233,14 +233,14 @@ public class EditorConfigurationDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMBEDDED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public EmbeddedConfig getEmbedded() {
+  public EmbeddedConfigDto getEmbedded() {
     return embedded;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_EMBEDDED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEmbedded(@javax.annotation.Nullable EmbeddedConfig embedded) {
+  public void setEmbedded(@javax.annotation.Nullable EmbeddedConfigDto embedded) {
     this.embedded = embedded;
   }
 
@@ -359,7 +359,7 @@ public class EditorConfigurationDto {
     this.modeWrite = modeWrite;
   }
 
-  public EditorConfigurationDto plugins(@javax.annotation.Nullable PluginsConfig plugins) {
+  public EditorConfigurationDto plugins(@javax.annotation.Nullable PluginsConfigDto plugins) {
     
     this.plugins = plugins;
     return this;
@@ -372,26 +372,26 @@ public class EditorConfigurationDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PLUGINS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public PluginsConfig getPlugins() {
+  public PluginsConfigDto getPlugins() {
     return plugins;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_PLUGINS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPlugins(@javax.annotation.Nullable PluginsConfig plugins) {
+  public void setPlugins(@javax.annotation.Nullable PluginsConfigDto plugins) {
     this.plugins = plugins;
   }
 
-  public EditorConfigurationDto recent(@javax.annotation.Nullable List<RecentConfig> recent) {
-    this.recent = JsonNullable.<List<RecentConfig>>of(recent);
+  public EditorConfigurationDto recent(@javax.annotation.Nullable List<RecentConfigDto> recent) {
+    this.recent = JsonNullable.<List<RecentConfigDto>>of(recent);
     
     return this;
   }
 
-  public EditorConfigurationDto addRecentItem(RecentConfig recentItem) {
+  public EditorConfigurationDto addRecentItem(RecentConfigDto recentItem) {
     if (this.recent == null || !this.recent.isPresent()) {
-      this.recent = JsonNullable.<List<RecentConfig>>of(new ArrayList<>());
+      this.recent = JsonNullable.<List<RecentConfigDto>>of(new ArrayList<>());
     }
     try {
       this.recent.get().add(recentItem);
@@ -407,34 +407,34 @@ public class EditorConfigurationDto {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public List<RecentConfig> getRecent() {
+  public List<RecentConfigDto> getRecent() {
         return recent.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_RECENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<List<RecentConfig>> getRecent_JsonNullable() {
+  public JsonNullable<List<RecentConfigDto>> getRecent_JsonNullable() {
     return recent;
   }
   
   @JsonProperty(JSON_PROPERTY_RECENT)
-  public void setRecent_JsonNullable(JsonNullable<List<RecentConfig>> recent) {
+  public void setRecent_JsonNullable(JsonNullable<List<RecentConfigDto>> recent) {
     this.recent = recent;
   }
 
-  public void setRecent(@javax.annotation.Nullable List<RecentConfig> recent) {
-    this.recent = JsonNullable.<List<RecentConfig>>of(recent);
+  public void setRecent(@javax.annotation.Nullable List<RecentConfigDto> recent) {
+    this.recent = JsonNullable.<List<RecentConfigDto>>of(recent);
   }
 
-  public EditorConfigurationDto templates(@javax.annotation.Nullable List<TemplatesConfig> templates) {
-    this.templates = JsonNullable.<List<TemplatesConfig>>of(templates);
+  public EditorConfigurationDto templates(@javax.annotation.Nullable List<TemplatesConfigDto> templates) {
+    this.templates = JsonNullable.<List<TemplatesConfigDto>>of(templates);
     
     return this;
   }
 
-  public EditorConfigurationDto addTemplatesItem(TemplatesConfig templatesItem) {
+  public EditorConfigurationDto addTemplatesItem(TemplatesConfigDto templatesItem) {
     if (this.templates == null || !this.templates.isPresent()) {
-      this.templates = JsonNullable.<List<TemplatesConfig>>of(new ArrayList<>());
+      this.templates = JsonNullable.<List<TemplatesConfigDto>>of(new ArrayList<>());
     }
     try {
       this.templates.get().add(templatesItem);
@@ -450,26 +450,26 @@ public class EditorConfigurationDto {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public List<TemplatesConfig> getTemplates() {
+  public List<TemplatesConfigDto> getTemplates() {
         return templates.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_TEMPLATES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<List<TemplatesConfig>> getTemplates_JsonNullable() {
+  public JsonNullable<List<TemplatesConfigDto>> getTemplates_JsonNullable() {
     return templates;
   }
   
   @JsonProperty(JSON_PROPERTY_TEMPLATES)
-  public void setTemplates_JsonNullable(JsonNullable<List<TemplatesConfig>> templates) {
+  public void setTemplates_JsonNullable(JsonNullable<List<TemplatesConfigDto>> templates) {
     this.templates = templates;
   }
 
-  public void setTemplates(@javax.annotation.Nullable List<TemplatesConfig> templates) {
-    this.templates = JsonNullable.<List<TemplatesConfig>>of(templates);
+  public void setTemplates(@javax.annotation.Nullable List<TemplatesConfigDto> templates) {
+    this.templates = JsonNullable.<List<TemplatesConfigDto>>of(templates);
   }
 
-  public EditorConfigurationDto user(@javax.annotation.Nullable UserConfig user) {
+  public EditorConfigurationDto user(@javax.annotation.Nullable UserConfigDto user) {
     
     this.user = user;
     return this;
@@ -482,14 +482,14 @@ public class EditorConfigurationDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UserConfig getUser() {
+  public UserConfigDto getUser() {
     return user;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_USER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUser(@javax.annotation.Nullable UserConfig user) {
+  public void setUser(@javax.annotation.Nullable UserConfigDto user) {
     this.user = user;
   }
 

@@ -10,7 +10,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 ## setTenantDevToolsAccessSettings
 
-> TenantDevToolsAccessSettingsWrapper setTenantDevToolsAccessSettings(tenantDevToolsAccessSettingsDto)
+> TenantDevToolsAccessSettingsWrapper setTenantDevToolsAccessSettings(tenantDevToolsAccessSettingsRequestDto)
 
 Set the Developer Tools access settingsSets whether the portal restricts the `User` role from using the developer tools (API keys, OAuth apps,  webhooks); `RoomAdmin` and `DocSpaceAdmin` are never affected by this setting. Requires Owner or DocSpaceAdmin  (the EditPortalSettings permission). This is a mutating, idempotent, portal-wide call: it applies to every  `User` on the tenant immediately. It returns the saved setting; read the current value at any time from  `GET api/2.0/settings/devtoolsaccess`.
 
@@ -21,7 +21,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantDevToolsAccessSettingsDto** | [**TenantDevToolsAccessSettingsDto**](TenantDevToolsAccessSettingsDto.md)|  | [optional] |
+| **tenantDevToolsAccessSettingsRequestDto** | [**TenantDevToolsAccessSettingsRequestDto**](TenantDevToolsAccessSettingsRequestDto.md)|  | [optional] |
 
 ### Return type
 
@@ -74,9 +74,9 @@ public class Example {
 
 
         AccessToDevToolsApi apiInstance = new AccessToDevToolsApi(defaultClient);
-        TenantDevToolsAccessSettingsDto tenantDevToolsAccessSettingsDto = new TenantDevToolsAccessSettingsDto(); // TenantDevToolsAccessSettingsDto | 
+        TenantDevToolsAccessSettingsRequestDto tenantDevToolsAccessSettingsRequestDto = new TenantDevToolsAccessSettingsRequestDto(); // TenantDevToolsAccessSettingsRequestDto | 
         try {
-            TenantDevToolsAccessSettingsWrapper result = apiInstance.setTenantDevToolsAccessSettings(tenantDevToolsAccessSettingsDto);
+            TenantDevToolsAccessSettingsWrapper result = apiInstance.setTenantDevToolsAccessSettings(tenantDevToolsAccessSettingsRequestDto);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccessToDevToolsApi#setTenantDevToolsAccessSettings");
@@ -99,6 +99,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Saved developer tools access restriction for the `User` role |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |

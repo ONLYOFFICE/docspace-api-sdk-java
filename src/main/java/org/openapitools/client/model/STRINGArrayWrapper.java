@@ -39,14 +39,14 @@ import java.util.StringJoiner;
  * The successful API response.
  */
 @JsonPropertyOrder({
-  STRINGArrayWrapper.JSON_PROPERTY_RESPONSE,
-  STRINGArrayWrapper.JSON_PROPERTY_COUNT,
-  STRINGArrayWrapper.JSON_PROPERTY_LINKS,
-  STRINGArrayWrapper.JSON_PROPERTY_STATUS,
-  STRINGArrayWrapper.JSON_PROPERTY_STATUS_CODE
+  StringArrayWrapper.JSON_PROPERTY_RESPONSE,
+  StringArrayWrapper.JSON_PROPERTY_COUNT,
+  StringArrayWrapper.JSON_PROPERTY_LINKS,
+  StringArrayWrapper.JSON_PROPERTY_STATUS,
+  StringArrayWrapper.JSON_PROPERTY_STATUS_CODE
 })
 
-public class STRINGArrayWrapper {
+public class StringArrayWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
   @javax.annotation.Nullable  private List<String> response = new ArrayList<>();
 
@@ -62,17 +62,17 @@ public class STRINGArrayWrapper {
   public static final String JSON_PROPERTY_STATUS_CODE = "statusCode";
   @javax.annotation.Nullable  private Integer statusCode;
 
-  public STRINGArrayWrapper() {
+  public StringArrayWrapper() {
   }
 
 
-  public STRINGArrayWrapper response(@javax.annotation.Nullable List<String> response) {
+  public StringArrayWrapper response(@javax.annotation.Nullable List<String> response) {
     
     this.response = response;
     return this;
   }
 
-  public STRINGArrayWrapper addResponseItem(String responseItem) {
+  public StringArrayWrapper addResponseItem(String responseItem) {
     if (this.response == null) {
       this.response = new ArrayList<>();
     }
@@ -98,7 +98,7 @@ public class STRINGArrayWrapper {
     this.response = response;
   }
 
-  public STRINGArrayWrapper count(@javax.annotation.Nullable Integer count) {
+  public StringArrayWrapper count(@javax.annotation.Nullable Integer count) {
     
     this.count = count;
     return this;
@@ -122,13 +122,13 @@ public class STRINGArrayWrapper {
     this.count = count;
   }
 
-  public STRINGArrayWrapper links(@javax.annotation.Nullable List<GetPortalPrices200ResponseLinksInner> links) {
+  public StringArrayWrapper links(@javax.annotation.Nullable List<GetPortalPrices200ResponseLinksInner> links) {
     
     this.links = links;
     return this;
   }
 
-  public STRINGArrayWrapper addLinksItem(GetPortalPrices200ResponseLinksInner linksItem) {
+  public StringArrayWrapper addLinksItem(GetPortalPrices200ResponseLinksInner linksItem) {
     if (this.links == null) {
       this.links = new ArrayList<>();
     }
@@ -154,7 +154,7 @@ public class STRINGArrayWrapper {
     this.links = links;
   }
 
-  public STRINGArrayWrapper status(@javax.annotation.Nullable Integer status) {
+  public StringArrayWrapper status(@javax.annotation.Nullable Integer status) {
     
     this.status = status;
     return this;
@@ -178,7 +178,7 @@ public class STRINGArrayWrapper {
     this.status = status;
   }
 
-  public STRINGArrayWrapper statusCode(@javax.annotation.Nullable Integer statusCode) {
+  public StringArrayWrapper statusCode(@javax.annotation.Nullable Integer statusCode) {
     
     this.statusCode = statusCode;
     return this;
@@ -210,12 +210,12 @@ public class STRINGArrayWrapper {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    STRINGArrayWrapper stRINGArrayWrapper = (STRINGArrayWrapper) o;
-    return Objects.equals(this.response, stRINGArrayWrapper.response) &&
-        Objects.equals(this.count, stRINGArrayWrapper.count) &&
-        Objects.equals(this.links, stRINGArrayWrapper.links) &&
-        Objects.equals(this.status, stRINGArrayWrapper.status) &&
-        Objects.equals(this.statusCode, stRINGArrayWrapper.statusCode);
+    StringArrayWrapper stringArrayWrapper = (StringArrayWrapper) o;
+    return Objects.equals(this.response, stringArrayWrapper.response) &&
+        Objects.equals(this.count, stringArrayWrapper.count) &&
+        Objects.equals(this.links, stringArrayWrapper.links) &&
+        Objects.equals(this.status, stringArrayWrapper.status) &&
+        Objects.equals(this.statusCode, stringArrayWrapper.statusCode);
   }
 
   @Override
@@ -226,7 +226,7 @@ public class STRINGArrayWrapper {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class STRINGArrayWrapper {\n");
+    sb.append("class StringArrayWrapper {\n");
     sb.append("    response: ").append(toIndentedString(response)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");

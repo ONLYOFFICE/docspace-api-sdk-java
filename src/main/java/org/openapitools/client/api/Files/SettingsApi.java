@@ -226,12 +226,12 @@ public class SettingsApi extends BaseApi {
    * REST API Reference for changeDefaultAccessRights Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/
    *
-   * @param requestBody The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)
+   * @param defaultAccessRightsRequestDto The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)
    * @return FileShareResponseArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileShareResponseArrayWrapper changeDefaultAccessRights(@javax.annotation.Nullable List<Integer> requestBody) throws ApiException {
-    return this.changeDefaultAccessRights(requestBody, Collections.emptyMap());
+  public FileShareResponseArrayWrapper changeDefaultAccessRights(@javax.annotation.Nullable List<Integer> defaultAccessRightsRequestDto) throws ApiException {
+    return this.changeDefaultAccessRights(defaultAccessRightsRequestDto, Collections.emptyMap());
   }
 
 
@@ -242,13 +242,13 @@ public class SettingsApi extends BaseApi {
    * REST API Reference for changeDefaultAccessRights Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/
    *
-   * @param requestBody The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)
+   * @param defaultAccessRightsRequestDto The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileShareResponseArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileShareResponseArrayWrapper changeDefaultAccessRights(@javax.annotation.Nullable List<Integer> requestBody, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = requestBody;
+  public FileShareResponseArrayWrapper changeDefaultAccessRights(@javax.annotation.Nullable List<Integer> defaultAccessRightsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = defaultAccessRightsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/files/settings/dafaultaccessrights";
@@ -2368,14 +2368,14 @@ public class SettingsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("FileExtension", fileExtension));
+    localVarQueryParams.addAll(apiClient.parameterToPair("fileExtension", fileExtension));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
 
     
     if (_file != null)
-      localVarFormParams.put("File", _file);
+      localVarFormParams.put("file", _file);
 
     final String[] localVarAccepts = {
       "application/json"

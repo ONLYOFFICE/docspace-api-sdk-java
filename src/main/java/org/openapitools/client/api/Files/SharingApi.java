@@ -24,7 +24,7 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.AceShortWrapperArrayWrapper;
+import org.openapitools.client.model.AceShortArrayWrapper;
 import org.openapitools.client.model.BaseBatchRequestDto;
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.ChangeOwnerRequestDto;
@@ -34,9 +34,9 @@ import org.openapitools.client.model.ExternalShareRequestParam;
 import org.openapitools.client.model.ExternalShareWrapper;
 import org.openapitools.client.model.FileEntryBaseArrayWrapper;
 import org.openapitools.client.model.FileShareArrayWrapper;
-import org.openapitools.client.model.GroupMemberSecurityRequestArrayWrapper;
-import org.openapitools.client.model.MentionMessageWrapper;
-import org.openapitools.client.model.MentionWrapperArrayWrapper;
+import org.openapitools.client.model.GroupMemberSecurityArrayWrapper;
+import org.openapitools.client.model.MentionArrayWrapper;
+import org.openapitools.client.model.MentionMessageRequest;
 import org.openapitools.client.model.SecurityInfoRequestDto;
 import org.openapitools.client.model.SecurityInfoSimpleRequestDto;
 import java.util.UUID;
@@ -859,10 +859,10 @@ public class SharingApi extends BaseApi {
    * @param count How many members at most to answer with. (optional)
    * @param startIndex How many members to skip before answering, used together with `count` to page through a large group. (optional)
    * @param filterValue Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)
-   * @return GroupMemberSecurityRequestArrayWrapper
+   * @return GroupMemberSecurityArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public GroupMemberSecurityRequestArrayWrapper getGroupsMembersWithFileSecurity(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull UUID groupId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue) throws ApiException {
+  public GroupMemberSecurityArrayWrapper getGroupsMembersWithFileSecurity(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull UUID groupId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue) throws ApiException {
     return this.getGroupsMembersWithFileSecurity(fileId, groupId, count, startIndex, filterValue, Collections.emptyMap());
   }
 
@@ -880,10 +880,10 @@ public class SharingApi extends BaseApi {
    * @param startIndex How many members to skip before answering, used together with `count` to page through a large group. (optional)
    * @param filterValue Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return GroupMemberSecurityRequestArrayWrapper
+   * @return GroupMemberSecurityArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public GroupMemberSecurityRequestArrayWrapper getGroupsMembersWithFileSecurity(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull UUID groupId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public GroupMemberSecurityArrayWrapper getGroupsMembersWithFileSecurity(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull UUID groupId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'fileId' is set
@@ -930,7 +930,7 @@ public class SharingApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<GroupMemberSecurityRequestArrayWrapper> localVarReturnType = new TypeReference<GroupMemberSecurityRequestArrayWrapper>() {};
+    TypeReference<GroupMemberSecurityArrayWrapper> localVarReturnType = new TypeReference<GroupMemberSecurityArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -960,10 +960,10 @@ public class SharingApi extends BaseApi {
    * @param count How many members at most to answer with. (optional)
    * @param startIndex How many members to skip before answering, used together with `count` to page through a large group. (optional)
    * @param filterValue Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)
-   * @return GroupMemberSecurityRequestArrayWrapper
+   * @return GroupMemberSecurityArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public GroupMemberSecurityRequestArrayWrapper getGroupsMembersWithFileSecurity(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull UUID groupId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue) throws ApiException {
+  public GroupMemberSecurityArrayWrapper getGroupsMembersWithFileSecurity(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull UUID groupId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue) throws ApiException {
     return this.getGroupsMembersWithFileSecurity(fileId, groupId, count, startIndex, filterValue, Collections.emptyMap());
   }
 
@@ -981,10 +981,10 @@ public class SharingApi extends BaseApi {
    * @param startIndex How many members to skip before answering, used together with `count` to page through a large group. (optional)
    * @param filterValue Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return GroupMemberSecurityRequestArrayWrapper
+   * @return GroupMemberSecurityArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public GroupMemberSecurityRequestArrayWrapper getGroupsMembersWithFileSecurity(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull UUID groupId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public GroupMemberSecurityArrayWrapper getGroupsMembersWithFileSecurity(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull UUID groupId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'fileId' is set
@@ -1031,7 +1031,7 @@ public class SharingApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<GroupMemberSecurityRequestArrayWrapper> localVarReturnType = new TypeReference<GroupMemberSecurityRequestArrayWrapper>() {};
+    TypeReference<GroupMemberSecurityArrayWrapper> localVarReturnType = new TypeReference<GroupMemberSecurityArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -1061,10 +1061,10 @@ public class SharingApi extends BaseApi {
    * @param count How many members at most to answer with. (optional)
    * @param startIndex How many members to skip before answering, used together with `count` to page through a large group. (optional)
    * @param filterValue Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)
-   * @return GroupMemberSecurityRequestArrayWrapper
+   * @return GroupMemberSecurityArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public GroupMemberSecurityRequestArrayWrapper getGroupsMembersWithFolderSecurity(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull UUID groupId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue) throws ApiException {
+  public GroupMemberSecurityArrayWrapper getGroupsMembersWithFolderSecurity(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull UUID groupId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue) throws ApiException {
     return this.getGroupsMembersWithFolderSecurity(folderId, groupId, count, startIndex, filterValue, Collections.emptyMap());
   }
 
@@ -1082,10 +1082,10 @@ public class SharingApi extends BaseApi {
    * @param startIndex How many members to skip before answering, used together with `count` to page through a large group. (optional)
    * @param filterValue Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return GroupMemberSecurityRequestArrayWrapper
+   * @return GroupMemberSecurityArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public GroupMemberSecurityRequestArrayWrapper getGroupsMembersWithFolderSecurity(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull UUID groupId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public GroupMemberSecurityArrayWrapper getGroupsMembersWithFolderSecurity(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull UUID groupId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'folderId' is set
@@ -1132,7 +1132,7 @@ public class SharingApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<GroupMemberSecurityRequestArrayWrapper> localVarReturnType = new TypeReference<GroupMemberSecurityRequestArrayWrapper>() {};
+    TypeReference<GroupMemberSecurityArrayWrapper> localVarReturnType = new TypeReference<GroupMemberSecurityArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -1162,10 +1162,10 @@ public class SharingApi extends BaseApi {
    * @param count How many members at most to answer with. (optional)
    * @param startIndex How many members to skip before answering, used together with `count` to page through a large group. (optional)
    * @param filterValue Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)
-   * @return GroupMemberSecurityRequestArrayWrapper
+   * @return GroupMemberSecurityArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public GroupMemberSecurityRequestArrayWrapper getGroupsMembersWithFolderSecurity(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull UUID groupId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue) throws ApiException {
+  public GroupMemberSecurityArrayWrapper getGroupsMembersWithFolderSecurity(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull UUID groupId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue) throws ApiException {
     return this.getGroupsMembersWithFolderSecurity(folderId, groupId, count, startIndex, filterValue, Collections.emptyMap());
   }
 
@@ -1183,10 +1183,10 @@ public class SharingApi extends BaseApi {
    * @param startIndex How many members to skip before answering, used together with `count` to page through a large group. (optional)
    * @param filterValue Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return GroupMemberSecurityRequestArrayWrapper
+   * @return GroupMemberSecurityArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public GroupMemberSecurityRequestArrayWrapper getGroupsMembersWithFolderSecurity(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull UUID groupId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public GroupMemberSecurityArrayWrapper getGroupsMembersWithFolderSecurity(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull UUID groupId, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'folderId' is set
@@ -1233,7 +1233,7 @@ public class SharingApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<GroupMemberSecurityRequestArrayWrapper> localVarReturnType = new TypeReference<GroupMemberSecurityRequestArrayWrapper>() {};
+    TypeReference<GroupMemberSecurityArrayWrapper> localVarReturnType = new TypeReference<GroupMemberSecurityArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -1337,10 +1337,10 @@ public class SharingApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/
    *
    * @param fileId The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string. (required)
-   * @return MentionWrapperArrayWrapper
+   * @return MentionArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public MentionWrapperArrayWrapper getSharedUsers(@javax.annotation.Nonnull Integer fileId) throws ApiException {
+  public MentionArrayWrapper getSharedUsers(@javax.annotation.Nonnull Integer fileId) throws ApiException {
     return this.getSharedUsers(fileId, Collections.emptyMap());
   }
 
@@ -1354,10 +1354,10 @@ public class SharingApi extends BaseApi {
    *
    * @param fileId The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string. (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return MentionWrapperArrayWrapper
+   * @return MentionArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public MentionWrapperArrayWrapper getSharedUsers(@javax.annotation.Nonnull Integer fileId, Map<String, String> additionalHeaders) throws ApiException {
+  public MentionArrayWrapper getSharedUsers(@javax.annotation.Nonnull Integer fileId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'fileId' is set
@@ -1395,7 +1395,7 @@ public class SharingApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<MentionWrapperArrayWrapper> localVarReturnType = new TypeReference<MentionWrapperArrayWrapper>() {};
+    TypeReference<MentionArrayWrapper> localVarReturnType = new TypeReference<MentionArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -1421,10 +1421,10 @@ public class SharingApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/
    *
    * @param fileId The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string. (required)
-   * @return MentionWrapperArrayWrapper
+   * @return MentionArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public MentionWrapperArrayWrapper getSharedUsers(@javax.annotation.Nonnull String fileId) throws ApiException {
+  public MentionArrayWrapper getSharedUsers(@javax.annotation.Nonnull String fileId) throws ApiException {
     return this.getSharedUsers(fileId, Collections.emptyMap());
   }
 
@@ -1438,10 +1438,10 @@ public class SharingApi extends BaseApi {
    *
    * @param fileId The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string. (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return MentionWrapperArrayWrapper
+   * @return MentionArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public MentionWrapperArrayWrapper getSharedUsers(@javax.annotation.Nonnull String fileId, Map<String, String> additionalHeaders) throws ApiException {
+  public MentionArrayWrapper getSharedUsers(@javax.annotation.Nonnull String fileId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'fileId' is set
@@ -1479,7 +1479,7 @@ public class SharingApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<MentionWrapperArrayWrapper> localVarReturnType = new TypeReference<MentionWrapperArrayWrapper>() {};
+    TypeReference<MentionArrayWrapper> localVarReturnType = new TypeReference<MentionArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -1583,12 +1583,12 @@ public class SharingApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/
    *
    * @param fileId The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string. (required)
-   * @param mentionMessageWrapper The notification to send. (optional)
-   * @return AceShortWrapperArrayWrapper
+   * @param mentionMessageRequest The notification to send. (optional)
+   * @return AceShortArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public AceShortWrapperArrayWrapper sendEditorNotify(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable MentionMessageWrapper mentionMessageWrapper) throws ApiException {
-    return this.sendEditorNotify(fileId, mentionMessageWrapper, Collections.emptyMap());
+  public AceShortArrayWrapper sendEditorNotify(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable MentionMessageRequest mentionMessageRequest) throws ApiException {
+    return this.sendEditorNotify(fileId, mentionMessageRequest, Collections.emptyMap());
   }
 
 
@@ -1600,13 +1600,13 @@ public class SharingApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/
    *
    * @param fileId The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string. (required)
-   * @param mentionMessageWrapper The notification to send. (optional)
+   * @param mentionMessageRequest The notification to send. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return AceShortWrapperArrayWrapper
+   * @return AceShortArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public AceShortWrapperArrayWrapper sendEditorNotify(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable MentionMessageWrapper mentionMessageWrapper, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = mentionMessageWrapper;
+  public AceShortArrayWrapper sendEditorNotify(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable MentionMessageRequest mentionMessageRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = mentionMessageRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
@@ -1643,7 +1643,7 @@ public class SharingApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<AceShortWrapperArrayWrapper> localVarReturnType = new TypeReference<AceShortWrapperArrayWrapper>() {};
+    TypeReference<AceShortArrayWrapper> localVarReturnType = new TypeReference<AceShortArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -1669,12 +1669,12 @@ public class SharingApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/
    *
    * @param fileId The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string. (required)
-   * @param mentionMessageWrapper The notification to send. (optional)
-   * @return AceShortWrapperArrayWrapper
+   * @param mentionMessageRequest The notification to send. (optional)
+   * @return AceShortArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public AceShortWrapperArrayWrapper sendEditorNotify(@javax.annotation.Nonnull String fileId, @javax.annotation.Nullable MentionMessageWrapper mentionMessageWrapper) throws ApiException {
-    return this.sendEditorNotify(fileId, mentionMessageWrapper, Collections.emptyMap());
+  public AceShortArrayWrapper sendEditorNotify(@javax.annotation.Nonnull String fileId, @javax.annotation.Nullable MentionMessageRequest mentionMessageRequest) throws ApiException {
+    return this.sendEditorNotify(fileId, mentionMessageRequest, Collections.emptyMap());
   }
 
 
@@ -1686,13 +1686,13 @@ public class SharingApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/
    *
    * @param fileId The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string. (required)
-   * @param mentionMessageWrapper The notification to send. (optional)
+   * @param mentionMessageRequest The notification to send. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return AceShortWrapperArrayWrapper
+   * @return AceShortArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public AceShortWrapperArrayWrapper sendEditorNotify(@javax.annotation.Nonnull String fileId, @javax.annotation.Nullable MentionMessageWrapper mentionMessageWrapper, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = mentionMessageWrapper;
+  public AceShortArrayWrapper sendEditorNotify(@javax.annotation.Nonnull String fileId, @javax.annotation.Nullable MentionMessageRequest mentionMessageRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = mentionMessageRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
@@ -1729,7 +1729,7 @@ public class SharingApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<AceShortWrapperArrayWrapper> localVarReturnType = new TypeReference<AceShortWrapperArrayWrapper>() {};
+    TypeReference<AceShortArrayWrapper> localVarReturnType = new TypeReference<AceShortArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",

@@ -570,6 +570,79 @@ public class SettingsApi extends BaseApi {
     );
   }
 
+  /**
+   * Unblock a portal
+   * Unblocks this portal, blocked by the retention policy after a long period without use, so its users can sign in  again. The portal must be blocked. The call is authorized only by the unblocking link the retention letters send  to the owner; it works for the current block only. The call is mutating: it makes the portal active, records the  unblocking in the audit trail, refreshes its Content Security Policy and restarts the retention count. Nothing  is returned in the body; to check the status, read `tenantStatus` from `GET api/2.0/settings`, which a blocked  portal still answers. A lapsed paid tariff stays unpaid after the unblocking, so renewing it is the next step.  The letters of a free portal carry no such link: support unblocks it. The call does not bring back a portal  deleted at the end of its retention period, or one its owner deactivated, which `PUT api/2.0/portal/continue`  brings back. An invalid link, a link of an earlier block, or a portal that is no longer blocked, a repeated call  included, is refused with 401; an ordinary sign-in token instead of the link is refused with 403.
+   *
+   * REST API Reference for unblockPortal Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/unblock-portal/
+   *
+   * @throws ApiException if fails to make API call
+   */
+  public void unblockPortal() throws ApiException {
+    this.unblockPortal(Collections.emptyMap());
+  }
+
+
+  /**
+   * Unblock a portal
+   * Unblocks this portal, blocked by the retention policy after a long period without use, so its users can sign in  again. The portal must be blocked. The call is authorized only by the unblocking link the retention letters send  to the owner; it works for the current block only. The call is mutating: it makes the portal active, records the  unblocking in the audit trail, refreshes its Content Security Policy and restarts the retention count. Nothing  is returned in the body; to check the status, read `tenantStatus` from `GET api/2.0/settings`, which a blocked  portal still answers. A lapsed paid tariff stays unpaid after the unblocking, so renewing it is the next step.  The letters of a free portal carry no such link: support unblocks it. The call does not bring back a portal  deleted at the end of its retention period, or one its owner deactivated, which `PUT api/2.0/portal/continue`  brings back. An invalid link, a link of an earlier block, or a portal that is no longer blocked, a repeated call  included, is refused with 401; an ordinary sign-in token instead of the link is refused with 403.
+   *
+   * REST API Reference for unblockPortal Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/unblock-portal/
+   *
+   * @param additionalHeaders additionalHeaders for this call
+   * @throws ApiException if fails to make API call
+   */
+  public void unblockPortal(Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/portal/unblock";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    apiClient.invokeAPI(
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null
+    );
+  }
+
   @Override
   public <T> T invokeAPI(String url, String method, Object request, TypeReference<T> returnType, Map<String, String> additionalHeaders) throws ApiException {
     String localVarPath = url.replace(apiClient.getBaseURL(), "");

@@ -27,15 +27,15 @@ import org.openapitools.client.Pair;
 import org.openapitools.client.model.AccessRequestKeyDto;
 import org.openapitools.client.model.BaseBatchRequestDto;
 import org.openapitools.client.model.BooleanWrapper;
-import org.openapitools.client.model.ChangeHistory;
-import org.openapitools.client.model.CheckFillFormDraft;
-import org.openapitools.client.model.ChunkedUploadSessionResponseWrapperWrapper;
+import org.openapitools.client.model.ChangeHistoryRequest;
+import org.openapitools.client.model.CheckFillFormDraftRequest;
+import org.openapitools.client.model.ChunkedUploadSessionResultWrapper;
 import org.openapitools.client.model.ConfigurationWrapper;
-import org.openapitools.client.model.CopyAsJsonElement;
-import org.openapitools.client.model.CreateFileJsonElement;
-import org.openapitools.client.model.CreateTextOrHtmlFile;
-import org.openapitools.client.model.CustomFilterParameters;
-import org.openapitools.client.model.Delete;
+import org.openapitools.client.model.CopyAsRequest;
+import org.openapitools.client.model.CreateFileRequest;
+import org.openapitools.client.model.CreateTextOrHtmlFileRequest;
+import org.openapitools.client.model.CustomFilterRequest;
+import org.openapitools.client.model.DeleteFileRequest;
 import org.openapitools.client.model.DocumentBuilderTaskWrapper;
 import org.openapitools.client.model.EditHistoryArrayWrapper;
 import org.openapitools.client.model.EditHistoryDataWrapper;
@@ -59,25 +59,25 @@ import org.openapitools.client.model.FormSubmissionsWrapper;
 import org.openapitools.client.model.GetReferenceDataDto;
 import org.openapitools.client.model.HistoryArrayWrapper;
 import org.openapitools.client.model.ItemKeyValuePairBooleanStringWrapper;
-import org.openapitools.client.model.LockFileParameters;
+import org.openapitools.client.model.LockFileRequest;
 import org.openapitools.client.model.ManageFormFillingDto;
-import org.openapitools.client.model.MentionWrapperArrayWrapper;
+import org.openapitools.client.model.MentionArrayWrapper;
 import org.openapitools.client.model.ObjectArrayWrapper;
 import java.time.OffsetDateTime;
 import org.openapitools.client.model.OrderRequestDto;
 import org.openapitools.client.model.OrdersRequestDto;
-import org.openapitools.client.model.SaveAsPdf;
+import org.openapitools.client.model.SaveAsPdfRequest;
 import org.openapitools.client.model.SaveFormRoleMappingDto;
-import org.openapitools.client.model.StartEdit;
+import org.openapitools.client.model.StartEditRequest;
 import org.openapitools.client.model.StringWrapper;
 import org.openapitools.client.model.TemplatesRequestDto;
-import org.openapitools.client.model.ThirdPartyChunkedUploadSessionResponseWrapperWrapper;
+import org.openapitools.client.model.ThirdPartyChunkedUploadSessionResultWrapper;
 import org.openapitools.client.model.ThirdPartyConfigurationWrapper;
 import org.openapitools.client.model.ThirdPartyFileArrayWrapper;
 import org.openapitools.client.model.ThirdPartyFileWrapper;
-import org.openapitools.client.model.ThirdPartySaveAsPdf;
+import org.openapitools.client.model.ThirdPartySaveAsPdfRequest;
 import java.util.UUID;
-import org.openapitools.client.model.UpdateFile;
+import org.openapitools.client.model.UpdateFileRequest;
 import org.openapitools.client.model.XlsxReportResponseWrapper;
 
 
@@ -353,12 +353,12 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/
    *
    * @param fileId The file whose version history is changed. (required)
-   * @param changeHistory The change to make to the revision group. (required)
+   * @param changeHistoryRequest The change to make to the revision group. (required)
    * @return FileArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileArrayWrapper changeVersionHistory(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull ChangeHistory changeHistory) throws ApiException {
-    return this.changeVersionHistory(fileId, changeHistory, Collections.emptyMap());
+  public FileArrayWrapper changeVersionHistory(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull ChangeHistoryRequest changeHistoryRequest) throws ApiException {
+    return this.changeVersionHistory(fileId, changeHistoryRequest, Collections.emptyMap());
   }
 
 
@@ -370,22 +370,22 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/
    *
    * @param fileId The file whose version history is changed. (required)
-   * @param changeHistory The change to make to the revision group. (required)
+   * @param changeHistoryRequest The change to make to the revision group. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileArrayWrapper changeVersionHistory(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull ChangeHistory changeHistory, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = changeHistory;
+  public FileArrayWrapper changeVersionHistory(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull ChangeHistoryRequest changeHistoryRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = changeHistoryRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
       throw new ApiException(400, "Missing the required parameter 'fileId' when calling changeVersionHistory");
     }
     
-    // verify the required parameter 'changeHistory' is set
-    if (changeHistory == null) {
-      throw new ApiException(400, "Missing the required parameter 'changeHistory' when calling changeVersionHistory");
+    // verify the required parameter 'changeHistoryRequest' is set
+    if (changeHistoryRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'changeHistoryRequest' when calling changeVersionHistory");
     }
     
     // create path and map variables
@@ -444,12 +444,12 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/
    *
    * @param fileId The file whose version history is changed. (required)
-   * @param changeHistory The change to make to the revision group. (required)
+   * @param changeHistoryRequest The change to make to the revision group. (required)
    * @return ThirdPartyFileArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFileArrayWrapper changeVersionHistory(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull ChangeHistory changeHistory) throws ApiException {
-    return this.changeVersionHistory(fileId, changeHistory, Collections.emptyMap());
+  public ThirdPartyFileArrayWrapper changeVersionHistory(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull ChangeHistoryRequest changeHistoryRequest) throws ApiException {
+    return this.changeVersionHistory(fileId, changeHistoryRequest, Collections.emptyMap());
   }
 
 
@@ -461,22 +461,22 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/
    *
    * @param fileId The file whose version history is changed. (required)
-   * @param changeHistory The change to make to the revision group. (required)
+   * @param changeHistoryRequest The change to make to the revision group. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ThirdPartyFileArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFileArrayWrapper changeVersionHistory(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull ChangeHistory changeHistory, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = changeHistory;
+  public ThirdPartyFileArrayWrapper changeVersionHistory(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull ChangeHistoryRequest changeHistoryRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = changeHistoryRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
       throw new ApiException(400, "Missing the required parameter 'fileId' when calling changeVersionHistory");
     }
     
-    // verify the required parameter 'changeHistory' is set
-    if (changeHistory == null) {
-      throw new ApiException(400, "Missing the required parameter 'changeHistory' when calling changeVersionHistory");
+    // verify the required parameter 'changeHistoryRequest' is set
+    if (changeHistoryRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'changeHistoryRequest' when calling changeVersionHistory");
     }
     
     // create path and map variables
@@ -535,12 +535,12 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/
    *
    * @param fileId The identifier of the PDF form to open, as it is returned by a room listing such as  `GET api/2.0/files/{folderId}`. The identifier of an already created draft is accepted here as well. (required)
-   * @param checkFillFormDraft The revision of the form to open and what the caller intends to do with it. (required)
+   * @param checkFillFormDraftRequest The revision of the form to open and what the caller intends to do with it. (required)
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper checkFillFormDraft(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull CheckFillFormDraft checkFillFormDraft) throws ApiException {
-    return this.checkFillFormDraft(fileId, checkFillFormDraft, Collections.emptyMap());
+  public StringWrapper checkFillFormDraft(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull CheckFillFormDraftRequest checkFillFormDraftRequest) throws ApiException {
+    return this.checkFillFormDraft(fileId, checkFillFormDraftRequest, Collections.emptyMap());
   }
 
 
@@ -552,22 +552,22 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/
    *
    * @param fileId The identifier of the PDF form to open, as it is returned by a room listing such as  `GET api/2.0/files/{folderId}`. The identifier of an already created draft is accepted here as well. (required)
-   * @param checkFillFormDraft The revision of the form to open and what the caller intends to do with it. (required)
+   * @param checkFillFormDraftRequest The revision of the form to open and what the caller intends to do with it. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper checkFillFormDraft(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull CheckFillFormDraft checkFillFormDraft, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = checkFillFormDraft;
+  public StringWrapper checkFillFormDraft(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull CheckFillFormDraftRequest checkFillFormDraftRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = checkFillFormDraftRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
       throw new ApiException(400, "Missing the required parameter 'fileId' when calling checkFillFormDraft");
     }
     
-    // verify the required parameter 'checkFillFormDraft' is set
-    if (checkFillFormDraft == null) {
-      throw new ApiException(400, "Missing the required parameter 'checkFillFormDraft' when calling checkFillFormDraft");
+    // verify the required parameter 'checkFillFormDraftRequest' is set
+    if (checkFillFormDraftRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'checkFillFormDraftRequest' when calling checkFillFormDraft");
     }
     
     // create path and map variables
@@ -626,12 +626,12 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/
    *
    * @param fileId The identifier of the PDF form to open, as it is returned by a room listing such as  `GET api/2.0/files/{folderId}`. The identifier of an already created draft is accepted here as well. (required)
-   * @param checkFillFormDraft The revision of the form to open and what the caller intends to do with it. (required)
+   * @param checkFillFormDraftRequest The revision of the form to open and what the caller intends to do with it. (required)
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper checkFillFormDraft(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull CheckFillFormDraft checkFillFormDraft) throws ApiException {
-    return this.checkFillFormDraft(fileId, checkFillFormDraft, Collections.emptyMap());
+  public StringWrapper checkFillFormDraft(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull CheckFillFormDraftRequest checkFillFormDraftRequest) throws ApiException {
+    return this.checkFillFormDraft(fileId, checkFillFormDraftRequest, Collections.emptyMap());
   }
 
 
@@ -643,22 +643,22 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/
    *
    * @param fileId The identifier of the PDF form to open, as it is returned by a room listing such as  `GET api/2.0/files/{folderId}`. The identifier of an already created draft is accepted here as well. (required)
-   * @param checkFillFormDraft The revision of the form to open and what the caller intends to do with it. (required)
+   * @param checkFillFormDraftRequest The revision of the form to open and what the caller intends to do with it. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper checkFillFormDraft(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull CheckFillFormDraft checkFillFormDraft, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = checkFillFormDraft;
+  public StringWrapper checkFillFormDraft(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull CheckFillFormDraftRequest checkFillFormDraftRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = checkFillFormDraftRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
       throw new ApiException(400, "Missing the required parameter 'fileId' when calling checkFillFormDraft");
     }
     
-    // verify the required parameter 'checkFillFormDraft' is set
-    if (checkFillFormDraft == null) {
-      throw new ApiException(400, "Missing the required parameter 'checkFillFormDraft' when calling checkFillFormDraft");
+    // verify the required parameter 'checkFillFormDraftRequest' is set
+    if (checkFillFormDraftRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'checkFillFormDraftRequest' when calling checkFillFormDraft");
     }
     
     // create path and map variables
@@ -717,12 +717,12 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/
    *
    * @param fileId The file to copy. (required)
-   * @param copyAsJsonElement The title, the destination and the conversion options of the copy. (required)
+   * @param copyAsRequest The title, the destination and the conversion options of the copy. (required)
    * @return FileEntryBaseWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileEntryBaseWrapper copyFileAs(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull CopyAsJsonElement copyAsJsonElement) throws ApiException {
-    return this.copyFileAs(fileId, copyAsJsonElement, Collections.emptyMap());
+  public FileEntryBaseWrapper copyFileAs(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull CopyAsRequest copyAsRequest) throws ApiException {
+    return this.copyFileAs(fileId, copyAsRequest, Collections.emptyMap());
   }
 
 
@@ -734,22 +734,22 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/
    *
    * @param fileId The file to copy. (required)
-   * @param copyAsJsonElement The title, the destination and the conversion options of the copy. (required)
+   * @param copyAsRequest The title, the destination and the conversion options of the copy. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileEntryBaseWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileEntryBaseWrapper copyFileAs(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull CopyAsJsonElement copyAsJsonElement, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = copyAsJsonElement;
+  public FileEntryBaseWrapper copyFileAs(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull CopyAsRequest copyAsRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = copyAsRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
       throw new ApiException(400, "Missing the required parameter 'fileId' when calling copyFileAs");
     }
     
-    // verify the required parameter 'copyAsJsonElement' is set
-    if (copyAsJsonElement == null) {
-      throw new ApiException(400, "Missing the required parameter 'copyAsJsonElement' when calling copyFileAs");
+    // verify the required parameter 'copyAsRequest' is set
+    if (copyAsRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'copyAsRequest' when calling copyFileAs");
     }
     
     // create path and map variables
@@ -808,12 +808,12 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/
    *
    * @param fileId The file to copy. (required)
-   * @param copyAsJsonElement The title, the destination and the conversion options of the copy. (required)
+   * @param copyAsRequest The title, the destination and the conversion options of the copy. (required)
    * @return FileEntryBaseWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileEntryBaseWrapper copyFileAs(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull CopyAsJsonElement copyAsJsonElement) throws ApiException {
-    return this.copyFileAs(fileId, copyAsJsonElement, Collections.emptyMap());
+  public FileEntryBaseWrapper copyFileAs(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull CopyAsRequest copyAsRequest) throws ApiException {
+    return this.copyFileAs(fileId, copyAsRequest, Collections.emptyMap());
   }
 
 
@@ -825,22 +825,22 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/
    *
    * @param fileId The file to copy. (required)
-   * @param copyAsJsonElement The title, the destination and the conversion options of the copy. (required)
+   * @param copyAsRequest The title, the destination and the conversion options of the copy. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileEntryBaseWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileEntryBaseWrapper copyFileAs(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull CopyAsJsonElement copyAsJsonElement, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = copyAsJsonElement;
+  public FileEntryBaseWrapper copyFileAs(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull CopyAsRequest copyAsRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = copyAsRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
       throw new ApiException(400, "Missing the required parameter 'fileId' when calling copyFileAs");
     }
     
-    // verify the required parameter 'copyAsJsonElement' is set
-    if (copyAsJsonElement == null) {
-      throw new ApiException(400, "Missing the required parameter 'copyAsJsonElement' when calling copyFileAs");
+    // verify the required parameter 'copyAsRequest' is set
+    if (copyAsRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'copyAsRequest' when calling copyFileAs");
     }
     
     // create path and map variables
@@ -900,10 +900,10 @@ public class FilesApi extends BaseApi {
    *
    * @param fileId The file whose content the session will replace; take the id from a folder listing or from the file itself. (required)
    * @param fileSize The number of bytes the new content will take. It is checked against the portal limit for chunked uploads  before the session opens, and a session left at 0 takes the whole content in a single part. (optional)
-   * @return ChunkedUploadSessionResponseWrapperWrapper
+   * @return ChunkedUploadSessionResultWrapper
    * @throws ApiException if fails to make API call
    */
-  public ChunkedUploadSessionResponseWrapperWrapper createEditSession(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable Long fileSize) throws ApiException {
+  public ChunkedUploadSessionResultWrapper createEditSession(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable Long fileSize) throws ApiException {
     return this.createEditSession(fileId, fileSize, Collections.emptyMap());
   }
 
@@ -918,10 +918,10 @@ public class FilesApi extends BaseApi {
    * @param fileId The file whose content the session will replace; take the id from a folder listing or from the file itself. (required)
    * @param fileSize The number of bytes the new content will take. It is checked against the portal limit for chunked uploads  before the session opens, and a session left at 0 takes the whole content in a single part. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return ChunkedUploadSessionResponseWrapperWrapper
+   * @return ChunkedUploadSessionResultWrapper
    * @throws ApiException if fails to make API call
    */
-  public ChunkedUploadSessionResponseWrapperWrapper createEditSession(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable Long fileSize, Map<String, String> additionalHeaders) throws ApiException {
+  public ChunkedUploadSessionResultWrapper createEditSession(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nullable Long fileSize, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'fileId' is set
@@ -960,7 +960,7 @@ public class FilesApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ChunkedUploadSessionResponseWrapperWrapper> localVarReturnType = new TypeReference<ChunkedUploadSessionResponseWrapperWrapper>() {};
+    TypeReference<ChunkedUploadSessionResultWrapper> localVarReturnType = new TypeReference<ChunkedUploadSessionResultWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -987,10 +987,10 @@ public class FilesApi extends BaseApi {
    *
    * @param fileId The file whose content the session will replace; take the id from a folder listing or from the file itself. (required)
    * @param fileSize The number of bytes the new content will take. It is checked against the portal limit for chunked uploads  before the session opens, and a session left at 0 takes the whole content in a single part. (optional)
-   * @return ThirdPartyChunkedUploadSessionResponseWrapperWrapper
+   * @return ThirdPartyChunkedUploadSessionResultWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyChunkedUploadSessionResponseWrapperWrapper createEditSession(@javax.annotation.Nonnull String fileId, @javax.annotation.Nullable Long fileSize) throws ApiException {
+  public ThirdPartyChunkedUploadSessionResultWrapper createEditSession(@javax.annotation.Nonnull String fileId, @javax.annotation.Nullable Long fileSize) throws ApiException {
     return this.createEditSession(fileId, fileSize, Collections.emptyMap());
   }
 
@@ -1005,10 +1005,10 @@ public class FilesApi extends BaseApi {
    * @param fileId The file whose content the session will replace; take the id from a folder listing or from the file itself. (required)
    * @param fileSize The number of bytes the new content will take. It is checked against the portal limit for chunked uploads  before the session opens, and a session left at 0 takes the whole content in a single part. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return ThirdPartyChunkedUploadSessionResponseWrapperWrapper
+   * @return ThirdPartyChunkedUploadSessionResultWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyChunkedUploadSessionResponseWrapperWrapper createEditSession(@javax.annotation.Nonnull String fileId, @javax.annotation.Nullable Long fileSize, Map<String, String> additionalHeaders) throws ApiException {
+  public ThirdPartyChunkedUploadSessionResultWrapper createEditSession(@javax.annotation.Nonnull String fileId, @javax.annotation.Nullable Long fileSize, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'fileId' is set
@@ -1047,7 +1047,7 @@ public class FilesApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ThirdPartyChunkedUploadSessionResponseWrapperWrapper> localVarReturnType = new TypeReference<ThirdPartyChunkedUploadSessionResponseWrapperWrapper>() {};
+    TypeReference<ThirdPartyChunkedUploadSessionResultWrapper> localVarReturnType = new TypeReference<ThirdPartyChunkedUploadSessionResultWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -1073,12 +1073,12 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/
    *
    * @param folderId The folder the file is created in. (required)
-   * @param createFileJsonElement The title of the new file and the source of its content. (required)
+   * @param createFileRequest The title of the new file and the source of its content. (required)
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper createFile(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateFileJsonElement createFileJsonElement) throws ApiException {
-    return this.createFile(folderId, createFileJsonElement, Collections.emptyMap());
+  public FileWrapper createFile(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateFileRequest createFileRequest) throws ApiException {
+    return this.createFile(folderId, createFileRequest, Collections.emptyMap());
   }
 
 
@@ -1090,22 +1090,22 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/
    *
    * @param folderId The folder the file is created in. (required)
-   * @param createFileJsonElement The title of the new file and the source of its content. (required)
+   * @param createFileRequest The title of the new file and the source of its content. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper createFile(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateFileJsonElement createFileJsonElement, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = createFileJsonElement;
+  public FileWrapper createFile(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateFileRequest createFileRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = createFileRequest;
     
     // verify the required parameter 'folderId' is set
     if (folderId == null) {
       throw new ApiException(400, "Missing the required parameter 'folderId' when calling createFile");
     }
     
-    // verify the required parameter 'createFileJsonElement' is set
-    if (createFileJsonElement == null) {
-      throw new ApiException(400, "Missing the required parameter 'createFileJsonElement' when calling createFile");
+    // verify the required parameter 'createFileRequest' is set
+    if (createFileRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createFileRequest' when calling createFile");
     }
     
     // create path and map variables
@@ -1164,12 +1164,12 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/
    *
    * @param folderId The folder the file is created in. (required)
-   * @param createFileJsonElement The title of the new file and the source of its content. (required)
+   * @param createFileRequest The title of the new file and the source of its content. (required)
    * @return ThirdPartyFileWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFileWrapper createFile(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateFileJsonElement createFileJsonElement) throws ApiException {
-    return this.createFile(folderId, createFileJsonElement, Collections.emptyMap());
+  public ThirdPartyFileWrapper createFile(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateFileRequest createFileRequest) throws ApiException {
+    return this.createFile(folderId, createFileRequest, Collections.emptyMap());
   }
 
 
@@ -1181,22 +1181,22 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/
    *
    * @param folderId The folder the file is created in. (required)
-   * @param createFileJsonElement The title of the new file and the source of its content. (required)
+   * @param createFileRequest The title of the new file and the source of its content. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ThirdPartyFileWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFileWrapper createFile(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateFileJsonElement createFileJsonElement, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = createFileJsonElement;
+  public ThirdPartyFileWrapper createFile(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateFileRequest createFileRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = createFileRequest;
     
     // verify the required parameter 'folderId' is set
     if (folderId == null) {
       throw new ApiException(400, "Missing the required parameter 'folderId' when calling createFile");
     }
     
-    // verify the required parameter 'createFileJsonElement' is set
-    if (createFileJsonElement == null) {
-      throw new ApiException(400, "Missing the required parameter 'createFileJsonElement' when calling createFile");
+    // verify the required parameter 'createFileRequest' is set
+    if (createFileRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createFileRequest' when calling createFile");
     }
     
     // create path and map variables
@@ -1254,12 +1254,12 @@ public class FilesApi extends BaseApi {
    * REST API Reference for createFileInMyDocuments Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/
    *
-   * @param createFileJsonElement  (optional)
+   * @param createFileRequest  (optional)
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper createFileInMyDocuments(@javax.annotation.Nullable CreateFileJsonElement createFileJsonElement) throws ApiException {
-    return this.createFileInMyDocuments(createFileJsonElement, Collections.emptyMap());
+  public FileWrapper createFileInMyDocuments(@javax.annotation.Nullable CreateFileRequest createFileRequest) throws ApiException {
+    return this.createFileInMyDocuments(createFileRequest, Collections.emptyMap());
   }
 
 
@@ -1270,13 +1270,13 @@ public class FilesApi extends BaseApi {
    * REST API Reference for createFileInMyDocuments Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/
    *
-   * @param createFileJsonElement  (optional)
+   * @param createFileRequest  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper createFileInMyDocuments(@javax.annotation.Nullable CreateFileJsonElement createFileJsonElement, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = createFileJsonElement;
+  public FileWrapper createFileInMyDocuments(@javax.annotation.Nullable CreateFileRequest createFileRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = createFileRequest;
     
     // create path and map variables
     String localVarPath = "/api/2.0/files/@my/file";
@@ -1515,12 +1515,12 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/
    *
    * @param folderId The folder the file is created in. (required)
-   * @param createTextOrHtmlFile The title, the content and the collision behaviour of the new file. (required)
+   * @param createTextOrHtmlFileRequest The title, the content and the collision behaviour of the new file. (required)
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper createHtmlFile(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateTextOrHtmlFile createTextOrHtmlFile) throws ApiException {
-    return this.createHtmlFile(folderId, createTextOrHtmlFile, Collections.emptyMap());
+  public FileWrapper createHtmlFile(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateTextOrHtmlFileRequest createTextOrHtmlFileRequest) throws ApiException {
+    return this.createHtmlFile(folderId, createTextOrHtmlFileRequest, Collections.emptyMap());
   }
 
 
@@ -1532,22 +1532,22 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/
    *
    * @param folderId The folder the file is created in. (required)
-   * @param createTextOrHtmlFile The title, the content and the collision behaviour of the new file. (required)
+   * @param createTextOrHtmlFileRequest The title, the content and the collision behaviour of the new file. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper createHtmlFile(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateTextOrHtmlFile createTextOrHtmlFile, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = createTextOrHtmlFile;
+  public FileWrapper createHtmlFile(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateTextOrHtmlFileRequest createTextOrHtmlFileRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = createTextOrHtmlFileRequest;
     
     // verify the required parameter 'folderId' is set
     if (folderId == null) {
       throw new ApiException(400, "Missing the required parameter 'folderId' when calling createHtmlFile");
     }
     
-    // verify the required parameter 'createTextOrHtmlFile' is set
-    if (createTextOrHtmlFile == null) {
-      throw new ApiException(400, "Missing the required parameter 'createTextOrHtmlFile' when calling createHtmlFile");
+    // verify the required parameter 'createTextOrHtmlFileRequest' is set
+    if (createTextOrHtmlFileRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createTextOrHtmlFileRequest' when calling createHtmlFile");
     }
     
     // create path and map variables
@@ -1606,12 +1606,12 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/
    *
    * @param folderId The folder the file is created in. (required)
-   * @param createTextOrHtmlFile The title, the content and the collision behaviour of the new file. (required)
+   * @param createTextOrHtmlFileRequest The title, the content and the collision behaviour of the new file. (required)
    * @return ThirdPartyFileWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFileWrapper createHtmlFile(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateTextOrHtmlFile createTextOrHtmlFile) throws ApiException {
-    return this.createHtmlFile(folderId, createTextOrHtmlFile, Collections.emptyMap());
+  public ThirdPartyFileWrapper createHtmlFile(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateTextOrHtmlFileRequest createTextOrHtmlFileRequest) throws ApiException {
+    return this.createHtmlFile(folderId, createTextOrHtmlFileRequest, Collections.emptyMap());
   }
 
 
@@ -1623,22 +1623,22 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/
    *
    * @param folderId The folder the file is created in. (required)
-   * @param createTextOrHtmlFile The title, the content and the collision behaviour of the new file. (required)
+   * @param createTextOrHtmlFileRequest The title, the content and the collision behaviour of the new file. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ThirdPartyFileWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFileWrapper createHtmlFile(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateTextOrHtmlFile createTextOrHtmlFile, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = createTextOrHtmlFile;
+  public ThirdPartyFileWrapper createHtmlFile(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateTextOrHtmlFileRequest createTextOrHtmlFileRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = createTextOrHtmlFileRequest;
     
     // verify the required parameter 'folderId' is set
     if (folderId == null) {
       throw new ApiException(400, "Missing the required parameter 'folderId' when calling createHtmlFile");
     }
     
-    // verify the required parameter 'createTextOrHtmlFile' is set
-    if (createTextOrHtmlFile == null) {
-      throw new ApiException(400, "Missing the required parameter 'createTextOrHtmlFile' when calling createHtmlFile");
+    // verify the required parameter 'createTextOrHtmlFileRequest' is set
+    if (createTextOrHtmlFileRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createTextOrHtmlFileRequest' when calling createHtmlFile");
     }
     
     // create path and map variables
@@ -1696,12 +1696,12 @@ public class FilesApi extends BaseApi {
    * REST API Reference for createHtmlFileInMyDocuments Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file-in-my-documents/
    *
-   * @param createTextOrHtmlFile  (optional)
+   * @param createTextOrHtmlFileRequest  (optional)
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper createHtmlFileInMyDocuments(@javax.annotation.Nullable CreateTextOrHtmlFile createTextOrHtmlFile) throws ApiException {
-    return this.createHtmlFileInMyDocuments(createTextOrHtmlFile, Collections.emptyMap());
+  public FileWrapper createHtmlFileInMyDocuments(@javax.annotation.Nullable CreateTextOrHtmlFileRequest createTextOrHtmlFileRequest) throws ApiException {
+    return this.createHtmlFileInMyDocuments(createTextOrHtmlFileRequest, Collections.emptyMap());
   }
 
 
@@ -1712,13 +1712,13 @@ public class FilesApi extends BaseApi {
    * REST API Reference for createHtmlFileInMyDocuments Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file-in-my-documents/
    *
-   * @param createTextOrHtmlFile  (optional)
+   * @param createTextOrHtmlFileRequest  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper createHtmlFileInMyDocuments(@javax.annotation.Nullable CreateTextOrHtmlFile createTextOrHtmlFile, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = createTextOrHtmlFile;
+  public FileWrapper createHtmlFileInMyDocuments(@javax.annotation.Nullable CreateTextOrHtmlFileRequest createTextOrHtmlFileRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = createTextOrHtmlFileRequest;
     
     // create path and map variables
     String localVarPath = "/api/2.0/files/@my/html";
@@ -1775,12 +1775,12 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/
    *
    * @param folderId The folder the file is created in. (required)
-   * @param createTextOrHtmlFile The title, the content and the collision behaviour of the new file. (required)
+   * @param createTextOrHtmlFileRequest The title, the content and the collision behaviour of the new file. (required)
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper createTextFile(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateTextOrHtmlFile createTextOrHtmlFile) throws ApiException {
-    return this.createTextFile(folderId, createTextOrHtmlFile, Collections.emptyMap());
+  public FileWrapper createTextFile(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateTextOrHtmlFileRequest createTextOrHtmlFileRequest) throws ApiException {
+    return this.createTextFile(folderId, createTextOrHtmlFileRequest, Collections.emptyMap());
   }
 
 
@@ -1792,22 +1792,22 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/
    *
    * @param folderId The folder the file is created in. (required)
-   * @param createTextOrHtmlFile The title, the content and the collision behaviour of the new file. (required)
+   * @param createTextOrHtmlFileRequest The title, the content and the collision behaviour of the new file. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper createTextFile(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateTextOrHtmlFile createTextOrHtmlFile, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = createTextOrHtmlFile;
+  public FileWrapper createTextFile(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateTextOrHtmlFileRequest createTextOrHtmlFileRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = createTextOrHtmlFileRequest;
     
     // verify the required parameter 'folderId' is set
     if (folderId == null) {
       throw new ApiException(400, "Missing the required parameter 'folderId' when calling createTextFile");
     }
     
-    // verify the required parameter 'createTextOrHtmlFile' is set
-    if (createTextOrHtmlFile == null) {
-      throw new ApiException(400, "Missing the required parameter 'createTextOrHtmlFile' when calling createTextFile");
+    // verify the required parameter 'createTextOrHtmlFileRequest' is set
+    if (createTextOrHtmlFileRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createTextOrHtmlFileRequest' when calling createTextFile");
     }
     
     // create path and map variables
@@ -1866,12 +1866,12 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/
    *
    * @param folderId The folder the file is created in. (required)
-   * @param createTextOrHtmlFile The title, the content and the collision behaviour of the new file. (required)
+   * @param createTextOrHtmlFileRequest The title, the content and the collision behaviour of the new file. (required)
    * @return ThirdPartyFileWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFileWrapper createTextFile(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateTextOrHtmlFile createTextOrHtmlFile) throws ApiException {
-    return this.createTextFile(folderId, createTextOrHtmlFile, Collections.emptyMap());
+  public ThirdPartyFileWrapper createTextFile(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateTextOrHtmlFileRequest createTextOrHtmlFileRequest) throws ApiException {
+    return this.createTextFile(folderId, createTextOrHtmlFileRequest, Collections.emptyMap());
   }
 
 
@@ -1883,22 +1883,22 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/
    *
    * @param folderId The folder the file is created in. (required)
-   * @param createTextOrHtmlFile The title, the content and the collision behaviour of the new file. (required)
+   * @param createTextOrHtmlFileRequest The title, the content and the collision behaviour of the new file. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ThirdPartyFileWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFileWrapper createTextFile(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateTextOrHtmlFile createTextOrHtmlFile, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = createTextOrHtmlFile;
+  public ThirdPartyFileWrapper createTextFile(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateTextOrHtmlFileRequest createTextOrHtmlFileRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = createTextOrHtmlFileRequest;
     
     // verify the required parameter 'folderId' is set
     if (folderId == null) {
       throw new ApiException(400, "Missing the required parameter 'folderId' when calling createTextFile");
     }
     
-    // verify the required parameter 'createTextOrHtmlFile' is set
-    if (createTextOrHtmlFile == null) {
-      throw new ApiException(400, "Missing the required parameter 'createTextOrHtmlFile' when calling createTextFile");
+    // verify the required parameter 'createTextOrHtmlFileRequest' is set
+    if (createTextOrHtmlFileRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createTextOrHtmlFileRequest' when calling createTextFile");
     }
     
     // create path and map variables
@@ -1956,12 +1956,12 @@ public class FilesApi extends BaseApi {
    * REST API Reference for createTextFileInMyDocuments Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file-in-my-documents/
    *
-   * @param createTextOrHtmlFile  (optional)
+   * @param createTextOrHtmlFileRequest  (optional)
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper createTextFileInMyDocuments(@javax.annotation.Nullable CreateTextOrHtmlFile createTextOrHtmlFile) throws ApiException {
-    return this.createTextFileInMyDocuments(createTextOrHtmlFile, Collections.emptyMap());
+  public FileWrapper createTextFileInMyDocuments(@javax.annotation.Nullable CreateTextOrHtmlFileRequest createTextOrHtmlFileRequest) throws ApiException {
+    return this.createTextFileInMyDocuments(createTextOrHtmlFileRequest, Collections.emptyMap());
   }
 
 
@@ -1972,13 +1972,13 @@ public class FilesApi extends BaseApi {
    * REST API Reference for createTextFileInMyDocuments Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file-in-my-documents/
    *
-   * @param createTextOrHtmlFile  (optional)
+   * @param createTextOrHtmlFileRequest  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper createTextFileInMyDocuments(@javax.annotation.Nullable CreateTextOrHtmlFile createTextOrHtmlFile, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = createTextOrHtmlFile;
+  public FileWrapper createTextFileInMyDocuments(@javax.annotation.Nullable CreateTextOrHtmlFileRequest createTextOrHtmlFileRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = createTextOrHtmlFileRequest;
     
     // create path and map variables
     String localVarPath = "/api/2.0/files/@my/text";
@@ -2113,13 +2113,13 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/
    *
    * @param fileId The file to delete. (required)
-   * @param delete When and how the file is deleted. (required)
+   * @param deleteFileRequest When and how the file is deleted. (required)
    * @param returnSingleOperation Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)
    * @return FileOperationArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileOperationArrayWrapper deleteFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull Delete delete, @javax.annotation.Nullable Boolean returnSingleOperation) throws ApiException {
-    return this.deleteFile(fileId, delete, returnSingleOperation, Collections.emptyMap());
+  public FileOperationArrayWrapper deleteFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull DeleteFileRequest deleteFileRequest, @javax.annotation.Nullable Boolean returnSingleOperation) throws ApiException {
+    return this.deleteFile(fileId, deleteFileRequest, returnSingleOperation, Collections.emptyMap());
   }
 
 
@@ -2131,23 +2131,23 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/
    *
    * @param fileId The file to delete. (required)
-   * @param delete When and how the file is deleted. (required)
+   * @param deleteFileRequest When and how the file is deleted. (required)
    * @param returnSingleOperation Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileOperationArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileOperationArrayWrapper deleteFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull Delete delete, @javax.annotation.Nullable Boolean returnSingleOperation, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = delete;
+  public FileOperationArrayWrapper deleteFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull DeleteFileRequest deleteFileRequest, @javax.annotation.Nullable Boolean returnSingleOperation, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = deleteFileRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
       throw new ApiException(400, "Missing the required parameter 'fileId' when calling deleteFile");
     }
     
-    // verify the required parameter 'delete' is set
-    if (delete == null) {
-      throw new ApiException(400, "Missing the required parameter 'delete' when calling deleteFile");
+    // verify the required parameter 'deleteFileRequest' is set
+    if (deleteFileRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'deleteFileRequest' when calling deleteFile");
     }
     
     // create path and map variables
@@ -2162,7 +2162,7 @@ public class FilesApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("ReturnSingleOperation", returnSingleOperation));
+    localVarQueryParams.addAll(apiClient.parameterToPair("returnSingleOperation", returnSingleOperation));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -2207,13 +2207,13 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/
    *
    * @param fileId The file to delete. (required)
-   * @param delete When and how the file is deleted. (required)
+   * @param deleteFileRequest When and how the file is deleted. (required)
    * @param returnSingleOperation Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)
    * @return FileOperationArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileOperationArrayWrapper deleteFile(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull Delete delete, @javax.annotation.Nullable Boolean returnSingleOperation) throws ApiException {
-    return this.deleteFile(fileId, delete, returnSingleOperation, Collections.emptyMap());
+  public FileOperationArrayWrapper deleteFile(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull DeleteFileRequest deleteFileRequest, @javax.annotation.Nullable Boolean returnSingleOperation) throws ApiException {
+    return this.deleteFile(fileId, deleteFileRequest, returnSingleOperation, Collections.emptyMap());
   }
 
 
@@ -2225,23 +2225,23 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/
    *
    * @param fileId The file to delete. (required)
-   * @param delete When and how the file is deleted. (required)
+   * @param deleteFileRequest When and how the file is deleted. (required)
    * @param returnSingleOperation Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileOperationArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileOperationArrayWrapper deleteFile(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull Delete delete, @javax.annotation.Nullable Boolean returnSingleOperation, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = delete;
+  public FileOperationArrayWrapper deleteFile(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull DeleteFileRequest deleteFileRequest, @javax.annotation.Nullable Boolean returnSingleOperation, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = deleteFileRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
       throw new ApiException(400, "Missing the required parameter 'fileId' when calling deleteFile");
     }
     
-    // verify the required parameter 'delete' is set
-    if (delete == null) {
-      throw new ApiException(400, "Missing the required parameter 'delete' when calling deleteFile");
+    // verify the required parameter 'deleteFileRequest' is set
+    if (deleteFileRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'deleteFileRequest' when calling deleteFile");
     }
     
     // create path and map variables
@@ -2256,7 +2256,7 @@ public class FilesApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("ReturnSingleOperation", returnSingleOperation));
+    localVarQueryParams.addAll(apiClient.parameterToPair("returnSingleOperation", returnSingleOperation));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -2295,7 +2295,7 @@ public class FilesApi extends BaseApi {
 
   /**
    * Delete recent files
-   * Removes the listed entries from the Recent section of the calling account, the history of opened files that  `GET api/2.0/files/recent` returns. Nothing is deleted from storage and no other member's history is touched;  access to the entries is not checked at all, so a file the caller can no longer read can still be cleared from  their own history. Only numeric file ids are honoured, so a file on a connected third-party account cannot be  cleared this way, and folder ids are accepted but change nothing because the section lists files only. The  answer carries no body and reports nothing about how many entries were found: an empty request and an id that  was never in the section are accepted alike. Repeating the call is safe, but an entry returns the next time  the file is opened or `POST api/2.0/files/file/{fileId}/recent` is called for it. To hide the whole section  instead, call `PUT api/2.0/files/displayrecent`.
+   * Removes the listed entries from the Recent section of the calling account, the history of opened files that  `GET api/2.0/files/recent` returns. Nothing is deleted from storage and no other member's history is touched;  access to the entries is not checked at all, so a file the caller can no longer read can still be cleared from  their own history. A file on a connected third-party account is cleared by its string id too, but only while  the storage can still find it: the entry of a file removed from the storage stays in the history. Folder ids  are accepted but change nothing because the section lists files only. The answer carries no body and reports  nothing about how many entries were found: an empty request and an id that was never in the section are  accepted alike. Repeating the call is safe, but an entry returns the next time the file is opened or  `POST api/2.0/files/file/{fileId}/recent` is called for it. To hide the whole section instead, call  `PUT api/2.0/files/displayrecent`.
    *
    * REST API Reference for deleteRecent Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/
@@ -2310,7 +2310,7 @@ public class FilesApi extends BaseApi {
 
   /**
    * Delete recent files
-   * Removes the listed entries from the Recent section of the calling account, the history of opened files that  `GET api/2.0/files/recent` returns. Nothing is deleted from storage and no other member's history is touched;  access to the entries is not checked at all, so a file the caller can no longer read can still be cleared from  their own history. Only numeric file ids are honoured, so a file on a connected third-party account cannot be  cleared this way, and folder ids are accepted but change nothing because the section lists files only. The  answer carries no body and reports nothing about how many entries were found: an empty request and an id that  was never in the section are accepted alike. Repeating the call is safe, but an entry returns the next time  the file is opened or `POST api/2.0/files/file/{fileId}/recent` is called for it. To hide the whole section  instead, call `PUT api/2.0/files/displayrecent`.
+   * Removes the listed entries from the Recent section of the calling account, the history of opened files that  `GET api/2.0/files/recent` returns. Nothing is deleted from storage and no other member's history is touched;  access to the entries is not checked at all, so a file the caller can no longer read can still be cleared from  their own history. A file on a connected third-party account is cleared by its string id too, but only while  the storage can still find it: the entry of a file removed from the storage stays in the history. Folder ids  are accepted but change nothing because the section lists files only. The answer carries no body and reports  nothing about how many entries were found: an empty request and an id that was never in the section are  accepted alike. Repeating the call is safe, but an entry returns the next time the file is opened or  `POST api/2.0/files/file/{fileId}/recent` is called for it. To hide the whole section instead, call  `PUT api/2.0/files/displayrecent`.
    *
    * REST API Reference for deleteRecent Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/
@@ -2375,12 +2375,12 @@ public class FilesApi extends BaseApi {
    * REST API Reference for deleteTemplates Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-templates/
    *
-   * @param requestBody The files to take off the template list, by id; this array is the whole request body. Only a file stored in  the portal itself can be a template, which is why an id here is always numeric. (optional)
+   * @param deleteTemplateFilesRequestDto The files to take off the template list, by id; this array is the whole request body. Only a file stored in  the portal itself can be a template, which is why an id here is always numeric. (optional)
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper deleteTemplates(@javax.annotation.Nullable List<Integer> requestBody) throws ApiException {
-    return this.deleteTemplates(requestBody, Collections.emptyMap());
+  public BooleanWrapper deleteTemplates(@javax.annotation.Nullable List<Integer> deleteTemplateFilesRequestDto) throws ApiException {
+    return this.deleteTemplates(deleteTemplateFilesRequestDto, Collections.emptyMap());
   }
 
 
@@ -2391,13 +2391,13 @@ public class FilesApi extends BaseApi {
    * REST API Reference for deleteTemplates Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-templates/
    *
-   * @param requestBody The files to take off the template list, by id; this array is the whole request body. Only a file stored in  the portal itself can be a template, which is why an id here is always numeric. (optional)
+   * @param deleteTemplateFilesRequestDto The files to take off the template list, by id; this array is the whole request body. Only a file stored in  the portal itself can be a template, which is why an id here is always numeric. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper deleteTemplates(@javax.annotation.Nullable List<Integer> requestBody, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = requestBody;
+  public BooleanWrapper deleteTemplates(@javax.annotation.Nullable List<Integer> deleteTemplateFilesRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = deleteTemplateFilesRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/files/templates";
@@ -4513,10 +4513,10 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/
    *
    * @param fileId The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string. (required)
-   * @return MentionWrapperArrayWrapper
+   * @return MentionArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public MentionWrapperArrayWrapper getProtectedFileUsers(@javax.annotation.Nonnull Integer fileId) throws ApiException {
+  public MentionArrayWrapper getProtectedFileUsers(@javax.annotation.Nonnull Integer fileId) throws ApiException {
     return this.getProtectedFileUsers(fileId, Collections.emptyMap());
   }
 
@@ -4530,10 +4530,10 @@ public class FilesApi extends BaseApi {
    *
    * @param fileId The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string. (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return MentionWrapperArrayWrapper
+   * @return MentionArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public MentionWrapperArrayWrapper getProtectedFileUsers(@javax.annotation.Nonnull Integer fileId, Map<String, String> additionalHeaders) throws ApiException {
+  public MentionArrayWrapper getProtectedFileUsers(@javax.annotation.Nonnull Integer fileId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'fileId' is set
@@ -4571,7 +4571,7 @@ public class FilesApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<MentionWrapperArrayWrapper> localVarReturnType = new TypeReference<MentionWrapperArrayWrapper>() {};
+    TypeReference<MentionArrayWrapper> localVarReturnType = new TypeReference<MentionArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -4597,10 +4597,10 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/
    *
    * @param fileId The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string. (required)
-   * @return MentionWrapperArrayWrapper
+   * @return MentionArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public MentionWrapperArrayWrapper getProtectedFileUsers(@javax.annotation.Nonnull String fileId) throws ApiException {
+  public MentionArrayWrapper getProtectedFileUsers(@javax.annotation.Nonnull String fileId) throws ApiException {
     return this.getProtectedFileUsers(fileId, Collections.emptyMap());
   }
 
@@ -4614,10 +4614,10 @@ public class FilesApi extends BaseApi {
    *
    * @param fileId The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string. (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return MentionWrapperArrayWrapper
+   * @return MentionArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public MentionWrapperArrayWrapper getProtectedFileUsers(@javax.annotation.Nonnull String fileId, Map<String, String> additionalHeaders) throws ApiException {
+  public MentionArrayWrapper getProtectedFileUsers(@javax.annotation.Nonnull String fileId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'fileId' is set
@@ -4655,7 +4655,7 @@ public class FilesApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<MentionWrapperArrayWrapper> localVarReturnType = new TypeReference<MentionWrapperArrayWrapper>() {};
+    TypeReference<MentionArrayWrapper> localVarReturnType = new TypeReference<MentionArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -5011,12 +5011,12 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/
    *
    * @param fileId The file to lock or unlock. (required)
-   * @param lockFileParameters The lock state to reach. (required)
+   * @param lockFileRequest The lock state to reach. (required)
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper lockFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull LockFileParameters lockFileParameters) throws ApiException {
-    return this.lockFile(fileId, lockFileParameters, Collections.emptyMap());
+  public FileWrapper lockFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull LockFileRequest lockFileRequest) throws ApiException {
+    return this.lockFile(fileId, lockFileRequest, Collections.emptyMap());
   }
 
 
@@ -5028,22 +5028,22 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/
    *
    * @param fileId The file to lock or unlock. (required)
-   * @param lockFileParameters The lock state to reach. (required)
+   * @param lockFileRequest The lock state to reach. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper lockFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull LockFileParameters lockFileParameters, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = lockFileParameters;
+  public FileWrapper lockFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull LockFileRequest lockFileRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = lockFileRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
       throw new ApiException(400, "Missing the required parameter 'fileId' when calling lockFile");
     }
     
-    // verify the required parameter 'lockFileParameters' is set
-    if (lockFileParameters == null) {
-      throw new ApiException(400, "Missing the required parameter 'lockFileParameters' when calling lockFile");
+    // verify the required parameter 'lockFileRequest' is set
+    if (lockFileRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'lockFileRequest' when calling lockFile");
     }
     
     // create path and map variables
@@ -5102,12 +5102,12 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/
    *
    * @param fileId The file to lock or unlock. (required)
-   * @param lockFileParameters The lock state to reach. (required)
+   * @param lockFileRequest The lock state to reach. (required)
    * @return ThirdPartyFileWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFileWrapper lockFile(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull LockFileParameters lockFileParameters) throws ApiException {
-    return this.lockFile(fileId, lockFileParameters, Collections.emptyMap());
+  public ThirdPartyFileWrapper lockFile(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull LockFileRequest lockFileRequest) throws ApiException {
+    return this.lockFile(fileId, lockFileRequest, Collections.emptyMap());
   }
 
 
@@ -5119,22 +5119,22 @@ public class FilesApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/
    *
    * @param fileId The file to lock or unlock. (required)
-   * @param lockFileParameters The lock state to reach. (required)
+   * @param lockFileRequest The lock state to reach. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ThirdPartyFileWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFileWrapper lockFile(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull LockFileParameters lockFileParameters, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = lockFileParameters;
+  public ThirdPartyFileWrapper lockFile(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull LockFileRequest lockFileRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = lockFileRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
       throw new ApiException(400, "Missing the required parameter 'fileId' when calling lockFile");
     }
     
-    // verify the required parameter 'lockFileParameters' is set
-    if (lockFileParameters == null) {
-      throw new ApiException(400, "Missing the required parameter 'lockFileParameters' when calling lockFile");
+    // verify the required parameter 'lockFileRequest' is set
+    if (lockFileRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'lockFileRequest' when calling lockFile");
     }
     
     // create path and map variables
@@ -5702,18 +5702,18 @@ public class FilesApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("DownloadUri", downloadUri));
+    localVarQueryParams.addAll(apiClient.parameterToPair("downloadUri", downloadUri));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
 
     
     if (fileExtension != null)
-      localVarFormParams.put("FileExtension", fileExtension);
+      localVarFormParams.put("fileExtension", fileExtension);
 if (_file != null)
-      localVarFormParams.put("File", _file);
+      localVarFormParams.put("file", _file);
 if (forcesave != null)
-      localVarFormParams.put("Forcesave", forcesave);
+      localVarFormParams.put("forcesave", forcesave);
 
     final String[] localVarAccepts = {
       "application/json"
@@ -5801,18 +5801,18 @@ if (forcesave != null)
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("DownloadUri", downloadUri));
+    localVarQueryParams.addAll(apiClient.parameterToPair("downloadUri", downloadUri));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
 
     
     if (fileExtension != null)
-      localVarFormParams.put("FileExtension", fileExtension);
+      localVarFormParams.put("fileExtension", fileExtension);
 if (_file != null)
-      localVarFormParams.put("File", _file);
+      localVarFormParams.put("file", _file);
 if (forcesave != null)
-      localVarFormParams.put("Forcesave", forcesave);
+      localVarFormParams.put("forcesave", forcesave);
 
     final String[] localVarAccepts = {
       "application/json"
@@ -5852,12 +5852,12 @@ if (forcesave != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/
    *
    * @param id The file to convert; it is left untouched. (required)
-   * @param saveAsPdf The destination folder and the name of the PDF. (required)
+   * @param saveAsPdfRequest The destination folder and the name of the PDF. (required)
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper saveFileAsPdf(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull SaveAsPdf saveAsPdf) throws ApiException {
-    return this.saveFileAsPdf(id, saveAsPdf, Collections.emptyMap());
+  public FileWrapper saveFileAsPdf(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull SaveAsPdfRequest saveAsPdfRequest) throws ApiException {
+    return this.saveFileAsPdf(id, saveAsPdfRequest, Collections.emptyMap());
   }
 
 
@@ -5869,22 +5869,22 @@ if (forcesave != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/
    *
    * @param id The file to convert; it is left untouched. (required)
-   * @param saveAsPdf The destination folder and the name of the PDF. (required)
+   * @param saveAsPdfRequest The destination folder and the name of the PDF. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper saveFileAsPdf(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull SaveAsPdf saveAsPdf, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = saveAsPdf;
+  public FileWrapper saveFileAsPdf(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull SaveAsPdfRequest saveAsPdfRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = saveAsPdfRequest;
     
     // verify the required parameter 'id' is set
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling saveFileAsPdf");
     }
     
-    // verify the required parameter 'saveAsPdf' is set
-    if (saveAsPdf == null) {
-      throw new ApiException(400, "Missing the required parameter 'saveAsPdf' when calling saveFileAsPdf");
+    // verify the required parameter 'saveAsPdfRequest' is set
+    if (saveAsPdfRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'saveAsPdfRequest' when calling saveFileAsPdf");
     }
     
     // create path and map variables
@@ -5943,12 +5943,12 @@ if (forcesave != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/
    *
    * @param id The file to convert; it is left untouched. (required)
-   * @param thirdPartySaveAsPdf The destination folder and the name of the PDF. (required)
+   * @param thirdPartySaveAsPdfRequest The destination folder and the name of the PDF. (required)
    * @return ThirdPartyFileWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFileWrapper saveFileAsPdf(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull ThirdPartySaveAsPdf thirdPartySaveAsPdf) throws ApiException {
-    return this.saveFileAsPdf(id, thirdPartySaveAsPdf, Collections.emptyMap());
+  public ThirdPartyFileWrapper saveFileAsPdf(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull ThirdPartySaveAsPdfRequest thirdPartySaveAsPdfRequest) throws ApiException {
+    return this.saveFileAsPdf(id, thirdPartySaveAsPdfRequest, Collections.emptyMap());
   }
 
 
@@ -5960,22 +5960,22 @@ if (forcesave != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/
    *
    * @param id The file to convert; it is left untouched. (required)
-   * @param thirdPartySaveAsPdf The destination folder and the name of the PDF. (required)
+   * @param thirdPartySaveAsPdfRequest The destination folder and the name of the PDF. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ThirdPartyFileWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFileWrapper saveFileAsPdf(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull ThirdPartySaveAsPdf thirdPartySaveAsPdf, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = thirdPartySaveAsPdf;
+  public ThirdPartyFileWrapper saveFileAsPdf(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull ThirdPartySaveAsPdfRequest thirdPartySaveAsPdfRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = thirdPartySaveAsPdfRequest;
     
     // verify the required parameter 'id' is set
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling saveFileAsPdf");
     }
     
-    // verify the required parameter 'thirdPartySaveAsPdf' is set
-    if (thirdPartySaveAsPdf == null) {
-      throw new ApiException(400, "Missing the required parameter 'thirdPartySaveAsPdf' when calling saveFileAsPdf");
+    // verify the required parameter 'thirdPartySaveAsPdfRequest' is set
+    if (thirdPartySaveAsPdfRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'thirdPartySaveAsPdfRequest' when calling saveFileAsPdf");
     }
     
     // create path and map variables
@@ -6117,12 +6117,12 @@ if (forcesave != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/
    *
    * @param fileId The spreadsheet whose Custom Filter mode is switched. (required)
-   * @param customFilterParameters The Custom Filter state to reach. (required)
+   * @param customFilterRequest The Custom Filter state to reach. (required)
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper setCustomFilterTag(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull CustomFilterParameters customFilterParameters) throws ApiException {
-    return this.setCustomFilterTag(fileId, customFilterParameters, Collections.emptyMap());
+  public FileWrapper setCustomFilterTag(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull CustomFilterRequest customFilterRequest) throws ApiException {
+    return this.setCustomFilterTag(fileId, customFilterRequest, Collections.emptyMap());
   }
 
 
@@ -6134,22 +6134,22 @@ if (forcesave != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/
    *
    * @param fileId The spreadsheet whose Custom Filter mode is switched. (required)
-   * @param customFilterParameters The Custom Filter state to reach. (required)
+   * @param customFilterRequest The Custom Filter state to reach. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper setCustomFilterTag(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull CustomFilterParameters customFilterParameters, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = customFilterParameters;
+  public FileWrapper setCustomFilterTag(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull CustomFilterRequest customFilterRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = customFilterRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
       throw new ApiException(400, "Missing the required parameter 'fileId' when calling setCustomFilterTag");
     }
     
-    // verify the required parameter 'customFilterParameters' is set
-    if (customFilterParameters == null) {
-      throw new ApiException(400, "Missing the required parameter 'customFilterParameters' when calling setCustomFilterTag");
+    // verify the required parameter 'customFilterRequest' is set
+    if (customFilterRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'customFilterRequest' when calling setCustomFilterTag");
     }
     
     // create path and map variables
@@ -6208,12 +6208,12 @@ if (forcesave != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/
    *
    * @param fileId The spreadsheet whose Custom Filter mode is switched. (required)
-   * @param customFilterParameters The Custom Filter state to reach. (required)
+   * @param customFilterRequest The Custom Filter state to reach. (required)
    * @return ThirdPartyFileWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFileWrapper setCustomFilterTag(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull CustomFilterParameters customFilterParameters) throws ApiException {
-    return this.setCustomFilterTag(fileId, customFilterParameters, Collections.emptyMap());
+  public ThirdPartyFileWrapper setCustomFilterTag(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull CustomFilterRequest customFilterRequest) throws ApiException {
+    return this.setCustomFilterTag(fileId, customFilterRequest, Collections.emptyMap());
   }
 
 
@@ -6225,22 +6225,22 @@ if (forcesave != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/
    *
    * @param fileId The spreadsheet whose Custom Filter mode is switched. (required)
-   * @param customFilterParameters The Custom Filter state to reach. (required)
+   * @param customFilterRequest The Custom Filter state to reach. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ThirdPartyFileWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFileWrapper setCustomFilterTag(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull CustomFilterParameters customFilterParameters, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = customFilterParameters;
+  public ThirdPartyFileWrapper setCustomFilterTag(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull CustomFilterRequest customFilterRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = customFilterRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
       throw new ApiException(400, "Missing the required parameter 'fileId' when calling setCustomFilterTag");
     }
     
-    // verify the required parameter 'customFilterParameters' is set
-    if (customFilterParameters == null) {
-      throw new ApiException(400, "Missing the required parameter 'customFilterParameters' when calling setCustomFilterTag");
+    // verify the required parameter 'customFilterRequest' is set
+    if (customFilterRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'customFilterRequest' when calling setCustomFilterTag");
     }
     
     // create path and map variables
@@ -6897,12 +6897,12 @@ if (forcesave != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/
    *
    * @param fileId The file to open the editing session on. The caller needs edit access to it. (required)
-   * @param startEdit The session options. The body is required even when it only carries the default, so send an empty object to  open an ordinary co-editing session. (required)
+   * @param startEditRequest The session options. The body is required even when it only carries the default, so send an empty object to  open an ordinary co-editing session. (required)
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper startEditFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull StartEdit startEdit) throws ApiException {
-    return this.startEditFile(fileId, startEdit, Collections.emptyMap());
+  public StringWrapper startEditFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull StartEditRequest startEditRequest) throws ApiException {
+    return this.startEditFile(fileId, startEditRequest, Collections.emptyMap());
   }
 
 
@@ -6914,22 +6914,22 @@ if (forcesave != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/
    *
    * @param fileId The file to open the editing session on. The caller needs edit access to it. (required)
-   * @param startEdit The session options. The body is required even when it only carries the default, so send an empty object to  open an ordinary co-editing session. (required)
+   * @param startEditRequest The session options. The body is required even when it only carries the default, so send an empty object to  open an ordinary co-editing session. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper startEditFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull StartEdit startEdit, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = startEdit;
+  public StringWrapper startEditFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull StartEditRequest startEditRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = startEditRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
       throw new ApiException(400, "Missing the required parameter 'fileId' when calling startEditFile");
     }
     
-    // verify the required parameter 'startEdit' is set
-    if (startEdit == null) {
-      throw new ApiException(400, "Missing the required parameter 'startEdit' when calling startEditFile");
+    // verify the required parameter 'startEditRequest' is set
+    if (startEditRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'startEditRequest' when calling startEditFile");
     }
     
     // create path and map variables
@@ -6988,12 +6988,12 @@ if (forcesave != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/
    *
    * @param fileId The file to open the editing session on. The caller needs edit access to it. (required)
-   * @param startEdit The session options. The body is required even when it only carries the default, so send an empty object to  open an ordinary co-editing session. (required)
+   * @param startEditRequest The session options. The body is required even when it only carries the default, so send an empty object to  open an ordinary co-editing session. (required)
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper startEditFile(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull StartEdit startEdit) throws ApiException {
-    return this.startEditFile(fileId, startEdit, Collections.emptyMap());
+  public StringWrapper startEditFile(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull StartEditRequest startEditRequest) throws ApiException {
+    return this.startEditFile(fileId, startEditRequest, Collections.emptyMap());
   }
 
 
@@ -7005,22 +7005,22 @@ if (forcesave != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/
    *
    * @param fileId The file to open the editing session on. The caller needs edit access to it. (required)
-   * @param startEdit The session options. The body is required even when it only carries the default, so send an empty object to  open an ordinary co-editing session. (required)
+   * @param startEditRequest The session options. The body is required even when it only carries the default, so send an empty object to  open an ordinary co-editing session. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper startEditFile(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull StartEdit startEdit, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = startEdit;
+  public StringWrapper startEditFile(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull StartEditRequest startEditRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = startEditRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
       throw new ApiException(400, "Missing the required parameter 'fileId' when calling startEditFile");
     }
     
-    // verify the required parameter 'startEdit' is set
-    if (startEdit == null) {
-      throw new ApiException(400, "Missing the required parameter 'startEdit' when calling startEditFile");
+    // verify the required parameter 'startEditRequest' is set
+    if (startEditRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'startEditRequest' when calling startEditFile");
     }
     
     // create path and map variables
@@ -7607,12 +7607,12 @@ if (forcesave != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/
    *
    * @param fileId The file to update. (required)
-   * @param updateFile The new title and the version to restore. (required)
+   * @param updateFileRequest The new title and the version to restore. (required)
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper updateFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull UpdateFile updateFile) throws ApiException {
-    return this.updateFile(fileId, updateFile, Collections.emptyMap());
+  public FileWrapper updateFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull UpdateFileRequest updateFileRequest) throws ApiException {
+    return this.updateFile(fileId, updateFileRequest, Collections.emptyMap());
   }
 
 
@@ -7624,22 +7624,22 @@ if (forcesave != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/
    *
    * @param fileId The file to update. (required)
-   * @param updateFile The new title and the version to restore. (required)
+   * @param updateFileRequest The new title and the version to restore. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileWrapper updateFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull UpdateFile updateFile, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = updateFile;
+  public FileWrapper updateFile(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull UpdateFileRequest updateFileRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = updateFileRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
       throw new ApiException(400, "Missing the required parameter 'fileId' when calling updateFile");
     }
     
-    // verify the required parameter 'updateFile' is set
-    if (updateFile == null) {
-      throw new ApiException(400, "Missing the required parameter 'updateFile' when calling updateFile");
+    // verify the required parameter 'updateFileRequest' is set
+    if (updateFileRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateFileRequest' when calling updateFile");
     }
     
     // create path and map variables
@@ -7698,12 +7698,12 @@ if (forcesave != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/
    *
    * @param fileId The file to update. (required)
-   * @param updateFile The new title and the version to restore. (required)
+   * @param updateFileRequest The new title and the version to restore. (required)
    * @return ThirdPartyFileWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFileWrapper updateFile(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull UpdateFile updateFile) throws ApiException {
-    return this.updateFile(fileId, updateFile, Collections.emptyMap());
+  public ThirdPartyFileWrapper updateFile(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull UpdateFileRequest updateFileRequest) throws ApiException {
+    return this.updateFile(fileId, updateFileRequest, Collections.emptyMap());
   }
 
 
@@ -7715,22 +7715,22 @@ if (forcesave != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/
    *
    * @param fileId The file to update. (required)
-   * @param updateFile The new title and the version to restore. (required)
+   * @param updateFileRequest The new title and the version to restore. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ThirdPartyFileWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFileWrapper updateFile(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull UpdateFile updateFile, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = updateFile;
+  public ThirdPartyFileWrapper updateFile(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull UpdateFileRequest updateFileRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = updateFileRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
       throw new ApiException(400, "Missing the required parameter 'fileId' when calling updateFile");
     }
     
-    // verify the required parameter 'updateFile' is set
-    if (updateFile == null) {
-      throw new ApiException(400, "Missing the required parameter 'updateFile' when calling updateFile");
+    // verify the required parameter 'updateFileRequest' is set
+    if (updateFileRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateFileRequest' when calling updateFile");
     }
     
     // create path and map variables

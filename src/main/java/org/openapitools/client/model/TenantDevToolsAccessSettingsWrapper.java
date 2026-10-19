@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
-import org.openapitools.client.model.TenantDevToolsAccessSettings;
+import org.openapitools.client.model.TenantDevToolsAccessSettingsDto;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The successful API response containing the TenantDevToolsAccessSettings object.
+ * The successful API response containing the TenantDevToolsAccessSettingsDto object.
  */
 @JsonPropertyOrder({
   TenantDevToolsAccessSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class TenantDevToolsAccessSettingsWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private TenantDevToolsAccessSettings response;
+  @javax.annotation.Nullable  private TenantDevToolsAccessSettingsDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class TenantDevToolsAccessSettingsWrapper {
   }
 
 
-  public TenantDevToolsAccessSettingsWrapper response(@javax.annotation.Nullable TenantDevToolsAccessSettings response) {
+  public TenantDevToolsAccessSettingsWrapper response(@javax.annotation.Nullable TenantDevToolsAccessSettingsDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * The TenantDevToolsAccessSettings object returned by the operation.
+   * The TenantDevToolsAccessSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TenantDevToolsAccessSettings getResponse() {
+  public TenantDevToolsAccessSettingsDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable TenantDevToolsAccessSettings response) {
+  public void setResponse(@javax.annotation.Nullable TenantDevToolsAccessSettingsDto response) {
     this.response = response;
   }
 

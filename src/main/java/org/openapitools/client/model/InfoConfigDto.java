@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.AceShortWrapper;
+import org.openapitools.client.model.AceShortDto;
 import org.openapitools.client.model.EditorType;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -63,7 +63,7 @@ public class InfoConfigDto {
   @javax.annotation.Nullable  private JsonNullable<String> owner = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SHARING_SETTINGS = "sharingSettings";
-  @javax.annotation.Nullable  private JsonNullable<List<AceShortWrapper>> sharingSettings = JsonNullable.<List<AceShortWrapper>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<AceShortDto>> sharingSettings = JsonNullable.<List<AceShortDto>>undefined();
 
   public static final String JSON_PROPERTY_TYPE = "type";
   @javax.annotation.Nullable  private EditorType type;
@@ -168,15 +168,15 @@ public class InfoConfigDto {
     this.owner = JsonNullable.<String>of(owner);
   }
 
-  public InfoConfigDto sharingSettings(@javax.annotation.Nullable List<AceShortWrapper> sharingSettings) {
-    this.sharingSettings = JsonNullable.<List<AceShortWrapper>>of(sharingSettings);
+  public InfoConfigDto sharingSettings(@javax.annotation.Nullable List<AceShortDto> sharingSettings) {
+    this.sharingSettings = JsonNullable.<List<AceShortDto>>of(sharingSettings);
     
     return this;
   }
 
-  public InfoConfigDto addSharingSettingsItem(AceShortWrapper sharingSettingsItem) {
+  public InfoConfigDto addSharingSettingsItem(AceShortDto sharingSettingsItem) {
     if (this.sharingSettings == null || !this.sharingSettings.isPresent()) {
-      this.sharingSettings = JsonNullable.<List<AceShortWrapper>>of(new ArrayList<>());
+      this.sharingSettings = JsonNullable.<List<AceShortDto>>of(new ArrayList<>());
     }
     try {
       this.sharingSettings.get().add(sharingSettingsItem);
@@ -192,23 +192,23 @@ public class InfoConfigDto {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public List<AceShortWrapper> getSharingSettings() {
+  public List<AceShortDto> getSharingSettings() {
         return sharingSettings.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_SHARING_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<List<AceShortWrapper>> getSharingSettings_JsonNullable() {
+  public JsonNullable<List<AceShortDto>> getSharingSettings_JsonNullable() {
     return sharingSettings;
   }
   
   @JsonProperty(JSON_PROPERTY_SHARING_SETTINGS)
-  public void setSharingSettings_JsonNullable(JsonNullable<List<AceShortWrapper>> sharingSettings) {
+  public void setSharingSettings_JsonNullable(JsonNullable<List<AceShortDto>> sharingSettings) {
     this.sharingSettings = sharingSettings;
   }
 
-  public void setSharingSettings(@javax.annotation.Nullable List<AceShortWrapper> sharingSettings) {
-    this.sharingSettings = JsonNullable.<List<AceShortWrapper>>of(sharingSettings);
+  public void setSharingSettings(@javax.annotation.Nullable List<AceShortDto> sharingSettings) {
+    this.sharingSettings = JsonNullable.<List<AceShortDto>>of(sharingSettings);
   }
 
   public InfoConfigDto type(@javax.annotation.Nullable EditorType type) {

@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
-import org.openapitools.client.model.IPRestriction;
+import org.openapitools.client.model.IpRestrictionDto;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -37,19 +37,19 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The successful API response containing the list of IPRestriction objects.
+ * The successful API response containing the list of IpRestrictionDto objects.
  */
 @JsonPropertyOrder({
-  IPRestrictionArrayWrapper.JSON_PROPERTY_RESPONSE,
-  IPRestrictionArrayWrapper.JSON_PROPERTY_COUNT,
-  IPRestrictionArrayWrapper.JSON_PROPERTY_LINKS,
-  IPRestrictionArrayWrapper.JSON_PROPERTY_STATUS,
-  IPRestrictionArrayWrapper.JSON_PROPERTY_STATUS_CODE
+  IpRestrictionArrayWrapper.JSON_PROPERTY_RESPONSE,
+  IpRestrictionArrayWrapper.JSON_PROPERTY_COUNT,
+  IpRestrictionArrayWrapper.JSON_PROPERTY_LINKS,
+  IpRestrictionArrayWrapper.JSON_PROPERTY_STATUS,
+  IpRestrictionArrayWrapper.JSON_PROPERTY_STATUS_CODE
 })
 
-public class IPRestrictionArrayWrapper {
+public class IpRestrictionArrayWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private List<IPRestriction> response = new ArrayList<>();
+  @javax.annotation.Nullable  private List<IpRestrictionDto> response = new ArrayList<>();
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -63,17 +63,17 @@ public class IPRestrictionArrayWrapper {
   public static final String JSON_PROPERTY_STATUS_CODE = "statusCode";
   @javax.annotation.Nullable  private Integer statusCode;
 
-  public IPRestrictionArrayWrapper() {
+  public IpRestrictionArrayWrapper() {
   }
 
 
-  public IPRestrictionArrayWrapper response(@javax.annotation.Nullable List<IPRestriction> response) {
+  public IpRestrictionArrayWrapper response(@javax.annotation.Nullable List<IpRestrictionDto> response) {
     
     this.response = response;
     return this;
   }
 
-  public IPRestrictionArrayWrapper addResponseItem(IPRestriction responseItem) {
+  public IpRestrictionArrayWrapper addResponseItem(IpRestrictionDto responseItem) {
     if (this.response == null) {
       this.response = new ArrayList<>();
     }
@@ -82,24 +82,24 @@ public class IPRestrictionArrayWrapper {
   }
 
   /**
-   * The list of IPRestriction objects returned by the operation.
+   * The list of IpRestrictionDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<IPRestriction> getResponse() {
+  public List<IpRestrictionDto> getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable List<IPRestriction> response) {
+  public void setResponse(@javax.annotation.Nullable List<IpRestrictionDto> response) {
     this.response = response;
   }
 
-  public IPRestrictionArrayWrapper count(@javax.annotation.Nullable Integer count) {
+  public IpRestrictionArrayWrapper count(@javax.annotation.Nullable Integer count) {
     
     this.count = count;
     return this;
@@ -123,13 +123,13 @@ public class IPRestrictionArrayWrapper {
     this.count = count;
   }
 
-  public IPRestrictionArrayWrapper links(@javax.annotation.Nullable List<GetPortalPrices200ResponseLinksInner> links) {
+  public IpRestrictionArrayWrapper links(@javax.annotation.Nullable List<GetPortalPrices200ResponseLinksInner> links) {
     
     this.links = links;
     return this;
   }
 
-  public IPRestrictionArrayWrapper addLinksItem(GetPortalPrices200ResponseLinksInner linksItem) {
+  public IpRestrictionArrayWrapper addLinksItem(GetPortalPrices200ResponseLinksInner linksItem) {
     if (this.links == null) {
       this.links = new ArrayList<>();
     }
@@ -155,7 +155,7 @@ public class IPRestrictionArrayWrapper {
     this.links = links;
   }
 
-  public IPRestrictionArrayWrapper status(@javax.annotation.Nullable Integer status) {
+  public IpRestrictionArrayWrapper status(@javax.annotation.Nullable Integer status) {
     
     this.status = status;
     return this;
@@ -179,7 +179,7 @@ public class IPRestrictionArrayWrapper {
     this.status = status;
   }
 
-  public IPRestrictionArrayWrapper statusCode(@javax.annotation.Nullable Integer statusCode) {
+  public IpRestrictionArrayWrapper statusCode(@javax.annotation.Nullable Integer statusCode) {
     
     this.statusCode = statusCode;
     return this;
@@ -211,7 +211,7 @@ public class IPRestrictionArrayWrapper {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IPRestrictionArrayWrapper ipRestrictionArrayWrapper = (IPRestrictionArrayWrapper) o;
+    IpRestrictionArrayWrapper ipRestrictionArrayWrapper = (IpRestrictionArrayWrapper) o;
     return Objects.equals(this.response, ipRestrictionArrayWrapper.response) &&
         Objects.equals(this.count, ipRestrictionArrayWrapper.count) &&
         Objects.equals(this.links, ipRestrictionArrayWrapper.links) &&
@@ -227,7 +227,7 @@ public class IPRestrictionArrayWrapper {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IPRestrictionArrayWrapper {\n");
+    sb.append("class IpRestrictionArrayWrapper {\n");
     sb.append("    response: ").append(toIndentedString(response)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");

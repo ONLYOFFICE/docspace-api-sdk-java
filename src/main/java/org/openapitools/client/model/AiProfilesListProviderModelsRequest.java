@@ -40,7 +40,6 @@ import java.util.StringJoiner;
   AiProfilesListProviderModelsRequest.JSON_PROPERTY_BASE_URL,
   AiProfilesListProviderModelsRequest.JSON_PROPERTY_API_KEY
 })
-@JsonTypeName("aiProfilesListProviderModels_request")
 
 public class AiProfilesListProviderModelsRequest {
   public static final String JSON_PROPERTY_PROVIDER_TYPE = "providerType";

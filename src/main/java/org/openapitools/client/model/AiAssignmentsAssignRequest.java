@@ -39,7 +39,6 @@ import java.util.StringJoiner;
   AiAssignmentsAssignRequest.JSON_PROPERTY_ACTION_TYPE,
   AiAssignmentsAssignRequest.JSON_PROPERTY_PROFILE_ID
 })
-@JsonTypeName("aiAssignmentsAssign_request")
 
 public class AiAssignmentsAssignRequest {
   public static final String JSON_PROPERTY_ACTION_TYPE = "actionType";

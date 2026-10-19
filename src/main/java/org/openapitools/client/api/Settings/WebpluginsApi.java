@@ -26,7 +26,7 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.WebPluginArrayWrapper;
-import org.openapitools.client.model.WebPluginRequests;
+import org.openapitools.client.model.WebPluginRequest;
 import org.openapitools.client.model.WebPluginWrapper;
 
 
@@ -372,6 +372,90 @@ public class WebpluginsApi extends BaseApi {
   }
 
   /**
+   * Refresh a web plugin
+   * Picks up a web plugin whose files were replaced in storage without an upload, for example a new version of an  installation-wide plugin put in place during a deployment. The `name` is the manifest name published by  `GET api/2.0/settings/webplugins`, matched without regard to case. Editing the portal settings is required, so  a portal owner or administrator, and the installation has to have web plugins enabled in its configuration.  The server compares the version of the plugin it serves with the `version` of the manifest in storage and,  only when they differ or the plugin appeared in or vanished from storage, re-reads the plugin list on every  server: for all portals when the plugin is installation-wide, for this portal alone otherwise, and notifies  the connected clients of this portal. The call is idempotent: with matching versions nothing changes, so a  repeat is safe. The response is the plugin as served after the check. The stored state, the settings and the  Content Security Policy of the portal are left as they are. To install a new version use  `POST api/2.0/settings/webplugins` instead.
+   *
+   * REST API Reference for refreshWebPlugin Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-web-plugin/
+   *
+   * @param name The plugin to act on, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`; a name that is not installed answers 404. (required)
+   * @return WebPluginWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public WebPluginWrapper refreshWebPlugin(@javax.annotation.Nonnull String name) throws ApiException {
+    return this.refreshWebPlugin(name, Collections.emptyMap());
+  }
+
+
+  /**
+   * Refresh a web plugin
+   * Picks up a web plugin whose files were replaced in storage without an upload, for example a new version of an  installation-wide plugin put in place during a deployment. The `name` is the manifest name published by  `GET api/2.0/settings/webplugins`, matched without regard to case. Editing the portal settings is required, so  a portal owner or administrator, and the installation has to have web plugins enabled in its configuration.  The server compares the version of the plugin it serves with the `version` of the manifest in storage and,  only when they differ or the plugin appeared in or vanished from storage, re-reads the plugin list on every  server: for all portals when the plugin is installation-wide, for this portal alone otherwise, and notifies  the connected clients of this portal. The call is idempotent: with matching versions nothing changes, so a  repeat is safe. The response is the plugin as served after the check. The stored state, the settings and the  Content Security Policy of the portal are left as they are. To install a new version use  `POST api/2.0/settings/webplugins` instead.
+   *
+   * REST API Reference for refreshWebPlugin Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-web-plugin/
+   *
+   * @param name The plugin to act on, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`; a name that is not installed answers 404. (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return WebPluginWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public WebPluginWrapper refreshWebPlugin(@javax.annotation.Nonnull String name, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling refreshWebPlugin");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/settings/webplugins/{name}/refresh"
+      .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(apiClient.parameterToString(name)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<WebPluginWrapper> localVarReturnType = new TypeReference<WebPluginWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Update a web plugin
    * Switches a web plugin of the current portal on or off and stores the settings string the portal keeps for it.  The plugin has to be installed already, so upload its package with `POST api/2.0/settings/webplugins` first,  and `name` is its manifest name as published by `GET api/2.0/settings/webplugins`, matched without regard to  case. Editing the portal settings is required, so a portal owner or administrator, and the installation has to  have web plugins enabled in its configuration. The body replaces the stored state instead of merging into it,  which makes the call idempotent; `settings` is required, so send `{}` when there is nothing to keep, and it is  limited to 255 characters and stored encrypted for this portal alone. Switching the plugin on adds the domains  its manifest declares to the portal Content Security Policy and switching it off takes them away again, and  the connected clients are notified of the new state. Nothing is returned on success. A name that is not  installed is rejected as not found, and 403 means web plugins are switched off or the caller may not edit the  portal settings.
    *
@@ -379,11 +463,11 @@ public class WebpluginsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/
    *
    * @param name The plugin to change, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`, so it cannot be read off the interface; a name that is not installed answers 404. (required)
-   * @param webPluginRequests The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time. (required)
+   * @param webPluginRequest The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time. (required)
    * @throws ApiException if fails to make API call
    */
-  public void updateWebPlugin(@javax.annotation.Nonnull String name, @javax.annotation.Nonnull WebPluginRequests webPluginRequests) throws ApiException {
-    this.updateWebPlugin(name, webPluginRequests, Collections.emptyMap());
+  public void updateWebPlugin(@javax.annotation.Nonnull String name, @javax.annotation.Nonnull WebPluginRequest webPluginRequest) throws ApiException {
+    this.updateWebPlugin(name, webPluginRequest, Collections.emptyMap());
   }
 
 
@@ -395,21 +479,21 @@ public class WebpluginsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/
    *
    * @param name The plugin to change, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`, so it cannot be read off the interface; a name that is not installed answers 404. (required)
-   * @param webPluginRequests The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time. (required)
+   * @param webPluginRequest The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void updateWebPlugin(@javax.annotation.Nonnull String name, @javax.annotation.Nonnull WebPluginRequests webPluginRequests, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = webPluginRequests;
+  public void updateWebPlugin(@javax.annotation.Nonnull String name, @javax.annotation.Nonnull WebPluginRequest webPluginRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = webPluginRequest;
     
     // verify the required parameter 'name' is set
     if (name == null) {
       throw new ApiException(400, "Missing the required parameter 'name' when calling updateWebPlugin");
     }
     
-    // verify the required parameter 'webPluginRequests' is set
-    if (webPluginRequests == null) {
-      throw new ApiException(400, "Missing the required parameter 'webPluginRequests' when calling updateWebPlugin");
+    // verify the required parameter 'webPluginRequest' is set
+    if (webPluginRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'webPluginRequest' when calling updateWebPlugin");
     }
     
     // create path and map variables

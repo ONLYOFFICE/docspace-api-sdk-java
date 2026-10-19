@@ -39,7 +39,6 @@ import java.util.StringJoiner;
   AiPromptsUpdateRequest.JSON_PROPERTY_ID,
   AiPromptsUpdateRequest.JSON_PROPERTY_UPDATES
 })
-@JsonTypeName("aiPromptsUpdate_request")
 
 public class AiPromptsUpdateRequest {
   public static final String JSON_PROPERTY_ID = "id";

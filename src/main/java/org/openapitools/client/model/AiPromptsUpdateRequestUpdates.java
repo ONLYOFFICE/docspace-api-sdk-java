@@ -43,7 +43,7 @@ import java.util.StringJoiner;
   AiPromptsUpdateRequestUpdates.JSON_PROPERTY_TEXT,
   AiPromptsUpdateRequestUpdates.JSON_PROPERTY_FOLDER_ID
 })
-@JsonTypeName("aiPromptsUpdate_request_updates")
+@JsonTypeName("AiPromptsUpdateRequest_updates")
 
 public class AiPromptsUpdateRequestUpdates {
   public static final String JSON_PROPERTY_NAME = "name";

@@ -25,7 +25,7 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.ErrorApiResponse;
-import org.openapitools.client.model.TenantDevToolsAccessSettingsDto;
+import org.openapitools.client.model.TenantDevToolsAccessSettingsRequestDto;
 import org.openapitools.client.model.TenantDevToolsAccessSettingsWrapper;
 
 
@@ -54,12 +54,12 @@ public class AccessToDevToolsApi extends BaseApi {
    * REST API Reference for setTenantDevToolsAccessSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-dev-tools-access-settings/
    *
-   * @param tenantDevToolsAccessSettingsDto  (optional)
+   * @param tenantDevToolsAccessSettingsRequestDto  (optional)
    * @return TenantDevToolsAccessSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantDevToolsAccessSettingsWrapper setTenantDevToolsAccessSettings(@javax.annotation.Nullable TenantDevToolsAccessSettingsDto tenantDevToolsAccessSettingsDto) throws ApiException {
-    return this.setTenantDevToolsAccessSettings(tenantDevToolsAccessSettingsDto, Collections.emptyMap());
+  public TenantDevToolsAccessSettingsWrapper setTenantDevToolsAccessSettings(@javax.annotation.Nullable TenantDevToolsAccessSettingsRequestDto tenantDevToolsAccessSettingsRequestDto) throws ApiException {
+    return this.setTenantDevToolsAccessSettings(tenantDevToolsAccessSettingsRequestDto, Collections.emptyMap());
   }
 
 
@@ -70,13 +70,13 @@ public class AccessToDevToolsApi extends BaseApi {
    * REST API Reference for setTenantDevToolsAccessSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-dev-tools-access-settings/
    *
-   * @param tenantDevToolsAccessSettingsDto  (optional)
+   * @param tenantDevToolsAccessSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return TenantDevToolsAccessSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantDevToolsAccessSettingsWrapper setTenantDevToolsAccessSettings(@javax.annotation.Nullable TenantDevToolsAccessSettingsDto tenantDevToolsAccessSettingsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = tenantDevToolsAccessSettingsDto;
+  public TenantDevToolsAccessSettingsWrapper setTenantDevToolsAccessSettings(@javax.annotation.Nullable TenantDevToolsAccessSettingsRequestDto tenantDevToolsAccessSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = tenantDevToolsAccessSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/devtoolsaccess";

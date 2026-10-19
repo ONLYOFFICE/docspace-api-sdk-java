@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.DocsCloudConfig;
+import org.openapitools.client.model.DocsCloudConfigDto;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The successful API response containing the DocsCloudConfig object.
+ * The successful API response containing the DocsCloudConfigDto object.
  */
 @JsonPropertyOrder({
   DocsCloudConfigWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class DocsCloudConfigWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private DocsCloudConfig response;
+  @javax.annotation.Nullable  private DocsCloudConfigDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class DocsCloudConfigWrapper {
   }
 
 
-  public DocsCloudConfigWrapper response(@javax.annotation.Nullable DocsCloudConfig response) {
+  public DocsCloudConfigWrapper response(@javax.annotation.Nullable DocsCloudConfigDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * The DocsCloudConfig object returned by the operation.
+   * The DocsCloudConfigDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DocsCloudConfig getResponse() {
+  public DocsCloudConfigDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable DocsCloudConfig response) {
+  public void setResponse(@javax.annotation.Nullable DocsCloudConfigDto response) {
     this.response = response;
   }
 

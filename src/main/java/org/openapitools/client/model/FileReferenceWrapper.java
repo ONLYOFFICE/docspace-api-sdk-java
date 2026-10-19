@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.FileReference;
+import org.openapitools.client.model.FileReferenceDto;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The successful API response containing the FileReference object.
+ * The successful API response containing the FileReferenceDto object.
  */
 @JsonPropertyOrder({
   FileReferenceWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class FileReferenceWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private FileReference response;
+  @javax.annotation.Nullable  private FileReferenceDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class FileReferenceWrapper {
   }
 
 
-  public FileReferenceWrapper response(@javax.annotation.Nullable FileReference response) {
+  public FileReferenceWrapper response(@javax.annotation.Nullable FileReferenceDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * The FileReference object returned by the operation.
+   * The FileReferenceDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public FileReference getResponse() {
+  public FileReferenceDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable FileReference response) {
+  public void setResponse(@javax.annotation.Nullable FileReferenceDto response) {
     this.response = response;
   }
 

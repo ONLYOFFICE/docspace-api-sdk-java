@@ -28,8 +28,8 @@ import org.openapitools.client.model.AppArrayWrapper;
 import org.openapitools.client.model.AppWrapper;
 import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.JsonValueWrapper;
-import org.openapitools.client.model.SetAppEnabledBody;
-import org.openapitools.client.model.SetAppSettingsBody;
+import org.openapitools.client.model.SetAppEnabledRequest;
+import org.openapitools.client.model.SetAppSettingsRequest;
 
 
 import java.util.ArrayList;
@@ -296,45 +296,45 @@ public class AppsApi extends BaseApi {
 
   /**
    * Enable or disable an app
-   * Turns one portal application on or off for the current portal, and notifies the clients connected to the portal  so that they can show or hide it without being reloaded. The identifier must be an application declared in the  installation configuration, as listed by `GET api/2.0/apps`. The caller must be a portal administrator allowed  to edit the portal settings. The call is mutating and idempotent: it stores the flag for this portal, overriding  the default that the configuration gives the application, and repeating it with the same value changes nothing.  Disabling an application does not delete its settings document, which stays saved and applies again as soon as  the application is enabled. The response is the application in its new state, including that settings document.  Only the enabled flag is affected here: to change the settings document use `PUT api/2.0/apps/{id}/settings`.
+   * Turns one portal application on or off for the current portal, and notifies the clients connected to the portal  so that they can show or hide it without being reloaded. The identifier must be an application declared in the  installation configuration, as listed by `GET api/2.0/apps`. The caller must be a portal administrator allowed  to edit the portal settings. The call is mutating and idempotent: it stores the flag for this portal, overriding  the default that the configuration gives the application, and repeating it with the same value changes nothing.  Disabling an application does not delete its settings document, which stays saved and applies again as soon as  the application is enabled. The response is the application in its new state, including that settings document.  Only the enabled flag is affected here: to change the settings document use `PUT api/2.0/apps/{id}/settings`.  The enabled field is mandatory, and a body without it is rejected with 400 rather than read as false.
    *
    * REST API Reference for setEnabled Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-enabled/
    *
    * @param id The application to switch, by the identifier `GET api/2.0/apps` reports. It has to be an application declared  in the installation configuration; an unknown identifier answers 404 rather than creating anything. (required)
-   * @param setAppEnabledBody The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`. (required)
+   * @param setAppEnabledRequest The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`. (required)
    * @return AppWrapper
    * @throws ApiException if fails to make API call
    */
-  public AppWrapper setEnabled(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull SetAppEnabledBody setAppEnabledBody) throws ApiException {
-    return this.setEnabled(id, setAppEnabledBody, Collections.emptyMap());
+  public AppWrapper setEnabled(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull SetAppEnabledRequest setAppEnabledRequest) throws ApiException {
+    return this.setEnabled(id, setAppEnabledRequest, Collections.emptyMap());
   }
 
 
   /**
    * Enable or disable an app
-   * Turns one portal application on or off for the current portal, and notifies the clients connected to the portal  so that they can show or hide it without being reloaded. The identifier must be an application declared in the  installation configuration, as listed by `GET api/2.0/apps`. The caller must be a portal administrator allowed  to edit the portal settings. The call is mutating and idempotent: it stores the flag for this portal, overriding  the default that the configuration gives the application, and repeating it with the same value changes nothing.  Disabling an application does not delete its settings document, which stays saved and applies again as soon as  the application is enabled. The response is the application in its new state, including that settings document.  Only the enabled flag is affected here: to change the settings document use `PUT api/2.0/apps/{id}/settings`.
+   * Turns one portal application on or off for the current portal, and notifies the clients connected to the portal  so that they can show or hide it without being reloaded. The identifier must be an application declared in the  installation configuration, as listed by `GET api/2.0/apps`. The caller must be a portal administrator allowed  to edit the portal settings. The call is mutating and idempotent: it stores the flag for this portal, overriding  the default that the configuration gives the application, and repeating it with the same value changes nothing.  Disabling an application does not delete its settings document, which stays saved and applies again as soon as  the application is enabled. The response is the application in its new state, including that settings document.  Only the enabled flag is affected here: to change the settings document use `PUT api/2.0/apps/{id}/settings`.  The enabled field is mandatory, and a body without it is rejected with 400 rather than read as false.
    *
    * REST API Reference for setEnabled Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-enabled/
    *
    * @param id The application to switch, by the identifier `GET api/2.0/apps` reports. It has to be an application declared  in the installation configuration; an unknown identifier answers 404 rather than creating anything. (required)
-   * @param setAppEnabledBody The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`. (required)
+   * @param setAppEnabledRequest The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AppWrapper
    * @throws ApiException if fails to make API call
    */
-  public AppWrapper setEnabled(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull SetAppEnabledBody setAppEnabledBody, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = setAppEnabledBody;
+  public AppWrapper setEnabled(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull SetAppEnabledRequest setAppEnabledRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = setAppEnabledRequest;
     
     // verify the required parameter 'id' is set
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling setEnabled");
     }
     
-    // verify the required parameter 'setAppEnabledBody' is set
-    if (setAppEnabledBody == null) {
-      throw new ApiException(400, "Missing the required parameter 'setAppEnabledBody' when calling setEnabled");
+    // verify the required parameter 'setAppEnabledRequest' is set
+    if (setAppEnabledRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'setAppEnabledRequest' when calling setEnabled");
     }
     
     // create path and map variables
@@ -393,12 +393,12 @@ public class AppsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-settings/
    *
    * @param id The application whose configuration is stored, by the identifier `GET api/2.0/apps` reports. An identifier  not declared in the installation configuration answers 404. (required)
-   * @param setAppSettingsBody The configuration to store for this portal, replacing whatever was stored before. (required)
+   * @param setAppSettingsRequest The configuration to store for this portal, replacing whatever was stored before. (required)
    * @return AppWrapper
    * @throws ApiException if fails to make API call
    */
-  public AppWrapper setSettings(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull SetAppSettingsBody setAppSettingsBody) throws ApiException {
-    return this.setSettings(id, setAppSettingsBody, Collections.emptyMap());
+  public AppWrapper setSettings(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull SetAppSettingsRequest setAppSettingsRequest) throws ApiException {
+    return this.setSettings(id, setAppSettingsRequest, Collections.emptyMap());
   }
 
 
@@ -410,22 +410,22 @@ public class AppsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-settings/
    *
    * @param id The application whose configuration is stored, by the identifier `GET api/2.0/apps` reports. An identifier  not declared in the installation configuration answers 404. (required)
-   * @param setAppSettingsBody The configuration to store for this portal, replacing whatever was stored before. (required)
+   * @param setAppSettingsRequest The configuration to store for this portal, replacing whatever was stored before. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AppWrapper
    * @throws ApiException if fails to make API call
    */
-  public AppWrapper setSettings(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull SetAppSettingsBody setAppSettingsBody, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = setAppSettingsBody;
+  public AppWrapper setSettings(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull SetAppSettingsRequest setAppSettingsRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = setAppSettingsRequest;
     
     // verify the required parameter 'id' is set
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling setSettings");
     }
     
-    // verify the required parameter 'setAppSettingsBody' is set
-    if (setAppSettingsBody == null) {
-      throw new ApiException(400, "Missing the required parameter 'setAppSettingsBody' when calling setSettings");
+    // verify the required parameter 'setAppSettingsRequest' is set
+    if (setAppSettingsRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'setAppSettingsRequest' when calling setSettings");
     }
     
     // create path and map variables

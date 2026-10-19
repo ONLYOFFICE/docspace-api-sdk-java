@@ -24,8 +24,8 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.AdminMessageBaseSettingsRequestsDto;
-import org.openapitools.client.model.AdminMessageSettingsRequestsDto;
+import org.openapitools.client.model.AdminMessageBaseSettingsRequestDto;
+import org.openapitools.client.model.AdminMessageSettingsRequestDto;
 import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.StringWrapper;
 import org.openapitools.client.model.TurnOnAdminMessageSettingsRequestDto;
@@ -134,12 +134,12 @@ public class MessagesApi extends BaseApi {
    * REST API Reference for sendAdminMail Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/
    *
-   * @param adminMessageSettingsRequestsDto  (optional)
+   * @param adminMessageSettingsRequestDto  (optional)
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper sendAdminMail(@javax.annotation.Nullable AdminMessageSettingsRequestsDto adminMessageSettingsRequestsDto) throws ApiException {
-    return this.sendAdminMail(adminMessageSettingsRequestsDto, Collections.emptyMap());
+  public StringWrapper sendAdminMail(@javax.annotation.Nullable AdminMessageSettingsRequestDto adminMessageSettingsRequestDto) throws ApiException {
+    return this.sendAdminMail(adminMessageSettingsRequestDto, Collections.emptyMap());
   }
 
 
@@ -150,13 +150,13 @@ public class MessagesApi extends BaseApi {
    * REST API Reference for sendAdminMail Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/
    *
-   * @param adminMessageSettingsRequestsDto  (optional)
+   * @param adminMessageSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper sendAdminMail(@javax.annotation.Nullable AdminMessageSettingsRequestsDto adminMessageSettingsRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = adminMessageSettingsRequestsDto;
+  public StringWrapper sendAdminMail(@javax.annotation.Nullable AdminMessageSettingsRequestDto adminMessageSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = adminMessageSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/sendadmmail";
@@ -212,12 +212,12 @@ public class MessagesApi extends BaseApi {
    * REST API Reference for sendJoinInviteMail Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/
    *
-   * @param adminMessageBaseSettingsRequestsDto  (optional)
+   * @param adminMessageBaseSettingsRequestDto  (optional)
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper sendJoinInviteMail(@javax.annotation.Nullable AdminMessageBaseSettingsRequestsDto adminMessageBaseSettingsRequestsDto) throws ApiException {
-    return this.sendJoinInviteMail(adminMessageBaseSettingsRequestsDto, Collections.emptyMap());
+  public StringWrapper sendJoinInviteMail(@javax.annotation.Nullable AdminMessageBaseSettingsRequestDto adminMessageBaseSettingsRequestDto) throws ApiException {
+    return this.sendJoinInviteMail(adminMessageBaseSettingsRequestDto, Collections.emptyMap());
   }
 
 
@@ -228,13 +228,13 @@ public class MessagesApi extends BaseApi {
    * REST API Reference for sendJoinInviteMail Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/
    *
-   * @param adminMessageBaseSettingsRequestsDto  (optional)
+   * @param adminMessageBaseSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper sendJoinInviteMail(@javax.annotation.Nullable AdminMessageBaseSettingsRequestsDto adminMessageBaseSettingsRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = adminMessageBaseSettingsRequestsDto;
+  public StringWrapper sendJoinInviteMail(@javax.annotation.Nullable AdminMessageBaseSettingsRequestDto adminMessageBaseSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = adminMessageBaseSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/sendjoininvite";

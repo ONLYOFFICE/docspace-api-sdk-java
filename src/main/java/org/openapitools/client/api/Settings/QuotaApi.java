@@ -24,13 +24,11 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
+import org.openapitools.client.model.EntityQuotaSettingsWrapper;
 import org.openapitools.client.model.ErrorApiResponse;
-import org.openapitools.client.model.QuotaSettingsRequestsDto;
-import org.openapitools.client.model.TenantAiAgentQuotaSettingsWrapper;
-import org.openapitools.client.model.TenantQuotaSettingsRequestsDto;
+import org.openapitools.client.model.QuotaSettingsRequestDto;
+import org.openapitools.client.model.TenantQuotaSettingsRequestDto;
 import org.openapitools.client.model.TenantQuotaSettingsWrapper;
-import org.openapitools.client.model.TenantRoomQuotaSettingsWrapper;
-import org.openapitools.client.model.TenantUserQuotaSettingsWrapper;
 
 
 import java.util.ArrayList;
@@ -58,10 +56,10 @@ public class QuotaApi extends BaseApi {
    * REST API Reference for getUserQuotaSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-quota-settings/
    *
-   * @return TenantUserQuotaSettingsWrapper
+   * @return EntityQuotaSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantUserQuotaSettingsWrapper getUserQuotaSettings() throws ApiException {
+  public EntityQuotaSettingsWrapper getUserQuotaSettings() throws ApiException {
     return this.getUserQuotaSettings(Collections.emptyMap());
   }
 
@@ -74,10 +72,10 @@ public class QuotaApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-quota-settings/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return TenantUserQuotaSettingsWrapper
+   * @return EntityQuotaSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantUserQuotaSettingsWrapper getUserQuotaSettings(Map<String, String> additionalHeaders) throws ApiException {
+  public EntityQuotaSettingsWrapper getUserQuotaSettings(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -109,7 +107,7 @@ public class QuotaApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<TenantUserQuotaSettingsWrapper> localVarReturnType = new TypeReference<TenantUserQuotaSettingsWrapper>() {};
+    TypeReference<EntityQuotaSettingsWrapper> localVarReturnType = new TypeReference<EntityQuotaSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -134,12 +132,12 @@ public class QuotaApi extends BaseApi {
    * REST API Reference for saveAiAgentQuotaSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ai-agent-quota-settings/
    *
-   * @param quotaSettingsRequestsDto  (optional)
-   * @return TenantAiAgentQuotaSettingsWrapper
+   * @param quotaSettingsRequestDto  (optional)
+   * @return EntityQuotaSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantAiAgentQuotaSettingsWrapper saveAiAgentQuotaSettings(@javax.annotation.Nullable QuotaSettingsRequestsDto quotaSettingsRequestsDto) throws ApiException {
-    return this.saveAiAgentQuotaSettings(quotaSettingsRequestsDto, Collections.emptyMap());
+  public EntityQuotaSettingsWrapper saveAiAgentQuotaSettings(@javax.annotation.Nullable QuotaSettingsRequestDto quotaSettingsRequestDto) throws ApiException {
+    return this.saveAiAgentQuotaSettings(quotaSettingsRequestDto, Collections.emptyMap());
   }
 
 
@@ -150,13 +148,13 @@ public class QuotaApi extends BaseApi {
    * REST API Reference for saveAiAgentQuotaSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ai-agent-quota-settings/
    *
-   * @param quotaSettingsRequestsDto  (optional)
+   * @param quotaSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return TenantAiAgentQuotaSettingsWrapper
+   * @return EntityQuotaSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantAiAgentQuotaSettingsWrapper saveAiAgentQuotaSettings(@javax.annotation.Nullable QuotaSettingsRequestsDto quotaSettingsRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = quotaSettingsRequestsDto;
+  public EntityQuotaSettingsWrapper saveAiAgentQuotaSettings(@javax.annotation.Nullable QuotaSettingsRequestDto quotaSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = quotaSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/aiagentquotasettings";
@@ -187,7 +185,7 @@ public class QuotaApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<TenantAiAgentQuotaSettingsWrapper> localVarReturnType = new TypeReference<TenantAiAgentQuotaSettingsWrapper>() {};
+    TypeReference<EntityQuotaSettingsWrapper> localVarReturnType = new TypeReference<EntityQuotaSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -212,12 +210,12 @@ public class QuotaApi extends BaseApi {
    * REST API Reference for saveRoomQuotaSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-room-quota-settings/
    *
-   * @param quotaSettingsRequestsDto  (optional)
-   * @return TenantRoomQuotaSettingsWrapper
+   * @param quotaSettingsRequestDto  (optional)
+   * @return EntityQuotaSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantRoomQuotaSettingsWrapper saveRoomQuotaSettings(@javax.annotation.Nullable QuotaSettingsRequestsDto quotaSettingsRequestsDto) throws ApiException {
-    return this.saveRoomQuotaSettings(quotaSettingsRequestsDto, Collections.emptyMap());
+  public EntityQuotaSettingsWrapper saveRoomQuotaSettings(@javax.annotation.Nullable QuotaSettingsRequestDto quotaSettingsRequestDto) throws ApiException {
+    return this.saveRoomQuotaSettings(quotaSettingsRequestDto, Collections.emptyMap());
   }
 
 
@@ -228,13 +226,13 @@ public class QuotaApi extends BaseApi {
    * REST API Reference for saveRoomQuotaSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-room-quota-settings/
    *
-   * @param quotaSettingsRequestsDto  (optional)
+   * @param quotaSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return TenantRoomQuotaSettingsWrapper
+   * @return EntityQuotaSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantRoomQuotaSettingsWrapper saveRoomQuotaSettings(@javax.annotation.Nullable QuotaSettingsRequestsDto quotaSettingsRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = quotaSettingsRequestsDto;
+  public EntityQuotaSettingsWrapper saveRoomQuotaSettings(@javax.annotation.Nullable QuotaSettingsRequestDto quotaSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = quotaSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/roomquotasettings";
@@ -265,7 +263,7 @@ public class QuotaApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<TenantRoomQuotaSettingsWrapper> localVarReturnType = new TypeReference<TenantRoomQuotaSettingsWrapper>() {};
+    TypeReference<EntityQuotaSettingsWrapper> localVarReturnType = new TypeReference<EntityQuotaSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -290,12 +288,12 @@ public class QuotaApi extends BaseApi {
    * REST API Reference for setTenantQuotaSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-quota-settings/
    *
-   * @param tenantQuotaSettingsRequestsDto  (optional)
+   * @param tenantQuotaSettingsRequestDto  (optional)
    * @return TenantQuotaSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantQuotaSettingsWrapper setTenantQuotaSettings(@javax.annotation.Nullable TenantQuotaSettingsRequestsDto tenantQuotaSettingsRequestsDto) throws ApiException {
-    return this.setTenantQuotaSettings(tenantQuotaSettingsRequestsDto, Collections.emptyMap());
+  public TenantQuotaSettingsWrapper setTenantQuotaSettings(@javax.annotation.Nullable TenantQuotaSettingsRequestDto tenantQuotaSettingsRequestDto) throws ApiException {
+    return this.setTenantQuotaSettings(tenantQuotaSettingsRequestDto, Collections.emptyMap());
   }
 
 
@@ -306,13 +304,13 @@ public class QuotaApi extends BaseApi {
    * REST API Reference for setTenantQuotaSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-quota-settings/
    *
-   * @param tenantQuotaSettingsRequestsDto  (optional)
+   * @param tenantQuotaSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return TenantQuotaSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantQuotaSettingsWrapper setTenantQuotaSettings(@javax.annotation.Nullable TenantQuotaSettingsRequestsDto tenantQuotaSettingsRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = tenantQuotaSettingsRequestsDto;
+  public TenantQuotaSettingsWrapper setTenantQuotaSettings(@javax.annotation.Nullable TenantQuotaSettingsRequestDto tenantQuotaSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = tenantQuotaSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/tenantquotasettings";

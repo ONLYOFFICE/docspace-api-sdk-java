@@ -197,10 +197,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The notification kind that was asked for together with the flag that says whether it is switched on for the calling user |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The `type` is not one of the notification kinds 0-3 |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -301,7 +301,7 @@ public class Example {
 
 ## setNotificationSettings
 
-> NotificationSettingsWrapper setNotificationSettings(notificationSettingsRequestsDto)
+> NotificationSettingsWrapper setNotificationSettings(notificationSettingsRequestDto)
 
 Set notification statusSwitches one kind of notification on or off for the calling user: send the kind as `type` - 0 the new-item  badges, 1 the room activity letters, 2 the daily feed digest, 3 the periodic tips letters - together with  `isEnabled`. The change touches the caller's own account only, and repeating the call with the same pair  leaves the account as it is. Every signed-in member configures its own settings: the portal owner, a DocSpace  administrator, a room administrator, a user and a guest are all accepted, and no permission is demanded. With  0 switched off the Files responses report `new` as 0 and mark files as muted; with 1 switched off both the  hourly room digest and the letters a room sends at once, such as an editor mention, stop; with 2 switched off  the daily digest stops; with 3 switched off the tips letters stop. What comes back is an echo of the request  rather than a re-read of the stored state, and a `type` outside 0-3 is echoed as well while nothing is stored,  so confirm the result with `GET api/2.0/settings/notification/{type}`. To silence a single room instead of a  whole kind use `POST api/2.0/settings/notification/rooms`.
 
@@ -312,7 +312,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **notificationSettingsRequestsDto** | [**NotificationSettingsRequestsDto**](NotificationSettingsRequestsDto.md)|  | [optional] |
+| **notificationSettingsRequestDto** | [**NotificationSettingsRequestDto**](NotificationSettingsRequestDto.md)|  | [optional] |
 
 ### Return type
 
@@ -365,9 +365,9 @@ public class Example {
 
 
         NotificationsApi apiInstance = new NotificationsApi(defaultClient);
-        NotificationSettingsRequestsDto notificationSettingsRequestsDto = new NotificationSettingsRequestsDto(); // NotificationSettingsRequestsDto | 
+        NotificationSettingsRequestDto notificationSettingsRequestDto = new NotificationSettingsRequestDto(); // NotificationSettingsRequestDto | 
         try {
-            NotificationSettingsWrapper result = apiInstance.setNotificationSettings(notificationSettingsRequestsDto);
+            NotificationSettingsWrapper result = apiInstance.setNotificationSettings(notificationSettingsRequestDto);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling NotificationsApi#setNotificationSettings");
@@ -390,10 +390,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The notification kind and state as they were sent in the request |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `type` |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

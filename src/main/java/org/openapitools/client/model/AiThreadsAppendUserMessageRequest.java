@@ -40,7 +40,6 @@ import java.util.StringJoiner;
   AiThreadsAppendUserMessageRequest.JSON_PROPERTY_MESSAGE,
   AiThreadsAppendUserMessageRequest.JSON_PROPERTY_PROFILE_ID
 })
-@JsonTypeName("aiThreadsAppendUserMessage_request")
 
 public class AiThreadsAppendUserMessageRequest {
   public static final String JSON_PROPERTY_THREAD_ID = "threadId";

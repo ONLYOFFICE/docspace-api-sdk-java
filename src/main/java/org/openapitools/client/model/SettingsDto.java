@@ -28,15 +28,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import org.openapitools.client.model.CultureSpecificExternalResources;
 import org.openapitools.client.model.DeepLinkDto;
+import org.openapitools.client.model.DomainNameRulesDto;
+import org.openapitools.client.model.ExternalResourcesDto;
 import org.openapitools.client.model.FirebaseDto;
 import org.openapitools.client.model.FolderType;
 import org.openapitools.client.model.FormGalleryDto;
-import org.openapitools.client.model.PasswordHasher;
+import org.openapitools.client.model.PasswordHashSettingsDto;
 import org.openapitools.client.model.PluginsDto;
 import org.openapitools.client.model.RecaptchaType;
-import org.openapitools.client.model.TenantDomainValidator;
 import org.openapitools.client.model.TenantStatus;
 import org.openapitools.client.model.TenantTrustedDomainsType;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -155,7 +155,7 @@ public class SettingsDto {
   @javax.annotation.Nullable  private JsonNullable<String> wizardToken = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PASSWORD_HASH = "passwordHash";
-  @javax.annotation.Nullable  private PasswordHasher passwordHash;
+  @javax.annotation.Nullable  private PasswordHashSettingsDto passwordHash;
 
   public static final String JSON_PROPERTY_FIREBASE = "firebase";
   @javax.annotation.Nullable  private FirebaseDto firebase;
@@ -185,7 +185,7 @@ public class SettingsDto {
   @javax.annotation.Nullable  private Boolean displayAbout;
 
   public static final String JSON_PROPERTY_DOMAIN_VALIDATOR = "domainValidator";
-  @javax.annotation.Nullable  private TenantDomainValidator domainValidator;
+  @javax.annotation.Nullable  private DomainNameRulesDto domainValidator;
 
   public static final String JSON_PROPERTY_ZENDESK_KEY = "zendeskKey";
   @javax.annotation.Nullable  private JsonNullable<String> zendeskKey = JsonNullable.<String>undefined();
@@ -233,7 +233,7 @@ public class SettingsDto {
   @javax.annotation.Nullable  private JsonNullable<String> logoText = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EXTERNAL_RESOURCES = "externalResources";
-  @javax.annotation.Nullable  private CultureSpecificExternalResources externalResources;
+  @javax.annotation.Nullable  private ExternalResourcesDto externalResources;
 
   public static final String JSON_PROPERTY_DEFAULT_FOLDER_TYPE = "defaultFolderType";
   @javax.annotation.Nullable  private FolderType defaultFolderType;
@@ -721,7 +721,7 @@ public class SettingsDto {
     this.wizardToken = JsonNullable.<String>of(wizardToken);
   }
 
-  public SettingsDto passwordHash(@javax.annotation.Nullable PasswordHasher passwordHash) {
+  public SettingsDto passwordHash(@javax.annotation.Nullable PasswordHashSettingsDto passwordHash) {
     
     this.passwordHash = passwordHash;
     return this;
@@ -734,14 +734,14 @@ public class SettingsDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PASSWORD_HASH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public PasswordHasher getPasswordHash() {
+  public PasswordHashSettingsDto getPasswordHash() {
     return passwordHash;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_PASSWORD_HASH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPasswordHash(@javax.annotation.Nullable PasswordHasher passwordHash) {
+  public void setPasswordHash(@javax.annotation.Nullable PasswordHashSettingsDto passwordHash) {
     this.passwordHash = passwordHash;
   }
 
@@ -917,7 +917,7 @@ public class SettingsDto {
   }
 
   /**
-   * The lifecycle state of the portal. Anything other than active means most operations are refused for the  moment, because the portal is being transferred, restored, encrypted or removed.
+   * The lifecycle state of the portal. Anything other than active means most operations are refused: the  portal is being transferred, restored, encrypted or removed, its owner has deactivated it, or the  retention policy has blocked it after a long period without use.
    * @return tenantStatus
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT_STATUS, required = false)
@@ -989,7 +989,7 @@ public class SettingsDto {
     this.displayAbout = displayAbout;
   }
 
-  public SettingsDto domainValidator(@javax.annotation.Nullable TenantDomainValidator domainValidator) {
+  public SettingsDto domainValidator(@javax.annotation.Nullable DomainNameRulesDto domainValidator) {
     
     this.domainValidator = domainValidator;
     return this;
@@ -1002,14 +1002,14 @@ public class SettingsDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOMAIN_VALIDATOR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TenantDomainValidator getDomainValidator() {
+  public DomainNameRulesDto getDomainValidator() {
     return domainValidator;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_DOMAIN_VALIDATOR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDomainValidator(@javax.annotation.Nullable TenantDomainValidator domainValidator) {
+  public void setDomainValidator(@javax.annotation.Nullable DomainNameRulesDto domainValidator) {
     this.domainValidator = domainValidator;
   }
 
@@ -1415,7 +1415,7 @@ public class SettingsDto {
     this.logoText = JsonNullable.<String>of(logoText);
   }
 
-  public SettingsDto externalResources(@javax.annotation.Nullable CultureSpecificExternalResources externalResources) {
+  public SettingsDto externalResources(@javax.annotation.Nullable ExternalResourcesDto externalResources) {
     
     this.externalResources = externalResources;
     return this;
@@ -1428,14 +1428,14 @@ public class SettingsDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_RESOURCES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public CultureSpecificExternalResources getExternalResources() {
+  public ExternalResourcesDto getExternalResources() {
     return externalResources;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_EXTERNAL_RESOURCES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExternalResources(@javax.annotation.Nullable CultureSpecificExternalResources externalResources) {
+  public void setExternalResources(@javax.annotation.Nullable ExternalResourcesDto externalResources) {
     this.externalResources = externalResources;
   }
 

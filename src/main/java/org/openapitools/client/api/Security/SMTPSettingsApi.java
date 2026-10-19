@@ -25,7 +25,7 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.ErrorApiResponse;
-import org.openapitools.client.model.SmtpOperationStatusRequestsWrapper;
+import org.openapitools.client.model.SmtpOperationStatusWrapper;
 import org.openapitools.client.model.SmtpSettingsDto;
 import org.openapitools.client.model.SmtpSettingsWrapper;
 
@@ -55,10 +55,10 @@ public class SMTPSettingsApi extends BaseApi {
    * REST API Reference for getSmtpOperationStatus Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-operation-status/
    *
-   * @return SmtpOperationStatusRequestsWrapper
+   * @return SmtpOperationStatusWrapper
    * @throws ApiException if fails to make API call
    */
-  public SmtpOperationStatusRequestsWrapper getSmtpOperationStatus() throws ApiException {
+  public SmtpOperationStatusWrapper getSmtpOperationStatus() throws ApiException {
     return this.getSmtpOperationStatus(Collections.emptyMap());
   }
 
@@ -71,10 +71,10 @@ public class SMTPSettingsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-operation-status/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return SmtpOperationStatusRequestsWrapper
+   * @return SmtpOperationStatusWrapper
    * @throws ApiException if fails to make API call
    */
-  public SmtpOperationStatusRequestsWrapper getSmtpOperationStatus(Map<String, String> additionalHeaders) throws ApiException {
+  public SmtpOperationStatusWrapper getSmtpOperationStatus(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -106,7 +106,7 @@ public class SMTPSettingsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<SmtpOperationStatusRequestsWrapper> localVarReturnType = new TypeReference<SmtpOperationStatusRequestsWrapper>() {};
+    TypeReference<SmtpOperationStatusWrapper> localVarReturnType = new TypeReference<SmtpOperationStatusWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -361,10 +361,10 @@ public class SMTPSettingsApi extends BaseApi {
    * REST API Reference for testSmtpSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/test-smtp-settings/
    *
-   * @return SmtpOperationStatusRequestsWrapper
+   * @return SmtpOperationStatusWrapper
    * @throws ApiException if fails to make API call
    */
-  public SmtpOperationStatusRequestsWrapper testSmtpSettings() throws ApiException {
+  public SmtpOperationStatusWrapper testSmtpSettings() throws ApiException {
     return this.testSmtpSettings(Collections.emptyMap());
   }
 
@@ -377,10 +377,10 @@ public class SMTPSettingsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/test-smtp-settings/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return SmtpOperationStatusRequestsWrapper
+   * @return SmtpOperationStatusWrapper
    * @throws ApiException if fails to make API call
    */
-  public SmtpOperationStatusRequestsWrapper testSmtpSettings(Map<String, String> additionalHeaders) throws ApiException {
+  public SmtpOperationStatusWrapper testSmtpSettings(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -412,7 +412,7 @@ public class SMTPSettingsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<SmtpOperationStatusRequestsWrapper> localVarReturnType = new TypeReference<SmtpOperationStatusRequestsWrapper>() {};
+    TypeReference<SmtpOperationStatusWrapper> localVarReturnType = new TypeReference<SmtpOperationStatusWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",

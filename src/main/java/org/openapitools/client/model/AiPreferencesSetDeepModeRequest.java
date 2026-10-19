@@ -38,7 +38,6 @@ import java.util.StringJoiner;
   AiPreferencesSetDeepModeRequest.JSON_PROPERTY_VALUE,
   AiPreferencesSetDeepModeRequest.JSON_PROPERTY_ENTITY_ID
 })
-@JsonTypeName("aiPreferencesSetDeepMode_request")
 
 public class AiPreferencesSetDeepModeRequest {
   public static final String JSON_PROPERTY_VALUE = "value";

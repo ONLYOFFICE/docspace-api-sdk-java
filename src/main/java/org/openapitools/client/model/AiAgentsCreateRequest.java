@@ -55,7 +55,6 @@ import java.util.StringJoiner;
   AiAgentsCreateRequest.JSON_PROPERTY_COLOR,
   AiAgentsCreateRequest.JSON_PROPERTY_COVER
 })
-@JsonTypeName("aiAgentsCreate_request")
 
 public class AiAgentsCreateRequest {
   public static final String JSON_PROPERTY_PROFILE_ID = "profileId";

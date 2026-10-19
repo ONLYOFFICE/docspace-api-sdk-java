@@ -24,14 +24,14 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.AuthRequestsDto;
-import org.openapitools.client.model.AuthWithCodeRequestsDto;
+import org.openapitools.client.model.AuthRequestDto;
+import org.openapitools.client.model.AuthWithCodeRequestDto;
 import org.openapitools.client.model.AuthenticationTokenWrapper;
 import org.openapitools.client.model.BooleanWrapper;
+import org.openapitools.client.model.CheckConfirmRequestDto;
 import org.openapitools.client.model.ConfirmWrapper;
-import org.openapitools.client.model.EmailValidationKeyModel;
 import org.openapitools.client.model.ErrorApiResponse;
-import org.openapitools.client.model.MobileRequestsDto;
+import org.openapitools.client.model.MobileRequestDto;
 import org.openapitools.client.model.StringWrapper;
 
 
@@ -60,12 +60,12 @@ public class AuthenticationApi extends BaseApi {
    * REST API Reference for authenticateMe Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/
    *
-   * @param authRequestsDto  (optional)
+   * @param authRequestDto  (optional)
    * @return AuthenticationTokenWrapper
    * @throws ApiException if fails to make API call
    */
-  public AuthenticationTokenWrapper authenticateMe(@javax.annotation.Nullable AuthRequestsDto authRequestsDto) throws ApiException {
-    return this.authenticateMe(authRequestsDto, Collections.emptyMap());
+  public AuthenticationTokenWrapper authenticateMe(@javax.annotation.Nullable AuthRequestDto authRequestDto) throws ApiException {
+    return this.authenticateMe(authRequestDto, Collections.emptyMap());
   }
 
 
@@ -76,13 +76,13 @@ public class AuthenticationApi extends BaseApi {
    * REST API Reference for authenticateMe Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/
    *
-   * @param authRequestsDto  (optional)
+   * @param authRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return AuthenticationTokenWrapper
    * @throws ApiException if fails to make API call
    */
-  public AuthenticationTokenWrapper authenticateMe(@javax.annotation.Nullable AuthRequestsDto authRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = authRequestsDto;
+  public AuthenticationTokenWrapper authenticateMe(@javax.annotation.Nullable AuthRequestDto authRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = authRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/authentication";
@@ -139,12 +139,12 @@ public class AuthenticationApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/
    *
    * @param code The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads. (required)
-   * @param authWithCodeRequestsDto  (optional)
+   * @param authWithCodeRequestDto  (optional)
    * @return AuthenticationTokenWrapper
    * @throws ApiException if fails to make API call
    */
-  public AuthenticationTokenWrapper authenticateMeFromBodyWithCode(@javax.annotation.Nonnull String code, @javax.annotation.Nullable AuthWithCodeRequestsDto authWithCodeRequestsDto) throws ApiException {
-    return this.authenticateMeFromBodyWithCode(code, authWithCodeRequestsDto, Collections.emptyMap());
+  public AuthenticationTokenWrapper authenticateMeFromBodyWithCode(@javax.annotation.Nonnull String code, @javax.annotation.Nullable AuthWithCodeRequestDto authWithCodeRequestDto) throws ApiException {
+    return this.authenticateMeFromBodyWithCode(code, authWithCodeRequestDto, Collections.emptyMap());
   }
 
 
@@ -156,13 +156,13 @@ public class AuthenticationApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/
    *
    * @param code The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads. (required)
-   * @param authWithCodeRequestsDto  (optional)
+   * @param authWithCodeRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return AuthenticationTokenWrapper
    * @throws ApiException if fails to make API call
    */
-  public AuthenticationTokenWrapper authenticateMeFromBodyWithCode(@javax.annotation.Nonnull String code, @javax.annotation.Nullable AuthWithCodeRequestsDto authWithCodeRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = authWithCodeRequestsDto;
+  public AuthenticationTokenWrapper authenticateMeFromBodyWithCode(@javax.annotation.Nonnull String code, @javax.annotation.Nullable AuthWithCodeRequestDto authWithCodeRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = authWithCodeRequestDto;
     
     // verify the required parameter 'code' is set
     if (code == null) {
@@ -224,12 +224,12 @@ public class AuthenticationApi extends BaseApi {
    * REST API Reference for checkConfirm Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/
    *
-   * @param emailValidationKeyModel  (optional)
+   * @param checkConfirmRequestDto  (optional)
    * @return ConfirmWrapper
    * @throws ApiException if fails to make API call
    */
-  public ConfirmWrapper checkConfirm(@javax.annotation.Nullable EmailValidationKeyModel emailValidationKeyModel) throws ApiException {
-    return this.checkConfirm(emailValidationKeyModel, Collections.emptyMap());
+  public ConfirmWrapper checkConfirm(@javax.annotation.Nullable CheckConfirmRequestDto checkConfirmRequestDto) throws ApiException {
+    return this.checkConfirm(checkConfirmRequestDto, Collections.emptyMap());
   }
 
 
@@ -240,13 +240,13 @@ public class AuthenticationApi extends BaseApi {
    * REST API Reference for checkConfirm Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/
    *
-   * @param emailValidationKeyModel  (optional)
+   * @param checkConfirmRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return ConfirmWrapper
    * @throws ApiException if fails to make API call
    */
-  public ConfirmWrapper checkConfirm(@javax.annotation.Nullable EmailValidationKeyModel emailValidationKeyModel, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = emailValidationKeyModel;
+  public ConfirmWrapper checkConfirm(@javax.annotation.Nullable CheckConfirmRequestDto checkConfirmRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = checkConfirmRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/authentication/confirm";
@@ -454,12 +454,12 @@ public class AuthenticationApi extends BaseApi {
    * REST API Reference for saveMobilePhone Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/
    *
-   * @param mobileRequestsDto  (optional)
+   * @param mobileRequestDto  (optional)
    * @return AuthenticationTokenWrapper
    * @throws ApiException if fails to make API call
    */
-  public AuthenticationTokenWrapper saveMobilePhone(@javax.annotation.Nullable MobileRequestsDto mobileRequestsDto) throws ApiException {
-    return this.saveMobilePhone(mobileRequestsDto, Collections.emptyMap());
+  public AuthenticationTokenWrapper saveMobilePhone(@javax.annotation.Nullable MobileRequestDto mobileRequestDto) throws ApiException {
+    return this.saveMobilePhone(mobileRequestDto, Collections.emptyMap());
   }
 
 
@@ -470,13 +470,13 @@ public class AuthenticationApi extends BaseApi {
    * REST API Reference for saveMobilePhone Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/
    *
-   * @param mobileRequestsDto  (optional)
+   * @param mobileRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return AuthenticationTokenWrapper
    * @throws ApiException if fails to make API call
    */
-  public AuthenticationTokenWrapper saveMobilePhone(@javax.annotation.Nullable MobileRequestsDto mobileRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = mobileRequestsDto;
+  public AuthenticationTokenWrapper saveMobilePhone(@javax.annotation.Nullable MobileRequestDto mobileRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = mobileRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/authentication/setphone";
@@ -532,12 +532,12 @@ public class AuthenticationApi extends BaseApi {
    * REST API Reference for sendSmsCode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/
    *
-   * @param authRequestsDto  (optional)
+   * @param authRequestDto  (optional)
    * @return AuthenticationTokenWrapper
    * @throws ApiException if fails to make API call
    */
-  public AuthenticationTokenWrapper sendSmsCode(@javax.annotation.Nullable AuthRequestsDto authRequestsDto) throws ApiException {
-    return this.sendSmsCode(authRequestsDto, Collections.emptyMap());
+  public AuthenticationTokenWrapper sendSmsCode(@javax.annotation.Nullable AuthRequestDto authRequestDto) throws ApiException {
+    return this.sendSmsCode(authRequestDto, Collections.emptyMap());
   }
 
 
@@ -548,13 +548,13 @@ public class AuthenticationApi extends BaseApi {
    * REST API Reference for sendSmsCode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/
    *
-   * @param authRequestsDto  (optional)
+   * @param authRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return AuthenticationTokenWrapper
    * @throws ApiException if fails to make API call
    */
-  public AuthenticationTokenWrapper sendSmsCode(@javax.annotation.Nullable AuthRequestsDto authRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = authRequestsDto;
+  public AuthenticationTokenWrapper sendSmsCode(@javax.annotation.Nullable AuthRequestDto authRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = authRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/authentication/sendsms";

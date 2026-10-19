@@ -25,11 +25,10 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.AmazonS3RegionArrayWrapper;
-import org.openapitools.client.model.CdnStorageSettingsWrapper;
 import org.openapitools.client.model.DoubleWrapper;
 import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.StorageArrayWrapper;
-import org.openapitools.client.model.StorageRequestsDto;
+import org.openapitools.client.model.StorageRequestDto;
 import org.openapitools.client.model.StorageSettingsWrapper;
 
 
@@ -93,7 +92,7 @@ public class StorageApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("Dump", dump));
+    localVarQueryParams.addAll(apiClient.parameterToPair("dump", dump));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -587,12 +586,12 @@ public class StorageApi extends BaseApi {
    * REST API Reference for updateCdnStorage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cdn-storage/
    *
-   * @param storageRequestsDto  (optional)
-   * @return CdnStorageSettingsWrapper
+   * @param storageRequestDto  (optional)
+   * @return StorageSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public CdnStorageSettingsWrapper updateCdnStorage(@javax.annotation.Nullable StorageRequestsDto storageRequestsDto) throws ApiException {
-    return this.updateCdnStorage(storageRequestsDto, Collections.emptyMap());
+  public StorageSettingsWrapper updateCdnStorage(@javax.annotation.Nullable StorageRequestDto storageRequestDto) throws ApiException {
+    return this.updateCdnStorage(storageRequestDto, Collections.emptyMap());
   }
 
 
@@ -603,13 +602,13 @@ public class StorageApi extends BaseApi {
    * REST API Reference for updateCdnStorage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cdn-storage/
    *
-   * @param storageRequestsDto  (optional)
+   * @param storageRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return CdnStorageSettingsWrapper
+   * @return StorageSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public CdnStorageSettingsWrapper updateCdnStorage(@javax.annotation.Nullable StorageRequestsDto storageRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = storageRequestsDto;
+  public StorageSettingsWrapper updateCdnStorage(@javax.annotation.Nullable StorageRequestDto storageRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = storageRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/storage/cdn";
@@ -640,7 +639,7 @@ public class StorageApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<CdnStorageSettingsWrapper> localVarReturnType = new TypeReference<CdnStorageSettingsWrapper>() {};
+    TypeReference<StorageSettingsWrapper> localVarReturnType = new TypeReference<StorageSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
@@ -665,12 +664,12 @@ public class StorageApi extends BaseApi {
    * REST API Reference for updateStorage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-storage/
    *
-   * @param storageRequestsDto  (optional)
+   * @param storageRequestDto  (optional)
    * @return StorageSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public StorageSettingsWrapper updateStorage(@javax.annotation.Nullable StorageRequestsDto storageRequestsDto) throws ApiException {
-    return this.updateStorage(storageRequestsDto, Collections.emptyMap());
+  public StorageSettingsWrapper updateStorage(@javax.annotation.Nullable StorageRequestDto storageRequestDto) throws ApiException {
+    return this.updateStorage(storageRequestDto, Collections.emptyMap());
   }
 
 
@@ -681,13 +680,13 @@ public class StorageApi extends BaseApi {
    * REST API Reference for updateStorage Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-storage/
    *
-   * @param storageRequestsDto  (optional)
+   * @param storageRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return StorageSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public StorageSettingsWrapper updateStorage(@javax.annotation.Nullable StorageRequestsDto storageRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = storageRequestsDto;
+  public StorageSettingsWrapper updateStorage(@javax.annotation.Nullable StorageRequestDto storageRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = storageRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/storage";

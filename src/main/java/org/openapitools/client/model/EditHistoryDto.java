@@ -28,8 +28,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.ApiDateTime;
-import org.openapitools.client.model.EditHistoryAuthor;
-import org.openapitools.client.model.EditHistoryChangesWrapper;
+import org.openapitools.client.model.EditHistoryAuthorDto;
+import org.openapitools.client.model.EditHistoryChangesDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -70,7 +70,7 @@ public class EditHistoryDto {
   @javax.annotation.Nullable  private Integer versionGroup;
 
   public static final String JSON_PROPERTY_USER = "user";
-  @javax.annotation.Nullable  private EditHistoryAuthor user;
+  @javax.annotation.Nullable  private EditHistoryAuthorDto user;
 
   public static final String JSON_PROPERTY_CREATED = "created";
   @javax.annotation.Nullable  private ApiDateTime created;
@@ -79,7 +79,7 @@ public class EditHistoryDto {
   @javax.annotation.Nullable  private JsonNullable<String> changesHistory = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CHANGES = "changes";
-  @javax.annotation.Nullable  private JsonNullable<List<EditHistoryChangesWrapper>> changes = JsonNullable.<List<EditHistoryChangesWrapper>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<EditHistoryChangesDto>> changes = JsonNullable.<List<EditHistoryChangesDto>>undefined();
 
   public static final String JSON_PROPERTY_SERVER_VERSION = "serverVersion";
   @javax.annotation.Nullable  private JsonNullable<String> serverVersion = JsonNullable.<String>undefined();
@@ -191,7 +191,7 @@ public class EditHistoryDto {
     this.versionGroup = versionGroup;
   }
 
-  public EditHistoryDto user(@javax.annotation.Nullable EditHistoryAuthor user) {
+  public EditHistoryDto user(@javax.annotation.Nullable EditHistoryAuthorDto user) {
     
     this.user = user;
     return this;
@@ -204,14 +204,14 @@ public class EditHistoryDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public EditHistoryAuthor getUser() {
+  public EditHistoryAuthorDto getUser() {
     return user;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_USER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUser(@javax.annotation.Nullable EditHistoryAuthor user) {
+  public void setUser(@javax.annotation.Nullable EditHistoryAuthorDto user) {
     this.user = user;
   }
 
@@ -270,15 +270,15 @@ public class EditHistoryDto {
     this.changesHistory = JsonNullable.<String>of(changesHistory);
   }
 
-  public EditHistoryDto changes(@javax.annotation.Nullable List<EditHistoryChangesWrapper> changes) {
-    this.changes = JsonNullable.<List<EditHistoryChangesWrapper>>of(changes);
+  public EditHistoryDto changes(@javax.annotation.Nullable List<EditHistoryChangesDto> changes) {
+    this.changes = JsonNullable.<List<EditHistoryChangesDto>>of(changes);
     
     return this;
   }
 
-  public EditHistoryDto addChangesItem(EditHistoryChangesWrapper changesItem) {
+  public EditHistoryDto addChangesItem(EditHistoryChangesDto changesItem) {
     if (this.changes == null || !this.changes.isPresent()) {
-      this.changes = JsonNullable.<List<EditHistoryChangesWrapper>>of(new ArrayList<>());
+      this.changes = JsonNullable.<List<EditHistoryChangesDto>>of(new ArrayList<>());
     }
     try {
       this.changes.get().add(changesItem);
@@ -294,23 +294,23 @@ public class EditHistoryDto {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public List<EditHistoryChangesWrapper> getChanges() {
+  public List<EditHistoryChangesDto> getChanges() {
         return changes.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_CHANGES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<List<EditHistoryChangesWrapper>> getChanges_JsonNullable() {
+  public JsonNullable<List<EditHistoryChangesDto>> getChanges_JsonNullable() {
     return changes;
   }
   
   @JsonProperty(JSON_PROPERTY_CHANGES)
-  public void setChanges_JsonNullable(JsonNullable<List<EditHistoryChangesWrapper>> changes) {
+  public void setChanges_JsonNullable(JsonNullable<List<EditHistoryChangesDto>> changes) {
     this.changes = changes;
   }
 
-  public void setChanges(@javax.annotation.Nullable List<EditHistoryChangesWrapper> changes) {
-    this.changes = JsonNullable.<List<EditHistoryChangesWrapper>>of(changes);
+  public void setChanges(@javax.annotation.Nullable List<EditHistoryChangesDto> changes) {
+    this.changes = JsonNullable.<List<EditHistoryChangesDto>>of(changes);
   }
 
   public EditHistoryDto serverVersion(@javax.annotation.Nullable String serverVersion) {

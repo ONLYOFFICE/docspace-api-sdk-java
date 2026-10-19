@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.EmailActivationSettings;
+import org.openapitools.client.model.EmailActivationSettingsDto;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The successful API response containing the EmailActivationSettings object.
+ * The successful API response containing the EmailActivationSettingsDto object.
  */
 @JsonPropertyOrder({
   EmailActivationSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class EmailActivationSettingsWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private EmailActivationSettings response;
+  @javax.annotation.Nullable  private EmailActivationSettingsDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class EmailActivationSettingsWrapper {
   }
 
 
-  public EmailActivationSettingsWrapper response(@javax.annotation.Nullable EmailActivationSettings response) {
+  public EmailActivationSettingsWrapper response(@javax.annotation.Nullable EmailActivationSettingsDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * The EmailActivationSettings object returned by the operation.
+   * The EmailActivationSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public EmailActivationSettings getResponse() {
+  public EmailActivationSettingsDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable EmailActivationSettings response) {
+  public void setResponse(@javax.annotation.Nullable EmailActivationSettingsDto response) {
     this.response = response;
   }
 

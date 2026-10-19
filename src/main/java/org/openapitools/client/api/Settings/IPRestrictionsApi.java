@@ -25,9 +25,9 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.ErrorApiResponse;
-import org.openapitools.client.model.IPRestrictionArrayWrapper;
-import org.openapitools.client.model.IPRestrictionsSettingsWrapper;
+import org.openapitools.client.model.IpRestrictionArrayWrapper;
 import org.openapitools.client.model.IpRestrictionsDto;
+import org.openapitools.client.model.IpRestrictionsSettingsWrapper;
 import org.openapitools.client.model.IpRestrictionsWrapper;
 
 
@@ -56,10 +56,10 @@ public class IPRestrictionsApi extends BaseApi {
    * REST API Reference for getIpRestrictions Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/
    *
-   * @return IPRestrictionArrayWrapper
+   * @return IpRestrictionArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public IPRestrictionArrayWrapper getIpRestrictions() throws ApiException {
+  public IpRestrictionArrayWrapper getIpRestrictions() throws ApiException {
     return this.getIpRestrictions(Collections.emptyMap());
   }
 
@@ -72,10 +72,10 @@ public class IPRestrictionsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return IPRestrictionArrayWrapper
+   * @return IpRestrictionArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public IPRestrictionArrayWrapper getIpRestrictions(Map<String, String> additionalHeaders) throws ApiException {
+  public IpRestrictionArrayWrapper getIpRestrictions(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -107,7 +107,7 @@ public class IPRestrictionsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<IPRestrictionArrayWrapper> localVarReturnType = new TypeReference<IPRestrictionArrayWrapper>() {};
+    TypeReference<IpRestrictionArrayWrapper> localVarReturnType = new TypeReference<IpRestrictionArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -132,10 +132,10 @@ public class IPRestrictionsApi extends BaseApi {
    * REST API Reference for readIpRestrictionsSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/
    *
-   * @return IPRestrictionsSettingsWrapper
+   * @return IpRestrictionsSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public IPRestrictionsSettingsWrapper readIpRestrictionsSettings() throws ApiException {
+  public IpRestrictionsSettingsWrapper readIpRestrictionsSettings() throws ApiException {
     return this.readIpRestrictionsSettings(Collections.emptyMap());
   }
 
@@ -148,10 +148,10 @@ public class IPRestrictionsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return IPRestrictionsSettingsWrapper
+   * @return IpRestrictionsSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public IPRestrictionsSettingsWrapper readIpRestrictionsSettings(Map<String, String> additionalHeaders) throws ApiException {
+  public IpRestrictionsSettingsWrapper readIpRestrictionsSettings(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -183,7 +183,7 @@ public class IPRestrictionsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<IPRestrictionsSettingsWrapper> localVarReturnType = new TypeReference<IPRestrictionsSettingsWrapper>() {};
+    TypeReference<IpRestrictionsSettingsWrapper> localVarReturnType = new TypeReference<IpRestrictionsSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",

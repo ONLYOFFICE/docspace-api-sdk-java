@@ -41,7 +41,7 @@ import java.util.StringJoiner;
   AiAttachmentsSaveFileRequestInput.JSON_PROPERTY_TYPE,
   AiAttachmentsSaveFileRequestInput.JSON_PROPERTY_TITLE
 })
-@JsonTypeName("aiAttachmentsSaveFile_request_input")
+@JsonTypeName("AiAttachmentsSaveFileRequest_input")
 
 public class AiAttachmentsSaveFileRequestInput {
   public static final String JSON_PROPERTY_PATH = "path";

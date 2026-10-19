@@ -33,7 +33,7 @@ import java.util.StringJoiner;
  */
 @JsonPropertyOrder({
 })
-@JsonTypeName("aiExportTextToDocx_request_folderId")
+@JsonTypeName("AiExportTextToDocxRequest_folderId")
 
 public class AiExportTextToDocxRequestFolderId {
   public AiExportTextToDocxRequestFolderId() {

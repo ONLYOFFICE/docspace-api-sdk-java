@@ -24,16 +24,16 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.AiAiApproveToolCallRequest;
-import org.openapitools.client.model.AiAiRegenerateStreamRequest;
-import org.openapitools.client.model.AiAiSendCustomRequest;
-import org.openapitools.client.model.AiAiSendRequest;
-import org.openapitools.client.model.AiAiSendStreamBody;
-import org.openapitools.client.model.AiAiToolCallData;
+import org.openapitools.client.model.AiApproveToolCallRequest;
 import org.openapitools.client.model.AiChatEvent;
 import org.openapitools.client.model.AiErrorResponse;
 import org.openapitools.client.model.AiOpenAIStreamChunk;
+import org.openapitools.client.model.AiRegenerateStreamRequest;
+import org.openapitools.client.model.AiSendCustomRequest;
+import org.openapitools.client.model.AiSendRequest;
+import org.openapitools.client.model.AiSendStreamBody;
 import org.openapitools.client.model.AiThreadMessageLike;
+import org.openapitools.client.model.AiToolCallData;
 
 
 import java.util.ArrayList;
@@ -58,15 +58,15 @@ public class AIApi extends BaseApi {
    * Approve tool call
    * Resumes a chat round that a tool call has paused, and streams the continuation as newline-delimited `ChatEvent` objects. The result supplied in the request is persisted onto the assistant message that issued the call, so the tool is not executed here - the caller runs it and reports the outcome. The round continues against the augmented history and may pause again on a further tool call. Call `POST api/2.0/ai/ai/deny-tool-call` instead to refuse the call and let the model answer without it.
    *
-   * REST API Reference for aiAiApproveToolCall Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-approve-tool-call/
+   * REST API Reference for aiApproveToolCall Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-approve-tool-call/
    *
-   * @param aiAiApproveToolCallRequest  (required)
+   * @param aiApproveToolCallRequest  (required)
    * @return AiChatEvent
    * @throws ApiException if fails to make API call
    */
-  public AiChatEvent aiAiApproveToolCall(@javax.annotation.Nonnull AiAiApproveToolCallRequest aiAiApproveToolCallRequest) throws ApiException {
-    return this.aiAiApproveToolCall(aiAiApproveToolCallRequest, Collections.emptyMap());
+  public AiChatEvent aiApproveToolCall(@javax.annotation.Nonnull AiApproveToolCallRequest aiApproveToolCallRequest) throws ApiException {
+    return this.aiApproveToolCall(aiApproveToolCallRequest, Collections.emptyMap());
   }
 
 
@@ -74,20 +74,20 @@ public class AIApi extends BaseApi {
    * Approve tool call
    * Resumes a chat round that a tool call has paused, and streams the continuation as newline-delimited `ChatEvent` objects. The result supplied in the request is persisted onto the assistant message that issued the call, so the tool is not executed here - the caller runs it and reports the outcome. The round continues against the augmented history and may pause again on a further tool call. Call `POST api/2.0/ai/ai/deny-tool-call` instead to refuse the call and let the model answer without it.
    *
-   * REST API Reference for aiAiApproveToolCall Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-approve-tool-call/
+   * REST API Reference for aiApproveToolCall Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-approve-tool-call/
    *
-   * @param aiAiApproveToolCallRequest  (required)
+   * @param aiApproveToolCallRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiChatEvent
    * @throws ApiException if fails to make API call
    */
-  public AiChatEvent aiAiApproveToolCall(@javax.annotation.Nonnull AiAiApproveToolCallRequest aiAiApproveToolCallRequest, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = aiAiApproveToolCallRequest;
+  public AiChatEvent aiApproveToolCall(@javax.annotation.Nonnull AiApproveToolCallRequest aiApproveToolCallRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiApproveToolCallRequest;
     
-    // verify the required parameter 'aiAiApproveToolCallRequest' is set
-    if (aiAiApproveToolCallRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'aiAiApproveToolCallRequest' when calling aiAiApproveToolCall");
+    // verify the required parameter 'aiApproveToolCallRequest' is set
+    if (aiApproveToolCallRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiApproveToolCallRequest' when calling aiApproveToolCall");
     }
     
     // create path and map variables
@@ -141,15 +141,15 @@ public class AIApi extends BaseApi {
    * Deny tool call
    * Refuses the tool call a chat round is paused on and resumes it immediately, streaming the continuation as newline-delimited `ChatEvent` objects. The literal `User deny tool call` is persisted in place of the tool result, so the model sees an explicit refusal rather than a missing answer and may reply without the tool or ask for something else. Nothing is executed and no result is accepted from the caller. Use `POST api/2.0/ai/ai/approve-tool-call` to supply a result instead.
    *
-   * REST API Reference for aiAiDenyToolCall Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-deny-tool-call/
+   * REST API Reference for aiDenyToolCall Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-deny-tool-call/
    *
-   * @param aiAiToolCallData  (required)
+   * @param aiToolCallData  (required)
    * @return AiChatEvent
    * @throws ApiException if fails to make API call
    */
-  public AiChatEvent aiAiDenyToolCall(@javax.annotation.Nonnull AiAiToolCallData aiAiToolCallData) throws ApiException {
-    return this.aiAiDenyToolCall(aiAiToolCallData, Collections.emptyMap());
+  public AiChatEvent aiDenyToolCall(@javax.annotation.Nonnull AiToolCallData aiToolCallData) throws ApiException {
+    return this.aiDenyToolCall(aiToolCallData, Collections.emptyMap());
   }
 
 
@@ -157,20 +157,20 @@ public class AIApi extends BaseApi {
    * Deny tool call
    * Refuses the tool call a chat round is paused on and resumes it immediately, streaming the continuation as newline-delimited `ChatEvent` objects. The literal `User deny tool call` is persisted in place of the tool result, so the model sees an explicit refusal rather than a missing answer and may reply without the tool or ask for something else. Nothing is executed and no result is accepted from the caller. Use `POST api/2.0/ai/ai/approve-tool-call` to supply a result instead.
    *
-   * REST API Reference for aiAiDenyToolCall Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-deny-tool-call/
+   * REST API Reference for aiDenyToolCall Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-deny-tool-call/
    *
-   * @param aiAiToolCallData  (required)
+   * @param aiToolCallData  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiChatEvent
    * @throws ApiException if fails to make API call
    */
-  public AiChatEvent aiAiDenyToolCall(@javax.annotation.Nonnull AiAiToolCallData aiAiToolCallData, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = aiAiToolCallData;
+  public AiChatEvent aiDenyToolCall(@javax.annotation.Nonnull AiToolCallData aiToolCallData, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiToolCallData;
     
-    // verify the required parameter 'aiAiToolCallData' is set
-    if (aiAiToolCallData == null) {
-      throw new ApiException(400, "Missing the required parameter 'aiAiToolCallData' when calling aiAiDenyToolCall");
+    // verify the required parameter 'aiToolCallData' is set
+    if (aiToolCallData == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiToolCallData' when calling aiDenyToolCall");
     }
     
     // create path and map variables
@@ -224,15 +224,15 @@ public class AIApi extends BaseApi {
    * Regenerate stream
    * Re-rolls the last assistant reply of an existing thread: every message after the last user message - the previous reply and any tool-call hops - is dropped, and a fresh reply is streamed as newline-delimited `ChatEvent` objects against the unchanged prompt. The thread has to exist already, `threadId` is required, and no title is generated. The dropped messages are gone for good, so this is a destructive operation on the thread's tail rather than a retry that keeps both answers. Unlike `send-with-stream` the profile is not verified before the stream opens, so an unusable model surfaces as an error frame inside the 200 rather than as a 4xx.
    *
-   * REST API Reference for aiAiRegenerateStream Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-regenerate-stream/
+   * REST API Reference for aiRegenerateStream Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-regenerate-stream/
    *
-   * @param aiAiRegenerateStreamRequest  (required)
+   * @param aiRegenerateStreamRequest  (required)
    * @return AiChatEvent
    * @throws ApiException if fails to make API call
    */
-  public AiChatEvent aiAiRegenerateStream(@javax.annotation.Nonnull AiAiRegenerateStreamRequest aiAiRegenerateStreamRequest) throws ApiException {
-    return this.aiAiRegenerateStream(aiAiRegenerateStreamRequest, Collections.emptyMap());
+  public AiChatEvent aiRegenerateStream(@javax.annotation.Nonnull AiRegenerateStreamRequest aiRegenerateStreamRequest) throws ApiException {
+    return this.aiRegenerateStream(aiRegenerateStreamRequest, Collections.emptyMap());
   }
 
 
@@ -240,20 +240,20 @@ public class AIApi extends BaseApi {
    * Regenerate stream
    * Re-rolls the last assistant reply of an existing thread: every message after the last user message - the previous reply and any tool-call hops - is dropped, and a fresh reply is streamed as newline-delimited `ChatEvent` objects against the unchanged prompt. The thread has to exist already, `threadId` is required, and no title is generated. The dropped messages are gone for good, so this is a destructive operation on the thread's tail rather than a retry that keeps both answers. Unlike `send-with-stream` the profile is not verified before the stream opens, so an unusable model surfaces as an error frame inside the 200 rather than as a 4xx.
    *
-   * REST API Reference for aiAiRegenerateStream Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-regenerate-stream/
+   * REST API Reference for aiRegenerateStream Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-regenerate-stream/
    *
-   * @param aiAiRegenerateStreamRequest  (required)
+   * @param aiRegenerateStreamRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiChatEvent
    * @throws ApiException if fails to make API call
    */
-  public AiChatEvent aiAiRegenerateStream(@javax.annotation.Nonnull AiAiRegenerateStreamRequest aiAiRegenerateStreamRequest, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = aiAiRegenerateStreamRequest;
+  public AiChatEvent aiRegenerateStream(@javax.annotation.Nonnull AiRegenerateStreamRequest aiRegenerateStreamRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiRegenerateStreamRequest;
     
-    // verify the required parameter 'aiAiRegenerateStreamRequest' is set
-    if (aiAiRegenerateStreamRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'aiAiRegenerateStreamRequest' when calling aiAiRegenerateStream");
+    // verify the required parameter 'aiRegenerateStreamRequest' is set
+    if (aiRegenerateStreamRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiRegenerateStreamRequest' when calling aiRegenerateStream");
     }
     
     // create path and map variables
@@ -305,38 +305,38 @@ public class AIApi extends BaseApi {
 
   /**
    * Run an AI action
-   * Runs one AI action and returns the whole answer as a single JSON document. The model is the profile bound to `actionType`, falling back to the `Default` assignment slot, so this operation accepts no `profileId` of its own. Nothing is persisted - no thread is opened, no message is stored and no title is generated - which makes it the one to use for a stand-alone completion rather than for a conversation. `entityId` and `contextEntityId` set the scope of the round, which decides the workspace context and the custom MCP servers it may reach. For a conversation that keeps its history, use `POST api/2.0/ai/ai/send-with-stream` instead.
+   * Runs one AI action and returns the whole answer as a single JSON document. The model is the profile bound to `actionType`, falling back to the `Default` assignment slot, so this operation accepts no `profileId` of its own. `actionType` has to be a known action and `userMessage` has to carry text or an attachment, or the call answers 400 before anything runs. Nothing is persisted - no thread is opened, no message is stored and no title is generated - which makes it the one to use for a stand-alone completion rather than for a conversation. `entityId` and `contextEntityId` set the scope of the round, which decides the workspace context and the custom MCP servers it may reach. For a conversation that keeps its history, use `POST api/2.0/ai/ai/send-with-stream` instead.
    *
-   * REST API Reference for aiAiSend Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send/
+   * REST API Reference for aiSend Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-send/
    *
-   * @param aiAiSendRequest  (required)
+   * @param aiSendRequest  (required)
    * @return AiThreadMessageLike
    * @throws ApiException if fails to make API call
    */
-  public AiThreadMessageLike aiAiSend(@javax.annotation.Nonnull AiAiSendRequest aiAiSendRequest) throws ApiException {
-    return this.aiAiSend(aiAiSendRequest, Collections.emptyMap());
+  public AiThreadMessageLike aiSend(@javax.annotation.Nonnull AiSendRequest aiSendRequest) throws ApiException {
+    return this.aiSend(aiSendRequest, Collections.emptyMap());
   }
 
 
   /**
    * Run an AI action
-   * Runs one AI action and returns the whole answer as a single JSON document. The model is the profile bound to `actionType`, falling back to the `Default` assignment slot, so this operation accepts no `profileId` of its own. Nothing is persisted - no thread is opened, no message is stored and no title is generated - which makes it the one to use for a stand-alone completion rather than for a conversation. `entityId` and `contextEntityId` set the scope of the round, which decides the workspace context and the custom MCP servers it may reach. For a conversation that keeps its history, use `POST api/2.0/ai/ai/send-with-stream` instead.
+   * Runs one AI action and returns the whole answer as a single JSON document. The model is the profile bound to `actionType`, falling back to the `Default` assignment slot, so this operation accepts no `profileId` of its own. `actionType` has to be a known action and `userMessage` has to carry text or an attachment, or the call answers 400 before anything runs. Nothing is persisted - no thread is opened, no message is stored and no title is generated - which makes it the one to use for a stand-alone completion rather than for a conversation. `entityId` and `contextEntityId` set the scope of the round, which decides the workspace context and the custom MCP servers it may reach. For a conversation that keeps its history, use `POST api/2.0/ai/ai/send-with-stream` instead.
    *
-   * REST API Reference for aiAiSend Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send/
+   * REST API Reference for aiSend Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-send/
    *
-   * @param aiAiSendRequest  (required)
+   * @param aiSendRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiThreadMessageLike
    * @throws ApiException if fails to make API call
    */
-  public AiThreadMessageLike aiAiSend(@javax.annotation.Nonnull AiAiSendRequest aiAiSendRequest, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = aiAiSendRequest;
+  public AiThreadMessageLike aiSend(@javax.annotation.Nonnull AiSendRequest aiSendRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiSendRequest;
     
-    // verify the required parameter 'aiAiSendRequest' is set
-    if (aiAiSendRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'aiAiSendRequest' when calling aiAiSend");
+    // verify the required parameter 'aiSendRequest' is set
+    if (aiSendRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiSendRequest' when calling aiSend");
     }
     
     // create path and map variables
@@ -388,38 +388,38 @@ public class AIApi extends BaseApi {
 
   /**
    * Send custom
-   * Runs a free-form one-turn call against a system prompt supplied in the request, with no thread, no history and nothing persisted. The model is the explicit `profileId` when it resolves, otherwise the `Default` assignment slot. The shape of the answer depends on the body rather than on the route: with `isStream` set it arrives as a newline-delimited stream of chat events, and without it as a single JSON document, so a client has to handle both. Use `POST api/2.0/ai/ai/send` when the prompt should come from the portal's own action configuration instead of from the caller.
+   * Runs a free-form one-turn call against a system prompt supplied in the request, with no thread, no history and nothing persisted. The model is the explicit `profileId` when it resolves, otherwise the `Default` assignment slot. `systemPrompt` is required and `userMessage` has to carry text or an attachment, or the call answers 400 before anything runs. The shape of the answer depends on the body rather than on the route: with `isStream: true` it arrives as a newline-delimited stream of chat events, and without it as a single JSON document, so a client has to handle both; `isStream` has to be a real boolean when sent, a string is refused. Use `POST api/2.0/ai/ai/send` when the prompt should come from the portal's own action configuration instead of from the caller.
    *
-   * REST API Reference for aiAiSendCustom Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-custom/
+   * REST API Reference for aiSendCustom Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-send-custom/
    *
-   * @param aiAiSendCustomRequest  (required)
+   * @param aiSendCustomRequest  (required)
    * @return AiThreadMessageLike
    * @throws ApiException if fails to make API call
    */
-  public AiThreadMessageLike aiAiSendCustom(@javax.annotation.Nonnull AiAiSendCustomRequest aiAiSendCustomRequest) throws ApiException {
-    return this.aiAiSendCustom(aiAiSendCustomRequest, Collections.emptyMap());
+  public AiThreadMessageLike aiSendCustom(@javax.annotation.Nonnull AiSendCustomRequest aiSendCustomRequest) throws ApiException {
+    return this.aiSendCustom(aiSendCustomRequest, Collections.emptyMap());
   }
 
 
   /**
    * Send custom
-   * Runs a free-form one-turn call against a system prompt supplied in the request, with no thread, no history and nothing persisted. The model is the explicit `profileId` when it resolves, otherwise the `Default` assignment slot. The shape of the answer depends on the body rather than on the route: with `isStream` set it arrives as a newline-delimited stream of chat events, and without it as a single JSON document, so a client has to handle both. Use `POST api/2.0/ai/ai/send` when the prompt should come from the portal's own action configuration instead of from the caller.
+   * Runs a free-form one-turn call against a system prompt supplied in the request, with no thread, no history and nothing persisted. The model is the explicit `profileId` when it resolves, otherwise the `Default` assignment slot. `systemPrompt` is required and `userMessage` has to carry text or an attachment, or the call answers 400 before anything runs. The shape of the answer depends on the body rather than on the route: with `isStream: true` it arrives as a newline-delimited stream of chat events, and without it as a single JSON document, so a client has to handle both; `isStream` has to be a real boolean when sent, a string is refused. Use `POST api/2.0/ai/ai/send` when the prompt should come from the portal's own action configuration instead of from the caller.
    *
-   * REST API Reference for aiAiSendCustom Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-custom/
+   * REST API Reference for aiSendCustom Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-send-custom/
    *
-   * @param aiAiSendCustomRequest  (required)
+   * @param aiSendCustomRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiThreadMessageLike
    * @throws ApiException if fails to make API call
    */
-  public AiThreadMessageLike aiAiSendCustom(@javax.annotation.Nonnull AiAiSendCustomRequest aiAiSendCustomRequest, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = aiAiSendCustomRequest;
+  public AiThreadMessageLike aiSendCustom(@javax.annotation.Nonnull AiSendCustomRequest aiSendCustomRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiSendCustomRequest;
     
-    // verify the required parameter 'aiAiSendCustomRequest' is set
-    if (aiAiSendCustomRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'aiAiSendCustomRequest' when calling aiAiSendCustom");
+    // verify the required parameter 'aiSendCustomRequest' is set
+    if (aiSendCustomRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiSendCustomRequest' when calling aiSendCustom");
     }
     
     // create path and map variables
@@ -473,15 +473,15 @@ public class AIApi extends BaseApi {
    * Send with stream
    * Runs one chat round and streams it back as newline-delimited `ChatEvent` objects. Omitting `threadId` opens a new thread, which requires that `entityId` names a room the caller can open and that a profile resolves for it; the user message and the reply are persisted either way, and a new thread also gets a generated title. The model is settled in a fixed order - an agent's assignment in scope overrides everything, then the explicit `profileId`, then the one stored on the thread, then the `Chat` assignment - and the effective profile is checked before the stream opens, so an unknown one fails with 400 rather than as an error buried in a 200. A tool call pauses the round and ends the stream; resume it with `POST api/2.0/ai/ai/approve-tool-call` or `POST api/2.0/ai/ai/deny-tool-call`.
    *
-   * REST API Reference for aiAiSendWithStream Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream/
+   * REST API Reference for aiSendWithStream Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-send-with-stream/
    *
-   * @param aiAiSendStreamBody  (required)
+   * @param aiSendStreamBody  (required)
    * @return AiChatEvent
    * @throws ApiException if fails to make API call
    */
-  public AiChatEvent aiAiSendWithStream(@javax.annotation.Nonnull AiAiSendStreamBody aiAiSendStreamBody) throws ApiException {
-    return this.aiAiSendWithStream(aiAiSendStreamBody, Collections.emptyMap());
+  public AiChatEvent aiSendWithStream(@javax.annotation.Nonnull AiSendStreamBody aiSendStreamBody) throws ApiException {
+    return this.aiSendWithStream(aiSendStreamBody, Collections.emptyMap());
   }
 
 
@@ -489,20 +489,20 @@ public class AIApi extends BaseApi {
    * Send with stream
    * Runs one chat round and streams it back as newline-delimited `ChatEvent` objects. Omitting `threadId` opens a new thread, which requires that `entityId` names a room the caller can open and that a profile resolves for it; the user message and the reply are persisted either way, and a new thread also gets a generated title. The model is settled in a fixed order - an agent's assignment in scope overrides everything, then the explicit `profileId`, then the one stored on the thread, then the `Chat` assignment - and the effective profile is checked before the stream opens, so an unknown one fails with 400 rather than as an error buried in a 200. A tool call pauses the round and ends the stream; resume it with `POST api/2.0/ai/ai/approve-tool-call` or `POST api/2.0/ai/ai/deny-tool-call`.
    *
-   * REST API Reference for aiAiSendWithStream Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream/
+   * REST API Reference for aiSendWithStream Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-send-with-stream/
    *
-   * @param aiAiSendStreamBody  (required)
+   * @param aiSendStreamBody  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiChatEvent
    * @throws ApiException if fails to make API call
    */
-  public AiChatEvent aiAiSendWithStream(@javax.annotation.Nonnull AiAiSendStreamBody aiAiSendStreamBody, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = aiAiSendStreamBody;
+  public AiChatEvent aiSendWithStream(@javax.annotation.Nonnull AiSendStreamBody aiSendStreamBody, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiSendStreamBody;
     
-    // verify the required parameter 'aiAiSendStreamBody' is set
-    if (aiAiSendStreamBody == null) {
-      throw new ApiException(400, "Missing the required parameter 'aiAiSendStreamBody' when calling aiAiSendWithStream");
+    // verify the required parameter 'aiSendStreamBody' is set
+    if (aiSendStreamBody == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiSendStreamBody' when calling aiSendWithStream");
     }
     
     // create path and map variables
@@ -556,15 +556,15 @@ public class AIApi extends BaseApi {
    * Stream a chat in OpenAI format
    * The same chat round as `send-with-stream`, re-encoded as a server-sent-events stream of OpenAI `chat.completion.chunk` objects terminated by a `[DONE]` sentinel. Thread handling, persistence, title generation and the profile pre-flight are identical, and a tool call ends the stream with `finish_reason: tool_calls` instead of a pause event - resume it through the same approve and deny operations. Unlike `send-with-stream` it does not reject an empty user message and does not enforce the per-kind attachment cap, so validate both before calling. Choose this route only for a client that already speaks the OpenAI wire format; `POST api/2.0/ai/ai/send-with-stream` is the native one.
    *
-   * REST API Reference for aiAiSendWithStreamOpenAI Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream-open-ai/
+   * REST API Reference for aiSendWithStreamOpenAI Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-send-with-stream-open-ai/
    *
-   * @param aiAiSendStreamBody  (required)
+   * @param aiSendStreamBody  (required)
    * @return AiOpenAIStreamChunk
    * @throws ApiException if fails to make API call
    */
-  public AiOpenAIStreamChunk aiAiSendWithStreamOpenAI(@javax.annotation.Nonnull AiAiSendStreamBody aiAiSendStreamBody) throws ApiException {
-    return this.aiAiSendWithStreamOpenAI(aiAiSendStreamBody, Collections.emptyMap());
+  public AiOpenAIStreamChunk aiSendWithStreamOpenAI(@javax.annotation.Nonnull AiSendStreamBody aiSendStreamBody) throws ApiException {
+    return this.aiSendWithStreamOpenAI(aiSendStreamBody, Collections.emptyMap());
   }
 
 
@@ -572,20 +572,20 @@ public class AIApi extends BaseApi {
    * Stream a chat in OpenAI format
    * The same chat round as `send-with-stream`, re-encoded as a server-sent-events stream of OpenAI `chat.completion.chunk` objects terminated by a `[DONE]` sentinel. Thread handling, persistence, title generation and the profile pre-flight are identical, and a tool call ends the stream with `finish_reason: tool_calls` instead of a pause event - resume it through the same approve and deny operations. Unlike `send-with-stream` it does not reject an empty user message and does not enforce the per-kind attachment cap, so validate both before calling. Choose this route only for a client that already speaks the OpenAI wire format; `POST api/2.0/ai/ai/send-with-stream` is the native one.
    *
-   * REST API Reference for aiAiSendWithStreamOpenAI Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream-open-ai/
+   * REST API Reference for aiSendWithStreamOpenAI Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-send-with-stream-open-ai/
    *
-   * @param aiAiSendStreamBody  (required)
+   * @param aiSendStreamBody  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiOpenAIStreamChunk
    * @throws ApiException if fails to make API call
    */
-  public AiOpenAIStreamChunk aiAiSendWithStreamOpenAI(@javax.annotation.Nonnull AiAiSendStreamBody aiAiSendStreamBody, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = aiAiSendStreamBody;
+  public AiOpenAIStreamChunk aiSendWithStreamOpenAI(@javax.annotation.Nonnull AiSendStreamBody aiSendStreamBody, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiSendStreamBody;
     
-    // verify the required parameter 'aiAiSendStreamBody' is set
-    if (aiAiSendStreamBody == null) {
-      throw new ApiException(400, "Missing the required parameter 'aiAiSendStreamBody' when calling aiAiSendWithStreamOpenAI");
+    // verify the required parameter 'aiSendStreamBody' is set
+    if (aiSendStreamBody == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiSendStreamBody' when calling aiSendWithStreamOpenAI");
     }
     
     // create path and map variables

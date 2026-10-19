@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.Balance;
+import org.openapitools.client.model.BalanceDto;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The successful API response containing the Balance object.
+ * The successful API response containing the BalanceDto object.
  */
 @JsonPropertyOrder({
   BalanceWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class BalanceWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private Balance response;
+  @javax.annotation.Nullable  private BalanceDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class BalanceWrapper {
   }
 
 
-  public BalanceWrapper response(@javax.annotation.Nullable Balance response) {
+  public BalanceWrapper response(@javax.annotation.Nullable BalanceDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * The Balance object returned by the operation.
+   * The BalanceDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Balance getResponse() {
+  public BalanceDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable Balance response) {
+  public void setResponse(@javax.annotation.Nullable BalanceDto response) {
     this.response = response;
   }
 

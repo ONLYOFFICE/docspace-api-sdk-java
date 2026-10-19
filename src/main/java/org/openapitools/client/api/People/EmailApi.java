@@ -57,13 +57,13 @@ public class EmailApi extends BaseApi {
    * REST API Reference for changeUserEmail Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-email/
    *
-   * @param userid The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active. (required)
+   * @param userId The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active. (required)
    * @param changeEmailRequest The new address, in plain text or in the encrypted form the confirmation link carries. (required)
    * @return EmployeeFullWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullWrapper changeUserEmail(@javax.annotation.Nonnull UUID userid, @javax.annotation.Nonnull ChangeEmailRequest changeEmailRequest) throws ApiException {
-    return this.changeUserEmail(userid, changeEmailRequest, Collections.emptyMap());
+  public EmployeeFullWrapper changeUserEmail(@javax.annotation.Nonnull UUID userId, @javax.annotation.Nonnull ChangeEmailRequest changeEmailRequest) throws ApiException {
+    return this.changeUserEmail(userId, changeEmailRequest, Collections.emptyMap());
   }
 
 
@@ -74,18 +74,18 @@ public class EmailApi extends BaseApi {
    * REST API Reference for changeUserEmail Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-email/
    *
-   * @param userid The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active. (required)
+   * @param userId The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active. (required)
    * @param changeEmailRequest The new address, in plain text or in the encrypted form the confirmation link carries. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return EmployeeFullWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullWrapper changeUserEmail(@javax.annotation.Nonnull UUID userid, @javax.annotation.Nonnull ChangeEmailRequest changeEmailRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public EmployeeFullWrapper changeUserEmail(@javax.annotation.Nonnull UUID userId, @javax.annotation.Nonnull ChangeEmailRequest changeEmailRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = changeEmailRequest;
     
-    // verify the required parameter 'userid' is set
-    if (userid == null) {
-      throw new ApiException(400, "Missing the required parameter 'userid' when calling changeUserEmail");
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling changeUserEmail");
     }
     
     // verify the required parameter 'changeEmailRequest' is set
@@ -94,8 +94,8 @@ public class EmailApi extends BaseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/api/2.0/people/{userid}/email"
-      .replaceAll("\\{" + "userid" + "\\}", apiClient.escapeString(apiClient.parameterToString(userid)));
+    String localVarPath = "/api/2.0/people/{userId}/email"
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -143,7 +143,7 @@ public class EmailApi extends BaseApi {
 
   /**
    * Send instructions to change email
-   * Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userid}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
+   * Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userId}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
    *
    * REST API Reference for sendEmailChangeInstructions Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/
@@ -159,7 +159,7 @@ public class EmailApi extends BaseApi {
 
   /**
    * Send instructions to change email
-   * Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userid}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
+   * Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userId}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
    *
    * REST API Reference for sendEmailChangeInstructions Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/

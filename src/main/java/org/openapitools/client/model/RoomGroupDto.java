@@ -29,7 +29,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.client.model.FileEntryBaseDto;
-import org.openapitools.client.model.MultiSizeLogoCover;
+import org.openapitools.client.model.MultiSizeLogoCoverDto;
 import org.openapitools.client.model.SearchArea;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -63,7 +63,7 @@ public class RoomGroupDto {
   @javax.annotation.Nullable  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ICON = "icon";
-  @javax.annotation.Nullable  private MultiSizeLogoCover icon;
+  @javax.annotation.Nullable  private MultiSizeLogoCoverDto icon;
 
   public static final String JSON_PROPERTY_USER_ID = "userId";
   @javax.annotation.Nullable  private UUID userId;
@@ -136,7 +136,7 @@ public class RoomGroupDto {
     this.name = JsonNullable.<String>of(name);
   }
 
-  public RoomGroupDto icon(@javax.annotation.Nullable MultiSizeLogoCover icon) {
+  public RoomGroupDto icon(@javax.annotation.Nullable MultiSizeLogoCoverDto icon) {
     
     this.icon = icon;
     return this;
@@ -149,14 +149,14 @@ public class RoomGroupDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ICON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public MultiSizeLogoCover getIcon() {
+  public MultiSizeLogoCoverDto getIcon() {
     return icon;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_ICON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIcon(@javax.annotation.Nullable MultiSizeLogoCover icon) {
+  public void setIcon(@javax.annotation.Nullable MultiSizeLogoCoverDto icon) {
     this.icon = icon;
   }
 

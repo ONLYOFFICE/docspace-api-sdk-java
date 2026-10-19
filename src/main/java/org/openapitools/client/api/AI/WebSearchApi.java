@@ -28,8 +28,10 @@ import org.openapitools.client.model.AiErrorResponse;
 import org.openapitools.client.model.AiProfilesTestConnection200Response;
 import org.openapitools.client.model.AiSuccessResponse;
 import org.openapitools.client.model.AiWebSearchConfig;
+import org.openapitools.client.model.AiWebSearchConfigure400Response;
 import org.openapitools.client.model.AiWebSearchConfigureRequest;
 import org.openapitools.client.model.AiWebSearchMutationResult;
+import org.openapitools.client.model.AiWebSearchSetActiveConfigRequest;
 
 
 import java.util.ArrayList;
@@ -57,12 +59,12 @@ public class WebSearchApi extends BaseApi {
    * REST API Reference for aiWebSearchClear Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/
    *
-   * @param body Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room. (required)
+   * @param aiWebSearchClearRequest Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room. (required)
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiWebSearchClear(@javax.annotation.Nonnull String body) throws ApiException {
-    return this.aiWebSearchClear(body, Collections.emptyMap());
+  public AiSuccessResponse aiWebSearchClear(@javax.annotation.Nonnull String aiWebSearchClearRequest) throws ApiException {
+    return this.aiWebSearchClear(aiWebSearchClearRequest, Collections.emptyMap());
   }
 
 
@@ -73,17 +75,17 @@ public class WebSearchApi extends BaseApi {
    * REST API Reference for aiWebSearchClear Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/
    *
-   * @param body Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room. (required)
+   * @param aiWebSearchClearRequest Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiWebSearchClear(@javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = body;
+  public AiSuccessResponse aiWebSearchClear(@javax.annotation.Nonnull String aiWebSearchClearRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiWebSearchClearRequest;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling aiWebSearchClear");
+    // verify the required parameter 'aiWebSearchClearRequest' is set
+    if (aiWebSearchClearRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiWebSearchClearRequest' when calling aiWebSearchClear");
     }
     
     // create path and map variables
@@ -376,38 +378,38 @@ public class WebSearchApi extends BaseApi {
 
   /**
    * Web page contents passthrough
-   * Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. The provider's status, body and content type are relayed verbatim, so its 429 and its failures surface unchanged. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
+   * Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. `urls` has to be a non-empty array of strings, or the call answers 400 naming the field. The provider's 4xx status, body and content type are relayed, so its 429 surfaces unchanged, while a 5xx is replaced by a fixed 502 with the detail kept in the server log. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
    *
    * REST API Reference for aiWebSearchPassthroughContents Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/
    *
-   * @param requestBody A page-contents request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration. (required)
+   * @param aiWebSearchPassthroughContentsRequest A page-contents request in the shape the portal's active web-search provider expects, forwarded to it once `urls` passes a type check. The endpoint and the key come from the stored configuration. (required)
    * @return Map&lt;String, Object&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, Object> aiWebSearchPassthroughContents(@javax.annotation.Nonnull Map<String, Object> requestBody) throws ApiException {
-    return this.aiWebSearchPassthroughContents(requestBody, Collections.emptyMap());
+  public Map<String, Object> aiWebSearchPassthroughContents(@javax.annotation.Nonnull Map<String, Object> aiWebSearchPassthroughContentsRequest) throws ApiException {
+    return this.aiWebSearchPassthroughContents(aiWebSearchPassthroughContentsRequest, Collections.emptyMap());
   }
 
 
   /**
    * Web page contents passthrough
-   * Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. The provider's status, body and content type are relayed verbatim, so its 429 and its failures surface unchanged. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
+   * Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. `urls` has to be a non-empty array of strings, or the call answers 400 naming the field. The provider's 4xx status, body and content type are relayed, so its 429 surfaces unchanged, while a 5xx is replaced by a fixed 502 with the detail kept in the server log. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
    *
    * REST API Reference for aiWebSearchPassthroughContents Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/
    *
-   * @param requestBody A page-contents request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration. (required)
+   * @param aiWebSearchPassthroughContentsRequest A page-contents request in the shape the portal's active web-search provider expects, forwarded to it once `urls` passes a type check. The endpoint and the key come from the stored configuration. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Map&lt;String, Object&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, Object> aiWebSearchPassthroughContents(@javax.annotation.Nonnull Map<String, Object> requestBody, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = requestBody;
+  public Map<String, Object> aiWebSearchPassthroughContents(@javax.annotation.Nonnull Map<String, Object> aiWebSearchPassthroughContentsRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiWebSearchPassthroughContentsRequest;
     
-    // verify the required parameter 'requestBody' is set
-    if (requestBody == null) {
-      throw new ApiException(400, "Missing the required parameter 'requestBody' when calling aiWebSearchPassthroughContents");
+    // verify the required parameter 'aiWebSearchPassthroughContentsRequest' is set
+    if (aiWebSearchPassthroughContentsRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiWebSearchPassthroughContentsRequest' when calling aiWebSearchPassthroughContents");
     }
     
     // create path and map variables
@@ -459,38 +461,38 @@ public class WebSearchApi extends BaseApi {
 
   /**
    * Web search passthrough
-   * Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. The provider's own status, body and content type are relayed as they stand, so a provider that rate-limits answers 429 and one that is unreachable answers 502. Closing the connection aborts the upstream request.
+   * Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. `query` has to be a non-empty string and `numResults`, when sent, a positive integer; a body failing that answers 400 naming the field, before anything is sent on. The provider's own 4xx status, body and content type are relayed as they stand, so a provider that rate-limits answers 429; a 5xx from the provider or from the hop in front of it is not relayed, its detail stays in the server log and the call answers a fixed 502, which is also what an unreachable provider answers. Closing the connection aborts the upstream request.
    *
    * REST API Reference for aiWebSearchPassthroughSearch Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/
    *
-   * @param requestBody A search request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration and must not be sent here. (required)
+   * @param aiWebSearchPassthroughSearchRequest A search request in the shape the portal's active web-search provider expects, forwarded to it once `query` and `numResults` pass a type check. The endpoint and the key come from the stored configuration and must not be sent here. (required)
    * @return Map&lt;String, Object&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, Object> aiWebSearchPassthroughSearch(@javax.annotation.Nonnull Map<String, Object> requestBody) throws ApiException {
-    return this.aiWebSearchPassthroughSearch(requestBody, Collections.emptyMap());
+  public Map<String, Object> aiWebSearchPassthroughSearch(@javax.annotation.Nonnull Map<String, Object> aiWebSearchPassthroughSearchRequest) throws ApiException {
+    return this.aiWebSearchPassthroughSearch(aiWebSearchPassthroughSearchRequest, Collections.emptyMap());
   }
 
 
   /**
    * Web search passthrough
-   * Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. The provider's own status, body and content type are relayed as they stand, so a provider that rate-limits answers 429 and one that is unreachable answers 502. Closing the connection aborts the upstream request.
+   * Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. `query` has to be a non-empty string and `numResults`, when sent, a positive integer; a body failing that answers 400 naming the field, before anything is sent on. The provider's own 4xx status, body and content type are relayed as they stand, so a provider that rate-limits answers 429; a 5xx from the provider or from the hop in front of it is not relayed, its detail stays in the server log and the call answers a fixed 502, which is also what an unreachable provider answers. Closing the connection aborts the upstream request.
    *
    * REST API Reference for aiWebSearchPassthroughSearch Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/
    *
-   * @param requestBody A search request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration and must not be sent here. (required)
+   * @param aiWebSearchPassthroughSearchRequest A search request in the shape the portal's active web-search provider expects, forwarded to it once `query` and `numResults` pass a type check. The endpoint and the key come from the stored configuration and must not be sent here. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Map&lt;String, Object&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, Object> aiWebSearchPassthroughSearch(@javax.annotation.Nonnull Map<String, Object> requestBody, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = requestBody;
+  public Map<String, Object> aiWebSearchPassthroughSearch(@javax.annotation.Nonnull Map<String, Object> aiWebSearchPassthroughSearchRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiWebSearchPassthroughSearchRequest;
     
-    // verify the required parameter 'requestBody' is set
-    if (requestBody == null) {
-      throw new ApiException(400, "Missing the required parameter 'requestBody' when calling aiWebSearchPassthroughSearch");
+    // verify the required parameter 'aiWebSearchPassthroughSearchRequest' is set
+    if (aiWebSearchPassthroughSearchRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiWebSearchPassthroughSearchRequest' when calling aiWebSearchPassthroughSearch");
     }
     
     // create path and map variables
@@ -547,12 +549,12 @@ public class WebSearchApi extends BaseApi {
    * REST API Reference for aiWebSearchSetActiveConfig Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-set-active-config/
    *
-   * @param aiWebSearchConfigureRequest  (required)
+   * @param aiWebSearchSetActiveConfigRequest  (required)
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiWebSearchSetActiveConfig(@javax.annotation.Nonnull AiWebSearchConfigureRequest aiWebSearchConfigureRequest) throws ApiException {
-    return this.aiWebSearchSetActiveConfig(aiWebSearchConfigureRequest, Collections.emptyMap());
+  public AiSuccessResponse aiWebSearchSetActiveConfig(@javax.annotation.Nonnull AiWebSearchSetActiveConfigRequest aiWebSearchSetActiveConfigRequest) throws ApiException {
+    return this.aiWebSearchSetActiveConfig(aiWebSearchSetActiveConfigRequest, Collections.emptyMap());
   }
 
 
@@ -563,17 +565,17 @@ public class WebSearchApi extends BaseApi {
    * REST API Reference for aiWebSearchSetActiveConfig Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-set-active-config/
    *
-   * @param aiWebSearchConfigureRequest  (required)
+   * @param aiWebSearchSetActiveConfigRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiWebSearchSetActiveConfig(@javax.annotation.Nonnull AiWebSearchConfigureRequest aiWebSearchConfigureRequest, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = aiWebSearchConfigureRequest;
+  public AiSuccessResponse aiWebSearchSetActiveConfig(@javax.annotation.Nonnull AiWebSearchSetActiveConfigRequest aiWebSearchSetActiveConfigRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiWebSearchSetActiveConfigRequest;
     
-    // verify the required parameter 'aiWebSearchConfigureRequest' is set
-    if (aiWebSearchConfigureRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'aiWebSearchConfigureRequest' when calling aiWebSearchSetActiveConfig");
+    // verify the required parameter 'aiWebSearchSetActiveConfigRequest' is set
+    if (aiWebSearchSetActiveConfigRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiWebSearchSetActiveConfigRequest' when calling aiWebSearchSetActiveConfig");
     }
     
     // create path and map variables

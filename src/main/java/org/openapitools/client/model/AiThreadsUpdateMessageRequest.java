@@ -39,7 +39,6 @@ import java.util.StringJoiner;
   AiThreadsUpdateMessageRequest.JSON_PROPERTY_MESSAGE_ID,
   AiThreadsUpdateMessageRequest.JSON_PROPERTY_MESSAGE
 })
-@JsonTypeName("aiThreadsUpdateMessage_request")
 
 public class AiThreadsUpdateMessageRequest {
   public static final String JSON_PROPERTY_MESSAGE_ID = "messageId";

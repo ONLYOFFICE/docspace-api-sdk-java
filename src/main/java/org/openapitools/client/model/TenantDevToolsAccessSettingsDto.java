@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -32,15 +33,19 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Whether the `User` role is barred from the portal developer tools.
+ * Whether the developer tools are closed to the portal's users with the `User` role.
  */
 @JsonPropertyOrder({
-  TenantDevToolsAccessSettingsDto.JSON_PROPERTY_LIMITED_ACCESS_FOR_USERS
+  TenantDevToolsAccessSettingsDto.JSON_PROPERTY_LIMITED_ACCESS_FOR_USERS,
+  TenantDevToolsAccessSettingsDto.JSON_PROPERTY_LAST_MODIFIED
 })
 
 public class TenantDevToolsAccessSettingsDto {
   public static final String JSON_PROPERTY_LIMITED_ACCESS_FOR_USERS = "limitedAccessForUsers";
   @javax.annotation.Nullable  private Boolean limitedAccessForUsers;
+
+  public static final String JSON_PROPERTY_LAST_MODIFIED = "lastModified";
+  @javax.annotation.Nullable  private OffsetDateTime lastModified;
 
   public TenantDevToolsAccessSettingsDto() {
   }
@@ -53,7 +58,7 @@ public class TenantDevToolsAccessSettingsDto {
   }
 
   /**
-   * Whether members holding the `User` role are barred from the developer tools - API keys, OAuth applications  and webhooks. Room administrators and DocSpace administrators keep their access either way.
+   * Specifies if the Developer Tools access are limited for users or not.
    * @return limitedAccessForUsers
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIMITED_ACCESS_FOR_USERS, required = false)
@@ -70,6 +75,30 @@ public class TenantDevToolsAccessSettingsDto {
     this.limitedAccessForUsers = limitedAccessForUsers;
   }
 
+  public TenantDevToolsAccessSettingsDto lastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
+    
+    this.lastModified = lastModified;
+    return this;
+  }
+
+  /**
+   * The timestamp indicating when the settings were last modified.
+   * @return lastModified
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getLastModified() {
+    return lastModified;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
+    this.lastModified = lastModified;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -79,12 +108,13 @@ public class TenantDevToolsAccessSettingsDto {
       return false;
     }
     TenantDevToolsAccessSettingsDto tenantDevToolsAccessSettingsDto = (TenantDevToolsAccessSettingsDto) o;
-    return Objects.equals(this.limitedAccessForUsers, tenantDevToolsAccessSettingsDto.limitedAccessForUsers);
+    return Objects.equals(this.limitedAccessForUsers, tenantDevToolsAccessSettingsDto.limitedAccessForUsers) &&
+        Objects.equals(this.lastModified, tenantDevToolsAccessSettingsDto.lastModified);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limitedAccessForUsers);
+    return Objects.hash(limitedAccessForUsers, lastModified);
   }
 
   @Override
@@ -92,6 +122,7 @@ public class TenantDevToolsAccessSettingsDto {
     StringBuilder sb = new StringBuilder();
     sb.append("class TenantDevToolsAccessSettingsDto {\n");
     sb.append("    limitedAccessForUsers: ").append(toIndentedString(limitedAccessForUsers)).append("\n");
+    sb.append("    lastModified: ").append(toIndentedString(lastModified)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -143,6 +174,16 @@ public class TenantDevToolsAccessSettingsDto {
     if (getLimitedAccessForUsers() != null) {
       try {
         joiner.add(String.format("%slimitedAccessForUsers%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLimitedAccessForUsers()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `lastModified` to the URL query string
+    if (getLastModified() != null) {
+      try {
+        joiner.add(String.format("%slastModified%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLastModified()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

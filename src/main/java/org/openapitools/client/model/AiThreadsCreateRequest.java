@@ -39,7 +39,6 @@ import java.util.StringJoiner;
   AiThreadsCreateRequest.JSON_PROPERTY_PROFILE_ID,
   AiThreadsCreateRequest.JSON_PROPERTY_ENTITY_ID
 })
-@JsonTypeName("aiThreadsCreate_request")
 
 public class AiThreadsCreateRequest {
   public static final String JSON_PROPERTY_TITLE = "title";

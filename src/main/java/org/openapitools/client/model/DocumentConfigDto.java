@@ -25,10 +25,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.net.URI;
-import org.openapitools.client.model.FileReferenceData;
+import org.openapitools.client.model.DocumentOptionsDto;
+import org.openapitools.client.model.FileReferenceDataDto;
 import org.openapitools.client.model.InfoConfigDto;
-import org.openapitools.client.model.Options;
-import org.openapitools.client.model.PermissionsConfig;
+import org.openapitools.client.model.PermissionsConfigDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -72,7 +72,7 @@ public class DocumentConfigDto {
   @javax.annotation.Nullable  private JsonNullable<String> key = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PERMISSIONS = "permissions";
-  @javax.annotation.Nullable  private PermissionsConfig permissions;
+  @javax.annotation.Nullable  private PermissionsConfigDto permissions;
 
   public static final String JSON_PROPERTY_SHARED_LINK_PARAM = "sharedLinkParam";
   @javax.annotation.Nullable  private JsonNullable<String> sharedLinkParam = JsonNullable.<String>undefined();
@@ -81,7 +81,7 @@ public class DocumentConfigDto {
   @javax.annotation.Nullable  private JsonNullable<String> sharedLinkKey = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REFERENCE_DATA = "referenceData";
-  @javax.annotation.Nullable  private FileReferenceData referenceData;
+  @javax.annotation.Nullable  private FileReferenceDataDto referenceData;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
@@ -93,7 +93,7 @@ public class DocumentConfigDto {
   @javax.annotation.Nullable  private Boolean isForm;
 
   public static final String JSON_PROPERTY_OPTIONS = "options";
-  @javax.annotation.Nullable  private Options options;
+  @javax.annotation.Nullable  private DocumentOptionsDto options;
 
   public DocumentConfigDto() {
   }
@@ -209,7 +209,7 @@ public class DocumentConfigDto {
     this.key = JsonNullable.<String>of(key);
   }
 
-  public DocumentConfigDto permissions(@javax.annotation.Nullable PermissionsConfig permissions) {
+  public DocumentConfigDto permissions(@javax.annotation.Nullable PermissionsConfigDto permissions) {
     
     this.permissions = permissions;
     return this;
@@ -222,14 +222,14 @@ public class DocumentConfigDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PERMISSIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public PermissionsConfig getPermissions() {
+  public PermissionsConfigDto getPermissions() {
     return permissions;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_PERMISSIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPermissions(@javax.annotation.Nullable PermissionsConfig permissions) {
+  public void setPermissions(@javax.annotation.Nullable PermissionsConfigDto permissions) {
     this.permissions = permissions;
   }
 
@@ -295,7 +295,7 @@ public class DocumentConfigDto {
     this.sharedLinkKey = JsonNullable.<String>of(sharedLinkKey);
   }
 
-  public DocumentConfigDto referenceData(@javax.annotation.Nullable FileReferenceData referenceData) {
+  public DocumentConfigDto referenceData(@javax.annotation.Nullable FileReferenceDataDto referenceData) {
     
     this.referenceData = referenceData;
     return this;
@@ -308,14 +308,14 @@ public class DocumentConfigDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REFERENCE_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public FileReferenceData getReferenceData() {
+  public FileReferenceDataDto getReferenceData() {
     return referenceData;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_REFERENCE_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReferenceData(@javax.annotation.Nullable FileReferenceData referenceData) {
+  public void setReferenceData(@javax.annotation.Nullable FileReferenceDataDto referenceData) {
     this.referenceData = referenceData;
   }
 
@@ -405,7 +405,7 @@ public class DocumentConfigDto {
     this.isForm = isForm;
   }
 
-  public DocumentConfigDto options(@javax.annotation.Nullable Options options) {
+  public DocumentConfigDto options(@javax.annotation.Nullable DocumentOptionsDto options) {
     
     this.options = options;
     return this;
@@ -418,14 +418,14 @@ public class DocumentConfigDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Options getOptions() {
+  public DocumentOptionsDto getOptions() {
     return options;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOptions(@javax.annotation.Nullable Options options) {
+  public void setOptions(@javax.annotation.Nullable DocumentOptionsDto options) {
     this.options = options;
   }
 

@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.client.model.AiChatToolPrefsScope;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -40,9 +41,9 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   AiToolsSetDisabledRequest.JSON_PROPERTY_SERVER_TYPE,
   AiToolsSetDisabledRequest.JSON_PROPERTY_TOOL_NAMES,
-  AiToolsSetDisabledRequest.JSON_PROPERTY_ENTITY_ID
+  AiToolsSetDisabledRequest.JSON_PROPERTY_ENTITY_ID,
+  AiToolsSetDisabledRequest.JSON_PROPERTY_SCOPE
 })
-@JsonTypeName("aiToolsSetDisabled_request")
 
 public class AiToolsSetDisabledRequest {
   public static final String JSON_PROPERTY_SERVER_TYPE = "serverType";
@@ -53,6 +54,9 @@ public class AiToolsSetDisabledRequest {
 
   public static final String JSON_PROPERTY_ENTITY_ID = "entityId";
   @javax.annotation.Nullable  private String entityId;
+
+  public static final String JSON_PROPERTY_SCOPE = "scope";
+  @javax.annotation.Nullable  private AiChatToolPrefsScope scope;
 
   public AiToolsSetDisabledRequest() {
   }
@@ -138,6 +142,30 @@ public class AiToolsSetDisabledRequest {
     this.entityId = entityId;
   }
 
+  public AiToolsSetDisabledRequest scope(@javax.annotation.Nullable AiChatToolPrefsScope scope) {
+    
+    this.scope = scope;
+    return this;
+  }
+
+  /**
+   * The list the write lands in; omitted means the caller's own.
+   * @return scope
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SCOPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AiChatToolPrefsScope getScope() {
+    return scope;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SCOPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setScope(@javax.annotation.Nullable AiChatToolPrefsScope scope) {
+    this.scope = scope;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -149,12 +177,13 @@ public class AiToolsSetDisabledRequest {
     AiToolsSetDisabledRequest aiToolsSetDisabledRequest = (AiToolsSetDisabledRequest) o;
     return Objects.equals(this.serverType, aiToolsSetDisabledRequest.serverType) &&
         Objects.equals(this.toolNames, aiToolsSetDisabledRequest.toolNames) &&
-        Objects.equals(this.entityId, aiToolsSetDisabledRequest.entityId);
+        Objects.equals(this.entityId, aiToolsSetDisabledRequest.entityId) &&
+        Objects.equals(this.scope, aiToolsSetDisabledRequest.scope);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serverType, toolNames, entityId);
+    return Objects.hash(serverType, toolNames, entityId, scope);
   }
 
   @Override
@@ -164,6 +193,7 @@ public class AiToolsSetDisabledRequest {
     sb.append("    serverType: ").append(toIndentedString(serverType)).append("\n");
     sb.append("    toolNames: ").append(toIndentedString(toolNames)).append("\n");
     sb.append("    entityId: ").append(toIndentedString(entityId)).append("\n");
+    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -239,6 +269,16 @@ public class AiToolsSetDisabledRequest {
     if (getEntityId() != null) {
       try {
         joiner.add(String.format("%sentityId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEntityId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `scope` to the URL query string
+    if (getScope() != null) {
+      try {
+        joiner.add(String.format("%sscope%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getScope()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.ApiDateTime;
-import org.openapitools.client.model.OperationTokenUsage;
+import org.openapitools.client.model.OperationTokenUsageDto;
 import org.openapitools.client.model.OperationType;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -51,6 +51,7 @@ import java.util.StringJoiner;
   OperationDto.JSON_PROPERTY_CURRENCY,
   OperationDto.JSON_PROPERTY_CREDIT,
   OperationDto.JSON_PROPERTY_DEBIT,
+  OperationDto.JSON_PROPERTY_COST,
   OperationDto.JSON_PROPERTY_PARTICIPANT_NAME,
   OperationDto.JSON_PROPERTY_PARTICIPANT_DISPLAY_NAME,
   OperationDto.JSON_PROPERTY_SOURCE_TYPE,
@@ -88,6 +89,9 @@ public class OperationDto {
   public static final String JSON_PROPERTY_DEBIT = "debit";
   @javax.annotation.Nullable  private Double debit;
 
+  public static final String JSON_PROPERTY_COST = "cost";
+  @javax.annotation.Nullable  private JsonNullable<Double> cost = JsonNullable.<Double>undefined();
+
   public static final String JSON_PROPERTY_PARTICIPANT_NAME = "participantName";
   @javax.annotation.Nullable  private JsonNullable<String> participantName = JsonNullable.<String>undefined();
 
@@ -104,7 +108,7 @@ public class OperationDto {
   @javax.annotation.Nullable  private JsonNullable<String> sourceId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TOKEN_USAGE = "tokenUsage";
-  @javax.annotation.Nullable  private OperationTokenUsage tokenUsage;
+  @javax.annotation.Nullable  private OperationTokenUsageDto tokenUsage;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   @javax.annotation.Nullable  private OperationType type;
@@ -364,6 +368,37 @@ public class OperationDto {
     this.debit = debit;
   }
 
+  public OperationDto cost(@javax.annotation.Nullable Double cost) {
+    this.cost = JsonNullable.<Double>of(cost);
+    
+    return this;
+  }
+
+  /**
+   * What the AI provider charged for the whole `quantity` of an AI tools or AI search charge, as the billing  service recorded it - the provider's side of the same operation `debit` bills the portal for. It is `null`  on any other movement, and on an AI charge recorded without a provider cost.
+   * @return cost
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Double getCost() {
+        return cost.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_COST, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getCost_JsonNullable() {
+    return cost;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_COST)
+  public void setCost_JsonNullable(JsonNullable<Double> cost) {
+    this.cost = cost;
+  }
+
+  public void setCost(@javax.annotation.Nullable Double cost) {
+    this.cost = JsonNullable.<Double>of(cost);
+  }
+
   public OperationDto participantName(@javax.annotation.Nullable String participantName) {
     this.participantName = JsonNullable.<String>of(participantName);
     
@@ -519,7 +554,7 @@ public class OperationDto {
     this.sourceId = JsonNullable.<String>of(sourceId);
   }
 
-  public OperationDto tokenUsage(@javax.annotation.Nullable OperationTokenUsage tokenUsage) {
+  public OperationDto tokenUsage(@javax.annotation.Nullable OperationTokenUsageDto tokenUsage) {
     
     this.tokenUsage = tokenUsage;
     return this;
@@ -532,14 +567,14 @@ public class OperationDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOKEN_USAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OperationTokenUsage getTokenUsage() {
+  public OperationTokenUsageDto getTokenUsage() {
     return tokenUsage;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_TOKEN_USAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTokenUsage(@javax.annotation.Nullable OperationTokenUsage tokenUsage) {
+  public void setTokenUsage(@javax.annotation.Nullable OperationTokenUsageDto tokenUsage) {
     this.tokenUsage = tokenUsage;
   }
 
@@ -585,6 +620,7 @@ public class OperationDto {
         equalsNullable(this.currency, operationDto.currency) &&
         Objects.equals(this.credit, operationDto.credit) &&
         Objects.equals(this.debit, operationDto.debit) &&
+        equalsNullable(this.cost, operationDto.cost) &&
         equalsNullable(this.participantName, operationDto.participantName) &&
         equalsNullable(this.participantDisplayName, operationDto.participantDisplayName) &&
         equalsNullable(this.sourceType, operationDto.sourceType) &&
@@ -600,7 +636,7 @@ public class OperationDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, hashCodeNullable(service), hashCodeNullable(description), hashCodeNullable(details), hashCodeNullable(serviceUnit), quantity, hashCodeNullable(currency), credit, debit, hashCodeNullable(participantName), hashCodeNullable(participantDisplayName), hashCodeNullable(sourceType), hashCodeNullable(sourceTitle), hashCodeNullable(sourceId), tokenUsage, type);
+    return Objects.hash(date, hashCodeNullable(service), hashCodeNullable(description), hashCodeNullable(details), hashCodeNullable(serviceUnit), quantity, hashCodeNullable(currency), credit, debit, hashCodeNullable(cost), hashCodeNullable(participantName), hashCodeNullable(participantDisplayName), hashCodeNullable(sourceType), hashCodeNullable(sourceTitle), hashCodeNullable(sourceId), tokenUsage, type);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -623,6 +659,7 @@ public class OperationDto {
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    credit: ").append(toIndentedString(credit)).append("\n");
     sb.append("    debit: ").append(toIndentedString(debit)).append("\n");
+    sb.append("    cost: ").append(toIndentedString(cost)).append("\n");
     sb.append("    participantName: ").append(toIndentedString(participantName)).append("\n");
     sb.append("    participantDisplayName: ").append(toIndentedString(participantDisplayName)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
@@ -756,6 +793,16 @@ public class OperationDto {
     if (getDebit() != null) {
       try {
         joiner.add(String.format("%sdebit%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDebit()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `cost` to the URL query string
+    if (getCost() != null) {
+      try {
+        joiner.add(String.format("%scost%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCost()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

@@ -1,14 +1,14 @@
 
 
-# IPRestrictionsSettingsWrapper
+# IpRestrictionsSettingsWrapper
 
-The successful API response containing the IPRestrictionsSettings object.
+The successful API response containing the IpRestrictionsSettingsDto object.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**response** | [**IPRestrictionsSettings**](IPRestrictionsSettings.md) | The IPRestrictionsSettings object returned by the operation. |  [optional] |
+|**response** | [**IpRestrictionsSettingsDto**](IpRestrictionsSettingsDto.md) | The IpRestrictionsSettingsDto object returned by the operation. |  [optional] |
 |**count** | **Integer** | The total number of items in the response |  [optional] |
 |**links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response |  [optional] |
 |**status** | **Integer** | HTTP status code of the response |  [optional] |

@@ -316,16 +316,20 @@ public class ApiClient extends JavaTimeFormatter {
   }
 
   /**
-   * Helper method to set access token for the first Bearer authentication.
+   * Helper method to set access token for every Bearer authentication.
    * @param bearerToken Bearer token
    * @return API client
    */
   public ApiClient setBearerToken(String bearerToken) {
+    boolean found = false;
     for (Authentication auth : authentications.values()) {
       if (auth instanceof HttpBearerAuth) {
         ((HttpBearerAuth) auth).setBearerToken(bearerToken);
-        return this;
+        found = true;
       }
+    }
+    if (found) {
+      return this;
     }
     throw new RuntimeException("No Bearer authentication configured!");
   }
@@ -336,11 +340,15 @@ public class ApiClient extends JavaTimeFormatter {
    * @param tokenSupplier the token supplier function
    */
   public void setBearerToken(Supplier<String> tokenSupplier) {
+    boolean found = false;
     for (Authentication auth : authentications.values()) {
       if (auth instanceof HttpBearerAuth) {
         ((HttpBearerAuth) auth).setBearerToken(tokenSupplier);
-        return;
+        found = true;
       }
+    }
+    if (found) {
+      return;
     }
     throw new RuntimeException("No Bearer authentication configured!");
   }

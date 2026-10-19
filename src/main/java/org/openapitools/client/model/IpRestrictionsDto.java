@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.IpRestrictionBase;
+import org.openapitools.client.model.IpRestrictionEntryDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class IpRestrictionsDto {
   public static final String JSON_PROPERTY_IP_RESTRICTIONS = "ipRestrictions";
-  @javax.annotation.Nullable  private List<IpRestrictionBase> ipRestrictions;
+  @javax.annotation.Nullable  private List<IpRestrictionEntryDto> ipRestrictions;
 
   public static final String JSON_PROPERTY_ENABLE = "enable";
   @javax.annotation.Nullable  private JsonNullable<Boolean> enable = JsonNullable.<Boolean>undefined();
@@ -58,13 +58,13 @@ public class IpRestrictionsDto {
   }
 
 
-  public IpRestrictionsDto ipRestrictions(@javax.annotation.Nullable List<IpRestrictionBase> ipRestrictions) {
+  public IpRestrictionsDto ipRestrictions(@javax.annotation.Nullable List<IpRestrictionEntryDto> ipRestrictions) {
     
     this.ipRestrictions = ipRestrictions;
     return this;
   }
 
-  public IpRestrictionsDto addIpRestrictionsItem(IpRestrictionBase ipRestrictionsItem) {
+  public IpRestrictionsDto addIpRestrictionsItem(IpRestrictionEntryDto ipRestrictionsItem) {
     if (this.ipRestrictions == null) {
       this.ipRestrictions = new ArrayList<>();
     }
@@ -79,14 +79,14 @@ public class IpRestrictionsDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IP_RESTRICTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<IpRestrictionBase> getIpRestrictions() {
+  public List<IpRestrictionEntryDto> getIpRestrictions() {
     return ipRestrictions;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_IP_RESTRICTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIpRestrictions(@javax.annotation.Nullable List<IpRestrictionBase> ipRestrictions) {
+  public void setIpRestrictions(@javax.annotation.Nullable List<IpRestrictionEntryDto> ipRestrictions) {
     this.ipRestrictions = ipRestrictions;
   }
 

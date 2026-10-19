@@ -24,12 +24,12 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.AuthServiceRequestsArrayWrapper;
-import org.openapitools.client.model.AuthServiceRequestsDto;
+import org.openapitools.client.model.AuthServiceArrayWrapper;
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.ConnectionTestResultWrapper;
 import org.openapitools.client.model.ErrorApiResponse;
-import org.openapitools.client.model.ExternalDatabaseSettings;
+import org.openapitools.client.model.ExternalDatabaseConnectionRequestDto;
+import org.openapitools.client.model.SaveAuthKeysRequestDto;
 
 
 import java.util.ArrayList;
@@ -57,10 +57,10 @@ public class AuthorizationApi extends BaseApi {
    * REST API Reference for getAuthServices Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/
    *
-   * @return AuthServiceRequestsArrayWrapper
+   * @return AuthServiceArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public AuthServiceRequestsArrayWrapper getAuthServices() throws ApiException {
+  public AuthServiceArrayWrapper getAuthServices() throws ApiException {
     return this.getAuthServices(Collections.emptyMap());
   }
 
@@ -73,10 +73,10 @@ public class AuthorizationApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return AuthServiceRequestsArrayWrapper
+   * @return AuthServiceArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public AuthServiceRequestsArrayWrapper getAuthServices(Map<String, String> additionalHeaders) throws ApiException {
+  public AuthServiceArrayWrapper getAuthServices(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -108,7 +108,7 @@ public class AuthorizationApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<AuthServiceRequestsArrayWrapper> localVarReturnType = new TypeReference<AuthServiceRequestsArrayWrapper>() {};
+    TypeReference<AuthServiceArrayWrapper> localVarReturnType = new TypeReference<AuthServiceArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -133,12 +133,12 @@ public class AuthorizationApi extends BaseApi {
    * REST API Reference for saveAuthKeys Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/
    *
-   * @param authServiceRequestsDto  (optional)
+   * @param saveAuthKeysRequestDto  (optional)
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper saveAuthKeys(@javax.annotation.Nullable AuthServiceRequestsDto authServiceRequestsDto) throws ApiException {
-    return this.saveAuthKeys(authServiceRequestsDto, Collections.emptyMap());
+  public BooleanWrapper saveAuthKeys(@javax.annotation.Nullable SaveAuthKeysRequestDto saveAuthKeysRequestDto) throws ApiException {
+    return this.saveAuthKeys(saveAuthKeysRequestDto, Collections.emptyMap());
   }
 
 
@@ -149,13 +149,13 @@ public class AuthorizationApi extends BaseApi {
    * REST API Reference for saveAuthKeys Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/
    *
-   * @param authServiceRequestsDto  (optional)
+   * @param saveAuthKeysRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper saveAuthKeys(@javax.annotation.Nullable AuthServiceRequestsDto authServiceRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = authServiceRequestsDto;
+  public BooleanWrapper saveAuthKeys(@javax.annotation.Nullable SaveAuthKeysRequestDto saveAuthKeysRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = saveAuthKeysRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/authservice";
@@ -211,12 +211,12 @@ public class AuthorizationApi extends BaseApi {
    * REST API Reference for testExternalDatabaseConnection Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/
    *
-   * @param externalDatabaseSettings  (optional)
+   * @param externalDatabaseConnectionRequestDto  (optional)
    * @return ConnectionTestResultWrapper
    * @throws ApiException if fails to make API call
    */
-  public ConnectionTestResultWrapper testExternalDatabaseConnection(@javax.annotation.Nullable ExternalDatabaseSettings externalDatabaseSettings) throws ApiException {
-    return this.testExternalDatabaseConnection(externalDatabaseSettings, Collections.emptyMap());
+  public ConnectionTestResultWrapper testExternalDatabaseConnection(@javax.annotation.Nullable ExternalDatabaseConnectionRequestDto externalDatabaseConnectionRequestDto) throws ApiException {
+    return this.testExternalDatabaseConnection(externalDatabaseConnectionRequestDto, Collections.emptyMap());
   }
 
 
@@ -227,13 +227,13 @@ public class AuthorizationApi extends BaseApi {
    * REST API Reference for testExternalDatabaseConnection Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/
    *
-   * @param externalDatabaseSettings  (optional)
+   * @param externalDatabaseConnectionRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return ConnectionTestResultWrapper
    * @throws ApiException if fails to make API call
    */
-  public ConnectionTestResultWrapper testExternalDatabaseConnection(@javax.annotation.Nullable ExternalDatabaseSettings externalDatabaseSettings, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = externalDatabaseSettings;
+  public ConnectionTestResultWrapper testExternalDatabaseConnection(@javax.annotation.Nullable ExternalDatabaseConnectionRequestDto externalDatabaseConnectionRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = externalDatabaseConnectionRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/authservice/externaldb/test";

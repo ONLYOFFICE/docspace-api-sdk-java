@@ -25,7 +25,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.openapitools.client.model.AiFileEntryDtoAllOfAvailableShareRights;
 import org.openapitools.client.model.AiFileEntryDtoAllOfSecurity;
@@ -40,7 +43,8 @@ import org.openapitools.client.model.FileStatus;
 import org.openapitools.client.model.FileType;
 import org.openapitools.client.model.FolderType;
 import org.openapitools.client.model.FormFillingStatus;
-import org.openapitools.client.model.Size;
+import org.openapitools.client.model.ImageSizeDto;
+import org.openapitools.client.model.MetadataMatchDto;
 import org.openapitools.client.model.Thumbnail;
 import org.openapitools.client.model.VectorizationStatus;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -94,6 +98,8 @@ import java.util.StringJoiner;
   FileDto.JSON_PROPERTY_EXTERNAL,
   FileDto.JSON_PROPERTY_EXPIRATION_DATE,
   FileDto.JSON_PROPERTY_IS_LINK_EXPIRED,
+  FileDto.JSON_PROPERTY_ASSIGNED_METADATA_TEMPLATES,
+  FileDto.JSON_PROPERTY_METADATA_MATCHES,
   FileDto.JSON_PROPERTY_FOLDER_ID,
   FileDto.JSON_PROPERTY_VERSION,
   FileDto.JSON_PROPERTY_VERSION_GROUP,
@@ -240,6 +246,12 @@ public class FileDto {
   public static final String JSON_PROPERTY_IS_LINK_EXPIRED = "isLinkExpired";
   @javax.annotation.Nullable  private Boolean isLinkExpired;
 
+  public static final String JSON_PROPERTY_ASSIGNED_METADATA_TEMPLATES = "assignedMetadataTemplates";
+  @javax.annotation.Nullable  private List<Integer> assignedMetadataTemplates = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_METADATA_MATCHES = "metadataMatches";
+  @javax.annotation.Nullable  private List<MetadataMatchDto> metadataMatches = new ArrayList<>();
+
   public static final String JSON_PROPERTY_FOLDER_ID = "folderId";
   @javax.annotation.Nullable  private Integer folderId;
 
@@ -343,7 +355,7 @@ public class FileDto {
   @javax.annotation.Nullable  private JsonNullable<String> externalDbTableName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DIMENSIONS = "dimensions";
-  @javax.annotation.Nullable  private Size dimensions;
+  @javax.annotation.Nullable  private ImageSizeDto dimensions;
 
   public FileDto() {
   }
@@ -1232,6 +1244,70 @@ public class FileDto {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsLinkExpired(@javax.annotation.Nullable Boolean isLinkExpired) {
     this.isLinkExpired = isLinkExpired;
+  }
+
+  public FileDto assignedMetadataTemplates(@javax.annotation.Nullable List<Integer> assignedMetadataTemplates) {
+    
+    this.assignedMetadataTemplates = assignedMetadataTemplates;
+    return this;
+  }
+
+  public FileDto addAssignedMetadataTemplatesItem(Integer assignedMetadataTemplatesItem) {
+    if (this.assignedMetadataTemplates == null) {
+      this.assignedMetadataTemplates = new ArrayList<>();
+    }
+    this.assignedMetadataTemplates.add(assignedMetadataTemplatesItem);
+    return this;
+  }
+
+  /**
+   * The IDs of the metadata templates assigned to the file entry.
+   * @return assignedMetadataTemplates
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ASSIGNED_METADATA_TEMPLATES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<Integer> getAssignedMetadataTemplates() {
+    return assignedMetadataTemplates;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ASSIGNED_METADATA_TEMPLATES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAssignedMetadataTemplates(@javax.annotation.Nullable List<Integer> assignedMetadataTemplates) {
+    this.assignedMetadataTemplates = assignedMetadataTemplates;
+  }
+
+  public FileDto metadataMatches(@javax.annotation.Nullable List<MetadataMatchDto> metadataMatches) {
+    
+    this.metadataMatches = metadataMatches;
+    return this;
+  }
+
+  public FileDto addMetadataMatchesItem(MetadataMatchDto metadataMatchesItem) {
+    if (this.metadataMatches == null) {
+      this.metadataMatches = new ArrayList<>();
+    }
+    this.metadataMatches.add(metadataMatchesItem);
+    return this;
+  }
+
+  /**
+   * Where the search text of the listing was met in the metadata of the entry: one item per string value holding  the text, in the order of the fields. Present only in a listing filtered by text, and only for the entries whose  metadata contain it; an entry found by its title alone carries nothing here.
+   * @return metadataMatches
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_METADATA_MATCHES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<MetadataMatchDto> getMetadataMatches() {
+    return metadataMatches;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_METADATA_MATCHES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMetadataMatches(@javax.annotation.Nullable List<MetadataMatchDto> metadataMatches) {
+    this.metadataMatches = metadataMatches;
   }
 
   public FileDto folderId(@javax.annotation.Nullable Integer folderId) {
@@ -2205,7 +2281,7 @@ public class FileDto {
     this.externalDbTableName = JsonNullable.<String>of(externalDbTableName);
   }
 
-  public FileDto dimensions(@javax.annotation.Nullable Size dimensions) {
+  public FileDto dimensions(@javax.annotation.Nullable ImageSizeDto dimensions) {
     
     this.dimensions = dimensions;
     return this;
@@ -2218,14 +2294,14 @@ public class FileDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DIMENSIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Size getDimensions() {
+  public ImageSizeDto getDimensions() {
     return dimensions;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_DIMENSIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDimensions(@javax.annotation.Nullable Size dimensions) {
+  public void setDimensions(@javax.annotation.Nullable ImageSizeDto dimensions) {
     this.dimensions = dimensions;
   }
 
@@ -2274,6 +2350,8 @@ public class FileDto {
         Objects.equals(this.external, fileDto.external) &&
         Objects.equals(this.expirationDate, fileDto.expirationDate) &&
         Objects.equals(this.isLinkExpired, fileDto.isLinkExpired) &&
+        Objects.equals(this.assignedMetadataTemplates, fileDto.assignedMetadataTemplates) &&
+        Objects.equals(this.metadataMatches, fileDto.metadataMatches) &&
         Objects.equals(this.folderId, fileDto.folderId) &&
         Objects.equals(this.version, fileDto.version) &&
         Objects.equals(this.versionGroup, fileDto.versionGroup) &&
@@ -2317,7 +2395,7 @@ public class FileDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, shortWebUrl, created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, providerItem, providerKey, providerId, order, isFavorite, fileEntryType, id, rootFolderId, originId, originRoomId, originTitle, originRoomTitle, canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), requestToken, external, expirationDate, isLinkExpired, folderId, version, versionGroup, hashCodeNullable(contentLength), hashCodeNullable(pureContentLength), fileStatus, editingBy, mute, hashCodeNullable(viewUrl), hashCodeNullable(webUrl), fileType, hashCodeNullable(fileExst), hashCodeNullable(comment), hashCodeNullable(encrypted), hashCodeNullable(thumbnailUrl), thumbnailStatus, hashCodeNullable(locked), hashCodeNullable(lockedBy), hashCodeNullable(hasDraft), formFillingStatus, hashCodeNullable(isForm), hashCodeNullable(customFilterEnabled), hashCodeNullable(customFilterEnabledBy), hashCodeNullable(startFilling), hashCodeNullable(isFillingPreparing), hashCodeNullable(inProcessFolderId), hashCodeNullable(inProcessFolderTitle), hashCodeNullable(resultsFolderId), draftLocation, hashCodeNullable(viewAccessibility), lastOpened, expired, vectorizationStatus, hashCodeNullable(externalDbTableName), dimensions);
+    return Objects.hash(title, access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, shortWebUrl, created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, providerItem, providerKey, providerId, order, isFavorite, fileEntryType, id, rootFolderId, originId, originRoomId, originTitle, originRoomTitle, canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), requestToken, external, expirationDate, isLinkExpired, assignedMetadataTemplates, metadataMatches, folderId, version, versionGroup, hashCodeNullable(contentLength), hashCodeNullable(pureContentLength), fileStatus, editingBy, mute, hashCodeNullable(viewUrl), hashCodeNullable(webUrl), fileType, hashCodeNullable(fileExst), hashCodeNullable(comment), hashCodeNullable(encrypted), hashCodeNullable(thumbnailUrl), thumbnailStatus, hashCodeNullable(locked), hashCodeNullable(lockedBy), hashCodeNullable(hasDraft), formFillingStatus, hashCodeNullable(isForm), hashCodeNullable(customFilterEnabled), hashCodeNullable(customFilterEnabledBy), hashCodeNullable(startFilling), hashCodeNullable(isFillingPreparing), hashCodeNullable(inProcessFolderId), hashCodeNullable(inProcessFolderTitle), hashCodeNullable(resultsFolderId), draftLocation, hashCodeNullable(viewAccessibility), lastOpened, expired, vectorizationStatus, hashCodeNullable(externalDbTableName), dimensions);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -2367,6 +2445,8 @@ public class FileDto {
     sb.append("    external: ").append(toIndentedString(external)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    isLinkExpired: ").append(toIndentedString(isLinkExpired)).append("\n");
+    sb.append("    assignedMetadataTemplates: ").append(toIndentedString(assignedMetadataTemplates)).append("\n");
+    sb.append("    metadataMatches: ").append(toIndentedString(metadataMatches)).append("\n");
     sb.append("    folderId: ").append(toIndentedString(folderId)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    versionGroup: ").append(toIndentedString(versionGroup)).append("\n");
@@ -2751,6 +2831,30 @@ public class FileDto {
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
+      }
+    }
+
+    // add `assignedMetadataTemplates` to the URL query string
+    if (getAssignedMetadataTemplates() != null) {
+      for (int i = 0; i < getAssignedMetadataTemplates().size(); i++) {
+        try {
+          joiner.add(String.format("%sassignedMetadataTemplates%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getAssignedMetadataTemplates().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `metadataMatches` to the URL query string
+    if (getMetadataMatches() != null) {
+      for (int i = 0; i < getMetadataMatches().size(); i++) {
+        if (getMetadataMatches().get(i) != null) {
+          joiner.add(getMetadataMatches().get(i).toUrlQueryString(String.format("%smetadataMatches%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
       }
     }
 

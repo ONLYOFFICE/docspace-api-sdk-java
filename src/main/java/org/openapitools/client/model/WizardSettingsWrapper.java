@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
-import org.openapitools.client.model.WizardSettings;
+import org.openapitools.client.model.WizardSettingsDto;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The successful API response containing the WizardSettings object.
+ * The successful API response containing the WizardSettingsDto object.
  */
 @JsonPropertyOrder({
   WizardSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class WizardSettingsWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private WizardSettings response;
+  @javax.annotation.Nullable  private WizardSettingsDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class WizardSettingsWrapper {
   }
 
 
-  public WizardSettingsWrapper response(@javax.annotation.Nullable WizardSettings response) {
+  public WizardSettingsWrapper response(@javax.annotation.Nullable WizardSettingsDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * The WizardSettings object returned by the operation.
+   * The WizardSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public WizardSettings getResponse() {
+  public WizardSettingsDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable WizardSettings response) {
+  public void setResponse(@javax.annotation.Nullable WizardSettingsDto response) {
     this.response = response;
   }
 

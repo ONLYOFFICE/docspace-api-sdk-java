@@ -10,7 +10,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 ## setTenantBannerSettings
 
-> TenantBannerSettingsWrapper setTenantBannerSettings(tenantBannerSettingsDto)
+> TenantBannerSettingsWrapper setTenantBannerSettings(tenantBannerSettingsRequestDto)
 
 Set the banners visibilitySets whether the portal's promotional banners are hidden for every user. Available only on an Enterprise  license; every other plan is refused regardless of the caller's role. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). The flag only takes effect on a Standalone (self-hosted) installation; on  SaaS, banners are always shown no matter what is saved here. This is a mutating, idempotent, portal-wide call:  it applies to every user on the tenant immediately. It returns the saved setting; read the current value at  any time from `GET api/2.0/settings/banner`.
 
@@ -21,7 +21,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantBannerSettingsDto** | [**TenantBannerSettingsDto**](TenantBannerSettingsDto.md)|  | [optional] |
+| **tenantBannerSettingsRequestDto** | [**TenantBannerSettingsRequestDto**](TenantBannerSettingsRequestDto.md)|  | [optional] |
 
 ### Return type
 
@@ -74,9 +74,9 @@ public class Example {
 
 
         BannersVisibilityApi apiInstance = new BannersVisibilityApi(defaultClient);
-        TenantBannerSettingsDto tenantBannerSettingsDto = new TenantBannerSettingsDto(); // TenantBannerSettingsDto | 
+        TenantBannerSettingsRequestDto tenantBannerSettingsRequestDto = new TenantBannerSettingsRequestDto(); // TenantBannerSettingsRequestDto | 
         try {
-            TenantBannerSettingsWrapper result = apiInstance.setTenantBannerSettings(tenantBannerSettingsDto);
+            TenantBannerSettingsWrapper result = apiInstance.setTenantBannerSettings(tenantBannerSettingsRequestDto);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling BannersVisibilityApi#setTenantBannerSettings");
@@ -99,6 +99,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Saved promotional banners visibility setting |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **402** | The portal is not an Enterprise installation |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |

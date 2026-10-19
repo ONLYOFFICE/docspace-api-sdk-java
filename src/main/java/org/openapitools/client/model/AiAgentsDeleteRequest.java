@@ -37,7 +37,6 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   AiAgentsDeleteRequest.JSON_PROPERTY_DELETE_AFTER
 })
-@JsonTypeName("aiAgentsDelete_request")
 
 public class AiAgentsDeleteRequest {
   public static final String JSON_PROPERTY_DELETE_AFTER = "deleteAfter";

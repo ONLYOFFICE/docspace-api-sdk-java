@@ -27,7 +27,7 @@ import org.openapitools.client.Pair;
 import org.openapitools.client.model.ActionType;
 import org.openapitools.client.model.AuditEventArrayWrapper;
 import org.openapitools.client.model.AuditReportFormat;
-import org.openapitools.client.model.AuditTrailProductMapperArrayWrapper;
+import org.openapitools.client.model.AuditTrailProductArrayWrapper;
 import org.openapitools.client.model.AuditTrailTypesWrapper;
 import org.openapitools.client.model.DocumentBuilderTaskWrapper;
 import org.openapitools.client.model.EntryType;
@@ -36,7 +36,7 @@ import org.openapitools.client.model.LocationType;
 import org.openapitools.client.model.MessageAction;
 import java.time.OffsetDateTime;
 import org.openapitools.client.model.ProductType;
-import org.openapitools.client.model.TenantAuditSettingsResponseWrapper;
+import org.openapitools.client.model.TenantAuditSettingsRequestDto;
 import org.openapitools.client.model.TenantAuditSettingsWrapper;
 import java.util.UUID;
 
@@ -72,33 +72,37 @@ public class AuditTrailDataApi extends BaseApi {
 
   /**
    * Start audit trail report
-   * Queues a report of the portal's audit trail and returns the state of the background job that builds it. The  report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports and is never filtered: the query parameters of  `GET api/2.0/security/audit/events/filter` do not apply here. The caller needs the portal-settings right of a  DocSpace administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with  402. The file is not ready when the response arrives - poll `GET api/2.0/security/audit/events/report` until  `isCompleted` is true, then take `resultFileUrl`, and treat a non-empty `error` as a failed build. The  finished file is saved to the caller's My documents section, as an XLSX workbook by default or as CSV when  `format=Csv`, in which case `resultFileId` stays empty and only the name and the URL identify it. One job runs  per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
+   * Queues a report of the portal's audit trail and returns the state of the background job that builds it. By  default the report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports; `from` and `to` narrow it, a `from` older than that  window is moved up to its start, a `to` in the future is moved back to now, and a period that ends before it  starts is answered with 400. No other filter of `GET api/2.0/security/audit/events/filter` applies here. The  caller needs the portal-settings right of a DocSpace administrator plus the audit option of the portal's pricing  plan, otherwise the call is answered with 402. The file is not ready when the response arrives - poll  `GET api/2.0/security/audit/events/report` until `isCompleted` is true, then take `resultFileUrl`, and treat a  non-empty `error` as a failed build. The finished file is saved to the caller's My documents section, as an XLSX  workbook by default or as CSV when `format=Csv`, and `resultFileId` identifies it in either format;  `resultFileUrl` opens it in the editor, except for a CSV file too large for the editor, which it downloads  instead. An XLSX report keeps only the most recent events, at most 200,000 by default and fewer when the events  are long, and its header says how many were left out; `format=Csv` exports every event of the period. One job  runs per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
    *
    * REST API Reference for createAuditTrailReport Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/
    *
-   * @param format The format the report file is written in. The workbook format is the default and is the only one that leaves  the finished file addressable by ID: a report asked for as CSV comes back with an empty `resultFileId`, so it  can only be reached through `resultFileName` and `resultFileUrl`. (optional)
+   * @param format The format the report file is written in: a spreadsheet workbook, which is the default, or a comma-separated  text file. (optional)
+   * @param from The earliest moment a reported event may have been recorded at, read as a UTC instant. (optional)
+   * @param to The latest moment a reported event may have been recorded at, read as a UTC instant in the same way as `from`. (optional)
    * @return DocumentBuilderTaskWrapper
    * @throws ApiException if fails to make API call
    */
-  public DocumentBuilderTaskWrapper createAuditTrailReport(@javax.annotation.Nullable AuditReportFormat format) throws ApiException {
-    return this.createAuditTrailReport(format, Collections.emptyMap());
+  public DocumentBuilderTaskWrapper createAuditTrailReport(@javax.annotation.Nullable AuditReportFormat format, @javax.annotation.Nullable OffsetDateTime from, @javax.annotation.Nullable OffsetDateTime to) throws ApiException {
+    return this.createAuditTrailReport(format, from, to, Collections.emptyMap());
   }
 
 
   /**
    * Start audit trail report
-   * Queues a report of the portal's audit trail and returns the state of the background job that builds it. The  report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports and is never filtered: the query parameters of  `GET api/2.0/security/audit/events/filter` do not apply here. The caller needs the portal-settings right of a  DocSpace administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with  402. The file is not ready when the response arrives - poll `GET api/2.0/security/audit/events/report` until  `isCompleted` is true, then take `resultFileUrl`, and treat a non-empty `error` as a failed build. The  finished file is saved to the caller's My documents section, as an XLSX workbook by default or as CSV when  `format=Csv`, in which case `resultFileId` stays empty and only the name and the URL identify it. One job runs  per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
+   * Queues a report of the portal's audit trail and returns the state of the background job that builds it. By  default the report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports; `from` and `to` narrow it, a `from` older than that  window is moved up to its start, a `to` in the future is moved back to now, and a period that ends before it  starts is answered with 400. No other filter of `GET api/2.0/security/audit/events/filter` applies here. The  caller needs the portal-settings right of a DocSpace administrator plus the audit option of the portal's pricing  plan, otherwise the call is answered with 402. The file is not ready when the response arrives - poll  `GET api/2.0/security/audit/events/report` until `isCompleted` is true, then take `resultFileUrl`, and treat a  non-empty `error` as a failed build. The finished file is saved to the caller's My documents section, as an XLSX  workbook by default or as CSV when `format=Csv`, and `resultFileId` identifies it in either format;  `resultFileUrl` opens it in the editor, except for a CSV file too large for the editor, which it downloads  instead. An XLSX report keeps only the most recent events, at most 200,000 by default and fewer when the events  are long, and its header says how many were left out; `format=Csv` exports every event of the period. One job  runs per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
    *
    * REST API Reference for createAuditTrailReport Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/
    *
-   * @param format The format the report file is written in. The workbook format is the default and is the only one that leaves  the finished file addressable by ID: a report asked for as CSV comes back with an empty `resultFileId`, so it  can only be reached through `resultFileName` and `resultFileUrl`. (optional)
+   * @param format The format the report file is written in: a spreadsheet workbook, which is the default, or a comma-separated  text file. (optional)
+   * @param from The earliest moment a reported event may have been recorded at, read as a UTC instant. (optional)
+   * @param to The latest moment a reported event may have been recorded at, read as a UTC instant in the same way as `from`. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return DocumentBuilderTaskWrapper
    * @throws ApiException if fails to make API call
    */
-  public DocumentBuilderTaskWrapper createAuditTrailReport(@javax.annotation.Nullable AuditReportFormat format, Map<String, String> additionalHeaders) throws ApiException {
+  public DocumentBuilderTaskWrapper createAuditTrailReport(@javax.annotation.Nullable AuditReportFormat format, @javax.annotation.Nullable OffsetDateTime from, @javax.annotation.Nullable OffsetDateTime to, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -113,6 +117,8 @@ public class AuditTrailDataApi extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPair("format", format));
+    localVarQueryParams.addAll(apiClient.parameterToPair("from", from));
+    localVarQueryParams.addAll(apiClient.parameterToPair("to", to));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -264,10 +270,10 @@ public class AuditTrailDataApi extends BaseApi {
    * REST API Reference for getAuditSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/
    *
-   * @return TenantAuditSettingsResponseWrapper
+   * @return TenantAuditSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantAuditSettingsResponseWrapper getAuditSettings() throws ApiException {
+  public TenantAuditSettingsWrapper getAuditSettings() throws ApiException {
     return this.getAuditSettings(Collections.emptyMap());
   }
 
@@ -280,10 +286,10 @@ public class AuditTrailDataApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return TenantAuditSettingsResponseWrapper
+   * @return TenantAuditSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantAuditSettingsResponseWrapper getAuditSettings(Map<String, String> additionalHeaders) throws ApiException {
+  public TenantAuditSettingsWrapper getAuditSettings(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -315,7 +321,7 @@ public class AuditTrailDataApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<TenantAuditSettingsResponseWrapper> localVarReturnType = new TypeReference<TenantAuditSettingsResponseWrapper>() {};
+    TypeReference<TenantAuditSettingsWrapper> localVarReturnType = new TypeReference<TenantAuditSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -342,10 +348,10 @@ public class AuditTrailDataApi extends BaseApi {
    *
    * @param productType The product to keep, spelled as `GET api/2.0/security/audit/types` lists it under `productTypes`. Omitting  it keeps every product; a value no product matches yields an empty list rather than an error. (optional)
    * @param moduleType The module to keep inside the products that survive `productType`, spelled as  `GET api/2.0/security/audit/types` lists it under `moduleTypes`. Omitting it keeps every module of those  products. (optional)
-   * @return AuditTrailProductMapperArrayWrapper
+   * @return AuditTrailProductArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public AuditTrailProductMapperArrayWrapper getAuditTrailMappers(@javax.annotation.Nullable ProductType productType, @javax.annotation.Nullable LocationType moduleType) throws ApiException {
+  public AuditTrailProductArrayWrapper getAuditTrailMappers(@javax.annotation.Nullable ProductType productType, @javax.annotation.Nullable LocationType moduleType) throws ApiException {
     return this.getAuditTrailMappers(productType, moduleType, Collections.emptyMap());
   }
 
@@ -360,10 +366,10 @@ public class AuditTrailDataApi extends BaseApi {
    * @param productType The product to keep, spelled as `GET api/2.0/security/audit/types` lists it under `productTypes`. Omitting  it keeps every product; a value no product matches yields an empty list rather than an error. (optional)
    * @param moduleType The module to keep inside the products that survive `productType`, spelled as  `GET api/2.0/security/audit/types` lists it under `moduleTypes`. Omitting it keeps every module of those  products. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return AuditTrailProductMapperArrayWrapper
+   * @return AuditTrailProductArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public AuditTrailProductMapperArrayWrapper getAuditTrailMappers(@javax.annotation.Nullable ProductType productType, @javax.annotation.Nullable LocationType moduleType, Map<String, String> additionalHeaders) throws ApiException {
+  public AuditTrailProductArrayWrapper getAuditTrailMappers(@javax.annotation.Nullable ProductType productType, @javax.annotation.Nullable LocationType moduleType, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -397,7 +403,7 @@ public class AuditTrailDataApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<AuditTrailProductMapperArrayWrapper> localVarReturnType = new TypeReference<AuditTrailProductMapperArrayWrapper>() {};
+    TypeReference<AuditTrailProductArrayWrapper> localVarReturnType = new TypeReference<AuditTrailProductArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -417,7 +423,7 @@ public class AuditTrailDataApi extends BaseApi {
 
   /**
    * Get audit trail report status
-   * Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402.  Jobs are kept per user and per report kind: this operation never shows another administrator's report, nor the  login history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is  empty when no report of this kind is known for the caller; otherwise `percentage` grows towards 100,  `isCompleted` turns true when the build has ended, `error` carries the failure message when it ended badly,  and `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section, while  `resultFileId` is filled for an XLSX report only. The operation is read-only and safe to poll every few  seconds; a finished job is dropped as soon as the next report of this kind is started.
+   * Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402. Jobs  are kept per user and per report kind: this operation never shows another administrator's report, nor the login  history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is empty when  no report of this kind is known for the caller; otherwise `percentage` grows towards 100, `isCompleted` turns  true when the build has ended, `error` carries the failure message when it ended badly, and `resultFileId`,  `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section. The operation  is read-only and safe to poll every few seconds; a finished job is dropped as soon as the next report of this  kind is started.
    *
    * REST API Reference for getAuditTrailReport Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-report/
@@ -432,7 +438,7 @@ public class AuditTrailDataApi extends BaseApi {
 
   /**
    * Get audit trail report status
-   * Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402.  Jobs are kept per user and per report kind: this operation never shows another administrator's report, nor the  login history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is  empty when no report of this kind is known for the caller; otherwise `percentage` grows towards 100,  `isCompleted` turns true when the build has ended, `error` carries the failure message when it ended badly,  and `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section, while  `resultFileId` is filled for an XLSX report only. The operation is read-only and safe to poll every few  seconds; a finished job is dropped as soon as the next report of this kind is started.
+   * Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402. Jobs  are kept per user and per report kind: this operation never shows another administrator's report, nor the login  history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is empty when  no report of this kind is known for the caller; otherwise `percentage` grows towards 100, `isCompleted` turns  true when the build has ended, `error` carries the failure message when it ended badly, and `resultFileId`,  `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section. The operation  is read-only and safe to poll every few seconds; a finished job is dropped as soon as the next report of this  kind is started.
    *
    * REST API Reference for getAuditTrailReport Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-report/
@@ -650,12 +656,12 @@ public class AuditTrailDataApi extends BaseApi {
    * REST API Reference for setAuditSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/
    *
-   * @param tenantAuditSettingsWrapper  (optional)
-   * @return TenantAuditSettingsResponseWrapper
+   * @param tenantAuditSettingsRequestDto  (optional)
+   * @return TenantAuditSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantAuditSettingsResponseWrapper setAuditSettings(@javax.annotation.Nullable TenantAuditSettingsWrapper tenantAuditSettingsWrapper) throws ApiException {
-    return this.setAuditSettings(tenantAuditSettingsWrapper, Collections.emptyMap());
+  public TenantAuditSettingsWrapper setAuditSettings(@javax.annotation.Nullable TenantAuditSettingsRequestDto tenantAuditSettingsRequestDto) throws ApiException {
+    return this.setAuditSettings(tenantAuditSettingsRequestDto, Collections.emptyMap());
   }
 
 
@@ -666,13 +672,13 @@ public class AuditTrailDataApi extends BaseApi {
    * REST API Reference for setAuditSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/
    *
-   * @param tenantAuditSettingsWrapper  (optional)
+   * @param tenantAuditSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return TenantAuditSettingsResponseWrapper
+   * @return TenantAuditSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantAuditSettingsResponseWrapper setAuditSettings(@javax.annotation.Nullable TenantAuditSettingsWrapper tenantAuditSettingsWrapper, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = tenantAuditSettingsWrapper;
+  public TenantAuditSettingsWrapper setAuditSettings(@javax.annotation.Nullable TenantAuditSettingsRequestDto tenantAuditSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = tenantAuditSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/security/audit/settings/lifetime";
@@ -703,7 +709,7 @@ public class AuditTrailDataApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<TenantAuditSettingsResponseWrapper> localVarReturnType = new TypeReference<TenantAuditSettingsResponseWrapper>() {};
+    TypeReference<TenantAuditSettingsWrapper> localVarReturnType = new TypeReference<TenantAuditSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",

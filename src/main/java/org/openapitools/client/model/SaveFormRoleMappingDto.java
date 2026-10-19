@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.FormRole;
+import org.openapitools.client.model.FormRoleRequest;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -48,7 +48,7 @@ public class SaveFormRoleMappingDto {
   @javax.annotation.Nonnull  private Integer formId;
 
   public static final String JSON_PROPERTY_ROLES = "roles";
-  @javax.annotation.Nullable  private List<FormRole> roles;
+  @javax.annotation.Nullable  private List<FormRoleRequest> roles;
 
   public SaveFormRoleMappingDto() {
   }
@@ -78,13 +78,13 @@ public class SaveFormRoleMappingDto {
     this.formId = formId;
   }
 
-  public SaveFormRoleMappingDto roles(@javax.annotation.Nullable List<FormRole> roles) {
+  public SaveFormRoleMappingDto roles(@javax.annotation.Nullable List<FormRoleRequest> roles) {
     
     this.roles = roles;
     return this;
   }
 
-  public SaveFormRoleMappingDto addRolesItem(FormRole rolesItem) {
+  public SaveFormRoleMappingDto addRolesItem(FormRoleRequest rolesItem) {
     if (this.roles == null) {
       this.roles = new ArrayList<>();
     }
@@ -99,14 +99,14 @@ public class SaveFormRoleMappingDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROLES, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<FormRole> getRoles() {
+  public List<FormRoleRequest> getRoles() {
     return roles;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_ROLES, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRoles(@javax.annotation.Nullable List<FormRole> roles) {
+  public void setRoles(@javax.annotation.Nullable List<FormRoleRequest> roles) {
     this.roles = roles;
   }
 

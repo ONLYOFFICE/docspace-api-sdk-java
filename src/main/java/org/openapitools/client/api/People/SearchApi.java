@@ -24,15 +24,15 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
+import org.openapitools.client.model.AccountEntryArrayWrapper;
 import org.openapitools.client.model.AccountLoginType;
-import org.openapitools.client.model.Area;
+import org.openapitools.client.model.AccountSearchArea;
 import org.openapitools.client.model.EmployeeActivationStatus;
 import org.openapitools.client.model.EmployeeArrayWrapper;
 import org.openapitools.client.model.EmployeeFullArrayWrapper;
 import org.openapitools.client.model.EmployeeStatus;
 import org.openapitools.client.model.EmployeeType;
 import org.openapitools.client.model.ErrorApiResponse;
-import org.openapitools.client.model.IAccountEntryArrayWrapper;
 import org.openapitools.client.model.Payments;
 import org.openapitools.client.model.QuotaFilter;
 import org.openapitools.client.model.SortOrder;
@@ -88,10 +88,10 @@ public class SearchApi extends BaseApi {
    * @param startIndex The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. (optional)
    * @param filterSeparator The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)
    * @param filterValue The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)
-   * @return IAccountEntryArrayWrapper
+   * @return AccountEntryArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public IAccountEntryArrayWrapper getAccountsEntriesWithFilesShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
+  public AccountEntryArrayWrapper getAccountsEntriesWithFilesShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
     return this.getAccountsEntriesWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, Collections.emptyMap());
   }
 
@@ -117,10 +117,10 @@ public class SearchApi extends BaseApi {
    * @param filterSeparator The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)
    * @param filterValue The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return IAccountEntryArrayWrapper
+   * @return AccountEntryArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public IAccountEntryArrayWrapper getAccountsEntriesWithFilesShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public AccountEntryArrayWrapper getAccountsEntriesWithFilesShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -170,7 +170,7 @@ public class SearchApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<IAccountEntryArrayWrapper> localVarReturnType = new TypeReference<IAccountEntryArrayWrapper>() {};
+    TypeReference<AccountEntryArrayWrapper> localVarReturnType = new TypeReference<AccountEntryArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -208,10 +208,10 @@ public class SearchApi extends BaseApi {
    * @param startIndex The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. (optional)
    * @param filterSeparator The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)
    * @param filterValue The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)
-   * @return IAccountEntryArrayWrapper
+   * @return AccountEntryArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public IAccountEntryArrayWrapper getAccountsEntriesWithFilesShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
+  public AccountEntryArrayWrapper getAccountsEntriesWithFilesShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
     return this.getAccountsEntriesWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, Collections.emptyMap());
   }
 
@@ -237,10 +237,10 @@ public class SearchApi extends BaseApi {
    * @param filterSeparator The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)
    * @param filterValue The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return IAccountEntryArrayWrapper
+   * @return AccountEntryArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public IAccountEntryArrayWrapper getAccountsEntriesWithFilesShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public AccountEntryArrayWrapper getAccountsEntriesWithFilesShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -290,7 +290,7 @@ public class SearchApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<IAccountEntryArrayWrapper> localVarReturnType = new TypeReference<IAccountEntryArrayWrapper>() {};
+    TypeReference<AccountEntryArrayWrapper> localVarReturnType = new TypeReference<AccountEntryArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -328,10 +328,10 @@ public class SearchApi extends BaseApi {
    * @param startIndex The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. (optional)
    * @param filterSeparator The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)
    * @param filterValue The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)
-   * @return IAccountEntryArrayWrapper
+   * @return AccountEntryArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public IAccountEntryArrayWrapper getAccountsEntriesWithFoldersShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
+  public AccountEntryArrayWrapper getAccountsEntriesWithFoldersShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
     return this.getAccountsEntriesWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, Collections.emptyMap());
   }
 
@@ -357,10 +357,10 @@ public class SearchApi extends BaseApi {
    * @param filterSeparator The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)
    * @param filterValue The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return IAccountEntryArrayWrapper
+   * @return AccountEntryArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public IAccountEntryArrayWrapper getAccountsEntriesWithFoldersShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public AccountEntryArrayWrapper getAccountsEntriesWithFoldersShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -410,7 +410,7 @@ public class SearchApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<IAccountEntryArrayWrapper> localVarReturnType = new TypeReference<IAccountEntryArrayWrapper>() {};
+    TypeReference<AccountEntryArrayWrapper> localVarReturnType = new TypeReference<AccountEntryArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -448,10 +448,10 @@ public class SearchApi extends BaseApi {
    * @param startIndex The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. (optional)
    * @param filterSeparator The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)
    * @param filterValue The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)
-   * @return IAccountEntryArrayWrapper
+   * @return AccountEntryArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public IAccountEntryArrayWrapper getAccountsEntriesWithFoldersShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
+  public AccountEntryArrayWrapper getAccountsEntriesWithFoldersShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
     return this.getAccountsEntriesWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, Collections.emptyMap());
   }
 
@@ -477,10 +477,10 @@ public class SearchApi extends BaseApi {
    * @param filterSeparator The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)
    * @param filterValue The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return IAccountEntryArrayWrapper
+   * @return AccountEntryArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public IAccountEntryArrayWrapper getAccountsEntriesWithFoldersShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public AccountEntryArrayWrapper getAccountsEntriesWithFoldersShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -530,7 +530,7 @@ public class SearchApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<IAccountEntryArrayWrapper> localVarReturnType = new TypeReference<IAccountEntryArrayWrapper>() {};
+    TypeReference<AccountEntryArrayWrapper> localVarReturnType = new TypeReference<AccountEntryArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -568,10 +568,10 @@ public class SearchApi extends BaseApi {
    * @param startIndex The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. (optional)
    * @param filterSeparator The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)
    * @param filterValue The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)
-   * @return IAccountEntryArrayWrapper
+   * @return AccountEntryArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public IAccountEntryArrayWrapper getAccountsEntriesWithRoomsShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
+  public AccountEntryArrayWrapper getAccountsEntriesWithRoomsShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
     return this.getAccountsEntriesWithRoomsShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, Collections.emptyMap());
   }
 
@@ -597,10 +597,10 @@ public class SearchApi extends BaseApi {
    * @param filterSeparator The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)
    * @param filterValue The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return IAccountEntryArrayWrapper
+   * @return AccountEntryArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public IAccountEntryArrayWrapper getAccountsEntriesWithRoomsShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public AccountEntryArrayWrapper getAccountsEntriesWithRoomsShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -650,7 +650,7 @@ public class SearchApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<IAccountEntryArrayWrapper> localVarReturnType = new TypeReference<IAccountEntryArrayWrapper>() {};
+    TypeReference<AccountEntryArrayWrapper> localVarReturnType = new TypeReference<AccountEntryArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -688,10 +688,10 @@ public class SearchApi extends BaseApi {
    * @param startIndex The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. (optional)
    * @param filterSeparator The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)
    * @param filterValue The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)
-   * @return IAccountEntryArrayWrapper
+   * @return AccountEntryArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public IAccountEntryArrayWrapper getAccountsEntriesWithRoomsShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
+  public AccountEntryArrayWrapper getAccountsEntriesWithRoomsShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
     return this.getAccountsEntriesWithRoomsShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, Collections.emptyMap());
   }
 
@@ -717,10 +717,10 @@ public class SearchApi extends BaseApi {
    * @param filterSeparator The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)
    * @param filterValue The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return IAccountEntryArrayWrapper
+   * @return AccountEntryArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public IAccountEntryArrayWrapper getAccountsEntriesWithRoomsShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public AccountEntryArrayWrapper getAccountsEntriesWithRoomsShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -770,7 +770,7 @@ public class SearchApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<IAccountEntryArrayWrapper> localVarReturnType = new TypeReference<IAccountEntryArrayWrapper>() {};
+    TypeReference<AccountEntryArrayWrapper> localVarReturnType = new TypeReference<AccountEntryArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -908,7 +908,7 @@ public class SearchApi extends BaseApi {
    * @return EmployeeArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeArrayWrapper getSimpleByFilter(@javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable UUID groupId, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable EmployeeType employeeType, @javax.annotation.Nullable List<Integer> employeeTypes, @javax.annotation.Nullable Boolean isAdministrator, @javax.annotation.Nullable Payments payments, @javax.annotation.Nullable AccountLoginType accountLoginType, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable Boolean withoutGroup, @javax.annotation.Nullable Boolean excludeGroup, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
+  public EmployeeArrayWrapper getSimpleByFilter(@javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable UUID groupId, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable EmployeeType employeeType, @javax.annotation.Nullable List<Integer> employeeTypes, @javax.annotation.Nullable Boolean isAdministrator, @javax.annotation.Nullable Payments payments, @javax.annotation.Nullable AccountLoginType accountLoginType, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable Boolean withoutGroup, @javax.annotation.Nullable Boolean excludeGroup, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
     return this.getSimpleByFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, Collections.emptyMap());
   }
 
@@ -944,7 +944,7 @@ public class SearchApi extends BaseApi {
    * @return EmployeeArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeArrayWrapper getSimpleByFilter(@javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable UUID groupId, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable EmployeeType employeeType, @javax.annotation.Nullable List<Integer> employeeTypes, @javax.annotation.Nullable Boolean isAdministrator, @javax.annotation.Nullable Payments payments, @javax.annotation.Nullable AccountLoginType accountLoginType, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable Boolean withoutGroup, @javax.annotation.Nullable Boolean excludeGroup, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public EmployeeArrayWrapper getSimpleByFilter(@javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable UUID groupId, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable EmployeeType employeeType, @javax.annotation.Nullable List<Integer> employeeTypes, @javax.annotation.Nullable Boolean isAdministrator, @javax.annotation.Nullable Payments payments, @javax.annotation.Nullable AccountLoginType accountLoginType, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable Boolean withoutGroup, @javax.annotation.Nullable Boolean excludeGroup, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -1039,7 +1039,7 @@ public class SearchApi extends BaseApi {
    * @return EmployeeFullArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullArrayWrapper getUsersWithFilesShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
+  public EmployeeFullArrayWrapper getUsersWithFilesShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
     return this.getUsersWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, Collections.emptyMap());
   }
 
@@ -1068,7 +1068,7 @@ public class SearchApi extends BaseApi {
    * @return EmployeeFullArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullArrayWrapper getUsersWithFilesShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public EmployeeFullArrayWrapper getUsersWithFilesShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1159,7 +1159,7 @@ public class SearchApi extends BaseApi {
    * @return EmployeeFullArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullArrayWrapper getUsersWithFilesShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
+  public EmployeeFullArrayWrapper getUsersWithFilesShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
     return this.getUsersWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, Collections.emptyMap());
   }
 
@@ -1188,7 +1188,7 @@ public class SearchApi extends BaseApi {
    * @return EmployeeFullArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullArrayWrapper getUsersWithFilesShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public EmployeeFullArrayWrapper getUsersWithFilesShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1279,7 +1279,7 @@ public class SearchApi extends BaseApi {
    * @return EmployeeFullArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullArrayWrapper getUsersWithFoldersShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
+  public EmployeeFullArrayWrapper getUsersWithFoldersShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
     return this.getUsersWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, Collections.emptyMap());
   }
 
@@ -1308,7 +1308,7 @@ public class SearchApi extends BaseApi {
    * @return EmployeeFullArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullArrayWrapper getUsersWithFoldersShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public EmployeeFullArrayWrapper getUsersWithFoldersShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1399,7 +1399,7 @@ public class SearchApi extends BaseApi {
    * @return EmployeeFullArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullArrayWrapper getUsersWithFoldersShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
+  public EmployeeFullArrayWrapper getUsersWithFoldersShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
     return this.getUsersWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, Collections.emptyMap());
   }
 
@@ -1428,7 +1428,7 @@ public class SearchApi extends BaseApi {
    * @return EmployeeFullArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullArrayWrapper getUsersWithFoldersShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public EmployeeFullArrayWrapper getUsersWithFoldersShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1519,7 +1519,7 @@ public class SearchApi extends BaseApi {
    * @return EmployeeFullArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullArrayWrapper getUsersWithRoomShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
+  public EmployeeFullArrayWrapper getUsersWithRoomShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
     return this.getUsersWithRoomShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, Collections.emptyMap());
   }
 
@@ -1548,7 +1548,7 @@ public class SearchApi extends BaseApi {
    * @return EmployeeFullArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullArrayWrapper getUsersWithRoomShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public EmployeeFullArrayWrapper getUsersWithRoomShared(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1639,7 +1639,7 @@ public class SearchApi extends BaseApi {
    * @return EmployeeFullArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullArrayWrapper getUsersWithRoomShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
+  public EmployeeFullArrayWrapper getUsersWithRoomShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
     return this.getUsersWithRoomShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, Collections.emptyMap());
   }
 
@@ -1668,7 +1668,7 @@ public class SearchApi extends BaseApi {
    * @return EmployeeFullArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullArrayWrapper getUsersWithRoomShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public EmployeeFullArrayWrapper getUsersWithRoomShared(@javax.annotation.Nonnull String id, @javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable Boolean excludeShared, @javax.annotation.Nullable Boolean includeShared, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable List<EmployeeType> employeeTypes, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1766,7 +1766,7 @@ public class SearchApi extends BaseApi {
    * @return EmployeeFullArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullArrayWrapper searchUsersByExtendedFilter(@javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable UUID groupId, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable EmployeeType employeeType, @javax.annotation.Nullable List<Integer> employeeTypes, @javax.annotation.Nullable Boolean isAdministrator, @javax.annotation.Nullable Payments payments, @javax.annotation.Nullable AccountLoginType accountLoginType, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable Boolean withoutGroup, @javax.annotation.Nullable Boolean excludeGroup, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
+  public EmployeeFullArrayWrapper searchUsersByExtendedFilter(@javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable UUID groupId, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable EmployeeType employeeType, @javax.annotation.Nullable List<Integer> employeeTypes, @javax.annotation.Nullable Boolean isAdministrator, @javax.annotation.Nullable Payments payments, @javax.annotation.Nullable AccountLoginType accountLoginType, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable Boolean withoutGroup, @javax.annotation.Nullable Boolean excludeGroup, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue) throws ApiException {
     return this.searchUsersByExtendedFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, Collections.emptyMap());
   }
 
@@ -1802,7 +1802,7 @@ public class SearchApi extends BaseApi {
    * @return EmployeeFullArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullArrayWrapper searchUsersByExtendedFilter(@javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable UUID groupId, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable EmployeeType employeeType, @javax.annotation.Nullable List<Integer> employeeTypes, @javax.annotation.Nullable Boolean isAdministrator, @javax.annotation.Nullable Payments payments, @javax.annotation.Nullable AccountLoginType accountLoginType, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable Boolean withoutGroup, @javax.annotation.Nullable Boolean excludeGroup, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable Area area, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public EmployeeFullArrayWrapper searchUsersByExtendedFilter(@javax.annotation.Nullable EmployeeStatus employeeStatus, @javax.annotation.Nullable UUID groupId, @javax.annotation.Nullable EmployeeActivationStatus activationStatus, @javax.annotation.Nullable EmployeeType employeeType, @javax.annotation.Nullable List<Integer> employeeTypes, @javax.annotation.Nullable Boolean isAdministrator, @javax.annotation.Nullable Payments payments, @javax.annotation.Nullable AccountLoginType accountLoginType, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable Boolean withoutGroup, @javax.annotation.Nullable Boolean excludeGroup, @javax.annotation.Nullable Boolean invitedByMe, @javax.annotation.Nullable UUID inviterId, @javax.annotation.Nullable AccountSearchArea area, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterSeparator, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables

@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.client.model.AiTErrorData;
+import org.openapitools.client.model.AiErrorData;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -45,7 +45,7 @@ public class AiToolsMutationResult {
   @javax.annotation.Nonnull  private Boolean success;
 
   public static final String JSON_PROPERTY_ERROR = "error";
-  @javax.annotation.Nullable  private AiTErrorData error;
+  @javax.annotation.Nullable  private AiErrorData error;
 
   public AiToolsMutationResult() {
   }
@@ -75,7 +75,7 @@ public class AiToolsMutationResult {
     this.success = success;
   }
 
-  public AiToolsMutationResult error(@javax.annotation.Nullable AiTErrorData error) {
+  public AiToolsMutationResult error(@javax.annotation.Nullable AiErrorData error) {
     
     this.error = error;
     return this;
@@ -88,14 +88,14 @@ public class AiToolsMutationResult {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public AiTErrorData getError() {
+  public AiErrorData getError() {
     return error;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setError(@javax.annotation.Nullable AiTErrorData error) {
+  public void setError(@javax.annotation.Nullable AiErrorData error) {
     this.error = error;
   }
 

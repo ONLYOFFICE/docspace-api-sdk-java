@@ -57,12 +57,12 @@ public class AttachmentsApi extends BaseApi {
    * REST API Reference for aiAttachmentsDelete Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete/
    *
-   * @param body The ID of the attachment to delete, as a bare JSON string. (required)
+   * @param aiAttachmentsDeleteRequest The ID of the attachment to delete, as a bare JSON string. (required)
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiAttachmentsDelete(@javax.annotation.Nonnull String body) throws ApiException {
-    return this.aiAttachmentsDelete(body, Collections.emptyMap());
+  public AiSuccessResponse aiAttachmentsDelete(@javax.annotation.Nonnull String aiAttachmentsDeleteRequest) throws ApiException {
+    return this.aiAttachmentsDelete(aiAttachmentsDeleteRequest, Collections.emptyMap());
   }
 
 
@@ -73,17 +73,17 @@ public class AttachmentsApi extends BaseApi {
    * REST API Reference for aiAttachmentsDelete Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete/
    *
-   * @param body The ID of the attachment to delete, as a bare JSON string. (required)
+   * @param aiAttachmentsDeleteRequest The ID of the attachment to delete, as a bare JSON string. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiAttachmentsDelete(@javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = body;
+  public AiSuccessResponse aiAttachmentsDelete(@javax.annotation.Nonnull String aiAttachmentsDeleteRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiAttachmentsDeleteRequest;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling aiAttachmentsDelete");
+    // verify the required parameter 'aiAttachmentsDeleteRequest' is set
+    if (aiAttachmentsDeleteRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiAttachmentsDeleteRequest' when calling aiAttachmentsDelete");
     }
     
     // create path and map variables
@@ -140,12 +140,12 @@ public class AttachmentsApi extends BaseApi {
    * REST API Reference for aiAttachmentsDeleteMany Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete-many/
    *
-   * @param requestBody The IDs of the attachments to delete, as a bare JSON array of strings. (required)
+   * @param aiAttachmentsDeleteManyRequest The IDs of the attachments to delete, as a bare JSON array of strings. (required)
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiAttachmentsDeleteMany(@javax.annotation.Nonnull List<String> requestBody) throws ApiException {
-    return this.aiAttachmentsDeleteMany(requestBody, Collections.emptyMap());
+  public AiSuccessResponse aiAttachmentsDeleteMany(@javax.annotation.Nonnull List<String> aiAttachmentsDeleteManyRequest) throws ApiException {
+    return this.aiAttachmentsDeleteMany(aiAttachmentsDeleteManyRequest, Collections.emptyMap());
   }
 
 
@@ -156,17 +156,17 @@ public class AttachmentsApi extends BaseApi {
    * REST API Reference for aiAttachmentsDeleteMany Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete-many/
    *
-   * @param requestBody The IDs of the attachments to delete, as a bare JSON array of strings. (required)
+   * @param aiAttachmentsDeleteManyRequest The IDs of the attachments to delete, as a bare JSON array of strings. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiAttachmentsDeleteMany(@javax.annotation.Nonnull List<String> requestBody, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = requestBody;
+  public AiSuccessResponse aiAttachmentsDeleteMany(@javax.annotation.Nonnull List<String> aiAttachmentsDeleteManyRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiAttachmentsDeleteManyRequest;
     
-    // verify the required parameter 'requestBody' is set
-    if (requestBody == null) {
-      throw new ApiException(400, "Missing the required parameter 'requestBody' when calling aiAttachmentsDeleteMany");
+    // verify the required parameter 'aiAttachmentsDeleteManyRequest' is set
+    if (aiAttachmentsDeleteManyRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiAttachmentsDeleteManyRequest' when calling aiAttachmentsDeleteMany");
     }
     
     // create path and map variables
@@ -223,12 +223,12 @@ public class AttachmentsApi extends BaseApi {
    * REST API Reference for aiAttachmentsGet Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get/
    *
-   * @param body The ID of the attachment to read, as a bare JSON string. (required)
+   * @param aiAttachmentsGetRequest The ID of the attachment to read, as a bare JSON string. (required)
    * @return AiAttachment
    * @throws ApiException if fails to make API call
    */
-  public AiAttachment aiAttachmentsGet(@javax.annotation.Nonnull String body) throws ApiException {
-    return this.aiAttachmentsGet(body, Collections.emptyMap());
+  public AiAttachment aiAttachmentsGet(@javax.annotation.Nonnull String aiAttachmentsGetRequest) throws ApiException {
+    return this.aiAttachmentsGet(aiAttachmentsGetRequest, Collections.emptyMap());
   }
 
 
@@ -239,17 +239,17 @@ public class AttachmentsApi extends BaseApi {
    * REST API Reference for aiAttachmentsGet Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get/
    *
-   * @param body The ID of the attachment to read, as a bare JSON string. (required)
+   * @param aiAttachmentsGetRequest The ID of the attachment to read, as a bare JSON string. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiAttachment
    * @throws ApiException if fails to make API call
    */
-  public AiAttachment aiAttachmentsGet(@javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = body;
+  public AiAttachment aiAttachmentsGet(@javax.annotation.Nonnull String aiAttachmentsGetRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiAttachmentsGetRequest;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling aiAttachmentsGet");
+    // verify the required parameter 'aiAttachmentsGetRequest' is set
+    if (aiAttachmentsGetRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiAttachmentsGetRequest' when calling aiAttachmentsGet");
     }
     
     // create path and map variables
@@ -306,12 +306,12 @@ public class AttachmentsApi extends BaseApi {
    * REST API Reference for aiAttachmentsGetMany Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-many/
    *
-   * @param requestBody The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position. (required)
+   * @param aiAttachmentsGetManyRequest The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position. (required)
    * @return List&lt;AiAttachment&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<AiAttachment> aiAttachmentsGetMany(@javax.annotation.Nonnull List<String> requestBody) throws ApiException {
-    return this.aiAttachmentsGetMany(requestBody, Collections.emptyMap());
+  public List<AiAttachment> aiAttachmentsGetMany(@javax.annotation.Nonnull List<String> aiAttachmentsGetManyRequest) throws ApiException {
+    return this.aiAttachmentsGetMany(aiAttachmentsGetManyRequest, Collections.emptyMap());
   }
 
 
@@ -322,17 +322,17 @@ public class AttachmentsApi extends BaseApi {
    * REST API Reference for aiAttachmentsGetMany Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-many/
    *
-   * @param requestBody The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position. (required)
+   * @param aiAttachmentsGetManyRequest The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return List&lt;AiAttachment&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<AiAttachment> aiAttachmentsGetMany(@javax.annotation.Nonnull List<String> requestBody, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = requestBody;
+  public List<AiAttachment> aiAttachmentsGetMany(@javax.annotation.Nonnull List<String> aiAttachmentsGetManyRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiAttachmentsGetManyRequest;
     
-    // verify the required parameter 'requestBody' is set
-    if (requestBody == null) {
-      throw new ApiException(400, "Missing the required parameter 'requestBody' when calling aiAttachmentsGetMany");
+    // verify the required parameter 'aiAttachmentsGetManyRequest' is set
+    if (aiAttachmentsGetManyRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiAttachmentsGetManyRequest' when calling aiAttachmentsGetMany");
     }
     
     // create path and map variables
@@ -389,12 +389,12 @@ public class AttachmentsApi extends BaseApi {
    * REST API Reference for aiAttachmentsGetSuggestedQuestions Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-suggested-questions/
    *
-   * @param requestBody  (required)
+   * @param aiAttachmentsGetSuggestedQuestionsRequest  (required)
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiAttachmentsGetSuggestedQuestions(@javax.annotation.Nonnull Map<String, Object> requestBody) throws ApiException {
-    return this.aiAttachmentsGetSuggestedQuestions(requestBody, Collections.emptyMap());
+  public AiSuccessResponse aiAttachmentsGetSuggestedQuestions(@javax.annotation.Nonnull Map<String, Object> aiAttachmentsGetSuggestedQuestionsRequest) throws ApiException {
+    return this.aiAttachmentsGetSuggestedQuestions(aiAttachmentsGetSuggestedQuestionsRequest, Collections.emptyMap());
   }
 
 
@@ -405,17 +405,17 @@ public class AttachmentsApi extends BaseApi {
    * REST API Reference for aiAttachmentsGetSuggestedQuestions Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-suggested-questions/
    *
-   * @param requestBody  (required)
+   * @param aiAttachmentsGetSuggestedQuestionsRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiAttachmentsGetSuggestedQuestions(@javax.annotation.Nonnull Map<String, Object> requestBody, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = requestBody;
+  public AiSuccessResponse aiAttachmentsGetSuggestedQuestions(@javax.annotation.Nonnull Map<String, Object> aiAttachmentsGetSuggestedQuestionsRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiAttachmentsGetSuggestedQuestionsRequest;
     
-    // verify the required parameter 'requestBody' is set
-    if (requestBody == null) {
-      throw new ApiException(400, "Missing the required parameter 'requestBody' when calling aiAttachmentsGetSuggestedQuestions");
+    // verify the required parameter 'aiAttachmentsGetSuggestedQuestionsRequest' is set
+    if (aiAttachmentsGetSuggestedQuestionsRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiAttachmentsGetSuggestedQuestionsRequest' when calling aiAttachmentsGetSuggestedQuestions");
     }
     
     // create path and map variables

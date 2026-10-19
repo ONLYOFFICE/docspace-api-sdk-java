@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**actionType** | **AiActionType** |  |  |
-|**error** | [**AiTErrorData**](AiTErrorData.md) |  |  |
+|**error** | [**AiErrorData**](AiErrorData.md) |  |  |
 
 
 

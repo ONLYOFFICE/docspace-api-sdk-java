@@ -29,8 +29,8 @@ import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.ApiDateTime;
 import org.openapitools.client.model.EmployeeDto;
-import org.openapitools.client.model.HistoryAction;
-import org.openapitools.client.model.HistoryData;
+import org.openapitools.client.model.HistoryActionDto;
+import org.openapitools.client.model.HistoryDataDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -59,7 +59,7 @@ public class HistoryDto {
   @javax.annotation.Nonnull  private Integer id;
 
   public static final String JSON_PROPERTY_ACTION = "action";
-  @javax.annotation.Nonnull  private HistoryAction action;
+  @javax.annotation.Nonnull  private HistoryActionDto action;
 
   public static final String JSON_PROPERTY_INITIATOR = "initiator";
   @javax.annotation.Nonnull  private EmployeeDto initiator;
@@ -68,7 +68,7 @@ public class HistoryDto {
   @javax.annotation.Nonnull  private ApiDateTime date;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  @javax.annotation.Nullable  private HistoryData data;
+  @javax.annotation.Nullable  private HistoryDataDto data;
 
   public static final String JSON_PROPERTY_RELATED = "related";
   @javax.annotation.Nullable  private JsonNullable<List<HistoryDto>> related = JsonNullable.<List<HistoryDto>>undefined();
@@ -101,7 +101,7 @@ public class HistoryDto {
     this.id = id;
   }
 
-  public HistoryDto action(@javax.annotation.Nonnull HistoryAction action) {
+  public HistoryDto action(@javax.annotation.Nonnull HistoryActionDto action) {
     
     this.action = action;
     return this;
@@ -114,14 +114,14 @@ public class HistoryDto {
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ACTION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public HistoryAction getAction() {
+  public HistoryActionDto getAction() {
     return action;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_ACTION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAction(@javax.annotation.Nonnull HistoryAction action) {
+  public void setAction(@javax.annotation.Nonnull HistoryActionDto action) {
     this.action = action;
   }
 
@@ -173,7 +173,7 @@ public class HistoryDto {
     this.date = date;
   }
 
-  public HistoryDto data(@javax.annotation.Nullable HistoryData data) {
+  public HistoryDto data(@javax.annotation.Nullable HistoryDataDto data) {
     
     this.data = data;
     return this;
@@ -186,14 +186,14 @@ public class HistoryDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public HistoryData getData() {
+  public HistoryDataDto getData() {
     return data;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(@javax.annotation.Nullable HistoryData data) {
+  public void setData(@javax.annotation.Nullable HistoryDataDto data) {
     this.data = data;
   }
 

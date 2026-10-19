@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
-import org.openapitools.client.model.TenantQuotaSettings;
+import org.openapitools.client.model.TenantQuotaSettingsDto;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The successful API response containing the TenantQuotaSettings object.
+ * The successful API response containing the TenantQuotaSettingsDto object.
  */
 @JsonPropertyOrder({
   TenantQuotaSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class TenantQuotaSettingsWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private TenantQuotaSettings response;
+  @javax.annotation.Nullable  private TenantQuotaSettingsDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class TenantQuotaSettingsWrapper {
   }
 
 
-  public TenantQuotaSettingsWrapper response(@javax.annotation.Nullable TenantQuotaSettings response) {
+  public TenantQuotaSettingsWrapper response(@javax.annotation.Nullable TenantQuotaSettingsDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * The TenantQuotaSettings object returned by the operation.
+   * The TenantQuotaSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TenantQuotaSettings getResponse() {
+  public TenantQuotaSettingsDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable TenantQuotaSettings response) {
+  public void setResponse(@javax.annotation.Nullable TenantQuotaSettingsDto response) {
     this.response = response;
   }
 

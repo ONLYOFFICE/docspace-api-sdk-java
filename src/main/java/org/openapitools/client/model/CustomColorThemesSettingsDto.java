@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.CustomColorThemesSettingsItem;
+import org.openapitools.client.model.CustomColorThemeDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -50,7 +50,7 @@ import java.util.StringJoiner;
 
 public class CustomColorThemesSettingsDto {
   public static final String JSON_PROPERTY_THEMES = "themes";
-  @javax.annotation.Nullable  private JsonNullable<List<CustomColorThemesSettingsItem>> themes = JsonNullable.<List<CustomColorThemesSettingsItem>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<CustomColorThemeDto>> themes = JsonNullable.<List<CustomColorThemeDto>>undefined();
 
   public static final String JSON_PROPERTY_SELECTED = "selected";
   @javax.annotation.Nullable  private Integer selected;
@@ -62,15 +62,15 @@ public class CustomColorThemesSettingsDto {
   }
 
 
-  public CustomColorThemesSettingsDto themes(@javax.annotation.Nullable List<CustomColorThemesSettingsItem> themes) {
-    this.themes = JsonNullable.<List<CustomColorThemesSettingsItem>>of(themes);
+  public CustomColorThemesSettingsDto themes(@javax.annotation.Nullable List<CustomColorThemeDto> themes) {
+    this.themes = JsonNullable.<List<CustomColorThemeDto>>of(themes);
     
     return this;
   }
 
-  public CustomColorThemesSettingsDto addThemesItem(CustomColorThemesSettingsItem themesItem) {
+  public CustomColorThemesSettingsDto addThemesItem(CustomColorThemeDto themesItem) {
     if (this.themes == null || !this.themes.isPresent()) {
-      this.themes = JsonNullable.<List<CustomColorThemesSettingsItem>>of(new ArrayList<>());
+      this.themes = JsonNullable.<List<CustomColorThemeDto>>of(new ArrayList<>());
     }
     try {
       this.themes.get().add(themesItem);
@@ -86,23 +86,23 @@ public class CustomColorThemesSettingsDto {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public List<CustomColorThemesSettingsItem> getThemes() {
+  public List<CustomColorThemeDto> getThemes() {
         return themes.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_THEMES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<List<CustomColorThemesSettingsItem>> getThemes_JsonNullable() {
+  public JsonNullable<List<CustomColorThemeDto>> getThemes_JsonNullable() {
     return themes;
   }
   
   @JsonProperty(JSON_PROPERTY_THEMES)
-  public void setThemes_JsonNullable(JsonNullable<List<CustomColorThemesSettingsItem>> themes) {
+  public void setThemes_JsonNullable(JsonNullable<List<CustomColorThemeDto>> themes) {
     this.themes = themes;
   }
 
-  public void setThemes(@javax.annotation.Nullable List<CustomColorThemesSettingsItem> themes) {
-    this.themes = JsonNullable.<List<CustomColorThemesSettingsItem>>of(themes);
+  public void setThemes(@javax.annotation.Nullable List<CustomColorThemeDto> themes) {
+    this.themes = JsonNullable.<List<CustomColorThemeDto>>of(themes);
   }
 
   public CustomColorThemesSettingsDto selected(@javax.annotation.Nullable Integer selected) {

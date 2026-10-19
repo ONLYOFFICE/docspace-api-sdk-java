@@ -14,7 +14,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 ## getSmtpOperationStatus
 
-> SmtpOperationStatusRequestsWrapper getSmtpOperationStatus()
+> SmtpOperationStatusWrapper getSmtpOperationStatus()
 
 Get SMTP test statusReturns the state of the test message that `GET api/2.0/smtpsettings/smtp/test` queued for this portal, and is  the operation to poll while that test runs. A test has to be queued first; the caller needs the  portal-settings right of a DocSpace administrator, and the SMTP settings section has to be enabled for the  portal, otherwise the call is answered with 402. The call changes no settings, but it is not free of  consequence: the first answer that reports `completed` true also discards the finished job, so a later call no  longer knows about it - take `error` from that answer and keep it. An empty answer means the portal has no  test on record, either because none was queued or because its result has already been read. While the job  runs, `percents` climbs to 100 and `status` names the step reached, such as `Connect to host` or  `Send test message`; `error` is empty until something fails and stays empty when the relay accepted the  message. `id` identifies the queued job, of which a portal only ever has one.
 
@@ -26,7 +26,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**SmtpOperationStatusRequestsWrapper**](SmtpOperationStatusRequestsWrapper.md)
+[**SmtpOperationStatusWrapper**](SmtpOperationStatusWrapper.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ public class Example {
 
         SMTPSettingsApi apiInstance = new SMTPSettingsApi(defaultClient);
         try {
-            SmtpOperationStatusRequestsWrapper result = apiInstance.getSmtpOperationStatus();
+            SmtpOperationStatusWrapper result = apiInstance.getSmtpOperationStatus();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SMTPSettingsApi#getSmtpOperationStatus");
@@ -100,6 +100,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | The state of the test message of the portal, or an empty answer when no test is on record |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **402** | The SMTP settings section is not enabled for this portal |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -195,6 +196,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | The SMTP settings stored for the portal, with an empty password and `isDefaultSettings` telling whether the configuration of the installation is in use |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **402** | The SMTP settings section is not enabled for this portal |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -290,6 +292,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | The settings in force after the reset - the configuration of the installation, or an empty settings object in a cloud portal |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **402** | The SMTP settings section is not enabled for this portal |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -388,18 +391,19 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The SMTP settings now stored for the portal, with an empty password |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, `host` or `senderAddress` is empty, `senderDisplayName` is missing, `enableAuth` is true without `credentialsUserName` or `credentialsUserPassword`, a text field is longer than 255 characters, or `port` is outside 1-65535 |  -  |
 | **402** | The SMTP settings section is not enabled for this portal |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## testSmtpSettings
 
-> SmtpOperationStatusRequestsWrapper testSmtpSettings()
+> SmtpOperationStatusWrapper testSmtpSettings()
 
 Test SMTP settingsQueues a background job that sends a test message through the SMTP settings currently stored for the portal to  the email address of the calling user, and returns the state of that job. Save the settings with  `POST api/2.0/smtpsettings/smtp` first: the job always takes the stored settings and nothing can be passed to  it here. The caller needs the portal-settings right of a DocSpace administrator, and the SMTP settings section  has to be enabled for the portal, otherwise the call is answered with 402. The call is mutating, it sends  mail, and it is rate-limited to five requests per fifteen minutes per user and path by default, answering 429  above that; while a test is still running the same job is returned instead of a second one being started. The  message has not been sent when the answer arrives: poll `GET api/2.0/smtpsettings/smtp/test/status` until  `completed` is true, then read `error` - empty means the relay accepted the message, otherwise it carries the  reason. `percents` climbs to 100 and `status` names the step reached, such as `Connect to host` or  `Send test message`. An unreachable relay is reported in `error` after a 30-second connection timeout, not as  a failed request.
 
@@ -411,7 +415,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**SmtpOperationStatusRequestsWrapper**](SmtpOperationStatusRequestsWrapper.md)
+[**SmtpOperationStatusWrapper**](SmtpOperationStatusWrapper.md)
 
 ### Authorization
 
@@ -461,7 +465,7 @@ public class Example {
 
         SMTPSettingsApi apiInstance = new SMTPSettingsApi(defaultClient);
         try {
-            SmtpOperationStatusRequestsWrapper result = apiInstance.testSmtpSettings();
+            SmtpOperationStatusWrapper result = apiInstance.testSmtpSettings();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SMTPSettingsApi#testSmtpSettings");
@@ -485,6 +489,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | The state of the queued test message, to be polled until `completed` is true |  * X-RateLimit-Limit - Rate limit: 5 requests per 15 minutes per user/IP. <br>  * X-RateLimit-Remaining - Requests remaining in the current 15-minute window. <br>  * X-RateLimit-Reset -  <br>  |
 | **402** | The SMTP settings section is not enabled for this portal |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying (5 req / 15 min limit per user/IP). <br>  |
 | **500** | Internal Server Error. |  -  |

@@ -308,9 +308,9 @@ public class Example {
 
 ## setEnabled
 
-> AppWrapper setEnabled(id, setAppEnabledBody)
+> AppWrapper setEnabled(id, setAppEnabledRequest)
 
-Enable or disable an appTurns one portal application on or off for the current portal, and notifies the clients connected to the portal  so that they can show or hide it without being reloaded. The identifier must be an application declared in the  installation configuration, as listed by `GET api/2.0/apps`. The caller must be a portal administrator allowed  to edit the portal settings. The call is mutating and idempotent: it stores the flag for this portal, overriding  the default that the configuration gives the application, and repeating it with the same value changes nothing.  Disabling an application does not delete its settings document, which stays saved and applies again as soon as  the application is enabled. The response is the application in its new state, including that settings document.  Only the enabled flag is affected here: to change the settings document use `PUT api/2.0/apps/{id}/settings`.
+Enable or disable an appTurns one portal application on or off for the current portal, and notifies the clients connected to the portal  so that they can show or hide it without being reloaded. The identifier must be an application declared in the  installation configuration, as listed by `GET api/2.0/apps`. The caller must be a portal administrator allowed  to edit the portal settings. The call is mutating and idempotent: it stores the flag for this portal, overriding  the default that the configuration gives the application, and repeating it with the same value changes nothing.  Disabling an application does not delete its settings document, which stays saved and applies again as soon as  the application is enabled. The response is the application in its new state, including that settings document.  Only the enabled flag is affected here: to change the settings document use `PUT api/2.0/apps/{id}/settings`.  The enabled field is mandatory, and a body without it is rejected with 400 rather than read as false.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-enabled/).
 
@@ -320,7 +320,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The application to switch, by the identifier `GET api/2.0/apps` reports. It has to be an application declared  in the installation configuration; an unknown identifier answers 404 rather than creating anything. | |
-| **setAppEnabledBody** | [**SetAppEnabledBody**](SetAppEnabledBody.md)| The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`. | |
+| **setAppEnabledRequest** | [**SetAppEnabledRequest**](SetAppEnabledRequest.md)| The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`. | |
 
 ### Return type
 
@@ -374,9 +374,9 @@ public class Example {
 
         AppsApi apiInstance = new AppsApi(defaultClient);
         String id = "ai-room"; // String | The application to switch, by the identifier `GET api/2.0/apps` reports. It has to be an application declared  in the installation configuration; an unknown identifier answers 404 rather than creating anything.
-        SetAppEnabledBody setAppEnabledBody = new SetAppEnabledBody(); // SetAppEnabledBody | The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.
+        SetAppEnabledRequest setAppEnabledRequest = new SetAppEnabledRequest(); // SetAppEnabledRequest | The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.
         try {
-            AppWrapper result = apiInstance.setEnabled(id, setAppEnabledBody);
+            AppWrapper result = apiInstance.setEnabled(id, setAppEnabledRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AppsApi#setEnabled");
@@ -399,19 +399,19 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The application in its new state, with the saved settings document left untouched |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller is not allowed to edit the portal settings |  -  |
+| **400** | The request body is not a valid JSON document or has no enabled field, so the state is not changed |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **404** | No application with this identifier is configured on this installation |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## setSettings
 
-> AppWrapper setSettings(id, setAppSettingsBody)
+> AppWrapper setSettings(id, setAppSettingsRequest)
 
 Save app settingsStores the application-specific settings document of one portal application for the current portal. The  identifier must be an application declared in the installation configuration, as listed by `GET api/2.0/apps`.  The caller must be a portal administrator allowed to edit the portal settings. The call is mutating and  idempotent, and it replaces the whole document instead of merging into it: read the current one with  `GET api/2.0/apps/{id}/settings`, change it and send it back complete, or send `null` to drop the saved document  and let the application fall back to its own defaults. Any valid JSON value is accepted, since the content is  stored as it is and is interpreted by the application rather than by the portal, while a body that is not valid  JSON fails with 400 and stores nothing. The response is the application in its new state, with the stored  document echoed back. Unlike `PUT api/2.0/apps/{id}/enabled`, this operation sends no notification to the  connected clients, which pick the new settings up on their next read.
 
@@ -423,7 +423,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The application whose configuration is stored, by the identifier `GET api/2.0/apps` reports. An identifier  not declared in the installation configuration answers 404. | |
-| **setAppSettingsBody** | [**SetAppSettingsBody**](SetAppSettingsBody.md)| The configuration to store for this portal, replacing whatever was stored before. | |
+| **setAppSettingsRequest** | [**SetAppSettingsRequest**](SetAppSettingsRequest.md)| The configuration to store for this portal, replacing whatever was stored before. | |
 
 ### Return type
 
@@ -477,9 +477,9 @@ public class Example {
 
         AppsApi apiInstance = new AppsApi(defaultClient);
         String id = "ai-room"; // String | The application whose configuration is stored, by the identifier `GET api/2.0/apps` reports. An identifier  not declared in the installation configuration answers 404.
-        SetAppSettingsBody setAppSettingsBody = new SetAppSettingsBody(); // SetAppSettingsBody | The configuration to store for this portal, replacing whatever was stored before.
+        SetAppSettingsRequest setAppSettingsRequest = new SetAppSettingsRequest(); // SetAppSettingsRequest | The configuration to store for this portal, replacing whatever was stored before.
         try {
-            AppWrapper result = apiInstance.setSettings(id, setAppSettingsBody);
+            AppWrapper result = apiInstance.setSettings(id, setAppSettingsRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AppsApi#setSettings");
@@ -503,7 +503,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | The application in its new state, with the stored settings document |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request body is not a valid JSON document, so no settings are stored |  -  |
-| **403** | The caller is not allowed to edit the portal settings |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **404** | No application with this identifier is configured on this installation |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |

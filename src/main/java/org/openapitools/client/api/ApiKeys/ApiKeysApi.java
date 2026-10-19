@@ -29,7 +29,7 @@ import org.openapitools.client.model.ApiKeyResponseWrapper;
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.CreateApiKeyRequestDto;
 import org.openapitools.client.model.ErrorApiResponse;
-import org.openapitools.client.model.STRINGArrayWrapper;
+import org.openapitools.client.model.StringArrayWrapper;
 import java.util.UUID;
 import org.openapitools.client.model.UpdateApiKeyRequest;
 
@@ -132,7 +132,7 @@ public class ApiKeysApi extends BaseApi {
 
   /**
    * Delete an API key
-   * Deletes the API key with the ID given in the route, so that it stops authenticating requests immediately.  The caller may delete a key they created themselves, and a DocSpace administrator may delete any key of the  portal.  The removal is permanent and cannot be undone: the secret was only ever readable at creation time, so a  deleted key cannot be restored and a new one has to be issued through `POST api/2.0/keys`.  To stop a key temporarily instead, set `isActive` to false through `PUT api/2.0/keys/{keyId}`.  The answer is a plain boolean reporting whether the key was removed.
+   * Deletes the API key with the ID given in the route, so that it stops authenticating requests immediately.  The caller may delete a key they created themselves, and a DocSpace administrator may delete any key of the  portal.  The removal is permanent and cannot be undone: the secret was only ever readable at creation time, so a  deleted key cannot be restored and a new one has to be issued through `POST api/2.0/keys`.  To stop a key temporarily instead, set `isActive` to false through `PUT api/2.0/keys/{keyId}`.  The answer is a plain boolean reporting whether the key was removed.  An ID that matches no key of the portal, including a key that has already been deleted, is rejected with 404.
    *
    * REST API Reference for deleteApiKey Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-api-key/
@@ -148,7 +148,7 @@ public class ApiKeysApi extends BaseApi {
 
   /**
    * Delete an API key
-   * Deletes the API key with the ID given in the route, so that it stops authenticating requests immediately.  The caller may delete a key they created themselves, and a DocSpace administrator may delete any key of the  portal.  The removal is permanent and cannot be undone: the secret was only ever readable at creation time, so a  deleted key cannot be restored and a new one has to be issued through `POST api/2.0/keys`.  To stop a key temporarily instead, set `isActive` to false through `PUT api/2.0/keys/{keyId}`.  The answer is a plain boolean reporting whether the key was removed.
+   * Deletes the API key with the ID given in the route, so that it stops authenticating requests immediately.  The caller may delete a key they created themselves, and a DocSpace administrator may delete any key of the  portal.  The removal is permanent and cannot be undone: the secret was only ever readable at creation time, so a  deleted key cannot be restored and a new one has to be issued through `POST api/2.0/keys`.  To stop a key temporarily instead, set `isActive` to false through `PUT api/2.0/keys/{keyId}`.  The answer is a plain boolean reporting whether the key was removed.  An ID that matches no key of the portal, including a key that has already been deleted, is rejected with 404.
    *
    * REST API Reference for deleteApiKey Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-api-key/
@@ -221,10 +221,10 @@ public class ApiKeysApi extends BaseApi {
    * REST API Reference for getAllPermissions Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-permissions/
    *
-   * @return STRINGArrayWrapper
+   * @return StringArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public STRINGArrayWrapper getAllPermissions() throws ApiException {
+  public StringArrayWrapper getAllPermissions() throws ApiException {
     return this.getAllPermissions(Collections.emptyMap());
   }
 
@@ -237,10 +237,10 @@ public class ApiKeysApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-permissions/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return STRINGArrayWrapper
+   * @return StringArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public STRINGArrayWrapper getAllPermissions(Map<String, String> additionalHeaders) throws ApiException {
+  public StringArrayWrapper getAllPermissions(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -272,7 +272,7 @@ public class ApiKeysApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<STRINGArrayWrapper> localVarReturnType = new TypeReference<STRINGArrayWrapper>() {};
+    TypeReference<StringArrayWrapper> localVarReturnType = new TypeReference<StringArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -292,7 +292,7 @@ public class ApiKeysApi extends BaseApi {
 
   /**
    * Get the current API key
-   * Returns the API key that authenticated this very request, letting the holder of a key find out what it is  allowed to do without knowing its ID.  The key is identified by the `Authorization` header of the call itself, so the request has to be sent as  `Bearer sk-...`; a session authenticated in any other way has no key to report and this operation is not  usable for it.  The call is read-only and returns one entry, with the same fields as `GET api/2.0/keys` and without the  secret - read `permissions` for the granted scopes, `expiresAt` for the expiry and `isActive` for the state.  To look at a key other than the one in use, call `GET api/2.0/keys` instead.
+   * Returns the API key that authenticated this very request, letting the holder of a key find out what it is  allowed to do without knowing its ID.  The key is identified by the `Authorization` header of the call itself, so the request has to be sent as  `Bearer sk-...`; a session authenticated in any other way, by a cookie or by a user token, has no key to  report and is rejected with 400.  The call is read-only and returns one entry, with the same fields as `GET api/2.0/keys` and without the  secret - read `permissions` for the granted scopes, `expiresAt` for the expiry and `isActive` for the state.  To look at a key other than the one in use, call `GET api/2.0/keys` instead.
    *
    * REST API Reference for getApiKey Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-key/
@@ -307,7 +307,7 @@ public class ApiKeysApi extends BaseApi {
 
   /**
    * Get the current API key
-   * Returns the API key that authenticated this very request, letting the holder of a key find out what it is  allowed to do without knowing its ID.  The key is identified by the `Authorization` header of the call itself, so the request has to be sent as  `Bearer sk-...`; a session authenticated in any other way has no key to report and this operation is not  usable for it.  The call is read-only and returns one entry, with the same fields as `GET api/2.0/keys` and without the  secret - read `permissions` for the granted scopes, `expiresAt` for the expiry and `isActive` for the state.  To look at a key other than the one in use, call `GET api/2.0/keys` instead.
+   * Returns the API key that authenticated this very request, letting the holder of a key find out what it is  allowed to do without knowing its ID.  The key is identified by the `Authorization` header of the call itself, so the request has to be sent as  `Bearer sk-...`; a session authenticated in any other way, by a cookie or by a user token, has no key to  report and is rejected with 400.  The call is read-only and returns one entry, with the same fields as `GET api/2.0/keys` and without the  secret - read `permissions` for the granted scopes, `expiresAt` for the expiry and `isActive` for the state.  To look at a key other than the one in use, call `GET api/2.0/keys` instead.
    *
    * REST API Reference for getApiKey Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-key/
@@ -444,7 +444,7 @@ public class ApiKeysApi extends BaseApi {
 
   /**
    * Update an API key
-   * Renames an API key, replaces the scopes it may use, or activates and deactivates it, without changing the  secret.  The caller may update a key they created themselves, and a DocSpace administrator may update any key of the  portal.  Take the values for `permissions` from `GET api/2.0/keys/permissions`; an unknown scope or an empty array is  rejected with 400, and the fields that are left out keep their current values.  The answer is a plain boolean: true when the key was changed, and false when it was not - which is also what  an already expired key returns, because such a key is left untouched instead of being reported as an error.  Deactivating a key through `isActive` stops it from authenticating while keeping it in the list, so use it  when the key may be needed again and `DELETE api/2.0/keys/{keyId}` when it may not.
+   * Renames an API key, replaces the scopes it may use, or activates and deactivates it, without changing the  secret.  The caller may update a key they created themselves, and a DocSpace administrator may update any key of the  portal.  Take the values for `permissions` from `GET api/2.0/keys/permissions`; an unknown scope or an empty array is  rejected with 400, as is a name that is empty or made of whitespace only, and the fields that are left out  keep their current values.  The answer is a plain boolean: true when the key was changed, and false when it was not - which is also what  an already expired key returns, because such a key is left untouched instead of being reported as an error.  Deactivating a key through `isActive` stops it from authenticating while keeping it in the list, so use it  when the key may be needed again and `DELETE api/2.0/keys/{keyId}` when it may not.  An ID that matches no key of the portal, including a key that has already been deleted, is rejected with 404.
    *
    * REST API Reference for updateApiKey Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-api-key/
@@ -461,7 +461,7 @@ public class ApiKeysApi extends BaseApi {
 
   /**
    * Update an API key
-   * Renames an API key, replaces the scopes it may use, or activates and deactivates it, without changing the  secret.  The caller may update a key they created themselves, and a DocSpace administrator may update any key of the  portal.  Take the values for `permissions` from `GET api/2.0/keys/permissions`; an unknown scope or an empty array is  rejected with 400, and the fields that are left out keep their current values.  The answer is a plain boolean: true when the key was changed, and false when it was not - which is also what  an already expired key returns, because such a key is left untouched instead of being reported as an error.  Deactivating a key through `isActive` stops it from authenticating while keeping it in the list, so use it  when the key may be needed again and `DELETE api/2.0/keys/{keyId}` when it may not.
+   * Renames an API key, replaces the scopes it may use, or activates and deactivates it, without changing the  secret.  The caller may update a key they created themselves, and a DocSpace administrator may update any key of the  portal.  Take the values for `permissions` from `GET api/2.0/keys/permissions`; an unknown scope or an empty array is  rejected with 400, as is a name that is empty or made of whitespace only, and the fields that are left out  keep their current values.  The answer is a plain boolean: true when the key was changed, and false when it was not - which is also what  an already expired key returns, because such a key is left untouched instead of being reported as an error.  Deactivating a key through `isActive` stops it from authenticating while keeping it in the list, so use it  when the key may be needed again and `DELETE api/2.0/keys/{keyId}` when it may not.  An ID that matches no key of the portal, including a key that has already been deleted, is rejected with 404.
    *
    * REST API Reference for updateApiKey Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-api-key/

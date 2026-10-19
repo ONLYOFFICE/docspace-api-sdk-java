@@ -40,7 +40,6 @@ import java.util.StringJoiner;
   AiToolsSetAllowAlwaysRequest.JSON_PROPERTY_VALUE,
   AiToolsSetAllowAlwaysRequest.JSON_PROPERTY_ENTITY_ID
 })
-@JsonTypeName("aiToolsSetAllowAlways_request")
 
 public class AiToolsSetAllowAlwaysRequest {
   public static final String JSON_PROPERTY_SERVER_TYPE = "serverType";

@@ -57,13 +57,13 @@ public class PasswordApi extends BaseApi {
    * REST API Reference for changeUserPassword Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/
    *
-   * @param userid The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active. (required)
+   * @param userId The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active. (required)
    * @param changePasswordRequest The new password, sent either in plain text or already hashed. Exactly one of the two fields is needed. (required)
    * @return EmployeeFullWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullWrapper changeUserPassword(@javax.annotation.Nonnull UUID userid, @javax.annotation.Nonnull ChangePasswordRequest changePasswordRequest) throws ApiException {
-    return this.changeUserPassword(userid, changePasswordRequest, Collections.emptyMap());
+  public EmployeeFullWrapper changeUserPassword(@javax.annotation.Nonnull UUID userId, @javax.annotation.Nonnull ChangePasswordRequest changePasswordRequest) throws ApiException {
+    return this.changeUserPassword(userId, changePasswordRequest, Collections.emptyMap());
   }
 
 
@@ -74,18 +74,18 @@ public class PasswordApi extends BaseApi {
    * REST API Reference for changeUserPassword Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/
    *
-   * @param userid The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active. (required)
+   * @param userId The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active. (required)
    * @param changePasswordRequest The new password, sent either in plain text or already hashed. Exactly one of the two fields is needed. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return EmployeeFullWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmployeeFullWrapper changeUserPassword(@javax.annotation.Nonnull UUID userid, @javax.annotation.Nonnull ChangePasswordRequest changePasswordRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public EmployeeFullWrapper changeUserPassword(@javax.annotation.Nonnull UUID userId, @javax.annotation.Nonnull ChangePasswordRequest changePasswordRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = changePasswordRequest;
     
-    // verify the required parameter 'userid' is set
-    if (userid == null) {
-      throw new ApiException(400, "Missing the required parameter 'userid' when calling changeUserPassword");
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling changeUserPassword");
     }
     
     // verify the required parameter 'changePasswordRequest' is set
@@ -94,8 +94,8 @@ public class PasswordApi extends BaseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/api/2.0/people/{userid}/password"
-      .replaceAll("\\{" + "userid" + "\\}", apiClient.escapeString(apiClient.parameterToString(userid)));
+    String localVarPath = "/api/2.0/people/{userId}/password"
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -143,7 +143,7 @@ public class PasswordApi extends BaseApi {
 
   /**
    * Remind a user password
-   * Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userid}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
+   * Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userId}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
    *
    * REST API Reference for sendUserPassword Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-user-password/
@@ -159,7 +159,7 @@ public class PasswordApi extends BaseApi {
 
   /**
    * Remind a user password
-   * Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userid}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
+   * Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userId}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
    *
    * REST API Reference for sendUserPassword Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-user-password/

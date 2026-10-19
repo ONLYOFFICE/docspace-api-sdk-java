@@ -29,6 +29,7 @@ import org.openapitools.client.model.AiErrorResponse;
 import org.openapitools.client.model.AiModel;
 import org.openapitools.client.model.AiProfile;
 import org.openapitools.client.model.AiProfileMutationResult;
+import org.openapitools.client.model.AiProfilesCreate400Response;
 import org.openapitools.client.model.AiProfilesGetById200Response;
 import org.openapitools.client.model.AiProfilesListProviderModels400Response;
 import org.openapitools.client.model.AiProfilesListProviderModelsRequest;
@@ -144,12 +145,12 @@ public class ProfilesApi extends BaseApi {
    * REST API Reference for aiProfilesDelete Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/
    *
-   * @param body The ID of the profile to delete, as a bare JSON string. (required)
+   * @param aiProfilesDeleteRequest The ID of the profile to delete, as a bare JSON string. (required)
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiProfilesDelete(@javax.annotation.Nonnull String body) throws ApiException {
-    return this.aiProfilesDelete(body, Collections.emptyMap());
+  public AiSuccessResponse aiProfilesDelete(@javax.annotation.Nonnull String aiProfilesDeleteRequest) throws ApiException {
+    return this.aiProfilesDelete(aiProfilesDeleteRequest, Collections.emptyMap());
   }
 
 
@@ -160,17 +161,17 @@ public class ProfilesApi extends BaseApi {
    * REST API Reference for aiProfilesDelete Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/
    *
-   * @param body The ID of the profile to delete, as a bare JSON string. (required)
+   * @param aiProfilesDeleteRequest The ID of the profile to delete, as a bare JSON string. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiSuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public AiSuccessResponse aiProfilesDelete(@javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = body;
+  public AiSuccessResponse aiProfilesDelete(@javax.annotation.Nonnull String aiProfilesDeleteRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiProfilesDeleteRequest;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling aiProfilesDelete");
+    // verify the required parameter 'aiProfilesDeleteRequest' is set
+    if (aiProfilesDeleteRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiProfilesDeleteRequest' when calling aiProfilesDelete");
     }
     
     // create path and map variables
@@ -306,7 +307,7 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * List provider profiles
-   * Lists the portal's AI provider profiles with their secrets stripped, the same way the single-profile read does. It takes no parameters and is not paginated, because a portal holds few profiles. On a portal running the AI gateway the answer is synthesised from the gateway's own catalogue rather than from stored records. The IDs in the answer are what the assignment operations and every round's `profileId` accept.
+   * Lists the portal's AI provider profiles. A portal administrator receives each profile in full, `key` and `headers` included, because the settings page edits them; every other caller gets them with those secrets stripped, as the single-profile read always does. It takes no parameters and is not paginated, because a portal holds few profiles. On a portal running the AI gateway the answer is synthesised from the gateway's own catalogue rather than from stored records. The IDs in the answer are what the assignment operations and every round's `profileId` accept.
    *
    * REST API Reference for aiProfilesList Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list/
@@ -321,7 +322,7 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * List provider profiles
-   * Lists the portal's AI provider profiles with their secrets stripped, the same way the single-profile read does. It takes no parameters and is not paginated, because a portal holds few profiles. On a portal running the AI gateway the answer is synthesised from the gateway's own catalogue rather than from stored records. The IDs in the answer are what the assignment operations and every round's `profileId` accept.
+   * Lists the portal's AI provider profiles. A portal administrator receives each profile in full, `key` and `headers` included, because the settings page edits them; every other caller gets them with those secrets stripped, as the single-profile read always does. It takes no parameters and is not paginated, because a portal holds few profiles. On a portal running the AI gateway the answer is synthesised from the gateway's own catalogue rather than from stored records. The IDs in the answer are what the assignment operations and every round's `profileId` accept.
    *
    * REST API Reference for aiProfilesList Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list/
@@ -382,7 +383,7 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * List models
-   * Lists the models a stored profile's provider currently offers, asking the provider itself rather than reading a cached list. `profileId` is required and is read from the query. A failure is reported with the provider's own verdict: an unusable key comes back as 400 and a provider that is unreachable or broken as 502, while a missing profile or a caller without access keeps the status the portal gave it. Use `POST api/2.0/ai/profiles/list-provider-models` to probe an endpoint that has no profile yet.
+   * Lists the models a stored profile's provider currently offers, asking the provider itself rather than reading a cached list. `profileId` is required and is read from the query. A failure is reported with the provider's own verdict: an unusable key comes back as 400 and a provider that is unreachable or broken as 502, while a profile the caller cannot see answers 404 before the provider is asked and a caller without access keeps the 403 the portal gave it. Use `POST api/2.0/ai/profiles/list-provider-models` to probe an endpoint that has no profile yet.
    *
    * REST API Reference for aiProfilesListModels Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/
@@ -398,7 +399,7 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * List models
-   * Lists the models a stored profile's provider currently offers, asking the provider itself rather than reading a cached list. `profileId` is required and is read from the query. A failure is reported with the provider's own verdict: an unusable key comes back as 400 and a provider that is unreachable or broken as 502, while a missing profile or a caller without access keeps the status the portal gave it. Use `POST api/2.0/ai/profiles/list-provider-models` to probe an endpoint that has no profile yet.
+   * Lists the models a stored profile's provider currently offers, asking the provider itself rather than reading a cached list. `profileId` is required and is read from the query. A failure is reported with the provider's own verdict: an unusable key comes back as 400 and a provider that is unreachable or broken as 502, while a profile the caller cannot see answers 404 before the provider is asked and a caller without access keeps the 403 the portal gave it. Use `POST api/2.0/ai/profiles/list-provider-models` to probe an endpoint that has no profile yet.
    *
    * REST API Reference for aiProfilesListModels Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/
@@ -466,7 +467,7 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * List provider models
-   * Lists the models an endpoint offers for credentials supplied in the request, before any profile exists - this is what a provider-setup form calls to fill its model picker. `providerType` and `baseUrl` are both required, and a 400 for either names the offending input in a `field` member so the form can highlight it; a `baseUrl` pointing at a private network address is refused as well. For `providerType: onlyoffice` the answer comes from the portal gateway's catalogue, which carries richer capability data than the provider's own listing and matches what `GET api/2.0/ai/profiles/list` reports; a portal without that gateway falls back to asking the provider. A provider that is unreachable or broken is reported as 502, and one that rejects the key as 400.
+   * Lists the models an endpoint offers for credentials supplied in the request, before any profile exists - this is what a provider-setup form calls to fill its model picker. `providerType` and `baseUrl` are both required, and a 400 for either names the offending input in a `field` member so the form can highlight it; a `baseUrl` pointing at a private network address is refused as well, and so is an `apiKey` with characters that cannot travel in an HTTP header (anything outside printable ASCII), since no provider could ever accept it. For `providerType: onlyoffice` the answer comes from the portal gateway's catalogue, which carries richer capability data than the provider's own listing and matches what `GET api/2.0/ai/profiles/list` reports; a portal without that gateway falls back to asking the provider. A provider that is unreachable or broken is reported as 502, and one that rejects the key as 400.
    *
    * REST API Reference for aiProfilesListProviderModels Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-provider-models/
@@ -482,7 +483,7 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * List provider models
-   * Lists the models an endpoint offers for credentials supplied in the request, before any profile exists - this is what a provider-setup form calls to fill its model picker. `providerType` and `baseUrl` are both required, and a 400 for either names the offending input in a `field` member so the form can highlight it; a `baseUrl` pointing at a private network address is refused as well. For `providerType: onlyoffice` the answer comes from the portal gateway's catalogue, which carries richer capability data than the provider's own listing and matches what `GET api/2.0/ai/profiles/list` reports; a portal without that gateway falls back to asking the provider. A provider that is unreachable or broken is reported as 502, and one that rejects the key as 400.
+   * Lists the models an endpoint offers for credentials supplied in the request, before any profile exists - this is what a provider-setup form calls to fill its model picker. `providerType` and `baseUrl` are both required, and a 400 for either names the offending input in a `field` member so the form can highlight it; a `baseUrl` pointing at a private network address is refused as well, and so is an `apiKey` with characters that cannot travel in an HTTP header (anything outside printable ASCII), since no provider could ever accept it. For `providerType: onlyoffice` the answer comes from the portal gateway's catalogue, which carries richer capability data than the provider's own listing and matches what `GET api/2.0/ai/profiles/list` reports; a portal without that gateway falls back to asking the provider. A provider that is unreachable or broken is reported as 502, and one that rejects the key as 400.
    *
    * REST API Reference for aiProfilesListProviderModels Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-provider-models/
@@ -549,38 +550,38 @@ public class ProfilesApi extends BaseApi {
 
   /**
    * Test a profile's provider
-   * Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter. The result is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
+   * Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter, and a profile the caller cannot see answers 404 before anything is probed. The result of the probe itself is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
    *
    * REST API Reference for aiProfilesTestConnection Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/
    *
-   * @param body The ID of the profile to probe, as a bare JSON string. (required)
+   * @param aiProfilesTestConnectionRequest The ID of the profile to probe, as a bare JSON string. (required)
    * @return AiProfilesTestConnection200Response
    * @throws ApiException if fails to make API call
    */
-  public AiProfilesTestConnection200Response aiProfilesTestConnection(@javax.annotation.Nonnull String body) throws ApiException {
-    return this.aiProfilesTestConnection(body, Collections.emptyMap());
+  public AiProfilesTestConnection200Response aiProfilesTestConnection(@javax.annotation.Nonnull String aiProfilesTestConnectionRequest) throws ApiException {
+    return this.aiProfilesTestConnection(aiProfilesTestConnectionRequest, Collections.emptyMap());
   }
 
 
   /**
    * Test a profile's provider
-   * Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter. The result is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
+   * Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter, and a profile the caller cannot see answers 404 before anything is probed. The result of the probe itself is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
    *
    * REST API Reference for aiProfilesTestConnection Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/
    *
-   * @param body The ID of the profile to probe, as a bare JSON string. (required)
+   * @param aiProfilesTestConnectionRequest The ID of the profile to probe, as a bare JSON string. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AiProfilesTestConnection200Response
    * @throws ApiException if fails to make API call
    */
-  public AiProfilesTestConnection200Response aiProfilesTestConnection(@javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = body;
+  public AiProfilesTestConnection200Response aiProfilesTestConnection(@javax.annotation.Nonnull String aiProfilesTestConnectionRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiProfilesTestConnectionRequest;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling aiProfilesTestConnection");
+    // verify the required parameter 'aiProfilesTestConnectionRequest' is set
+    if (aiProfilesTestConnectionRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiProfilesTestConnectionRequest' when calling aiProfilesTestConnection");
     }
     
     // create path and map variables

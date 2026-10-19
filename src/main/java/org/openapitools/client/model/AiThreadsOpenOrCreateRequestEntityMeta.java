@@ -38,7 +38,7 @@ import java.util.StringJoiner;
   AiThreadsOpenOrCreateRequestEntityMeta.JSON_PROPERTY_ENTITY_ID,
   AiThreadsOpenOrCreateRequestEntityMeta.JSON_PROPERTY_ENTITY_TITLE
 })
-@JsonTypeName("aiThreadsOpenOrCreate_request_entityMeta")
+@JsonTypeName("AiThreadsOpenOrCreateRequest_entityMeta")
 
 public class AiThreadsOpenOrCreateRequestEntityMeta {
   public static final String JSON_PROPERTY_ENTITY_ID = "entityId";

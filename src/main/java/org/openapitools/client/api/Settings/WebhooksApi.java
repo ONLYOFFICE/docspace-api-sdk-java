@@ -24,13 +24,13 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.CreateWebhooksConfigRequestsDto;
+import org.openapitools.client.model.CreateWebhooksConfigRequestDto;
 import org.openapitools.client.model.ErrorApiResponse;
 import java.time.OffsetDateTime;
 import java.util.UUID;
-import org.openapitools.client.model.UpdateWebhooksConfigRequestsDto;
+import org.openapitools.client.model.UpdateWebhooksConfigRequestDto;
 import org.openapitools.client.model.WebhookGroupStatus;
-import org.openapitools.client.model.WebhookRetryRequestsDto;
+import org.openapitools.client.model.WebhookRetryRequestDto;
 import org.openapitools.client.model.WebhookTrigger;
 import org.openapitools.client.model.WebhookTriggerArrayWrapper;
 import org.openapitools.client.model.WebhooksConfigWithStatusArrayWrapper;
@@ -75,12 +75,12 @@ public class WebhooksApi extends BaseApi {
    * REST API Reference for createWebhook Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/
    *
-   * @param createWebhooksConfigRequestsDto  (optional)
+   * @param createWebhooksConfigRequestDto  (optional)
    * @return WebhooksConfigWrapper
    * @throws ApiException if fails to make API call
    */
-  public WebhooksConfigWrapper createWebhook(@javax.annotation.Nullable CreateWebhooksConfigRequestsDto createWebhooksConfigRequestsDto) throws ApiException {
-    return this.createWebhook(createWebhooksConfigRequestsDto, Collections.emptyMap());
+  public WebhooksConfigWrapper createWebhook(@javax.annotation.Nullable CreateWebhooksConfigRequestDto createWebhooksConfigRequestDto) throws ApiException {
+    return this.createWebhook(createWebhooksConfigRequestDto, Collections.emptyMap());
   }
 
 
@@ -91,13 +91,13 @@ public class WebhooksApi extends BaseApi {
    * REST API Reference for createWebhook Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/
    *
-   * @param createWebhooksConfigRequestsDto  (optional)
+   * @param createWebhooksConfigRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return WebhooksConfigWrapper
    * @throws ApiException if fails to make API call
    */
-  public WebhooksConfigWrapper createWebhook(@javax.annotation.Nullable CreateWebhooksConfigRequestsDto createWebhooksConfigRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = createWebhooksConfigRequestsDto;
+  public WebhooksConfigWrapper createWebhook(@javax.annotation.Nullable CreateWebhooksConfigRequestDto createWebhooksConfigRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = createWebhooksConfigRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/webhook";
@@ -153,12 +153,12 @@ public class WebhooksApi extends BaseApi {
    * REST API Reference for enableWebhook Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/
    *
-   * @param updateWebhooksConfigRequestsDto  (optional)
+   * @param updateWebhooksConfigRequestDto  (optional)
    * @return WebhooksConfigWrapper
    * @throws ApiException if fails to make API call
    */
-  public WebhooksConfigWrapper enableWebhook(@javax.annotation.Nullable UpdateWebhooksConfigRequestsDto updateWebhooksConfigRequestsDto) throws ApiException {
-    return this.enableWebhook(updateWebhooksConfigRequestsDto, Collections.emptyMap());
+  public WebhooksConfigWrapper enableWebhook(@javax.annotation.Nullable UpdateWebhooksConfigRequestDto updateWebhooksConfigRequestDto) throws ApiException {
+    return this.enableWebhook(updateWebhooksConfigRequestDto, Collections.emptyMap());
   }
 
 
@@ -169,13 +169,13 @@ public class WebhooksApi extends BaseApi {
    * REST API Reference for enableWebhook Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/
    *
-   * @param updateWebhooksConfigRequestsDto  (optional)
+   * @param updateWebhooksConfigRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return WebhooksConfigWrapper
    * @throws ApiException if fails to make API call
    */
-  public WebhooksConfigWrapper enableWebhook(@javax.annotation.Nullable UpdateWebhooksConfigRequestsDto updateWebhooksConfigRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = updateWebhooksConfigRequestsDto;
+  public WebhooksConfigWrapper enableWebhook(@javax.annotation.Nullable UpdateWebhooksConfigRequestDto updateWebhooksConfigRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = updateWebhooksConfigRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/webhook/enable";
@@ -659,12 +659,12 @@ public class WebhooksApi extends BaseApi {
    * REST API Reference for retryWebhooks Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/
    *
-   * @param webhookRetryRequestsDto  (optional)
+   * @param webhookRetryRequestDto  (optional)
    * @return WebhooksLogArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public WebhooksLogArrayWrapper retryWebhooks(@javax.annotation.Nullable WebhookRetryRequestsDto webhookRetryRequestsDto) throws ApiException {
-    return this.retryWebhooks(webhookRetryRequestsDto, Collections.emptyMap());
+  public WebhooksLogArrayWrapper retryWebhooks(@javax.annotation.Nullable WebhookRetryRequestDto webhookRetryRequestDto) throws ApiException {
+    return this.retryWebhooks(webhookRetryRequestDto, Collections.emptyMap());
   }
 
 
@@ -675,13 +675,13 @@ public class WebhooksApi extends BaseApi {
    * REST API Reference for retryWebhooks Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/
    *
-   * @param webhookRetryRequestsDto  (optional)
+   * @param webhookRetryRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return WebhooksLogArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public WebhooksLogArrayWrapper retryWebhooks(@javax.annotation.Nullable WebhookRetryRequestsDto webhookRetryRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = webhookRetryRequestsDto;
+  public WebhooksLogArrayWrapper retryWebhooks(@javax.annotation.Nullable WebhookRetryRequestDto webhookRetryRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = webhookRetryRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/webhook/retry";
@@ -737,12 +737,12 @@ public class WebhooksApi extends BaseApi {
    * REST API Reference for updateWebhook Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/
    *
-   * @param updateWebhooksConfigRequestsDto  (optional)
+   * @param updateWebhooksConfigRequestDto  (optional)
    * @return WebhooksConfigWrapper
    * @throws ApiException if fails to make API call
    */
-  public WebhooksConfigWrapper updateWebhook(@javax.annotation.Nullable UpdateWebhooksConfigRequestsDto updateWebhooksConfigRequestsDto) throws ApiException {
-    return this.updateWebhook(updateWebhooksConfigRequestsDto, Collections.emptyMap());
+  public WebhooksConfigWrapper updateWebhook(@javax.annotation.Nullable UpdateWebhooksConfigRequestDto updateWebhooksConfigRequestDto) throws ApiException {
+    return this.updateWebhook(updateWebhooksConfigRequestDto, Collections.emptyMap());
   }
 
 
@@ -753,13 +753,13 @@ public class WebhooksApi extends BaseApi {
    * REST API Reference for updateWebhook Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/
    *
-   * @param updateWebhooksConfigRequestsDto  (optional)
+   * @param updateWebhooksConfigRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return WebhooksConfigWrapper
    * @throws ApiException if fails to make API call
    */
-  public WebhooksConfigWrapper updateWebhook(@javax.annotation.Nullable UpdateWebhooksConfigRequestsDto updateWebhooksConfigRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = updateWebhooksConfigRequestsDto;
+  public WebhooksConfigWrapper updateWebhook(@javax.annotation.Nullable UpdateWebhooksConfigRequestDto updateWebhooksConfigRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = updateWebhooksConfigRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/webhook";

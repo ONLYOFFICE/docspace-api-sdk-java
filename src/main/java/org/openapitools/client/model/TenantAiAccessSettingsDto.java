@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -32,15 +33,19 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Whether AI functionality is available on the portal.
+ * Whether AI functionality is switched on for the portal.
  */
 @JsonPropertyOrder({
-  TenantAiAccessSettingsDto.JSON_PROPERTY_ENABLED
+  TenantAiAccessSettingsDto.JSON_PROPERTY_ENABLED,
+  TenantAiAccessSettingsDto.JSON_PROPERTY_LAST_MODIFIED
 })
 
 public class TenantAiAccessSettingsDto {
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   @javax.annotation.Nullable  private Boolean enabled;
+
+  public static final String JSON_PROPERTY_LAST_MODIFIED = "lastModified";
+  @javax.annotation.Nullable  private OffsetDateTime lastModified;
 
   public TenantAiAccessSettingsDto() {
   }
@@ -53,7 +58,7 @@ public class TenantAiAccessSettingsDto {
   }
 
   /**
-   * Whether AI is available on the portal at all - chat, agents and vectorization together. Switching it off  hides the AI Agents folder and makes every AI endpoint unreachable for all members at once, not only for the  caller, and the change is pushed to connected clients rather than waiting for their next request.
+   * Specifies whether AI functionality is enabled for the tenant.  When set to `false`, all AI features (chat, agents, vectorization) are disabled tenant-wide.
    * @return enabled
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)
@@ -70,6 +75,30 @@ public class TenantAiAccessSettingsDto {
     this.enabled = enabled;
   }
 
+  public TenantAiAccessSettingsDto lastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
+    
+    this.lastModified = lastModified;
+    return this;
+  }
+
+  /**
+   * The timestamp indicating when the settings were last modified.
+   * @return lastModified
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getLastModified() {
+    return lastModified;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
+    this.lastModified = lastModified;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -79,12 +108,13 @@ public class TenantAiAccessSettingsDto {
       return false;
     }
     TenantAiAccessSettingsDto tenantAiAccessSettingsDto = (TenantAiAccessSettingsDto) o;
-    return Objects.equals(this.enabled, tenantAiAccessSettingsDto.enabled);
+    return Objects.equals(this.enabled, tenantAiAccessSettingsDto.enabled) &&
+        Objects.equals(this.lastModified, tenantAiAccessSettingsDto.lastModified);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled);
+    return Objects.hash(enabled, lastModified);
   }
 
   @Override
@@ -92,6 +122,7 @@ public class TenantAiAccessSettingsDto {
     StringBuilder sb = new StringBuilder();
     sb.append("class TenantAiAccessSettingsDto {\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    lastModified: ").append(toIndentedString(lastModified)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -143,6 +174,16 @@ public class TenantAiAccessSettingsDto {
     if (getEnabled() != null) {
       try {
         joiner.add(String.format("%senabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEnabled()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `lastModified` to the URL query string
+    if (getLastModified() != null) {
+      try {
+        joiner.add(String.format("%slastModified%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLastModified()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

@@ -32,7 +32,7 @@ import org.openapitools.client.model.CoversResultArrayWrapper;
 import org.openapitools.client.model.CreateRoomFromTemplateDto;
 import org.openapitools.client.model.CreateRoomRequestDto;
 import org.openapitools.client.model.CreateTagRequestDto;
-import org.openapitools.client.model.CreateThirdPartyRoom;
+import org.openapitools.client.model.CreateThirdPartyRoomRequest;
 import org.openapitools.client.model.DeleteRoomRequest;
 import org.openapitools.client.model.DocumentBuilderTaskWrapper;
 import org.openapitools.client.model.ErrorApiResponse;
@@ -41,6 +41,7 @@ import java.io.File;
 import org.openapitools.client.model.FileOperationWrapper;
 import org.openapitools.client.model.FileShareArrayWrapper;
 import org.openapitools.client.model.FileShareWrapper;
+import org.openapitools.client.model.FilterType;
 import org.openapitools.client.model.FolderContentWrapper;
 import org.openapitools.client.model.FolderWrapper;
 import org.openapitools.client.model.LinkType;
@@ -57,12 +58,13 @@ import org.openapitools.client.model.RoomSecurityWrapper;
 import org.openapitools.client.model.RoomTemplateDto;
 import org.openapitools.client.model.RoomTemplateStatusWrapper;
 import org.openapitools.client.model.RoomType;
-import org.openapitools.client.model.STRINGArrayWrapper;
+import org.openapitools.client.model.RoomsMetadataSearchRequestDto;
 import org.openapitools.client.model.SearchArea;
 import org.openapitools.client.model.SetPublicDto;
 import org.openapitools.client.model.ShareFilterType;
 import org.openapitools.client.model.SortOrder;
 import org.openapitools.client.model.StorageFilter;
+import org.openapitools.client.model.StringArrayWrapper;
 import org.openapitools.client.model.StringWrapper;
 import org.openapitools.client.model.ThirdPartyFolderWrapper;
 import java.util.UUID;
@@ -1123,45 +1125,45 @@ public class RoomsApi extends BaseApi {
 
   /**
    * Create a third-party room
-   * Turns a folder of a connected third-party storage account into a room of the `Rooms` section, so that the  files of the room keep living in that storage instead of the portal. Connect the account first with  `POST api/2.0/files/thirdparty` and take the path parameter from a folder listing of that account: it is the  identifier of a folder in the storage, not of a room. One connected account can back one room only, so a  second call over the same account is refused, and so is an account that was not connected for room storage.  The caller needs the right to create rooms, which a portal user and a guest do not have; a public room is  refused while the administrator restricts external access, and reaching the room limit of the tariff is  refused too. With `createAsNewFolder` the room is a new subfolder named after `title`, otherwise the folder  from the path becomes the room itself and `indexing`, `denyDownload`, `tags` and `logo` are then dropped. The  answer is the new room, whose identifiers are strings; a public or a form-filling room already has its primary  link, readable with `GET api/2.0/files/rooms/{id}/link`.
+   * Turns a folder of a connected third-party storage account into a room of the `Rooms` section, so that the  files of the room keep living in that storage instead of the portal. Connect the account first with  `POST api/2.0/files/thirdparty` and take the path parameter from a folder listing of that account: it is the  identifier of a folder in the storage, not of a room. One connected account can back one room only, so a  second call over the same account is refused, and so is an account that was not connected for room storage.  The caller needs the right to create rooms, which a portal user and a guest do not have; a public room is  refused while the administrator restricts external access, and reaching the room limit of the tariff is  refused too. With `createAsNewFolder` the room is a new subfolder named after `title`, otherwise the folder  from the path becomes the room itself and `tags` and `logo` are then dropped. A third-party room keeps neither  `indexing` nor `denyDownload` in either mode: both are accepted and ignored, and the room reads back with them  off. The  answer is the new room, whose identifiers are strings; a public or a form-filling room already has its primary  link, readable with `GET api/2.0/files/rooms/{id}/link`.
    *
    * REST API Reference for createRoomThirdParty Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/
    *
    * @param id The identifier of the folder in the connected third-party storage that becomes the room, or receives it as a  subfolder. Folder identifiers of a connected account are strings and are returned by the folder listings of  that account. (required)
-   * @param createThirdPartyRoom The settings of the room to be created out of the folder. (required)
+   * @param createThirdPartyRoomRequest The settings of the room to be created out of the folder. (required)
    * @return ThirdPartyFolderWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFolderWrapper createRoomThirdParty(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull CreateThirdPartyRoom createThirdPartyRoom) throws ApiException {
-    return this.createRoomThirdParty(id, createThirdPartyRoom, Collections.emptyMap());
+  public ThirdPartyFolderWrapper createRoomThirdParty(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull CreateThirdPartyRoomRequest createThirdPartyRoomRequest) throws ApiException {
+    return this.createRoomThirdParty(id, createThirdPartyRoomRequest, Collections.emptyMap());
   }
 
 
   /**
    * Create a third-party room
-   * Turns a folder of a connected third-party storage account into a room of the `Rooms` section, so that the  files of the room keep living in that storage instead of the portal. Connect the account first with  `POST api/2.0/files/thirdparty` and take the path parameter from a folder listing of that account: it is the  identifier of a folder in the storage, not of a room. One connected account can back one room only, so a  second call over the same account is refused, and so is an account that was not connected for room storage.  The caller needs the right to create rooms, which a portal user and a guest do not have; a public room is  refused while the administrator restricts external access, and reaching the room limit of the tariff is  refused too. With `createAsNewFolder` the room is a new subfolder named after `title`, otherwise the folder  from the path becomes the room itself and `indexing`, `denyDownload`, `tags` and `logo` are then dropped. The  answer is the new room, whose identifiers are strings; a public or a form-filling room already has its primary  link, readable with `GET api/2.0/files/rooms/{id}/link`.
+   * Turns a folder of a connected third-party storage account into a room of the `Rooms` section, so that the  files of the room keep living in that storage instead of the portal. Connect the account first with  `POST api/2.0/files/thirdparty` and take the path parameter from a folder listing of that account: it is the  identifier of a folder in the storage, not of a room. One connected account can back one room only, so a  second call over the same account is refused, and so is an account that was not connected for room storage.  The caller needs the right to create rooms, which a portal user and a guest do not have; a public room is  refused while the administrator restricts external access, and reaching the room limit of the tariff is  refused too. With `createAsNewFolder` the room is a new subfolder named after `title`, otherwise the folder  from the path becomes the room itself and `tags` and `logo` are then dropped. A third-party room keeps neither  `indexing` nor `denyDownload` in either mode: both are accepted and ignored, and the room reads back with them  off. The  answer is the new room, whose identifiers are strings; a public or a form-filling room already has its primary  link, readable with `GET api/2.0/files/rooms/{id}/link`.
    *
    * REST API Reference for createRoomThirdParty Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/
    *
    * @param id The identifier of the folder in the connected third-party storage that becomes the room, or receives it as a  subfolder. Folder identifiers of a connected account are strings and are returned by the folder listings of  that account. (required)
-   * @param createThirdPartyRoom The settings of the room to be created out of the folder. (required)
+   * @param createThirdPartyRoomRequest The settings of the room to be created out of the folder. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ThirdPartyFolderWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFolderWrapper createRoomThirdParty(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull CreateThirdPartyRoom createThirdPartyRoom, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = createThirdPartyRoom;
+  public ThirdPartyFolderWrapper createRoomThirdParty(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull CreateThirdPartyRoomRequest createThirdPartyRoomRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = createThirdPartyRoomRequest;
     
     // verify the required parameter 'id' is set
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling createRoomThirdParty");
     }
     
-    // verify the required parameter 'createThirdPartyRoom' is set
-    if (createThirdPartyRoom == null) {
-      throw new ApiException(400, "Missing the required parameter 'createThirdPartyRoom' when calling createRoomThirdParty");
+    // verify the required parameter 'createThirdPartyRoomRequest' is set
+    if (createThirdPartyRoomRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createThirdPartyRoomRequest' when calling createRoomThirdParty");
     }
     
     // create path and map variables
@@ -2146,6 +2148,108 @@ public class RoomsApi extends BaseApi {
   }
 
   /**
+   * Get the .ai folder of a room
+   * Returns one page of the contents of the .ai folder that lies in the root of a room, in the same shape as  `GET api/2.0/files/{folderId}` returns for any other folder. The rooms that hold such a folder are listed with  `GET api/2.0/files/rooms?withAiFolder=true`. Any member who can read the room may call it; somebody who cannot  is refused, and a room that does not exist is answered as not found. A room that holds no .ai folder is  answered with an empty page: no files and folders, a zero `total`, no `current` folder and empty `pathParts`.
+   *
+   * REST API Reference for getRoomAiFolder Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-ai-folder/
+   *
+   * @param id The room whose .ai folder is listed, named by the identifier that `GET api/2.0/files/rooms` reports for it. (required)
+   * @param filterType Narrows the listing to a single kind of entry, such as documents, spreadsheets or images. Omit it to list every  kind the folder holds. (optional)
+   * @param count The size of one page of the listing. Pair it with `startIndex` to walk through the result, and compare the two  with `total` in the response to see when the last page has been read. (optional)
+   * @param startIndex The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. (optional)
+   * @param sortBy The name of the field the entries are ordered by, matched case-insensitively against the file sort fields,  such as `DateAndTime`, `AZ`, `Size` or `Type`. (optional)
+   * @param sortOrder The direction in which the `sortBy` field is ordered. (optional)
+   * @param filterValue The search string the listing is filtered by: it is matched as a substring of entry titles. Omit it to list  the folder unfiltered. (optional)
+   * @return FolderContentWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public FolderContentWrapper getRoomAiFolder(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue) throws ApiException {
+    return this.getRoomAiFolder(id, filterType, count, startIndex, sortBy, sortOrder, filterValue, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get the .ai folder of a room
+   * Returns one page of the contents of the .ai folder that lies in the root of a room, in the same shape as  `GET api/2.0/files/{folderId}` returns for any other folder. The rooms that hold such a folder are listed with  `GET api/2.0/files/rooms?withAiFolder=true`. Any member who can read the room may call it; somebody who cannot  is refused, and a room that does not exist is answered as not found. A room that holds no .ai folder is  answered with an empty page: no files and folders, a zero `total`, no `current` folder and empty `pathParts`.
+   *
+   * REST API Reference for getRoomAiFolder Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-ai-folder/
+   *
+   * @param id The room whose .ai folder is listed, named by the identifier that `GET api/2.0/files/rooms` reports for it. (required)
+   * @param filterType Narrows the listing to a single kind of entry, such as documents, spreadsheets or images. Omit it to list every  kind the folder holds. (optional)
+   * @param count The size of one page of the listing. Pair it with `startIndex` to walk through the result, and compare the two  with `total` in the response to see when the last page has been read. (optional)
+   * @param startIndex The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. (optional)
+   * @param sortBy The name of the field the entries are ordered by, matched case-insensitively against the file sort fields,  such as `DateAndTime`, `AZ`, `Size` or `Type`. (optional)
+   * @param sortOrder The direction in which the `sortBy` field is ordered. (optional)
+   * @param filterValue The search string the listing is filtered by: it is matched as a substring of entry titles. Omit it to list  the folder unfiltered. (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return FolderContentWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public FolderContentWrapper getRoomAiFolder(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getRoomAiFolder");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/rooms/{id}/ai"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("filterType", filterType));
+    localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
+    localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
+    localVarQueryParams.addAll(apiClient.parameterToPair("sortBy", sortBy));
+    localVarQueryParams.addAll(apiClient.parameterToPair("sortOrder", sortOrder));
+    localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<FolderContentWrapper> localVarReturnType = new TypeReference<FolderContentWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Get room cover gallery
    * Returns the gallery of cover pictures a room can be given: every entry pairs the identifier to send to  `POST api/2.0/files/rooms/{id}/cover` with the drawing itself as inline vector markup ready to be rendered.  The gallery is built into the product rather than stored per portal, so it is the same for every account and  every room, does not depend on what rooms exist, and its identifiers do not change with the language of the  request. The identifiers are unique and stable, which makes them safe to keep in a client, while the drawings  behind them may change between product versions. Any account of the portal may read the gallery, but a guest  is refused. The list is the only source of valid cover identifiers: a value that is not in it is rejected  wherever a cover is set, including room creation and room update. The call changes nothing and is safe to  repeat.
    *
@@ -2917,10 +3021,10 @@ public class RoomsApi extends BaseApi {
    * @param count How many tag names one page may carry. The answer reports no total, so a page shorter than this is the sign  that the list is exhausted. (optional)
    * @param startIndex How many tag names to skip before the page begins. Raise it by the number of names already received to read  the next page. (optional)
    * @param filterValue Keeps only the tag names that contain this text, ignoring case. It is a substring match, so a fragment from  the middle of a name is enough. (optional)
-   * @return STRINGArrayWrapper
+   * @return StringArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public STRINGArrayWrapper getRoomTagsInfo(@javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue) throws ApiException {
+  public StringArrayWrapper getRoomTagsInfo(@javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue) throws ApiException {
     return this.getRoomTagsInfo(count, startIndex, filterValue, Collections.emptyMap());
   }
 
@@ -2936,10 +3040,10 @@ public class RoomsApi extends BaseApi {
    * @param startIndex How many tag names to skip before the page begins. Raise it by the number of names already received to read  the next page. (optional)
    * @param filterValue Keeps only the tag names that contain this text, ignoring case. It is a substring match, so a fragment from  the middle of a name is enough. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return STRINGArrayWrapper
+   * @return StringArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public STRINGArrayWrapper getRoomTagsInfo(@javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public StringArrayWrapper getRoomTagsInfo(@javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -2976,7 +3080,7 @@ public class RoomsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<STRINGArrayWrapper> localVarReturnType = new TypeReference<STRINGArrayWrapper>() {};
+    TypeReference<StringArrayWrapper> localVarReturnType = new TypeReference<StringArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -3088,17 +3192,21 @@ public class RoomsApi extends BaseApi {
    * @param quotaFilter Splits the rooms by whether a storage quota was set on the room itself or it follows the portal default, which  is how rooms with a custom limit are found. (optional)
    * @param storageFilter Splits the rooms by where their content is stored, in the portal itself or in a connected third-party account.  It is the coarse form of the provider filter. (optional)
    * @param privacyFilter Splits the rooms by whether they are private, that is encrypted rooms whose content the portal cannot read.  Omitting it returns both kinds. (optional)
+   * @param withAiFolder Keeps only the rooms that hold a .ai folder in their root. The content of that folder is read with  `GET api/2.0/files/rooms/{id}/ai`. Omitting it returns rooms with and without the folder. (optional)
    * @param count How many rooms one page may carry. Ask for the next page by raising the start index by the number of rooms  already received. (optional)
    * @param startIndex How many matching rooms to skip before the page begins. Page through the answer until the skip plus the rooms  received reaches the total it reports. (optional)
    * @param sortBy The field to order the rooms by, named as in the file listings: `AZ` for the title, `DateAndTime` for the last  change, `DateAndTimeCreation`, `Author`, `Size`, `Type`, `RoomType`, `Tags`, `UsedSpace`, `LastOpened`. The  name is matched ignoring case, an unknown one is rejected rather than ignored, and the accepted one also  becomes this account's stored order. (optional)
    * @param sortOrder The direction of the order chosen by the sort field. It has no effect when no sort field is given and the  stored order of the account is used. (optional)
    * @param filterValue Keeps only the rooms whose title contains this text, ignoring case. It is a substring match over the title  alone: room content and tags are not searched. (optional)
    * @param groupId Keeps only the rooms that belong to this room group. The identifier comes from `GET api/2.0/files/group`; the  groups of portal members are a different concept and their identifiers do not match here. (optional)
+   * @param metadataTemplateId The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to. (optional)
+   * @param metadataFilters The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq (the whole value) or contains (a part of it); a number or a date field takes range with inclusive bounds,  or gt, gte, lt, lte with the single bound in value; a choice field takes in. A date-only bound covers the whole day,  so to:2026-06-30 includes the values stored on 30 June and gt:2026-06-30 starts after it.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/rooms/search. (optional)
+   * @param includeHiddenMetadata Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)
    * @return FolderContentWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentWrapper getRoomsFolder(@javax.annotation.Nullable List<RoomType> type, @javax.annotation.Nullable UUID subjectId, @javax.annotation.Nullable UUID subjectOwnerId, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ProviderFilter provider, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable StorageFilter storageFilter, @javax.annotation.Nullable RoomPrivacyFilter privacyFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer groupId) throws ApiException {
-    return this.getRoomsFolder(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, quotaFilter, storageFilter, privacyFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId, Collections.emptyMap());
+  public FolderContentWrapper getRoomsFolder(@javax.annotation.Nullable List<RoomType> type, @javax.annotation.Nullable UUID subjectId, @javax.annotation.Nullable UUID subjectOwnerId, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ProviderFilter provider, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable StorageFilter storageFilter, @javax.annotation.Nullable RoomPrivacyFilter privacyFilter, @javax.annotation.Nullable Boolean withAiFolder, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer groupId, @javax.annotation.Nullable Integer metadataTemplateId, @javax.annotation.Nullable String metadataFilters, @javax.annotation.Nullable Boolean includeHiddenMetadata) throws ApiException {
+    return this.getRoomsFolder(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, quotaFilter, storageFilter, privacyFilter, withAiFolder, count, startIndex, sortBy, sortOrder, filterValue, groupId, metadataTemplateId, metadataFilters, includeHiddenMetadata, Collections.emptyMap());
   }
 
 
@@ -3120,17 +3228,21 @@ public class RoomsApi extends BaseApi {
    * @param quotaFilter Splits the rooms by whether a storage quota was set on the room itself or it follows the portal default, which  is how rooms with a custom limit are found. (optional)
    * @param storageFilter Splits the rooms by where their content is stored, in the portal itself or in a connected third-party account.  It is the coarse form of the provider filter. (optional)
    * @param privacyFilter Splits the rooms by whether they are private, that is encrypted rooms whose content the portal cannot read.  Omitting it returns both kinds. (optional)
+   * @param withAiFolder Keeps only the rooms that hold a .ai folder in their root. The content of that folder is read with  `GET api/2.0/files/rooms/{id}/ai`. Omitting it returns rooms with and without the folder. (optional)
    * @param count How many rooms one page may carry. Ask for the next page by raising the start index by the number of rooms  already received. (optional)
    * @param startIndex How many matching rooms to skip before the page begins. Page through the answer until the skip plus the rooms  received reaches the total it reports. (optional)
    * @param sortBy The field to order the rooms by, named as in the file listings: `AZ` for the title, `DateAndTime` for the last  change, `DateAndTimeCreation`, `Author`, `Size`, `Type`, `RoomType`, `Tags`, `UsedSpace`, `LastOpened`. The  name is matched ignoring case, an unknown one is rejected rather than ignored, and the accepted one also  becomes this account's stored order. (optional)
    * @param sortOrder The direction of the order chosen by the sort field. It has no effect when no sort field is given and the  stored order of the account is used. (optional)
    * @param filterValue Keeps only the rooms whose title contains this text, ignoring case. It is a substring match over the title  alone: room content and tags are not searched. (optional)
    * @param groupId Keeps only the rooms that belong to this room group. The identifier comes from `GET api/2.0/files/group`; the  groups of portal members are a different concept and their identifiers do not match here. (optional)
+   * @param metadataTemplateId The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to. (optional)
+   * @param metadataFilters The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq (the whole value) or contains (a part of it); a number or a date field takes range with inclusive bounds,  or gt, gte, lt, lte with the single bound in value; a choice field takes in. A date-only bound covers the whole day,  so to:2026-06-30 includes the values stored on 30 June and gt:2026-06-30 starts after it.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/rooms/search. (optional)
+   * @param includeHiddenMetadata Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FolderContentWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentWrapper getRoomsFolder(@javax.annotation.Nullable List<RoomType> type, @javax.annotation.Nullable UUID subjectId, @javax.annotation.Nullable UUID subjectOwnerId, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ProviderFilter provider, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable StorageFilter storageFilter, @javax.annotation.Nullable RoomPrivacyFilter privacyFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer groupId, Map<String, String> additionalHeaders) throws ApiException {
+  public FolderContentWrapper getRoomsFolder(@javax.annotation.Nullable List<RoomType> type, @javax.annotation.Nullable UUID subjectId, @javax.annotation.Nullable UUID subjectOwnerId, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ProviderFilter provider, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable StorageFilter storageFilter, @javax.annotation.Nullable RoomPrivacyFilter privacyFilter, @javax.annotation.Nullable Boolean withAiFolder, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer groupId, @javax.annotation.Nullable Integer metadataTemplateId, @javax.annotation.Nullable String metadataFilters, @javax.annotation.Nullable Boolean includeHiddenMetadata, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -3155,12 +3267,16 @@ public class RoomsApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("quotaFilter", quotaFilter));
     localVarQueryParams.addAll(apiClient.parameterToPair("storageFilter", storageFilter));
     localVarQueryParams.addAll(apiClient.parameterToPair("privacyFilter", privacyFilter));
+    localVarQueryParams.addAll(apiClient.parameterToPair("withAiFolder", withAiFolder));
     localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
     localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
     localVarQueryParams.addAll(apiClient.parameterToPair("sortBy", sortBy));
     localVarQueryParams.addAll(apiClient.parameterToPair("sortOrder", sortOrder));
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
     localVarQueryParams.addAll(apiClient.parameterToPair("groupId", groupId));
+    localVarQueryParams.addAll(apiClient.parameterToPair("metadataTemplateId", metadataTemplateId));
+    localVarQueryParams.addAll(apiClient.parameterToPair("metadataFilters", metadataFilters));
+    localVarQueryParams.addAll(apiClient.parameterToPair("includeHiddenMetadata", includeHiddenMetadata));
       
     if (this.fields != null)
       localVarHeaderParams.put("fields", this.fields);
@@ -4039,6 +4155,84 @@ public class RoomsApi extends BaseApi {
         localVarContentType,
         localVarAuthNames,
         null
+    );
+  }
+
+  /**
+   * Search the rooms by metadata
+   * Searches the rooms by metadata. The same filter the rooms listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+   *
+   * REST API Reference for searchRooms Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/search-rooms/
+   *
+   * @param roomsMetadataSearchRequestDto  (optional)
+   * @return FolderContentWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public FolderContentWrapper searchRooms(@javax.annotation.Nullable RoomsMetadataSearchRequestDto roomsMetadataSearchRequestDto) throws ApiException {
+    return this.searchRooms(roomsMetadataSearchRequestDto, Collections.emptyMap());
+  }
+
+
+  /**
+   * Search the rooms by metadata
+   * Searches the rooms by metadata. The same filter the rooms listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+   *
+   * REST API Reference for searchRooms Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/search-rooms/
+   *
+   * @param roomsMetadataSearchRequestDto  (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return FolderContentWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public FolderContentWrapper searchRooms(@javax.annotation.Nullable RoomsMetadataSearchRequestDto roomsMetadataSearchRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = roomsMetadataSearchRequestDto;
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/rooms/search";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<FolderContentWrapper> localVarReturnType = new TypeReference<FolderContentWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
     );
   }
 

@@ -25,8 +25,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.UUID;
+import org.openapitools.client.model.ExternalShareStatus;
 import org.openapitools.client.model.FileEntryType;
-import org.openapitools.client.model.Status;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -59,7 +59,7 @@ import java.util.StringJoiner;
 
 public class ExternalShareDto {
   public static final String JSON_PROPERTY_STATUS = "status";
-  @javax.annotation.Nonnull  private Status status;
+  @javax.annotation.Nonnull  private ExternalShareStatus status;
 
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable  private JsonNullable<String> id = JsonNullable.<String>undefined();
@@ -101,7 +101,7 @@ public class ExternalShareDto {
   }
 
 
-  public ExternalShareDto status(@javax.annotation.Nonnull Status status) {
+  public ExternalShareDto status(@javax.annotation.Nonnull ExternalShareStatus status) {
     
     this.status = status;
     return this;
@@ -114,14 +114,14 @@ public class ExternalShareDto {
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Status getStatus() {
+  public ExternalShareStatus getStatus() {
     return status;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatus(@javax.annotation.Nonnull Status status) {
+  public void setStatus(@javax.annotation.Nonnull ExternalShareStatus status) {
     this.status = status;
   }
 

@@ -24,7 +24,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.client.model.TenantAuditSettings;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
+import org.openapitools.client.model.TenantAuditSettingsDto;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -33,42 +37,162 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The tenant audit settings wrapper.
+ * The successful API response containing the TenantAuditSettingsDto object.
  */
 @JsonPropertyOrder({
-  TenantAuditSettingsWrapper.JSON_PROPERTY_SETTINGS
+  TenantAuditSettingsWrapper.JSON_PROPERTY_RESPONSE,
+  TenantAuditSettingsWrapper.JSON_PROPERTY_COUNT,
+  TenantAuditSettingsWrapper.JSON_PROPERTY_LINKS,
+  TenantAuditSettingsWrapper.JSON_PROPERTY_STATUS,
+  TenantAuditSettingsWrapper.JSON_PROPERTY_STATUS_CODE
 })
 
 public class TenantAuditSettingsWrapper {
-  public static final String JSON_PROPERTY_SETTINGS = "settings";
-  @javax.annotation.Nullable  private TenantAuditSettings settings;
+  public static final String JSON_PROPERTY_RESPONSE = "response";
+  @javax.annotation.Nullable  private TenantAuditSettingsDto response;
+
+  public static final String JSON_PROPERTY_COUNT = "count";
+  @javax.annotation.Nullable  private Integer count;
+
+  public static final String JSON_PROPERTY_LINKS = "links";
+  @javax.annotation.Nullable  private List<GetPortalPrices200ResponseLinksInner> links = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_STATUS = "status";
+  @javax.annotation.Nullable  private Integer status;
+
+  public static final String JSON_PROPERTY_STATUS_CODE = "statusCode";
+  @javax.annotation.Nullable  private Integer statusCode;
 
   public TenantAuditSettingsWrapper() {
   }
 
 
-  public TenantAuditSettingsWrapper settings(@javax.annotation.Nullable TenantAuditSettings settings) {
+  public TenantAuditSettingsWrapper response(@javax.annotation.Nullable TenantAuditSettingsDto response) {
     
-    this.settings = settings;
+    this.response = response;
     return this;
   }
 
   /**
-   * The tenant audit settings parameters.
-   * @return settings
+   * The TenantAuditSettingsDto object returned by the operation.
+   * @return response
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = false)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TenantAuditSettings getSettings() {
-    return settings;
+  public TenantAuditSettingsDto getResponse() {
+    return response;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = false)
+  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSettings(@javax.annotation.Nullable TenantAuditSettings settings) {
-    this.settings = settings;
+  public void setResponse(@javax.annotation.Nullable TenantAuditSettingsDto response) {
+    this.response = response;
+  }
+
+  public TenantAuditSettingsWrapper count(@javax.annotation.Nullable Integer count) {
+    
+    this.count = count;
+    return this;
+  }
+
+  /**
+   * The total number of items in the response
+   * @return count
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getCount() {
+    return count;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_COUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCount(@javax.annotation.Nullable Integer count) {
+    this.count = count;
+  }
+
+  public TenantAuditSettingsWrapper links(@javax.annotation.Nullable List<GetPortalPrices200ResponseLinksInner> links) {
+    
+    this.links = links;
+    return this;
+  }
+
+  public TenantAuditSettingsWrapper addLinksItem(GetPortalPrices200ResponseLinksInner linksItem) {
+    if (this.links == null) {
+      this.links = new ArrayList<>();
+    }
+    this.links.add(linksItem);
+    return this;
+  }
+
+  /**
+   * List of links related to the response
+   * @return links
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LINKS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<GetPortalPrices200ResponseLinksInner> getLinks() {
+    return links;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_LINKS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLinks(@javax.annotation.Nullable List<GetPortalPrices200ResponseLinksInner> links) {
+    this.links = links;
+  }
+
+  public TenantAuditSettingsWrapper status(@javax.annotation.Nullable Integer status) {
+    
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * HTTP status code of the response
+   * @return status
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getStatus() {
+    return status;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStatus(@javax.annotation.Nullable Integer status) {
+    this.status = status;
+  }
+
+  public TenantAuditSettingsWrapper statusCode(@javax.annotation.Nullable Integer statusCode) {
+    
+    this.statusCode = statusCode;
+    return this;
+  }
+
+  /**
+   * HTTP status code of the response (duplicate of status)
+   * @return statusCode
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS_CODE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getStatusCode() {
+    return statusCode;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_STATUS_CODE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStatusCode(@javax.annotation.Nullable Integer statusCode) {
+    this.statusCode = statusCode;
   }
 
   @Override
@@ -80,19 +204,27 @@ public class TenantAuditSettingsWrapper {
       return false;
     }
     TenantAuditSettingsWrapper tenantAuditSettingsWrapper = (TenantAuditSettingsWrapper) o;
-    return Objects.equals(this.settings, tenantAuditSettingsWrapper.settings);
+    return Objects.equals(this.response, tenantAuditSettingsWrapper.response) &&
+        Objects.equals(this.count, tenantAuditSettingsWrapper.count) &&
+        Objects.equals(this.links, tenantAuditSettingsWrapper.links) &&
+        Objects.equals(this.status, tenantAuditSettingsWrapper.status) &&
+        Objects.equals(this.statusCode, tenantAuditSettingsWrapper.statusCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(settings);
+    return Objects.hash(response, count, links, status, statusCode);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TenantAuditSettingsWrapper {\n");
-    sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
+    sb.append("    response: ").append(toIndentedString(response)).append("\n");
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -140,9 +272,49 @@ public class TenantAuditSettingsWrapper {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `settings` to the URL query string
-    if (getSettings() != null) {
-      joiner.add(getSettings().toUrlQueryString(prefix + "settings" + suffix));
+    // add `response` to the URL query string
+    if (getResponse() != null) {
+      joiner.add(getResponse().toUrlQueryString(prefix + "response" + suffix));
+    }
+
+    // add `count` to the URL query string
+    if (getCount() != null) {
+      try {
+        joiner.add(String.format("%scount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `links` to the URL query string
+    if (getLinks() != null) {
+      for (int i = 0; i < getLinks().size(); i++) {
+        if (getLinks().get(i) != null) {
+          joiner.add(getLinks().get(i).toUrlQueryString(String.format("%slinks%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `status` to the URL query string
+    if (getStatus() != null) {
+      try {
+        joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `statusCode` to the URL query string
+    if (getStatusCode() != null) {
+      try {
+        joiner.add(String.format("%sstatusCode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatusCode()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     return joiner.toString();

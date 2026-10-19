@@ -17,7 +17,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 ## aiAttachmentsDelete
 
-> AiSuccessResponse aiAttachmentsDelete(body)
+> AiSuccessResponse aiAttachmentsDelete(aiAttachmentsDeleteRequest)
 
 Delete one attachmentPermanently deletes one attachment, whether it is still a draft or already bound to a message. The ID is not validated here, so a malformed one surfaces as an error relayed from storage rather than as a 400, and an ID that does not exist answers success without deleting anything. Deleting a bound attachment leaves the message in place without it. The deletion cannot be undone.
 
@@ -28,7 +28,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | **String**| The ID of the attachment to delete, as a bare JSON string. | |
+| **aiAttachmentsDeleteRequest** | **String**| The ID of the attachment to delete, as a bare JSON string. | |
 
 ### Return type
 
@@ -65,9 +65,9 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
-        String body = "body_example"; // String | The ID of the attachment to delete, as a bare JSON string.
+        String aiAttachmentsDeleteRequest = "aiAttachmentsDeleteRequest_example"; // String | The ID of the attachment to delete, as a bare JSON string.
         try {
-            AiSuccessResponse result = apiInstance.aiAttachmentsDelete(body);
+            AiSuccessResponse result = apiInstance.aiAttachmentsDelete(aiAttachmentsDeleteRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AttachmentsApi#aiAttachmentsDelete");
@@ -91,14 +91,14 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Confirms the request was accepted, whether or not anything was deleted. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 
 ## aiAttachmentsDeleteMany
 
-> AiSuccessResponse aiAttachmentsDeleteMany(requestBody)
+> AiSuccessResponse aiAttachmentsDeleteMany(aiAttachmentsDeleteManyRequest)
 
 Delete manyPermanently deletes several attachments in one round trip. `ids` is optional and an absent value is treated as an empty list, so a malformed request quietly deletes nothing instead of failing. IDs that do not exist are skipped without being reported, so the answer confirms only that the call was accepted. The deletions cannot be undone.
 
@@ -109,7 +109,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **requestBody** | [**List&lt;String&gt;**](String.md)| The IDs of the attachments to delete, as a bare JSON array of strings. | |
+| **aiAttachmentsDeleteManyRequest** | [**List&lt;String&gt;**](String.md)| The IDs of the attachments to delete, as a bare JSON array of strings. | |
 
 ### Return type
 
@@ -146,9 +146,9 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
-        List<String> requestBody = Arrays.asList(); // List<String> | The IDs of the attachments to delete, as a bare JSON array of strings.
+        List<String> aiAttachmentsDeleteManyRequest = Arrays.asList(); // List<String> | The IDs of the attachments to delete, as a bare JSON array of strings.
         try {
-            AiSuccessResponse result = apiInstance.aiAttachmentsDeleteMany(requestBody);
+            AiSuccessResponse result = apiInstance.aiAttachmentsDeleteMany(aiAttachmentsDeleteManyRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AttachmentsApi#aiAttachmentsDeleteMany");
@@ -172,14 +172,14 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Confirms the request was accepted, whether or not anything was deleted. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 
 ## aiAttachmentsGet
 
-> AiAttachment aiAttachmentsGet(body)
+> AiAttachment aiAttachmentsGet(aiAttachmentsGetRequest)
 
 Get one attachmentReturns one attachment by its ID, whether it is still a draft or already bound to a message. The ID is required and has to be a non-empty string. An ID that no longer exists is not reported as 404: the answer is a null body with status 200, so treat a missing payload as no such attachment. Use `POST api/2.0/ai/attachments/get-many` to read several at once.
 
@@ -190,7 +190,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | **String**| The ID of the attachment to read, as a bare JSON string. | |
+| **aiAttachmentsGetRequest** | **String**| The ID of the attachment to read, as a bare JSON string. | |
 
 ### Return type
 
@@ -227,9 +227,9 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
-        String body = "body_example"; // String | The ID of the attachment to read, as a bare JSON string.
+        String aiAttachmentsGetRequest = "aiAttachmentsGetRequest_example"; // String | The ID of the attachment to read, as a bare JSON string.
         try {
-            AiAttachment result = apiInstance.aiAttachmentsGet(body);
+            AiAttachment result = apiInstance.aiAttachmentsGet(aiAttachmentsGetRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AttachmentsApi#aiAttachmentsGet");
@@ -254,14 +254,14 @@ public class Example {
 | **200** | The attachment, or a null body when no attachment has that ID. |  -  |
 | **400** | The attachment ID is missing. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 
 ## aiAttachmentsGetMany
 
-> List&lt;AiAttachment&gt; aiAttachmentsGetMany(requestBody)
+> List&lt;AiAttachment&gt; aiAttachmentsGetMany(aiAttachmentsGetManyRequest)
 
 Get manyReturns several attachments in one call, aligned by position with the `ids` that were sent, so the answer can be zipped straight onto the request. An ID that no longer exists leaves its slot empty rather than shortening the list, which is how a caller tells which of them are gone. `ids` has to be present and non-empty - an empty batch is rejected rather than answered with an empty list. Nothing is changed by the call.
 
@@ -272,7 +272,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **requestBody** | [**List&lt;String&gt;**](String.md)| The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position. | |
+| **aiAttachmentsGetManyRequest** | [**List&lt;String&gt;**](String.md)| The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position. | |
 
 ### Return type
 
@@ -309,9 +309,9 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
-        List<String> requestBody = Arrays.asList(); // List<String> | The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position.
+        List<String> aiAttachmentsGetManyRequest = Arrays.asList(); // List<String> | The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position.
         try {
-            List<AiAttachment> result = apiInstance.aiAttachmentsGetMany(requestBody);
+            List<AiAttachment> result = apiInstance.aiAttachmentsGetMany(aiAttachmentsGetManyRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AttachmentsApi#aiAttachmentsGetMany");
@@ -336,14 +336,14 @@ public class Example {
 | **200** | The attachments, aligned by position with the IDs that were sent. A missing one leaves its slot empty. |  -  |
 | **400** | The list of attachment IDs is malformed. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 
 ## aiAttachmentsGetSuggestedQuestions
 
-> AiSuccessResponse aiAttachmentsGetSuggestedQuestions(requestBody)
+> AiSuccessResponse aiAttachmentsGetSuggestedQuestions(aiAttachmentsGetSuggestedQuestionsRequest)
 
 Get suggested questions
 
@@ -354,7 +354,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **requestBody** | [**Map&lt;String, Object&gt;**](Object.md)|  | |
+| **aiAttachmentsGetSuggestedQuestionsRequest** | [**Map&lt;String, Object&gt;**](Object.md)|  | |
 
 ### Return type
 
@@ -391,9 +391,9 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
-        Map<String, Object> requestBody = null; // Map<String, Object> | 
+        Map<String, Object> aiAttachmentsGetSuggestedQuestionsRequest = null; // Map<String, Object> | 
         try {
-            AiSuccessResponse result = apiInstance.aiAttachmentsGetSuggestedQuestions(requestBody);
+            AiSuccessResponse result = apiInstance.aiAttachmentsGetSuggestedQuestions(aiAttachmentsGetSuggestedQuestionsRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AttachmentsApi#aiAttachmentsGetSuggestedQuestions");
@@ -417,7 +417,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Success. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -499,7 +499,7 @@ public class Example {
 | **200** | Confirms the attachments are now bound to the message. |  -  |
 | **400** | The attachment or message reference is malformed. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **404** | The message or the attachment does not exist. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
@@ -580,9 +580,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The stored draft, whose ID links it to a message later. |  -  |
-| **400** | The attachment payload is malformed. |  -  |
+| **400** | The attachment payload is malformed, or `input.path` is missing or empty. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -664,7 +664,7 @@ public class Example {
 | **200** | The stored drafts, in the order they were sent. |  -  |
 | **400** | `inputs` is not an array, or one of its entries is malformed. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 

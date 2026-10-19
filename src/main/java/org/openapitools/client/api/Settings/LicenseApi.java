@@ -329,7 +329,7 @@ public class LicenseApi extends BaseApi {
 
     
     if (files != null)
-      localVarFormParams.put("Files", files);
+      localVarFormParams.put("files", files);
 
     final String[] localVarAccepts = {
       "application/json"

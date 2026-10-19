@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.client.model.AiActionType;
-import org.openapitools.client.model.AiTErrorData;
+import org.openapitools.client.model.AiErrorData;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -47,7 +47,7 @@ public class AiBulkAssignmentResultErrorsInner {
   @javax.annotation.Nonnull  private AiActionType actionType;
 
   public static final String JSON_PROPERTY_ERROR = "error";
-  @javax.annotation.Nonnull  private AiTErrorData error;
+  @javax.annotation.Nonnull  private AiErrorData error;
 
   public AiBulkAssignmentResultErrorsInner() {
   }
@@ -77,7 +77,7 @@ public class AiBulkAssignmentResultErrorsInner {
     this.actionType = actionType;
   }
 
-  public AiBulkAssignmentResultErrorsInner error(@javax.annotation.Nonnull AiTErrorData error) {
+  public AiBulkAssignmentResultErrorsInner error(@javax.annotation.Nonnull AiErrorData error) {
     
     this.error = error;
     return this;
@@ -90,14 +90,14 @@ public class AiBulkAssignmentResultErrorsInner {
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ERROR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public AiTErrorData getError() {
+  public AiErrorData getError() {
     return error;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_ERROR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setError(@javax.annotation.Nonnull AiTErrorData error) {
+  public void setError(@javax.annotation.Nonnull AiErrorData error) {
     this.error = error;
   }
 

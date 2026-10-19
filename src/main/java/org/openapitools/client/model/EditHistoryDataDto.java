@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.net.URI;
-import org.openapitools.client.model.EditHistoryUrl;
+import org.openapitools.client.model.EditHistoryUrlDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -58,7 +58,7 @@ public class EditHistoryDataDto {
   @javax.annotation.Nullable  private String key;
 
   public static final String JSON_PROPERTY_PREVIOUS = "previous";
-  @javax.annotation.Nullable  private EditHistoryUrl previous;
+  @javax.annotation.Nullable  private EditHistoryUrlDto previous;
 
   public static final String JSON_PROPERTY_TOKEN = "token";
   @javax.annotation.Nullable  private JsonNullable<String> token = JsonNullable.<String>undefined();
@@ -131,7 +131,7 @@ public class EditHistoryDataDto {
     this.key = key;
   }
 
-  public EditHistoryDataDto previous(@javax.annotation.Nullable EditHistoryUrl previous) {
+  public EditHistoryDataDto previous(@javax.annotation.Nullable EditHistoryUrlDto previous) {
     
     this.previous = previous;
     return this;
@@ -144,14 +144,14 @@ public class EditHistoryDataDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PREVIOUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public EditHistoryUrl getPrevious() {
+  public EditHistoryUrlDto getPrevious() {
     return previous;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_PREVIOUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPrevious(@javax.annotation.Nullable EditHistoryUrl previous) {
+  public void setPrevious(@javax.annotation.Nullable EditHistoryUrlDto previous) {
     this.previous = previous;
   }
 

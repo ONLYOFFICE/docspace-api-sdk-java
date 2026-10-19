@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.EncryptionSettings;
+import org.openapitools.client.model.EncryptionSettingsDto;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The successful API response containing the EncryptionSettings object.
+ * The successful API response containing the EncryptionSettingsDto object.
  */
 @JsonPropertyOrder({
   EncryptionSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class EncryptionSettingsWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private EncryptionSettings response;
+  @javax.annotation.Nullable  private EncryptionSettingsDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class EncryptionSettingsWrapper {
   }
 
 
-  public EncryptionSettingsWrapper response(@javax.annotation.Nullable EncryptionSettings response) {
+  public EncryptionSettingsWrapper response(@javax.annotation.Nullable EncryptionSettingsDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * The EncryptionSettings object returned by the operation.
+   * The EncryptionSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public EncryptionSettings getResponse() {
+  public EncryptionSettingsDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable EncryptionSettings response) {
+  public void setResponse(@javax.annotation.Nullable EncryptionSettingsDto response) {
     this.response = response;
   }
 

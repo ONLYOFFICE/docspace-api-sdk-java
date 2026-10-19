@@ -43,7 +43,6 @@ import java.util.StringJoiner;
   AiAgentsUpdateQuotaRequest.JSON_PROPERTY_ROOM_IDS,
   AiAgentsUpdateQuotaRequest.JSON_PROPERTY_QUOTA
 })
-@JsonTypeName("aiAgentsUpdateQuota_request")
 
 public class AiAgentsUpdateQuotaRequest {
   public static final String JSON_PROPERTY_ROOM_IDS = "roomIds";

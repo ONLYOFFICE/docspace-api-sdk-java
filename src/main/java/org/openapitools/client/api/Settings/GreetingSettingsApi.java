@@ -26,7 +26,7 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.ErrorApiResponse;
-import org.openapitools.client.model.GreetingSettingsRequestsDto;
+import org.openapitools.client.model.GreetingSettingsRequestDto;
 import org.openapitools.client.model.StringWrapper;
 
 
@@ -283,12 +283,12 @@ public class GreetingSettingsApi extends BaseApi {
    * REST API Reference for saveGreetingSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-greeting-settings/
    *
-   * @param greetingSettingsRequestsDto  (optional)
+   * @param greetingSettingsRequestDto  (optional)
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper saveGreetingSettings(@javax.annotation.Nullable GreetingSettingsRequestsDto greetingSettingsRequestsDto) throws ApiException {
-    return this.saveGreetingSettings(greetingSettingsRequestsDto, Collections.emptyMap());
+  public StringWrapper saveGreetingSettings(@javax.annotation.Nullable GreetingSettingsRequestDto greetingSettingsRequestDto) throws ApiException {
+    return this.saveGreetingSettings(greetingSettingsRequestDto, Collections.emptyMap());
   }
 
 
@@ -299,13 +299,13 @@ public class GreetingSettingsApi extends BaseApi {
    * REST API Reference for saveGreetingSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-greeting-settings/
    *
-   * @param greetingSettingsRequestsDto  (optional)
+   * @param greetingSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper saveGreetingSettings(@javax.annotation.Nullable GreetingSettingsRequestsDto greetingSettingsRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = greetingSettingsRequestsDto;
+  public StringWrapper saveGreetingSettings(@javax.annotation.Nullable GreetingSettingsRequestDto greetingSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = greetingSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/greetingsettings";

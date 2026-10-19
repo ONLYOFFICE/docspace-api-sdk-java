@@ -29,8 +29,10 @@ import org.openapitools.client.model.BatchRequestDto;
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.CheckConversionRequestDto;
 import org.openapitools.client.model.CheckDestFolderWrapper;
-import org.openapitools.client.model.ChunkedUploadSessionResponseResponseWrapper;
-import org.openapitools.client.model.ChunkedUploadSessionResponseWrapperWrapper;
+import org.openapitools.client.model.CheckMoveOrCopyBatchItemsDestFolderIdParameter;
+import org.openapitools.client.model.CheckMoveOrCopyBatchItemsFolderIdsParameterInner;
+import org.openapitools.client.model.ChunkedUploadSessionResultWrapper;
+import org.openapitools.client.model.ChunkedUploadSessionWrapper;
 import org.openapitools.client.model.ConversationResultArrayWrapper;
 import org.openapitools.client.model.DeleteBatchRequestDto;
 import org.openapitools.client.model.DeleteVersionBatchRequestDto;
@@ -38,16 +40,17 @@ import org.openapitools.client.model.DownloadRequestDto;
 import org.openapitools.client.model.DuplicateRequestDto;
 import org.openapitools.client.model.ErrorApiResponse;
 import java.io.File;
+import org.openapitools.client.model.FileConflictResolveType;
 import org.openapitools.client.model.FileEntryBaseArrayWrapper;
 import org.openapitools.client.model.FileOperationArrayWrapper;
 import org.openapitools.client.model.FileOperationType;
 import org.openapitools.client.model.SessionRequest;
 import org.openapitools.client.model.StringWrapper;
 import org.openapitools.client.model.ThirdPartyCheckConversionRequestDto;
-import org.openapitools.client.model.ThirdPartyChunkedUploadSessionResponseResponseWrapper;
-import org.openapitools.client.model.ThirdPartyChunkedUploadSessionResponseWrapperWrapper;
+import org.openapitools.client.model.ThirdPartyChunkedUploadSessionResultWrapper;
+import org.openapitools.client.model.ThirdPartyChunkedUploadSessionWrapper;
 import org.openapitools.client.model.ThirdPartyUploadSessionResponseWrapper;
-import org.openapitools.client.model.UpdateComment;
+import org.openapitools.client.model.UpdateCommentRequest;
 import org.openapitools.client.model.UploadSessionResponseWrapper;
 
 
@@ -584,12 +587,19 @@ public class OperationsApi extends BaseApi {
    * REST API Reference for checkMoveOrCopyBatchItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/
    *
-   * @param inDto The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)
+   * @param returnSingleOperation Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)
+   * @param folderIds The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)
+   * @param fileIds The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)
+   * @param destFolderId The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)
+   * @param conflictResolveType What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)
+   * @param deleteAfter Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)
+   * @param content What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)
+   * @param toFillOut Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)
    * @return FileEntryBaseArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileEntryBaseArrayWrapper checkMoveOrCopyBatchItems(@javax.annotation.Nullable BatchRequestDto inDto) throws ApiException {
-    return this.checkMoveOrCopyBatchItems(inDto, Collections.emptyMap());
+  public FileEntryBaseArrayWrapper checkMoveOrCopyBatchItems(@javax.annotation.Nullable Boolean returnSingleOperation, @javax.annotation.Nullable List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner> folderIds, @javax.annotation.Nullable List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner> fileIds, @javax.annotation.Nullable CheckMoveOrCopyBatchItemsDestFolderIdParameter destFolderId, @javax.annotation.Nullable FileConflictResolveType conflictResolveType, @javax.annotation.Nullable Boolean deleteAfter, @javax.annotation.Nullable Boolean content, @javax.annotation.Nullable Boolean toFillOut) throws ApiException {
+    return this.checkMoveOrCopyBatchItems(returnSingleOperation, folderIds, fileIds, destFolderId, conflictResolveType, deleteAfter, content, toFillOut, Collections.emptyMap());
   }
 
 
@@ -600,12 +610,19 @@ public class OperationsApi extends BaseApi {
    * REST API Reference for checkMoveOrCopyBatchItems Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/
    *
-   * @param inDto The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)
+   * @param returnSingleOperation Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)
+   * @param folderIds The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)
+   * @param fileIds The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)
+   * @param destFolderId The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)
+   * @param conflictResolveType What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)
+   * @param deleteAfter Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)
+   * @param content What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)
+   * @param toFillOut Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileEntryBaseArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileEntryBaseArrayWrapper checkMoveOrCopyBatchItems(@javax.annotation.Nullable BatchRequestDto inDto, Map<String, String> additionalHeaders) throws ApiException {
+  public FileEntryBaseArrayWrapper checkMoveOrCopyBatchItems(@javax.annotation.Nullable Boolean returnSingleOperation, @javax.annotation.Nullable List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner> folderIds, @javax.annotation.Nullable List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner> fileIds, @javax.annotation.Nullable CheckMoveOrCopyBatchItemsDestFolderIdParameter destFolderId, @javax.annotation.Nullable FileConflictResolveType conflictResolveType, @javax.annotation.Nullable Boolean deleteAfter, @javax.annotation.Nullable Boolean content, @javax.annotation.Nullable Boolean toFillOut, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -619,7 +636,14 @@ public class OperationsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryStringJoiner.add(inDto.toUrlQueryString());
+    localVarQueryParams.addAll(apiClient.parameterToPair("returnSingleOperation", returnSingleOperation));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "folderIds", folderIds));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "fileIds", fileIds));
+    localVarQueryStringJoiner.add(destFolderId.toUrlQueryString());
+    localVarQueryParams.addAll(apiClient.parameterToPair("conflictResolveType", conflictResolveType));
+    localVarQueryParams.addAll(apiClient.parameterToPair("deleteAfter", deleteAfter));
+    localVarQueryParams.addAll(apiClient.parameterToPair("content", content));
+    localVarQueryParams.addAll(apiClient.parameterToPair("toFillOut", toFillOut));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -663,12 +687,19 @@ public class OperationsApi extends BaseApi {
    * REST API Reference for checkMoveOrCopyDestFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/
    *
-   * @param inDto The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)
+   * @param returnSingleOperation Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)
+   * @param folderIds The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)
+   * @param fileIds The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)
+   * @param destFolderId The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)
+   * @param conflictResolveType What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)
+   * @param deleteAfter Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)
+   * @param content What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)
+   * @param toFillOut Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)
    * @return CheckDestFolderWrapper
    * @throws ApiException if fails to make API call
    */
-  public CheckDestFolderWrapper checkMoveOrCopyDestFolder(@javax.annotation.Nullable BatchRequestDto inDto) throws ApiException {
-    return this.checkMoveOrCopyDestFolder(inDto, Collections.emptyMap());
+  public CheckDestFolderWrapper checkMoveOrCopyDestFolder(@javax.annotation.Nullable Boolean returnSingleOperation, @javax.annotation.Nullable List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner> folderIds, @javax.annotation.Nullable List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner> fileIds, @javax.annotation.Nullable CheckMoveOrCopyBatchItemsDestFolderIdParameter destFolderId, @javax.annotation.Nullable FileConflictResolveType conflictResolveType, @javax.annotation.Nullable Boolean deleteAfter, @javax.annotation.Nullable Boolean content, @javax.annotation.Nullable Boolean toFillOut) throws ApiException {
+    return this.checkMoveOrCopyDestFolder(returnSingleOperation, folderIds, fileIds, destFolderId, conflictResolveType, deleteAfter, content, toFillOut, Collections.emptyMap());
   }
 
 
@@ -679,12 +710,19 @@ public class OperationsApi extends BaseApi {
    * REST API Reference for checkMoveOrCopyDestFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/
    *
-   * @param inDto The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)
+   * @param returnSingleOperation Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)
+   * @param folderIds The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)
+   * @param fileIds The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)
+   * @param destFolderId The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)
+   * @param conflictResolveType What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)
+   * @param deleteAfter Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)
+   * @param content What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)
+   * @param toFillOut Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return CheckDestFolderWrapper
    * @throws ApiException if fails to make API call
    */
-  public CheckDestFolderWrapper checkMoveOrCopyDestFolder(@javax.annotation.Nullable BatchRequestDto inDto, Map<String, String> additionalHeaders) throws ApiException {
+  public CheckDestFolderWrapper checkMoveOrCopyDestFolder(@javax.annotation.Nullable Boolean returnSingleOperation, @javax.annotation.Nullable List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner> folderIds, @javax.annotation.Nullable List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner> fileIds, @javax.annotation.Nullable CheckMoveOrCopyBatchItemsDestFolderIdParameter destFolderId, @javax.annotation.Nullable FileConflictResolveType conflictResolveType, @javax.annotation.Nullable Boolean deleteAfter, @javax.annotation.Nullable Boolean content, @javax.annotation.Nullable Boolean toFillOut, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -698,7 +736,14 @@ public class OperationsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryStringJoiner.add(inDto.toUrlQueryString());
+    localVarQueryParams.addAll(apiClient.parameterToPair("returnSingleOperation", returnSingleOperation));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "folderIds", folderIds));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "fileIds", fileIds));
+    localVarQueryStringJoiner.add(destFolderId.toUrlQueryString());
+    localVarQueryParams.addAll(apiClient.parameterToPair("conflictResolveType", conflictResolveType));
+    localVarQueryParams.addAll(apiClient.parameterToPair("deleteAfter", deleteAfter));
+    localVarQueryParams.addAll(apiClient.parameterToPair("content", content));
+    localVarQueryParams.addAll(apiClient.parameterToPair("toFillOut", toFillOut));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -822,12 +867,12 @@ public class OperationsApi extends BaseApi {
    *
    * @param folderId The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not. (required)
    * @param sessionRequest The file the session is opened for, and how a clash with an existing name is settled. (required)
-   * @return ChunkedUploadSessionResponseWrapperWrapper
+   * @return ChunkedUploadSessionResultWrapper
    * @throws ApiException if fails to make API call
    * @deprecated
    */
   @Deprecated
-  public ChunkedUploadSessionResponseWrapperWrapper createUploadSession(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull SessionRequest sessionRequest) throws ApiException {
+  public ChunkedUploadSessionResultWrapper createUploadSession(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull SessionRequest sessionRequest) throws ApiException {
     return this.createUploadSession(folderId, sessionRequest, Collections.emptyMap());
   }
 
@@ -842,12 +887,12 @@ public class OperationsApi extends BaseApi {
    * @param folderId The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not. (required)
    * @param sessionRequest The file the session is opened for, and how a clash with an existing name is settled. (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return ChunkedUploadSessionResponseWrapperWrapper
+   * @return ChunkedUploadSessionResultWrapper
    * @throws ApiException if fails to make API call
    * @deprecated
    */
   @Deprecated
-  public ChunkedUploadSessionResponseWrapperWrapper createUploadSession(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull SessionRequest sessionRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public ChunkedUploadSessionResultWrapper createUploadSession(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull SessionRequest sessionRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = sessionRequest;
     
     // verify the required parameter 'folderId' is set
@@ -890,7 +935,7 @@ public class OperationsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ChunkedUploadSessionResponseWrapperWrapper> localVarReturnType = new TypeReference<ChunkedUploadSessionResponseWrapperWrapper>() {};
+    TypeReference<ChunkedUploadSessionResultWrapper> localVarReturnType = new TypeReference<ChunkedUploadSessionResultWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -917,12 +962,12 @@ public class OperationsApi extends BaseApi {
    *
    * @param folderId The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not. (required)
    * @param sessionRequest The file the session is opened for, and how a clash with an existing name is settled. (required)
-   * @return ThirdPartyChunkedUploadSessionResponseWrapperWrapper
+   * @return ThirdPartyChunkedUploadSessionResultWrapper
    * @throws ApiException if fails to make API call
    * @deprecated
    */
   @Deprecated
-  public ThirdPartyChunkedUploadSessionResponseWrapperWrapper createUploadSession(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull SessionRequest sessionRequest) throws ApiException {
+  public ThirdPartyChunkedUploadSessionResultWrapper createUploadSession(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull SessionRequest sessionRequest) throws ApiException {
     return this.createUploadSession(folderId, sessionRequest, Collections.emptyMap());
   }
 
@@ -937,12 +982,12 @@ public class OperationsApi extends BaseApi {
    * @param folderId The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not. (required)
    * @param sessionRequest The file the session is opened for, and how a clash with an existing name is settled. (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return ThirdPartyChunkedUploadSessionResponseWrapperWrapper
+   * @return ThirdPartyChunkedUploadSessionResultWrapper
    * @throws ApiException if fails to make API call
    * @deprecated
    */
   @Deprecated
-  public ThirdPartyChunkedUploadSessionResponseWrapperWrapper createUploadSession(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull SessionRequest sessionRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public ThirdPartyChunkedUploadSessionResultWrapper createUploadSession(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull SessionRequest sessionRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = sessionRequest;
     
     // verify the required parameter 'folderId' is set
@@ -985,7 +1030,7 @@ public class OperationsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ThirdPartyChunkedUploadSessionResponseWrapperWrapper> localVarReturnType = new TypeReference<ThirdPartyChunkedUploadSessionResponseWrapperWrapper>() {};
+    TypeReference<ThirdPartyChunkedUploadSessionResultWrapper> localVarReturnType = new TypeReference<ThirdPartyChunkedUploadSessionResultWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -1012,10 +1057,10 @@ public class OperationsApi extends BaseApi {
    *
    * @param folderId The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not. (required)
    * @param sessionRequest The file the session is opened for, and how a clash with an existing name is settled. (required)
-   * @return ChunkedUploadSessionResponseResponseWrapper
+   * @return ChunkedUploadSessionWrapper
    * @throws ApiException if fails to make API call
    */
-  public ChunkedUploadSessionResponseResponseWrapper createUploadSessionInFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull SessionRequest sessionRequest) throws ApiException {
+  public ChunkedUploadSessionWrapper createUploadSessionInFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull SessionRequest sessionRequest) throws ApiException {
     return this.createUploadSessionInFolder(folderId, sessionRequest, Collections.emptyMap());
   }
 
@@ -1030,10 +1075,10 @@ public class OperationsApi extends BaseApi {
    * @param folderId The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not. (required)
    * @param sessionRequest The file the session is opened for, and how a clash with an existing name is settled. (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return ChunkedUploadSessionResponseResponseWrapper
+   * @return ChunkedUploadSessionWrapper
    * @throws ApiException if fails to make API call
    */
-  public ChunkedUploadSessionResponseResponseWrapper createUploadSessionInFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull SessionRequest sessionRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public ChunkedUploadSessionWrapper createUploadSessionInFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull SessionRequest sessionRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = sessionRequest;
     
     // verify the required parameter 'folderId' is set
@@ -1076,7 +1121,7 @@ public class OperationsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ChunkedUploadSessionResponseResponseWrapper> localVarReturnType = new TypeReference<ChunkedUploadSessionResponseResponseWrapper>() {};
+    TypeReference<ChunkedUploadSessionWrapper> localVarReturnType = new TypeReference<ChunkedUploadSessionWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -1103,10 +1148,10 @@ public class OperationsApi extends BaseApi {
    *
    * @param folderId The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not. (required)
    * @param sessionRequest The file the session is opened for, and how a clash with an existing name is settled. (required)
-   * @return ThirdPartyChunkedUploadSessionResponseResponseWrapper
+   * @return ThirdPartyChunkedUploadSessionWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyChunkedUploadSessionResponseResponseWrapper createUploadSessionInFolder(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull SessionRequest sessionRequest) throws ApiException {
+  public ThirdPartyChunkedUploadSessionWrapper createUploadSessionInFolder(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull SessionRequest sessionRequest) throws ApiException {
     return this.createUploadSessionInFolder(folderId, sessionRequest, Collections.emptyMap());
   }
 
@@ -1121,10 +1166,10 @@ public class OperationsApi extends BaseApi {
    * @param folderId The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not. (required)
    * @param sessionRequest The file the session is opened for, and how a clash with an existing name is settled. (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return ThirdPartyChunkedUploadSessionResponseResponseWrapper
+   * @return ThirdPartyChunkedUploadSessionWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyChunkedUploadSessionResponseResponseWrapper createUploadSessionInFolder(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull SessionRequest sessionRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public ThirdPartyChunkedUploadSessionWrapper createUploadSessionInFolder(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull SessionRequest sessionRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = sessionRequest;
     
     // verify the required parameter 'folderId' is set
@@ -1167,7 +1212,7 @@ public class OperationsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ThirdPartyChunkedUploadSessionResponseResponseWrapper> localVarReturnType = new TypeReference<ThirdPartyChunkedUploadSessionResponseResponseWrapper>() {};
+    TypeReference<ThirdPartyChunkedUploadSessionWrapper> localVarReturnType = new TypeReference<ThirdPartyChunkedUploadSessionWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -1541,7 +1586,7 @@ public class OperationsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("Single", single));
+    localVarQueryParams.addAll(apiClient.parameterToPair("single", single));
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "folderType", folderType));
       
     
@@ -1765,7 +1810,7 @@ public class OperationsApi extends BaseApi {
 
   /**
    * Get active file operations
-   * Returns the background file operations of the caller that are still running or whose finished result has not  been read yet, grouped by kind: duplications first, then moves and copies, deletions, downloads and  mark-as-read. This is the polling target for every operation in this section — an operation appears here as  soon as it is queued and carries `progress` from 0 to 100, `finished`, the `error` of a failed item and, for a  download, the address of the archive in `url`. A record is dropped once its finished state has been handed  out, so a completed operation is reported once and an empty array means there is nothing left to report rather  than that the work failed. Pass `id` to follow a single operation; an id that is not among the caller's  operations gives an empty array. Operations are private to the account that started them, an anonymous caller  being scoped to the session of the external link. The call changes nothing. To follow one kind only use  `GET api/2.0/files/fileops/{operationType}`.
+   * Returns the background file operations of the caller that are still running or whose finished result has not  been read yet, grouped by kind: duplications first, then moves and copies, deletions, downloads, mark-as-read  and builder runs. This is the polling target for every operation in this section — an operation appears here as  soon as it is queued and carries `progress` from 0 to 100, `finished`, the `error` of a failed item and, for a  download, the address of the archive in `url`. A record is dropped once its finished state has been handed  out, so a completed operation is reported once and an empty array means there is nothing left to report rather  than that the work failed. Pass `id` to follow a single operation; an id that is not among the caller's  operations gives an empty array. Operations are private to the account that started them, an anonymous caller  being scoped to the session of the external link. The call changes nothing. To follow one kind only use  `GET api/2.0/files/fileops/{operationType}`.
    *
    * REST API Reference for getOperationStatuses Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses/
@@ -1781,7 +1826,7 @@ public class OperationsApi extends BaseApi {
 
   /**
    * Get active file operations
-   * Returns the background file operations of the caller that are still running or whose finished result has not  been read yet, grouped by kind: duplications first, then moves and copies, deletions, downloads and  mark-as-read. This is the polling target for every operation in this section — an operation appears here as  soon as it is queued and carries `progress` from 0 to 100, `finished`, the `error` of a failed item and, for a  download, the address of the archive in `url`. A record is dropped once its finished state has been handed  out, so a completed operation is reported once and an empty array means there is nothing left to report rather  than that the work failed. Pass `id` to follow a single operation; an id that is not among the caller's  operations gives an empty array. Operations are private to the account that started them, an anonymous caller  being scoped to the session of the external link. The call changes nothing. To follow one kind only use  `GET api/2.0/files/fileops/{operationType}`.
+   * Returns the background file operations of the caller that are still running or whose finished result has not  been read yet, grouped by kind: duplications first, then moves and copies, deletions, downloads, mark-as-read  and builder runs. This is the polling target for every operation in this section — an operation appears here as  soon as it is queued and carries `progress` from 0 to 100, `finished`, the `error` of a failed item and, for a  download, the address of the archive in `url`. A record is dropped once its finished state has been handed  out, so a completed operation is reported once and an empty array means there is nothing left to report rather  than that the work failed. Pass `id` to follow a single operation; an id that is not among the caller's  operations gives an empty array. Operations are private to the account that started them, an anonymous caller  being scoped to the session of the external link. The call changes nothing. To follow one kind only use  `GET api/2.0/files/fileops/{operationType}`.
    *
    * REST API Reference for getOperationStatuses Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses/
@@ -1844,7 +1889,7 @@ public class OperationsApi extends BaseApi {
 
   /**
    * Get file operations by type
-   * Returns the background file operations of the caller that are of one kind, named by the number in the route:  `1` for a copy, `2` for a deletion, `3` for a download, `4` for a mark-as-read and `7` for a duplication. The  answer carries the same records as `GET api/2.0/files/fileops`, with the same rule that a finished operation  is reported once and then dropped, and `id` narrows it further to a single operation. Moves, kind `0`, cannot  be read through this route: the address `api/2.0/files/fileops/move` belongs to another operation, so read  moves from `GET api/2.0/files/fileops` and pick the records whose `operation` is `0`. A kind that has no queue  of its own — `5` for an import, `6` for a conversion — is accepted and answers with an empty array, while a  number outside the operation type is rejected as an invalid request. The call changes nothing and never shows  another account's operations.
+   * Returns the background file operations of the caller that are of one kind, named by the number in the route: `1`  for a copy, `2` for a deletion, `3` for a download, `4` for a mark-as-read, `7` for a duplication and `8` for a  document builder run. The answer carries the same records as `GET api/2.0/files/fileops`, with the same rule  that a finished operation is reported once and then dropped, and `id` narrows it further to a single operation.  Moves, kind `0`, cannot be read through this route: the address `api/2.0/files/fileops/move` belongs to another  operation, so read moves from `GET api/2.0/files/fileops` and pick the records whose `operation` is `0`. A kind  that has no queue of its own — `5` for an import, `6` for a conversion — is accepted and answers with an empty  array, while a number outside the operation type is rejected as an invalid request. The call changes nothing and  never shows another account's operations.
    *
    * REST API Reference for getOperationStatusesByType Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses-by-type/
@@ -1861,7 +1906,7 @@ public class OperationsApi extends BaseApi {
 
   /**
    * Get file operations by type
-   * Returns the background file operations of the caller that are of one kind, named by the number in the route:  `1` for a copy, `2` for a deletion, `3` for a download, `4` for a mark-as-read and `7` for a duplication. The  answer carries the same records as `GET api/2.0/files/fileops`, with the same rule that a finished operation  is reported once and then dropped, and `id` narrows it further to a single operation. Moves, kind `0`, cannot  be read through this route: the address `api/2.0/files/fileops/move` belongs to another operation, so read  moves from `GET api/2.0/files/fileops` and pick the records whose `operation` is `0`. A kind that has no queue  of its own — `5` for an import, `6` for a conversion — is accepted and answers with an empty array, while a  number outside the operation type is rejected as an invalid request. The call changes nothing and never shows  another account's operations.
+   * Returns the background file operations of the caller that are of one kind, named by the number in the route: `1`  for a copy, `2` for a deletion, `3` for a download, `4` for a mark-as-read, `7` for a duplication and `8` for a  document builder run. The answer carries the same records as `GET api/2.0/files/fileops`, with the same rule  that a finished operation is reported once and then dropped, and `id` narrows it further to a single operation.  Moves, kind `0`, cannot be read through this route: the address `api/2.0/files/fileops/move` belongs to another  operation, so read moves from `GET api/2.0/files/fileops` and pick the records whose `operation` is `0`. A kind  that has no queue of its own — `5` for an import, `6` for a conversion — is accepted and answers with an empty  array, while a number outside the operation type is rejected as an invalid request. The call changes nothing and  never shows another account's operations.
    *
    * REST API Reference for getOperationStatusesByType Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses-by-type/
@@ -2349,12 +2394,12 @@ public class OperationsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/
    *
    * @param fileId The file whose version comment is replaced. (required)
-   * @param updateComment The version and the comment to store on it. (required)
+   * @param updateCommentRequest The version and the comment to store on it. (required)
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper updateFileComment(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull UpdateComment updateComment) throws ApiException {
-    return this.updateFileComment(fileId, updateComment, Collections.emptyMap());
+  public StringWrapper updateFileComment(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull UpdateCommentRequest updateCommentRequest) throws ApiException {
+    return this.updateFileComment(fileId, updateCommentRequest, Collections.emptyMap());
   }
 
 
@@ -2366,22 +2411,22 @@ public class OperationsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/
    *
    * @param fileId The file whose version comment is replaced. (required)
-   * @param updateComment The version and the comment to store on it. (required)
+   * @param updateCommentRequest The version and the comment to store on it. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper updateFileComment(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull UpdateComment updateComment, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = updateComment;
+  public StringWrapper updateFileComment(@javax.annotation.Nonnull Integer fileId, @javax.annotation.Nonnull UpdateCommentRequest updateCommentRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = updateCommentRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
       throw new ApiException(400, "Missing the required parameter 'fileId' when calling updateFileComment");
     }
     
-    // verify the required parameter 'updateComment' is set
-    if (updateComment == null) {
-      throw new ApiException(400, "Missing the required parameter 'updateComment' when calling updateFileComment");
+    // verify the required parameter 'updateCommentRequest' is set
+    if (updateCommentRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateCommentRequest' when calling updateFileComment");
     }
     
     // create path and map variables
@@ -2440,12 +2485,12 @@ public class OperationsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/
    *
    * @param fileId The file whose version comment is replaced. (required)
-   * @param updateComment The version and the comment to store on it. (required)
+   * @param updateCommentRequest The version and the comment to store on it. (required)
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper updateFileComment(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull UpdateComment updateComment) throws ApiException {
-    return this.updateFileComment(fileId, updateComment, Collections.emptyMap());
+  public StringWrapper updateFileComment(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull UpdateCommentRequest updateCommentRequest) throws ApiException {
+    return this.updateFileComment(fileId, updateCommentRequest, Collections.emptyMap());
   }
 
 
@@ -2457,22 +2502,22 @@ public class OperationsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/
    *
    * @param fileId The file whose version comment is replaced. (required)
-   * @param updateComment The version and the comment to store on it. (required)
+   * @param updateCommentRequest The version and the comment to store on it. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper updateFileComment(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull UpdateComment updateComment, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = updateComment;
+  public StringWrapper updateFileComment(@javax.annotation.Nonnull String fileId, @javax.annotation.Nonnull UpdateCommentRequest updateCommentRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = updateCommentRequest;
     
     // verify the required parameter 'fileId' is set
     if (fileId == null) {
       throw new ApiException(400, "Missing the required parameter 'fileId' when calling updateFileComment");
     }
     
-    // verify the required parameter 'updateComment' is set
-    if (updateComment == null) {
-      throw new ApiException(400, "Missing the required parameter 'updateComment' when calling updateFileComment");
+    // verify the required parameter 'updateCommentRequest' is set
+    if (updateCommentRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateCommentRequest' when calling updateFileComment");
     }
     
     // create path and map variables
@@ -2534,10 +2579,10 @@ public class OperationsApi extends BaseApi {
    * @param sessionId The session this part belongs to, as returned in `id` when it was created; a 32-character hexadecimal string. (required)
    * @param chunkNumber The position of this part in the file, counted from 1. Sending the same number again replaces that part  instead of adding one, which is how a failed part is retried; leaving the number out makes the server count  the parts itself. (optional)
    * @param _file The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)
-   * @return ChunkedUploadSessionResponseResponseWrapper
+   * @return ChunkedUploadSessionWrapper
    * @throws ApiException if fails to make API call
    */
-  public ChunkedUploadSessionResponseResponseWrapper uploadAsyncSession(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull String sessionId, @javax.annotation.Nullable Integer chunkNumber, @javax.annotation.Nullable File _file) throws ApiException {
+  public ChunkedUploadSessionWrapper uploadAsyncSession(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull String sessionId, @javax.annotation.Nullable Integer chunkNumber, @javax.annotation.Nullable File _file) throws ApiException {
     return this.uploadAsyncSession(folderId, sessionId, chunkNumber, _file, Collections.emptyMap());
   }
 
@@ -2554,10 +2599,10 @@ public class OperationsApi extends BaseApi {
    * @param chunkNumber The position of this part in the file, counted from 1. Sending the same number again replaces that part  instead of adding one, which is how a failed part is retried; leaving the number out makes the server count  the parts itself. (optional)
    * @param _file The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return ChunkedUploadSessionResponseResponseWrapper
+   * @return ChunkedUploadSessionWrapper
    * @throws ApiException if fails to make API call
    */
-  public ChunkedUploadSessionResponseResponseWrapper uploadAsyncSession(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull String sessionId, @javax.annotation.Nullable Integer chunkNumber, @javax.annotation.Nullable File _file, Map<String, String> additionalHeaders) throws ApiException {
+  public ChunkedUploadSessionWrapper uploadAsyncSession(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull String sessionId, @javax.annotation.Nullable Integer chunkNumber, @javax.annotation.Nullable File _file, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'folderId' is set
@@ -2583,14 +2628,14 @@ public class OperationsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("ChunkNumber", chunkNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPair("chunkNumber", chunkNumber));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
 
     
     if (_file != null)
-      localVarFormParams.put("File", _file);
+      localVarFormParams.put("file", _file);
 
     final String[] localVarAccepts = {
       "application/json"
@@ -2604,7 +2649,7 @@ public class OperationsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ChunkedUploadSessionResponseResponseWrapper> localVarReturnType = new TypeReference<ChunkedUploadSessionResponseResponseWrapper>() {};
+    TypeReference<ChunkedUploadSessionWrapper> localVarReturnType = new TypeReference<ChunkedUploadSessionWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -2633,10 +2678,10 @@ public class OperationsApi extends BaseApi {
    * @param sessionId The session this part belongs to, as returned in `id` when it was created; a 32-character hexadecimal string. (required)
    * @param chunkNumber The position of this part in the file, counted from 1. Sending the same number again replaces that part  instead of adding one, which is how a failed part is retried; leaving the number out makes the server count  the parts itself. (optional)
    * @param _file The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)
-   * @return ThirdPartyChunkedUploadSessionResponseResponseWrapper
+   * @return ThirdPartyChunkedUploadSessionWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyChunkedUploadSessionResponseResponseWrapper uploadAsyncSession(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull String sessionId, @javax.annotation.Nullable Integer chunkNumber, @javax.annotation.Nullable File _file) throws ApiException {
+  public ThirdPartyChunkedUploadSessionWrapper uploadAsyncSession(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull String sessionId, @javax.annotation.Nullable Integer chunkNumber, @javax.annotation.Nullable File _file) throws ApiException {
     return this.uploadAsyncSession(folderId, sessionId, chunkNumber, _file, Collections.emptyMap());
   }
 
@@ -2653,10 +2698,10 @@ public class OperationsApi extends BaseApi {
    * @param chunkNumber The position of this part in the file, counted from 1. Sending the same number again replaces that part  instead of adding one, which is how a failed part is retried; leaving the number out makes the server count  the parts itself. (optional)
    * @param _file The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return ThirdPartyChunkedUploadSessionResponseResponseWrapper
+   * @return ThirdPartyChunkedUploadSessionWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyChunkedUploadSessionResponseResponseWrapper uploadAsyncSession(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull String sessionId, @javax.annotation.Nullable Integer chunkNumber, @javax.annotation.Nullable File _file, Map<String, String> additionalHeaders) throws ApiException {
+  public ThirdPartyChunkedUploadSessionWrapper uploadAsyncSession(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull String sessionId, @javax.annotation.Nullable Integer chunkNumber, @javax.annotation.Nullable File _file, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'folderId' is set
@@ -2682,14 +2727,14 @@ public class OperationsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("ChunkNumber", chunkNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPair("chunkNumber", chunkNumber));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
 
     
     if (_file != null)
-      localVarFormParams.put("File", _file);
+      localVarFormParams.put("file", _file);
 
     final String[] localVarAccepts = {
       "application/json"
@@ -2703,7 +2748,7 @@ public class OperationsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ThirdPartyChunkedUploadSessionResponseResponseWrapper> localVarReturnType = new TypeReference<ThirdPartyChunkedUploadSessionResponseResponseWrapper>() {};
+    TypeReference<ThirdPartyChunkedUploadSessionWrapper> localVarReturnType = new TypeReference<ThirdPartyChunkedUploadSessionWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -2785,7 +2830,7 @@ public class OperationsApi extends BaseApi {
 
     
     if (_file != null)
-      localVarFormParams.put("File", _file);
+      localVarFormParams.put("file", _file);
 
     final String[] localVarAccepts = {
       "application/json"
@@ -2881,7 +2926,7 @@ public class OperationsApi extends BaseApi {
 
     
     if (_file != null)
-      localVarFormParams.put("File", _file);
+      localVarFormParams.put("file", _file);
 
     final String[] localVarAccepts = {
       "application/json"

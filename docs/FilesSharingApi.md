@@ -124,6 +124,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The entry the token points at, with the status the link reached after the password was checked |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | Too many attempts were made for this link from the calling address, and the block has not expired yet |  -  |
 | **429** | Too many requests |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
@@ -222,10 +223,11 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The rooms and files whose owner has been changed, as folder and file objects |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `userId` |  -  |
+| **403** | The new owner is not an active account allowed to manage rooms or has not set up encryption keys for a listed private room, the caller may not change the owner of a listed entry, a listed folder lies outside the rooms and common sections, or a listed file is locked, being edited or lies outside the common section |  -  |
+| **500** | An id is a number that is not a 32-bit integer |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -322,6 +324,8 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | The keys of the members who can open the file, the private half only for the caller |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | The caller may not read the file |  -  |
+| **404** | The file does not exist |  -  |
+| **415** | The file lies neither in a private room nor in the encrypted section |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -422,6 +426,8 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | The keys of the members who can open the file, the private half only for the caller |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | The caller may not read the file |  -  |
+| **404** | The file does not exist |  -  |
+| **415** | The file lies neither in a private room nor in the encrypted section |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -627,10 +633,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The accounts and groups that hold rights on the file, the owner first |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
+| **403** | The caller is a guest or may not read the file |  -  |
+| **404** | The file does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -730,10 +738,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The accounts and groups that hold rights on the file, the owner first |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
+| **403** | The caller is a guest or may not read the file |  -  |
+| **404** | The file does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -833,10 +843,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The accounts and groups that hold rights on the folder, the owner first |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
+| **403** | The caller is a guest or may not read the folder |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -936,17 +948,19 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The accounts and groups that hold rights on the folder, the owner first |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
+| **403** | The caller is a guest or may not read the folder |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getGroupsMembersWithFileSecurity
 
-> GroupMemberSecurityRequestArrayWrapper getGroupsMembersWithFileSecurity(fileId, groupId, count, startIndex, filterValue)
+> GroupMemberSecurityArrayWrapper getGroupsMembersWithFileSecurity(fileId, groupId, count, startIndex, filterValue)
 
 Get file access of group membersLists the members of one portal group together with the access each of them has on a file that group was  granted rights to: `groupAccess` is the level the group itself carries, `userAccess` is the level set on that  member alone, `overridden` says which of the two applies, `owner` marks the member who created the file, and  `canEditAccess` says whether the caller may still change that member's level. Take the group identifier from  the group entries of `GET api/2.0/files/file/{id}/share`. `startIndex` and `count` page through the members,  `filterValue` keeps only those whose first name, last name or email contains the value - the comparison is  made in lower case, so an uppercase value matches nothing - and the number of members is reported in the  response headers. Members come back ordered by first name. A group that holds no rights on this file, a file  the caller cannot read and a file that does not exist are all answered with an empty list rather than an  error, so an empty answer does not mean that the group has no members. A guest is refused. The call is  read-only.
 
@@ -965,7 +979,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**GroupMemberSecurityRequestArrayWrapper**](GroupMemberSecurityRequestArrayWrapper.md)
+[**GroupMemberSecurityArrayWrapper**](GroupMemberSecurityArrayWrapper.md)
 
 ### Authorization
 
@@ -1020,7 +1034,7 @@ public class Example {
         Integer startIndex = 0; // Integer | How many members to skip before answering, used together with `count` to page through a large group.
         String filterValue = "john"; // String | Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing.
         try {
-            GroupMemberSecurityRequestArrayWrapper result = apiInstance.getGroupsMembersWithFileSecurity(fileId, groupId, count, startIndex, filterValue);
+            GroupMemberSecurityArrayWrapper result = apiInstance.getGroupsMembersWithFileSecurity(fileId, groupId, count, startIndex, filterValue);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SharingApi#getGroupsMembersWithFileSecurity");
@@ -1043,17 +1057,18 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The members of the group with the access each of them has on the file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
+| **403** | The caller is a guest |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getGroupsMembersWithFileSecurity (third-party storage)
 
-> GroupMemberSecurityRequestArrayWrapper getGroupsMembersWithFileSecurity(fileId, groupId, count, startIndex, filterValue)
+> GroupMemberSecurityArrayWrapper getGroupsMembersWithFileSecurity(fileId, groupId, count, startIndex, filterValue)
 
 Get file access of group members (third-party storage)Lists the members of one portal group together with the access each of them has on a file that group was  granted rights to: `groupAccess` is the level the group itself carries, `userAccess` is the level set on that  member alone, `overridden` says which of the two applies, `owner` marks the member who created the file, and  `canEditAccess` says whether the caller may still change that member's level. Take the group identifier from  the group entries of `GET api/2.0/files/file/{id}/share`. `startIndex` and `count` page through the members,  `filterValue` keeps only those whose first name, last name or email contains the value - the comparison is  made in lower case, so an uppercase value matches nothing - and the number of members is reported in the  response headers. Members come back ordered by first name. A group that holds no rights on this file, a file  the caller cannot read and a file that does not exist are all answered with an empty list rather than an  error, so an empty answer does not mean that the group has no members. A guest is refused. The call is  read-only.
 
@@ -1072,7 +1087,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**GroupMemberSecurityRequestArrayWrapper**](GroupMemberSecurityRequestArrayWrapper.md)
+[**GroupMemberSecurityArrayWrapper**](GroupMemberSecurityArrayWrapper.md)
 
 ### Authorization
 
@@ -1127,7 +1142,7 @@ public class Example {
         Integer startIndex = 0; // Integer | How many members to skip before answering, used together with `count` to page through a large group.
         String filterValue = "john"; // String | Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing.
         try {
-            GroupMemberSecurityRequestArrayWrapper result = apiInstance.getGroupsMembersWithFileSecurity(fileId, groupId, count, startIndex, filterValue);
+            GroupMemberSecurityArrayWrapper result = apiInstance.getGroupsMembersWithFileSecurity(fileId, groupId, count, startIndex, filterValue);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SharingApi#getGroupsMembersWithFileSecurity");
@@ -1150,17 +1165,18 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The members of the group with the access each of them has on the file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
+| **403** | The caller is a guest |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getGroupsMembersWithFolderSecurity
 
-> GroupMemberSecurityRequestArrayWrapper getGroupsMembersWithFolderSecurity(folderId, groupId, count, startIndex, filterValue)
+> GroupMemberSecurityArrayWrapper getGroupsMembersWithFolderSecurity(folderId, groupId, count, startIndex, filterValue)
 
 Get folder access of group membersLists the members of one portal group together with the access each of them has on a folder or room that group  was granted rights to: `groupAccess` is the level the group itself carries, `userAccess` is the level set on  that member alone, `overridden` says which of the two applies, `owner` marks the member who created the entry,  and `canEditAccess` says whether the caller may still change that member's level. Take the group identifier  from the group entries of `GET api/2.0/files/folder/{id}/share`. `startIndex` and `count` page through the  members, `filterValue` keeps only those whose first name, last name or email contains the value - the  comparison is made in lower case, so an uppercase value matches nothing - and the number of members is  reported in the response headers. Members come back ordered by first name. A group that holds no rights on  this folder, a folder the caller cannot read and a folder that does not exist are all answered with an empty  list rather than an error, so an empty answer does not mean that the group has no members. A guest is refused.  The call is read-only.
 
@@ -1179,7 +1195,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**GroupMemberSecurityRequestArrayWrapper**](GroupMemberSecurityRequestArrayWrapper.md)
+[**GroupMemberSecurityArrayWrapper**](GroupMemberSecurityArrayWrapper.md)
 
 ### Authorization
 
@@ -1234,7 +1250,7 @@ public class Example {
         Integer startIndex = 0; // Integer | How many members to skip before answering, used together with `count` to page through a large group.
         String filterValue = "john"; // String | Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing.
         try {
-            GroupMemberSecurityRequestArrayWrapper result = apiInstance.getGroupsMembersWithFolderSecurity(folderId, groupId, count, startIndex, filterValue);
+            GroupMemberSecurityArrayWrapper result = apiInstance.getGroupsMembersWithFolderSecurity(folderId, groupId, count, startIndex, filterValue);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SharingApi#getGroupsMembersWithFolderSecurity");
@@ -1257,17 +1273,18 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The members of the group with the access each of them has on the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
+| **403** | The caller is a guest |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 
 ## getGroupsMembersWithFolderSecurity (third-party storage)
 
-> GroupMemberSecurityRequestArrayWrapper getGroupsMembersWithFolderSecurity(folderId, groupId, count, startIndex, filterValue)
+> GroupMemberSecurityArrayWrapper getGroupsMembersWithFolderSecurity(folderId, groupId, count, startIndex, filterValue)
 
 Get folder access of group members (third-party storage)Lists the members of one portal group together with the access each of them has on a folder or room that group  was granted rights to: `groupAccess` is the level the group itself carries, `userAccess` is the level set on  that member alone, `overridden` says which of the two applies, `owner` marks the member who created the entry,  and `canEditAccess` says whether the caller may still change that member's level. Take the group identifier  from the group entries of `GET api/2.0/files/folder/{id}/share`. `startIndex` and `count` page through the  members, `filterValue` keeps only those whose first name, last name or email contains the value - the  comparison is made in lower case, so an uppercase value matches nothing - and the number of members is  reported in the response headers. Members come back ordered by first name. A group that holds no rights on  this folder, a folder the caller cannot read and a folder that does not exist are all answered with an empty  list rather than an error, so an empty answer does not mean that the group has no members. A guest is refused.  The call is read-only.
 
@@ -1286,7 +1303,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**GroupMemberSecurityRequestArrayWrapper**](GroupMemberSecurityRequestArrayWrapper.md)
+[**GroupMemberSecurityArrayWrapper**](GroupMemberSecurityArrayWrapper.md)
 
 ### Authorization
 
@@ -1341,7 +1358,7 @@ public class Example {
         Integer startIndex = 0; // Integer | How many members to skip before answering, used together with `count` to page through a large group.
         String filterValue = "john"; // String | Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing.
         try {
-            GroupMemberSecurityRequestArrayWrapper result = apiInstance.getGroupsMembersWithFolderSecurity(folderId, groupId, count, startIndex, filterValue);
+            GroupMemberSecurityArrayWrapper result = apiInstance.getGroupsMembersWithFolderSecurity(folderId, groupId, count, startIndex, filterValue);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SharingApi#getGroupsMembersWithFolderSecurity");
@@ -1364,10 +1381,11 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The members of the group with the access each of them has on the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
+| **403** | The caller is a guest |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1463,9 +1481,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The merged sharing rights of the listed files and folders, one record per account or group |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller may not read one of the listed files or folders |  -  |
+| **500** | An id is a number that is not a 32-bit integer |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -1473,7 +1492,7 @@ public class Example {
 
 ## getSharedUsers
 
-> MentionWrapperArrayWrapper getSharedUsers(fileId)
+> MentionArrayWrapper getSharedUsers(fileId)
 
 Get users to mention in a fileLists the portal members who can read the file, which is what an editor client offers when somebody types a  mention. The set holds the readers of the file plus everyone who reads it by role rather than by share - the  portal owner, the DocSpace administrators and the author of the file - while the caller themselves, the  subjects standing behind external links and deactivated accounts are left out. It is ordered by display name  as the portal renders it. A guest receives a single entry, the owner of the file, because a guest is not a  portal member and may not learn who else works on the document. The caller needs read access to the file, and  an unknown file id is reported as missing. The call only reads. A caller who reached the file through an  external link instead of an account is answered with nothing at all. For the users to offer when protecting a  document use `GET api/2.0/files/file/{fileId}/protectusers`.
 
@@ -1488,7 +1507,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**MentionWrapperArrayWrapper**](MentionWrapperArrayWrapper.md)
+[**MentionArrayWrapper**](MentionArrayWrapper.md)
 
 ### Authorization
 
@@ -1539,7 +1558,7 @@ public class Example {
         SharingApi apiInstance = new SharingApi(defaultClient);
         Integer fileId = 10; // Integer | The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string.
         try {
-            MentionWrapperArrayWrapper result = apiInstance.getSharedUsers(fileId);
+            MentionArrayWrapper result = apiInstance.getSharedUsers(fileId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SharingApi#getSharedUsers");
@@ -1562,6 +1581,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The portal members who can read the file, ordered by display name |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller cannot read the file |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -1572,7 +1593,7 @@ public class Example {
 
 ## getSharedUsers (third-party storage)
 
-> MentionWrapperArrayWrapper getSharedUsers(fileId)
+> MentionArrayWrapper getSharedUsers(fileId)
 
 Get users to mention in a file (third-party storage)Lists the portal members who can read the file, which is what an editor client offers when somebody types a  mention. The set holds the readers of the file plus everyone who reads it by role rather than by share - the  portal owner, the DocSpace administrators and the author of the file - while the caller themselves, the  subjects standing behind external links and deactivated accounts are left out. It is ordered by display name  as the portal renders it. A guest receives a single entry, the owner of the file, because a guest is not a  portal member and may not learn who else works on the document. The caller needs read access to the file, and  an unknown file id is reported as missing. The call only reads. A caller who reached the file through an  external link instead of an account is answered with nothing at all. For the users to offer when protecting a  document use `GET api/2.0/files/file/{fileId}/protectusers`.
 
@@ -1587,7 +1608,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**MentionWrapperArrayWrapper**](MentionWrapperArrayWrapper.md)
+[**MentionArrayWrapper**](MentionArrayWrapper.md)
 
 ### Authorization
 
@@ -1638,7 +1659,7 @@ public class Example {
         SharingApi apiInstance = new SharingApi(defaultClient);
         String fileId = "sbox-42-L1JlcG9ydC5kb2N4"; // String | The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string.
         try {
-            MentionWrapperArrayWrapper result = apiInstance.getSharedUsers(fileId);
+            MentionArrayWrapper result = apiInstance.getSharedUsers(fileId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SharingApi#getSharedUsers");
@@ -1661,6 +1682,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The portal members who can read the file, ordered by display name |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller cannot read the file |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -1760,9 +1783,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Always true: the accounts and groups that had access to the listed entries no longer have it |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller may not change the access of a listed entry and may not drop it from their own list either, because it was shared with them directly or they cannot read it |  -  |
+| **500** | An id is a number that is not a 32-bit integer |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -1770,7 +1794,7 @@ public class Example {
 
 ## sendEditorNotify
 
-> AceShortWrapperArrayWrapper sendEditorNotify(fileId, mentionMessageWrapper)
+> AceShortArrayWrapper sendEditorNotify(fileId, mentionMessageRequest)
 
 Notify mentioned usersEmails the people named in `emails` that they were mentioned in a file, with a link that opens the file at the  place the mention sits when `actionLink` carries the anchor the editor produced. Only addresses that belong to  portal accounts are notified: an address that belongs to nobody is skipped, and the note is cut to its first  200 characters in the mail, while a `message` longer than the field allows is refused with 400. The answer is  usually empty: the access list of the file comes back when the file is encrypted, or when one of the addresses  belongs to nobody and the caller may share the file - that is then the cue to invite that person with  `PUT api/2.0/files/file/{id}/share`. The caller needs comment rights, which the creator of the file, the  manager of its room and a member invited to comment, review or edit have, while a guest or a member without  access is refused with 403; a file that does not exist answers with 404 and a file in the trash is refused.  The operation is rate-limited and answers 429 once the caller sends too many notifications. A delivery failure  is swallowed, so 200 does not prove that the mail left the portal.
 
@@ -1782,11 +1806,11 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **fileId** | **Integer**| The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string. | |
-| **mentionMessageWrapper** | [**MentionMessageWrapper**](MentionMessageWrapper.md)| The notification to send. | [optional] |
+| **mentionMessageRequest** | [**MentionMessageRequest**](MentionMessageRequest.md)| The notification to send. | [optional] |
 
 ### Return type
 
-[**AceShortWrapperArrayWrapper**](AceShortWrapperArrayWrapper.md)
+[**AceShortArrayWrapper**](AceShortArrayWrapper.md)
 
 ### Authorization
 
@@ -1836,9 +1860,9 @@ public class Example {
 
         SharingApi apiInstance = new SharingApi(defaultClient);
         Integer fileId = 10; // Integer | The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string.
-        MentionMessageWrapper mentionMessageWrapper = new MentionMessageWrapper(); // MentionMessageWrapper | The notification to send.
+        MentionMessageRequest mentionMessageRequest = new MentionMessageRequest(); // MentionMessageRequest | The notification to send.
         try {
-            AceShortWrapperArrayWrapper result = apiInstance.sendEditorNotify(fileId, mentionMessageWrapper);
+            AceShortArrayWrapper result = apiInstance.sendEditorNotify(fileId, mentionMessageRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SharingApi#sendEditorNotify");
@@ -1873,7 +1897,7 @@ public class Example {
 
 ## sendEditorNotify (third-party storage)
 
-> AceShortWrapperArrayWrapper sendEditorNotify(fileId, mentionMessageWrapper)
+> AceShortArrayWrapper sendEditorNotify(fileId, mentionMessageRequest)
 
 Notify mentioned users (third-party storage)Emails the people named in `emails` that they were mentioned in a file, with a link that opens the file at the  place the mention sits when `actionLink` carries the anchor the editor produced. Only addresses that belong to  portal accounts are notified: an address that belongs to nobody is skipped, and the note is cut to its first  200 characters in the mail, while a `message` longer than the field allows is refused with 400. The answer is  usually empty: the access list of the file comes back when the file is encrypted, or when one of the addresses  belongs to nobody and the caller may share the file - that is then the cue to invite that person with  `PUT api/2.0/files/file/{id}/share`. The caller needs comment rights, which the creator of the file, the  manager of its room and a member invited to comment, review or edit have, while a guest or a member without  access is refused with 403; a file that does not exist answers with 404 and a file in the trash is refused.  The operation is rate-limited and answers 429 once the caller sends too many notifications. A delivery failure  is swallowed, so 200 does not prove that the mail left the portal.
 
@@ -1885,11 +1909,11 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **fileId** | **String**| The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string. | |
-| **mentionMessageWrapper** | [**MentionMessageWrapper**](MentionMessageWrapper.md)| The notification to send. | [optional] |
+| **mentionMessageRequest** | [**MentionMessageRequest**](MentionMessageRequest.md)| The notification to send. | [optional] |
 
 ### Return type
 
-[**AceShortWrapperArrayWrapper**](AceShortWrapperArrayWrapper.md)
+[**AceShortArrayWrapper**](AceShortArrayWrapper.md)
 
 ### Authorization
 
@@ -1939,9 +1963,9 @@ public class Example {
 
         SharingApi apiInstance = new SharingApi(defaultClient);
         String fileId = "sbox-42-L1JlcG9ydC5kb2N4"; // String | The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string.
-        MentionMessageWrapper mentionMessageWrapper = new MentionMessageWrapper(); // MentionMessageWrapper | The notification to send.
+        MentionMessageRequest mentionMessageRequest = new MentionMessageRequest(); // MentionMessageRequest | The notification to send.
         try {
-            AceShortWrapperArrayWrapper result = apiInstance.sendEditorNotify(fileId, mentionMessageWrapper);
+            AceShortArrayWrapper result = apiInstance.sendEditorNotify(fileId, mentionMessageRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SharingApi#sendEditorNotify");
@@ -2067,10 +2091,11 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The rights the listed subjects hold on the file after the change |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, an `email` in `share` is malformed or longer than 255 characters, `share` invites more addresses by email than the portal allows at once, or `sharingMessage` is longer than 255 characters |  -  |
+| **403** | The caller may not change the sharing of the file, or a listed subject cannot be given the requested access on it |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2168,10 +2193,11 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The rights the listed subjects hold on the file after the change |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, an `email` in `share` is malformed or longer than 255 characters, `share` invites more addresses by email than the portal allows at once, or `sharingMessage` is longer than 255 characters |  -  |
+| **403** | The caller may not change the sharing of the file, or a listed subject cannot be given the requested access on it |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2269,10 +2295,11 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The rights the listed subjects hold on the folder after the change |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, an `email` in `share` is malformed or longer than 255 characters, `share` invites more addresses by email than the portal allows at once, or `sharingMessage` is longer than 255 characters |  -  |
+| **403** | The caller may not change the sharing of the folder, a listed subject cannot be given the requested access on it, or the folder is a private room and a listed account has not set up its encryption keys |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2370,10 +2397,11 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The rights the listed subjects hold on the folder after the change |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, an `email` in `share` is malformed or longer than 255 characters, `share` invites more addresses by email than the portal allows at once, or `sharingMessage` is longer than 255 characters |  -  |
+| **403** | The caller may not change the sharing of the folder, a listed subject cannot be given the requested access on it, or the folder is a private room and a listed account has not set up its encryption keys |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2469,10 +2497,11 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The rights of the listed accounts and groups on every entry that was processed |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, an `email` in `share` is malformed or longer than 255 characters, `share` invites more addresses by email than the portal allows at once, or `sharingMessage` is longer than 255 characters |  -  |
+| **403** | The caller may not change the sharing of a listed entry, a listed subject cannot be given the requested access on it, or a listed private room has an account in `share` that has not set up its encryption keys |  -  |
+| **500** | An id is a number that is not a 32-bit integer |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

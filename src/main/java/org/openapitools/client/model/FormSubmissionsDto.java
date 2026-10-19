@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.FormMetadata;
+import org.openapitools.client.model.FormMetadataDto;
 import org.openapitools.client.model.FormResultsDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -50,7 +50,7 @@ import java.util.StringJoiner;
 
 public class FormSubmissionsDto {
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  @javax.annotation.Nullable  private JsonNullable<List<FormMetadata>> metadata = JsonNullable.<List<FormMetadata>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<FormMetadataDto>> metadata = JsonNullable.<List<FormMetadataDto>>undefined();
 
   public static final String JSON_PROPERTY_SUBMISSIONS = "submissions";
   @javax.annotation.Nullable  private JsonNullable<List<FormResultsDto>> submissions = JsonNullable.<List<FormResultsDto>>undefined();
@@ -59,15 +59,15 @@ public class FormSubmissionsDto {
   }
 
 
-  public FormSubmissionsDto metadata(@javax.annotation.Nullable List<FormMetadata> metadata) {
-    this.metadata = JsonNullable.<List<FormMetadata>>of(metadata);
+  public FormSubmissionsDto metadata(@javax.annotation.Nullable List<FormMetadataDto> metadata) {
+    this.metadata = JsonNullable.<List<FormMetadataDto>>of(metadata);
     
     return this;
   }
 
-  public FormSubmissionsDto addMetadataItem(FormMetadata metadataItem) {
+  public FormSubmissionsDto addMetadataItem(FormMetadataDto metadataItem) {
     if (this.metadata == null || !this.metadata.isPresent()) {
-      this.metadata = JsonNullable.<List<FormMetadata>>of(new ArrayList<>());
+      this.metadata = JsonNullable.<List<FormMetadataDto>>of(new ArrayList<>());
     }
     try {
       this.metadata.get().add(metadataItem);
@@ -83,23 +83,23 @@ public class FormSubmissionsDto {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public List<FormMetadata> getMetadata() {
+  public List<FormMetadataDto> getMetadata() {
         return metadata.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<List<FormMetadata>> getMetadata_JsonNullable() {
+  public JsonNullable<List<FormMetadataDto>> getMetadata_JsonNullable() {
     return metadata;
   }
   
   @JsonProperty(JSON_PROPERTY_METADATA)
-  public void setMetadata_JsonNullable(JsonNullable<List<FormMetadata>> metadata) {
+  public void setMetadata_JsonNullable(JsonNullable<List<FormMetadataDto>> metadata) {
     this.metadata = metadata;
   }
 
-  public void setMetadata(@javax.annotation.Nullable List<FormMetadata> metadata) {
-    this.metadata = JsonNullable.<List<FormMetadata>>of(metadata);
+  public void setMetadata(@javax.annotation.Nullable List<FormMetadataDto> metadata) {
+    this.metadata = JsonNullable.<List<FormMetadataDto>>of(metadata);
   }
 
   public FormSubmissionsDto submissions(@javax.annotation.Nullable List<FormResultsDto> submissions) {

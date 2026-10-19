@@ -40,7 +40,6 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   AiVectorizationStartTaskRequest.JSON_PROPERTY_FILES
 })
-@JsonTypeName("aiVectorizationStartTask_request")
 
 public class AiVectorizationStartTaskRequest {
   public static final String JSON_PROPERTY_FILES = "files";

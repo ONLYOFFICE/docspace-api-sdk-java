@@ -11,6 +11,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**sendDeleteInstructions**](PortalSettingsApi.md#sendDeleteInstructions) | **POST** /api/2.0/portal/delete | Send removal instructions |
 | [**sendSuspendInstructions**](PortalSettingsApi.md#sendSuspendInstructions) | **POST** /api/2.0/portal/suspend | Send suspension instructions |
 | [**suspendPortal**](PortalSettingsApi.md#suspendPortal) | **PUT** /api/2.0/portal/suspend | Deactivate a portal |
+| [**unblockPortal**](PortalSettingsApi.md#unblockPortal) | **PUT** /api/2.0/portal/unblock | Unblock a portal |
 
 
 
@@ -194,9 +195,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The absolute URL of the feedback form to send the owner of the removed portal to |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The account the confirmation link was issued for is not the portal owner |  -  |
+| **500** | On a server installation every other space has limited access, so the last remaining space cannot be removed |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -480,9 +482,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The removal letter has been handed to the mail service; nothing about the portal has changed yet and the response carries no content |  * X-RateLimit-Limit - Rate limit: 5 requests per 15 minutes per user/IP. <br>  * X-RateLimit-Remaining - Requests remaining in the current 15-minute window. <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller is not the portal owner or has no portal-settings right |  -  |
+| **500** | On a server installation every other space has limited access, so the last remaining space cannot be removed |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying (5 req / 15 min limit per user/IP). <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -573,9 +576,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The deactivation letter has been handed to the mail service and the request is recorded in the audit trail; the portal itself is still active and the response carries no content |  * X-RateLimit-Limit - Rate limit: 5 requests per 15 minutes per user/IP. <br>  * X-RateLimit-Remaining - Requests remaining in the current 15-minute window. <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller is not the portal owner or has no portal-settings right |  -  |
+| **500** | On a server installation every other space has limited access, so the last remaining space cannot be deactivated |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying (5 req / 15 min limit per user/IP). <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -666,7 +670,102 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The portal is now suspended, its users can no longer work in it and its content is kept; the response carries no content |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The account the confirmation link was issued for is not the portal owner |  -  |
+| **500** | On a server installation every other space has limited access, so the last remaining space cannot be deactivated |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+
+## unblockPortal
+
+> unblockPortal()
+
+Unblock a portalUnblocks this portal, blocked by the retention policy after a long period without use, so its users can sign in  again. The portal must be blocked. The call is authorized only by the unblocking link the retention letters send  to the owner; it works for the current block only. The call is mutating: it makes the portal active, records the  unblocking in the audit trail, refreshes its Content Security Policy and restarts the retention count. Nothing  is returned in the body; to check the status, read `tenantStatus` from `GET api/2.0/settings`, which a blocked  portal still answers. A lapsed paid tariff stays unpaid after the unblocking, so renewing it is the next step.  The letters of a free portal carry no such link: support unblocks it. The call does not bring back a portal  deleted at the end of its retention period, or one its owner deactivated, which `PUT api/2.0/portal/continue`  brings back. An invalid link, a link of an earlier block, or a portal that is no longer blocked, a repeated call  included, is refused with 401; an ordinary sign-in token instead of the link is refused with 403.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/unblock-portal/).
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SettingsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8092");
+        
+        // Configure HTTP basic authorization: Basic
+        HttpBasicAuth Basic = (HttpBasicAuth) defaultClient.getAuthentication("Basic");
+        Basic.setUsername("YOUR USERNAME");
+        Basic.setPassword("YOUR PASSWORD");
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure API key authorization: ApiKeyBearer
+        ApiKeyAuth ApiKeyBearer = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyBearer");
+        ApiKeyBearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyBearer.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: asc_auth_key
+        ApiKeyAuth asc_auth_key = (ApiKeyAuth) defaultClient.getAuthentication("asc_auth_key");
+        asc_auth_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //asc_auth_key.setApiKeyPrefix("Token");
+
+        // Configure HTTP bearer authorization: Bearer
+        HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setBearerToken("BEARER TOKEN");
+
+
+        SettingsApi apiInstance = new SettingsApi(defaultClient);
+        try {
+            apiInstance.unblockPortal();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SettingsApi#unblockPortal");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The portal is active again and its users can sign in; the response carries no content |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **401** | The unblocking link is invalid, was mailed for an earlier block, or the portal is not blocked |  -  |
+| **403** | The call carries an ordinary sign-in token instead of the unblocking link |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |

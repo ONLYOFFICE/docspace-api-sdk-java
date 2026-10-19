@@ -106,7 +106,7 @@ public class UpdateMemberRequestDto {
   }
 
   /**
-   * The account the change applies to. It is read from this body by `POST api/2.0/people/email`, while  `PUT api/2.0/people/{userid}` takes the account from the route and ignores this field.
+   * The account the change applies to. It is read from this body by `POST api/2.0/people/email`, while  `PUT api/2.0/people/{userId}` takes the account from the route and ignores this field.
    * @return userId
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -168,7 +168,7 @@ public class UpdateMemberRequestDto {
   }
 
   /**
-   * The new email address, up to 255 characters. It is read only by `POST api/2.0/people/email`, which either  mails a confirmation letter or, for an administrator acting on somebody else, applies the address at once;  `PUT api/2.0/people/{userid}` ignores it.
+   * The new email address, up to 255 characters. It is read only by `POST api/2.0/people/email`, which either  mails a confirmation letter or, for an administrator acting on somebody else, applies the address at once;  `PUT api/2.0/people/{userId}` ignores it.
    * @return email
    */
   @javax.annotation.Nullable  @JsonIgnore

@@ -1,6 +1,6 @@
 
 
-# STRINGArrayWrapper
+# StringArrayWrapper
 
 The successful API response.
 

@@ -41,7 +41,6 @@ import java.util.StringJoiner;
   AiEditorToolsCallRequest.JSON_PROPERTY_ARGUMENTS,
   AiEditorToolsCallRequest.JSON_PROPERTY_ENTITY_ID
 })
-@JsonTypeName("aiEditorToolsCall_request")
 
 public class AiEditorToolsCallRequest {
   public static final String JSON_PROPERTY_NAME = "name";

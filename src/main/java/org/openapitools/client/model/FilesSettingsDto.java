@@ -30,9 +30,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.openapitools.client.model.AutoCleanUpData;
+import org.openapitools.client.model.AutoCleanUpDataDto;
 import org.openapitools.client.model.FilesSettingsDtoInternalFormats;
-import org.openapitools.client.model.OrderBy;
+import org.openapitools.client.model.OrderByDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -252,7 +252,7 @@ public class FilesSettingsDto {
   @javax.annotation.Nullable  private Boolean hideConfirmRoomLifetime;
 
   public static final String JSON_PROPERTY_DEFAULT_ORDER = "defaultOrder";
-  @javax.annotation.Nullable  private OrderBy defaultOrder;
+  @javax.annotation.Nullable  private OrderByDto defaultOrder;
 
   public static final String JSON_PROPERTY_FORCESAVE = "forcesave";
   @javax.annotation.Nullable  private Boolean forcesave;
@@ -273,7 +273,7 @@ public class FilesSettingsDto {
   @javax.annotation.Nullable  private Boolean downloadTarGz;
 
   public static final String JSON_PROPERTY_AUTOMATICALLY_CLEAN_UP = "automaticallyCleanUp";
-  @javax.annotation.Nullable  private AutoCleanUpData automaticallyCleanUp;
+  @javax.annotation.Nullable  private AutoCleanUpDataDto automaticallyCleanUp;
 
   public static final String JSON_PROPERTY_CAN_SEARCH_BY_CONTENT = "canSearchByContent";
   @javax.annotation.Nullable  private Boolean canSearchByContent;
@@ -1914,7 +1914,7 @@ public class FilesSettingsDto {
     this.hideConfirmRoomLifetime = hideConfirmRoomLifetime;
   }
 
-  public FilesSettingsDto defaultOrder(@javax.annotation.Nullable OrderBy defaultOrder) {
+  public FilesSettingsDto defaultOrder(@javax.annotation.Nullable OrderByDto defaultOrder) {
     
     this.defaultOrder = defaultOrder;
     return this;
@@ -1927,14 +1927,14 @@ public class FilesSettingsDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEFAULT_ORDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OrderBy getDefaultOrder() {
+  public OrderByDto getDefaultOrder() {
     return defaultOrder;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_DEFAULT_ORDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDefaultOrder(@javax.annotation.Nullable OrderBy defaultOrder) {
+  public void setDefaultOrder(@javax.annotation.Nullable OrderByDto defaultOrder) {
     this.defaultOrder = defaultOrder;
   }
 
@@ -2082,7 +2082,7 @@ public class FilesSettingsDto {
     this.downloadTarGz = downloadTarGz;
   }
 
-  public FilesSettingsDto automaticallyCleanUp(@javax.annotation.Nullable AutoCleanUpData automaticallyCleanUp) {
+  public FilesSettingsDto automaticallyCleanUp(@javax.annotation.Nullable AutoCleanUpDataDto automaticallyCleanUp) {
     
     this.automaticallyCleanUp = automaticallyCleanUp;
     return this;
@@ -2095,14 +2095,14 @@ public class FilesSettingsDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTOMATICALLY_CLEAN_UP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public AutoCleanUpData getAutomaticallyCleanUp() {
+  public AutoCleanUpDataDto getAutomaticallyCleanUp() {
     return automaticallyCleanUp;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_AUTOMATICALLY_CLEAN_UP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAutomaticallyCleanUp(@javax.annotation.Nullable AutoCleanUpData automaticallyCleanUp) {
+  public void setAutomaticallyCleanUp(@javax.annotation.Nullable AutoCleanUpDataDto automaticallyCleanUp) {
     this.automaticallyCleanUp = automaticallyCleanUp;
   }
 

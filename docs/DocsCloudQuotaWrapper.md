@@ -2,13 +2,13 @@
 
 # DocsCloudQuotaWrapper
 
-The successful API response containing the DocsCloudQuota object.
+The successful API response containing the DocsCloudQuotaDto object.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**response** | [**DocsCloudQuota**](DocsCloudQuota.md) | The DocsCloudQuota object returned by the operation. |  [optional] |
+|**response** | [**DocsCloudQuotaDto**](DocsCloudQuotaDto.md) | The DocsCloudQuotaDto object returned by the operation. |  [optional] |
 |**count** | **Integer** | The total number of items in the response |  [optional] |
 |**links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response |  [optional] |
 |**status** | **Integer** | HTTP status code of the response |  [optional] |

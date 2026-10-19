@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.DocsCloudTenantInfo;
+import org.openapitools.client.model.DocsCloudTenantInfoDto;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The successful API response containing the DocsCloudTenantInfo object.
+ * The successful API response containing the DocsCloudTenantInfoDto object.
  */
 @JsonPropertyOrder({
   DocsCloudTenantInfoWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class DocsCloudTenantInfoWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private DocsCloudTenantInfo response;
+  @javax.annotation.Nullable  private DocsCloudTenantInfoDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class DocsCloudTenantInfoWrapper {
   }
 
 
-  public DocsCloudTenantInfoWrapper response(@javax.annotation.Nullable DocsCloudTenantInfo response) {
+  public DocsCloudTenantInfoWrapper response(@javax.annotation.Nullable DocsCloudTenantInfoDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * The DocsCloudTenantInfo object returned by the operation.
+   * The DocsCloudTenantInfoDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DocsCloudTenantInfo getResponse() {
+  public DocsCloudTenantInfoDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable DocsCloudTenantInfo response) {
+  public void setResponse(@javax.annotation.Nullable DocsCloudTenantInfoDto response) {
     this.response = response;
   }
 

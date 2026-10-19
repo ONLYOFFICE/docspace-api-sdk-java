@@ -45,7 +45,6 @@ import java.util.StringJoiner;
   AiThreadsOpenOrCreateRequest.JSON_PROPERTY_ENTITY_ID,
   AiThreadsOpenOrCreateRequest.JSON_PROPERTY_ENTITY_META
 })
-@JsonTypeName("aiThreadsOpenOrCreate_request")
 
 public class AiThreadsOpenOrCreateRequest {
   public static final String JSON_PROPERTY_THREAD_ID = "threadId";

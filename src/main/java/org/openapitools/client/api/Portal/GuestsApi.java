@@ -54,12 +54,12 @@ public class GuestsApi extends BaseApi {
    * REST API Reference for getGuestSharingLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-guest-sharing-link/
    *
-   * @param userid The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see. (required)
+   * @param userId The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see. (required)
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper getGuestSharingLink(@javax.annotation.Nonnull UUID userid) throws ApiException {
-    return this.getGuestSharingLink(userid, Collections.emptyMap());
+  public StringWrapper getGuestSharingLink(@javax.annotation.Nonnull UUID userId) throws ApiException {
+    return this.getGuestSharingLink(userId, Collections.emptyMap());
   }
 
 
@@ -70,22 +70,22 @@ public class GuestsApi extends BaseApi {
    * REST API Reference for getGuestSharingLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-guest-sharing-link/
    *
-   * @param userid The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see. (required)
+   * @param userId The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper getGuestSharingLink(@javax.annotation.Nonnull UUID userid, Map<String, String> additionalHeaders) throws ApiException {
+  public StringWrapper getGuestSharingLink(@javax.annotation.Nonnull UUID userId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'userid' is set
-    if (userid == null) {
-      throw new ApiException(400, "Missing the required parameter 'userid' when calling getGuestSharingLink");
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling getGuestSharingLink");
     }
     
     // create path and map variables
-    String localVarPath = "/api/2.0/people/guests/{userid}/share"
-      .replaceAll("\\{" + "userid" + "\\}", apiClient.escapeString(apiClient.parameterToString(userid)));
+    String localVarPath = "/api/2.0/people/guests/{userId}/share"
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;

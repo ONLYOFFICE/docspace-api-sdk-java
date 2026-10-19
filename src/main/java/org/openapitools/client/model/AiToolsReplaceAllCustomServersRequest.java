@@ -40,7 +40,6 @@ import java.util.StringJoiner;
   AiToolsReplaceAllCustomServersRequest.JSON_PROPERTY_MAP,
   AiToolsReplaceAllCustomServersRequest.JSON_PROPERTY_ENTITY_ID
 })
-@JsonTypeName("aiToolsReplaceAllCustomServers_request")
 
 public class AiToolsReplaceAllCustomServersRequest {
   public static final String JSON_PROPERTY_MAP = "map";

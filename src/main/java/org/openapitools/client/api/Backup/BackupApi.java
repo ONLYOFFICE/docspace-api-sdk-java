@@ -24,18 +24,18 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.BackupDto;
 import org.openapitools.client.model.BackupHistoryRecordArrayWrapper;
 import org.openapitools.client.model.BackupProgressWrapper;
-import org.openapitools.client.model.BackupRestoreDto;
-import org.openapitools.client.model.BackupScheduleDto;
 import org.openapitools.client.model.BackupServiceStateWrapper;
 import org.openapitools.client.model.BackupsCountResultWrapper;
 import org.openapitools.client.model.BooleanWrapper;
+import org.openapitools.client.model.CreateBackupScheduleRequestDto;
 import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.Int32Wrapper;
 import java.time.OffsetDateTime;
 import org.openapitools.client.model.ScheduleWrapper;
+import org.openapitools.client.model.StartBackupRequestDto;
+import org.openapitools.client.model.StartBackupRestoreRequestDto;
 import java.util.UUID;
 
 
@@ -135,34 +135,34 @@ public class BackupApi extends BaseApi {
 
   /**
    * Create the backup schedule
-   * Sets the backup schedule of the current portal. A portal keeps at most one schedule, so this replaces  the existing one rather than adding a second, and `dump` writes the schedule of the whole server  instead, which requires the space access permission and works on a standalone installation only.  Scheduled backups have to be allowed by the pricing plan of a portal that is not a standalone  installation.  `cronParams` is a period plus a time rather than a cron string: `hour` is the hour of the day from 0  to 23, and `day` has to be given for `EveryWeek`, where it is the day of the week from 1 to 7 with  Sunday as 1, and for `EveryMonth`, where it is the day of the month from 1 to 31. It is left out for  `EveryDay`, and because an omitted `day` is stored as 0, which neither period accepts, a weekly or  monthly schedule sent without it fails instead of falling back to a default.  `backupsStored` is the number of scheduled copies to keep, from 1 to 30, and it defaults to 1. Older  copies are removed by a background cleaner, and only the ones this schedule created: archives made by  `POST api/2.0/backup/startbackup` are not counted and not removed. A portal whose subscription stops  covering backups has its schedule deleted by the scheduler, not suspended, and its administrators are  notified that the scheduled backup failed.  The keys expected in `storageParams` are the same as for `POST api/2.0/backup/startbackup`, except  that they are sent as an array of key and value pairs here and returned as an object by  `GET api/2.0/backup/getbackupschedule`.
+   * Sets the backup schedule of the current portal. A portal keeps at most one schedule, so this replaces  the existing one rather than adding a second, and `dump` writes the schedule of the whole server  instead, which requires the space access permission and works on a standalone installation only.  Scheduled backups have to be allowed by the pricing plan of a portal that is not a standalone  installation.  `cronParams` is a period plus a time rather than a cron string: `hour` is the hour of the day from 0  to 23, and `day` has to be given for `EveryWeek`, where it is the day of the week from 1 to 7 with  Sunday as 1, and for `EveryMonth`, where it is the day of the month from 1 to 31. It is left out for  `EveryDay`, and a weekly or monthly schedule sent without it is rejected with 400 instead of falling  back to a default.  `backupsStored` is the number of scheduled copies to keep, from 1 to 30, and it defaults to 1. Older  copies are removed by a background cleaner, and only the ones this schedule created: archives made by  `POST api/2.0/backup/startbackup` are not counted and not removed. A portal whose subscription stops  covering backups has its schedule deleted by the scheduler, not suspended, and its administrators are  notified that the scheduled backup failed.  The keys expected in `storageParams` are the same as for `POST api/2.0/backup/startbackup`, except  that they are sent as an array of key and value pairs here and returned as an object by  `GET api/2.0/backup/getbackupschedule`.
    *
    * REST API Reference for createBackupSchedule Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-backup-schedule/
    *
-   * @param backupScheduleDto  (optional)
+   * @param createBackupScheduleRequestDto  (optional)
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper createBackupSchedule(@javax.annotation.Nullable BackupScheduleDto backupScheduleDto) throws ApiException {
-    return this.createBackupSchedule(backupScheduleDto, Collections.emptyMap());
+  public BooleanWrapper createBackupSchedule(@javax.annotation.Nullable CreateBackupScheduleRequestDto createBackupScheduleRequestDto) throws ApiException {
+    return this.createBackupSchedule(createBackupScheduleRequestDto, Collections.emptyMap());
   }
 
 
   /**
    * Create the backup schedule
-   * Sets the backup schedule of the current portal. A portal keeps at most one schedule, so this replaces  the existing one rather than adding a second, and `dump` writes the schedule of the whole server  instead, which requires the space access permission and works on a standalone installation only.  Scheduled backups have to be allowed by the pricing plan of a portal that is not a standalone  installation.  `cronParams` is a period plus a time rather than a cron string: `hour` is the hour of the day from 0  to 23, and `day` has to be given for `EveryWeek`, where it is the day of the week from 1 to 7 with  Sunday as 1, and for `EveryMonth`, where it is the day of the month from 1 to 31. It is left out for  `EveryDay`, and because an omitted `day` is stored as 0, which neither period accepts, a weekly or  monthly schedule sent without it fails instead of falling back to a default.  `backupsStored` is the number of scheduled copies to keep, from 1 to 30, and it defaults to 1. Older  copies are removed by a background cleaner, and only the ones this schedule created: archives made by  `POST api/2.0/backup/startbackup` are not counted and not removed. A portal whose subscription stops  covering backups has its schedule deleted by the scheduler, not suspended, and its administrators are  notified that the scheduled backup failed.  The keys expected in `storageParams` are the same as for `POST api/2.0/backup/startbackup`, except  that they are sent as an array of key and value pairs here and returned as an object by  `GET api/2.0/backup/getbackupschedule`.
+   * Sets the backup schedule of the current portal. A portal keeps at most one schedule, so this replaces  the existing one rather than adding a second, and `dump` writes the schedule of the whole server  instead, which requires the space access permission and works on a standalone installation only.  Scheduled backups have to be allowed by the pricing plan of a portal that is not a standalone  installation.  `cronParams` is a period plus a time rather than a cron string: `hour` is the hour of the day from 0  to 23, and `day` has to be given for `EveryWeek`, where it is the day of the week from 1 to 7 with  Sunday as 1, and for `EveryMonth`, where it is the day of the month from 1 to 31. It is left out for  `EveryDay`, and a weekly or monthly schedule sent without it is rejected with 400 instead of falling  back to a default.  `backupsStored` is the number of scheduled copies to keep, from 1 to 30, and it defaults to 1. Older  copies are removed by a background cleaner, and only the ones this schedule created: archives made by  `POST api/2.0/backup/startbackup` are not counted and not removed. A portal whose subscription stops  covering backups has its schedule deleted by the scheduler, not suspended, and its administrators are  notified that the scheduled backup failed.  The keys expected in `storageParams` are the same as for `POST api/2.0/backup/startbackup`, except  that they are sent as an array of key and value pairs here and returned as an object by  `GET api/2.0/backup/getbackupschedule`.
    *
    * REST API Reference for createBackupSchedule Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-backup-schedule/
    *
-   * @param backupScheduleDto  (optional)
+   * @param createBackupScheduleRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper createBackupSchedule(@javax.annotation.Nullable BackupScheduleDto backupScheduleDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = backupScheduleDto;
+  public BooleanWrapper createBackupSchedule(@javax.annotation.Nullable CreateBackupScheduleRequestDto createBackupScheduleRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = createBackupScheduleRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/backup/createbackupschedule";
@@ -213,7 +213,7 @@ public class BackupApi extends BaseApi {
 
   /**
    * Delete the backup
-   * Deletes one backup: first its history record, then the archive in the storage the record points at.  The ID is the one listed by `GET api/2.0/backup/getbackuphistory`, which is also the `taskId` the  backup was started with.  Deleting a backup of the whole server rather than of one portal additionally requires the space  access permission. A record that belongs to another portal is left untouched and the call still  answers true, so the result confirms that the request was accepted rather than that anything was  deleted - check with `GET api/2.0/backup/getbackuphistory` if it matters.  The record is removed before the archive, so when the storage can no longer be reached the archive  stays behind with nothing pointing at it.
+   * Deletes one backup: first its history record, then the archive in the storage the record points at.  The ID is the one listed by `GET api/2.0/backup/getbackuphistory`, which is also the `taskId` the  backup was started with.  Deleting a backup of the whole server rather than of one portal additionally requires the space  access permission. A record that belongs to another portal is left untouched and the call still  answers true, so the result confirms that the request was accepted rather than that anything was  deleted - check with `GET api/2.0/backup/getbackuphistory` if it matters.  The record is removed before the archive, so when the storage can no longer be reached the archive  stays behind with nothing pointing at it. An ID that no backup has ever had is answered with 404.
    *
    * REST API Reference for deleteBackup Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup/
@@ -229,7 +229,7 @@ public class BackupApi extends BaseApi {
 
   /**
    * Delete the backup
-   * Deletes one backup: first its history record, then the archive in the storage the record points at.  The ID is the one listed by `GET api/2.0/backup/getbackuphistory`, which is also the `taskId` the  backup was started with.  Deleting a backup of the whole server rather than of one portal additionally requires the space  access permission. A record that belongs to another portal is left untouched and the call still  answers true, so the result confirms that the request was accepted rather than that anything was  deleted - check with `GET api/2.0/backup/getbackuphistory` if it matters.  The record is removed before the archive, so when the storage can no longer be reached the archive  stays behind with nothing pointing at it.
+   * Deletes one backup: first its history record, then the archive in the storage the record points at.  The ID is the one listed by `GET api/2.0/backup/getbackuphistory`, which is also the `taskId` the  backup was started with.  Deleting a backup of the whole server rather than of one portal additionally requires the space  access permission. A record that belongs to another portal is left untouched and the call still  answers true, so the result confirms that the request was accepted rather than that anything was  deleted - check with `GET api/2.0/backup/getbackuphistory` if it matters.  The record is removed before the archive, so when the storage can no longer be reached the archive  stays behind with nothing pointing at it. An ID that no backup has ever had is answered with 404.
    *
    * REST API Reference for deleteBackup Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-backup/
@@ -337,7 +337,7 @@ public class BackupApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("Dump", dump));
+    localVarQueryParams.addAll(apiClient.parameterToPair("dump", dump));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -416,7 +416,7 @@ public class BackupApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("Dump", dump));
+    localVarQueryParams.addAll(apiClient.parameterToPair("dump", dump));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -495,7 +495,7 @@ public class BackupApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("Dump", dump));
+    localVarQueryParams.addAll(apiClient.parameterToPair("dump", dump));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -574,7 +574,7 @@ public class BackupApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("Dump", dump));
+    localVarQueryParams.addAll(apiClient.parameterToPair("dump", dump));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -653,7 +653,7 @@ public class BackupApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("Dump", dump));
+    localVarQueryParams.addAll(apiClient.parameterToPair("dump", dump));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -978,7 +978,7 @@ public class BackupApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("Dump", dump));
+    localVarQueryParams.addAll(apiClient.parameterToPair("dump", dump));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -1022,12 +1022,12 @@ public class BackupApi extends BaseApi {
    * REST API Reference for startBackup Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup/
    *
-   * @param backupDto  (optional)
+   * @param startBackupRequestDto  (optional)
    * @return BackupProgressWrapper
    * @throws ApiException if fails to make API call
    */
-  public BackupProgressWrapper startBackup(@javax.annotation.Nullable BackupDto backupDto) throws ApiException {
-    return this.startBackup(backupDto, Collections.emptyMap());
+  public BackupProgressWrapper startBackup(@javax.annotation.Nullable StartBackupRequestDto startBackupRequestDto) throws ApiException {
+    return this.startBackup(startBackupRequestDto, Collections.emptyMap());
   }
 
 
@@ -1038,13 +1038,13 @@ public class BackupApi extends BaseApi {
    * REST API Reference for startBackup Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup/
    *
-   * @param backupDto  (optional)
+   * @param startBackupRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return BackupProgressWrapper
    * @throws ApiException if fails to make API call
    */
-  public BackupProgressWrapper startBackup(@javax.annotation.Nullable BackupDto backupDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = backupDto;
+  public BackupProgressWrapper startBackup(@javax.annotation.Nullable StartBackupRequestDto startBackupRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = startBackupRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/backup/startbackup";
@@ -1100,12 +1100,12 @@ public class BackupApi extends BaseApi {
    * REST API Reference for startBackupRestore Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup-restore/
    *
-   * @param backupRestoreDto  (optional)
+   * @param startBackupRestoreRequestDto  (optional)
    * @return BackupProgressWrapper
    * @throws ApiException if fails to make API call
    */
-  public BackupProgressWrapper startBackupRestore(@javax.annotation.Nullable BackupRestoreDto backupRestoreDto) throws ApiException {
-    return this.startBackupRestore(backupRestoreDto, Collections.emptyMap());
+  public BackupProgressWrapper startBackupRestore(@javax.annotation.Nullable StartBackupRestoreRequestDto startBackupRestoreRequestDto) throws ApiException {
+    return this.startBackupRestore(startBackupRestoreRequestDto, Collections.emptyMap());
   }
 
 
@@ -1116,13 +1116,13 @@ public class BackupApi extends BaseApi {
    * REST API Reference for startBackupRestore Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-backup-restore/
    *
-   * @param backupRestoreDto  (optional)
+   * @param startBackupRestoreRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return BackupProgressWrapper
    * @throws ApiException if fails to make API call
    */
-  public BackupProgressWrapper startBackupRestore(@javax.annotation.Nullable BackupRestoreDto backupRestoreDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = backupRestoreDto;
+  public BackupProgressWrapper startBackupRestore(@javax.annotation.Nullable StartBackupRestoreRequestDto startBackupRestoreRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = startBackupRestoreRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/backup/startrestore";

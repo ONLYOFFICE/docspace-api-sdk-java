@@ -28,10 +28,10 @@ import org.openapitools.client.model.ArrayArrayWrapper;
 import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.ProviderArrayWrapper;
 import org.openapitools.client.model.StringWrapper;
+import org.openapitools.client.model.ThirdPartyAccountArrayWrapper;
 import org.openapitools.client.model.ThirdPartyBackupRequestDto;
 import org.openapitools.client.model.ThirdPartyFolderArrayWrapper;
 import org.openapitools.client.model.ThirdPartyFolderWrapper;
-import org.openapitools.client.model.ThirdPartyParamsArrayWrapper;
 import org.openapitools.client.model.ThirdPartyRequestDto;
 
 
@@ -55,7 +55,7 @@ public class ThirdPartyIntegrationApi extends BaseApi {
 
   /**
    * Remove a third-party account
-   * Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. A room that was created on this account stops being available. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
+   * Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. An account a room was created on is refused with 403 while the room exists: delete the  room instead, which disconnects the account along with it. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
    *
    * REST API Reference for deleteThirdParty Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-third-party/
@@ -71,7 +71,7 @@ public class ThirdPartyIntegrationApi extends BaseApi {
 
   /**
    * Remove a third-party account
-   * Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. A room that was created on this account stops being available. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
+   * Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. An account a room was created on is refused with 403 while the room exists: delete the  room instead, which disconnects the account along with it. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
    *
    * REST API Reference for deleteThirdParty Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-third-party/
@@ -451,10 +451,10 @@ public class ThirdPartyIntegrationApi extends BaseApi {
    * REST API Reference for getThirdPartyAccounts Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/
    *
-   * @return ThirdPartyParamsArrayWrapper
+   * @return ThirdPartyAccountArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyParamsArrayWrapper getThirdPartyAccounts() throws ApiException {
+  public ThirdPartyAccountArrayWrapper getThirdPartyAccounts() throws ApiException {
     return this.getThirdPartyAccounts(Collections.emptyMap());
   }
 
@@ -467,10 +467,10 @@ public class ThirdPartyIntegrationApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return ThirdPartyParamsArrayWrapper
+   * @return ThirdPartyAccountArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyParamsArrayWrapper getThirdPartyAccounts(Map<String, String> additionalHeaders) throws ApiException {
+  public ThirdPartyAccountArrayWrapper getThirdPartyAccounts(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -502,7 +502,7 @@ public class ThirdPartyIntegrationApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ThirdPartyParamsArrayWrapper> localVarReturnType = new TypeReference<ThirdPartyParamsArrayWrapper>() {};
+    TypeReference<ThirdPartyAccountArrayWrapper> localVarReturnType = new TypeReference<ThirdPartyAccountArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",

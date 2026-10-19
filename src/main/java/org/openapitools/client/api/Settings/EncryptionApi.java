@@ -28,7 +28,7 @@ import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.DoubleNullableWrapper;
 import org.openapitools.client.model.EncryptionSettingsWrapper;
 import org.openapitools.client.model.ErrorApiResponse;
-import org.openapitools.client.model.StorageEncryptionRequestsDto;
+import org.openapitools.client.model.StorageEncryptionRequestDto;
 
 
 import java.util.ArrayList;
@@ -127,7 +127,7 @@ public class EncryptionApi extends BaseApi {
 
   /**
    * Get the storage encryption settings
-   * Returns the encryption state of the installation storage: the status, which is one of decrypted, encryption  started, encrypted or decryption started, and the flag saying whether users are mailed when an encryption run  begins. The password is deliberately blanked out, so the field always comes back empty even on an encrypted  installation. The caller is expected to have the permission to edit portal settings, which in practice means  the portal owner or a DocSpace admin, on a server installation with an unrestricted access space; on any other  installation, and whenever the check fails, the operation answers with an empty body instead of an error. An  empty answer is therefore not proof that encryption is off, only that the settings cannot be read in this  context. Nothing is written and the call is safe to repeat. Use `GET api/2.0/settings/encryption/progress` to  follow a run that is in flight, and `POST api/2.0/settings/encryption/start` to encrypt or decrypt the  storage.
+   * Returns the encryption state of the installation storage: the status, which is one of decrypted, encryption  started, encrypted or decryption started, and the flag saying whether users are mailed when an encryption run  begins. The encryption password is never returned. The caller is expected to have the permission to edit portal settings, which in practice means  the portal owner or a DocSpace admin, on a server installation with an unrestricted access space; on any other  installation, and whenever the check fails, the operation answers with an empty body instead of an error. An  empty answer is therefore not proof that encryption is off, only that the settings cannot be read in this  context. Nothing is written and the call is safe to repeat. Use `GET api/2.0/settings/encryption/progress` to  follow a run that is in flight, and `POST api/2.0/settings/encryption/start` to encrypt or decrypt the  storage.
    *
    * REST API Reference for getStorageEncryptionSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-settings/
@@ -142,7 +142,7 @@ public class EncryptionApi extends BaseApi {
 
   /**
    * Get the storage encryption settings
-   * Returns the encryption state of the installation storage: the status, which is one of decrypted, encryption  started, encrypted or decryption started, and the flag saying whether users are mailed when an encryption run  begins. The password is deliberately blanked out, so the field always comes back empty even on an encrypted  installation. The caller is expected to have the permission to edit portal settings, which in practice means  the portal owner or a DocSpace admin, on a server installation with an unrestricted access space; on any other  installation, and whenever the check fails, the operation answers with an empty body instead of an error. An  empty answer is therefore not proof that encryption is off, only that the settings cannot be read in this  context. Nothing is written and the call is safe to repeat. Use `GET api/2.0/settings/encryption/progress` to  follow a run that is in flight, and `POST api/2.0/settings/encryption/start` to encrypt or decrypt the  storage.
+   * Returns the encryption state of the installation storage: the status, which is one of decrypted, encryption  started, encrypted or decryption started, and the flag saying whether users are mailed when an encryption run  begins. The encryption password is never returned. The caller is expected to have the permission to edit portal settings, which in practice means  the portal owner or a DocSpace admin, on a server installation with an unrestricted access space; on any other  installation, and whenever the check fails, the operation answers with an empty body instead of an error. An  empty answer is therefore not proof that encryption is off, only that the settings cannot be read in this  context. Nothing is written and the call is safe to repeat. Use `GET api/2.0/settings/encryption/progress` to  follow a run that is in flight, and `POST api/2.0/settings/encryption/start` to encrypt or decrypt the  storage.
    *
    * REST API Reference for getStorageEncryptionSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-settings/
@@ -208,12 +208,12 @@ public class EncryptionApi extends BaseApi {
    * REST API Reference for startStorageEncryption Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-storage-encryption/
    *
-   * @param storageEncryptionRequestsDto  (optional)
+   * @param storageEncryptionRequestDto  (optional)
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper startStorageEncryption(@javax.annotation.Nullable StorageEncryptionRequestsDto storageEncryptionRequestsDto) throws ApiException {
-    return this.startStorageEncryption(storageEncryptionRequestsDto, Collections.emptyMap());
+  public BooleanWrapper startStorageEncryption(@javax.annotation.Nullable StorageEncryptionRequestDto storageEncryptionRequestDto) throws ApiException {
+    return this.startStorageEncryption(storageEncryptionRequestDto, Collections.emptyMap());
   }
 
 
@@ -224,13 +224,13 @@ public class EncryptionApi extends BaseApi {
    * REST API Reference for startStorageEncryption Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/start-storage-encryption/
    *
-   * @param storageEncryptionRequestsDto  (optional)
+   * @param storageEncryptionRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper startStorageEncryption(@javax.annotation.Nullable StorageEncryptionRequestsDto storageEncryptionRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = storageEncryptionRequestsDto;
+  public BooleanWrapper startStorageEncryption(@javax.annotation.Nullable StorageEncryptionRequestDto storageEncryptionRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = storageEncryptionRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/encryption/start";

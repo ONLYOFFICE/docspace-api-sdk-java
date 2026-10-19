@@ -251,7 +251,7 @@ public class AiChatEvent {
   }
 
   /**
-   * The consumer should execute the tool without prompting the user. True when the tool is in the persisted always-allow list, or the tool itself opts in via `TMCPItem.requireApproval === false` (host tools default to this). For a client-side tool with a server-side engine, this lets the engine return the pending call already flagged auto-allow so the client runs it and streams the result back without a dialog round-trip.
+   * The consumer should execute the tool without prompting the user. Decided by the tool permission mode (`resolveAutoAllow`): under ask never; under auto a tool in the persisted always-allow list or one that opts in via `TMCPItem.requireApproval === false` (host tools default to this); under allow every tool. For a client-side tool with a server-side engine, this lets the engine return the pending call already flagged auto-allow so the client runs it and streams the result back without a dialog round-trip.
    * @return autoAllow
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AUTO_ALLOW, required = false)

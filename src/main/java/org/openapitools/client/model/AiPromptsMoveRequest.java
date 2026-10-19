@@ -38,7 +38,6 @@ import java.util.StringJoiner;
   AiPromptsMoveRequest.JSON_PROPERTY_ID,
   AiPromptsMoveRequest.JSON_PROPERTY_FOLDER_ID
 })
-@JsonTypeName("aiPromptsMove_request")
 
 public class AiPromptsMoveRequest {
   public static final String JSON_PROPERTY_ID = "id";

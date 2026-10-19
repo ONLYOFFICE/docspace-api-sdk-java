@@ -38,7 +38,7 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   AiPromptsImportBundleRequestOptions.JSON_PROPERTY_MODE
 })
-@JsonTypeName("aiPromptsImportBundle_request_options")
+@JsonTypeName("AiPromptsImportBundleRequest_options")
 
 public class AiPromptsImportBundleRequestOptions {
   public static final String JSON_PROPERTY_MODE = "mode";

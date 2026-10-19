@@ -24,28 +24,28 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.CustomColorThemesSettingsRequestsDto;
+import org.openapitools.client.model.CustomColorThemesSettingsRequestDto;
 import org.openapitools.client.model.CustomColorThemesSettingsWrapper;
-import org.openapitools.client.model.DeepLinkConfigurationRequestsDto;
+import org.openapitools.client.model.DeepLinkConfigurationRequestDto;
 import org.openapitools.client.model.DefaultProductRequestDto;
-import org.openapitools.client.model.DnsSettingsRequestsDto;
-import org.openapitools.client.model.EmailActivationSettings;
+import org.openapitools.client.model.DnsSettingsRequestDto;
+import org.openapitools.client.model.EmailActivationSettingsRequestDto;
 import org.openapitools.client.model.EmailActivationSettingsWrapper;
 import org.openapitools.client.model.ErrorApiResponse;
-import org.openapitools.client.model.MailDomainSettingsRequestsDto;
+import org.openapitools.client.model.MailDomainSettingsRequestDto;
 import org.openapitools.client.model.PaymentSettingsWrapper;
-import org.openapitools.client.model.STRINGArrayWrapper;
 import org.openapitools.client.model.SettingsWrapper;
 import org.openapitools.client.model.SocketSettingsWrapper;
+import org.openapitools.client.model.StringArrayWrapper;
 import org.openapitools.client.model.StringWrapper;
 import org.openapitools.client.model.StudioDefaultPageSettingsWrapper;
-import org.openapitools.client.model.TenantAiAccessSettingsDto;
+import org.openapitools.client.model.TenantAiAccessSettingsRequestDto;
 import org.openapitools.client.model.TenantAiAccessSettingsWrapper;
 import org.openapitools.client.model.TenantDeepLinkSettingsWrapper;
 import org.openapitools.client.model.TenantUserInvitationSettingsRequestDto;
 import org.openapitools.client.model.TenantUserInvitationSettingsWrapper;
-import org.openapitools.client.model.TimezonesRequestsArrayWrapper;
-import org.openapitools.client.model.WizardRequestsDto;
+import org.openapitools.client.model.TimezoneArrayWrapper;
+import org.openapitools.client.model.WizardRequestDto;
 import org.openapitools.client.model.WizardSettingsWrapper;
 
 
@@ -147,12 +147,12 @@ public class CommonSettingsApi extends BaseApi {
    * REST API Reference for completeWizard Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/
    *
-   * @param wizardRequestsDto  (optional)
+   * @param wizardRequestDto  (optional)
    * @return WizardSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public WizardSettingsWrapper completeWizard(@javax.annotation.Nullable WizardRequestsDto wizardRequestsDto) throws ApiException {
-    return this.completeWizard(wizardRequestsDto, Collections.emptyMap());
+  public WizardSettingsWrapper completeWizard(@javax.annotation.Nullable WizardRequestDto wizardRequestDto) throws ApiException {
+    return this.completeWizard(wizardRequestDto, Collections.emptyMap());
   }
 
 
@@ -163,13 +163,13 @@ public class CommonSettingsApi extends BaseApi {
    * REST API Reference for completeWizard Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/
    *
-   * @param wizardRequestsDto  (optional)
+   * @param wizardRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return WizardSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public WizardSettingsWrapper completeWizard(@javax.annotation.Nullable WizardRequestsDto wizardRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = wizardRequestsDto;
+  public WizardSettingsWrapper completeWizard(@javax.annotation.Nullable WizardRequestDto wizardRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = wizardRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/wizard/complete";
@@ -225,12 +225,12 @@ public class CommonSettingsApi extends BaseApi {
    * REST API Reference for configureDeepLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/
    *
-   * @param deepLinkConfigurationRequestsDto  (optional)
+   * @param deepLinkConfigurationRequestDto  (optional)
    * @return TenantDeepLinkSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantDeepLinkSettingsWrapper configureDeepLink(@javax.annotation.Nullable DeepLinkConfigurationRequestsDto deepLinkConfigurationRequestsDto) throws ApiException {
-    return this.configureDeepLink(deepLinkConfigurationRequestsDto, Collections.emptyMap());
+  public TenantDeepLinkSettingsWrapper configureDeepLink(@javax.annotation.Nullable DeepLinkConfigurationRequestDto deepLinkConfigurationRequestDto) throws ApiException {
+    return this.configureDeepLink(deepLinkConfigurationRequestDto, Collections.emptyMap());
   }
 
 
@@ -241,13 +241,13 @@ public class CommonSettingsApi extends BaseApi {
    * REST API Reference for configureDeepLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/
    *
-   * @param deepLinkConfigurationRequestsDto  (optional)
+   * @param deepLinkConfigurationRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return TenantDeepLinkSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantDeepLinkSettingsWrapper configureDeepLink(@javax.annotation.Nullable DeepLinkConfigurationRequestsDto deepLinkConfigurationRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = deepLinkConfigurationRequestsDto;
+  public TenantDeepLinkSettingsWrapper configureDeepLink(@javax.annotation.Nullable DeepLinkConfigurationRequestDto deepLinkConfigurationRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = deepLinkConfigurationRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/deeplink";
@@ -922,10 +922,10 @@ public class CommonSettingsApi extends BaseApi {
    * REST API Reference for getSupportedCultures Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/
    *
-   * @return STRINGArrayWrapper
+   * @return StringArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public STRINGArrayWrapper getSupportedCultures() throws ApiException {
+  public StringArrayWrapper getSupportedCultures() throws ApiException {
     return this.getSupportedCultures(Collections.emptyMap());
   }
 
@@ -938,10 +938,10 @@ public class CommonSettingsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return STRINGArrayWrapper
+   * @return StringArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public STRINGArrayWrapper getSupportedCultures(Map<String, String> additionalHeaders) throws ApiException {
+  public StringArrayWrapper getSupportedCultures(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -973,7 +973,7 @@ public class CommonSettingsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<STRINGArrayWrapper> localVarReturnType = new TypeReference<STRINGArrayWrapper>() {};
+    TypeReference<StringArrayWrapper> localVarReturnType = new TypeReference<StringArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -1150,10 +1150,10 @@ public class CommonSettingsApi extends BaseApi {
    * REST API Reference for getTimeZones Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/
    *
-   * @return TimezonesRequestsArrayWrapper
+   * @return TimezoneArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public TimezonesRequestsArrayWrapper getTimeZones() throws ApiException {
+  public TimezoneArrayWrapper getTimeZones() throws ApiException {
     return this.getTimeZones(Collections.emptyMap());
   }
 
@@ -1166,10 +1166,10 @@ public class CommonSettingsApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return TimezonesRequestsArrayWrapper
+   * @return TimezoneArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public TimezonesRequestsArrayWrapper getTimeZones(Map<String, String> additionalHeaders) throws ApiException {
+  public TimezoneArrayWrapper getTimeZones(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -1201,7 +1201,7 @@ public class CommonSettingsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<TimezonesRequestsArrayWrapper> localVarReturnType = new TypeReference<TimezonesRequestsArrayWrapper>() {};
+    TypeReference<TimezoneArrayWrapper> localVarReturnType = new TypeReference<TimezoneArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -1304,12 +1304,12 @@ public class CommonSettingsApi extends BaseApi {
    * REST API Reference for saveDnsSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/
    *
-   * @param dnsSettingsRequestsDto  (optional)
+   * @param dnsSettingsRequestDto  (optional)
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper saveDnsSettings(@javax.annotation.Nullable DnsSettingsRequestsDto dnsSettingsRequestsDto) throws ApiException {
-    return this.saveDnsSettings(dnsSettingsRequestsDto, Collections.emptyMap());
+  public StringWrapper saveDnsSettings(@javax.annotation.Nullable DnsSettingsRequestDto dnsSettingsRequestDto) throws ApiException {
+    return this.saveDnsSettings(dnsSettingsRequestDto, Collections.emptyMap());
   }
 
 
@@ -1320,13 +1320,13 @@ public class CommonSettingsApi extends BaseApi {
    * REST API Reference for saveDnsSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/
    *
-   * @param dnsSettingsRequestsDto  (optional)
+   * @param dnsSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper saveDnsSettings(@javax.annotation.Nullable DnsSettingsRequestsDto dnsSettingsRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = dnsSettingsRequestsDto;
+  public StringWrapper saveDnsSettings(@javax.annotation.Nullable DnsSettingsRequestDto dnsSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = dnsSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/dns";
@@ -1382,12 +1382,12 @@ public class CommonSettingsApi extends BaseApi {
    * REST API Reference for saveMailDomainSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/
    *
-   * @param mailDomainSettingsRequestsDto  (optional)
+   * @param mailDomainSettingsRequestDto  (optional)
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper saveMailDomainSettings(@javax.annotation.Nullable MailDomainSettingsRequestsDto mailDomainSettingsRequestsDto) throws ApiException {
-    return this.saveMailDomainSettings(mailDomainSettingsRequestsDto, Collections.emptyMap());
+  public StringWrapper saveMailDomainSettings(@javax.annotation.Nullable MailDomainSettingsRequestDto mailDomainSettingsRequestDto) throws ApiException {
+    return this.saveMailDomainSettings(mailDomainSettingsRequestDto, Collections.emptyMap());
   }
 
 
@@ -1398,13 +1398,13 @@ public class CommonSettingsApi extends BaseApi {
    * REST API Reference for saveMailDomainSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/
    *
-   * @param mailDomainSettingsRequestsDto  (optional)
+   * @param mailDomainSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper saveMailDomainSettings(@javax.annotation.Nullable MailDomainSettingsRequestsDto mailDomainSettingsRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = mailDomainSettingsRequestsDto;
+  public StringWrapper saveMailDomainSettings(@javax.annotation.Nullable MailDomainSettingsRequestDto mailDomainSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = mailDomainSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/maildomainsettings";
@@ -1460,12 +1460,12 @@ public class CommonSettingsApi extends BaseApi {
    * REST API Reference for savePortalColorTheme Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/
    *
-   * @param customColorThemesSettingsRequestsDto  (optional)
+   * @param customColorThemesSettingsRequestDto  (optional)
    * @return CustomColorThemesSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public CustomColorThemesSettingsWrapper savePortalColorTheme(@javax.annotation.Nullable CustomColorThemesSettingsRequestsDto customColorThemesSettingsRequestsDto) throws ApiException {
-    return this.savePortalColorTheme(customColorThemesSettingsRequestsDto, Collections.emptyMap());
+  public CustomColorThemesSettingsWrapper savePortalColorTheme(@javax.annotation.Nullable CustomColorThemesSettingsRequestDto customColorThemesSettingsRequestDto) throws ApiException {
+    return this.savePortalColorTheme(customColorThemesSettingsRequestDto, Collections.emptyMap());
   }
 
 
@@ -1476,13 +1476,13 @@ public class CommonSettingsApi extends BaseApi {
    * REST API Reference for savePortalColorTheme Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/
    *
-   * @param customColorThemesSettingsRequestsDto  (optional)
+   * @param customColorThemesSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return CustomColorThemesSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public CustomColorThemesSettingsWrapper savePortalColorTheme(@javax.annotation.Nullable CustomColorThemesSettingsRequestsDto customColorThemesSettingsRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = customColorThemesSettingsRequestsDto;
+  public CustomColorThemesSettingsWrapper savePortalColorTheme(@javax.annotation.Nullable CustomColorThemesSettingsRequestDto customColorThemesSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = customColorThemesSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/colortheme";
@@ -1538,12 +1538,12 @@ public class CommonSettingsApi extends BaseApi {
    * REST API Reference for setTenantAiAccessSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/
    *
-   * @param tenantAiAccessSettingsDto  (optional)
+   * @param tenantAiAccessSettingsRequestDto  (optional)
    * @return TenantAiAccessSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantAiAccessSettingsWrapper setTenantAiAccessSettings(@javax.annotation.Nullable TenantAiAccessSettingsDto tenantAiAccessSettingsDto) throws ApiException {
-    return this.setTenantAiAccessSettings(tenantAiAccessSettingsDto, Collections.emptyMap());
+  public TenantAiAccessSettingsWrapper setTenantAiAccessSettings(@javax.annotation.Nullable TenantAiAccessSettingsRequestDto tenantAiAccessSettingsRequestDto) throws ApiException {
+    return this.setTenantAiAccessSettings(tenantAiAccessSettingsRequestDto, Collections.emptyMap());
   }
 
 
@@ -1554,13 +1554,13 @@ public class CommonSettingsApi extends BaseApi {
    * REST API Reference for setTenantAiAccessSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/
    *
-   * @param tenantAiAccessSettingsDto  (optional)
+   * @param tenantAiAccessSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return TenantAiAccessSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantAiAccessSettingsWrapper setTenantAiAccessSettings(@javax.annotation.Nullable TenantAiAccessSettingsDto tenantAiAccessSettingsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = tenantAiAccessSettingsDto;
+  public TenantAiAccessSettingsWrapper setTenantAiAccessSettings(@javax.annotation.Nullable TenantAiAccessSettingsRequestDto tenantAiAccessSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = tenantAiAccessSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/ai-access";
@@ -1616,12 +1616,12 @@ public class CommonSettingsApi extends BaseApi {
    * REST API Reference for updateEmailActivationSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/
    *
-   * @param emailActivationSettings  (optional)
+   * @param emailActivationSettingsRequestDto  (optional)
    * @return EmailActivationSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmailActivationSettingsWrapper updateEmailActivationSettings(@javax.annotation.Nullable EmailActivationSettings emailActivationSettings) throws ApiException {
-    return this.updateEmailActivationSettings(emailActivationSettings, Collections.emptyMap());
+  public EmailActivationSettingsWrapper updateEmailActivationSettings(@javax.annotation.Nullable EmailActivationSettingsRequestDto emailActivationSettingsRequestDto) throws ApiException {
+    return this.updateEmailActivationSettings(emailActivationSettingsRequestDto, Collections.emptyMap());
   }
 
 
@@ -1632,13 +1632,13 @@ public class CommonSettingsApi extends BaseApi {
    * REST API Reference for updateEmailActivationSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/
    *
-   * @param emailActivationSettings  (optional)
+   * @param emailActivationSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return EmailActivationSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public EmailActivationSettingsWrapper updateEmailActivationSettings(@javax.annotation.Nullable EmailActivationSettings emailActivationSettings, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = emailActivationSettings;
+  public EmailActivationSettingsWrapper updateEmailActivationSettings(@javax.annotation.Nullable EmailActivationSettingsRequestDto emailActivationSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = emailActivationSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/emailactivation";

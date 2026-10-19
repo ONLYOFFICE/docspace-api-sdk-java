@@ -31,7 +31,7 @@ import org.openapitools.client.model.AiEntryPricingDtoAiChatPriceDto;
 import org.openapitools.client.model.AiEntryPricingDtoAiEmbeddingPriceDto;
 import org.openapitools.client.model.AiEntryPricingDtoAiImagePriceDto;
 import org.openapitools.client.model.AiEntryPricingDtoDecimal;
-import org.openapitools.client.model.CurrencyInfo;
+import org.openapitools.client.model.AiPriceCurrencyDto;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -64,7 +64,7 @@ public class AiPricesDto {
   @javax.annotation.Nullable  private List<AiEntryPricingDtoDecimal> webSearch;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
-  @javax.annotation.Nonnull  private CurrencyInfo currency;
+  @javax.annotation.Nonnull  private AiPriceCurrencyDto currency;
 
   public AiPricesDto() {
   }
@@ -198,7 +198,7 @@ public class AiPricesDto {
     this.webSearch = webSearch;
   }
 
-  public AiPricesDto currency(@javax.annotation.Nonnull CurrencyInfo currency) {
+  public AiPricesDto currency(@javax.annotation.Nonnull AiPriceCurrencyDto currency) {
     
     this.currency = currency;
     return this;
@@ -211,14 +211,14 @@ public class AiPricesDto {
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CURRENCY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public CurrencyInfo getCurrency() {
+  public AiPriceCurrencyDto getCurrency() {
     return currency;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_CURRENCY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCurrency(@javax.annotation.Nonnull CurrencyInfo currency) {
+  public void setCurrency(@javax.annotation.Nonnull AiPriceCurrencyDto currency) {
     this.currency = currency;
   }
 

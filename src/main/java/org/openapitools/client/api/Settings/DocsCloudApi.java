@@ -25,7 +25,7 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.BooleanWrapper;
-import org.openapitools.client.model.DocsCloudConfig;
+import org.openapitools.client.model.DocsCloudConfigRequestDto;
 import org.openapitools.client.model.DocsCloudConfigWrapper;
 import org.openapitools.client.model.DocsCloudDevPackRequestDto;
 import org.openapitools.client.model.DocsCloudQuotaWrapper;
@@ -914,12 +914,12 @@ public class DocsCloudApi extends BaseApi {
    * REST API Reference for updateTenantConfig Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tenant-config/
    *
-   * @param docsCloudConfig  (optional)
+   * @param docsCloudConfigRequestDto  (optional)
    * @return DocsCloudConfigWrapper
    * @throws ApiException if fails to make API call
    */
-  public DocsCloudConfigWrapper updateTenantConfig(@javax.annotation.Nullable DocsCloudConfig docsCloudConfig) throws ApiException {
-    return this.updateTenantConfig(docsCloudConfig, Collections.emptyMap());
+  public DocsCloudConfigWrapper updateTenantConfig(@javax.annotation.Nullable DocsCloudConfigRequestDto docsCloudConfigRequestDto) throws ApiException {
+    return this.updateTenantConfig(docsCloudConfigRequestDto, Collections.emptyMap());
   }
 
 
@@ -930,13 +930,13 @@ public class DocsCloudApi extends BaseApi {
    * REST API Reference for updateTenantConfig Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tenant-config/
    *
-   * @param docsCloudConfig  (optional)
+   * @param docsCloudConfigRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return DocsCloudConfigWrapper
    * @throws ApiException if fails to make API call
    */
-  public DocsCloudConfigWrapper updateTenantConfig(@javax.annotation.Nullable DocsCloudConfig docsCloudConfig, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = docsCloudConfig;
+  public DocsCloudConfigWrapper updateTenantConfig(@javax.annotation.Nullable DocsCloudConfigRequestDto docsCloudConfigRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = docsCloudConfigRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/docscloud/tenant/config";

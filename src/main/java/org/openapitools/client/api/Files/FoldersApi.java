@@ -27,8 +27,8 @@ import org.openapitools.client.Pair;
 import org.openapitools.client.model.ApplyFilterOption;
 import org.openapitools.client.model.AuditReportFormat;
 import org.openapitools.client.model.CheckUploadRequest;
-import org.openapitools.client.model.CreateFolder;
-import org.openapitools.client.model.DeleteFolder;
+import org.openapitools.client.model.CreateFolderRequest;
+import org.openapitools.client.model.DeleteFolderRequest;
 import org.openapitools.client.model.DocumentBuilderTaskWrapper;
 import org.openapitools.client.model.ErrorApiResponse;
 import java.io.File;
@@ -43,15 +43,16 @@ import org.openapitools.client.model.FilterType;
 import org.openapitools.client.model.FolderContentArrayWrapper;
 import org.openapitools.client.model.FolderContentWrapper;
 import org.openapitools.client.model.FolderLinkRequest;
+import org.openapitools.client.model.FolderMetadataSearch;
 import org.openapitools.client.model.FolderWrapper;
 import org.openapitools.client.model.FormsItemArrayWrapper;
 import org.openapitools.client.model.HistoryArrayWrapper;
-import org.openapitools.client.model.Location;
 import java.time.OffsetDateTime;
 import org.openapitools.client.model.OrderRequestDto;
-import org.openapitools.client.model.STRINGArrayWrapper;
+import org.openapitools.client.model.RequestLocation;
 import org.openapitools.client.model.SearchArea;
 import org.openapitools.client.model.SortOrder;
+import org.openapitools.client.model.StringArrayWrapper;
 import org.openapitools.client.model.ThirdPartyFileArrayWrapper;
 import org.openapitools.client.model.ThirdPartyFileWrapper;
 import org.openapitools.client.model.ThirdPartyFolderContentWrapper;
@@ -98,10 +99,10 @@ public class FoldersApi extends BaseApi {
    *
    * @param folderId The folder whose contents the names are tested against; take the id from a listing such as  `GET api/2.0/files/@root`. (required)
    * @param checkUploadRequest The names to test against the files the folder already holds. (required)
-   * @return STRINGArrayWrapper
+   * @return StringArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public STRINGArrayWrapper checkUpload(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CheckUploadRequest checkUploadRequest) throws ApiException {
+  public StringArrayWrapper checkUpload(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CheckUploadRequest checkUploadRequest) throws ApiException {
     return this.checkUpload(folderId, checkUploadRequest, Collections.emptyMap());
   }
 
@@ -116,10 +117,10 @@ public class FoldersApi extends BaseApi {
    * @param folderId The folder whose contents the names are tested against; take the id from a listing such as  `GET api/2.0/files/@root`. (required)
    * @param checkUploadRequest The names to test against the files the folder already holds. (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return STRINGArrayWrapper
+   * @return StringArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public STRINGArrayWrapper checkUpload(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CheckUploadRequest checkUploadRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public StringArrayWrapper checkUpload(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CheckUploadRequest checkUploadRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = checkUploadRequest;
     
     // verify the required parameter 'folderId' is set
@@ -162,7 +163,7 @@ public class FoldersApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<STRINGArrayWrapper> localVarReturnType = new TypeReference<STRINGArrayWrapper>() {};
+    TypeReference<StringArrayWrapper> localVarReturnType = new TypeReference<StringArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -189,10 +190,10 @@ public class FoldersApi extends BaseApi {
    *
    * @param folderId The folder whose contents the names are tested against; take the id from a listing such as  `GET api/2.0/files/@root`. (required)
    * @param checkUploadRequest The names to test against the files the folder already holds. (required)
-   * @return STRINGArrayWrapper
+   * @return StringArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public STRINGArrayWrapper checkUpload(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CheckUploadRequest checkUploadRequest) throws ApiException {
+  public StringArrayWrapper checkUpload(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CheckUploadRequest checkUploadRequest) throws ApiException {
     return this.checkUpload(folderId, checkUploadRequest, Collections.emptyMap());
   }
 
@@ -207,10 +208,10 @@ public class FoldersApi extends BaseApi {
    * @param folderId The folder whose contents the names are tested against; take the id from a listing such as  `GET api/2.0/files/@root`. (required)
    * @param checkUploadRequest The names to test against the files the folder already holds. (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return STRINGArrayWrapper
+   * @return StringArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public STRINGArrayWrapper checkUpload(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CheckUploadRequest checkUploadRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public StringArrayWrapper checkUpload(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CheckUploadRequest checkUploadRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = checkUploadRequest;
     
     // verify the required parameter 'folderId' is set
@@ -253,7 +254,7 @@ public class FoldersApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<STRINGArrayWrapper> localVarReturnType = new TypeReference<STRINGArrayWrapper>() {};
+    TypeReference<StringArrayWrapper> localVarReturnType = new TypeReference<StringArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -279,12 +280,12 @@ public class FoldersApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/
    *
    * @param folderId The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title. (required)
-   * @param createFolder The title carried by the request body. (required)
+   * @param createFolderRequest The title carried by the request body. (required)
    * @return FolderWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderWrapper createFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateFolder createFolder) throws ApiException {
-    return this.createFolder(folderId, createFolder, Collections.emptyMap());
+  public FolderWrapper createFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateFolderRequest createFolderRequest) throws ApiException {
+    return this.createFolder(folderId, createFolderRequest, Collections.emptyMap());
   }
 
 
@@ -296,22 +297,22 @@ public class FoldersApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/
    *
    * @param folderId The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title. (required)
-   * @param createFolder The title carried by the request body. (required)
+   * @param createFolderRequest The title carried by the request body. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return FolderWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderWrapper createFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateFolder createFolder, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = createFolder;
+  public FolderWrapper createFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateFolderRequest createFolderRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = createFolderRequest;
     
     // verify the required parameter 'folderId' is set
     if (folderId == null) {
       throw new ApiException(400, "Missing the required parameter 'folderId' when calling createFolder");
     }
     
-    // verify the required parameter 'createFolder' is set
-    if (createFolder == null) {
-      throw new ApiException(400, "Missing the required parameter 'createFolder' when calling createFolder");
+    // verify the required parameter 'createFolderRequest' is set
+    if (createFolderRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createFolderRequest' when calling createFolder");
     }
     
     // create path and map variables
@@ -370,12 +371,12 @@ public class FoldersApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/
    *
    * @param folderId The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title. (required)
-   * @param createFolder The title carried by the request body. (required)
+   * @param createFolderRequest The title carried by the request body. (required)
    * @return ThirdPartyFolderWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFolderWrapper createFolder(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateFolder createFolder) throws ApiException {
-    return this.createFolder(folderId, createFolder, Collections.emptyMap());
+  public ThirdPartyFolderWrapper createFolder(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateFolderRequest createFolderRequest) throws ApiException {
+    return this.createFolder(folderId, createFolderRequest, Collections.emptyMap());
   }
 
 
@@ -387,22 +388,22 @@ public class FoldersApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/
    *
    * @param folderId The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title. (required)
-   * @param createFolder The title carried by the request body. (required)
+   * @param createFolderRequest The title carried by the request body. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ThirdPartyFolderWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFolderWrapper createFolder(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateFolder createFolder, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = createFolder;
+  public ThirdPartyFolderWrapper createFolder(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateFolderRequest createFolderRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = createFolderRequest;
     
     // verify the required parameter 'folderId' is set
     if (folderId == null) {
       throw new ApiException(400, "Missing the required parameter 'folderId' when calling createFolder");
     }
     
-    // verify the required parameter 'createFolder' is set
-    if (createFolder == null) {
-      throw new ApiException(400, "Missing the required parameter 'createFolder' when calling createFolder");
+    // verify the required parameter 'createFolderRequest' is set
+    if (createFolderRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createFolderRequest' when calling createFolder");
     }
     
     // create path and map variables
@@ -637,13 +638,13 @@ public class FoldersApi extends BaseApi {
 
   /**
    * Start the folder history report generation
-   * Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`, of which a CSV report fills only the last two.  `from` and `to` limit the exported period; leaving both out exports the whole history. While a report for the  same folder and caller is still running, this call joins it and answers with the running task instead of  starting a second one, so retrying is safe. The caller needs read access to the folder and may not be a guest,  and the portal plan has to include the audit feature - otherwise the call is refused, with 403 for the access  rule and 404 for a folder that does not exist. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
+   * Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`; the URL of a CSV file too large for the editor  downloads it instead of opening it. An XLSX report keeps only the most recent events, at most 200,000 by default  and fewer when the events are long, and its header says how many were left out; `format=Csv` exports every event  of the period. `from` and `to` limit the exported period; leaving both out exports the whole history. While a  report for the same folder and caller is still running, this call joins it and answers with the running task  instead of starting a second one, so retrying is safe. The caller needs read access to the folder and may not be  a guest - otherwise the call is refused with 403, and a folder that does not exist with 404; the report is  available on every pricing plan, and 402 comes only when the login history and audit trail section is turned  off for the portal. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
    *
    * REST API Reference for createReportFolderHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-report-folder-history/
    *
    * @param folderId The folder whose history is exported; the report covers the folder itself and the entries inside it. (required)
-   * @param format The shape the report is written in: `Xlsx` produces a spreadsheet that is saved as a file of the portal, while  `Csv` produces a comma-separated text file that is uploaded to My documents without being reported back with  a file identifier. (optional)
+   * @param format The shape the report is written in: `Xlsx` produces a spreadsheet and `Csv` a comma-separated text file, and  either is saved as a file in My documents. (optional)
    * @param from The earliest moment an exported entry may have, read in the time zone of the portal; left out, the report  starts at the oldest entry the portal still keeps. (optional)
    * @param to The latest moment an exported entry may have, read in the time zone of the portal; left out, the report ends  at the newest entry. (optional)
    * @return DocumentBuilderTaskWrapper
@@ -656,13 +657,13 @@ public class FoldersApi extends BaseApi {
 
   /**
    * Start the folder history report generation
-   * Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`, of which a CSV report fills only the last two.  `from` and `to` limit the exported period; leaving both out exports the whole history. While a report for the  same folder and caller is still running, this call joins it and answers with the running task instead of  starting a second one, so retrying is safe. The caller needs read access to the folder and may not be a guest,  and the portal plan has to include the audit feature - otherwise the call is refused, with 403 for the access  rule and 404 for a folder that does not exist. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
+   * Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`; the URL of a CSV file too large for the editor  downloads it instead of opening it. An XLSX report keeps only the most recent events, at most 200,000 by default  and fewer when the events are long, and its header says how many were left out; `format=Csv` exports every event  of the period. `from` and `to` limit the exported period; leaving both out exports the whole history. While a  report for the same folder and caller is still running, this call joins it and answers with the running task  instead of starting a second one, so retrying is safe. The caller needs read access to the folder and may not be  a guest - otherwise the call is refused with 403, and a folder that does not exist with 404; the report is  available on every pricing plan, and 402 comes only when the login history and audit trail section is turned  off for the portal. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
    *
    * REST API Reference for createReportFolderHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-report-folder-history/
    *
    * @param folderId The folder whose history is exported; the report covers the folder itself and the entries inside it. (required)
-   * @param format The shape the report is written in: `Xlsx` produces a spreadsheet that is saved as a file of the portal, while  `Csv` produces a comma-separated text file that is uploaded to My documents without being reported back with  a file identifier. (optional)
+   * @param format The shape the report is written in: `Xlsx` produces a spreadsheet and `Csv` a comma-separated text file, and  either is saved as a file in My documents. (optional)
    * @param from The earliest moment an exported entry may have, read in the time zone of the portal; left out, the report  starts at the oldest entry the portal still keeps. (optional)
    * @param to The latest moment an exported entry may have, read in the time zone of the portal; left out, the report ends  at the newest entry. (optional)
    * @param additionalHeaders additionalHeaders for this call
@@ -736,12 +737,12 @@ public class FoldersApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/
    *
    * @param folderId The folder to delete, together with everything it holds. (required)
-   * @param deleteFolder How the deletion is to be carried out. (required)
+   * @param deleteFolderRequest How the deletion is to be carried out. (required)
    * @return FileOperationArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileOperationArrayWrapper deleteFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull DeleteFolder deleteFolder) throws ApiException {
-    return this.deleteFolder(folderId, deleteFolder, Collections.emptyMap());
+  public FileOperationArrayWrapper deleteFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull DeleteFolderRequest deleteFolderRequest) throws ApiException {
+    return this.deleteFolder(folderId, deleteFolderRequest, Collections.emptyMap());
   }
 
 
@@ -753,22 +754,22 @@ public class FoldersApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/
    *
    * @param folderId The folder to delete, together with everything it holds. (required)
-   * @param deleteFolder How the deletion is to be carried out. (required)
+   * @param deleteFolderRequest How the deletion is to be carried out. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileOperationArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileOperationArrayWrapper deleteFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull DeleteFolder deleteFolder, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = deleteFolder;
+  public FileOperationArrayWrapper deleteFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull DeleteFolderRequest deleteFolderRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = deleteFolderRequest;
     
     // verify the required parameter 'folderId' is set
     if (folderId == null) {
       throw new ApiException(400, "Missing the required parameter 'folderId' when calling deleteFolder");
     }
     
-    // verify the required parameter 'deleteFolder' is set
-    if (deleteFolder == null) {
-      throw new ApiException(400, "Missing the required parameter 'deleteFolder' when calling deleteFolder");
+    // verify the required parameter 'deleteFolderRequest' is set
+    if (deleteFolderRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'deleteFolderRequest' when calling deleteFolder");
     }
     
     // create path and map variables
@@ -827,12 +828,12 @@ public class FoldersApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/
    *
    * @param folderId The folder to delete, together with everything it holds. (required)
-   * @param deleteFolder How the deletion is to be carried out. (required)
+   * @param deleteFolderRequest How the deletion is to be carried out. (required)
    * @return FileOperationArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileOperationArrayWrapper deleteFolder(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull DeleteFolder deleteFolder) throws ApiException {
-    return this.deleteFolder(folderId, deleteFolder, Collections.emptyMap());
+  public FileOperationArrayWrapper deleteFolder(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull DeleteFolderRequest deleteFolderRequest) throws ApiException {
+    return this.deleteFolder(folderId, deleteFolderRequest, Collections.emptyMap());
   }
 
 
@@ -844,22 +845,22 @@ public class FoldersApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/
    *
    * @param folderId The folder to delete, together with everything it holds. (required)
-   * @param deleteFolder How the deletion is to be carried out. (required)
+   * @param deleteFolderRequest How the deletion is to be carried out. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return FileOperationArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileOperationArrayWrapper deleteFolder(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull DeleteFolder deleteFolder, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = deleteFolder;
+  public FileOperationArrayWrapper deleteFolder(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull DeleteFolderRequest deleteFolderRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = deleteFolderRequest;
     
     // verify the required parameter 'folderId' is set
     if (folderId == null) {
       throw new ApiException(400, "Missing the required parameter 'folderId' when calling deleteFolder");
     }
     
-    // verify the required parameter 'deleteFolder' is set
-    if (deleteFolder == null) {
-      throw new ApiException(400, "Missing the required parameter 'deleteFolder' when calling deleteFolder");
+    // verify the required parameter 'deleteFolderRequest' is set
+    if (deleteFolderRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'deleteFolderRequest' when calling deleteFolder");
     }
     
     // create path and map variables
@@ -1008,11 +1009,14 @@ public class FoldersApi extends BaseApi {
    * @param sortBy The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional)
    * @param sortOrder The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)
    * @param filterValue The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. (optional)
+   * @param metadataTemplateId The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)
+   * @param metadataFilters The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)
+   * @param includeHiddenMetadata Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)
    * @return FolderContentWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentWrapper getFavoritesFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue) throws ApiException {
-    return this.getFavoritesFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, Collections.emptyMap());
+  public FolderContentWrapper getFavoritesFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer metadataTemplateId, @javax.annotation.Nullable String metadataFilters, @javax.annotation.Nullable Boolean includeHiddenMetadata) throws ApiException {
+    return this.getFavoritesFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, includeHiddenMetadata, Collections.emptyMap());
   }
 
 
@@ -1030,11 +1034,14 @@ public class FoldersApi extends BaseApi {
    * @param sortBy The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional)
    * @param sortOrder The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)
    * @param filterValue The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. (optional)
+   * @param metadataTemplateId The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)
+   * @param metadataFilters The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)
+   * @param includeHiddenMetadata Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FolderContentWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentWrapper getFavoritesFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public FolderContentWrapper getFavoritesFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer metadataTemplateId, @javax.annotation.Nullable String metadataFilters, @javax.annotation.Nullable Boolean includeHiddenMetadata, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -1055,6 +1062,9 @@ public class FoldersApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("sortBy", sortBy));
     localVarQueryParams.addAll(apiClient.parameterToPair("sortOrder", sortOrder));
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
+    localVarQueryParams.addAll(apiClient.parameterToPair("metadataTemplateId", metadataTemplateId));
+    localVarQueryParams.addAll(apiClient.parameterToPair("metadataFilters", metadataFilters));
+    localVarQueryParams.addAll(apiClient.parameterToPair("includeHiddenMetadata", includeHiddenMetadata));
       
     if (this.fields != null)
       localVarHeaderParams.put("fields", this.fields);
@@ -1279,11 +1289,14 @@ public class FoldersApi extends BaseApi {
    * @param sortOrder The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)
    * @param filterValue The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)
    * @param location Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)
+   * @param metadataTemplateId The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)
+   * @param metadataFilters The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq (the whole value) or contains (a part of it); a number or a date field takes range with inclusive bounds,  or gt, gte, lt, lte with the single bound in value; a choice field takes in. A date-only bound covers the whole day,  so to:2026-06-30 includes the values stored on 30 June and gt:2026-06-30 starts after it.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)
+   * @param includeHiddenMetadata Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)
    * @return FolderContentWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentWrapper getFolderByFolderId(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable UUID sharedBy, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer roomId, @javax.annotation.Nullable List<Integer> folderType, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Boolean withSubFolders, @javax.annotation.Nullable String extension, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable String formsItemKey, @javax.annotation.Nullable String formsItemType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Location location) throws ApiException {
-    return this.getFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, Collections.emptyMap());
+  public FolderContentWrapper getFolderByFolderId(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable UUID sharedBy, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer roomId, @javax.annotation.Nullable List<Integer> folderType, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Boolean withSubFolders, @javax.annotation.Nullable String extension, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable String formsItemKey, @javax.annotation.Nullable String formsItemType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable RequestLocation location, @javax.annotation.Nullable Integer metadataTemplateId, @javax.annotation.Nullable String metadataFilters, @javax.annotation.Nullable Boolean includeHiddenMetadata) throws ApiException {
+    return this.getFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, metadataTemplateId, metadataFilters, includeHiddenMetadata, Collections.emptyMap());
   }
 
 
@@ -1313,11 +1326,14 @@ public class FoldersApi extends BaseApi {
    * @param sortOrder The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)
    * @param filterValue The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)
    * @param location Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)
+   * @param metadataTemplateId The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)
+   * @param metadataFilters The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq (the whole value) or contains (a part of it); a number or a date field takes range with inclusive bounds,  or gt, gte, lt, lte with the single bound in value; a choice field takes in. A date-only bound covers the whole day,  so to:2026-06-30 includes the values stored on 30 June and gt:2026-06-30 starts after it.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)
+   * @param includeHiddenMetadata Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FolderContentWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentWrapper getFolderByFolderId(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable UUID sharedBy, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer roomId, @javax.annotation.Nullable List<Integer> folderType, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Boolean withSubFolders, @javax.annotation.Nullable String extension, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable String formsItemKey, @javax.annotation.Nullable String formsItemType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Location location, Map<String, String> additionalHeaders) throws ApiException {
+  public FolderContentWrapper getFolderByFolderId(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable UUID sharedBy, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer roomId, @javax.annotation.Nullable List<Integer> folderType, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Boolean withSubFolders, @javax.annotation.Nullable String extension, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable String formsItemKey, @javax.annotation.Nullable String formsItemType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable RequestLocation location, @javax.annotation.Nullable Integer metadataTemplateId, @javax.annotation.Nullable String metadataFilters, @javax.annotation.Nullable Boolean includeHiddenMetadata, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'folderId' is set
@@ -1354,7 +1370,10 @@ public class FoldersApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("sortBy", sortBy));
     localVarQueryParams.addAll(apiClient.parameterToPair("sortOrder", sortOrder));
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
-    localVarQueryParams.addAll(apiClient.parameterToPair("Location", location));
+    localVarQueryParams.addAll(apiClient.parameterToPair("location", location));
+    localVarQueryParams.addAll(apiClient.parameterToPair("metadataTemplateId", metadataTemplateId));
+    localVarQueryParams.addAll(apiClient.parameterToPair("metadataFilters", metadataFilters));
+    localVarQueryParams.addAll(apiClient.parameterToPair("includeHiddenMetadata", includeHiddenMetadata));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -1417,11 +1436,14 @@ public class FoldersApi extends BaseApi {
    * @param sortOrder The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)
    * @param filterValue The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)
    * @param location Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)
+   * @param metadataTemplateId The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)
+   * @param metadataFilters The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq (the whole value) or contains (a part of it); a number or a date field takes range with inclusive bounds,  or gt, gte, lt, lte with the single bound in value; a choice field takes in. A date-only bound covers the whole day,  so to:2026-06-30 includes the values stored on 30 June and gt:2026-06-30 starts after it.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)
+   * @param includeHiddenMetadata Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)
    * @return ThirdPartyFolderContentWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFolderContentWrapper getFolderByFolderId(@javax.annotation.Nonnull String folderId, @javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable UUID sharedBy, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable String roomId, @javax.annotation.Nullable List<Integer> folderType, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Boolean withSubFolders, @javax.annotation.Nullable String extension, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable String formsItemKey, @javax.annotation.Nullable String formsItemType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Location location) throws ApiException {
-    return this.getFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, Collections.emptyMap());
+  public ThirdPartyFolderContentWrapper getFolderByFolderId(@javax.annotation.Nonnull String folderId, @javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable UUID sharedBy, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable String roomId, @javax.annotation.Nullable List<Integer> folderType, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Boolean withSubFolders, @javax.annotation.Nullable String extension, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable String formsItemKey, @javax.annotation.Nullable String formsItemType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable RequestLocation location, @javax.annotation.Nullable Integer metadataTemplateId, @javax.annotation.Nullable String metadataFilters, @javax.annotation.Nullable Boolean includeHiddenMetadata) throws ApiException {
+    return this.getFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, metadataTemplateId, metadataFilters, includeHiddenMetadata, Collections.emptyMap());
   }
 
 
@@ -1451,11 +1473,14 @@ public class FoldersApi extends BaseApi {
    * @param sortOrder The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)
    * @param filterValue The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)
    * @param location Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)
+   * @param metadataTemplateId The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)
+   * @param metadataFilters The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq (the whole value) or contains (a part of it); a number or a date field takes range with inclusive bounds,  or gt, gte, lt, lte with the single bound in value; a choice field takes in. A date-only bound covers the whole day,  so to:2026-06-30 includes the values stored on 30 June and gt:2026-06-30 starts after it.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)
+   * @param includeHiddenMetadata Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return ThirdPartyFolderContentWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFolderContentWrapper getFolderByFolderId(@javax.annotation.Nonnull String folderId, @javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable UUID sharedBy, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable String roomId, @javax.annotation.Nullable List<Integer> folderType, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Boolean withSubFolders, @javax.annotation.Nullable String extension, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable String formsItemKey, @javax.annotation.Nullable String formsItemType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Location location, Map<String, String> additionalHeaders) throws ApiException {
+  public ThirdPartyFolderContentWrapper getFolderByFolderId(@javax.annotation.Nonnull String folderId, @javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable UUID sharedBy, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable String roomId, @javax.annotation.Nullable List<Integer> folderType, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Boolean withSubFolders, @javax.annotation.Nullable String extension, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable String formsItemKey, @javax.annotation.Nullable String formsItemType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable RequestLocation location, @javax.annotation.Nullable Integer metadataTemplateId, @javax.annotation.Nullable String metadataFilters, @javax.annotation.Nullable Boolean includeHiddenMetadata, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'folderId' is set
@@ -1492,7 +1517,10 @@ public class FoldersApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("sortBy", sortBy));
     localVarQueryParams.addAll(apiClient.parameterToPair("sortOrder", sortOrder));
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
-    localVarQueryParams.addAll(apiClient.parameterToPair("Location", location));
+    localVarQueryParams.addAll(apiClient.parameterToPair("location", location));
+    localVarQueryParams.addAll(apiClient.parameterToPair("metadataTemplateId", metadataTemplateId));
+    localVarQueryParams.addAll(apiClient.parameterToPair("metadataFilters", metadataFilters));
+    localVarQueryParams.addAll(apiClient.parameterToPair("includeHiddenMetadata", includeHiddenMetadata));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -2479,7 +2507,7 @@ public class FoldersApi extends BaseApi {
 
   /**
    * Get the Forms section
-   * Returns the Forms section: the flat list of form-filling rooms the caller may read. Such rooms are stored  under the Rooms tree but are surfaced only here, so `GET api/2.0/files/rooms` leaves them out of the active  area and lists them when `searchArea` names the forms area instead. The section is not expanded into room  content, so `folders` carries the rooms while `files` comes back empty; to read what is inside one of them,  call `GET api/2.0/files/{folderId}` with the room identifier. Nothing is modified, though passing `sortBy`  saves the requested order as the default order for this account. `filterType`, `filterValue`,  `userIdOrGroupId` and the sorting parameters narrow and order the room list, `count` and `startIndex` page  through it, `total` reports how many rooms match the request in full, and `current` describes the section  folder itself.
+   * Returns the Forms section: the flat list of form-filling rooms the caller may read. Such rooms are stored  under the Rooms tree but are surfaced only here, so `GET api/2.0/files/rooms` leaves them out of the active  area and lists them when `searchArea` names the forms area instead. The section is not expanded into room  content, so `folders` carries the rooms while `files` comes back empty; to read what is inside one of them,  call `GET api/2.0/files/{folderId}` with the room identifier. Nothing is modified, though passing `sortBy`  saves the requested order as the default order for this account. `filterType`, `filterValue`,  `userIdOrGroupId` and the sorting parameters narrow and order the room list, `metadataTemplateId` and  `metadataFilters` keep only the rooms carrying the template and matching the conditions (an unknown template  or field, or a malformed condition, is refused with 400), `count` and `startIndex` page through it, `total`  reports how many rooms match the request in full, and `current` describes the section folder itself.
    *
    * REST API Reference for getFormsFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-forms-folder/
@@ -2491,17 +2519,20 @@ public class FoldersApi extends BaseApi {
    * @param sortBy The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional)
    * @param sortOrder The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)
    * @param filterValue The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. (optional)
+   * @param metadataTemplateId The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)
+   * @param metadataFilters The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)
+   * @param includeHiddenMetadata Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)
    * @return FolderContentWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentWrapper getFormsFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue) throws ApiException {
-    return this.getFormsFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, Collections.emptyMap());
+  public FolderContentWrapper getFormsFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer metadataTemplateId, @javax.annotation.Nullable String metadataFilters, @javax.annotation.Nullable Boolean includeHiddenMetadata) throws ApiException {
+    return this.getFormsFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, includeHiddenMetadata, Collections.emptyMap());
   }
 
 
   /**
    * Get the Forms section
-   * Returns the Forms section: the flat list of form-filling rooms the caller may read. Such rooms are stored  under the Rooms tree but are surfaced only here, so `GET api/2.0/files/rooms` leaves them out of the active  area and lists them when `searchArea` names the forms area instead. The section is not expanded into room  content, so `folders` carries the rooms while `files` comes back empty; to read what is inside one of them,  call `GET api/2.0/files/{folderId}` with the room identifier. Nothing is modified, though passing `sortBy`  saves the requested order as the default order for this account. `filterType`, `filterValue`,  `userIdOrGroupId` and the sorting parameters narrow and order the room list, `count` and `startIndex` page  through it, `total` reports how many rooms match the request in full, and `current` describes the section  folder itself.
+   * Returns the Forms section: the flat list of form-filling rooms the caller may read. Such rooms are stored  under the Rooms tree but are surfaced only here, so `GET api/2.0/files/rooms` leaves them out of the active  area and lists them when `searchArea` names the forms area instead. The section is not expanded into room  content, so `folders` carries the rooms while `files` comes back empty; to read what is inside one of them,  call `GET api/2.0/files/{folderId}` with the room identifier. Nothing is modified, though passing `sortBy`  saves the requested order as the default order for this account. `filterType`, `filterValue`,  `userIdOrGroupId` and the sorting parameters narrow and order the room list, `metadataTemplateId` and  `metadataFilters` keep only the rooms carrying the template and matching the conditions (an unknown template  or field, or a malformed condition, is refused with 400), `count` and `startIndex` page through it, `total`  reports how many rooms match the request in full, and `current` describes the section folder itself.
    *
    * REST API Reference for getFormsFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-forms-folder/
@@ -2513,11 +2544,14 @@ public class FoldersApi extends BaseApi {
    * @param sortBy The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional)
    * @param sortOrder The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)
    * @param filterValue The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. (optional)
+   * @param metadataTemplateId The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)
+   * @param metadataFilters The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)
+   * @param includeHiddenMetadata Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FolderContentWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentWrapper getFormsFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public FolderContentWrapper getFormsFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer metadataTemplateId, @javax.annotation.Nullable String metadataFilters, @javax.annotation.Nullable Boolean includeHiddenMetadata, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -2538,6 +2572,9 @@ public class FoldersApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("sortBy", sortBy));
     localVarQueryParams.addAll(apiClient.parameterToPair("sortOrder", sortOrder));
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
+    localVarQueryParams.addAll(apiClient.parameterToPair("metadataTemplateId", metadataTemplateId));
+    localVarQueryParams.addAll(apiClient.parameterToPair("metadataFilters", metadataFilters));
+    localVarQueryParams.addAll(apiClient.parameterToPair("includeHiddenMetadata", includeHiddenMetadata));
       
     if (this.fields != null)
       localVarHeaderParams.put("fields", this.fields);
@@ -2578,7 +2615,7 @@ public class FoldersApi extends BaseApi {
 
   /**
    * Get the My documents section
-   * Returns the contents of the caller's My documents section, the personal storage that belongs to this account  alone and stays invisible to other members until something in it is shared explicitly. Any authenticated  member that has a personal section can read it; guest accounts are not given one, and the call then answers  404. Nothing in the section is modified, though passing `sortBy` saves the requested order as the default  order for this account. Without a filter only the top level of the section is listed; as soon as `filterType`,  `userIdOrGroupId` or `filterValue` narrows the request, the search descends through the whole subtree.  `filterValue` is matched against titles and against indexed document content, and the index is written  asynchronously, so a file uploaded a moment ago can be missing from a search for a short while. `folders` and  `files` hold one page of the result, `total` counts everything that matches before `count` and `startIndex`  are applied, and `current` describes the section folder. To open a folder inside the section, call  `GET api/2.0/files/{folderId}` with its identifier.
+   * Returns the contents of the caller's My documents section, the personal storage that belongs to this account  alone and stays invisible to other members until something in it is shared explicitly. Any authenticated  member that has a personal section can read it; guest accounts are not given one, and the call then answers  404. Nothing in the section is modified, though passing `sortBy` saves the requested order as the default  order for this account. Without a filter only the top level of the section is listed; as soon as `filterType`,  `userIdOrGroupId`, `filterValue` or a metadata filter narrows the request, the search descends through the whole  subtree. `filterValue` is matched against titles and against indexed document content, and the index is written  asynchronously, so a file uploaded a moment ago can be missing from a search for a short while.  `metadataTemplateId` and `metadataFilters` keep only the entries carrying the template and matching the  conditions, the same way `GET api/2.0/files/{folderId}` does; an unknown template or field, or a malformed  condition, is refused with 400. `folders` and `files` hold one page of the result, `total` counts everything  that matches before `count` and `startIndex` are applied, and `current` describes the section folder. To open  a folder inside the section, call `GET api/2.0/files/{folderId}` with its identifier.
    *
    * REST API Reference for getMyFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/
@@ -2591,17 +2628,20 @@ public class FoldersApi extends BaseApi {
    * @param sortBy The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional)
    * @param sortOrder The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)
    * @param filterValue The search string the section is filtered by, matched as a substring of entry titles. Omit it to list the  section unfiltered. (optional)
+   * @param metadataTemplateId The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)
+   * @param metadataFilters The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)
+   * @param includeHiddenMetadata Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)
    * @return FolderContentWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentWrapper getMyFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue) throws ApiException {
-    return this.getMyFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, Collections.emptyMap());
+  public FolderContentWrapper getMyFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer metadataTemplateId, @javax.annotation.Nullable String metadataFilters, @javax.annotation.Nullable Boolean includeHiddenMetadata) throws ApiException {
+    return this.getMyFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, includeHiddenMetadata, Collections.emptyMap());
   }
 
 
   /**
    * Get the My documents section
-   * Returns the contents of the caller's My documents section, the personal storage that belongs to this account  alone and stays invisible to other members until something in it is shared explicitly. Any authenticated  member that has a personal section can read it; guest accounts are not given one, and the call then answers  404. Nothing in the section is modified, though passing `sortBy` saves the requested order as the default  order for this account. Without a filter only the top level of the section is listed; as soon as `filterType`,  `userIdOrGroupId` or `filterValue` narrows the request, the search descends through the whole subtree.  `filterValue` is matched against titles and against indexed document content, and the index is written  asynchronously, so a file uploaded a moment ago can be missing from a search for a short while. `folders` and  `files` hold one page of the result, `total` counts everything that matches before `count` and `startIndex`  are applied, and `current` describes the section folder. To open a folder inside the section, call  `GET api/2.0/files/{folderId}` with its identifier.
+   * Returns the contents of the caller's My documents section, the personal storage that belongs to this account  alone and stays invisible to other members until something in it is shared explicitly. Any authenticated  member that has a personal section can read it; guest accounts are not given one, and the call then answers  404. Nothing in the section is modified, though passing `sortBy` saves the requested order as the default  order for this account. Without a filter only the top level of the section is listed; as soon as `filterType`,  `userIdOrGroupId`, `filterValue` or a metadata filter narrows the request, the search descends through the whole  subtree. `filterValue` is matched against titles and against indexed document content, and the index is written  asynchronously, so a file uploaded a moment ago can be missing from a search for a short while.  `metadataTemplateId` and `metadataFilters` keep only the entries carrying the template and matching the  conditions, the same way `GET api/2.0/files/{folderId}` does; an unknown template or field, or a malformed  condition, is refused with 400. `folders` and `files` hold one page of the result, `total` counts everything  that matches before `count` and `startIndex` are applied, and `current` describes the section folder. To open  a folder inside the section, call `GET api/2.0/files/{folderId}` with its identifier.
    *
    * REST API Reference for getMyFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/
@@ -2614,11 +2654,14 @@ public class FoldersApi extends BaseApi {
    * @param sortBy The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional)
    * @param sortOrder The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)
    * @param filterValue The search string the section is filtered by, matched as a substring of entry titles. Omit it to list the  section unfiltered. (optional)
+   * @param metadataTemplateId The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)
+   * @param metadataFilters The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)
+   * @param includeHiddenMetadata Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FolderContentWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentWrapper getMyFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public FolderContentWrapper getMyFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer metadataTemplateId, @javax.annotation.Nullable String metadataFilters, @javax.annotation.Nullable Boolean includeHiddenMetadata, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -2640,6 +2683,9 @@ public class FoldersApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("sortBy", sortBy));
     localVarQueryParams.addAll(apiClient.parameterToPair("sortOrder", sortOrder));
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
+    localVarQueryParams.addAll(apiClient.parameterToPair("metadataTemplateId", metadataTemplateId));
+    localVarQueryParams.addAll(apiClient.parameterToPair("metadataFilters", metadataFilters));
+    localVarQueryParams.addAll(apiClient.parameterToPair("includeHiddenMetadata", includeHiddenMetadata));
       
     if (this.fields != null)
       localVarHeaderParams.put("fields", this.fields);
@@ -2864,11 +2910,14 @@ public class FoldersApi extends BaseApi {
    * @param sortBy The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. The Recent section keeps its own newest-first order, so the value does not  reorder this listing. (optional)
    * @param sortOrder The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. The Recent section keeps its own newest-first order, so the value does not reorder this  listing. (optional)
    * @param filterValue The search string the history is filtered by: it is matched as a substring of file titles and against the  indexed document content as well. Omit it to list the whole history. (optional)
+   * @param metadataTemplateId The ID of the metadata template the recent files must be assigned to. On its own it narrows the listing to the files  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party files never carry metadata and are left out when the filter is set. (optional)
+   * @param metadataFilters The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)
+   * @param includeHiddenMetadata Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)
    * @return FolderContentWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentWrapper getRecentFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable List<String> extension, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue) throws ApiException {
-    return this.getRecentFolder(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue, Collections.emptyMap());
+  public FolderContentWrapper getRecentFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable List<String> extension, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer metadataTemplateId, @javax.annotation.Nullable String metadataFilters, @javax.annotation.Nullable Boolean includeHiddenMetadata) throws ApiException {
+    return this.getRecentFolder(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, includeHiddenMetadata, Collections.emptyMap());
   }
 
 
@@ -2890,11 +2939,14 @@ public class FoldersApi extends BaseApi {
    * @param sortBy The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. The Recent section keeps its own newest-first order, so the value does not  reorder this listing. (optional)
    * @param sortOrder The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. The Recent section keeps its own newest-first order, so the value does not reorder this  listing. (optional)
    * @param filterValue The search string the history is filtered by: it is matched as a substring of file titles and against the  indexed document content as well. Omit it to list the whole history. (optional)
+   * @param metadataTemplateId The ID of the metadata template the recent files must be assigned to. On its own it narrows the listing to the files  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party files never carry metadata and are left out when the filter is set. (optional)
+   * @param metadataFilters The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)
+   * @param includeHiddenMetadata Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FolderContentWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentWrapper getRecentFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable List<String> extension, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public FolderContentWrapper getRecentFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable SearchArea searchArea, @javax.annotation.Nullable List<String> extension, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer metadataTemplateId, @javax.annotation.Nullable String metadataFilters, @javax.annotation.Nullable Boolean includeHiddenMetadata, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -2919,6 +2971,9 @@ public class FoldersApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("sortBy", sortBy));
     localVarQueryParams.addAll(apiClient.parameterToPair("sortOrder", sortOrder));
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
+    localVarQueryParams.addAll(apiClient.parameterToPair("metadataTemplateId", metadataTemplateId));
+    localVarQueryParams.addAll(apiClient.parameterToPair("metadataFilters", metadataFilters));
+    localVarQueryParams.addAll(apiClient.parameterToPair("includeHiddenMetadata", includeHiddenMetadata));
       
     if (this.fields != null)
       localVarHeaderParams.put("fields", this.fields);
@@ -2959,7 +3014,7 @@ public class FoldersApi extends BaseApi {
 
   /**
    * Get the folder history report generation status
-   * Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and  `resultFileId`, `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My  documents - a CSV report leaving the identifier empty. An empty answer means there is no report for this  folder and caller, either because none was started or because a finished one has already been picked up by an  earlier poll. The caller needs read access to the folder and may not be a guest, and the portal plan has to  include the audit feature; a caller who fails the access rule is answered with 403 and a folder that does not  exist with 404. The call is read-only, and each caller sees only their own report.
+   * Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and `resultFileId`,  `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My documents. An empty  answer means there is no report for this folder and caller, either because none was started or because a  finished one has already been picked up by an earlier poll. The caller needs read access to the folder and may  not be a guest; a caller who fails the access rule is answered with 403, a folder that does not exist with 404,  and a portal with the login history and audit trail section turned off with 402. The call is read-only, and each caller sees only  their own report.
    *
    * REST API Reference for getReportFolderHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-report-folder-history/
@@ -2975,7 +3030,7 @@ public class FoldersApi extends BaseApi {
 
   /**
    * Get the folder history report generation status
-   * Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and  `resultFileId`, `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My  documents - a CSV report leaving the identifier empty. An empty answer means there is no report for this  folder and caller, either because none was started or because a finished one has already been picked up by an  earlier poll. The caller needs read access to the folder and may not be a guest, and the portal plan has to  include the audit feature; a caller who fails the access rule is answered with 403 and a folder that does not  exist with 404. The call is read-only, and each caller sees only their own report.
+   * Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and `resultFileId`,  `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My documents. An empty  answer means there is no report for this folder and caller, either because none was started or because a  finished one has already been picked up by an earlier poll. The caller needs read access to the folder and may  not be a guest; a caller who fails the access rule is answered with 403, a folder that does not exist with 404,  and a portal with the login history and audit trail section turned off with 402. The call is read-only, and each caller sees only  their own report.
    *
    * REST API Reference for getReportFolderHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-report-folder-history/
@@ -3145,7 +3200,7 @@ public class FoldersApi extends BaseApi {
 
   /**
    * Get the Trash section
-   * Returns the caller's Trash section: the files and folders this account has deleted, kept there until they  are restored or discarded. Each member has a Trash of their own and sees only what they deleted themselves.  Restore an entry by moving it back with `PUT api/2.0/files/fileops/move`, or discard the whole section with  `PUT api/2.0/files/fileops/emptytrash`; both start a background operation that is polled through  `GET api/2.0/files/fileops`. This call itself modifies nothing, though passing `sortBy` saves the requested  order as the default order for this account. Only the top level of the section is listed, so the contents of a  deleted folder are not expanded into it, and `filterValue` is matched against titles alone here rather than  against document content. `folders` and `files` hold one page of the result, `total` counts everything that  matches before `count` and `startIndex` are applied, and `current` describes the section folder. An account  that is given no Trash of its own, an outsider for instance, receives 404.
+   * Returns the caller's Trash section: the files and folders this account has deleted, kept there until they  are restored or discarded. Each member has a Trash of their own and sees only what they deleted themselves.  Restore an entry by moving it back with `PUT api/2.0/files/fileops/move`, or discard the whole section with  `PUT api/2.0/files/fileops/emptytrash`; both start a background operation that is polled through  `GET api/2.0/files/fileops`. This call itself modifies nothing, though passing `sortBy` saves the requested  order as the default order for this account. Only the top level of the section is listed, so the contents of a  deleted folder are not expanded into it, and `filterValue` is matched against titles alone here rather than  against document content. `metadataTemplateId` and `metadataFilters` keep only the deleted entries carrying the  template and matching the conditions, the same way `GET api/2.0/files/{folderId}` does; an unknown template or  field, or a malformed condition, is refused with 400. `folders` and `files` hold one page of the result,  `total` counts everything that matches before `count` and `startIndex` are applied, and `current` describes  the section folder. An account that is given no Trash of its own, an outsider for instance, receives 404.
    *
    * REST API Reference for getTrashFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/
@@ -3158,17 +3213,20 @@ public class FoldersApi extends BaseApi {
    * @param sortBy The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional)
    * @param sortOrder The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)
    * @param filterValue The search string the section is filtered by, matched as a substring of entry titles. Omit it to list the  section unfiltered. (optional)
+   * @param metadataTemplateId The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)
+   * @param metadataFilters The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)
+   * @param includeHiddenMetadata Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)
    * @return FolderContentWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentWrapper getTrashFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue) throws ApiException {
-    return this.getTrashFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, Collections.emptyMap());
+  public FolderContentWrapper getTrashFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer metadataTemplateId, @javax.annotation.Nullable String metadataFilters, @javax.annotation.Nullable Boolean includeHiddenMetadata) throws ApiException {
+    return this.getTrashFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, includeHiddenMetadata, Collections.emptyMap());
   }
 
 
   /**
    * Get the Trash section
-   * Returns the caller's Trash section: the files and folders this account has deleted, kept there until they  are restored or discarded. Each member has a Trash of their own and sees only what they deleted themselves.  Restore an entry by moving it back with `PUT api/2.0/files/fileops/move`, or discard the whole section with  `PUT api/2.0/files/fileops/emptytrash`; both start a background operation that is polled through  `GET api/2.0/files/fileops`. This call itself modifies nothing, though passing `sortBy` saves the requested  order as the default order for this account. Only the top level of the section is listed, so the contents of a  deleted folder are not expanded into it, and `filterValue` is matched against titles alone here rather than  against document content. `folders` and `files` hold one page of the result, `total` counts everything that  matches before `count` and `startIndex` are applied, and `current` describes the section folder. An account  that is given no Trash of its own, an outsider for instance, receives 404.
+   * Returns the caller's Trash section: the files and folders this account has deleted, kept there until they  are restored or discarded. Each member has a Trash of their own and sees only what they deleted themselves.  Restore an entry by moving it back with `PUT api/2.0/files/fileops/move`, or discard the whole section with  `PUT api/2.0/files/fileops/emptytrash`; both start a background operation that is polled through  `GET api/2.0/files/fileops`. This call itself modifies nothing, though passing `sortBy` saves the requested  order as the default order for this account. Only the top level of the section is listed, so the contents of a  deleted folder are not expanded into it, and `filterValue` is matched against titles alone here rather than  against document content. `metadataTemplateId` and `metadataFilters` keep only the deleted entries carrying the  template and matching the conditions, the same way `GET api/2.0/files/{folderId}` does; an unknown template or  field, or a malformed condition, is refused with 400. `folders` and `files` hold one page of the result,  `total` counts everything that matches before `count` and `startIndex` are applied, and `current` describes  the section folder. An account that is given no Trash of its own, an outsider for instance, receives 404.
    *
    * REST API Reference for getTrashFolder Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/
@@ -3181,11 +3239,14 @@ public class FoldersApi extends BaseApi {
    * @param sortBy The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional)
    * @param sortOrder The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)
    * @param filterValue The search string the section is filtered by, matched as a substring of entry titles. Omit it to list the  section unfiltered. (optional)
+   * @param metadataTemplateId The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)
+   * @param metadataFilters The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)
+   * @param includeHiddenMetadata Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FolderContentWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentWrapper getTrashFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public FolderContentWrapper getTrashFolder(@javax.annotation.Nullable UUID userIdOrGroupId, @javax.annotation.Nullable FilterType filterType, @javax.annotation.Nullable ApplyFilterOption applyFilterOption, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable Integer metadataTemplateId, @javax.annotation.Nullable String metadataFilters, @javax.annotation.Nullable Boolean includeHiddenMetadata, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -3207,6 +3268,9 @@ public class FoldersApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("sortBy", sortBy));
     localVarQueryParams.addAll(apiClient.parameterToPair("sortOrder", sortOrder));
     localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
+    localVarQueryParams.addAll(apiClient.parameterToPair("metadataTemplateId", metadataTemplateId));
+    localVarQueryParams.addAll(apiClient.parameterToPair("metadataFilters", metadataFilters));
+    localVarQueryParams.addAll(apiClient.parameterToPair("includeHiddenMetadata", includeHiddenMetadata));
       
     if (this.fields != null)
       localVarHeaderParams.put("fields", this.fields);
@@ -3323,29 +3387,29 @@ public class FoldersApi extends BaseApi {
 
     
     if (insertFileFile != null)
-      localVarFormParams.put("InsertFile.File", insertFileFile);
+      localVarFormParams.put("insertFile.file", insertFileFile);
 if (insertFileTitle != null)
-      localVarFormParams.put("InsertFile.Title", insertFileTitle);
+      localVarFormParams.put("insertFile.title", insertFileTitle);
 if (insertFileCreateNewIfExist != null)
-      localVarFormParams.put("InsertFile.CreateNewIfExist", insertFileCreateNewIfExist);
+      localVarFormParams.put("insertFile.createNewIfExist", insertFileCreateNewIfExist);
 if (insertFileKeepConvertStatus != null)
-      localVarFormParams.put("InsertFile.KeepConvertStatus", insertFileKeepConvertStatus);
+      localVarFormParams.put("insertFile.keepConvertStatus", insertFileKeepConvertStatus);
 if (insertFileStreamCanRead != null)
-      localVarFormParams.put("InsertFile.Stream.CanRead", insertFileStreamCanRead);
+      localVarFormParams.put("insertFile.stream.canRead", insertFileStreamCanRead);
 if (insertFileStreamCanWrite != null)
-      localVarFormParams.put("InsertFile.Stream.CanWrite", insertFileStreamCanWrite);
+      localVarFormParams.put("insertFile.stream.canWrite", insertFileStreamCanWrite);
 if (insertFileStreamCanSeek != null)
-      localVarFormParams.put("InsertFile.Stream.CanSeek", insertFileStreamCanSeek);
+      localVarFormParams.put("insertFile.stream.canSeek", insertFileStreamCanSeek);
 if (insertFileStreamCanTimeout != null)
-      localVarFormParams.put("InsertFile.Stream.CanTimeout", insertFileStreamCanTimeout);
+      localVarFormParams.put("insertFile.stream.canTimeout", insertFileStreamCanTimeout);
 if (insertFileStreamLength != null)
-      localVarFormParams.put("InsertFile.Stream.Length", insertFileStreamLength);
+      localVarFormParams.put("insertFile.stream.length", insertFileStreamLength);
 if (insertFileStreamPosition != null)
-      localVarFormParams.put("InsertFile.Stream.Position", insertFileStreamPosition);
+      localVarFormParams.put("insertFile.stream.position", insertFileStreamPosition);
 if (insertFileStreamReadTimeout != null)
-      localVarFormParams.put("InsertFile.Stream.ReadTimeout", insertFileStreamReadTimeout);
+      localVarFormParams.put("insertFile.stream.readTimeout", insertFileStreamReadTimeout);
 if (insertFileStreamWriteTimeout != null)
-      localVarFormParams.put("InsertFile.Stream.WriteTimeout", insertFileStreamWriteTimeout);
+      localVarFormParams.put("insertFile.stream.writeTimeout", insertFileStreamWriteTimeout);
 
     final String[] localVarAccepts = {
       "application/json"
@@ -3455,29 +3519,29 @@ if (insertFileStreamWriteTimeout != null)
 
     
     if (insertFileFile != null)
-      localVarFormParams.put("InsertFile.File", insertFileFile);
+      localVarFormParams.put("insertFile.file", insertFileFile);
 if (insertFileTitle != null)
-      localVarFormParams.put("InsertFile.Title", insertFileTitle);
+      localVarFormParams.put("insertFile.title", insertFileTitle);
 if (insertFileCreateNewIfExist != null)
-      localVarFormParams.put("InsertFile.CreateNewIfExist", insertFileCreateNewIfExist);
+      localVarFormParams.put("insertFile.createNewIfExist", insertFileCreateNewIfExist);
 if (insertFileKeepConvertStatus != null)
-      localVarFormParams.put("InsertFile.KeepConvertStatus", insertFileKeepConvertStatus);
+      localVarFormParams.put("insertFile.keepConvertStatus", insertFileKeepConvertStatus);
 if (insertFileStreamCanRead != null)
-      localVarFormParams.put("InsertFile.Stream.CanRead", insertFileStreamCanRead);
+      localVarFormParams.put("insertFile.stream.canRead", insertFileStreamCanRead);
 if (insertFileStreamCanWrite != null)
-      localVarFormParams.put("InsertFile.Stream.CanWrite", insertFileStreamCanWrite);
+      localVarFormParams.put("insertFile.stream.canWrite", insertFileStreamCanWrite);
 if (insertFileStreamCanSeek != null)
-      localVarFormParams.put("InsertFile.Stream.CanSeek", insertFileStreamCanSeek);
+      localVarFormParams.put("insertFile.stream.canSeek", insertFileStreamCanSeek);
 if (insertFileStreamCanTimeout != null)
-      localVarFormParams.put("InsertFile.Stream.CanTimeout", insertFileStreamCanTimeout);
+      localVarFormParams.put("insertFile.stream.canTimeout", insertFileStreamCanTimeout);
 if (insertFileStreamLength != null)
-      localVarFormParams.put("InsertFile.Stream.Length", insertFileStreamLength);
+      localVarFormParams.put("insertFile.stream.length", insertFileStreamLength);
 if (insertFileStreamPosition != null)
-      localVarFormParams.put("InsertFile.Stream.Position", insertFileStreamPosition);
+      localVarFormParams.put("insertFile.stream.position", insertFileStreamPosition);
 if (insertFileStreamReadTimeout != null)
-      localVarFormParams.put("InsertFile.Stream.ReadTimeout", insertFileStreamReadTimeout);
+      localVarFormParams.put("insertFile.stream.readTimeout", insertFileStreamReadTimeout);
 if (insertFileStreamWriteTimeout != null)
-      localVarFormParams.put("InsertFile.Stream.WriteTimeout", insertFileStreamWriteTimeout);
+      localVarFormParams.put("insertFile.stream.writeTimeout", insertFileStreamWriteTimeout);
 
     final String[] localVarAccepts = {
       "application/json"
@@ -3579,29 +3643,29 @@ if (insertFileStreamWriteTimeout != null)
 
     
     if (_file != null)
-      localVarFormParams.put("File", _file);
+      localVarFormParams.put("file", _file);
 if (title != null)
-      localVarFormParams.put("Title", title);
+      localVarFormParams.put("title", title);
 if (createNewIfExist != null)
-      localVarFormParams.put("CreateNewIfExist", createNewIfExist);
+      localVarFormParams.put("createNewIfExist", createNewIfExist);
 if (keepConvertStatus != null)
-      localVarFormParams.put("KeepConvertStatus", keepConvertStatus);
+      localVarFormParams.put("keepConvertStatus", keepConvertStatus);
 if (streamCanRead != null)
-      localVarFormParams.put("Stream.CanRead", streamCanRead);
+      localVarFormParams.put("stream.canRead", streamCanRead);
 if (streamCanWrite != null)
-      localVarFormParams.put("Stream.CanWrite", streamCanWrite);
+      localVarFormParams.put("stream.canWrite", streamCanWrite);
 if (streamCanSeek != null)
-      localVarFormParams.put("Stream.CanSeek", streamCanSeek);
+      localVarFormParams.put("stream.canSeek", streamCanSeek);
 if (streamCanTimeout != null)
-      localVarFormParams.put("Stream.CanTimeout", streamCanTimeout);
+      localVarFormParams.put("stream.canTimeout", streamCanTimeout);
 if (streamLength != null)
-      localVarFormParams.put("Stream.Length", streamLength);
+      localVarFormParams.put("stream.length", streamLength);
 if (streamPosition != null)
-      localVarFormParams.put("Stream.Position", streamPosition);
+      localVarFormParams.put("stream.position", streamPosition);
 if (streamReadTimeout != null)
-      localVarFormParams.put("Stream.ReadTimeout", streamReadTimeout);
+      localVarFormParams.put("stream.readTimeout", streamReadTimeout);
 if (streamWriteTimeout != null)
-      localVarFormParams.put("Stream.WriteTimeout", streamWriteTimeout);
+      localVarFormParams.put("stream.writeTimeout", streamWriteTimeout);
 
     final String[] localVarAccepts = {
       "application/json"
@@ -3641,12 +3705,12 @@ if (streamWriteTimeout != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/
    *
    * @param folderId The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title. (required)
-   * @param createFolder The title carried by the request body. (required)
+   * @param createFolderRequest The title carried by the request body. (required)
    * @return FolderWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderWrapper renameFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateFolder createFolder) throws ApiException {
-    return this.renameFolder(folderId, createFolder, Collections.emptyMap());
+  public FolderWrapper renameFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateFolderRequest createFolderRequest) throws ApiException {
+    return this.renameFolder(folderId, createFolderRequest, Collections.emptyMap());
   }
 
 
@@ -3658,22 +3722,22 @@ if (streamWriteTimeout != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/
    *
    * @param folderId The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title. (required)
-   * @param createFolder The title carried by the request body. (required)
+   * @param createFolderRequest The title carried by the request body. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return FolderWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderWrapper renameFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateFolder createFolder, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = createFolder;
+  public FolderWrapper renameFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull CreateFolderRequest createFolderRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = createFolderRequest;
     
     // verify the required parameter 'folderId' is set
     if (folderId == null) {
       throw new ApiException(400, "Missing the required parameter 'folderId' when calling renameFolder");
     }
     
-    // verify the required parameter 'createFolder' is set
-    if (createFolder == null) {
-      throw new ApiException(400, "Missing the required parameter 'createFolder' when calling renameFolder");
+    // verify the required parameter 'createFolderRequest' is set
+    if (createFolderRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createFolderRequest' when calling renameFolder");
     }
     
     // create path and map variables
@@ -3732,12 +3796,12 @@ if (streamWriteTimeout != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/
    *
    * @param folderId The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title. (required)
-   * @param createFolder The title carried by the request body. (required)
+   * @param createFolderRequest The title carried by the request body. (required)
    * @return ThirdPartyFolderWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFolderWrapper renameFolder(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateFolder createFolder) throws ApiException {
-    return this.renameFolder(folderId, createFolder, Collections.emptyMap());
+  public ThirdPartyFolderWrapper renameFolder(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateFolderRequest createFolderRequest) throws ApiException {
+    return this.renameFolder(folderId, createFolderRequest, Collections.emptyMap());
   }
 
 
@@ -3749,22 +3813,22 @@ if (streamWriteTimeout != null)
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/
    *
    * @param folderId The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title. (required)
-   * @param createFolder The title carried by the request body. (required)
+   * @param createFolderRequest The title carried by the request body. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ThirdPartyFolderWrapper
    * @throws ApiException if fails to make API call
    */
-  public ThirdPartyFolderWrapper renameFolder(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateFolder createFolder, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = createFolder;
+  public ThirdPartyFolderWrapper renameFolder(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull CreateFolderRequest createFolderRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = createFolderRequest;
     
     // verify the required parameter 'folderId' is set
     if (folderId == null) {
       throw new ApiException(400, "Missing the required parameter 'folderId' when calling renameFolder");
     }
     
-    // verify the required parameter 'createFolder' is set
-    if (createFolder == null) {
-      throw new ApiException(400, "Missing the required parameter 'createFolder' when calling renameFolder");
+    // verify the required parameter 'createFolderRequest' is set
+    if (createFolderRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createFolderRequest' when calling renameFolder");
     }
     
     // create path and map variables
@@ -3801,6 +3865,188 @@ if (streamWriteTimeout != null)
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Search a folder by metadata
+   * Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+   *
+   * REST API Reference for searchFolder Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/
+   *
+   * @param folderId The folder ID. (required)
+   * @param folderMetadataSearch The search parameters. (required)
+   * @return FolderContentWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public FolderContentWrapper searchFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull FolderMetadataSearch folderMetadataSearch) throws ApiException {
+    return this.searchFolder(folderId, folderMetadataSearch, Collections.emptyMap());
+  }
+
+
+  /**
+   * Search a folder by metadata
+   * Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+   *
+   * REST API Reference for searchFolder Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/
+   *
+   * @param folderId The folder ID. (required)
+   * @param folderMetadataSearch The search parameters. (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return FolderContentWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public FolderContentWrapper searchFolder(@javax.annotation.Nonnull Integer folderId, @javax.annotation.Nonnull FolderMetadataSearch folderMetadataSearch, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = folderMetadataSearch;
+    
+    // verify the required parameter 'folderId' is set
+    if (folderId == null) {
+      throw new ApiException(400, "Missing the required parameter 'folderId' when calling searchFolder");
+    }
+    
+    // verify the required parameter 'folderMetadataSearch' is set
+    if (folderMetadataSearch == null) {
+      throw new ApiException(400, "Missing the required parameter 'folderMetadataSearch' when calling searchFolder");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/{folderId}/search"
+      .replaceAll("\\{" + "folderId" + "\\}", apiClient.escapeString(apiClient.parameterToString(folderId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<FolderContentWrapper> localVarReturnType = new TypeReference<FolderContentWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Search a folder by metadata (third-party storage)
+   * Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+   *
+   * REST API Reference for searchFolder Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/
+   *
+   * @param folderId The folder ID. (required)
+   * @param folderMetadataSearch The search parameters. (required)
+   * @return ThirdPartyFolderContentWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ThirdPartyFolderContentWrapper searchFolder(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull FolderMetadataSearch folderMetadataSearch) throws ApiException {
+    return this.searchFolder(folderId, folderMetadataSearch, Collections.emptyMap());
+  }
+
+
+  /**
+   * Search a folder by metadata (third-party storage)
+   * Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+   *
+   * REST API Reference for searchFolder Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/
+   *
+   * @param folderId The folder ID. (required)
+   * @param folderMetadataSearch The search parameters. (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ThirdPartyFolderContentWrapper
+   * @throws ApiException if fails to make API call
+   */
+  public ThirdPartyFolderContentWrapper searchFolder(@javax.annotation.Nonnull String folderId, @javax.annotation.Nonnull FolderMetadataSearch folderMetadataSearch, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = folderMetadataSearch;
+    
+    // verify the required parameter 'folderId' is set
+    if (folderId == null) {
+      throw new ApiException(400, "Missing the required parameter 'folderId' when calling searchFolder");
+    }
+    
+    // verify the required parameter 'folderMetadataSearch' is set
+    if (folderMetadataSearch == null) {
+      throw new ApiException(400, "Missing the required parameter 'folderMetadataSearch' when calling searchFolder");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/2.0/files/{folderId}/search"
+      .replaceAll("\\{" + "folderId" + "\\}", apiClient.escapeString(apiClient.parameterToString(folderId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+      
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+
+    TypeReference<ThirdPartyFolderContentWrapper> localVarReturnType = new TypeReference<ThirdPartyFolderContentWrapper>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),
@@ -4171,7 +4417,7 @@ if (streamWriteTimeout != null)
 
   /**
    * Terminate the folder history report generation
-   * Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest, and the portal  plan has to include the audit feature; a caller who fails the access rule is answered with 403 and a folder  that does not exist with 404. Each caller can only terminate their own report.
+   * Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest; a caller who fails  the access rule is answered with 403, a folder that does not exist with 404, and a portal with the login history  and audit trail section turned off with 402. Each caller can only terminate their own report.
    *
    * REST API Reference for terminateReportFolderHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-report-folder-history/
@@ -4186,7 +4432,7 @@ if (streamWriteTimeout != null)
 
   /**
    * Terminate the folder history report generation
-   * Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest, and the portal  plan has to include the audit feature; a caller who fails the access rule is answered with 403 and a folder  that does not exist with 404. Each caller can only terminate their own report.
+   * Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest; a caller who fails  the access rule is answered with 403, a folder that does not exist with 404, and a portal with the login history  and audit trail section turned off with 402. Each caller can only terminate their own report.
    *
    * REST API Reference for terminateReportFolderHistory Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-report-folder-history/
@@ -4315,7 +4561,7 @@ if (streamWriteTimeout != null)
 
     
     if (_file != null)
-      localVarFormParams.put("File", _file);
+      localVarFormParams.put("file", _file);
 
     final String[] localVarAccepts = {
       "application/json"
@@ -4412,7 +4658,7 @@ if (streamWriteTimeout != null)
 
     
     if (_file != null)
-      localVarFormParams.put("File", _file);
+      localVarFormParams.put("file", _file);
 
     final String[] localVarAccepts = {
       "application/json"
@@ -4501,7 +4747,7 @@ if (streamWriteTimeout != null)
 
     
     if (_file != null)
-      localVarFormParams.put("File", _file);
+      localVarFormParams.put("file", _file);
 
     final String[] localVarAccepts = {
       "application/json"

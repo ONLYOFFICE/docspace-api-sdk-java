@@ -24,7 +24,7 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.CookieSettingsRequestsDto;
+import org.openapitools.client.model.CookieSettingsRequestDto;
 import org.openapitools.client.model.CookieSettingsWrapper;
 import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.StringWrapper;
@@ -131,12 +131,12 @@ public class CookiesApi extends BaseApi {
    * REST API Reference for updateCookieSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cookie-settings/
    *
-   * @param cookieSettingsRequestsDto  (optional)
+   * @param cookieSettingsRequestDto  (optional)
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper updateCookieSettings(@javax.annotation.Nullable CookieSettingsRequestsDto cookieSettingsRequestsDto) throws ApiException {
-    return this.updateCookieSettings(cookieSettingsRequestsDto, Collections.emptyMap());
+  public StringWrapper updateCookieSettings(@javax.annotation.Nullable CookieSettingsRequestDto cookieSettingsRequestDto) throws ApiException {
+    return this.updateCookieSettings(cookieSettingsRequestDto, Collections.emptyMap());
   }
 
 
@@ -147,13 +147,13 @@ public class CookiesApi extends BaseApi {
    * REST API Reference for updateCookieSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cookie-settings/
    *
-   * @param cookieSettingsRequestsDto  (optional)
+   * @param cookieSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper updateCookieSettings(@javax.annotation.Nullable CookieSettingsRequestsDto cookieSettingsRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = cookieSettingsRequestsDto;
+  public StringWrapper updateCookieSettings(@javax.annotation.Nullable CookieSettingsRequestDto cookieSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = cookieSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/cookiesettings";

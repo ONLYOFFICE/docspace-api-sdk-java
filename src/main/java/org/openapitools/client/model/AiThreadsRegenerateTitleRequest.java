@@ -41,7 +41,6 @@ import java.util.StringJoiner;
   AiThreadsRegenerateTitleRequest.JSON_PROPERTY_PROFILE,
   AiThreadsRegenerateTitleRequest.JSON_PROPERTY_ENTITY_META
 })
-@JsonTypeName("aiThreadsRegenerateTitle_request")
 
 public class AiThreadsRegenerateTitleRequest {
   public static final String JSON_PROPERTY_THREAD_ID = "threadId";

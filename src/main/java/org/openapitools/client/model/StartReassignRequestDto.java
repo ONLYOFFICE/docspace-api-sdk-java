@@ -110,7 +110,7 @@ public class StartReassignRequestDto {
   }
 
   /**
-   * Specifies whether to delete the source profile once the transfer succeeds. When false, which is the default,  the emptied profile is kept and can be deleted later through `DELETE api/2.0/people/{userid}`.
+   * Specifies whether to delete the source profile once the transfer succeeds. When false, which is the default,  the emptied profile is kept and can be deleted later through `DELETE api/2.0/people/{userId}`.
    * @return deleteProfile
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DELETE_PROFILE, required = false)

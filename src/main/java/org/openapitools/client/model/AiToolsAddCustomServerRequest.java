@@ -39,7 +39,6 @@ import java.util.StringJoiner;
   AiToolsAddCustomServerRequest.JSON_PROPERTY_CONFIG,
   AiToolsAddCustomServerRequest.JSON_PROPERTY_ENTITY_ID
 })
-@JsonTypeName("aiToolsAddCustomServer_request")
 
 public class AiToolsAddCustomServerRequest {
   public static final String JSON_PROPERTY_NAME = "name";

@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.EncryptionKeyDto;
-import org.openapitools.client.model.FileKeys;
+import org.openapitools.client.model.FileKeysDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -53,7 +53,7 @@ public class FileEncryptionInfoDto {
   @javax.annotation.Nullable  private JsonNullable<List<EncryptionKeyDto>> userKeys = JsonNullable.<List<EncryptionKeyDto>>undefined();
 
   public static final String JSON_PROPERTY_FILE_KEYS = "fileKeys";
-  @javax.annotation.Nullable  private JsonNullable<List<FileKeys>> fileKeys = JsonNullable.<List<FileKeys>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<FileKeysDto>> fileKeys = JsonNullable.<List<FileKeysDto>>undefined();
 
   public FileEncryptionInfoDto() {
   }
@@ -102,15 +102,15 @@ public class FileEncryptionInfoDto {
     this.userKeys = JsonNullable.<List<EncryptionKeyDto>>of(userKeys);
   }
 
-  public FileEncryptionInfoDto fileKeys(@javax.annotation.Nullable List<FileKeys> fileKeys) {
-    this.fileKeys = JsonNullable.<List<FileKeys>>of(fileKeys);
+  public FileEncryptionInfoDto fileKeys(@javax.annotation.Nullable List<FileKeysDto> fileKeys) {
+    this.fileKeys = JsonNullable.<List<FileKeysDto>>of(fileKeys);
     
     return this;
   }
 
-  public FileEncryptionInfoDto addFileKeysItem(FileKeys fileKeysItem) {
+  public FileEncryptionInfoDto addFileKeysItem(FileKeysDto fileKeysItem) {
     if (this.fileKeys == null || !this.fileKeys.isPresent()) {
-      this.fileKeys = JsonNullable.<List<FileKeys>>of(new ArrayList<>());
+      this.fileKeys = JsonNullable.<List<FileKeysDto>>of(new ArrayList<>());
     }
     try {
       this.fileKeys.get().add(fileKeysItem);
@@ -126,23 +126,23 @@ public class FileEncryptionInfoDto {
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public List<FileKeys> getFileKeys() {
+  public List<FileKeysDto> getFileKeys() {
         return fileKeys.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_FILE_KEYS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<List<FileKeys>> getFileKeys_JsonNullable() {
+  public JsonNullable<List<FileKeysDto>> getFileKeys_JsonNullable() {
     return fileKeys;
   }
   
   @JsonProperty(JSON_PROPERTY_FILE_KEYS)
-  public void setFileKeys_JsonNullable(JsonNullable<List<FileKeys>> fileKeys) {
+  public void setFileKeys_JsonNullable(JsonNullable<List<FileKeysDto>> fileKeys) {
     this.fileKeys = fileKeys;
   }
 
-  public void setFileKeys(@javax.annotation.Nullable List<FileKeys> fileKeys) {
-    this.fileKeys = JsonNullable.<List<FileKeys>>of(fileKeys);
+  public void setFileKeys(@javax.annotation.Nullable List<FileKeysDto> fileKeys) {
+    this.fileKeys = JsonNullable.<List<FileKeysDto>>of(fileKeys);
   }
 
   @Override

@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.client.model.AiAiReasoningLevel;
+import org.openapitools.client.model.AiReasoningLevel;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -39,11 +39,10 @@ import java.util.StringJoiner;
   AiPreferencesSetReasoningLevelRequest.JSON_PROPERTY_VALUE,
   AiPreferencesSetReasoningLevelRequest.JSON_PROPERTY_ENTITY_ID
 })
-@JsonTypeName("aiPreferencesSetReasoningLevel_request")
 
 public class AiPreferencesSetReasoningLevelRequest {
   public static final String JSON_PROPERTY_VALUE = "value";
-  @javax.annotation.Nonnull  private AiAiReasoningLevel value;
+  @javax.annotation.Nonnull  private AiReasoningLevel value;
 
   public static final String JSON_PROPERTY_ENTITY_ID = "entityId";
   @javax.annotation.Nullable  private String entityId;
@@ -52,7 +51,7 @@ public class AiPreferencesSetReasoningLevelRequest {
   }
 
 
-  public AiPreferencesSetReasoningLevelRequest value(@javax.annotation.Nonnull AiAiReasoningLevel value) {
+  public AiPreferencesSetReasoningLevelRequest value(@javax.annotation.Nonnull AiReasoningLevel value) {
     
     this.value = value;
     return this;
@@ -65,14 +64,14 @@ public class AiPreferencesSetReasoningLevelRequest {
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_VALUE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public AiAiReasoningLevel getValue() {
+  public AiReasoningLevel getValue() {
     return value;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_VALUE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(@javax.annotation.Nonnull AiAiReasoningLevel value) {
+  public void setValue(@javax.annotation.Nonnull AiReasoningLevel value) {
     this.value = value;
   }
 

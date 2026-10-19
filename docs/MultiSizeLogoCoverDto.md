@@ -1,0 +1,15 @@
+
+
+# MultiSizeLogoCoverDto
+
+The logo cover information, with the cover data in every available size.
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**id** | **String** | The logo cover ID. |  |
+|**data** | **Map&lt;String, String&gt;** | The logo cover data. |  |
+
+
+

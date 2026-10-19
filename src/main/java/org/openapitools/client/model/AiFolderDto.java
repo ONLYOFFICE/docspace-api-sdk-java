@@ -37,7 +37,8 @@ import org.openapitools.client.model.AiFileEntryDtoAllOfShareSettings;
 import org.openapitools.client.model.AiFileEntryType;
 import org.openapitools.client.model.AiFileShare;
 import org.openapitools.client.model.AiFolderType;
-import org.openapitools.client.model.AiLogo;
+import org.openapitools.client.model.AiLogoDto;
+import org.openapitools.client.model.AiMetadataMatchDto;
 import org.openapitools.client.model.AiRoomDataLifetimeDto;
 import org.openapitools.client.model.AiRoomType;
 import org.openapitools.client.model.AiWatermarkDto;
@@ -92,6 +93,8 @@ import java.util.StringJoiner;
   AiFolderDto.JSON_PROPERTY_EXTERNAL,
   AiFolderDto.JSON_PROPERTY_EXPIRATION_DATE,
   AiFolderDto.JSON_PROPERTY_IS_LINK_EXPIRED,
+  AiFolderDto.JSON_PROPERTY_ASSIGNED_METADATA_TEMPLATES,
+  AiFolderDto.JSON_PROPERTY_METADATA_MATCHES,
   AiFolderDto.JSON_PROPERTY_PARENT_ID,
   AiFolderDto.JSON_PROPERTY_FILES_COUNT,
   AiFolderDto.JSON_PROPERTY_FOLDERS_COUNT,
@@ -230,6 +233,12 @@ public class AiFolderDto {
   public static final String JSON_PROPERTY_IS_LINK_EXPIRED = "isLinkExpired";
   @javax.annotation.Nullable  private Boolean isLinkExpired;
 
+  public static final String JSON_PROPERTY_ASSIGNED_METADATA_TEMPLATES = "assignedMetadataTemplates";
+  @javax.annotation.Nullable  private List<Integer> assignedMetadataTemplates = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_METADATA_MATCHES = "metadataMatches";
+  @javax.annotation.Nullable  private List<AiMetadataMatchDto> metadataMatches = new ArrayList<>();
+
   public static final String JSON_PROPERTY_PARENT_ID = "parentId";
   @javax.annotation.Nullable  private Integer parentId;
 
@@ -252,7 +261,7 @@ public class AiFolderDto {
   @javax.annotation.Nullable  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_LOGO = "logo";
-  @javax.annotation.Nullable  private AiLogo logo;
+  @javax.annotation.Nullable  private AiLogoDto logo;
 
   public static final String JSON_PROPERTY_PINNED = "pinned";
   @javax.annotation.Nullable  private Boolean pinned;
@@ -1200,6 +1209,70 @@ public class AiFolderDto {
     this.isLinkExpired = isLinkExpired;
   }
 
+  public AiFolderDto assignedMetadataTemplates(@javax.annotation.Nullable List<Integer> assignedMetadataTemplates) {
+    
+    this.assignedMetadataTemplates = assignedMetadataTemplates;
+    return this;
+  }
+
+  public AiFolderDto addAssignedMetadataTemplatesItem(Integer assignedMetadataTemplatesItem) {
+    if (this.assignedMetadataTemplates == null) {
+      this.assignedMetadataTemplates = new ArrayList<>();
+    }
+    this.assignedMetadataTemplates.add(assignedMetadataTemplatesItem);
+    return this;
+  }
+
+  /**
+   * The IDs of the metadata templates assigned to the file entry.
+   * @return assignedMetadataTemplates
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ASSIGNED_METADATA_TEMPLATES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<Integer> getAssignedMetadataTemplates() {
+    return assignedMetadataTemplates;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ASSIGNED_METADATA_TEMPLATES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAssignedMetadataTemplates(@javax.annotation.Nullable List<Integer> assignedMetadataTemplates) {
+    this.assignedMetadataTemplates = assignedMetadataTemplates;
+  }
+
+  public AiFolderDto metadataMatches(@javax.annotation.Nullable List<AiMetadataMatchDto> metadataMatches) {
+    
+    this.metadataMatches = metadataMatches;
+    return this;
+  }
+
+  public AiFolderDto addMetadataMatchesItem(AiMetadataMatchDto metadataMatchesItem) {
+    if (this.metadataMatches == null) {
+      this.metadataMatches = new ArrayList<>();
+    }
+    this.metadataMatches.add(metadataMatchesItem);
+    return this;
+  }
+
+  /**
+   * Where the search text of the listing was met in the metadata of the entry: one item per string value holding  the text, in the order of the fields. Present only in a listing filtered by text, and only for the entries whose  metadata contain it; an entry found by its title alone carries nothing here.
+   * @return metadataMatches
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_METADATA_MATCHES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<AiMetadataMatchDto> getMetadataMatches() {
+    return metadataMatches;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_METADATA_MATCHES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMetadataMatches(@javax.annotation.Nullable List<AiMetadataMatchDto> metadataMatches) {
+    this.metadataMatches = metadataMatches;
+  }
+
   public AiFolderDto parentId(@javax.annotation.Nullable Integer parentId) {
     
     this.parentId = parentId;
@@ -1231,7 +1304,7 @@ public class AiFolderDto {
   }
 
   /**
-   * How many files lie directly in the folder, without counting the subfolders. The roots of the `Rooms`, room  templates and default templates sections always report 0, because the number is not collected for them.
+   * How many files lie directly in the folder, without counting the subfolders. The roots of the `Rooms`, room  templates, default templates and AI agents sections always report 0, because the number is not collected for  them.
    * @return filesCount
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILES_COUNT, required = false)
@@ -1255,7 +1328,7 @@ public class AiFolderDto {
   }
 
   /**
-   * How many subfolders lie directly in the folder. For an AI room the two service subfolders it always holds are  subtracted, so the number matches what a listing of it shows, and the roots of the `Rooms` and templates  sections report 0.
+   * How many subfolders lie directly in the folder. For an AI room the two service subfolders it always holds are  subtracted, so the number matches what a listing of it shows, and the roots of the `Rooms`, templates and AI  agents sections report 0.
    * @return foldersCount
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FOLDERS_COUNT, required = false)
@@ -1394,7 +1467,7 @@ public class AiFolderDto {
     this.tags = JsonNullable.<List<String>>of(tags);
   }
 
-  public AiFolderDto logo(@javax.annotation.Nullable AiLogo logo) {
+  public AiFolderDto logo(@javax.annotation.Nullable AiLogoDto logo) {
     
     this.logo = logo;
     return this;
@@ -1407,14 +1480,14 @@ public class AiFolderDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public AiLogo getLogo() {
+  public AiLogoDto getLogo() {
     return logo;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLogo(@javax.annotation.Nullable AiLogo logo) {
+  public void setLogo(@javax.annotation.Nullable AiLogoDto logo) {
     this.logo = logo;
   }
 
@@ -1648,7 +1721,7 @@ public class AiFolderDto {
   }
 
   /**
-   * How much space the files of the room may take, in bytes. It is the limit set on this room, or the portal  default for rooms when none was set. Null when the tariff of the portal does not count room statistics, when  room quotas are switched off, when the room lies in the archive or the trash, or when the caller may only read  it.
+   * How much space the files of the room may take, in bytes. It is the limit set on this room, or the portal  default for rooms when none was set. Null when the tariff of the portal does not count room statistics, when  room quotas are switched off, when the room lies in the archive or the trash, or when the role of the caller  in the room carries no editing rights - a viewer, a commenter, a reviewer and a form filler do not see the  figure, a room manager, a content creator and an editor do.
    * @return quotaLimit
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1984,6 +2057,8 @@ public class AiFolderDto {
         Objects.equals(this.external, aiFolderDto.external) &&
         Objects.equals(this.expirationDate, aiFolderDto.expirationDate) &&
         Objects.equals(this.isLinkExpired, aiFolderDto.isLinkExpired) &&
+        Objects.equals(this.assignedMetadataTemplates, aiFolderDto.assignedMetadataTemplates) &&
+        Objects.equals(this.metadataMatches, aiFolderDto.metadataMatches) &&
         Objects.equals(this.parentId, aiFolderDto.parentId) &&
         Objects.equals(this.filesCount, aiFolderDto.filesCount) &&
         Objects.equals(this.foldersCount, aiFolderDto.foldersCount) &&
@@ -2019,7 +2094,7 @@ public class AiFolderDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, shortWebUrl, created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, providerItem, providerKey, providerId, order, isFavorite, fileEntryType, id, rootFolderId, originId, originRoomId, originTitle, originRoomTitle, canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), requestToken, external, expirationDate, isLinkExpired, parentId, filesCount, foldersCount, hashCodeNullable(isShareable), _new, mute, hashCodeNullable(tags), logo, pinned, roomType, _private, indexing, denyDownload, lifetime, watermark, type, hashCodeNullable(inRoom), hashCodeNullable(quotaLimit), hashCodeNullable(isCustomQuota), hashCodeNullable(usedSpace), hashCodeNullable(passwordProtected), hashCodeNullable(expired), chatSettings, rootRoomType, hashCodeNullable(saveFormAsXLSX), hashCodeNullable(sendFormToExternalDB), hashCodeNullable(originalFormId));
+    return Objects.hash(title, access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, shortWebUrl, created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, providerItem, providerKey, providerId, order, isFavorite, fileEntryType, id, rootFolderId, originId, originRoomId, originTitle, originRoomTitle, canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), requestToken, external, expirationDate, isLinkExpired, assignedMetadataTemplates, metadataMatches, parentId, filesCount, foldersCount, hashCodeNullable(isShareable), _new, mute, hashCodeNullable(tags), logo, pinned, roomType, _private, indexing, denyDownload, lifetime, watermark, type, hashCodeNullable(inRoom), hashCodeNullable(quotaLimit), hashCodeNullable(isCustomQuota), hashCodeNullable(usedSpace), hashCodeNullable(passwordProtected), hashCodeNullable(expired), chatSettings, rootRoomType, hashCodeNullable(saveFormAsXLSX), hashCodeNullable(sendFormToExternalDB), hashCodeNullable(originalFormId));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -2069,6 +2144,8 @@ public class AiFolderDto {
     sb.append("    external: ").append(toIndentedString(external)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    isLinkExpired: ").append(toIndentedString(isLinkExpired)).append("\n");
+    sb.append("    assignedMetadataTemplates: ").append(toIndentedString(assignedMetadataTemplates)).append("\n");
+    sb.append("    metadataMatches: ").append(toIndentedString(metadataMatches)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    filesCount: ").append(toIndentedString(filesCount)).append("\n");
     sb.append("    foldersCount: ").append(toIndentedString(foldersCount)).append("\n");
@@ -2445,6 +2522,30 @@ public class AiFolderDto {
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
+      }
+    }
+
+    // add `assignedMetadataTemplates` to the URL query string
+    if (getAssignedMetadataTemplates() != null) {
+      for (int i = 0; i < getAssignedMetadataTemplates().size(); i++) {
+        try {
+          joiner.add(String.format("%sassignedMetadataTemplates%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getAssignedMetadataTemplates().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `metadataMatches` to the URL query string
+    if (getMetadataMatches() != null) {
+      for (int i = 0; i < getMetadataMatches().size(); i++) {
+        if (getMetadataMatches().get(i) != null) {
+          joiner.add(getMetadataMatches().get(i).toUrlQueryString(String.format("%smetadataMatches%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
       }
     }
 

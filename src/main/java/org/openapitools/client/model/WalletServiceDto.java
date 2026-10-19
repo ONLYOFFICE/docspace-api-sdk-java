@@ -28,10 +28,10 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.client.model.EntityQuotaDto;
 import org.openapitools.client.model.PriceDto;
-import org.openapitools.client.model.TenantEntityQuotaSettings;
 import org.openapitools.client.model.TenantQuotaFeatureDto;
-import org.openapitools.client.model.TenantQuotaSettings;
+import org.openapitools.client.model.TenantQuotaSettingsDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -86,16 +86,16 @@ public class WalletServiceDto {
   @javax.annotation.Nonnull  private List<TenantQuotaFeatureDto> features = new ArrayList<>();
 
   public static final String JSON_PROPERTY_USERS_QUOTA = "usersQuota";
-  @javax.annotation.Nullable  private TenantEntityQuotaSettings usersQuota;
+  @javax.annotation.Nullable  private EntityQuotaDto usersQuota;
 
   public static final String JSON_PROPERTY_ROOMS_QUOTA = "roomsQuota";
-  @javax.annotation.Nullable  private TenantEntityQuotaSettings roomsQuota;
+  @javax.annotation.Nullable  private EntityQuotaDto roomsQuota;
 
   public static final String JSON_PROPERTY_AI_AGENTS_QUOTA = "aiAgentsQuota";
-  @javax.annotation.Nullable  private TenantEntityQuotaSettings aiAgentsQuota;
+  @javax.annotation.Nullable  private EntityQuotaDto aiAgentsQuota;
 
   public static final String JSON_PROPERTY_TENANT_CUSTOM_QUOTA = "tenantCustomQuota";
-  @javax.annotation.Nullable  private TenantQuotaSettings tenantCustomQuota;
+  @javax.annotation.Nullable  private TenantQuotaSettingsDto tenantCustomQuota;
 
   public static final String JSON_PROPERTY_DUE_DATE = "dueDate";
   @javax.annotation.Nullable  private OffsetDateTime dueDate;
@@ -286,7 +286,7 @@ public class WalletServiceDto {
     this.features = features;
   }
 
-  public WalletServiceDto usersQuota(@javax.annotation.Nullable TenantEntityQuotaSettings usersQuota) {
+  public WalletServiceDto usersQuota(@javax.annotation.Nullable EntityQuotaDto usersQuota) {
     
     this.usersQuota = usersQuota;
     return this;
@@ -299,18 +299,18 @@ public class WalletServiceDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USERS_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TenantEntityQuotaSettings getUsersQuota() {
+  public EntityQuotaDto getUsersQuota() {
     return usersQuota;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_USERS_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUsersQuota(@javax.annotation.Nullable TenantEntityQuotaSettings usersQuota) {
+  public void setUsersQuota(@javax.annotation.Nullable EntityQuotaDto usersQuota) {
     this.usersQuota = usersQuota;
   }
 
-  public WalletServiceDto roomsQuota(@javax.annotation.Nullable TenantEntityQuotaSettings roomsQuota) {
+  public WalletServiceDto roomsQuota(@javax.annotation.Nullable EntityQuotaDto roomsQuota) {
     
     this.roomsQuota = roomsQuota;
     return this;
@@ -323,18 +323,18 @@ public class WalletServiceDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOMS_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TenantEntityQuotaSettings getRoomsQuota() {
+  public EntityQuotaDto getRoomsQuota() {
     return roomsQuota;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_ROOMS_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRoomsQuota(@javax.annotation.Nullable TenantEntityQuotaSettings roomsQuota) {
+  public void setRoomsQuota(@javax.annotation.Nullable EntityQuotaDto roomsQuota) {
     this.roomsQuota = roomsQuota;
   }
 
-  public WalletServiceDto aiAgentsQuota(@javax.annotation.Nullable TenantEntityQuotaSettings aiAgentsQuota) {
+  public WalletServiceDto aiAgentsQuota(@javax.annotation.Nullable EntityQuotaDto aiAgentsQuota) {
     
     this.aiAgentsQuota = aiAgentsQuota;
     return this;
@@ -347,18 +347,18 @@ public class WalletServiceDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AI_AGENTS_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TenantEntityQuotaSettings getAiAgentsQuota() {
+  public EntityQuotaDto getAiAgentsQuota() {
     return aiAgentsQuota;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_AI_AGENTS_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAiAgentsQuota(@javax.annotation.Nullable TenantEntityQuotaSettings aiAgentsQuota) {
+  public void setAiAgentsQuota(@javax.annotation.Nullable EntityQuotaDto aiAgentsQuota) {
     this.aiAgentsQuota = aiAgentsQuota;
   }
 
-  public WalletServiceDto tenantCustomQuota(@javax.annotation.Nullable TenantQuotaSettings tenantCustomQuota) {
+  public WalletServiceDto tenantCustomQuota(@javax.annotation.Nullable TenantQuotaSettingsDto tenantCustomQuota) {
     
     this.tenantCustomQuota = tenantCustomQuota;
     return this;
@@ -371,14 +371,14 @@ public class WalletServiceDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT_CUSTOM_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TenantQuotaSettings getTenantCustomQuota() {
+  public TenantQuotaSettingsDto getTenantCustomQuota() {
     return tenantCustomQuota;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_TENANT_CUSTOM_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTenantCustomQuota(@javax.annotation.Nullable TenantQuotaSettings tenantCustomQuota) {
+  public void setTenantCustomQuota(@javax.annotation.Nullable TenantQuotaSettingsDto tenantCustomQuota) {
     this.tenantCustomQuota = tenantCustomQuota;
   }
 

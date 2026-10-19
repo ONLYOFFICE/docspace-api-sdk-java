@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
-import org.openapitools.client.model.IPRestrictionsSettings;
+import org.openapitools.client.model.IpRestrictionsSettingsDto;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -37,19 +37,19 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The successful API response containing the IPRestrictionsSettings object.
+ * The successful API response containing the IpRestrictionsSettingsDto object.
  */
 @JsonPropertyOrder({
-  IPRestrictionsSettingsWrapper.JSON_PROPERTY_RESPONSE,
-  IPRestrictionsSettingsWrapper.JSON_PROPERTY_COUNT,
-  IPRestrictionsSettingsWrapper.JSON_PROPERTY_LINKS,
-  IPRestrictionsSettingsWrapper.JSON_PROPERTY_STATUS,
-  IPRestrictionsSettingsWrapper.JSON_PROPERTY_STATUS_CODE
+  IpRestrictionsSettingsWrapper.JSON_PROPERTY_RESPONSE,
+  IpRestrictionsSettingsWrapper.JSON_PROPERTY_COUNT,
+  IpRestrictionsSettingsWrapper.JSON_PROPERTY_LINKS,
+  IpRestrictionsSettingsWrapper.JSON_PROPERTY_STATUS,
+  IpRestrictionsSettingsWrapper.JSON_PROPERTY_STATUS_CODE
 })
 
-public class IPRestrictionsSettingsWrapper {
+public class IpRestrictionsSettingsWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private IPRestrictionsSettings response;
+  @javax.annotation.Nullable  private IpRestrictionsSettingsDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -63,35 +63,35 @@ public class IPRestrictionsSettingsWrapper {
   public static final String JSON_PROPERTY_STATUS_CODE = "statusCode";
   @javax.annotation.Nullable  private Integer statusCode;
 
-  public IPRestrictionsSettingsWrapper() {
+  public IpRestrictionsSettingsWrapper() {
   }
 
 
-  public IPRestrictionsSettingsWrapper response(@javax.annotation.Nullable IPRestrictionsSettings response) {
+  public IpRestrictionsSettingsWrapper response(@javax.annotation.Nullable IpRestrictionsSettingsDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * The IPRestrictionsSettings object returned by the operation.
+   * The IpRestrictionsSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public IPRestrictionsSettings getResponse() {
+  public IpRestrictionsSettingsDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable IPRestrictionsSettings response) {
+  public void setResponse(@javax.annotation.Nullable IpRestrictionsSettingsDto response) {
     this.response = response;
   }
 
-  public IPRestrictionsSettingsWrapper count(@javax.annotation.Nullable Integer count) {
+  public IpRestrictionsSettingsWrapper count(@javax.annotation.Nullable Integer count) {
     
     this.count = count;
     return this;
@@ -115,13 +115,13 @@ public class IPRestrictionsSettingsWrapper {
     this.count = count;
   }
 
-  public IPRestrictionsSettingsWrapper links(@javax.annotation.Nullable List<GetPortalPrices200ResponseLinksInner> links) {
+  public IpRestrictionsSettingsWrapper links(@javax.annotation.Nullable List<GetPortalPrices200ResponseLinksInner> links) {
     
     this.links = links;
     return this;
   }
 
-  public IPRestrictionsSettingsWrapper addLinksItem(GetPortalPrices200ResponseLinksInner linksItem) {
+  public IpRestrictionsSettingsWrapper addLinksItem(GetPortalPrices200ResponseLinksInner linksItem) {
     if (this.links == null) {
       this.links = new ArrayList<>();
     }
@@ -147,7 +147,7 @@ public class IPRestrictionsSettingsWrapper {
     this.links = links;
   }
 
-  public IPRestrictionsSettingsWrapper status(@javax.annotation.Nullable Integer status) {
+  public IpRestrictionsSettingsWrapper status(@javax.annotation.Nullable Integer status) {
     
     this.status = status;
     return this;
@@ -171,7 +171,7 @@ public class IPRestrictionsSettingsWrapper {
     this.status = status;
   }
 
-  public IPRestrictionsSettingsWrapper statusCode(@javax.annotation.Nullable Integer statusCode) {
+  public IpRestrictionsSettingsWrapper statusCode(@javax.annotation.Nullable Integer statusCode) {
     
     this.statusCode = statusCode;
     return this;
@@ -203,7 +203,7 @@ public class IPRestrictionsSettingsWrapper {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IPRestrictionsSettingsWrapper ipRestrictionsSettingsWrapper = (IPRestrictionsSettingsWrapper) o;
+    IpRestrictionsSettingsWrapper ipRestrictionsSettingsWrapper = (IpRestrictionsSettingsWrapper) o;
     return Objects.equals(this.response, ipRestrictionsSettingsWrapper.response) &&
         Objects.equals(this.count, ipRestrictionsSettingsWrapper.count) &&
         Objects.equals(this.links, ipRestrictionsSettingsWrapper.links) &&
@@ -219,7 +219,7 @@ public class IPRestrictionsSettingsWrapper {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IPRestrictionsSettingsWrapper {\n");
+    sb.append("class IpRestrictionsSettingsWrapper {\n");
     sb.append("    response: ").append(toIndentedString(response)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");

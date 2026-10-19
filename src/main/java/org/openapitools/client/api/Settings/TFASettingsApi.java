@@ -29,10 +29,10 @@ import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.StringWrapper;
 import org.openapitools.client.model.TfaAppCodeArrayWrapper;
 import org.openapitools.client.model.TfaConfirmDataWrapper;
-import org.openapitools.client.model.TfaRequestsDto;
+import org.openapitools.client.model.TfaRequestDto;
 import org.openapitools.client.model.TfaSettingsArrayWrapper;
 import org.openapitools.client.model.TfaSetupCodeWrapper;
-import org.openapitools.client.model.TfaValidateRequestsDto;
+import org.openapitools.client.model.TfaValidateRequestDto;
 
 
 import java.util.ArrayList;
@@ -55,7 +55,7 @@ public class TFASettingsApi extends BaseApi {
 
   /**
    * Get the TFA backup codes
-   * Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. Accounts flagged as  outsiders are refused. This is a read-only, idempotent call: the codes are generated once, when the  application is first linked, and the whole set is replaced by `PUT api/2.0/settings/tfaappnewcodes`. The  default configuration issues five codes of six characters, and a portal may be configured for a different  number and length.
+   * Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. This is a read-only,  idempotent call: the codes are generated once, when the application is first linked, and the whole set is  replaced by `PUT api/2.0/settings/tfaappnewcodes`. The default configuration issues five codes of six  characters, and a portal may be configured for a different number and length.
    *
    * REST API Reference for getTfaAppCodes Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/
@@ -70,7 +70,7 @@ public class TFASettingsApi extends BaseApi {
 
   /**
    * Get the TFA backup codes
-   * Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. Accounts flagged as  outsiders are refused. This is a read-only, idempotent call: the codes are generated once, when the  application is first linked, and the whole set is replaced by `PUT api/2.0/settings/tfaappnewcodes`. The  default configuration issues five codes of six characters, and a portal may be configured for a different  number and length.
+   * Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. This is a read-only,  idempotent call: the codes are generated once, when the application is first linked, and the whole set is  replaced by `PUT api/2.0/settings/tfaappnewcodes`. The default configuration issues five codes of six  characters, and a portal may be configured for a different number and length.
    *
    * REST API Reference for getTfaAppCodes Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/
@@ -283,7 +283,7 @@ public class TFASettingsApi extends BaseApi {
 
   /**
    * Generate the TFA setup code
-   * Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Accounts flagged as outsiders are refused. Repeating the call is safe and  hands back the same secret for the account, so the QR code and the manual key always describe one and the same  credential. `qrCodeSetupImageUrl` is a base64 `data:` URL of a PNG image, and `account` is the label the  application will show. Finish the setup by sending a code from the application to  `POST api/2.0/settings/tfaapp/validate`.
+   * Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Repeating the call is safe and hands back the same secret for the  account, so the QR code and the manual key always describe one and the same credential. `qrCodeSetupImageUrl`  is a base64 `data:` URL of a PNG image, and `account` is the label the application will show. Finish the setup  by sending a code from the application to `POST api/2.0/settings/tfaapp/validate`.
    *
    * REST API Reference for tfaAppGenerateSetupCode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/
@@ -298,7 +298,7 @@ public class TFASettingsApi extends BaseApi {
 
   /**
    * Generate the TFA setup code
-   * Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Accounts flagged as outsiders are refused. Repeating the call is safe and  hands back the same secret for the account, so the QR code and the manual key always describe one and the same  credential. `qrCodeSetupImageUrl` is a base64 `data:` URL of a PNG image, and `account` is the label the  application will show. Finish the setup by sending a code from the application to  `POST api/2.0/settings/tfaapp/validate`.
+   * Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Repeating the call is safe and hands back the same secret for the  account, so the QR code and the manual key always describe one and the same credential. `qrCodeSetupImageUrl`  is a base64 `data:` URL of a PNG image, and `account` is the label the application will show. Finish the setup  by sending a code from the application to `POST api/2.0/settings/tfaapp/validate`.
    *
    * REST API Reference for tfaAppGenerateSetupCode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/
@@ -364,12 +364,12 @@ public class TFASettingsApi extends BaseApi {
    * REST API Reference for tfaValidateAuthCode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/
    *
-   * @param tfaValidateRequestsDto  (optional)
+   * @param tfaValidateRequestDto  (optional)
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper tfaValidateAuthCode(@javax.annotation.Nullable TfaValidateRequestsDto tfaValidateRequestsDto) throws ApiException {
-    return this.tfaValidateAuthCode(tfaValidateRequestsDto, Collections.emptyMap());
+  public BooleanWrapper tfaValidateAuthCode(@javax.annotation.Nullable TfaValidateRequestDto tfaValidateRequestDto) throws ApiException {
+    return this.tfaValidateAuthCode(tfaValidateRequestDto, Collections.emptyMap());
   }
 
 
@@ -380,13 +380,13 @@ public class TFASettingsApi extends BaseApi {
    * REST API Reference for tfaValidateAuthCode Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/
    *
-   * @param tfaValidateRequestsDto  (optional)
+   * @param tfaValidateRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper tfaValidateAuthCode(@javax.annotation.Nullable TfaValidateRequestsDto tfaValidateRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = tfaValidateRequestsDto;
+  public BooleanWrapper tfaValidateAuthCode(@javax.annotation.Nullable TfaValidateRequestDto tfaValidateRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = tfaValidateRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/tfaapp/validate";
@@ -437,34 +437,34 @@ public class TFASettingsApi extends BaseApi {
 
   /**
    * Unlink the TFA application
-   * Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405. The call is destructive: the account's backup codes are  dropped together with the credential and all of its sessions are signed out. For another member the portal  also emails them that their TFA was reset, and the answer is then an empty string. The portal-wide policy is  not touched, so TFA stays required and the account sets up an application again through  `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with `PUT api/2.0/settings/tfaapp`.
+   * Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405, and a terminated account is refused. The call is  destructive: the account's backup codes are dropped together with the credential and all of its sessions are  signed out. For another member the portal also emails them that their TFA was reset, and the answer is then an  empty string. The portal-wide policy is not touched, so TFA stays required and the account sets up an  application again through `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with  `PUT api/2.0/settings/tfaapp`.
    *
    * REST API Reference for unlinkTfaApp Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/
    *
-   * @param tfaRequestsDto  (optional)
+   * @param tfaRequestDto  (optional)
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper unlinkTfaApp(@javax.annotation.Nullable TfaRequestsDto tfaRequestsDto) throws ApiException {
-    return this.unlinkTfaApp(tfaRequestsDto, Collections.emptyMap());
+  public StringWrapper unlinkTfaApp(@javax.annotation.Nullable TfaRequestDto tfaRequestDto) throws ApiException {
+    return this.unlinkTfaApp(tfaRequestDto, Collections.emptyMap());
   }
 
 
   /**
    * Unlink the TFA application
-   * Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405. The call is destructive: the account's backup codes are  dropped together with the credential and all of its sessions are signed out. For another member the portal  also emails them that their TFA was reset, and the answer is then an empty string. The portal-wide policy is  not touched, so TFA stays required and the account sets up an application again through  `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with `PUT api/2.0/settings/tfaapp`.
+   * Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405, and a terminated account is refused. The call is  destructive: the account's backup codes are dropped together with the credential and all of its sessions are  signed out. For another member the portal also emails them that their TFA was reset, and the answer is then an  empty string. The portal-wide policy is not touched, so TFA stays required and the account sets up an  application again through `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with  `PUT api/2.0/settings/tfaapp`.
    *
    * REST API Reference for unlinkTfaApp Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/
    *
-   * @param tfaRequestsDto  (optional)
+   * @param tfaRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper unlinkTfaApp(@javax.annotation.Nullable TfaRequestsDto tfaRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = tfaRequestsDto;
+  public StringWrapper unlinkTfaApp(@javax.annotation.Nullable TfaRequestDto tfaRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = tfaRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/tfaappnewapp";
@@ -515,7 +515,7 @@ public class TFASettingsApi extends BaseApi {
 
   /**
    * Regenerate the TFA backup codes
-   * Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405, and accounts flagged as outsiders are refused.  The call mutates state and is not idempotent: every invocation issues another set and discards the one before  it, so a retry after a timeout returns codes different from those the first attempt generated. The codes come  back unused, five of them of six characters with the default configuration, and a portal may be configured for  a different number and length. Read the current set without changing it through  `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is untouched, so the linked application  keeps working.
+   * Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405. The call mutates state and is not idempotent:  every invocation issues another set and discards the one before it, so a retry after a timeout returns codes  different from those the first attempt generated. The codes come back unused, five of them of six characters  with the default configuration, and a portal may be configured for a different number and length. Read the  current set without changing it through `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is  untouched, so the linked application keeps working.
    *
    * REST API Reference for updateTfaAppCodes Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/
@@ -530,7 +530,7 @@ public class TFASettingsApi extends BaseApi {
 
   /**
    * Regenerate the TFA backup codes
-   * Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405, and accounts flagged as outsiders are refused.  The call mutates state and is not idempotent: every invocation issues another set and discards the one before  it, so a retry after a timeout returns codes different from those the first attempt generated. The codes come  back unused, five of them of six characters with the default configuration, and a portal may be configured for  a different number and length. Read the current set without changing it through  `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is untouched, so the linked application  keeps working.
+   * Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405. The call mutates state and is not idempotent:  every invocation issues another set and discards the one before it, so a retry after a timeout returns codes  different from those the first attempt generated. The codes come back unused, five of them of six characters  with the default configuration, and a portal may be configured for a different number and length. Read the  current set without changing it through `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is  untouched, so the linked application keeps working.
    *
    * REST API Reference for updateTfaAppCodes Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/
@@ -596,12 +596,12 @@ public class TFASettingsApi extends BaseApi {
    * REST API Reference for updateTfaSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/
    *
-   * @param tfaRequestsDto  (optional)
+   * @param tfaRequestDto  (optional)
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper updateTfaSettings(@javax.annotation.Nullable TfaRequestsDto tfaRequestsDto) throws ApiException {
-    return this.updateTfaSettings(tfaRequestsDto, Collections.emptyMap());
+  public BooleanWrapper updateTfaSettings(@javax.annotation.Nullable TfaRequestDto tfaRequestDto) throws ApiException {
+    return this.updateTfaSettings(tfaRequestDto, Collections.emptyMap());
   }
 
 
@@ -612,13 +612,13 @@ public class TFASettingsApi extends BaseApi {
    * REST API Reference for updateTfaSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/
    *
-   * @param tfaRequestsDto  (optional)
+   * @param tfaRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper updateTfaSettings(@javax.annotation.Nullable TfaRequestsDto tfaRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = tfaRequestsDto;
+  public BooleanWrapper updateTfaSettings(@javax.annotation.Nullable TfaRequestDto tfaRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = tfaRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/tfaapp";
@@ -674,12 +674,12 @@ public class TFASettingsApi extends BaseApi {
    * REST API Reference for updateTfaSettingsLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/
    *
-   * @param tfaRequestsDto  (optional)
+   * @param tfaRequestDto  (optional)
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper updateTfaSettingsLink(@javax.annotation.Nullable TfaRequestsDto tfaRequestsDto) throws ApiException {
-    return this.updateTfaSettingsLink(tfaRequestsDto, Collections.emptyMap());
+  public StringWrapper updateTfaSettingsLink(@javax.annotation.Nullable TfaRequestDto tfaRequestDto) throws ApiException {
+    return this.updateTfaSettingsLink(tfaRequestDto, Collections.emptyMap());
   }
 
 
@@ -690,13 +690,13 @@ public class TFASettingsApi extends BaseApi {
    * REST API Reference for updateTfaSettingsLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/
    *
-   * @param tfaRequestsDto  (optional)
+   * @param tfaRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper updateTfaSettingsLink(@javax.annotation.Nullable TfaRequestsDto tfaRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = tfaRequestsDto;
+  public StringWrapper updateTfaSettingsLink(@javax.annotation.Nullable TfaRequestDto tfaRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = tfaRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/tfaappwithlink";

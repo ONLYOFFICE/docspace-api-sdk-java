@@ -26,7 +26,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.math.BigDecimal;
 import org.openapitools.client.model.AiModel;
-import org.openapitools.client.model.AiTProvider;
+import org.openapitools.client.model.AiProvider;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -57,7 +57,7 @@ public class AiThread {
   @javax.annotation.Nullable  private BigDecimal lastEditDate;
 
   public static final String JSON_PROPERTY_PROVIDER = "provider";
-  @javax.annotation.Nullable  private AiTProvider provider;
+  @javax.annotation.Nullable  private AiProvider provider;
 
   public static final String JSON_PROPERTY_MODEL = "model";
   @javax.annotation.Nullable  private AiModel model;
@@ -141,7 +141,7 @@ public class AiThread {
     this.lastEditDate = lastEditDate;
   }
 
-  public AiThread provider(@javax.annotation.Nullable AiTProvider provider) {
+  public AiThread provider(@javax.annotation.Nullable AiProvider provider) {
     
     this.provider = provider;
     return this;
@@ -154,14 +154,14 @@ public class AiThread {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROVIDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public AiTProvider getProvider() {
+  public AiProvider getProvider() {
     return provider;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_PROVIDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProvider(@javax.annotation.Nullable AiTProvider provider) {
+  public void setProvider(@javax.annotation.Nullable AiProvider provider) {
     this.provider = provider;
   }
 

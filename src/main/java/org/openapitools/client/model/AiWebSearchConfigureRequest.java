@@ -39,7 +39,6 @@ import java.util.StringJoiner;
   AiWebSearchConfigureRequest.JSON_PROPERTY_CONFIG,
   AiWebSearchConfigureRequest.JSON_PROPERTY_ENTITY_ID
 })
-@JsonTypeName("aiWebSearchConfigure_request")
 
 public class AiWebSearchConfigureRequest {
   public static final String JSON_PROPERTY_CONFIG = "config";

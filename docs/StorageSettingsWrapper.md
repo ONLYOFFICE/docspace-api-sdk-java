@@ -2,13 +2,13 @@
 
 # StorageSettingsWrapper
 
-The successful API response containing the StorageSettings object.
+The successful API response containing the StorageSettingsDto object.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**response** | [**StorageSettings**](StorageSettings.md) | The StorageSettings object returned by the operation. |  [optional] |
+|**response** | [**StorageSettingsDto**](StorageSettingsDto.md) | The StorageSettingsDto object returned by the operation. |  [optional] |
 |**count** | **Integer** | The total number of items in the response |  [optional] |
 |**links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response |  [optional] |
 |**status** | **Integer** | HTTP status code of the response |  [optional] |

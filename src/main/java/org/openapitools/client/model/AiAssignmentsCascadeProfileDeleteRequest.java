@@ -37,7 +37,6 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   AiAssignmentsCascadeProfileDeleteRequest.JSON_PROPERTY_PROFILE_ID
 })
-@JsonTypeName("aiAssignmentsCascadeProfileDelete_request")
 
 public class AiAssignmentsCascadeProfileDeleteRequest {
   public static final String JSON_PROPERTY_PROFILE_ID = "profileId";

@@ -24,15 +24,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.client.model.AIConfig;
+import org.openapitools.client.model.AiConfigDto;
 import org.openapitools.client.model.AnonymousConfigDto;
 import org.openapitools.client.model.CustomerConfigDto;
-import org.openapitools.client.model.FeedbackConfig;
-import org.openapitools.client.model.GobackConfig;
+import org.openapitools.client.model.FeedbackConfigDto;
+import org.openapitools.client.model.GobackConfigDto;
 import org.openapitools.client.model.LogoConfigDto;
-import org.openapitools.client.model.ReviewConfig;
+import org.openapitools.client.model.ReviewConfigDto;
 import org.openapitools.client.model.StartFillingForm;
-import org.openapitools.client.model.SubmitForm;
+import org.openapitools.client.model.SubmitFormDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -73,16 +73,16 @@ public class CustomizationConfigDto {
   @javax.annotation.Nullable  private AnonymousConfigDto anonymous;
 
   public static final String JSON_PROPERTY_FEEDBACK = "feedback";
-  @javax.annotation.Nullable  private FeedbackConfig feedback;
+  @javax.annotation.Nullable  private FeedbackConfigDto feedback;
 
   public static final String JSON_PROPERTY_FORCESAVE = "forcesave";
   @javax.annotation.Nullable  private JsonNullable<Boolean> forcesave = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_GOBACK = "goback";
-  @javax.annotation.Nullable  private GobackConfig goback;
+  @javax.annotation.Nullable  private GobackConfigDto goback;
 
   public static final String JSON_PROPERTY_REVIEW = "review";
-  @javax.annotation.Nullable  private ReviewConfig review;
+  @javax.annotation.Nullable  private ReviewConfigDto review;
 
   public static final String JSON_PROPERTY_LOGO = "logo";
   @javax.annotation.Nullable  private LogoConfigDto logo;
@@ -91,13 +91,13 @@ public class CustomizationConfigDto {
   @javax.annotation.Nullable  private Boolean mentionShare;
 
   public static final String JSON_PROPERTY_SUBMIT_FORM = "submitForm";
-  @javax.annotation.Nullable  private SubmitForm submitForm;
+  @javax.annotation.Nullable  private SubmitFormDto submitForm;
 
   public static final String JSON_PROPERTY_START_FILLING_FORM = "startFillingForm";
   @javax.annotation.Nullable  private StartFillingForm startFillingForm;
 
   public static final String JSON_PROPERTY_AI = "ai";
-  @javax.annotation.Nullable  private AIConfig ai;
+  @javax.annotation.Nullable  private AiConfigDto ai;
 
   public CustomizationConfigDto() {
   }
@@ -175,7 +175,7 @@ public class CustomizationConfigDto {
     this.anonymous = anonymous;
   }
 
-  public CustomizationConfigDto feedback(@javax.annotation.Nullable FeedbackConfig feedback) {
+  public CustomizationConfigDto feedback(@javax.annotation.Nullable FeedbackConfigDto feedback) {
     
     this.feedback = feedback;
     return this;
@@ -188,14 +188,14 @@ public class CustomizationConfigDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FEEDBACK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public FeedbackConfig getFeedback() {
+  public FeedbackConfigDto getFeedback() {
     return feedback;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_FEEDBACK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFeedback(@javax.annotation.Nullable FeedbackConfig feedback) {
+  public void setFeedback(@javax.annotation.Nullable FeedbackConfigDto feedback) {
     this.feedback = feedback;
   }
 
@@ -230,7 +230,7 @@ public class CustomizationConfigDto {
     this.forcesave = JsonNullable.<Boolean>of(forcesave);
   }
 
-  public CustomizationConfigDto goback(@javax.annotation.Nullable GobackConfig goback) {
+  public CustomizationConfigDto goback(@javax.annotation.Nullable GobackConfigDto goback) {
     
     this.goback = goback;
     return this;
@@ -243,18 +243,18 @@ public class CustomizationConfigDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GOBACK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public GobackConfig getGoback() {
+  public GobackConfigDto getGoback() {
     return goback;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_GOBACK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGoback(@javax.annotation.Nullable GobackConfig goback) {
+  public void setGoback(@javax.annotation.Nullable GobackConfigDto goback) {
     this.goback = goback;
   }
 
-  public CustomizationConfigDto review(@javax.annotation.Nullable ReviewConfig review) {
+  public CustomizationConfigDto review(@javax.annotation.Nullable ReviewConfigDto review) {
     
     this.review = review;
     return this;
@@ -267,14 +267,14 @@ public class CustomizationConfigDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REVIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ReviewConfig getReview() {
+  public ReviewConfigDto getReview() {
     return review;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_REVIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReview(@javax.annotation.Nullable ReviewConfig review) {
+  public void setReview(@javax.annotation.Nullable ReviewConfigDto review) {
     this.review = review;
   }
 
@@ -326,7 +326,7 @@ public class CustomizationConfigDto {
     this.mentionShare = mentionShare;
   }
 
-  public CustomizationConfigDto submitForm(@javax.annotation.Nullable SubmitForm submitForm) {
+  public CustomizationConfigDto submitForm(@javax.annotation.Nullable SubmitFormDto submitForm) {
     
     this.submitForm = submitForm;
     return this;
@@ -339,14 +339,14 @@ public class CustomizationConfigDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SUBMIT_FORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SubmitForm getSubmitForm() {
+  public SubmitFormDto getSubmitForm() {
     return submitForm;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_SUBMIT_FORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubmitForm(@javax.annotation.Nullable SubmitForm submitForm) {
+  public void setSubmitForm(@javax.annotation.Nullable SubmitFormDto submitForm) {
     this.submitForm = submitForm;
   }
 
@@ -374,7 +374,7 @@ public class CustomizationConfigDto {
     this.startFillingForm = startFillingForm;
   }
 
-  public CustomizationConfigDto ai(@javax.annotation.Nullable AIConfig ai) {
+  public CustomizationConfigDto ai(@javax.annotation.Nullable AiConfigDto ai) {
     
     this.ai = ai;
     return this;
@@ -387,14 +387,14 @@ public class CustomizationConfigDto {
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public AIConfig getAi() {
+  public AiConfigDto getAi() {
     return ai;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_AI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAi(@javax.annotation.Nullable AIConfig ai) {
+  public void setAi(@javax.annotation.Nullable AiConfigDto ai) {
     this.ai = ai;
   }
 

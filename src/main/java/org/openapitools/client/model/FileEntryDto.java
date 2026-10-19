@@ -25,6 +25,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.openapitools.client.model.AiFileEntryDtoAllOfAvailableShareRights;
 import org.openapitools.client.model.AiFileEntryDtoAllOfSecurity;
 import org.openapitools.client.model.AiFileEntryDtoAllOfShareSettings;
@@ -33,6 +36,7 @@ import org.openapitools.client.model.EmployeeDto;
 import org.openapitools.client.model.FileEntryType;
 import org.openapitools.client.model.FileShare;
 import org.openapitools.client.model.FolderType;
+import org.openapitools.client.model.MetadataMatchDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -83,7 +87,9 @@ import java.util.StringJoiner;
   FileEntryDto.JSON_PROPERTY_REQUEST_TOKEN,
   FileEntryDto.JSON_PROPERTY_EXTERNAL,
   FileEntryDto.JSON_PROPERTY_EXPIRATION_DATE,
-  FileEntryDto.JSON_PROPERTY_IS_LINK_EXPIRED
+  FileEntryDto.JSON_PROPERTY_IS_LINK_EXPIRED,
+  FileEntryDto.JSON_PROPERTY_ASSIGNED_METADATA_TEMPLATES,
+  FileEntryDto.JSON_PROPERTY_METADATA_MATCHES
 })
 
 public class FileEntryDto {
@@ -194,6 +200,12 @@ public class FileEntryDto {
 
   public static final String JSON_PROPERTY_IS_LINK_EXPIRED = "isLinkExpired";
   @javax.annotation.Nullable  private JsonNullable<Boolean> isLinkExpired = JsonNullable.<Boolean>undefined();
+
+  public static final String JSON_PROPERTY_ASSIGNED_METADATA_TEMPLATES = "assignedMetadataTemplates";
+  @javax.annotation.Nullable  private JsonNullable<List<Integer>> assignedMetadataTemplates = JsonNullable.<List<Integer>>undefined();
+
+  public static final String JSON_PROPERTY_METADATA_MATCHES = "metadataMatches";
+  @javax.annotation.Nullable  private JsonNullable<List<MetadataMatchDto>> metadataMatches = JsonNullable.<List<MetadataMatchDto>>undefined();
 
   public FileEntryDto() {
   }
@@ -1119,6 +1131,92 @@ public class FileEntryDto {
     this.isLinkExpired = JsonNullable.<Boolean>of(isLinkExpired);
   }
 
+  public FileEntryDto assignedMetadataTemplates(@javax.annotation.Nullable List<Integer> assignedMetadataTemplates) {
+    this.assignedMetadataTemplates = JsonNullable.<List<Integer>>of(assignedMetadataTemplates);
+    
+    return this;
+  }
+
+  public FileEntryDto addAssignedMetadataTemplatesItem(Integer assignedMetadataTemplatesItem) {
+    if (this.assignedMetadataTemplates == null || !this.assignedMetadataTemplates.isPresent()) {
+      this.assignedMetadataTemplates = JsonNullable.<List<Integer>>of(new ArrayList<>());
+    }
+    try {
+      this.assignedMetadataTemplates.get().add(assignedMetadataTemplatesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * The IDs of the metadata templates assigned to the file entry.
+   * @return assignedMetadataTemplates
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public List<Integer> getAssignedMetadataTemplates() {
+        return assignedMetadataTemplates.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_ASSIGNED_METADATA_TEMPLATES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<Integer>> getAssignedMetadataTemplates_JsonNullable() {
+    return assignedMetadataTemplates;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ASSIGNED_METADATA_TEMPLATES)
+  public void setAssignedMetadataTemplates_JsonNullable(JsonNullable<List<Integer>> assignedMetadataTemplates) {
+    this.assignedMetadataTemplates = assignedMetadataTemplates;
+  }
+
+  public void setAssignedMetadataTemplates(@javax.annotation.Nullable List<Integer> assignedMetadataTemplates) {
+    this.assignedMetadataTemplates = JsonNullable.<List<Integer>>of(assignedMetadataTemplates);
+  }
+
+  public FileEntryDto metadataMatches(@javax.annotation.Nullable List<MetadataMatchDto> metadataMatches) {
+    this.metadataMatches = JsonNullable.<List<MetadataMatchDto>>of(metadataMatches);
+    
+    return this;
+  }
+
+  public FileEntryDto addMetadataMatchesItem(MetadataMatchDto metadataMatchesItem) {
+    if (this.metadataMatches == null || !this.metadataMatches.isPresent()) {
+      this.metadataMatches = JsonNullable.<List<MetadataMatchDto>>of(new ArrayList<>());
+    }
+    try {
+      this.metadataMatches.get().add(metadataMatchesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Where the search text of the listing was met in the metadata of the entry: one item per string value holding  the text, in the order of the fields. Present only in a listing filtered by text, and only for the entries whose  metadata contain it; an entry found by its title alone carries nothing here.
+   * @return metadataMatches
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public List<MetadataMatchDto> getMetadataMatches() {
+        return metadataMatches.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_METADATA_MATCHES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<MetadataMatchDto>> getMetadataMatches_JsonNullable() {
+    return metadataMatches;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_METADATA_MATCHES)
+  public void setMetadataMatches_JsonNullable(JsonNullable<List<MetadataMatchDto>> metadataMatches) {
+    this.metadataMatches = metadataMatches;
+  }
+
+  public void setMetadataMatches(@javax.annotation.Nullable List<MetadataMatchDto> metadataMatches) {
+    this.metadataMatches = JsonNullable.<List<MetadataMatchDto>>of(metadataMatches);
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -1163,7 +1261,9 @@ public class FileEntryDto {
         equalsNullable(this.requestToken, fileEntryDto.requestToken) &&
         equalsNullable(this.external, fileEntryDto.external) &&
         Objects.equals(this.expirationDate, fileEntryDto.expirationDate) &&
-        equalsNullable(this.isLinkExpired, fileEntryDto.isLinkExpired);
+        equalsNullable(this.isLinkExpired, fileEntryDto.isLinkExpired) &&
+        equalsNullable(this.assignedMetadataTemplates, fileEntryDto.assignedMetadataTemplates) &&
+        equalsNullable(this.metadataMatches, fileEntryDto.metadataMatches);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1172,7 +1272,7 @@ public class FileEntryDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, shortWebUrl, created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, providerItem, providerKey, providerId, order, isFavorite, fileEntryType, id, rootFolderId, originId, originRoomId, hashCodeNullable(originTitle), hashCodeNullable(originRoomTitle), canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), hashCodeNullable(requestToken), hashCodeNullable(external), expirationDate, hashCodeNullable(isLinkExpired));
+    return Objects.hash(title, access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, shortWebUrl, created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, providerItem, providerKey, providerId, order, isFavorite, fileEntryType, id, rootFolderId, originId, originRoomId, hashCodeNullable(originTitle), hashCodeNullable(originRoomTitle), canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), hashCodeNullable(requestToken), hashCodeNullable(external), expirationDate, hashCodeNullable(isLinkExpired), hashCodeNullable(assignedMetadataTemplates), hashCodeNullable(metadataMatches));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1222,6 +1322,8 @@ public class FileEntryDto {
     sb.append("    external: ").append(toIndentedString(external)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    isLinkExpired: ").append(toIndentedString(isLinkExpired)).append("\n");
+    sb.append("    assignedMetadataTemplates: ").append(toIndentedString(assignedMetadataTemplates)).append("\n");
+    sb.append("    metadataMatches: ").append(toIndentedString(metadataMatches)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1571,6 +1673,30 @@ public class FileEntryDto {
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
+      }
+    }
+
+    // add `assignedMetadataTemplates` to the URL query string
+    if (getAssignedMetadataTemplates() != null) {
+      for (int i = 0; i < getAssignedMetadataTemplates().size(); i++) {
+        try {
+          joiner.add(String.format("%sassignedMetadataTemplates%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getAssignedMetadataTemplates().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `metadataMatches` to the URL query string
+    if (getMetadataMatches() != null) {
+      for (int i = 0; i < getMetadataMatches().size(); i++) {
+        if (getMetadataMatches().get(i) != null) {
+          joiner.add(getMetadataMatches().get(i).toUrlQueryString(String.format("%smetadataMatches%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
       }
     }
 

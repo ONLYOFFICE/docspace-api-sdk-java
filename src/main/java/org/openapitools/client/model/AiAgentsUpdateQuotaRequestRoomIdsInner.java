@@ -33,7 +33,7 @@ import java.util.StringJoiner;
  */
 @JsonPropertyOrder({
 })
-@JsonTypeName("aiAgentsUpdateQuota_request_roomIds_inner")
+@JsonTypeName("AiAgentsUpdateQuotaRequest_roomIds_inner")
 
 public class AiAgentsUpdateQuotaRequestRoomIdsInner {
   public AiAgentsUpdateQuotaRequestRoomIdsInner() {

@@ -26,7 +26,7 @@ import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.NotificationChannelStatusWrapper;
-import org.openapitools.client.model.NotificationSettingsRequestsDto;
+import org.openapitools.client.model.NotificationSettingsRequestDto;
 import org.openapitools.client.model.NotificationSettingsWrapper;
 import org.openapitools.client.model.NotificationType;
 import org.openapitools.client.model.RoomsNotificationSettingsWrapper;
@@ -294,12 +294,12 @@ public class NotificationsApi extends BaseApi {
    * REST API Reference for setNotificationSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/
    *
-   * @param notificationSettingsRequestsDto  (optional)
+   * @param notificationSettingsRequestDto  (optional)
    * @return NotificationSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public NotificationSettingsWrapper setNotificationSettings(@javax.annotation.Nullable NotificationSettingsRequestsDto notificationSettingsRequestsDto) throws ApiException {
-    return this.setNotificationSettings(notificationSettingsRequestsDto, Collections.emptyMap());
+  public NotificationSettingsWrapper setNotificationSettings(@javax.annotation.Nullable NotificationSettingsRequestDto notificationSettingsRequestDto) throws ApiException {
+    return this.setNotificationSettings(notificationSettingsRequestDto, Collections.emptyMap());
   }
 
 
@@ -310,13 +310,13 @@ public class NotificationsApi extends BaseApi {
    * REST API Reference for setNotificationSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/
    *
-   * @param notificationSettingsRequestsDto  (optional)
+   * @param notificationSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return NotificationSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public NotificationSettingsWrapper setNotificationSettings(@javax.annotation.Nullable NotificationSettingsRequestsDto notificationSettingsRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = notificationSettingsRequestsDto;
+  public NotificationSettingsWrapper setNotificationSettings(@javax.annotation.Nullable NotificationSettingsRequestDto notificationSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = notificationSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/notification";

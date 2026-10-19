@@ -25,9 +25,9 @@ import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.ErrorApiResponse;
-import org.openapitools.client.model.SsoSettingsRequestsDto;
-import org.openapitools.client.model.SsoSettingsV2ConstantsWrapper;
-import org.openapitools.client.model.SsoSettingsV2Wrapper;
+import org.openapitools.client.model.SsoSettingsConstantsWrapper;
+import org.openapitools.client.model.SsoSettingsRequestDto;
+import org.openapitools.client.model.SsoSettingsWrapper;
 
 
 import java.util.ArrayList;
@@ -55,10 +55,10 @@ public class SSOApi extends BaseApi {
    * REST API Reference for getDefaultSsoSettingsV2 Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/
    *
-   * @return SsoSettingsV2Wrapper
+   * @return SsoSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public SsoSettingsV2Wrapper getDefaultSsoSettingsV2() throws ApiException {
+  public SsoSettingsWrapper getDefaultSsoSettingsV2() throws ApiException {
     return this.getDefaultSsoSettingsV2(Collections.emptyMap());
   }
 
@@ -71,10 +71,10 @@ public class SSOApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return SsoSettingsV2Wrapper
+   * @return SsoSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public SsoSettingsV2Wrapper getDefaultSsoSettingsV2(Map<String, String> additionalHeaders) throws ApiException {
+  public SsoSettingsWrapper getDefaultSsoSettingsV2(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -106,7 +106,7 @@ public class SSOApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<SsoSettingsV2Wrapper> localVarReturnType = new TypeReference<SsoSettingsV2Wrapper>() {};
+    TypeReference<SsoSettingsWrapper> localVarReturnType = new TypeReference<SsoSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -131,10 +131,10 @@ public class SSOApi extends BaseApi {
    * REST API Reference for getSsoSettingsV2 Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/
    *
-   * @return SsoSettingsV2Wrapper
+   * @return SsoSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public SsoSettingsV2Wrapper getSsoSettingsV2() throws ApiException {
+  public SsoSettingsWrapper getSsoSettingsV2() throws ApiException {
     return this.getSsoSettingsV2(Collections.emptyMap());
   }
 
@@ -147,10 +147,10 @@ public class SSOApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return SsoSettingsV2Wrapper
+   * @return SsoSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public SsoSettingsV2Wrapper getSsoSettingsV2(Map<String, String> additionalHeaders) throws ApiException {
+  public SsoSettingsWrapper getSsoSettingsV2(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -182,7 +182,7 @@ public class SSOApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<SsoSettingsV2Wrapper> localVarReturnType = new TypeReference<SsoSettingsV2Wrapper>() {};
+    TypeReference<SsoSettingsWrapper> localVarReturnType = new TypeReference<SsoSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -207,10 +207,10 @@ public class SSOApi extends BaseApi {
    * REST API Reference for getSsoSettingsV2Constants Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2-constants/
    *
-   * @return SsoSettingsV2ConstantsWrapper
+   * @return SsoSettingsConstantsWrapper
    * @throws ApiException if fails to make API call
    */
-  public SsoSettingsV2ConstantsWrapper getSsoSettingsV2Constants() throws ApiException {
+  public SsoSettingsConstantsWrapper getSsoSettingsV2Constants() throws ApiException {
     return this.getSsoSettingsV2Constants(Collections.emptyMap());
   }
 
@@ -223,10 +223,10 @@ public class SSOApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2-constants/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return SsoSettingsV2ConstantsWrapper
+   * @return SsoSettingsConstantsWrapper
    * @throws ApiException if fails to make API call
    */
-  public SsoSettingsV2ConstantsWrapper getSsoSettingsV2Constants(Map<String, String> additionalHeaders) throws ApiException {
+  public SsoSettingsConstantsWrapper getSsoSettingsV2Constants(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -258,7 +258,7 @@ public class SSOApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<SsoSettingsV2ConstantsWrapper> localVarReturnType = new TypeReference<SsoSettingsV2ConstantsWrapper>() {};
+    TypeReference<SsoSettingsConstantsWrapper> localVarReturnType = new TypeReference<SsoSettingsConstantsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -283,10 +283,10 @@ public class SSOApi extends BaseApi {
    * REST API Reference for resetSsoSettingsV2 Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/
    *
-   * @return SsoSettingsV2Wrapper
+   * @return SsoSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public SsoSettingsV2Wrapper resetSsoSettingsV2() throws ApiException {
+  public SsoSettingsWrapper resetSsoSettingsV2() throws ApiException {
     return this.resetSsoSettingsV2(Collections.emptyMap());
   }
 
@@ -299,10 +299,10 @@ public class SSOApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return SsoSettingsV2Wrapper
+   * @return SsoSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public SsoSettingsV2Wrapper resetSsoSettingsV2(Map<String, String> additionalHeaders) throws ApiException {
+  public SsoSettingsWrapper resetSsoSettingsV2(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -334,7 +334,7 @@ public class SSOApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<SsoSettingsV2Wrapper> localVarReturnType = new TypeReference<SsoSettingsV2Wrapper>() {};
+    TypeReference<SsoSettingsWrapper> localVarReturnType = new TypeReference<SsoSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "DELETE",
@@ -359,12 +359,12 @@ public class SSOApi extends BaseApi {
    * REST API Reference for saveSsoSettingsV2 Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/
    *
-   * @param ssoSettingsRequestsDto  (optional)
-   * @return SsoSettingsV2Wrapper
+   * @param ssoSettingsRequestDto  (optional)
+   * @return SsoSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public SsoSettingsV2Wrapper saveSsoSettingsV2(@javax.annotation.Nullable SsoSettingsRequestsDto ssoSettingsRequestsDto) throws ApiException {
-    return this.saveSsoSettingsV2(ssoSettingsRequestsDto, Collections.emptyMap());
+  public SsoSettingsWrapper saveSsoSettingsV2(@javax.annotation.Nullable SsoSettingsRequestDto ssoSettingsRequestDto) throws ApiException {
+    return this.saveSsoSettingsV2(ssoSettingsRequestDto, Collections.emptyMap());
   }
 
 
@@ -375,13 +375,13 @@ public class SSOApi extends BaseApi {
    * REST API Reference for saveSsoSettingsV2 Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/
    *
-   * @param ssoSettingsRequestsDto  (optional)
+   * @param ssoSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return SsoSettingsV2Wrapper
+   * @return SsoSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public SsoSettingsV2Wrapper saveSsoSettingsV2(@javax.annotation.Nullable SsoSettingsRequestsDto ssoSettingsRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = ssoSettingsRequestsDto;
+  public SsoSettingsWrapper saveSsoSettingsV2(@javax.annotation.Nullable SsoSettingsRequestDto ssoSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = ssoSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/ssov2";
@@ -412,7 +412,7 @@ public class SSOApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<SsoSettingsV2Wrapper> localVarReturnType = new TypeReference<SsoSettingsV2Wrapper>() {};
+    TypeReference<SsoSettingsWrapper> localVarReturnType = new TypeReference<SsoSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",

@@ -24,7 +24,7 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.CspRequestsDto;
+import org.openapitools.client.model.CspRequestDto;
 import org.openapitools.client.model.CspWrapper;
 import org.openapitools.client.model.ErrorApiResponse;
 
@@ -54,12 +54,12 @@ public class CSPApi extends BaseApi {
    * REST API Reference for configureCsp Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-csp/
    *
-   * @param cspRequestsDto  (optional)
+   * @param cspRequestDto  (optional)
    * @return CspWrapper
    * @throws ApiException if fails to make API call
    */
-  public CspWrapper configureCsp(@javax.annotation.Nullable CspRequestsDto cspRequestsDto) throws ApiException {
-    return this.configureCsp(cspRequestsDto, Collections.emptyMap());
+  public CspWrapper configureCsp(@javax.annotation.Nullable CspRequestDto cspRequestDto) throws ApiException {
+    return this.configureCsp(cspRequestDto, Collections.emptyMap());
   }
 
 
@@ -70,13 +70,13 @@ public class CSPApi extends BaseApi {
    * REST API Reference for configureCsp Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-csp/
    *
-   * @param cspRequestsDto  (optional)
+   * @param cspRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return CspWrapper
    * @throws ApiException if fails to make API call
    */
-  public CspWrapper configureCsp(@javax.annotation.Nullable CspRequestsDto cspRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = cspRequestsDto;
+  public CspWrapper configureCsp(@javax.annotation.Nullable CspRequestDto cspRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = cspRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/security/csp";

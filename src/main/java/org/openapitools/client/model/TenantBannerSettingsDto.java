@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -32,15 +33,19 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Whether the portal promotional banners are hidden.
+ * Whether the portal hides its promotional banners.
  */
 @JsonPropertyOrder({
-  TenantBannerSettingsDto.JSON_PROPERTY_HIDDEN
+  TenantBannerSettingsDto.JSON_PROPERTY_HIDDEN,
+  TenantBannerSettingsDto.JSON_PROPERTY_LAST_MODIFIED
 })
 
 public class TenantBannerSettingsDto {
   public static final String JSON_PROPERTY_HIDDEN = "hidden";
   @javax.annotation.Nullable  private Boolean hidden;
+
+  public static final String JSON_PROPERTY_LAST_MODIFIED = "lastModified";
+  @javax.annotation.Nullable  private OffsetDateTime lastModified;
 
   public TenantBannerSettingsDto() {
   }
@@ -53,7 +58,7 @@ public class TenantBannerSettingsDto {
   }
 
   /**
-   * Whether the promotional banners are hidden from every user of the portal. The flag is only honoured on a  self-hosted installation; a SaaS portal keeps showing the banners whatever is stored here.
+   * The banners visibility flag.
    * @return hidden
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HIDDEN, required = false)
@@ -70,6 +75,30 @@ public class TenantBannerSettingsDto {
     this.hidden = hidden;
   }
 
+  public TenantBannerSettingsDto lastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
+    
+    this.lastModified = lastModified;
+    return this;
+  }
+
+  /**
+   * The timestamp indicating when the settings were last modified.
+   * @return lastModified
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getLastModified() {
+    return lastModified;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
+    this.lastModified = lastModified;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -79,12 +108,13 @@ public class TenantBannerSettingsDto {
       return false;
     }
     TenantBannerSettingsDto tenantBannerSettingsDto = (TenantBannerSettingsDto) o;
-    return Objects.equals(this.hidden, tenantBannerSettingsDto.hidden);
+    return Objects.equals(this.hidden, tenantBannerSettingsDto.hidden) &&
+        Objects.equals(this.lastModified, tenantBannerSettingsDto.lastModified);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hidden);
+    return Objects.hash(hidden, lastModified);
   }
 
   @Override
@@ -92,6 +122,7 @@ public class TenantBannerSettingsDto {
     StringBuilder sb = new StringBuilder();
     sb.append("class TenantBannerSettingsDto {\n");
     sb.append("    hidden: ").append(toIndentedString(hidden)).append("\n");
+    sb.append("    lastModified: ").append(toIndentedString(lastModified)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -143,6 +174,16 @@ public class TenantBannerSettingsDto {
     if (getHidden() != null) {
       try {
         joiner.add(String.format("%shidden%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHidden()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `lastModified` to the URL query string
+    if (getLastModified() != null) {
+      try {
+        joiner.add(String.format("%slastModified%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLastModified()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

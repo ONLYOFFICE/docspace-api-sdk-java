@@ -40,7 +40,6 @@ import java.util.StringJoiner;
   AiPromptsImportBundleRequest.JSON_PROPERTY_BUNDLE,
   AiPromptsImportBundleRequest.JSON_PROPERTY_OPTIONS
 })
-@JsonTypeName("aiPromptsImportBundle_request")
 
 public class AiPromptsImportBundleRequest {
   public static final String JSON_PROPERTY_BUNDLE = "bundle";

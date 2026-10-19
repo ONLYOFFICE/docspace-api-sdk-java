@@ -49,15 +49,15 @@ import org.openapitools.client.model.QuantityRequestDto;
 import org.openapitools.client.model.QuotaArrayWrapper;
 import org.openapitools.client.model.QuotaWrapper;
 import org.openapitools.client.model.ReportWrapper;
-import org.openapitools.client.model.RestrictedModelsResponseWrapper;
-import org.openapitools.client.model.SalesRequestsDto;
-import org.openapitools.client.model.ServicePriceInfoArrayWrapper;
+import org.openapitools.client.model.RestrictedAiModelsWrapper;
+import org.openapitools.client.model.SalesRequestDto;
+import org.openapitools.client.model.ServicePriceArrayWrapper;
 import org.openapitools.client.model.SetRestrictedAiModelsRequestDto;
 import org.openapitools.client.model.StringWrapper;
-import org.openapitools.client.model.SubscriptionBalanceInfoWrapper;
+import org.openapitools.client.model.SubscriptionBalanceWrapper;
 import org.openapitools.client.model.TenantWalletService;
 import org.openapitools.client.model.TenantWalletServiceSettingsWrapper;
-import org.openapitools.client.model.TenantWalletSettingsResponseWrapper;
+import org.openapitools.client.model.TenantWalletSettingsRequestDto;
 import org.openapitools.client.model.TenantWalletSettingsWrapper;
 import org.openapitools.client.model.TopUpDepositRequestDto;
 import java.net.URI;
@@ -483,10 +483,10 @@ public class PaymentApi extends BaseApi {
    *
    * @param serviceName The service whose price list is read, named the way the billing catalogue names it, such as `ai-tools` or  `backup`. Take the value from the `serviceName` field of `GET api/2.0/portal/payment/walletservices`; a name  the accounting service does not price yields an empty list rather than an error. (required)
    * @param active Whether the answer is narrowed to the prices in force at the moment of the call. Leaving it false also  returns the retired and the not yet started ones, which is what pricing a movement recorded in the past  needs. (optional)
-   * @return ServicePriceInfoArrayWrapper
+   * @return ServicePriceArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public ServicePriceInfoArrayWrapper getAccountingServicePrices(@javax.annotation.Nonnull String serviceName, @javax.annotation.Nullable Boolean active) throws ApiException {
+  public ServicePriceArrayWrapper getAccountingServicePrices(@javax.annotation.Nonnull String serviceName, @javax.annotation.Nullable Boolean active) throws ApiException {
     return this.getAccountingServicePrices(serviceName, active, Collections.emptyMap());
   }
 
@@ -501,10 +501,10 @@ public class PaymentApi extends BaseApi {
    * @param serviceName The service whose price list is read, named the way the billing catalogue names it, such as `ai-tools` or  `backup`. Take the value from the `serviceName` field of `GET api/2.0/portal/payment/walletservices`; a name  the accounting service does not price yields an empty list rather than an error. (required)
    * @param active Whether the answer is narrowed to the prices in force at the moment of the call. Leaving it false also  returns the retired and the not yet started ones, which is what pricing a movement recorded in the past  needs. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return ServicePriceInfoArrayWrapper
+   * @return ServicePriceArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public ServicePriceInfoArrayWrapper getAccountingServicePrices(@javax.annotation.Nonnull String serviceName, @javax.annotation.Nullable Boolean active, Map<String, String> additionalHeaders) throws ApiException {
+  public ServicePriceArrayWrapper getAccountingServicePrices(@javax.annotation.Nonnull String serviceName, @javax.annotation.Nullable Boolean active, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'serviceName' is set
@@ -543,7 +543,7 @@ public class PaymentApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<ServicePriceInfoArrayWrapper> localVarReturnType = new TypeReference<ServicePriceInfoArrayWrapper>() {};
+    TypeReference<ServicePriceArrayWrapper> localVarReturnType = new TypeReference<ServicePriceArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -767,8 +767,8 @@ public class PaymentApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("BackUrl", backUrl));
-    localVarQueryParams.addAll(apiClient.parameterToPair("SuccessUrl", successUrl));
+    localVarQueryParams.addAll(apiClient.parameterToPair("backUrl", backUrl));
+    localVarQueryParams.addAll(apiClient.parameterToPair("successUrl", successUrl));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -1187,16 +1187,16 @@ public class PaymentApi extends BaseApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
     localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "ServiceName", serviceName));
-    localVarQueryParams.addAll(apiClient.parameterToPair("StartDate", startDate));
-    localVarQueryParams.addAll(apiClient.parameterToPair("EndDate", endDate));
-    localVarQueryParams.addAll(apiClient.parameterToPair("ParticipantName", participantName));
-    localVarQueryParams.addAll(apiClient.parameterToPair("Credit", credit));
-    localVarQueryParams.addAll(apiClient.parameterToPair("Debit", debit));
-    localVarQueryParams.addAll(apiClient.parameterToPair("Type", type));
-    localVarQueryParams.addAll(apiClient.parameterToPair("Status", status));
-    localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
-    localVarQueryParams.addAll(apiClient.parameterToPair("OrderType", orderType));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "serviceName", serviceName));
+    localVarQueryParams.addAll(apiClient.parameterToPair("startDate", startDate));
+    localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
+    localVarQueryParams.addAll(apiClient.parameterToPair("participantName", participantName));
+    localVarQueryParams.addAll(apiClient.parameterToPair("credit", credit));
+    localVarQueryParams.addAll(apiClient.parameterToPair("debit", debit));
+    localVarQueryParams.addAll(apiClient.parameterToPair("type", type));
+    localVarQueryParams.addAll(apiClient.parameterToPair("status", status));
+    localVarQueryParams.addAll(apiClient.parameterToPair("orderBy", orderBy));
+    localVarQueryParams.addAll(apiClient.parameterToPair("orderType", orderType));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -1369,21 +1369,21 @@ public class PaymentApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "ServiceName", serviceName));
-    localVarQueryParams.addAll(apiClient.parameterToPair("ParticipantName", participantName));
-    localVarQueryParams.addAll(apiClient.parameterToPair("Status", status));
-    localVarQueryParams.addAll(apiClient.parameterToPair("StartDate", startDate));
-    localVarQueryParams.addAll(apiClient.parameterToPair("EndDate", endDate));
-    localVarQueryParameterBaseName = "Metadata";
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "serviceName", serviceName));
+    localVarQueryParams.addAll(apiClient.parameterToPair("participantName", participantName));
+    localVarQueryParams.addAll(apiClient.parameterToPair("status", status));
+    localVarQueryParams.addAll(apiClient.parameterToPair("startDate", startDate));
+    localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
+    localVarQueryParameterBaseName = "metadata";
     if (metadata != null) {
       for (Map.Entry<String, ?> _metadataEntry : metadata.entrySet()) {
-        localVarQueryParams.addAll(apiClient.parameterToPair("Metadata[" + _metadataEntry.getKey() + "]", _metadataEntry.getValue()));
+        localVarQueryParams.addAll(apiClient.parameterToPair("metadata[" + _metadataEntry.getKey() + "]", _metadataEntry.getValue()));
       }
     }
     localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
     localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
-    localVarQueryParams.addAll(apiClient.parameterToPair("OrderBy", orderBy));
-    localVarQueryParams.addAll(apiClient.parameterToPair("OrderType", orderType));
+    localVarQueryParams.addAll(apiClient.parameterToPair("orderBy", orderBy));
+    localVarQueryParams.addAll(apiClient.parameterToPair("orderType", orderType));
       
     
     localVarHeaderParams.putAll(additionalHeaders);
@@ -1973,10 +1973,10 @@ public class PaymentApi extends BaseApi {
    * REST API Reference for getRestrictedAiModels Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-restricted-ai-models/
    *
-   * @return RestrictedModelsResponseWrapper
+   * @return RestrictedAiModelsWrapper
    * @throws ApiException if fails to make API call
    */
-  public RestrictedModelsResponseWrapper getRestrictedAiModels() throws ApiException {
+  public RestrictedAiModelsWrapper getRestrictedAiModels() throws ApiException {
     return this.getRestrictedAiModels(Collections.emptyMap());
   }
 
@@ -1989,10 +1989,10 @@ public class PaymentApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-restricted-ai-models/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return RestrictedModelsResponseWrapper
+   * @return RestrictedAiModelsWrapper
    * @throws ApiException if fails to make API call
    */
-  public RestrictedModelsResponseWrapper getRestrictedAiModels(Map<String, String> additionalHeaders) throws ApiException {
+  public RestrictedAiModelsWrapper getRestrictedAiModels(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -2024,7 +2024,7 @@ public class PaymentApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<RestrictedModelsResponseWrapper> localVarReturnType = new TypeReference<RestrictedModelsResponseWrapper>() {};
+    TypeReference<RestrictedAiModelsWrapper> localVarReturnType = new TypeReference<RestrictedAiModelsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -2049,10 +2049,10 @@ public class PaymentApi extends BaseApi {
    * REST API Reference for getSubscriptionBalanceInfo Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/
    *
-   * @return SubscriptionBalanceInfoWrapper
+   * @return SubscriptionBalanceWrapper
    * @throws ApiException if fails to make API call
    */
-  public SubscriptionBalanceInfoWrapper getSubscriptionBalanceInfo() throws ApiException {
+  public SubscriptionBalanceWrapper getSubscriptionBalanceInfo() throws ApiException {
     return this.getSubscriptionBalanceInfo(Collections.emptyMap());
   }
 
@@ -2065,10 +2065,10 @@ public class PaymentApi extends BaseApi {
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return SubscriptionBalanceInfoWrapper
+   * @return SubscriptionBalanceWrapper
    * @throws ApiException if fails to make API call
    */
-  public SubscriptionBalanceInfoWrapper getSubscriptionBalanceInfo(Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionBalanceWrapper getSubscriptionBalanceInfo(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -2100,7 +2100,7 @@ public class PaymentApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<SubscriptionBalanceInfoWrapper> localVarReturnType = new TypeReference<SubscriptionBalanceInfoWrapper>() {};
+    TypeReference<SubscriptionBalanceWrapper> localVarReturnType = new TypeReference<SubscriptionBalanceWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -2196,31 +2196,31 @@ public class PaymentApi extends BaseApi {
 
   /**
    * Get the auto top-up settings
-   * Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but ignored when the settings are written.
+   * Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but cannot be written.
    *
    * REST API Reference for getTenantWalletSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/
    *
-   * @return TenantWalletSettingsResponseWrapper
+   * @return TenantWalletSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantWalletSettingsResponseWrapper getTenantWalletSettings() throws ApiException {
+  public TenantWalletSettingsWrapper getTenantWalletSettings() throws ApiException {
     return this.getTenantWalletSettings(Collections.emptyMap());
   }
 
 
   /**
    * Get the auto top-up settings
-   * Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but ignored when the settings are written.
+   * Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but cannot be written.
    *
    * REST API Reference for getTenantWalletSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return TenantWalletSettingsResponseWrapper
+   * @return TenantWalletSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantWalletSettingsResponseWrapper getTenantWalletSettings(Map<String, String> additionalHeaders) throws ApiException {
+  public TenantWalletSettingsWrapper getTenantWalletSettings(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -2252,7 +2252,7 @@ public class PaymentApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<TenantWalletSettingsResponseWrapper> localVarReturnType = new TypeReference<TenantWalletSettingsResponseWrapper>() {};
+    TypeReference<TenantWalletSettingsWrapper> localVarReturnType = new TypeReference<TenantWalletSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -2515,11 +2515,11 @@ public class PaymentApi extends BaseApi {
    * REST API Reference for sendPaymentRequest Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-payment-request/
    *
-   * @param salesRequestsDto  (optional)
+   * @param salesRequestDto  (optional)
    * @throws ApiException if fails to make API call
    */
-  public void sendPaymentRequest(@javax.annotation.Nullable SalesRequestsDto salesRequestsDto) throws ApiException {
-    this.sendPaymentRequest(salesRequestsDto, Collections.emptyMap());
+  public void sendPaymentRequest(@javax.annotation.Nullable SalesRequestDto salesRequestDto) throws ApiException {
+    this.sendPaymentRequest(salesRequestDto, Collections.emptyMap());
   }
 
 
@@ -2530,12 +2530,12 @@ public class PaymentApi extends BaseApi {
    * REST API Reference for sendPaymentRequest Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/send-payment-request/
    *
-   * @param salesRequestsDto  (optional)
+   * @param salesRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void sendPaymentRequest(@javax.annotation.Nullable SalesRequestsDto salesRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = salesRequestsDto;
+  public void sendPaymentRequest(@javax.annotation.Nullable SalesRequestDto salesRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = salesRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/portal/payment/request";
@@ -2585,33 +2585,33 @@ public class PaymentApi extends BaseApi {
 
   /**
    * Set restricted AI models
-   * Replaces the whole set of AI chat models barred on this portal: the body is the complete set that is to hold,  so adding one restriction means sending the new model together with the ones already restricted, lifting one  means leaving it out, and an empty set lifts them all. Read the current set from  `GET api/2.0/portal/payment/ai-model/restrictions` and the model identifiers from  `GET api/2.0/portal/payment/ai-prices` before calling. The installation needs a billing service and the AI  gateway configured, the portal needs a billing customer, and the caller needs the permission to edit the  portal settings as well as DocSpace administrator rights. The call is mutating and idempotent - sending the  same set twice leaves the same state - and it is written to the portal audit trail. It takes effect on the  next AI request, so a conversation already open on a model that has just been barred cannot go on with it. The  stored set comes back in the answer.
+   * Replaces the whole set of AI chat models barred on this portal: the body is the complete set that is to hold,  so adding one restriction means sending the new model together with the ones already restricted, lifting one  means leaving it out, and an empty set lifts them all. Read the current set from  `GET api/2.0/portal/payment/ai-model/restrictions` and the model identifiers from  `GET api/2.0/portal/payment/ai-prices` before calling. The installation needs a billing service and the AI  gateway configured, the portal needs a billing customer and the AI tools wallet service switched on with  `POST api/2.0/portal/payment/servicestate`, and the caller needs the permission to edit the portal settings as  well as DocSpace administrator rights. The call is mutating and idempotent - sending the same set twice leaves  the same state - and it is written to the portal audit trail. It takes effect on the next AI request, so a  conversation already open on a model that has just been barred cannot go on with it. The stored set comes  back in the answer. While AI tools is off the call is refused with 403 instead of being stored, because the  read reports an empty set then and nothing written could be read back.
    *
    * REST API Reference for setRestrictedAiModels Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-restricted-ai-models/
    *
    * @param setRestrictedAiModelsRequestDto  (optional)
-   * @return RestrictedModelsResponseWrapper
+   * @return RestrictedAiModelsWrapper
    * @throws ApiException if fails to make API call
    */
-  public RestrictedModelsResponseWrapper setRestrictedAiModels(@javax.annotation.Nullable SetRestrictedAiModelsRequestDto setRestrictedAiModelsRequestDto) throws ApiException {
+  public RestrictedAiModelsWrapper setRestrictedAiModels(@javax.annotation.Nullable SetRestrictedAiModelsRequestDto setRestrictedAiModelsRequestDto) throws ApiException {
     return this.setRestrictedAiModels(setRestrictedAiModelsRequestDto, Collections.emptyMap());
   }
 
 
   /**
    * Set restricted AI models
-   * Replaces the whole set of AI chat models barred on this portal: the body is the complete set that is to hold,  so adding one restriction means sending the new model together with the ones already restricted, lifting one  means leaving it out, and an empty set lifts them all. Read the current set from  `GET api/2.0/portal/payment/ai-model/restrictions` and the model identifiers from  `GET api/2.0/portal/payment/ai-prices` before calling. The installation needs a billing service and the AI  gateway configured, the portal needs a billing customer, and the caller needs the permission to edit the  portal settings as well as DocSpace administrator rights. The call is mutating and idempotent - sending the  same set twice leaves the same state - and it is written to the portal audit trail. It takes effect on the  next AI request, so a conversation already open on a model that has just been barred cannot go on with it. The  stored set comes back in the answer.
+   * Replaces the whole set of AI chat models barred on this portal: the body is the complete set that is to hold,  so adding one restriction means sending the new model together with the ones already restricted, lifting one  means leaving it out, and an empty set lifts them all. Read the current set from  `GET api/2.0/portal/payment/ai-model/restrictions` and the model identifiers from  `GET api/2.0/portal/payment/ai-prices` before calling. The installation needs a billing service and the AI  gateway configured, the portal needs a billing customer and the AI tools wallet service switched on with  `POST api/2.0/portal/payment/servicestate`, and the caller needs the permission to edit the portal settings as  well as DocSpace administrator rights. The call is mutating and idempotent - sending the same set twice leaves  the same state - and it is written to the portal audit trail. It takes effect on the next AI request, so a  conversation already open on a model that has just been barred cannot go on with it. The stored set comes  back in the answer. While AI tools is off the call is refused with 403 instead of being stored, because the  read reports an empty set then and nothing written could be read back.
    *
    * REST API Reference for setRestrictedAiModels Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-restricted-ai-models/
    *
    * @param setRestrictedAiModelsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return RestrictedModelsResponseWrapper
+   * @return RestrictedAiModelsWrapper
    * @throws ApiException if fails to make API call
    */
-  public RestrictedModelsResponseWrapper setRestrictedAiModels(@javax.annotation.Nullable SetRestrictedAiModelsRequestDto setRestrictedAiModelsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+  public RestrictedAiModelsWrapper setRestrictedAiModels(@javax.annotation.Nullable SetRestrictedAiModelsRequestDto setRestrictedAiModelsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = setRestrictedAiModelsRequestDto;
     
     // create path and map variables
@@ -2643,7 +2643,7 @@ public class PaymentApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<RestrictedModelsResponseWrapper> localVarReturnType = new TypeReference<RestrictedModelsResponseWrapper>() {};
+    TypeReference<RestrictedAiModelsWrapper> localVarReturnType = new TypeReference<RestrictedAiModelsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
@@ -2663,34 +2663,34 @@ public class PaymentApi extends BaseApi {
 
   /**
    * Set the auto top-up settings
-   * Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000, while `lowBalanceThreshold` and `lowBalanceNotified` are ignored on the way in and kept as the portal  had them. The call is mutating and idempotent, it charges nothing by itself, it is written to the portal audit  trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
+   * Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000, and `upToBalance` has to be greater than `minBalance`, so that a top-up lifts the wallet above the balance  that triggers it. The low-balance warning state (`lowBalanceThreshold`, `lowBalanceNotified`) and `lastModified` may be  sent for compatibility but are ignored: the portal keeps the values it had. The call is mutating and  idempotent, it charges nothing by itself, it is written to the portal audit trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
    *
    * REST API Reference for setTenantWalletSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/
    *
-   * @param tenantWalletSettingsWrapper  (optional)
-   * @return TenantWalletSettingsResponseWrapper
+   * @param tenantWalletSettingsRequestDto  (optional)
+   * @return TenantWalletSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantWalletSettingsResponseWrapper setTenantWalletSettings(@javax.annotation.Nullable TenantWalletSettingsWrapper tenantWalletSettingsWrapper) throws ApiException {
-    return this.setTenantWalletSettings(tenantWalletSettingsWrapper, Collections.emptyMap());
+  public TenantWalletSettingsWrapper setTenantWalletSettings(@javax.annotation.Nullable TenantWalletSettingsRequestDto tenantWalletSettingsRequestDto) throws ApiException {
+    return this.setTenantWalletSettings(tenantWalletSettingsRequestDto, Collections.emptyMap());
   }
 
 
   /**
    * Set the auto top-up settings
-   * Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000, while `lowBalanceThreshold` and `lowBalanceNotified` are ignored on the way in and kept as the portal  had them. The call is mutating and idempotent, it charges nothing by itself, it is written to the portal audit  trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
+   * Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000, and `upToBalance` has to be greater than `minBalance`, so that a top-up lifts the wallet above the balance  that triggers it. The low-balance warning state (`lowBalanceThreshold`, `lowBalanceNotified`) and `lastModified` may be  sent for compatibility but are ignored: the portal keeps the values it had. The call is mutating and  idempotent, it charges nothing by itself, it is written to the portal audit trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
    *
    * REST API Reference for setTenantWalletSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/
    *
-   * @param tenantWalletSettingsWrapper  (optional)
+   * @param tenantWalletSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return TenantWalletSettingsResponseWrapper
+   * @return TenantWalletSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantWalletSettingsResponseWrapper setTenantWalletSettings(@javax.annotation.Nullable TenantWalletSettingsWrapper tenantWalletSettingsWrapper, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = tenantWalletSettingsWrapper;
+  public TenantWalletSettingsWrapper setTenantWalletSettings(@javax.annotation.Nullable TenantWalletSettingsRequestDto tenantWalletSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = tenantWalletSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/portal/payment/topupsettings";
@@ -2721,7 +2721,7 @@ public class PaymentApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<TenantWalletSettingsResponseWrapper> localVarReturnType = new TypeReference<TenantWalletSettingsResponseWrapper>() {};
+    TypeReference<TenantWalletSettingsWrapper> localVarReturnType = new TypeReference<TenantWalletSettingsWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
