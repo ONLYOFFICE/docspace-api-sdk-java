@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
-import org.openapitools.client.model.TenantQuota;
+import org.openapitools.client.model.TenantQuotaDto;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * TenantQuotaWrapper
+ * The successful API response containing the TenantQuotaDto object.
  */
 @JsonPropertyOrder({
   TenantQuotaWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class TenantQuotaWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private TenantQuota response;
+  @javax.annotation.Nullable  private TenantQuotaDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class TenantQuotaWrapper {
   }
 
 
-  public TenantQuotaWrapper response(@javax.annotation.Nullable TenantQuota response) {
+  public TenantQuotaWrapper response(@javax.annotation.Nullable TenantQuotaDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * Get response
+   * The TenantQuotaDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TenantQuota getResponse() {
+  public TenantQuotaDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable TenantQuota response) {
+  public void setResponse(@javax.annotation.Nullable TenantQuotaDto response) {
     this.response = response;
   }
 

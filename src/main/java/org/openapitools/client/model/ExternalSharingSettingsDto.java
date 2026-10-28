@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The Access Control external sharing settings.
+ * The external sharing policy of the portal as it now stands.
  */
 @JsonPropertyOrder({
   ExternalSharingSettingsDto.JSON_PROPERTY_EXTERNAL_SHARE,
@@ -69,7 +69,7 @@ public class ExternalSharingSettingsDto {
   }
 
   /**
-   * Specifies whether external (public) link creation is allowed.
+   * Whether links that open a file or a room without a portal account may be created. While it is false the portal  also reports sharing on social networks as off and the default link type as internal, whatever was asked for.
    * @return externalShare
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_SHARE, required = false)
@@ -93,7 +93,7 @@ public class ExternalSharingSettingsDto {
   }
 
   /**
-   * Specifies the default sharing link type: true = DocSpace users only, false = Anyone with the link.
+   * The kind of link the portal offers first: true means a link only accounts of this portal can open, false one  that anyone holding it can open.
    * @return defaultShareLinkInternal
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEFAULT_SHARE_LINK_INTERNAL, required = false)
@@ -117,7 +117,7 @@ public class ExternalSharingSettingsDto {
   }
 
   /**
-   * When external sharing is restricted, specifies whether the restriction applies to the My Documents section.
+   * Whether the restriction covers personal documents. It only has an effect while external sharing is off, so a  true here with sharing allowed restricts nothing.
    * @return externalShareApplyToDocuments
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_SHARE_APPLY_TO_DOCUMENTS, required = false)
@@ -141,7 +141,7 @@ public class ExternalSharingSettingsDto {
   }
 
   /**
-   * When external sharing is restricted, specifies whether the restriction applies to the Rooms section.
+   * Whether the restriction covers rooms, including the creation of new public ones. It only has an effect while  external sharing is off.
    * @return externalShareApplyToRooms
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_SHARE_APPLY_TO_ROOMS, required = false)
@@ -165,7 +165,7 @@ public class ExternalSharingSettingsDto {
   }
 
   /**
-   * When external sharing is restricted, specifies whether existing public links are blocked immediately.
+   * Whether links created before the restriction stop opening as well. With false they keep working and only new  ones are refused.
    * @return blockExistingLinksOnRestrict
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_BLOCK_EXISTING_LINKS_ON_RESTRICT, required = false)

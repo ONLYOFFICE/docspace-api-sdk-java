@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * UserExistsResponseWrapper
+ * The successful API response containing the UserExistsResponseDto object.
  */
 @JsonPropertyOrder({
   UserExistsResponseWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class UserExistsResponseWrapper {
   }
 
   /**
-   * Get response
+   * The UserExistsResponseDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

@@ -1,0 +1,568 @@
+/*
+ * (c) Copyright Ascensio System SIA 2026
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+package org.openapitools.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.openapitools.client.model.LogoRequest;
+import org.openapitools.client.model.RoomType;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
+
+/**
+ * The room to be created out of a folder of a connected third-party storage account.
+ */
+@JsonPropertyOrder({
+  CreateThirdPartyRoomRequest.JSON_PROPERTY_CREATE_AS_NEW_FOLDER,
+  CreateThirdPartyRoomRequest.JSON_PROPERTY_TITLE,
+  CreateThirdPartyRoomRequest.JSON_PROPERTY_ROOM_TYPE,
+  CreateThirdPartyRoomRequest.JSON_PROPERTY_PRIVATE,
+  CreateThirdPartyRoomRequest.JSON_PROPERTY_INDEXING,
+  CreateThirdPartyRoomRequest.JSON_PROPERTY_DENY_DOWNLOAD,
+  CreateThirdPartyRoomRequest.JSON_PROPERTY_COLOR,
+  CreateThirdPartyRoomRequest.JSON_PROPERTY_COVER,
+  CreateThirdPartyRoomRequest.JSON_PROPERTY_TAGS,
+  CreateThirdPartyRoomRequest.JSON_PROPERTY_LOGO
+})
+
+public class CreateThirdPartyRoomRequest {
+  public static final String JSON_PROPERTY_CREATE_AS_NEW_FOLDER = "createAsNewFolder";
+  @javax.annotation.Nullable  private Boolean createAsNewFolder;
+
+  public static final String JSON_PROPERTY_TITLE = "title";
+  @javax.annotation.Nullable  private String title;
+
+  public static final String JSON_PROPERTY_ROOM_TYPE = "roomType";
+  @javax.annotation.Nonnull  private RoomType roomType;
+
+  public static final String JSON_PROPERTY_PRIVATE = "private";
+  @javax.annotation.Nullable  private Boolean _private;
+
+  public static final String JSON_PROPERTY_INDEXING = "indexing";
+  @javax.annotation.Nullable  private Boolean indexing;
+
+  public static final String JSON_PROPERTY_DENY_DOWNLOAD = "denyDownload";
+  @javax.annotation.Nullable  private Boolean denyDownload;
+
+  public static final String JSON_PROPERTY_COLOR = "color";
+  @javax.annotation.Nullable  private JsonNullable<String> color = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_COVER = "cover";
+  @javax.annotation.Nullable  private JsonNullable<String> cover = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  @javax.annotation.Nullable  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
+
+  public static final String JSON_PROPERTY_LOGO = "logo";
+  @javax.annotation.Nullable  private LogoRequest logo;
+
+  public CreateThirdPartyRoomRequest() {
+  }
+
+
+  public CreateThirdPartyRoomRequest createAsNewFolder(@javax.annotation.Nullable Boolean createAsNewFolder) {
+    
+    this.createAsNewFolder = createAsNewFolder;
+    return this;
+  }
+
+  /**
+   * Creates a new folder named after `title` inside the folder named in the path and turns that subfolder into the  room, leaving the named folder itself untouched. When omitted, the named folder becomes the room and keeps  everything it already holds.
+   * @return createAsNewFolder
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_AS_NEW_FOLDER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getCreateAsNewFolder() {
+    return createAsNewFolder;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CREATE_AS_NEW_FOLDER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCreateAsNewFolder(@javax.annotation.Nullable Boolean createAsNewFolder) {
+    this.createAsNewFolder = createAsNewFolder;
+  }
+
+  public CreateThirdPartyRoomRequest title(@javax.annotation.Nullable String title) {
+    
+    this.title = title;
+    return this;
+  }
+
+  /**
+   * The name the room is shown under. It is stored on the connected account, so it does not have to match the name  of the folder in the storage; with `createAsNewFolder` it is also the name given to the created subfolder.
+   * @return title
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getTitle() {
+    return title;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTitle(@javax.annotation.Nullable String title) {
+    this.title = title;
+  }
+
+  public CreateThirdPartyRoomRequest roomType(@javax.annotation.Nonnull RoomType roomType) {
+    
+    this.roomType = roomType;
+    return this;
+  }
+
+  /**
+   * The kind of room the folder becomes, which decides the default access rules of its members and cannot be  changed afterwards.
+   * @return roomType
+   */
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ROOM_TYPE, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public RoomType getRoomType() {
+    return roomType;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ROOM_TYPE, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setRoomType(@javax.annotation.Nonnull RoomType roomType) {
+    this.roomType = roomType;
+  }
+
+  public CreateThirdPartyRoomRequest _private(@javax.annotation.Nullable Boolean _private) {
+    
+    this._private = _private;
+    return this;
+  }
+
+  /**
+   * Restricts the room to the members explicitly invited into it. The flag is kept on the connected storage  account rather than on the folder, so every folder read through that account reports the same value.
+   * @return _private
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRIVATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getPrivate() {
+    return _private;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PRIVATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPrivate(@javax.annotation.Nullable Boolean _private) {
+    this._private = _private;
+  }
+
+  public CreateThirdPartyRoomRequest indexing(@javax.annotation.Nullable Boolean indexing) {
+    
+    this.indexing = indexing;
+    return this;
+  }
+
+  /**
+   * Keeps the contents of the room in an explicit numbered order, the one reported as `order` on every entry,  instead of leaving the order to the reader.
+   * @return indexing
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INDEXING, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIndexing() {
+    return indexing;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_INDEXING, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIndexing(@javax.annotation.Nullable Boolean indexing) {
+    this.indexing = indexing;
+  }
+
+  public CreateThirdPartyRoomRequest denyDownload(@javax.annotation.Nullable Boolean denyDownload) {
+    
+    this.denyDownload = denyDownload;
+    return this;
+  }
+
+  /**
+   * Forbids downloading and printing the contents of the room, which leaves the members with viewing and editing  in the editor only.
+   * @return denyDownload
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DENY_DOWNLOAD, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getDenyDownload() {
+    return denyDownload;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_DENY_DOWNLOAD, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDenyDownload(@javax.annotation.Nullable Boolean denyDownload) {
+    this.denyDownload = denyDownload;
+  }
+
+  public CreateThirdPartyRoomRequest color(@javax.annotation.Nullable String color) {
+    this.color = JsonNullable.<String>of(color);
+    
+    return this;
+  }
+
+  /**
+   * The background colour drawn behind the cover of the room, as six hexadecimal digits without a leading number  sign. An empty value restores the colour the portal picks by default.
+   * @return color
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getColor() {
+        return color.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_COLOR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getColor_JsonNullable() {
+    return color;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_COLOR)
+  public void setColor_JsonNullable(JsonNullable<String> color) {
+    this.color = color;
+  }
+
+  public void setColor(@javax.annotation.Nullable String color) {
+    this.color = JsonNullable.<String>of(color);
+  }
+
+  public CreateThirdPartyRoomRequest cover(@javax.annotation.Nullable String cover) {
+    this.cover = JsonNullable.<String>of(cover);
+    
+    return this;
+  }
+
+  /**
+   * The drawing shown on the room tile, named by one of the built-in cover identifiers returned by  `GET api/2.0/files/rooms/covers`. An empty value leaves the room without a cover, and any other unknown value  is rejected as an invalid request.
+   * @return cover
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getCover() {
+        return cover.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_COVER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getCover_JsonNullable() {
+    return cover;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_COVER)
+  public void setCover_JsonNullable(JsonNullable<String> cover) {
+    this.cover = cover;
+  }
+
+  public void setCover(@javax.annotation.Nullable String cover) {
+    this.cover = JsonNullable.<String>of(cover);
+  }
+
+  public CreateThirdPartyRoomRequest tags(@javax.annotation.Nullable List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
+    
+    return this;
+  }
+
+  public CreateThirdPartyRoomRequest addTagsItem(String tagsItem) {
+    if (this.tags == null || !this.tags.isPresent()) {
+      this.tags = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.tags.get().add(tagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * The tags to attach to the room, named by their text. A name that is not in the portal tag catalogue yet is  added to it, and `GET api/2.0/files/tags` lists the names already there.
+   * @return tags
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public List<String> getTags() {
+        return tags.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_TAGS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<String>> getTags_JsonNullable() {
+    return tags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  public void setTags_JsonNullable(JsonNullable<List<String>> tags) {
+    this.tags = tags;
+  }
+
+  public void setTags(@javax.annotation.Nullable List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
+  }
+
+  public CreateThirdPartyRoomRequest logo(@javax.annotation.Nullable LogoRequest logo) {
+    
+    this.logo = logo;
+    return this;
+  }
+
+  /**
+   * The picture to use as the room logo, which has to be uploaded with `POST api/2.0/files/logos` first; leaving  it out keeps the room on its cover and colour.
+   * @return logo
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LogoRequest getLogo() {
+    return logo;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLogo(@javax.annotation.Nullable LogoRequest logo) {
+    this.logo = logo;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    CreateThirdPartyRoomRequest createThirdPartyRoomRequest = (CreateThirdPartyRoomRequest) o;
+    return Objects.equals(this.createAsNewFolder, createThirdPartyRoomRequest.createAsNewFolder) &&
+        Objects.equals(this.title, createThirdPartyRoomRequest.title) &&
+        Objects.equals(this.roomType, createThirdPartyRoomRequest.roomType) &&
+        Objects.equals(this._private, createThirdPartyRoomRequest._private) &&
+        Objects.equals(this.indexing, createThirdPartyRoomRequest.indexing) &&
+        Objects.equals(this.denyDownload, createThirdPartyRoomRequest.denyDownload) &&
+        equalsNullable(this.color, createThirdPartyRoomRequest.color) &&
+        equalsNullable(this.cover, createThirdPartyRoomRequest.cover) &&
+        equalsNullable(this.tags, createThirdPartyRoomRequest.tags) &&
+        Objects.equals(this.logo, createThirdPartyRoomRequest.logo);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(createAsNewFolder, title, roomType, _private, indexing, denyDownload, hashCodeNullable(color), hashCodeNullable(cover), hashCodeNullable(tags), logo);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CreateThirdPartyRoomRequest {\n");
+    sb.append("    createAsNewFolder: ").append(toIndentedString(createAsNewFolder)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    roomType: ").append(toIndentedString(roomType)).append("\n");
+    sb.append("    _private: ").append(toIndentedString(_private)).append("\n");
+    sb.append("    indexing: ").append(toIndentedString(indexing)).append("\n");
+    sb.append("    denyDownload: ").append(toIndentedString(denyDownload)).append("\n");
+    sb.append("    color: ").append(toIndentedString(color)).append("\n");
+    sb.append("    cover: ").append(toIndentedString(cover)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    logo: ").append(toIndentedString(logo)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `createAsNewFolder` to the URL query string
+    if (getCreateAsNewFolder() != null) {
+      try {
+        joiner.add(String.format("%screateAsNewFolder%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreateAsNewFolder()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `title` to the URL query string
+    if (getTitle() != null) {
+      try {
+        joiner.add(String.format("%stitle%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTitle()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `roomType` to the URL query string
+    if (getRoomType() != null) {
+      try {
+        joiner.add(String.format("%sroomType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRoomType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `private` to the URL query string
+    if (getPrivate() != null) {
+      try {
+        joiner.add(String.format("%sprivate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPrivate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `indexing` to the URL query string
+    if (getIndexing() != null) {
+      try {
+        joiner.add(String.format("%sindexing%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIndexing()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `denyDownload` to the URL query string
+    if (getDenyDownload() != null) {
+      try {
+        joiner.add(String.format("%sdenyDownload%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDenyDownload()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `color` to the URL query string
+    if (getColor() != null) {
+      try {
+        joiner.add(String.format("%scolor%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getColor()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `cover` to the URL query string
+    if (getCover() != null) {
+      try {
+        joiner.add(String.format("%scover%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCover()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `tags` to the URL query string
+    if (getTags() != null) {
+      for (int i = 0; i < getTags().size(); i++) {
+        try {
+          joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getTags().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `logo` to the URL query string
+    if (getLogo() != null) {
+      joiner.add(getLogo().toUrlQueryString(prefix + "logo" + suffix));
+    }
+
+    return joiner.toString();
+  }
+
+}
+

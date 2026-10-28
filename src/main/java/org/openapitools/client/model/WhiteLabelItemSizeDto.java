@@ -1,0 +1,556 @@
+/*
+ * (c) Copyright Ascensio System SIA 2026
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+package org.openapitools.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
+
+/**
+ * The pixel box a logo slot is drawn in, in the shape the imaging library reports a geometry.
+ */
+@JsonPropertyOrder({
+  WhiteLabelItemSizeDto.JSON_PROPERTY_ASPECT_RATIO,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_FILL_AREA,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_GREATER,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_HEIGHT,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_IGNORE_ASPECT_RATIO,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_IS_PERCENTAGE,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_LESS,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_LIMIT_PIXELS,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_WIDTH,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_X,
+  WhiteLabelItemSizeDto.JSON_PROPERTY_Y
+})
+
+public class WhiteLabelItemSizeDto {
+  public static final String JSON_PROPERTY_ASPECT_RATIO = "aspectRatio";
+  @javax.annotation.Nullable  private Boolean aspectRatio;
+
+  public static final String JSON_PROPERTY_FILL_AREA = "fillArea";
+  @javax.annotation.Nullable  private Boolean fillArea;
+
+  public static final String JSON_PROPERTY_GREATER = "greater";
+  @javax.annotation.Nullable  private Boolean greater;
+
+  public static final String JSON_PROPERTY_HEIGHT = "height";
+  @javax.annotation.Nullable  private Integer height;
+
+  public static final String JSON_PROPERTY_IGNORE_ASPECT_RATIO = "ignoreAspectRatio";
+  @javax.annotation.Nullable  private Boolean ignoreAspectRatio;
+
+  public static final String JSON_PROPERTY_IS_PERCENTAGE = "isPercentage";
+  @javax.annotation.Nullable  private Boolean isPercentage;
+
+  public static final String JSON_PROPERTY_LESS = "less";
+  @javax.annotation.Nullable  private Boolean less;
+
+  public static final String JSON_PROPERTY_LIMIT_PIXELS = "limitPixels";
+  @javax.annotation.Nullable  private Boolean limitPixels;
+
+  public static final String JSON_PROPERTY_WIDTH = "width";
+  @javax.annotation.Nullable  private Integer width;
+
+  public static final String JSON_PROPERTY_X = "x";
+  @javax.annotation.Nullable  private Integer x;
+
+  public static final String JSON_PROPERTY_Y = "y";
+  @javax.annotation.Nullable  private Integer y;
+
+  public WhiteLabelItemSizeDto() {
+  }
+
+
+  public WhiteLabelItemSizeDto aspectRatio(@javax.annotation.Nullable Boolean aspectRatio) {
+    
+    this.aspectRatio = aspectRatio;
+    return this;
+  }
+
+  /**
+   * Whether the numbers are to be read as an aspect ratio rather than as pixels. Always `false` on the sizes  this API reports.
+   * @return aspectRatio
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ASPECT_RATIO, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAspectRatio() {
+    return aspectRatio;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ASPECT_RATIO, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAspectRatio(@javax.annotation.Nullable Boolean aspectRatio) {
+    this.aspectRatio = aspectRatio;
+  }
+
+  public WhiteLabelItemSizeDto fillArea(@javax.annotation.Nullable Boolean fillArea) {
+    
+    this.fillArea = fillArea;
+    return this;
+  }
+
+  /**
+   * Whether an image would be scaled to cover the box rather than to fit inside it. Always `false` here.
+   * @return fillArea
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILL_AREA, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getFillArea() {
+    return fillArea;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_FILL_AREA, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFillArea(@javax.annotation.Nullable Boolean fillArea) {
+    this.fillArea = fillArea;
+  }
+
+  public WhiteLabelItemSizeDto greater(@javax.annotation.Nullable Boolean greater) {
+    
+    this.greater = greater;
+    return this;
+  }
+
+  /**
+   * Whether scaling would apply only to an image larger than the box. Always `false` here.
+   * @return greater
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GREATER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getGreater() {
+    return greater;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_GREATER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGreater(@javax.annotation.Nullable Boolean greater) {
+    this.greater = greater;
+  }
+
+  public WhiteLabelItemSizeDto height(@javax.annotation.Nullable Integer height) {
+    
+    this.height = height;
+    return this;
+  }
+
+  /**
+   * The height of the box in pixels - one of the two fields of this object that carry information.
+   * @return height
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getHeight() {
+    return height;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setHeight(@javax.annotation.Nullable Integer height) {
+    this.height = height;
+  }
+
+  public WhiteLabelItemSizeDto ignoreAspectRatio(@javax.annotation.Nullable Boolean ignoreAspectRatio) {
+    
+    this.ignoreAspectRatio = ignoreAspectRatio;
+    return this;
+  }
+
+  /**
+   * Whether scaling would be allowed to distort the image. Always `false` here.
+   * @return ignoreAspectRatio
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IGNORE_ASPECT_RATIO, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIgnoreAspectRatio() {
+    return ignoreAspectRatio;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_IGNORE_ASPECT_RATIO, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIgnoreAspectRatio(@javax.annotation.Nullable Boolean ignoreAspectRatio) {
+    this.ignoreAspectRatio = ignoreAspectRatio;
+  }
+
+  public WhiteLabelItemSizeDto isPercentage(@javax.annotation.Nullable Boolean isPercentage) {
+    
+    this.isPercentage = isPercentage;
+    return this;
+  }
+
+  /**
+   * Whether `width` and `height` are to be read as percentages. Always `false` here, so both are pixels.
+   * @return isPercentage
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_PERCENTAGE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsPercentage() {
+    return isPercentage;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_IS_PERCENTAGE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsPercentage(@javax.annotation.Nullable Boolean isPercentage) {
+    this.isPercentage = isPercentage;
+  }
+
+  public WhiteLabelItemSizeDto less(@javax.annotation.Nullable Boolean less) {
+    
+    this.less = less;
+    return this;
+  }
+
+  /**
+   * Whether scaling would apply only to an image smaller than the box. Always `false` here.
+   * @return less
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LESS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getLess() {
+    return less;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_LESS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLess(@javax.annotation.Nullable Boolean less) {
+    this.less = less;
+  }
+
+  public WhiteLabelItemSizeDto limitPixels(@javax.annotation.Nullable Boolean limitPixels) {
+    
+    this.limitPixels = limitPixels;
+    return this;
+  }
+
+  /**
+   * Whether the box is to be read as a total pixel-area budget instead of as two dimensions. Always `false`  here.
+   * @return limitPixels
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIMIT_PIXELS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getLimitPixels() {
+    return limitPixels;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_LIMIT_PIXELS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLimitPixels(@javax.annotation.Nullable Boolean limitPixels) {
+    this.limitPixels = limitPixels;
+  }
+
+  public WhiteLabelItemSizeDto width(@javax.annotation.Nullable Integer width) {
+    
+    this.width = width;
+    return this;
+  }
+
+  /**
+   * The width of the box in pixels - the other field of this object that carries information.
+   * @return width
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getWidth() {
+    return width;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setWidth(@javax.annotation.Nullable Integer width) {
+    this.width = width;
+  }
+
+  public WhiteLabelItemSizeDto x(@javax.annotation.Nullable Integer x) {
+    
+    this.x = x;
+    return this;
+  }
+
+  /**
+   * The horizontal offset of the box from the origin. Always `0` here.
+   * @return x
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_X, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getX() {
+    return x;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_X, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setX(@javax.annotation.Nullable Integer x) {
+    this.x = x;
+  }
+
+  public WhiteLabelItemSizeDto y(@javax.annotation.Nullable Integer y) {
+    
+    this.y = y;
+    return this;
+  }
+
+  /**
+   * The vertical offset of the box from the origin. Always `0` here.
+   * @return y
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_Y, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getY() {
+    return y;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_Y, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setY(@javax.annotation.Nullable Integer y) {
+    this.y = y;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    WhiteLabelItemSizeDto whiteLabelItemSizeDto = (WhiteLabelItemSizeDto) o;
+    return Objects.equals(this.aspectRatio, whiteLabelItemSizeDto.aspectRatio) &&
+        Objects.equals(this.fillArea, whiteLabelItemSizeDto.fillArea) &&
+        Objects.equals(this.greater, whiteLabelItemSizeDto.greater) &&
+        Objects.equals(this.height, whiteLabelItemSizeDto.height) &&
+        Objects.equals(this.ignoreAspectRatio, whiteLabelItemSizeDto.ignoreAspectRatio) &&
+        Objects.equals(this.isPercentage, whiteLabelItemSizeDto.isPercentage) &&
+        Objects.equals(this.less, whiteLabelItemSizeDto.less) &&
+        Objects.equals(this.limitPixels, whiteLabelItemSizeDto.limitPixels) &&
+        Objects.equals(this.width, whiteLabelItemSizeDto.width) &&
+        Objects.equals(this.x, whiteLabelItemSizeDto.x) &&
+        Objects.equals(this.y, whiteLabelItemSizeDto.y);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(aspectRatio, fillArea, greater, height, ignoreAspectRatio, isPercentage, less, limitPixels, width, x, y);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class WhiteLabelItemSizeDto {\n");
+    sb.append("    aspectRatio: ").append(toIndentedString(aspectRatio)).append("\n");
+    sb.append("    fillArea: ").append(toIndentedString(fillArea)).append("\n");
+    sb.append("    greater: ").append(toIndentedString(greater)).append("\n");
+    sb.append("    height: ").append(toIndentedString(height)).append("\n");
+    sb.append("    ignoreAspectRatio: ").append(toIndentedString(ignoreAspectRatio)).append("\n");
+    sb.append("    isPercentage: ").append(toIndentedString(isPercentage)).append("\n");
+    sb.append("    less: ").append(toIndentedString(less)).append("\n");
+    sb.append("    limitPixels: ").append(toIndentedString(limitPixels)).append("\n");
+    sb.append("    width: ").append(toIndentedString(width)).append("\n");
+    sb.append("    x: ").append(toIndentedString(x)).append("\n");
+    sb.append("    y: ").append(toIndentedString(y)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `aspectRatio` to the URL query string
+    if (getAspectRatio() != null) {
+      try {
+        joiner.add(String.format("%saspectRatio%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAspectRatio()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `fillArea` to the URL query string
+    if (getFillArea() != null) {
+      try {
+        joiner.add(String.format("%sfillArea%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFillArea()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `greater` to the URL query string
+    if (getGreater() != null) {
+      try {
+        joiner.add(String.format("%sgreater%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGreater()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `height` to the URL query string
+    if (getHeight() != null) {
+      try {
+        joiner.add(String.format("%sheight%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHeight()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `ignoreAspectRatio` to the URL query string
+    if (getIgnoreAspectRatio() != null) {
+      try {
+        joiner.add(String.format("%signoreAspectRatio%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIgnoreAspectRatio()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `isPercentage` to the URL query string
+    if (getIsPercentage() != null) {
+      try {
+        joiner.add(String.format("%sisPercentage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsPercentage()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `less` to the URL query string
+    if (getLess() != null) {
+      try {
+        joiner.add(String.format("%sless%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLess()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `limitPixels` to the URL query string
+    if (getLimitPixels() != null) {
+      try {
+        joiner.add(String.format("%slimitPixels%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLimitPixels()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `width` to the URL query string
+    if (getWidth() != null) {
+      try {
+        joiner.add(String.format("%swidth%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getWidth()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `x` to the URL query string
+    if (getX() != null) {
+      try {
+        joiner.add(String.format("%sx%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getX()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `y` to the URL query string
+    if (getY() != null) {
+      try {
+        joiner.add(String.format("%sy%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getY()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
+  }
+
+}
+

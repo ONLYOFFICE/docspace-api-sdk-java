@@ -38,7 +38,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for updating an invitation link.
+ * The invitation link being changed, with the deadline and use limit it is to have afterwards.
  */
 @JsonPropertyOrder({
   InvitationLinkUpdateRequestDto.JSON_PROPERTY_ID,
@@ -67,7 +67,7 @@ public class InvitationLinkUpdateRequestDto {
   }
 
   /**
-   * The ID of the invitation link.
+   * The link to change, by the `id` that creating or reading it returned. The role behind that id cannot be  changed here.
    * @return id
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
@@ -91,7 +91,7 @@ public class InvitationLinkUpdateRequestDto {
   }
 
   /**
-   * The expiration date of the invitation link.
+   * The new deadline, read in the portal time zone. The body is applied as a whole, so leaving it out clears the  deadline rather than keeping the current one; a moment in the past is refused.
    * @return expiration
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -122,7 +122,7 @@ public class InvitationLinkUpdateRequestDto {
   }
 
   /**
-   * The maximum number of times the invitation link can be used.
+   * The new total number of accounts that may join through the link. It may not be lower than the uses already  spent, which the link reports as `currentUseCount`, and leaving it out removes the limit rather than keeping  the current one.
    * minimum: 1
    * maximum: 1000
    * @return maxUseCount

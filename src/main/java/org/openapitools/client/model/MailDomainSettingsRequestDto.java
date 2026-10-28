@@ -1,0 +1,252 @@
+/*
+ * (c) Copyright Ascensio System SIA 2026
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+package org.openapitools.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.openapitools.client.model.TenantTrustedDomainsType;
+
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
+
+/**
+ * Which email domains the portal treats as already verified, and how their users join.
+ */
+@JsonPropertyOrder({
+  MailDomainSettingsRequestDto.JSON_PROPERTY_TYPE,
+  MailDomainSettingsRequestDto.JSON_PROPERTY_DOMAINS,
+  MailDomainSettingsRequestDto.JSON_PROPERTY_INVITE_USERS_AS_VISITORS
+})
+
+public class MailDomainSettingsRequestDto {
+  public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nonnull  private TenantTrustedDomainsType type;
+
+  public static final String JSON_PROPERTY_DOMAINS = "domains";
+  @javax.annotation.Nullable  private List<String> domains;
+
+  public static final String JSON_PROPERTY_INVITE_USERS_AS_VISITORS = "inviteUsersAsVisitors";
+  @javax.annotation.Nonnull  private Boolean inviteUsersAsVisitors;
+
+  public MailDomainSettingsRequestDto() {
+  }
+
+
+  public MailDomainSettingsRequestDto type(@javax.annotation.Nonnull TenantTrustedDomainsType type) {
+    
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * How trusted domains are decided: no domain is trusted, every domain is, or only the ones listed in `domains`.  Only the custom mode reads `domains`; under the other two the list is ignored rather than refused.
+   * @return type
+   */
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public TenantTrustedDomainsType getType() {
+    return type;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setType(@javax.annotation.Nonnull TenantTrustedDomainsType type) {
+    this.type = type;
+  }
+
+  public MailDomainSettingsRequestDto domains(@javax.annotation.Nullable List<String> domains) {
+    
+    this.domains = domains;
+    return this;
+  }
+
+  public MailDomainSettingsRequestDto addDomainsItem(String domainsItem) {
+    if (this.domains == null) {
+      this.domains = new ArrayList<>();
+    }
+    this.domains.add(domainsItem);
+    return this;
+  }
+
+  /**
+   * The trusted domains, as bare hostnames such as `example.com` without a scheme or an `@`. This is the whole  list that is to hold afterwards and not a list of additions. Each entry is lowercased before it is stored,  and one entry that is not a valid hostname - or an empty list in the custom mode - fails the whole call  without saving anything.
+   * @return domains
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOMAINS, required = false)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<String> getDomains() {
+    return domains;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_DOMAINS, required = false)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setDomains(@javax.annotation.Nullable List<String> domains) {
+    this.domains = domains;
+  }
+
+  public MailDomainSettingsRequestDto inviteUsersAsVisitors(@javax.annotation.Nonnull Boolean inviteUsersAsVisitors) {
+    
+    this.inviteUsersAsVisitors = inviteUsersAsVisitors;
+    return this;
+  }
+
+  /**
+   * What a user joining through a trusted domain becomes: `true` admits them as a guest, `false` as a full  member. It applies to joins made from now on and does not change anybody who has already joined.
+   * @return inviteUsersAsVisitors
+   */
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_INVITE_USERS_AS_VISITORS, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getInviteUsersAsVisitors() {
+    return inviteUsersAsVisitors;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_INVITE_USERS_AS_VISITORS, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setInviteUsersAsVisitors(@javax.annotation.Nonnull Boolean inviteUsersAsVisitors) {
+    this.inviteUsersAsVisitors = inviteUsersAsVisitors;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    MailDomainSettingsRequestDto mailDomainSettingsRequestDto = (MailDomainSettingsRequestDto) o;
+    return Objects.equals(this.type, mailDomainSettingsRequestDto.type) &&
+        Objects.equals(this.domains, mailDomainSettingsRequestDto.domains) &&
+        Objects.equals(this.inviteUsersAsVisitors, mailDomainSettingsRequestDto.inviteUsersAsVisitors);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(type, domains, inviteUsersAsVisitors);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class MailDomainSettingsRequestDto {\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    domains: ").append(toIndentedString(domains)).append("\n");
+    sb.append("    inviteUsersAsVisitors: ").append(toIndentedString(inviteUsersAsVisitors)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `type` to the URL query string
+    if (getType() != null) {
+      try {
+        joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `domains` to the URL query string
+    if (getDomains() != null) {
+      for (int i = 0; i < getDomains().size(); i++) {
+        try {
+          joiner.add(String.format("%sdomains%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getDomains().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `inviteUsersAsVisitors` to the URL query string
+    if (getInviteUsersAsVisitors() != null) {
+      try {
+        joiner.add(String.format("%sinviteUsersAsVisitors%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInviteUsersAsVisitors()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
+  }
+
+}
+

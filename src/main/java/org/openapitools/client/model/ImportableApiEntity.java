@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ImportableApiEntity
+ * The parameters of an importable API entity.
  */
 @JsonPropertyOrder({
   ImportableApiEntity.JSON_PROPERTY_SHOULD_IMPORT
@@ -53,7 +53,7 @@ public class ImportableApiEntity {
   }
 
   /**
-   * Get shouldImport
+   * Specifies whether the API entity should be imported.
    * @return shouldImport
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHOULD_IMPORT, required = false)

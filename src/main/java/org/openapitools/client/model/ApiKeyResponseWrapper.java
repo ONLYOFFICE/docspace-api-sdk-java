@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ApiKeyResponseWrapper
+ * The successful API response containing the ApiKeyResponseDto object.
  */
 @JsonPropertyOrder({
   ApiKeyResponseWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class ApiKeyResponseWrapper {
   }
 
   /**
-   * Get response
+   * The ApiKeyResponseDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * XlsxReportResponseWrapper
+ * The successful API response containing the XlsxReportResponseDto object.
  */
 @JsonPropertyOrder({
   XlsxReportResponseWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class XlsxReportResponseWrapper {
   }
 
   /**
-   * Get response
+   * The XlsxReportResponseDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

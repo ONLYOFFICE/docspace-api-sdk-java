@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * [0 - Active, 1 - Suspended, 2 - Remove pending, 3 - Transfering, 4 - Restoring, 5 - Migrating, 6 - Encryption]
+ * [0 - Active, 1 - Suspended, 2 - Remove pending, 3 - Transfering, 4 - Restoring, 5 - Migrating, 6 - Encryption, 7 - Blocked]
  */
 public enum TenantStatus {
   
@@ -46,7 +46,9 @@ public enum TenantStatus {
   
   Migrating(5),
   
-  Encryption(6);
+  Encryption(6),
+  
+  Blocked(7);
 
   private Integer value;
 
@@ -61,7 +63,7 @@ public enum TenantStatus {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return java.lang.String.valueOf(value);
   }
 
   @JsonCreator
@@ -85,7 +87,7 @@ public enum TenantStatus {
       prefix = "";
     }
 
-    return String.format(java.util.Locale.ROOT, "%s=%s", prefix, this.toString());
+    return java.lang.String.format(java.util.Locale.ROOT, "%s=%s", prefix, this.toString());
   }
 }
 

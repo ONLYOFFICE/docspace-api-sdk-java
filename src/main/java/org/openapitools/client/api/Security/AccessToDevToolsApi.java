@@ -24,7 +24,8 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.TenantDevToolsAccessSettingsDto;
+import org.openapitools.client.model.ErrorApiResponse;
+import org.openapitools.client.model.TenantDevToolsAccessSettingsRequestDto;
 import org.openapitools.client.model.TenantDevToolsAccessSettingsWrapper;
 
 
@@ -48,34 +49,34 @@ public class AccessToDevToolsApi extends BaseApi {
 
   /**
    * Set the Developer Tools access settings
-   * Sets the Developer Tools access settings for the portal.
+   * Sets whether the portal restricts the `User` role from using the developer tools (API keys, OAuth apps,  webhooks); `RoomAdmin` and `DocSpaceAdmin` are never affected by this setting. Requires Owner or DocSpaceAdmin  (the EditPortalSettings permission). This is a mutating, idempotent, portal-wide call: it applies to every  `User` on the tenant immediately. It returns the saved setting; read the current value at any time from  `GET api/2.0/settings/devtoolsaccess`.
    *
    * REST API Reference for setTenantDevToolsAccessSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-dev-tools-access-settings/
    *
-   * @param tenantDevToolsAccessSettingsDto  (optional)
+   * @param tenantDevToolsAccessSettingsRequestDto  (optional)
    * @return TenantDevToolsAccessSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantDevToolsAccessSettingsWrapper setTenantDevToolsAccessSettings(@javax.annotation.Nullable TenantDevToolsAccessSettingsDto tenantDevToolsAccessSettingsDto) throws ApiException {
-    return this.setTenantDevToolsAccessSettings(tenantDevToolsAccessSettingsDto, Collections.emptyMap());
+  public TenantDevToolsAccessSettingsWrapper setTenantDevToolsAccessSettings(@javax.annotation.Nullable TenantDevToolsAccessSettingsRequestDto tenantDevToolsAccessSettingsRequestDto) throws ApiException {
+    return this.setTenantDevToolsAccessSettings(tenantDevToolsAccessSettingsRequestDto, Collections.emptyMap());
   }
 
 
   /**
    * Set the Developer Tools access settings
-   * Sets the Developer Tools access settings for the portal.
+   * Sets whether the portal restricts the `User` role from using the developer tools (API keys, OAuth apps,  webhooks); `RoomAdmin` and `DocSpaceAdmin` are never affected by this setting. Requires Owner or DocSpaceAdmin  (the EditPortalSettings permission). This is a mutating, idempotent, portal-wide call: it applies to every  `User` on the tenant immediately. It returns the saved setting; read the current value at any time from  `GET api/2.0/settings/devtoolsaccess`.
    *
    * REST API Reference for setTenantDevToolsAccessSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-dev-tools-access-settings/
    *
-   * @param tenantDevToolsAccessSettingsDto  (optional)
+   * @param tenantDevToolsAccessSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return TenantDevToolsAccessSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantDevToolsAccessSettingsWrapper setTenantDevToolsAccessSettings(@javax.annotation.Nullable TenantDevToolsAccessSettingsDto tenantDevToolsAccessSettingsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = tenantDevToolsAccessSettingsDto;
+  public TenantDevToolsAccessSettingsWrapper setTenantDevToolsAccessSettings(@javax.annotation.Nullable TenantDevToolsAccessSettingsRequestDto tenantDevToolsAccessSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = tenantDevToolsAccessSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/devtoolsaccess";

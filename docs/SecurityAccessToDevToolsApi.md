@@ -10,9 +10,9 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 ## setTenantDevToolsAccessSettings
 
-> TenantDevToolsAccessSettingsWrapper setTenantDevToolsAccessSettings(tenantDevToolsAccessSettingsDto)
+> TenantDevToolsAccessSettingsWrapper setTenantDevToolsAccessSettings(tenantDevToolsAccessSettingsRequestDto)
 
-Set the Developer Tools access settingsSets the Developer Tools access settings for the portal.
+Set the Developer Tools access settingsSets whether the portal restricts the `User` role from using the developer tools (API keys, OAuth apps,  webhooks); `RoomAdmin` and `DocSpaceAdmin` are never affected by this setting. Requires Owner or DocSpaceAdmin  (the EditPortalSettings permission). This is a mutating, idempotent, portal-wide call: it applies to every  `User` on the tenant immediately. It returns the saved setting; read the current value at any time from  `GET api/2.0/settings/devtoolsaccess`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-dev-tools-access-settings/).
 
@@ -21,7 +21,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantDevToolsAccessSettingsDto** | [**TenantDevToolsAccessSettingsDto**](TenantDevToolsAccessSettingsDto.md)|  | [optional] |
+| **tenantDevToolsAccessSettingsRequestDto** | [**TenantDevToolsAccessSettingsRequestDto**](TenantDevToolsAccessSettingsRequestDto.md)|  | [optional] |
 
 ### Return type
 
@@ -74,9 +74,9 @@ public class Example {
 
 
         AccessToDevToolsApi apiInstance = new AccessToDevToolsApi(defaultClient);
-        TenantDevToolsAccessSettingsDto tenantDevToolsAccessSettingsDto = new TenantDevToolsAccessSettingsDto(); // TenantDevToolsAccessSettingsDto | 
+        TenantDevToolsAccessSettingsRequestDto tenantDevToolsAccessSettingsRequestDto = new TenantDevToolsAccessSettingsRequestDto(); // TenantDevToolsAccessSettingsRequestDto | 
         try {
-            TenantDevToolsAccessSettingsWrapper result = apiInstance.setTenantDevToolsAccessSettings(tenantDevToolsAccessSettingsDto);
+            TenantDevToolsAccessSettingsWrapper result = apiInstance.setTenantDevToolsAccessSettings(tenantDevToolsAccessSettingsRequestDto);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccessToDevToolsApi#setTenantDevToolsAccessSettings");
@@ -98,9 +98,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Developer Tools access settings |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | Saved developer tools access restriction for the `User` role |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
+| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

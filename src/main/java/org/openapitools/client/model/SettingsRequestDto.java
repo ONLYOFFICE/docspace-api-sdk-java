@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The settings request parameters.
+ * The body of a file settings switch: a single flag carrying the state to store.
  */
 @JsonPropertyOrder({
   SettingsRequestDto.JSON_PROPERTY_SET
@@ -53,7 +53,7 @@ public class SettingsRequestDto {
   }
 
   /**
-   * Specifies whether to set the specified settings or not.
+   * The state to store for the setting the operation addresses: true switches it on, false switches it off. The  flag carries no meaning of its own - what is switched, who is allowed to switch it, and whether the value  belongs to the calling account or to the whole portal are stated by the operation that binds this body. The  answer repeats the value the portal read back afterwards, which is not always the one that was sent.
    * @return set
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SET, required = false)

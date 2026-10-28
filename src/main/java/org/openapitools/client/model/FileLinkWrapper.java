@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.FileLink;
+import org.openapitools.client.model.FileLinkDto;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * FileLinkWrapper
+ * The successful API response containing the FileLinkDto object.
  */
 @JsonPropertyOrder({
   FileLinkWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class FileLinkWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private FileLink response;
+  @javax.annotation.Nullable  private FileLinkDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class FileLinkWrapper {
   }
 
 
-  public FileLinkWrapper response(@javax.annotation.Nullable FileLink response) {
+  public FileLinkWrapper response(@javax.annotation.Nullable FileLinkDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * Get response
+   * The FileLinkDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public FileLink getResponse() {
+  public FileLinkDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable FileLink response) {
+  public void setResponse(@javax.annotation.Nullable FileLinkDto response) {
     this.response = response;
   }
 

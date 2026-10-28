@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * WebhooksConfigWithStatusArrayWrapper
+ * The successful API response containing the list of WebhooksConfigWithStatusDto objects.
  */
 @JsonPropertyOrder({
   WebhooksConfigWithStatusArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class WebhooksConfigWithStatusArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of WebhooksConfigWithStatusDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

@@ -28,14 +28,14 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.CoEditingConfig;
+import org.openapitools.client.model.CoEditingConfigDto;
 import org.openapitools.client.model.CustomizationConfigDto;
-import org.openapitools.client.model.EmbeddedConfig;
-import org.openapitools.client.model.EncryptionKeysConfig;
-import org.openapitools.client.model.PluginsConfig;
-import org.openapitools.client.model.RecentConfig;
-import org.openapitools.client.model.TemplatesConfig;
-import org.openapitools.client.model.UserConfig;
+import org.openapitools.client.model.EmbeddedConfigDto;
+import org.openapitools.client.model.EncryptionKeyDto;
+import org.openapitools.client.model.PluginsConfigDto;
+import org.openapitools.client.model.RecentConfigDto;
+import org.openapitools.client.model.TemplatesConfigDto;
+import org.openapitools.client.model.UserConfigDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -48,7 +48,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The editor configuration parameters.
+ * How the editors behave for this opening: the mode, the language, the interface, and who is editing.
  */
 @JsonPropertyOrder({
   EditorConfigurationDto.JSON_PROPERTY_CALLBACK_URL,
@@ -71,7 +71,7 @@ public class EditorConfigurationDto {
   @javax.annotation.Nullable  private JsonNullable<URI> callbackUrl = JsonNullable.<URI>undefined();
 
   public static final String JSON_PROPERTY_CO_EDITING = "coEditing";
-  @javax.annotation.Nullable  private CoEditingConfig coEditing;
+  @javax.annotation.Nullable  private CoEditingConfigDto coEditing;
 
   public static final String JSON_PROPERTY_CREATE_URL = "createUrl";
   @javax.annotation.Nullable  private JsonNullable<String> createUrl = JsonNullable.<String>undefined();
@@ -80,10 +80,10 @@ public class EditorConfigurationDto {
   @javax.annotation.Nullable  private CustomizationConfigDto customization;
 
   public static final String JSON_PROPERTY_EMBEDDED = "embedded";
-  @javax.annotation.Nullable  private EmbeddedConfig embedded;
+  @javax.annotation.Nullable  private EmbeddedConfigDto embedded;
 
   public static final String JSON_PROPERTY_ENCRYPTION_KEYS = "encryptionKeys";
-  @javax.annotation.Nullable  private EncryptionKeysConfig encryptionKeys;
+  @javax.annotation.Nullable  private JsonNullable<List<EncryptionKeyDto>> encryptionKeys = JsonNullable.<List<EncryptionKeyDto>>undefined();
 
   public static final String JSON_PROPERTY_LANG = "lang";
   @javax.annotation.Nullable  private String lang;
@@ -95,16 +95,16 @@ public class EditorConfigurationDto {
   @javax.annotation.Nullable  private Boolean modeWrite;
 
   public static final String JSON_PROPERTY_PLUGINS = "plugins";
-  @javax.annotation.Nullable  private PluginsConfig plugins;
+  @javax.annotation.Nullable  private PluginsConfigDto plugins;
 
   public static final String JSON_PROPERTY_RECENT = "recent";
-  @javax.annotation.Nullable  private JsonNullable<List<RecentConfig>> recent = JsonNullable.<List<RecentConfig>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<RecentConfigDto>> recent = JsonNullable.<List<RecentConfigDto>>undefined();
 
   public static final String JSON_PROPERTY_TEMPLATES = "templates";
-  @javax.annotation.Nullable  private JsonNullable<List<TemplatesConfig>> templates = JsonNullable.<List<TemplatesConfig>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<TemplatesConfigDto>> templates = JsonNullable.<List<TemplatesConfigDto>>undefined();
 
   public static final String JSON_PROPERTY_USER = "user";
-  @javax.annotation.Nullable  private UserConfig user;
+  @javax.annotation.Nullable  private UserConfigDto user;
 
   public EditorConfigurationDto() {
   }
@@ -117,7 +117,7 @@ public class EditorConfigurationDto {
   }
 
   /**
-   * The callback URL of the editor.
+   * Where the editors post the document back to when they save it. A client must not call it itself; it is the  address the document service uses.
    * @return callbackUrl
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -141,27 +141,27 @@ public class EditorConfigurationDto {
     this.callbackUrl = JsonNullable.<URI>of(callbackUrl);
   }
 
-  public EditorConfigurationDto coEditing(@javax.annotation.Nullable CoEditingConfig coEditing) {
+  public EditorConfigurationDto coEditing(@javax.annotation.Nullable CoEditingConfigDto coEditing) {
     
     this.coEditing = coEditing;
     return this;
   }
 
   /**
-   * Get coEditing
+   * How co-editing starts out for this session and whether the user may switch it in the interface.
    * @return coEditing
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CO_EDITING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public CoEditingConfig getCoEditing() {
+  public CoEditingConfigDto getCoEditing() {
     return coEditing;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_CO_EDITING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCoEditing(@javax.annotation.Nullable CoEditingConfig coEditing) {
+  public void setCoEditing(@javax.annotation.Nullable CoEditingConfigDto coEditing) {
     this.coEditing = coEditing;
   }
 
@@ -172,7 +172,7 @@ public class EditorConfigurationDto {
   }
 
   /**
-   * The creation URL of the editor.
+   * Where the editor sends the user when they ask for a new document of the same type. It is empty when creating  one is not offered here.
    * @return createUrl
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -203,7 +203,7 @@ public class EditorConfigurationDto {
   }
 
   /**
-   * Get customization
+   * How the editor interface is dressed for this portal, this document and this layout.
    * @return customization
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CUSTOMIZATION, required = false)
@@ -220,52 +220,71 @@ public class EditorConfigurationDto {
     this.customization = customization;
   }
 
-  public EditorConfigurationDto embedded(@javax.annotation.Nullable EmbeddedConfig embedded) {
+  public EditorConfigurationDto embedded(@javax.annotation.Nullable EmbeddedConfigDto embedded) {
     
     this.embedded = embedded;
     return this;
   }
 
   /**
-   * Get embedded
+   * The addresses the framed viewer needs. It is filled in only for the embedded layout.
    * @return embedded
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMBEDDED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public EmbeddedConfig getEmbedded() {
+  public EmbeddedConfigDto getEmbedded() {
     return embedded;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_EMBEDDED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEmbedded(@javax.annotation.Nullable EmbeddedConfig embedded) {
+  public void setEmbedded(@javax.annotation.Nullable EmbeddedConfigDto embedded) {
     this.embedded = embedded;
   }
 
-  public EditorConfigurationDto encryptionKeys(@javax.annotation.Nullable EncryptionKeysConfig encryptionKeys) {
+  public EditorConfigurationDto encryptionKeys(@javax.annotation.Nullable List<EncryptionKeyDto> encryptionKeys) {
+    this.encryptionKeys = JsonNullable.<List<EncryptionKeyDto>>of(encryptionKeys);
     
-    this.encryptionKeys = encryptionKeys;
+    return this;
+  }
+
+  public EditorConfigurationDto addEncryptionKeysItem(EncryptionKeyDto encryptionKeysItem) {
+    if (this.encryptionKeys == null || !this.encryptionKeys.isPresent()) {
+      this.encryptionKeys = JsonNullable.<List<EncryptionKeyDto>>of(new ArrayList<>());
+    }
+    try {
+      this.encryptionKeys.get().add(encryptionKeysItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
   /**
-   * Get encryptionKeys
+   * The caller's end-to-end encryption keys, added only when the document lies in a private room, so that the  editors can decrypt it in the browser. It is empty everywhere else.
    * @return encryptionKeys
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENCRYPTION_KEYS, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
-  public EncryptionKeysConfig getEncryptionKeys() {
-    return encryptionKeys;
+  public List<EncryptionKeyDto> getEncryptionKeys() {
+        return encryptionKeys.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_ENCRYPTION_KEYS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEncryptionKeys(@javax.annotation.Nullable EncryptionKeysConfig encryptionKeys) {
+  public JsonNullable<List<EncryptionKeyDto>> getEncryptionKeys_JsonNullable() {
+    return encryptionKeys;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ENCRYPTION_KEYS)
+  public void setEncryptionKeys_JsonNullable(JsonNullable<List<EncryptionKeyDto>> encryptionKeys) {
     this.encryptionKeys = encryptionKeys;
+  }
+
+  public void setEncryptionKeys(@javax.annotation.Nullable List<EncryptionKeyDto> encryptionKeys) {
+    this.encryptionKeys = JsonNullable.<List<EncryptionKeyDto>>of(encryptionKeys);
   }
 
   public EditorConfigurationDto lang(@javax.annotation.Nullable String lang) {
@@ -275,7 +294,7 @@ public class EditorConfigurationDto {
   }
 
   /**
-   * The language of the editor configuration.
+   * The culture the editor interface is shown in, taken from the profile of the caller.
    * @return lang
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LANG, required = false)
@@ -299,7 +318,7 @@ public class EditorConfigurationDto {
   }
 
   /**
-   * The mode of the editor configuration.
+   * `edit` when this session may write the document, `view` when it may only read it.
    * @return mode
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MODE, required = false)
@@ -323,7 +342,7 @@ public class EditorConfigurationDto {
   }
 
   /**
-   * Specifies if the mode is write of the editor configuration.
+   * Whether this session may write; it is what the mode above says in one word.
    * @return modeWrite
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MODE_WRITE, required = false)
@@ -340,39 +359,39 @@ public class EditorConfigurationDto {
     this.modeWrite = modeWrite;
   }
 
-  public EditorConfigurationDto plugins(@javax.annotation.Nullable PluginsConfig plugins) {
+  public EditorConfigurationDto plugins(@javax.annotation.Nullable PluginsConfigDto plugins) {
     
     this.plugins = plugins;
     return this;
   }
 
   /**
-   * Get plugins
+   * Which editor plugins are offered. The portal currently offers none, so the list inside comes back empty.
    * @return plugins
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PLUGINS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public PluginsConfig getPlugins() {
+  public PluginsConfigDto getPlugins() {
     return plugins;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_PLUGINS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPlugins(@javax.annotation.Nullable PluginsConfig plugins) {
+  public void setPlugins(@javax.annotation.Nullable PluginsConfigDto plugins) {
     this.plugins = plugins;
   }
 
-  public EditorConfigurationDto recent(@javax.annotation.Nullable List<RecentConfig> recent) {
-    this.recent = JsonNullable.<List<RecentConfig>>of(recent);
+  public EditorConfigurationDto recent(@javax.annotation.Nullable List<RecentConfigDto> recent) {
+    this.recent = JsonNullable.<List<RecentConfigDto>>of(recent);
     
     return this;
   }
 
-  public EditorConfigurationDto addRecentItem(RecentConfig recentItem) {
+  public EditorConfigurationDto addRecentItem(RecentConfigDto recentItem) {
     if (this.recent == null || !this.recent.isPresent()) {
-      this.recent = JsonNullable.<List<RecentConfig>>of(new ArrayList<>());
+      this.recent = JsonNullable.<List<RecentConfigDto>>of(new ArrayList<>());
     }
     try {
       this.recent.get().add(recentItem);
@@ -383,39 +402,39 @@ public class EditorConfigurationDto {
   }
 
   /**
-   * The recent configuration of the editor.
+   * The documents offered in the editor's recent list. It is left out altogether when there is nothing to offer.
    * @return recent
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public List<RecentConfig> getRecent() {
+  public List<RecentConfigDto> getRecent() {
         return recent.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_RECENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<List<RecentConfig>> getRecent_JsonNullable() {
+  public JsonNullable<List<RecentConfigDto>> getRecent_JsonNullable() {
     return recent;
   }
   
   @JsonProperty(JSON_PROPERTY_RECENT)
-  public void setRecent_JsonNullable(JsonNullable<List<RecentConfig>> recent) {
+  public void setRecent_JsonNullable(JsonNullable<List<RecentConfigDto>> recent) {
     this.recent = recent;
   }
 
-  public void setRecent(@javax.annotation.Nullable List<RecentConfig> recent) {
-    this.recent = JsonNullable.<List<RecentConfig>>of(recent);
+  public void setRecent(@javax.annotation.Nullable List<RecentConfigDto> recent) {
+    this.recent = JsonNullable.<List<RecentConfigDto>>of(recent);
   }
 
-  public EditorConfigurationDto templates(@javax.annotation.Nullable List<TemplatesConfig> templates) {
-    this.templates = JsonNullable.<List<TemplatesConfig>>of(templates);
+  public EditorConfigurationDto templates(@javax.annotation.Nullable List<TemplatesConfigDto> templates) {
+    this.templates = JsonNullable.<List<TemplatesConfigDto>>of(templates);
     
     return this;
   }
 
-  public EditorConfigurationDto addTemplatesItem(TemplatesConfig templatesItem) {
+  public EditorConfigurationDto addTemplatesItem(TemplatesConfigDto templatesItem) {
     if (this.templates == null || !this.templates.isPresent()) {
-      this.templates = JsonNullable.<List<TemplatesConfig>>of(new ArrayList<>());
+      this.templates = JsonNullable.<List<TemplatesConfigDto>>of(new ArrayList<>());
     }
     try {
       this.templates.get().add(templatesItem);
@@ -426,51 +445,51 @@ public class EditorConfigurationDto {
   }
 
   /**
-   * The templates of the editor configuration.
+   * Always empty: the portal no longer passes creation templates through the editor configuration.
    * @return templates
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public List<TemplatesConfig> getTemplates() {
+  public List<TemplatesConfigDto> getTemplates() {
         return templates.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_TEMPLATES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<List<TemplatesConfig>> getTemplates_JsonNullable() {
+  public JsonNullable<List<TemplatesConfigDto>> getTemplates_JsonNullable() {
     return templates;
   }
   
   @JsonProperty(JSON_PROPERTY_TEMPLATES)
-  public void setTemplates_JsonNullable(JsonNullable<List<TemplatesConfig>> templates) {
+  public void setTemplates_JsonNullable(JsonNullable<List<TemplatesConfigDto>> templates) {
     this.templates = templates;
   }
 
-  public void setTemplates(@javax.annotation.Nullable List<TemplatesConfig> templates) {
-    this.templates = JsonNullable.<List<TemplatesConfig>>of(templates);
+  public void setTemplates(@javax.annotation.Nullable List<TemplatesConfigDto> templates) {
+    this.templates = JsonNullable.<List<TemplatesConfigDto>>of(templates);
   }
 
-  public EditorConfigurationDto user(@javax.annotation.Nullable UserConfig user) {
+  public EditorConfigurationDto user(@javax.annotation.Nullable UserConfigDto user) {
     
     this.user = user;
     return this;
   }
 
   /**
-   * Get user
+   * The account the editors attribute changes to. It is empty for an anonymous session opened through an external  link, and the editors then ask for a name themselves.
    * @return user
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UserConfig getUser() {
+  public UserConfigDto getUser() {
     return user;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_USER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUser(@javax.annotation.Nullable UserConfig user) {
+  public void setUser(@javax.annotation.Nullable UserConfigDto user) {
     this.user = user;
   }
 
@@ -488,7 +507,7 @@ public class EditorConfigurationDto {
         equalsNullable(this.createUrl, editorConfigurationDto.createUrl) &&
         Objects.equals(this.customization, editorConfigurationDto.customization) &&
         Objects.equals(this.embedded, editorConfigurationDto.embedded) &&
-        Objects.equals(this.encryptionKeys, editorConfigurationDto.encryptionKeys) &&
+        equalsNullable(this.encryptionKeys, editorConfigurationDto.encryptionKeys) &&
         Objects.equals(this.lang, editorConfigurationDto.lang) &&
         Objects.equals(this.mode, editorConfigurationDto.mode) &&
         Objects.equals(this.modeWrite, editorConfigurationDto.modeWrite) &&
@@ -504,7 +523,7 @@ public class EditorConfigurationDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(callbackUrl), coEditing, hashCodeNullable(createUrl), customization, embedded, encryptionKeys, lang, mode, modeWrite, plugins, hashCodeNullable(recent), hashCodeNullable(templates), user);
+    return Objects.hash(hashCodeNullable(callbackUrl), coEditing, hashCodeNullable(createUrl), customization, embedded, hashCodeNullable(encryptionKeys), lang, mode, modeWrite, plugins, hashCodeNullable(recent), hashCodeNullable(templates), user);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -615,7 +634,12 @@ public class EditorConfigurationDto {
 
     // add `encryptionKeys` to the URL query string
     if (getEncryptionKeys() != null) {
-      joiner.add(getEncryptionKeys().toUrlQueryString(prefix + "encryptionKeys" + suffix));
+      for (int i = 0; i < getEncryptionKeys().size(); i++) {
+        if (getEncryptionKeys().get(i) != null) {
+          joiner.add(getEncryptionKeys().get(i).toUrlQueryString(String.format("%sencryptionKeys%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
     }
 
     // add `lang` to the URL query string

@@ -2,12 +2,13 @@
 
 # TelegramStatusWrapper
 
+The successful API response containing the TelegramStatusDto object.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**response** | [**TelegramStatusDto**](TelegramStatusDto.md) |  |  [optional] |
+|**response** | [**TelegramStatusDto**](TelegramStatusDto.md) | The TelegramStatusDto object returned by the operation. |  [optional] |
 |**count** | **Integer** | The total number of items in the response |  [optional] |
 |**links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response |  [optional] |
 |**status** | **Integer** | HTTP status code of the response |  [optional] |

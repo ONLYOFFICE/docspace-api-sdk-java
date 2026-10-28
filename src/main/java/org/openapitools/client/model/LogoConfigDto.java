@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The logo config parameters.
+ * The logo the editor shows, resolved for the file type and the layout of this opening.
  */
 @JsonPropertyOrder({
   LogoConfigDto.JSON_PROPERTY_IMAGE,
@@ -77,7 +77,7 @@ public class LogoConfigDto {
   }
 
   /**
-   * The image of the logo.
+   * The logo for the current layout and file type, as the portal branding defines it.
    * @return image
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -108,7 +108,7 @@ public class LogoConfigDto {
   }
 
   /**
-   * The dark image of the logo.
+   * The variant for a dark interface theme.
    * @return imageDark
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -139,7 +139,7 @@ public class LogoConfigDto {
   }
 
   /**
-   * The light image of the logo.
+   * The variant for a light interface theme.
    * @return imageLight
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -170,7 +170,7 @@ public class LogoConfigDto {
   }
 
   /**
-   * The embedded image of the logo.
+   * The variant for the framed viewer. It is empty in every layout but the embedded one.
    * @return imageEmbedded
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -201,7 +201,7 @@ public class LogoConfigDto {
   }
 
   /**
-   * The url link of the logo.
+   * Where clicking the logo takes the user.
    * @return url
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -232,7 +232,7 @@ public class LogoConfigDto {
   }
 
   /**
-   * Specifies if the logo is visible.
+   * Whether the logo is shown at all; the mobile layout hides it.
    * @return visible
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VISIBLE, required = false)

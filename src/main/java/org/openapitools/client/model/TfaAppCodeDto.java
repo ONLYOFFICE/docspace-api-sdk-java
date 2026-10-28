@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The TFA app code.
+ * One backup code of the caller's authenticator credential.
  */
 @JsonPropertyOrder({
   TfaAppCodeDto.JSON_PROPERTY_IS_USED,
@@ -61,7 +61,7 @@ public class TfaAppCodeDto {
   }
 
   /**
-   * The TFA app code usage status.
+   * Whether the code has already been spent. A spent code is kept in the list but is no longer accepted, so  count the entries where this is `false` to know how many fallbacks remain.
    * @return isUsed
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_USED, required = false)
@@ -85,7 +85,7 @@ public class TfaAppCodeDto {
   }
 
   /**
-   * The TFA app code.
+   * The code itself, in the form it is typed at sign-in - six characters with the default configuration. It is  stored encrypted and decrypted for this answer, so this is the one place a caller can read it.
    * @return code
    */
   @javax.annotation.Nullable  @JsonIgnore

@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The anonymous config parameters.
+ * How the editors treat a participant who opened the document without an account.
  */
 @JsonPropertyOrder({
   AnonymousConfigDto.JSON_PROPERTY_REQUEST
@@ -53,7 +53,7 @@ public class AnonymousConfigDto {
   }
 
   /**
-   * Specifies if the anonymous is a request.
+   * Whether the editors ask an anonymous participant for a display name before letting them in. It follows the  chat permission of the document, since a nameless participant cannot take part in one.
    * @return request
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_REQUEST, required = true)

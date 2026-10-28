@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * CspWrapper
+ * The successful API response containing the CspDto object.
  */
 @JsonPropertyOrder({
   CspWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class CspWrapper {
   }
 
   /**
-   * Get response
+   * The CspDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

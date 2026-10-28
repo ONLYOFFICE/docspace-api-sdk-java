@@ -1,0 +1,16 @@
+
+
+# OrdersItemRequestDto
+
+One entry to move to a given position inside its folder.
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**entryId** | **Integer** | The file or folder to move. |  |
+|**entryType** | **FileEntryType** | Which of the two the identifier names, because a file and a folder may carry the same number. |  |
+|**order** | **Integer** | The position the entry is to take, counting from 1. The entry that held it, and everything after it, is  shifted to make room. A dotted path such as 1.2.3 is accepted as well, of which only the last segment is  read. |  |
+
+
+

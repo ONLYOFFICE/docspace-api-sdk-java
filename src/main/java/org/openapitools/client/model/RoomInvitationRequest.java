@@ -40,7 +40,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for inviting users to the room.
+ * One batch of membership changes for a room.
  */
 @JsonPropertyOrder({
   RoomInvitationRequest.JSON_PROPERTY_INVITATIONS,
@@ -89,7 +89,7 @@ public class RoomInvitationRequest {
   }
 
   /**
-   * The collection of invitation parameters.
+   * Who is added, changed or removed, one entry per subject. The same subject named twice keeps the level of the  last entry, and an empty list is accepted and changes nothing.
    * @return invitations
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -120,7 +120,7 @@ public class RoomInvitationRequest {
   }
 
   /**
-   * Specifies whether to notify users about the shared room or not.
+   * Whether the subjects that gained access are told about it by email. With it off the change is silent, which is  the usual choice when membership is synchronised from another system.
    * @return notify
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NOTIFY, required = false)
@@ -144,7 +144,7 @@ public class RoomInvitationRequest {
   }
 
   /**
-   * The message to send when notifying about the shared room.
+   * The line added to the invitation email. It is used only while the notification is on, and it reaches nobody  whose access was removed.
    * @return message
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -175,7 +175,7 @@ public class RoomInvitationRequest {
   }
 
   /**
-   * The language of the room invitation.
+   * The language of the invitation email, as a portal culture name such as en-US. Leaving it out sends each  message in the language of its recipient.
    * @return culture
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -206,7 +206,7 @@ public class RoomInvitationRequest {
   }
 
   /**
-   * Specifies whether to forcibly delete a user with form roles from the room.
+   * Whether a member who still holds a role in an unfinished form is removed anyway. With it off such a removal is  refused and reported through the error of the answer, so the form can be reassigned first.
    * @return force
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FORCE, required = false)

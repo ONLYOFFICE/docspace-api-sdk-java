@@ -42,59 +42,63 @@ import java.util.StringJoiner;
   UpdateClientRequest.JSON_PROPERTY_NAME,
   UpdateClientRequest.JSON_PROPERTY_DESCRIPTION,
   UpdateClientRequest.JSON_PROPERTY_LOGO,
-  UpdateClientRequest.JSON_PROPERTY_PUBLIC,
+  UpdateClientRequest.JSON_PROPERTY_SCOPES,
   UpdateClientRequest.JSON_PROPERTY_ALLOW_PKCE,
-  UpdateClientRequest.JSON_PROPERTY_IS_PUBLIC,
-  UpdateClientRequest.JSON_PROPERTY_ALLOWED_ORIGINS
+  UpdateClientRequest.JSON_PROPERTY_ALLOWED_ORIGINS,
+  UpdateClientRequest.JSON_PROPERTY_REDIRECT_URIS,
+  UpdateClientRequest.JSON_PROPERTY_IS_PUBLIC
 })
 
 public class UpdateClientRequest {
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable  private String name;
+  @javax.annotation.Nonnull  private String name;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   @javax.annotation.Nullable  private String description;
 
   public static final String JSON_PROPERTY_LOGO = "logo";
-  @javax.annotation.Nullable  private String logo;
+  @javax.annotation.Nonnull  private String logo;
 
-  public static final String JSON_PROPERTY_PUBLIC = "public";
-  @javax.annotation.Nullable  private Boolean _public;
+  public static final String JSON_PROPERTY_SCOPES = "scopes";
+  @javax.annotation.Nonnull  private Set<String> scopes = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_ALLOW_PKCE = "allow_pkce";
   @javax.annotation.Nullable  private Boolean allowPkce;
 
+  public static final String JSON_PROPERTY_ALLOWED_ORIGINS = "allowed_origins";
+  @javax.annotation.Nonnull  private Set<String> allowedOrigins = new LinkedHashSet<>();
+
+  public static final String JSON_PROPERTY_REDIRECT_URIS = "redirect_uris";
+  @javax.annotation.Nonnull  private Set<String> redirectUris = new LinkedHashSet<>();
+
   public static final String JSON_PROPERTY_IS_PUBLIC = "is_public";
   @javax.annotation.Nullable  private Boolean isPublic;
-
-  public static final String JSON_PROPERTY_ALLOWED_ORIGINS = "allowed_origins";
-  @javax.annotation.Nullable  private Set<String> allowedOrigins = new LinkedHashSet<>();
 
   public UpdateClientRequest() {
   }
 
 
-  public UpdateClientRequest name(@javax.annotation.Nullable String name) {
+  public UpdateClientRequest name(@javax.annotation.Nonnull String name) {
     
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the client
+   * The display name shown to the user on the consent screen. It has to be between 3 and 256 characters long.
    * @return name
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
     return name;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(@javax.annotation.Nullable String name) {
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
@@ -105,7 +109,7 @@ public class UpdateClientRequest {
   }
 
   /**
-   * The description of the client
+   * The free-text description shown next to the name on the consent screen, at most 255 characters.
    * @return description
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
@@ -122,52 +126,61 @@ public class UpdateClientRequest {
     this.description = description;
   }
 
-  public UpdateClientRequest logo(@javax.annotation.Nullable String logo) {
+  public UpdateClientRequest logo(@javax.annotation.Nonnull String logo) {
     
     this.logo = logo;
     return this;
   }
 
   /**
-   * The logo of the client in base64 format
+   * The client logo as a data URI carrying base64 image data, shown on the consent screen. Only png, jpeg, jpg and svg+xml are accepted.
    * @return logo
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_LOGO, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getLogo() {
     return logo;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLogo(@javax.annotation.Nullable String logo) {
+  @JsonProperty(value = JSON_PROPERTY_LOGO, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setLogo(@javax.annotation.Nonnull String logo) {
     this.logo = logo;
   }
 
-  public UpdateClientRequest _public(@javax.annotation.Nullable Boolean _public) {
+  public UpdateClientRequest scopes(@javax.annotation.Nonnull Set<String> scopes) {
     
-    this._public = _public;
+    this.scopes = scopes;
+    return this;
+  }
+
+  public UpdateClientRequest addScopesItem(String scopesItem) {
+    if (this.scopes == null) {
+      this.scopes = new LinkedHashSet<>();
+    }
+    this.scopes.add(scopesItem);
     return this;
   }
 
   /**
-   * Get _public
-   * @return _public
+   * The permissions the client may ask for, named as they appear in the tenant scope catalogue - for example files:read, rooms:write or openid. A client cannot request a scope that is not listed here.
+   * @return scopes
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PUBLIC, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SCOPES, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Boolean getPublic() {
-    return _public;
+  public Set<String> getScopes() {
+    return scopes;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_PUBLIC, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPublic(@javax.annotation.Nullable Boolean _public) {
-    this._public = _public;
+  @JsonDeserialize(as = LinkedHashSet.class)
+  @JsonProperty(value = JSON_PROPERTY_SCOPES, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setScopes(@javax.annotation.Nonnull Set<String> scopes) {
+    this.scopes = scopes;
   }
 
   public UpdateClientRequest allowPkce(@javax.annotation.Nullable Boolean allowPkce) {
@@ -177,7 +190,7 @@ public class UpdateClientRequest {
   }
 
   /**
-   * Indicates whether PKCE is allowed for the client
+   * Whether the client may use PKCE. Turning it on lets the client authenticate with the none method and prove itself with a code verifier instead of sending a secret, which is what a client that cannot keep a secret needs.
    * @return allowPkce
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ALLOW_PKCE, required = false)
@@ -194,6 +207,72 @@ public class UpdateClientRequest {
     this.allowPkce = allowPkce;
   }
 
+  public UpdateClientRequest allowedOrigins(@javax.annotation.Nonnull Set<String> allowedOrigins) {
+    
+    this.allowedOrigins = allowedOrigins;
+    return this;
+  }
+
+  public UpdateClientRequest addAllowedOriginsItem(String allowedOriginsItem) {
+    if (this.allowedOrigins == null) {
+      this.allowedOrigins = new LinkedHashSet<>();
+    }
+    this.allowedOrigins.add(allowedOriginsItem);
+    return this;
+  }
+
+  /**
+   * The web origins allowed to call the portal on behalf of this client, used for the CORS check. The set holds between 1 and 12 addresses.
+   * @return allowedOrigins
+   */
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ALLOWED_ORIGINS, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Set<String> getAllowedOrigins() {
+    return allowedOrigins;
+  }
+
+
+  @JsonDeserialize(as = LinkedHashSet.class)
+  @JsonProperty(value = JSON_PROPERTY_ALLOWED_ORIGINS, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setAllowedOrigins(@javax.annotation.Nonnull Set<String> allowedOrigins) {
+    this.allowedOrigins = allowedOrigins;
+  }
+
+  public UpdateClientRequest redirectUris(@javax.annotation.Nonnull Set<String> redirectUris) {
+    
+    this.redirectUris = redirectUris;
+    return this;
+  }
+
+  public UpdateClientRequest addRedirectUrisItem(String redirectUrisItem) {
+    if (this.redirectUris == null) {
+      this.redirectUris = new LinkedHashSet<>();
+    }
+    this.redirectUris.add(redirectUrisItem);
+    return this;
+  }
+
+  /**
+   * The URIs an authorization code may be delivered to. An authorization request naming any other URI is refused, and the set holds between 1 and 12 addresses.
+   * @return redirectUris
+   */
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_REDIRECT_URIS, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Set<String> getRedirectUris() {
+    return redirectUris;
+  }
+
+
+  @JsonDeserialize(as = LinkedHashSet.class)
+  @JsonProperty(value = JSON_PROPERTY_REDIRECT_URIS, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setRedirectUris(@javax.annotation.Nonnull Set<String> redirectUris) {
+    this.redirectUris = redirectUris;
+  }
+
   public UpdateClientRequest isPublic(@javax.annotation.Nullable Boolean isPublic) {
     
     this.isPublic = isPublic;
@@ -201,7 +280,7 @@ public class UpdateClientRequest {
   }
 
   /**
-   * Indicates whether client is accessible by third-party tenants
+   * Whether the client is offered to third-party tenants rather than only to the tenant that registers it.
    * @return isPublic
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_PUBLIC, required = false)
@@ -218,39 +297,6 @@ public class UpdateClientRequest {
     this.isPublic = isPublic;
   }
 
-  public UpdateClientRequest allowedOrigins(@javax.annotation.Nullable Set<String> allowedOrigins) {
-    
-    this.allowedOrigins = allowedOrigins;
-    return this;
-  }
-
-  public UpdateClientRequest addAllowedOriginsItem(String allowedOriginsItem) {
-    if (this.allowedOrigins == null) {
-      this.allowedOrigins = new LinkedHashSet<>();
-    }
-    this.allowedOrigins.add(allowedOriginsItem);
-    return this;
-  }
-
-  /**
-   * The allowed origins for the client
-   * @return allowedOrigins
-   */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ALLOWED_ORIGINS, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Set<String> getAllowedOrigins() {
-    return allowedOrigins;
-  }
-
-
-  @JsonDeserialize(as = LinkedHashSet.class)
-  @JsonProperty(value = JSON_PROPERTY_ALLOWED_ORIGINS, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowedOrigins(@javax.annotation.Nullable Set<String> allowedOrigins) {
-    this.allowedOrigins = allowedOrigins;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -263,15 +309,16 @@ public class UpdateClientRequest {
     return Objects.equals(this.name, updateClientRequest.name) &&
         Objects.equals(this.description, updateClientRequest.description) &&
         Objects.equals(this.logo, updateClientRequest.logo) &&
-        Objects.equals(this._public, updateClientRequest._public) &&
+        Objects.equals(this.scopes, updateClientRequest.scopes) &&
         Objects.equals(this.allowPkce, updateClientRequest.allowPkce) &&
-        Objects.equals(this.isPublic, updateClientRequest.isPublic) &&
-        Objects.equals(this.allowedOrigins, updateClientRequest.allowedOrigins);
+        Objects.equals(this.allowedOrigins, updateClientRequest.allowedOrigins) &&
+        Objects.equals(this.redirectUris, updateClientRequest.redirectUris) &&
+        Objects.equals(this.isPublic, updateClientRequest.isPublic);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, logo, _public, allowPkce, isPublic, allowedOrigins);
+    return Objects.hash(name, description, logo, scopes, allowPkce, allowedOrigins, redirectUris, isPublic);
   }
 
   @Override
@@ -281,10 +328,11 @@ public class UpdateClientRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    logo: ").append(toIndentedString(logo)).append("\n");
-    sb.append("    _public: ").append(toIndentedString(_public)).append("\n");
+    sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
     sb.append("    allowPkce: ").append(toIndentedString(allowPkce)).append("\n");
-    sb.append("    isPublic: ").append(toIndentedString(isPublic)).append("\n");
     sb.append("    allowedOrigins: ").append(toIndentedString(allowedOrigins)).append("\n");
+    sb.append("    redirectUris: ").append(toIndentedString(redirectUris)).append("\n");
+    sb.append("    isPublic: ").append(toIndentedString(isPublic)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -362,30 +410,26 @@ public class UpdateClientRequest {
       }
     }
 
-    // add `public` to the URL query string
-    if (getPublic() != null) {
-      try {
-        joiner.add(String.format("%spublic%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPublic()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
+    // add `scopes` to the URL query string
+    if (getScopes() != null) {
+      int i = 0;
+      for (String _item : getScopes()) {
+        try {
+          joiner.add(String.format("%sscopes%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(_item), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
       }
+      i++;
     }
 
     // add `allow_pkce` to the URL query string
     if (getAllowPkce() != null) {
       try {
         joiner.add(String.format("%sallow_pkce%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAllowPkce()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `is_public` to the URL query string
-    if (getIsPublic() != null) {
-      try {
-        joiner.add(String.format("%sis_public%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsPublic()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
@@ -406,6 +450,32 @@ public class UpdateClientRequest {
         }
       }
       i++;
+    }
+
+    // add `redirect_uris` to the URL query string
+    if (getRedirectUris() != null) {
+      int i = 0;
+      for (String _item : getRedirectUris()) {
+        try {
+          joiner.add(String.format("%sredirect_uris%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(_item), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+      i++;
+    }
+
+    // add `is_public` to the URL query string
+    if (getIsPublic() != null) {
+      try {
+        joiner.add(String.format("%sis_public%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsPublic()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     return joiner.toString();

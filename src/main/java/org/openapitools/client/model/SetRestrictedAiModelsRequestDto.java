@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for setting restricted AI models.
+ * The complete set of AI chat models that are to be barred on the portal.
  */
 @JsonPropertyOrder({
   SetRestrictedAiModelsRequestDto.JSON_PROPERTY_MODELS
@@ -65,7 +65,7 @@ public class SetRestrictedAiModelsRequestDto {
   }
 
   /**
-   * The set of restricted AI model IDs.
+   * The identifiers of the models no user of the portal may pick, taken from  `GET api/2.0/portal/payment/ai-prices`. This is the whole set that is to hold afterwards and not a list of  additions: send the models already barred together with the new one to add a restriction, leave one out to  lift it, and send an empty set to lift them all.
    * @return models
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_MODELS, required = true)

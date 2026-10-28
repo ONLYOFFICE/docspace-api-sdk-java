@@ -24,19 +24,18 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.CreateAgentRequestDto;
-import org.openapitools.client.model.DeleteRoomRequest;
-import org.openapitools.client.model.FileOperationWrapper;
-import org.openapitools.client.model.FolderContentIntegerWrapper;
-import org.openapitools.client.model.FolderIntegerArrayWrapper;
-import org.openapitools.client.model.FolderIntegerWrapper;
-import org.openapitools.client.model.NewItemsAgentNewItemsArrayWrapper;
-import org.openapitools.client.model.QuotaFilter;
-import org.openapitools.client.model.SortOrder;
-import org.openapitools.client.model.SubjectFilter;
-import org.openapitools.client.model.UpdateRoomRequest;
-import org.openapitools.client.model.UpdateRoomsQuotaRequestDtoInteger;
-import org.openapitools.client.model.UpdateRoomsRoomIdsRequestDtoInteger;
+import org.openapitools.client.model.AiAgentsCreateRequest;
+import org.openapitools.client.model.AiAgentsDeleteRequest;
+import org.openapitools.client.model.AiAgentsGet200Response;
+import org.openapitools.client.model.AiAgentsResetQuotaRequest;
+import org.openapitools.client.model.AiAgentsUpdateQuotaRequest;
+import org.openapitools.client.model.AiAgentsUpdateRequest;
+import org.openapitools.client.model.AiErrorResponse;
+import org.openapitools.client.model.AiFileOperationWrapper;
+import org.openapitools.client.model.AiFolderArrayWrapper;
+import org.openapitools.client.model.AiFolderContentWrapper;
+import org.openapitools.client.model.AiFolderWrapper;
+import org.openapitools.client.model.AiNewItemsAgentNewItemsArrayWrapper;
 
 
 import java.util.ArrayList;
@@ -69,35 +68,40 @@ public class AgentsApi extends BaseApi {
   }
 
   /**
-   * Create an ai agent
-   * Creates an ai agent.
+   * Create an agent
+   * Creates an AI agent room and binds a model to it, in that order. `profileId` is required, has to be a UUID, has to name an existing profile, and that profile has to support chat - an image-only model is refused here rather than failing on every later request. `prompt` is required and is stored on the room as its standing instruction with any markup stripped, so it cannot round-trip HTML into another user's reply. The two steps are not atomic: when the room is created but the model binding fails, the call reports an error and the room is left behind, so re-bind it with `PUT api/2.0/ai/agents/{id}` rather than creating a second one.
    *
-   * REST API Reference for createAgent Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-agent/
+   * REST API Reference for aiAgentsCreate Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-create/
    *
-   * @param createAgentRequestDto  (optional)
-   * @return FolderIntegerWrapper
+   * @param aiAgentsCreateRequest  (required)
+   * @return AiFolderWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerWrapper createAgent(@javax.annotation.Nullable CreateAgentRequestDto createAgentRequestDto) throws ApiException {
-    return this.createAgent(createAgentRequestDto, Collections.emptyMap());
+  public AiFolderWrapper aiAgentsCreate(@javax.annotation.Nonnull AiAgentsCreateRequest aiAgentsCreateRequest) throws ApiException {
+    return this.aiAgentsCreate(aiAgentsCreateRequest, Collections.emptyMap());
   }
 
 
   /**
-   * Create an ai agent
-   * Creates an ai agent.
+   * Create an agent
+   * Creates an AI agent room and binds a model to it, in that order. `profileId` is required, has to be a UUID, has to name an existing profile, and that profile has to support chat - an image-only model is refused here rather than failing on every later request. `prompt` is required and is stored on the room as its standing instruction with any markup stripped, so it cannot round-trip HTML into another user's reply. The two steps are not atomic: when the room is created but the model binding fails, the call reports an error and the room is left behind, so re-bind it with `PUT api/2.0/ai/agents/{id}` rather than creating a second one.
    *
-   * REST API Reference for createAgent Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/create-agent/
+   * REST API Reference for aiAgentsCreate Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-create/
    *
-   * @param createAgentRequestDto  (optional)
+   * @param aiAgentsCreateRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FolderIntegerWrapper
+   * @return AiFolderWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerWrapper createAgent(@javax.annotation.Nullable CreateAgentRequestDto createAgentRequestDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = createAgentRequestDto;
+  public AiFolderWrapper aiAgentsCreate(@javax.annotation.Nonnull AiAgentsCreateRequest aiAgentsCreateRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiAgentsCreateRequest;
+    
+    // verify the required parameter 'aiAgentsCreateRequest' is set
+    if (aiAgentsCreateRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiAgentsCreateRequest' when calling aiAgentsCreate");
+    }
     
     // create path and map variables
     String localVarPath = "/api/2.0/ai/agents";
@@ -126,9 +130,9 @@ public class AgentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
-    TypeReference<FolderIntegerWrapper> localVarReturnType = new TypeReference<FolderIntegerWrapper>() {};
+    TypeReference<AiFolderWrapper> localVarReturnType = new TypeReference<AiFolderWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -147,46 +151,46 @@ public class AgentsApi extends BaseApi {
   }
 
   /**
-   * Remove an ai agent
-   * Removes an ai agent.
+   * Delete an agent
+   * Deletes an AI agent room. The ID has to be the room's integer identifier, and the body is forwarded to the DocSpace AI service unchanged, so it accepts the same options as deleting an ordinary room - `deleteAfter` among them. Deletion is asynchronous there: the answer is a file-operation payload to poll, not a completed result. The agent's model binding is deliberately left behind, because the upstream assignment API has no per-entry delete, so an orphaned assignment row survives the room.
    *
-   * REST API Reference for deleteAgent Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-agent/
+   * REST API Reference for aiAgentsDelete Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-delete/
    *
-   * @param id The room ID. (required)
-   * @param deleteRoomRequest The parameters for deleting a room. (required)
-   * @return FileOperationWrapper
+   * @param id The agent identifier. (required)
+   * @param aiAgentsDeleteRequest  (required)
+   * @return AiFileOperationWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileOperationWrapper deleteAgent(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull DeleteRoomRequest deleteRoomRequest) throws ApiException {
-    return this.deleteAgent(id, deleteRoomRequest, Collections.emptyMap());
+  public AiFileOperationWrapper aiAgentsDelete(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull AiAgentsDeleteRequest aiAgentsDeleteRequest) throws ApiException {
+    return this.aiAgentsDelete(id, aiAgentsDeleteRequest, Collections.emptyMap());
   }
 
 
   /**
-   * Remove an ai agent
-   * Removes an ai agent.
+   * Delete an agent
+   * Deletes an AI agent room. The ID has to be the room's integer identifier, and the body is forwarded to the DocSpace AI service unchanged, so it accepts the same options as deleting an ordinary room - `deleteAfter` among them. Deletion is asynchronous there: the answer is a file-operation payload to poll, not a completed result. The agent's model binding is deliberately left behind, because the upstream assignment API has no per-entry delete, so an orphaned assignment row survives the room.
    *
-   * REST API Reference for deleteAgent Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-agent/
+   * REST API Reference for aiAgentsDelete Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-delete/
    *
-   * @param id The room ID. (required)
-   * @param deleteRoomRequest The parameters for deleting a room. (required)
+   * @param id The agent identifier. (required)
+   * @param aiAgentsDeleteRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FileOperationWrapper
+   * @return AiFileOperationWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileOperationWrapper deleteAgent(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull DeleteRoomRequest deleteRoomRequest, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = deleteRoomRequest;
+  public AiFileOperationWrapper aiAgentsDelete(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull AiAgentsDeleteRequest aiAgentsDeleteRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiAgentsDeleteRequest;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteAgent");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling aiAgentsDelete");
     }
     
-    // verify the required parameter 'deleteRoomRequest' is set
-    if (deleteRoomRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'deleteRoomRequest' when calling deleteAgent");
+    // verify the required parameter 'aiAgentsDeleteRequest' is set
+    if (aiAgentsDeleteRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiAgentsDeleteRequest' when calling aiAgentsDelete");
     }
     
     // create path and map variables
@@ -217,9 +221,9 @@ public class AgentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
-    TypeReference<FileOperationWrapper> localVarReturnType = new TypeReference<FileOperationWrapper>() {};
+    TypeReference<AiFileOperationWrapper> localVarReturnType = new TypeReference<AiFileOperationWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "DELETE",
@@ -238,39 +242,39 @@ public class AgentsApi extends BaseApi {
   }
 
   /**
-   * Return an ai agent
-   * Returns an ai agent.
+   * Get an agent
+   * Returns one AI agent room, enriched with the `profileId` currently bound to it so an edit form can prefill its model selector. The ID is the room's integer identifier, and a non-integer value is refused rather than passed on to fail opaquely upstream. The binding lives in an assignment rather than on the room, so it is looked up separately: a missing or unreadable assignment simply leaves `profileId` out of the answer instead of failing the call. The standing instruction comes back on the room as `chatSettings.prompt`.
    *
-   * REST API Reference for getAgentInfo Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agent-info/
+   * REST API Reference for aiAgentsGet Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/
    *
-   * @param id The room ID. (required)
-   * @return FolderIntegerWrapper
+   * @param id The agent identifier. (required)
+   * @return AiAgentsGet200Response
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerWrapper getAgentInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
-    return this.getAgentInfo(id, Collections.emptyMap());
+  public AiAgentsGet200Response aiAgentsGet(@javax.annotation.Nonnull String id) throws ApiException {
+    return this.aiAgentsGet(id, Collections.emptyMap());
   }
 
 
   /**
-   * Return an ai agent
-   * Returns an ai agent.
+   * Get an agent
+   * Returns one AI agent room, enriched with the `profileId` currently bound to it so an edit form can prefill its model selector. The ID is the room's integer identifier, and a non-integer value is refused rather than passed on to fail opaquely upstream. The binding lives in an assignment rather than on the room, so it is looked up separately: a missing or unreadable assignment simply leaves `profileId` out of the answer instead of failing the call. The standing instruction comes back on the room as `chatSettings.prompt`.
    *
-   * REST API Reference for getAgentInfo Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agent-info/
+   * REST API Reference for aiAgentsGet Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/
    *
-   * @param id The room ID. (required)
+   * @param id The agent identifier. (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FolderIntegerWrapper
+   * @return AiAgentsGet200Response
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerWrapper getAgentInfo(@javax.annotation.Nonnull Integer id, Map<String, String> additionalHeaders) throws ApiException {
+  public AiAgentsGet200Response aiAgentsGet(@javax.annotation.Nonnull String id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getAgentInfo");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling aiAgentsGet");
     }
     
     // create path and map variables
@@ -301,9 +305,9 @@ public class AgentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
-    TypeReference<FolderIntegerWrapper> localVarReturnType = new TypeReference<FolderIntegerWrapper>() {};
+    TypeReference<AiAgentsGet200Response> localVarReturnType = new TypeReference<AiAgentsGet200Response>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -322,56 +326,54 @@ public class AgentsApi extends BaseApi {
   }
 
   /**
-   * Get ai agents
-   * Get ai agents
+   * List agents
+   * Lists the portal's AI agent rooms. The query is forwarded unchanged to the DocSpace AI service, so it takes the same paging, sorting and filtering parameters as an ordinary room listing, and the answer is that service's folder-content payload rather than a shape of this API's own. Array and object query values are dropped rather than guessed at, so send flat strings. The profile bound to each agent is not included here - read one agent with `GET api/2.0/ai/agents/{id}` for that.
    *
-   * REST API Reference for getAgents Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents/
+   * REST API Reference for aiAgentsList Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/
    *
-   * @param subjectId The filter by user ID. (optional)
-   * @param subjectOwnerId The filter by room owner ID. (optional)
-   * @param withoutTags Specifies whether to search by tags or not. (optional)
-   * @param tags The tags in the serialized format. (optional)
-   * @param excludeSubject Specifies whether to exclude search by user or group ID. (optional)
-   * @param subjectFilter The filter by user (Owner - 0, Member - 1). (optional)
-   * @param quotaFilter The filter by quota (All - 0, Default - 1, Custom - 2). (optional)
-   * @param count Specifies the maximum number of items to retrieve. (optional)
-   * @param startIndex The index from which to start retrieving the room content. (optional)
-   * @param sortBy Specifies the field by which the room content should be sorted. (optional)
-   * @param sortOrder The order in which the results are sorted. (optional)
-   * @param filterValue The text filter value used to refine search or query operations. (optional)
-   * @return FolderContentIntegerWrapper
+   * @param subjectId Show only the agent rooms this user takes part in. (optional)
+   * @param subjectOwnerId Show only the agent rooms owned by this user. (optional)
+   * @param excludeSubject Invert the user filter: leave out what `subjectId` selects instead of keeping it. (optional)
+   * @param tags Show only the agent rooms carrying these tags, comma-separated. (optional)
+   * @param withoutTags Show only the agent rooms that carry no tags at all. (optional)
+   * @param quotaFilter Filter by quota kind: 0 for all, 1 for the default quota, 2 for a custom one. (optional)
+   * @param filterValue Show only the agent rooms whose title matches this text. (optional)
+   * @param sortBy Field to sort by, for example `DateAndTime`. (optional)
+   * @param sortOrder Sort direction, `ascending` or `descending`. (optional)
+   * @param startIndex Index of the first entry to return; 0 starts at the beginning. (optional)
+   * @param count How many entries to return. The internal service applies its own default. (optional)
+   * @return AiFolderContentWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentIntegerWrapper getAgents(@javax.annotation.Nullable String subjectId, @javax.annotation.Nullable String subjectOwnerId, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable SubjectFilter subjectFilter, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue) throws ApiException {
-    return this.getAgents(subjectId, subjectOwnerId, withoutTags, tags, excludeSubject, subjectFilter, quotaFilter, count, startIndex, sortBy, sortOrder, filterValue, Collections.emptyMap());
+  public AiFolderContentWrapper aiAgentsList(@javax.annotation.Nullable String subjectId, @javax.annotation.Nullable String subjectOwnerId, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable Integer quotaFilter, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable String sortOrder, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable Integer count) throws ApiException {
+    return this.aiAgentsList(subjectId, subjectOwnerId, excludeSubject, tags, withoutTags, quotaFilter, filterValue, sortBy, sortOrder, startIndex, count, Collections.emptyMap());
   }
 
 
   /**
-   * Get ai agents
-   * Get ai agents
+   * List agents
+   * Lists the portal's AI agent rooms. The query is forwarded unchanged to the DocSpace AI service, so it takes the same paging, sorting and filtering parameters as an ordinary room listing, and the answer is that service's folder-content payload rather than a shape of this API's own. Array and object query values are dropped rather than guessed at, so send flat strings. The profile bound to each agent is not included here - read one agent with `GET api/2.0/ai/agents/{id}` for that.
    *
-   * REST API Reference for getAgents Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents/
+   * REST API Reference for aiAgentsList Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/
    *
-   * @param subjectId The filter by user ID. (optional)
-   * @param subjectOwnerId The filter by room owner ID. (optional)
-   * @param withoutTags Specifies whether to search by tags or not. (optional)
-   * @param tags The tags in the serialized format. (optional)
-   * @param excludeSubject Specifies whether to exclude search by user or group ID. (optional)
-   * @param subjectFilter The filter by user (Owner - 0, Member - 1). (optional)
-   * @param quotaFilter The filter by quota (All - 0, Default - 1, Custom - 2). (optional)
-   * @param count Specifies the maximum number of items to retrieve. (optional)
-   * @param startIndex The index from which to start retrieving the room content. (optional)
-   * @param sortBy Specifies the field by which the room content should be sorted. (optional)
-   * @param sortOrder The order in which the results are sorted. (optional)
-   * @param filterValue The text filter value used to refine search or query operations. (optional)
+   * @param subjectId Show only the agent rooms this user takes part in. (optional)
+   * @param subjectOwnerId Show only the agent rooms owned by this user. (optional)
+   * @param excludeSubject Invert the user filter: leave out what `subjectId` selects instead of keeping it. (optional)
+   * @param tags Show only the agent rooms carrying these tags, comma-separated. (optional)
+   * @param withoutTags Show only the agent rooms that carry no tags at all. (optional)
+   * @param quotaFilter Filter by quota kind: 0 for all, 1 for the default quota, 2 for a custom one. (optional)
+   * @param filterValue Show only the agent rooms whose title matches this text. (optional)
+   * @param sortBy Field to sort by, for example `DateAndTime`. (optional)
+   * @param sortOrder Sort direction, `ascending` or `descending`. (optional)
+   * @param startIndex Index of the first entry to return; 0 starts at the beginning. (optional)
+   * @param count How many entries to return. The internal service applies its own default. (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FolderContentIntegerWrapper
+   * @return AiFolderContentWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderContentIntegerWrapper getAgents(@javax.annotation.Nullable String subjectId, @javax.annotation.Nullable String subjectOwnerId, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable SubjectFilter subjectFilter, @javax.annotation.Nullable QuotaFilter quotaFilter, @javax.annotation.Nullable Integer count, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable String filterValue, Map<String, String> additionalHeaders) throws ApiException {
+  public AiFolderContentWrapper aiAgentsList(@javax.annotation.Nullable String subjectId, @javax.annotation.Nullable String subjectOwnerId, @javax.annotation.Nullable Boolean excludeSubject, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean withoutTags, @javax.annotation.Nullable Integer quotaFilter, @javax.annotation.Nullable String filterValue, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable String sortOrder, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable Integer count, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -387,16 +389,15 @@ public class AgentsApi extends BaseApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPair("subjectId", subjectId));
     localVarQueryParams.addAll(apiClient.parameterToPair("subjectOwnerId", subjectOwnerId));
-    localVarQueryParams.addAll(apiClient.parameterToPair("withoutTags", withoutTags));
-    localVarQueryParams.addAll(apiClient.parameterToPair("tags", tags));
     localVarQueryParams.addAll(apiClient.parameterToPair("excludeSubject", excludeSubject));
-    localVarQueryParams.addAll(apiClient.parameterToPair("subjectFilter", subjectFilter));
+    localVarQueryParams.addAll(apiClient.parameterToPair("tags", tags));
+    localVarQueryParams.addAll(apiClient.parameterToPair("withoutTags", withoutTags));
     localVarQueryParams.addAll(apiClient.parameterToPair("quotaFilter", quotaFilter));
-    localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
-    localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
+    localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
     localVarQueryParams.addAll(apiClient.parameterToPair("sortBy", sortBy));
     localVarQueryParams.addAll(apiClient.parameterToPair("sortOrder", sortOrder));
-    localVarQueryParams.addAll(apiClient.parameterToPair("filterValue", filterValue));
+    localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
+    localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
       
     if (this.fields != null)
       localVarHeaderParams.put("fields", this.fields);
@@ -415,9 +416,9 @@ public class AgentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
-    TypeReference<FolderContentIntegerWrapper> localVarReturnType = new TypeReference<FolderContentIntegerWrapper>() {};
+    TypeReference<AiFolderContentWrapper> localVarReturnType = new TypeReference<AiFolderContentWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -436,32 +437,32 @@ public class AgentsApi extends BaseApi {
   }
 
   /**
-   * Get the room new items
-   * Returns the room new items.
+   * List agent news items
+   * Lists the unread items across the caller's AI agent rooms, so a badge can be rendered without walking each room. It takes no parameters and is scoped to the caller by the DocSpace AI service. The answer is that service's new-items payload. This is a read-only operation and does not mark anything as seen.
    *
-   * REST API Reference for getAgentsNewItems Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents-new-items/
+   * REST API Reference for aiAgentsNews Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-news/
    *
-   * @return NewItemsAgentNewItemsArrayWrapper
+   * @return AiNewItemsAgentNewItemsArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public NewItemsAgentNewItemsArrayWrapper getAgentsNewItems() throws ApiException {
-    return this.getAgentsNewItems(Collections.emptyMap());
+  public AiNewItemsAgentNewItemsArrayWrapper aiAgentsNews() throws ApiException {
+    return this.aiAgentsNews(Collections.emptyMap());
   }
 
 
   /**
-   * Get the room new items
-   * Returns the room new items.
+   * List agent news items
+   * Lists the unread items across the caller's AI agent rooms, so a badge can be rendered without walking each room. It takes no parameters and is scoped to the caller by the DocSpace AI service. The answer is that service's new-items payload. This is a read-only operation and does not mark anything as seen.
    *
-   * REST API Reference for getAgentsNewItems Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents-new-items/
+   * REST API Reference for aiAgentsNews Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-news/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return NewItemsAgentNewItemsArrayWrapper
+   * @return AiNewItemsAgentNewItemsArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public NewItemsAgentNewItemsArrayWrapper getAgentsNewItems(Map<String, String> additionalHeaders) throws ApiException {
+  public AiNewItemsAgentNewItemsArrayWrapper aiAgentsNews(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -491,9 +492,9 @@ public class AgentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
-    TypeReference<NewItemsAgentNewItemsArrayWrapper> localVarReturnType = new TypeReference<NewItemsAgentNewItemsArrayWrapper>() {};
+    TypeReference<AiNewItemsAgentNewItemsArrayWrapper> localVarReturnType = new TypeReference<AiNewItemsAgentNewItemsArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -512,35 +513,40 @@ public class AgentsApi extends BaseApi {
   }
 
   /**
-   * Reset the AI agents quota limit
-   * Resets the quota limit for the AI agents with the IDs specified in the request.
+   * Reset agents' quota
+   * Returns the listed AI agent rooms to the portal's default storage quota, forwarding `roomIds` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. This is the counterpart of `PUT api/2.0/ai/agents/agentquota` and takes no quota value of its own. Rooms already on the default are unaffected.
    *
-   * REST API Reference for resetAgentsQuota Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-agents-quota/
+   * REST API Reference for aiAgentsResetQuota Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-reset-quota/
    *
-   * @param updateRoomsRoomIdsRequestDtoInteger  (optional)
-   * @return FolderIntegerArrayWrapper
+   * @param aiAgentsResetQuotaRequest  (required)
+   * @return AiFolderArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerArrayWrapper resetAgentsQuota(@javax.annotation.Nullable UpdateRoomsRoomIdsRequestDtoInteger updateRoomsRoomIdsRequestDtoInteger) throws ApiException {
-    return this.resetAgentsQuota(updateRoomsRoomIdsRequestDtoInteger, Collections.emptyMap());
+  public AiFolderArrayWrapper aiAgentsResetQuota(@javax.annotation.Nonnull AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest) throws ApiException {
+    return this.aiAgentsResetQuota(aiAgentsResetQuotaRequest, Collections.emptyMap());
   }
 
 
   /**
-   * Reset the AI agents quota limit
-   * Resets the quota limit for the AI agents with the IDs specified in the request.
+   * Reset agents' quota
+   * Returns the listed AI agent rooms to the portal's default storage quota, forwarding `roomIds` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. This is the counterpart of `PUT api/2.0/ai/agents/agentquota` and takes no quota value of its own. Rooms already on the default are unaffected.
    *
-   * REST API Reference for resetAgentsQuota Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-agents-quota/
+   * REST API Reference for aiAgentsResetQuota Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-reset-quota/
    *
-   * @param updateRoomsRoomIdsRequestDtoInteger  (optional)
+   * @param aiAgentsResetQuotaRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FolderIntegerArrayWrapper
+   * @return AiFolderArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerArrayWrapper resetAgentsQuota(@javax.annotation.Nullable UpdateRoomsRoomIdsRequestDtoInteger updateRoomsRoomIdsRequestDtoInteger, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = updateRoomsRoomIdsRequestDtoInteger;
+  public AiFolderArrayWrapper aiAgentsResetQuota(@javax.annotation.Nonnull AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiAgentsResetQuotaRequest;
+    
+    // verify the required parameter 'aiAgentsResetQuotaRequest' is set
+    if (aiAgentsResetQuotaRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiAgentsResetQuotaRequest' when calling aiAgentsResetQuota");
+    }
     
     // create path and map variables
     String localVarPath = "/api/2.0/ai/agents/resetquota";
@@ -569,9 +575,9 @@ public class AgentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
-    TypeReference<FolderIntegerArrayWrapper> localVarReturnType = new TypeReference<FolderIntegerArrayWrapper>() {};
+    TypeReference<AiFolderArrayWrapper> localVarReturnType = new TypeReference<AiFolderArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
@@ -590,46 +596,46 @@ public class AgentsApi extends BaseApi {
   }
 
   /**
-   * Update an ai agent
-   * Updates an ai agent.
+   * Update an agent
+   * Changes an AI agent room - its title, tags or standing instruction - and optionally rebinds its model. The ID has to be the room's integer identifier. `profileId` is not part of the room contract: it is taken out of the forwarded body and applied afterwards as the agent's assignment, and it has to be a UUID naming an existing chat-capable profile. An instruction sent as `chatSettings.prompt` has its markup stripped, as on create; note that when `chatSettings` is present the upstream service still requires the rest of that object to be valid, so send it whole.
    *
-   * REST API Reference for updateAgent Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-agent/
+   * REST API Reference for aiAgentsUpdate Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/
    *
-   * @param id The room ID. (required)
-   * @param updateRoomRequest The request parameters for updating a room. (required)
-   * @return FolderIntegerWrapper
+   * @param id The agent identifier. (required)
+   * @param aiAgentsUpdateRequest  (required)
+   * @return AiFolderWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerWrapper updateAgent(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateRoomRequest updateRoomRequest) throws ApiException {
-    return this.updateAgent(id, updateRoomRequest, Collections.emptyMap());
+  public AiFolderWrapper aiAgentsUpdate(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull AiAgentsUpdateRequest aiAgentsUpdateRequest) throws ApiException {
+    return this.aiAgentsUpdate(id, aiAgentsUpdateRequest, Collections.emptyMap());
   }
 
 
   /**
-   * Update an ai agent
-   * Updates an ai agent.
+   * Update an agent
+   * Changes an AI agent room - its title, tags or standing instruction - and optionally rebinds its model. The ID has to be the room's integer identifier. `profileId` is not part of the room contract: it is taken out of the forwarded body and applied afterwards as the agent's assignment, and it has to be a UUID naming an existing chat-capable profile. An instruction sent as `chatSettings.prompt` has its markup stripped, as on create; note that when `chatSettings` is present the upstream service still requires the rest of that object to be valid, so send it whole.
    *
-   * REST API Reference for updateAgent Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-agent/
+   * REST API Reference for aiAgentsUpdate Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/
    *
-   * @param id The room ID. (required)
-   * @param updateRoomRequest The request parameters for updating a room. (required)
+   * @param id The agent identifier. (required)
+   * @param aiAgentsUpdateRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FolderIntegerWrapper
+   * @return AiFolderWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerWrapper updateAgent(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateRoomRequest updateRoomRequest, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = updateRoomRequest;
+  public AiFolderWrapper aiAgentsUpdate(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull AiAgentsUpdateRequest aiAgentsUpdateRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiAgentsUpdateRequest;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateAgent");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling aiAgentsUpdate");
     }
     
-    // verify the required parameter 'updateRoomRequest' is set
-    if (updateRoomRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'updateRoomRequest' when calling updateAgent");
+    // verify the required parameter 'aiAgentsUpdateRequest' is set
+    if (aiAgentsUpdateRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiAgentsUpdateRequest' when calling aiAgentsUpdate");
     }
     
     // create path and map variables
@@ -660,9 +666,9 @@ public class AgentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
-    TypeReference<FolderIntegerWrapper> localVarReturnType = new TypeReference<FolderIntegerWrapper>() {};
+    TypeReference<AiFolderWrapper> localVarReturnType = new TypeReference<AiFolderWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
@@ -681,35 +687,40 @@ public class AgentsApi extends BaseApi {
   }
 
   /**
-   * Change the AI agent quota limit
-   * Changes the quota limit for the AI agents with the IDs specified in the request.
+   * Update agents' quota
+   * Sets the storage quota of the listed AI agent rooms in one call, forwarding `roomIds` and `quota` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. A quota applies to the room's stored files, not to the model usage of its chats. Use `PUT api/2.0/ai/agents/resetquota` to return rooms to the portal default instead of naming a number.
    *
-   * REST API Reference for updateAgentsQuota Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-agents-quota/
+   * REST API Reference for aiAgentsUpdateQuota Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update-quota/
    *
-   * @param updateRoomsQuotaRequestDtoInteger  (optional)
-   * @return FolderIntegerArrayWrapper
+   * @param aiAgentsUpdateQuotaRequest  (required)
+   * @return AiFolderArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerArrayWrapper updateAgentsQuota(@javax.annotation.Nullable UpdateRoomsQuotaRequestDtoInteger updateRoomsQuotaRequestDtoInteger) throws ApiException {
-    return this.updateAgentsQuota(updateRoomsQuotaRequestDtoInteger, Collections.emptyMap());
+  public AiFolderArrayWrapper aiAgentsUpdateQuota(@javax.annotation.Nonnull AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest) throws ApiException {
+    return this.aiAgentsUpdateQuota(aiAgentsUpdateQuotaRequest, Collections.emptyMap());
   }
 
 
   /**
-   * Change the AI agent quota limit
-   * Changes the quota limit for the AI agents with the IDs specified in the request.
+   * Update agents' quota
+   * Sets the storage quota of the listed AI agent rooms in one call, forwarding `roomIds` and `quota` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. A quota applies to the room's stored files, not to the model usage of its chats. Use `PUT api/2.0/ai/agents/resetquota` to return rooms to the portal default instead of naming a number.
    *
-   * REST API Reference for updateAgentsQuota Operation
-   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/update-agents-quota/
+   * REST API Reference for aiAgentsUpdateQuota Operation
+   * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update-quota/
    *
-   * @param updateRoomsQuotaRequestDtoInteger  (optional)
+   * @param aiAgentsUpdateQuotaRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FolderIntegerArrayWrapper
+   * @return AiFolderArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FolderIntegerArrayWrapper updateAgentsQuota(@javax.annotation.Nullable UpdateRoomsQuotaRequestDtoInteger updateRoomsQuotaRequestDtoInteger, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = updateRoomsQuotaRequestDtoInteger;
+  public AiFolderArrayWrapper aiAgentsUpdateQuota(@javax.annotation.Nonnull AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = aiAgentsUpdateQuotaRequest;
+    
+    // verify the required parameter 'aiAgentsUpdateQuotaRequest' is set
+    if (aiAgentsUpdateQuotaRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'aiAgentsUpdateQuotaRequest' when calling aiAgentsUpdateQuota");
+    }
     
     // create path and map variables
     String localVarPath = "/api/2.0/ai/agents/agentquota";
@@ -738,9 +749,9 @@ public class AgentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
-    TypeReference<FolderIntegerArrayWrapper> localVarReturnType = new TypeReference<FolderIntegerArrayWrapper>() {};
+    TypeReference<AiFolderArrayWrapper> localVarReturnType = new TypeReference<AiFolderArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
@@ -780,7 +791,7 @@ public class AgentsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
+    String[] localVarAuthNames = new String[] { "cookieAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

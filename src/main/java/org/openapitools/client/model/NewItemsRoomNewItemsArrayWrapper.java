@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * NewItemsRoomNewItemsArrayWrapper
+ * The successful API response containing the list of NewItemsDtoRoomNewItemsDto objects.
  */
 @JsonPropertyOrder({
   NewItemsRoomNewItemsArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class NewItemsRoomNewItemsArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of NewItemsDtoRoomNewItemsDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

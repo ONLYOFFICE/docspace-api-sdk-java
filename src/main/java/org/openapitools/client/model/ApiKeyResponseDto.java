@@ -99,7 +99,7 @@ public class ApiKeyResponseDto {
   }
 
   /**
-   * The API key unique identifier.
+   * The ID of the key. This is the value to pass to `PUT api/2.0/keys/{keyId}` and  `DELETE api/2.0/keys/{keyId}`.
    * @return id
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
@@ -123,7 +123,7 @@ public class ApiKeyResponseDto {
   }
 
   /**
-   * The API key name.
+   * The label given to the key when it was created or last updated.
    * @return name
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
@@ -147,7 +147,7 @@ public class ApiKeyResponseDto {
   }
 
   /**
-   * The full API key value (only returned when creating a new key).
+   * The secret to send in the `Authorization` header as `Bearer sk-...`. It is filled in only by the answer of  `POST api/2.0/keys` and cannot be read again afterwards, so it has to be stored at that moment.
    * @return key
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_KEY, required = false)
@@ -171,7 +171,7 @@ public class ApiKeyResponseDto {
   }
 
   /**
-   * The API key postfix (used for identification).
+   * The last four characters of the secret. It is the only part of the secret that later reads expose, and it is  meant for telling keys apart in a list.
    * @return keyPostfix
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -210,7 +210,7 @@ public class ApiKeyResponseDto {
   }
 
   /**
-   * The list of permissions granted to the API key.
+   * The scopes the key may use, as accepted by `GET api/2.0/keys/permissions`. An empty list means the key has no  scope restrictions.
    * @return permissions
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PERMISSIONS, required = false)
@@ -234,7 +234,7 @@ public class ApiKeyResponseDto {
   }
 
   /**
-   * Get lastUsed
+   * The UTC moment the key was last used to authenticate a request. It is empty for a key that has never been  used.
    * @return lastUsed
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_USED, required = false)
@@ -258,7 +258,7 @@ public class ApiKeyResponseDto {
   }
 
   /**
-   * Get createOn
+   * The UTC moment the key was created.
    * @return createOn
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_ON, required = false)
@@ -282,7 +282,7 @@ public class ApiKeyResponseDto {
   }
 
   /**
-   * Get createBy
+   * The portal member who created the key, and whose access the key acts with.
    * @return createBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_BY, required = false)
@@ -306,7 +306,7 @@ public class ApiKeyResponseDto {
   }
 
   /**
-   * Get expiresAt
+   * The UTC moment the key stops working. It is empty for a key created without `expiresInDays`, which never  expires.
    * @return expiresAt
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
@@ -330,7 +330,7 @@ public class ApiKeyResponseDto {
   }
 
   /**
-   * Indicates whether the API key is active or not.
+   * Whether the key may authenticate requests. A key deactivated through `PUT api/2.0/keys/{keyId}` stays in the  list with this field set to false.
    * @return isActive
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_ACTIVE, required = true)

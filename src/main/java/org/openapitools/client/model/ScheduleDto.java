@@ -28,7 +28,7 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import org.openapitools.client.model.BackupStorageType;
-import org.openapitools.client.model.CronParams;
+import org.openapitools.client.model.CronParamsDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -41,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The backup schedule parameters.
+ * The backup schedule of a portal.
  */
 @JsonPropertyOrder({
   ScheduleDto.JSON_PROPERTY_STORAGE_TYPE,
@@ -57,10 +57,10 @@ public class ScheduleDto {
   @javax.annotation.Nonnull  private BackupStorageType storageType;
 
   public static final String JSON_PROPERTY_STORAGE_PARAMS = "storageParams";
-  @javax.annotation.Nullable  private Map<String, String> storageParams;
+  @javax.annotation.Nonnull  private Map<String, String> storageParams = new HashMap<>();
 
   public static final String JSON_PROPERTY_CRON_PARAMS = "cronParams";
-  @javax.annotation.Nonnull  private CronParams cronParams;
+  @javax.annotation.Nonnull  private CronParamsDto cronParams;
 
   public static final String JSON_PROPERTY_BACKUPS_STORED = "backupsStored";
   @javax.annotation.Nullable  private JsonNullable<Integer> backupsStored = JsonNullable.<Integer>undefined();
@@ -82,7 +82,7 @@ public class ScheduleDto {
   }
 
   /**
-   * Get storageType
+   * The storage the scheduled archives are written to, reported as a number rather than as the name the  schedule was created with.
    * @return storageType
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STORAGE_TYPE, required = true)
@@ -99,7 +99,7 @@ public class ScheduleDto {
     this.storageType = storageType;
   }
 
-  public ScheduleDto storageParams(@javax.annotation.Nullable Map<String, String> storageParams) {
+  public ScheduleDto storageParams(@javax.annotation.Nonnull Map<String, String> storageParams) {
     
     this.storageParams = storageParams;
     return this;
@@ -111,10 +111,10 @@ public class ScheduleDto {
   }
 
   /**
-   * The backup storage parameters.
+   * The settings of the storage, as an object keyed by parameter name - not as the array of key and value  pairs the schedule was created with, so it cannot be sent back unchanged. For every storage type  except `ThirdPartyConsumer` the `folderId` key is built from the stored base path.
    * @return storageParams
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STORAGE_PARAMS, required = false)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_STORAGE_PARAMS, required = true)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
 
   public Map<String, String> getStorageParams() {
@@ -122,33 +122,33 @@ public class ScheduleDto {
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_STORAGE_PARAMS, required = false)
+  @JsonProperty(value = JSON_PROPERTY_STORAGE_PARAMS, required = true)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
-  public void setStorageParams(@javax.annotation.Nullable Map<String, String> storageParams) {
+  public void setStorageParams(@javax.annotation.Nonnull Map<String, String> storageParams) {
     this.storageParams = storageParams;
   }
 
-  public ScheduleDto cronParams(@javax.annotation.Nonnull CronParams cronParams) {
+  public ScheduleDto cronParams(@javax.annotation.Nonnull CronParamsDto cronParams) {
     
     this.cronParams = cronParams;
     return this;
   }
 
   /**
-   * Get cronParams
+   * When the backup runs, read back from the stored cron expression. `day` is 0 for a daily schedule,  because a daily one has no day.
    * @return cronParams
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CRON_PARAMS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public CronParams getCronParams() {
+  public CronParamsDto getCronParams() {
     return cronParams;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_CRON_PARAMS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCronParams(@javax.annotation.Nonnull CronParams cronParams) {
+  public void setCronParams(@javax.annotation.Nonnull CronParamsDto cronParams) {
     this.cronParams = cronParams;
   }
 
@@ -159,7 +159,7 @@ public class ScheduleDto {
   }
 
   /**
-   * The maximum number of the stored backup copies.
+   * The number of scheduled copies kept. It is null, not 0, when the schedule keeps an unlimited number.
    * @return backupsStored
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -190,7 +190,7 @@ public class ScheduleDto {
   }
 
   /**
-   * The date and time when the last backup was reated.
+   * The date and time the schedule last ran at. It is `0001-01-01T00:00:00` until the schedule has run  for the first time.
    * @return lastBackupTime
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_LAST_BACKUP_TIME, required = true)
@@ -214,7 +214,7 @@ public class ScheduleDto {
   }
 
   /**
-   * Specifies if a dump will be created or not.
+   * Specifies whether this schedule backs up the whole server instead of one portal.
    * @return dump
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DUMP, required = true)

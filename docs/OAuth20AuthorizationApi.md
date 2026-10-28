@@ -4,9 +4,9 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**authorizeOAuth**](OAuth20AuthorizationApi.md#authorizeOAuth) | **GET** /oauth2/authorize | OAuth2 Authorization Endpoint |
-| [**exchangeToken**](OAuth20AuthorizationApi.md#exchangeToken) | **POST** /oauth2/token | OAuth2 Token Endpoint |
-| [**submitConsent**](OAuth20AuthorizationApi.md#submitConsent) | **POST** /oauth2/authorize | OAuth2 consent endpoint |
+| [**authorizeOAuth**](OAuth20AuthorizationApi.md#authorizeOAuth) | **GET** /oauth2/authorize | Start the authorization flow |
+| [**exchangeToken**](OAuth20AuthorizationApi.md#exchangeToken) | **POST** /oauth2/token | Exchange the authorization code |
+| [**submitConsent**](OAuth20AuthorizationApi.md#submitConsent) | **POST** /oauth2/authorize | Submit the consent decision |
 
 
 
@@ -14,7 +14,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 > authorizeOAuth(responseType, clientId, redirectUri, scope)
 
-OAuth2 Authorization EndpointInitiates the OAuth2 authorization flow.
+Start the authorization flowStarts the OAuth2 authorization code flow for the client named by client_id. The caller has to present the portal signature cookie, and a request without a valid one is not refused with 401 or 403 but redirected to the portal login page, carrying the client ID so the flow can resume after signing in. When the user has not yet consented to the requested scopes the browser is redirected to the consent page; once the consent exists the browser is redirected to the client's redirect URI with the authorization code and, when one was sent, the original state. A caller that cannot follow redirects may send the X-Disable-Redirect header, and then the response is 200 with an empty body and the target URL in the X-Redirect-URI header. The code returned here is exchanged for tokens at the token endpoint.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/authorize-oauth/).
 
@@ -23,10 +23,10 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **responseType** | **String**| The OAuth 2.0 response type, must be 'code' for authorization code flow. | |
-| **clientId** | **String**| The client identifier issued to the client during registration. | |
-| **redirectUri** | **String**| The URL to redirect to after authorization is complete. | |
-| **scope** | **String**| The space-separated list of requested scope permissions. | |
+| **responseType** | **String**| The OAuth 2.0 response type. Only code is supported: this server issues an authorization code, never a token, from this endpoint. | |
+| **clientId** | **String**| The identifier the client was given when it was registered. It selects both the client shown on the consent screen and the set of redirect URIs the request is checked against. | |
+| **redirectUri** | **String**| Where to send the user once authorization is complete. It has to be one of the redirect URIs registered for the client, otherwise the request is refused. | |
+| **scope** | **String**| The permissions being asked for, as a space-separated list. Every scope has to be one the client is registered for, and the consent screen lists exactly these. | |
 
 ### Return type
 
@@ -59,10 +59,10 @@ public class Example {
         //x-signature.setApiKeyPrefix("Token");
 
         AuthorizationApi apiInstance = new AuthorizationApi(defaultClient);
-        String responseType = "code"; // String | The OAuth 2.0 response type, must be 'code' for authorization code flow.
-        String clientId = "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"; // String | The client identifier issued to the client during registration.
-        String redirectUri = "https://example.com"; // String | The URL to redirect to after authorization is complete.
-        String scope = "files:read"; // String | The space-separated list of requested scope permissions.
+        String responseType = "code"; // String | The OAuth 2.0 response type. Only code is supported: this server issues an authorization code, never a token, from this endpoint.
+        String clientId = "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"; // String | The identifier the client was given when it was registered. It selects both the client shown on the consent screen and the set of redirect URIs the request is checked against.
+        String redirectUri = "https://example.com"; // String | Where to send the user once authorization is complete. It has to be one of the redirect URIs registered for the client, otherwise the request is refused.
+        String scope = "files:read"; // String | The permissions being asked for, as a space-separated list. Every scope has to be one the client is registered for, and the consent screen lists exactly these.
         try {
             apiInstance.authorizeOAuth(responseType, clientId, redirectUri, scope);
         } catch (ApiException e) {
@@ -85,7 +85,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Authorization page |  -  |
+| **302** | Redirect to the login page, to the consent page, or back to the client's redirect URI with an authorization code |  -  |
+| **200** | Returned instead of the redirect when the request carries the X-Disable-Redirect header: the target URL is sent in the X-Redirect-URI response header and the body is empty |  -  |
 | **400** | Invalid request parameters |  -  |
 
 
@@ -93,7 +94,7 @@ public class Example {
 
 > ExchangeToken200Response exchangeToken(grantType, code, redirectUri, clientId, clientSecret)
 
-OAuth2 Token EndpointExchange authorization code for access token
+Exchange the authorization codeExchanges an authorization code for an access token. The request is form-encoded and has to carry the grant type, the code, the same redirect URI that was used to obtain the code, and the client credentials: the client authenticates itself here rather than through the portal signature cookie the authorization endpoint uses. The response carries the access token, its type and its lifetime in seconds, plus a refresh token when the client is configured for the refresh token grant. Client authentication that fails is answered with 401, while a malformed, unknown or expired code is answered with 400. The code is single use, so replaying it fails.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/exchange-token/).
 
@@ -102,11 +103,11 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **grantType** | **String**| The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. | [optional] |
-| **code** | **String**| A temporary authorization code that is sent to the client to be exchanged for a token. | [optional] |
-| **redirectUri** | **String**| The URL where the user will be redirected after successful or unsuccessful authentication. | [optional] |
-| **clientId** | **String**| The client identifier issued to the client during registration. | [optional] |
-| **clientSecret** | **String**| The client secret issued to the client during registration. | [optional] |
+| **grantType** | **String**| Which exchange is being performed: authorization_code to redeem a code, refresh_token to renew an access token. | [optional] |
+| **code** | **String**| The authorization code returned by the authorization endpoint. It may be redeemed once. | [optional] |
+| **redirectUri** | **String**| The same redirect URI that was used to obtain the code. The exchange fails when it differs. | [optional] |
+| **clientId** | **String**| The identifier of the client redeeming the code. | [optional] |
+| **clientSecret** | **String**| The secret of the client redeeming the code. It is omitted by a public client, which proves itself with a PKCE code verifier instead. | [optional] |
 
 ### Return type
 
@@ -132,11 +133,11 @@ public class Example {
         defaultClient.setBasePath("http://localhost:8092");
 
         AuthorizationApi apiInstance = new AuthorizationApi(defaultClient);
-        String grantType = "grantType_example"; // String | The OAuth2 grant type, must be 'authorization_code' for the authorization code flow.
-        String code = "code_example"; // String | A temporary authorization code that is sent to the client to be exchanged for a token.
-        String redirectUri = "redirectUri_example"; // String | The URL where the user will be redirected after successful or unsuccessful authentication.
-        String clientId = "clientId_example"; // String | The client identifier issued to the client during registration.
-        String clientSecret = "clientSecret_example"; // String | The client secret issued to the client during registration.
+        String grantType = "grantType_example"; // String | Which exchange is being performed: authorization_code to redeem a code, refresh_token to renew an access token.
+        String code = "code_example"; // String | The authorization code returned by the authorization endpoint. It may be redeemed once.
+        String redirectUri = "redirectUri_example"; // String | The same redirect URI that was used to obtain the code. The exchange fails when it differs.
+        String clientId = "clientId_example"; // String | The identifier of the client redeeming the code.
+        String clientSecret = "clientSecret_example"; // String | The secret of the client redeeming the code. It is omitted by a public client, which proves itself with a PKCE code verifier instead.
         try {
             ExchangeToken200Response result = apiInstance.exchangeToken(grantType, code, redirectUri, clientId, clientSecret);
             System.out.println(result);
@@ -162,13 +163,14 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successfully exchanged authorization code for access token |  -  |
 | **400** | Invalid request parameters |  -  |
+| **401** | Client authentication failed: the client ID is unknown or the client secret does not match |  -  |
 
 
 ## submitConsent
 
 > submitConsent(clientId, state, scope)
 
-OAuth2 consent endpointSends consent approval
+Submit the consent decisionSubmits the user's consent decision for the scopes an authorization request asked for. It is the form post the consent page makes, so it carries the client ID, the state and the agreed scopes as multipart form data, along with the same portal signature cookie the authorization request needed. On success the browser is redirected to the client's redirect URI with an authorization code, or, when the request carries the X-Disable-Redirect header, answered 200 with that URL in the X-Redirect-URI header. The consent is stored per user and client, so a later authorization request for the same scopes no longer stops at the consent page.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/submit-consent/).
 
@@ -177,9 +179,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **clientId** | **String**| The client identifier issued to the client during registration. | [optional] |
-| **state** | **String**| The random string used to solve the CSRF vulnerability problem. | [optional] |
-| **scope** | **String**| The space-separated list of requested scope permissions. | [optional] |
+| **clientId** | **String**| The client the consent is being given to. It has to be the same client the authorization request named. | [optional] |
+| **state** | **String**| The opaque value carried through from the authorization request, returned unchanged on the redirect so the client can match the answer to its request. | [optional] |
+| **scope** | **String**| The scopes the user agreed to, as a space-separated list. Anything the user declined is left out, so this may be narrower than what was requested. | [optional] |
 
 ### Return type
 
@@ -212,9 +214,9 @@ public class Example {
         //x-signature.setApiKeyPrefix("Token");
 
         AuthorizationApi apiInstance = new AuthorizationApi(defaultClient);
-        String clientId = "clientId_example"; // String | The client identifier issued to the client during registration.
-        String state = "state_example"; // String | The random string used to solve the CSRF vulnerability problem.
-        String scope = "scope_example"; // String | The space-separated list of requested scope permissions.
+        String clientId = "clientId_example"; // String | The client the consent is being given to. It has to be the same client the authorization request named.
+        String state = "state_example"; // String | The opaque value carried through from the authorization request, returned unchanged on the redirect so the client can match the answer to its request.
+        String scope = "scope_example"; // String | The scopes the user agreed to, as a space-separated list. Anything the user declined is left out, so this may be narrower than what was requested.
         try {
             apiInstance.submitConsent(clientId, state, scope);
         } catch (ApiException e) {
@@ -238,5 +240,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **302** | Redirect to the client's redirect URI with authorization code |  -  |
+| **200** | Returned instead of the redirect when the request carries the X-Disable-Redirect header: the target URL is sent in the X-Redirect-URI response header and the body is empty |  -  |
 | **400** | Invalid request parameters |  -  |
 

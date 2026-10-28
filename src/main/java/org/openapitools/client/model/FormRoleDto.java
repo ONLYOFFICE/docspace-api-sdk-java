@@ -41,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The form role parameters.
+ * One role of a PDF form, with the state the turn of that role is in.
  */
 @JsonPropertyOrder({
   FormRoleDto.JSON_PROPERTY_ROLE_NAME,
@@ -74,7 +74,7 @@ public class FormRoleDto {
   @javax.annotation.Nullable  private EmployeeFullDto stopedBy;
 
   public static final String JSON_PROPERTY_HISTORY = "history";
-  @javax.annotation.Nullable  private JsonNullable<Map<String, OffsetDateTime>> history = JsonNullable.<Map<String, OffsetDateTime>>undefined();
+  @javax.annotation.Nullable  private Map<String, OffsetDateTime> history = new HashMap<>();
 
   public static final String JSON_PROPERTY_ROLE_STATUS = "roleStatus";
   @javax.annotation.Nullable  private FormFillingStatus roleStatus;
@@ -90,7 +90,7 @@ public class FormRoleDto {
   }
 
   /**
-   * The role name.
+   * The name the role was given when the form was laid out, unique within that form. It is the value that names  the role in the calls which change or stop the filling.
    * @return roleName
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROLE_NAME, required = false)
@@ -114,7 +114,7 @@ public class FormRoleDto {
   }
 
   /**
-   * The role color.
+   * The colour a client paints the role with, as a hexadecimal RGB value; empty when the role mapping assigned  none.
    * @return roleColor
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -145,7 +145,7 @@ public class FormRoleDto {
   }
 
   /**
-   * Get user
+   * The account the role was assigned to, which is the person expected to fill this part of the form.
    * @return user
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USER, required = false)
@@ -169,7 +169,7 @@ public class FormRoleDto {
   }
 
   /**
-   * The role sequence.
+   * The turn this role takes: the roles come back ordered by this number, roles sharing a number are filled in  parallel, and a role with a higher number waits until every lower one has been submitted.
    * @return sequence
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SEQUENCE, required = true)
@@ -193,7 +193,7 @@ public class FormRoleDto {
   }
 
   /**
-   * Specifies if the role is submitted.
+   * Reports whether this role has already handed in its part. The lowest sequence number that still holds an  unsubmitted role is the turn the form as a whole is waiting on.
    * @return submitted
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SUBMITTED, required = true)
@@ -217,7 +217,7 @@ public class FormRoleDto {
   }
 
   /**
-   * Get stopedBy
+   * The account that interrupted the filling. It is filled in on the one role the filling was stopped at and stays  empty on every other role, and on all of them while the filling runs normally.
    * @return stopedBy
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STOPED_BY, required = false)
@@ -235,46 +235,35 @@ public class FormRoleDto {
   }
 
   public FormRoleDto history(@javax.annotation.Nullable Map<String, OffsetDateTime> history) {
-    this.history = JsonNullable.<Map<String, OffsetDateTime>>of(history);
     
+    this.history = history;
     return this;
   }
 
   public FormRoleDto putHistoryItem(String key, OffsetDateTime historyItem) {
-    if (this.history == null || !this.history.isPresent()) {
-      this.history = JsonNullable.<Map<String, OffsetDateTime>>of(new HashMap<>());
+    if (this.history == null) {
+      this.history = new HashMap<>();
     }
-    try {
-      this.history.get().put(key, historyItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.history.put(key, historyItem);
     return this;
   }
 
   /**
-   * The role history.
+   * When the role passed through the stages of its turn, keyed by stage: 0 is the moment the form was opened for  it, 1 the moment it was submitted and 2 the moment the filling was stopped at it. The times are given in the  time zone of the portal, and only the stages that have actually happened are present, so an empty object means  the role has not been opened yet.
    * @return history
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HISTORY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, OffsetDateTime> getHistory() {
-        return history.orElse(null);
+    return history;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_HISTORY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Map<String, OffsetDateTime>> getHistory_JsonNullable() {
-    return history;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_HISTORY)
-  public void setHistory_JsonNullable(JsonNullable<Map<String, OffsetDateTime>> history) {
-    this.history = history;
-  }
-
   public void setHistory(@javax.annotation.Nullable Map<String, OffsetDateTime> history) {
-    this.history = JsonNullable.<Map<String, OffsetDateTime>>of(history);
+    this.history = history;
   }
 
   public FormRoleDto roleStatus(@javax.annotation.Nullable FormFillingStatus roleStatus) {
@@ -284,7 +273,7 @@ public class FormRoleDto {
   }
 
   /**
-   * Get roleStatus
+   * Where the role stands in the queue: roles of earlier turns are reported as complete, roles of later turns as a  draft, and the role whose turn it is as either yours to fill or in progress, depending on whether that person  has already opened the form. The role the filling was stopped at is reported as stopped whatever its turn.
    * @return roleStatus
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROLE_STATUS, required = false)
@@ -316,7 +305,7 @@ public class FormRoleDto {
         Objects.equals(this.sequence, formRoleDto.sequence) &&
         Objects.equals(this.submitted, formRoleDto.submitted) &&
         Objects.equals(this.stopedBy, formRoleDto.stopedBy) &&
-        equalsNullable(this.history, formRoleDto.history) &&
+        Objects.equals(this.history, formRoleDto.history) &&
         Objects.equals(this.roleStatus, formRoleDto.roleStatus);
   }
 
@@ -326,7 +315,7 @@ public class FormRoleDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(roleName, hashCodeNullable(roleColor), user, sequence, submitted, stopedBy, hashCodeNullable(history), roleStatus);
+    return Objects.hash(roleName, hashCodeNullable(roleColor), user, sequence, submitted, stopedBy, history, roleStatus);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.client.model.AiToolPermissionMode;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -35,12 +36,16 @@ import java.util.StringJoiner;
  * The per-user AI settings.
  */
 @JsonPropertyOrder({
-  AiUserSettingsDto.JSON_PROPERTY_CHAT_RECOMMENDED_MODEL_VISIBLE
+  AiUserSettingsDto.JSON_PROPERTY_CHAT_RECOMMENDED_MODEL_VISIBLE,
+  AiUserSettingsDto.JSON_PROPERTY_TOOL_PERMISSION_MODE
 })
 
 public class AiUserSettingsDto {
   public static final String JSON_PROPERTY_CHAT_RECOMMENDED_MODEL_VISIBLE = "chatRecommendedModelVisible";
   @javax.annotation.Nullable  private Boolean chatRecommendedModelVisible;
+
+  public static final String JSON_PROPERTY_TOOL_PERMISSION_MODE = "toolPermissionMode";
+  @javax.annotation.Nullable  private AiToolPermissionMode toolPermissionMode;
 
   public AiUserSettingsDto() {
   }
@@ -70,6 +75,30 @@ public class AiUserSettingsDto {
     this.chatRecommendedModelVisible = chatRecommendedModelVisible;
   }
 
+  public AiUserSettingsDto toolPermissionMode(@javax.annotation.Nullable AiToolPermissionMode toolPermissionMode) {
+    
+    this.toolPermissionMode = toolPermissionMode;
+    return this;
+  }
+
+  /**
+   * How tool calls made by the model are approved for the current user. The default applies while the user has stored nothing.
+   * @return toolPermissionMode
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOOL_PERMISSION_MODE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AiToolPermissionMode getToolPermissionMode() {
+    return toolPermissionMode;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_TOOL_PERMISSION_MODE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setToolPermissionMode(@javax.annotation.Nullable AiToolPermissionMode toolPermissionMode) {
+    this.toolPermissionMode = toolPermissionMode;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -79,12 +108,13 @@ public class AiUserSettingsDto {
       return false;
     }
     AiUserSettingsDto aiUserSettingsDto = (AiUserSettingsDto) o;
-    return Objects.equals(this.chatRecommendedModelVisible, aiUserSettingsDto.chatRecommendedModelVisible);
+    return Objects.equals(this.chatRecommendedModelVisible, aiUserSettingsDto.chatRecommendedModelVisible) &&
+        Objects.equals(this.toolPermissionMode, aiUserSettingsDto.toolPermissionMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chatRecommendedModelVisible);
+    return Objects.hash(chatRecommendedModelVisible, toolPermissionMode);
   }
 
   @Override
@@ -92,6 +122,7 @@ public class AiUserSettingsDto {
     StringBuilder sb = new StringBuilder();
     sb.append("class AiUserSettingsDto {\n");
     sb.append("    chatRecommendedModelVisible: ").append(toIndentedString(chatRecommendedModelVisible)).append("\n");
+    sb.append("    toolPermissionMode: ").append(toIndentedString(toolPermissionMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -143,6 +174,16 @@ public class AiUserSettingsDto {
     if (getChatRecommendedModelVisible() != null) {
       try {
         joiner.add(String.format("%schatRecommendedModelVisible%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getChatRecommendedModelVisible()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `toolPermissionMode` to the URL query string
+    if (getToolPermissionMode() != null) {
+      try {
+        joiner.add(String.format("%stoolPermissionMode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getToolPermissionMode()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

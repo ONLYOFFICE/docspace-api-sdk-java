@@ -25,10 +25,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.net.URI;
-import org.openapitools.client.model.FileReferenceData;
+import org.openapitools.client.model.DocumentOptionsDto;
+import org.openapitools.client.model.FileReferenceDataDto;
 import org.openapitools.client.model.InfoConfigDto;
-import org.openapitools.client.model.Options;
-import org.openapitools.client.model.PermissionsConfig;
+import org.openapitools.client.model.PermissionsConfigDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -41,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The document config parameters.
+ * The document itself as the editors address it: what to fetch, under which revision key, and what this caller may  do with it.
  */
 @JsonPropertyOrder({
   DocumentConfigDto.JSON_PROPERTY_FILE_TYPE,
@@ -72,7 +72,7 @@ public class DocumentConfigDto {
   @javax.annotation.Nullable  private JsonNullable<String> key = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PERMISSIONS = "permissions";
-  @javax.annotation.Nullable  private PermissionsConfig permissions;
+  @javax.annotation.Nullable  private PermissionsConfigDto permissions;
 
   public static final String JSON_PROPERTY_SHARED_LINK_PARAM = "sharedLinkParam";
   @javax.annotation.Nullable  private JsonNullable<String> sharedLinkParam = JsonNullable.<String>undefined();
@@ -81,7 +81,7 @@ public class DocumentConfigDto {
   @javax.annotation.Nullable  private JsonNullable<String> sharedLinkKey = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REFERENCE_DATA = "referenceData";
-  @javax.annotation.Nullable  private FileReferenceData referenceData;
+  @javax.annotation.Nullable  private FileReferenceDataDto referenceData;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
@@ -93,7 +93,7 @@ public class DocumentConfigDto {
   @javax.annotation.Nullable  private Boolean isForm;
 
   public static final String JSON_PROPERTY_OPTIONS = "options";
-  @javax.annotation.Nullable  private Options options;
+  @javax.annotation.Nullable  private DocumentOptionsDto options;
 
   public DocumentConfigDto() {
   }
@@ -106,7 +106,7 @@ public class DocumentConfigDto {
   }
 
   /**
-   * The file type of the document.
+   * The format the editors treat the content as, without the leading dot. For a file that had to be converted this  is the format it was converted to, not the one it is stored under.
    * @return fileType
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -137,7 +137,7 @@ public class DocumentConfigDto {
   }
 
   /**
-   * Get info
+   * The facts the editor information panel shows about the document.
    * @return info
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INFO, required = false)
@@ -161,7 +161,7 @@ public class DocumentConfigDto {
   }
 
   /**
-   * Specifies if the documnet is linked for current user.
+   * Whether the caller opened the original document rather than a link pointing at it, which matters only for  formats whose editing is restricted through links.
    * @return isLinkedForMe
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_LINKED_FOR_ME, required = false)
@@ -185,7 +185,7 @@ public class DocumentConfigDto {
   }
 
   /**
-   * The document key.
+   * Identifies the exact revision to the editors: everyone who receives the same key joins the same co-editing  session, and the key changes as soon as the document is saved.
    * @return key
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -209,27 +209,27 @@ public class DocumentConfigDto {
     this.key = JsonNullable.<String>of(key);
   }
 
-  public DocumentConfigDto permissions(@javax.annotation.Nullable PermissionsConfig permissions) {
+  public DocumentConfigDto permissions(@javax.annotation.Nullable PermissionsConfigDto permissions) {
     
     this.permissions = permissions;
     return this;
   }
 
   /**
-   * Get permissions
+   * What this caller may do inside the editor - edit, comment, review, fill, download, print, copy and chat.
    * @return permissions
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PERMISSIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public PermissionsConfig getPermissions() {
+  public PermissionsConfigDto getPermissions() {
     return permissions;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_PERMISSIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPermissions(@javax.annotation.Nullable PermissionsConfig permissions) {
+  public void setPermissions(@javax.annotation.Nullable PermissionsConfigDto permissions) {
     this.permissions = permissions;
   }
 
@@ -240,7 +240,7 @@ public class DocumentConfigDto {
   }
 
   /**
-   * The shared link parameter of the document.
+   * The name of the query parameter that carries the external share key. It is set only when the document was  opened through an external link.
    * @return sharedLinkParam
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -271,7 +271,7 @@ public class DocumentConfigDto {
   }
 
   /**
-   * The shared link key of the document.
+   * The external share key this opening runs under, empty when the caller opened the document as a portal member.  The editors pass it back on every request they make for the document.
    * @return sharedLinkKey
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -295,27 +295,27 @@ public class DocumentConfigDto {
     this.sharedLinkKey = JsonNullable.<String>of(sharedLinkKey);
   }
 
-  public DocumentConfigDto referenceData(@javax.annotation.Nullable FileReferenceData referenceData) {
+  public DocumentConfigDto referenceData(@javax.annotation.Nullable FileReferenceDataDto referenceData) {
     
     this.referenceData = referenceData;
     return this;
   }
 
   /**
-   * Get referenceData
+   * How another spreadsheet names this document in a formula. Pass it to `POST api/2.0/files/file/referencedata`  to resolve such a reference.
    * @return referenceData
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REFERENCE_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public FileReferenceData getReferenceData() {
+  public FileReferenceDataDto getReferenceData() {
     return referenceData;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_REFERENCE_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReferenceData(@javax.annotation.Nullable FileReferenceData referenceData) {
+  public void setReferenceData(@javax.annotation.Nullable FileReferenceDataDto referenceData) {
     this.referenceData = referenceData;
   }
 
@@ -326,7 +326,7 @@ public class DocumentConfigDto {
   }
 
   /**
-   * The document title.
+   * The name the editors display. When a past version was opened, the moment that version was created is appended  to it in brackets.
    * @return title
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -357,7 +357,7 @@ public class DocumentConfigDto {
   }
 
   /**
-   * The document url.
+   * Where the editors fetch the content. It is addressed to the host the document service can reach, which is not  necessarily the address a browser should follow.
    * @return url
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -388,7 +388,7 @@ public class DocumentConfigDto {
   }
 
   /**
-   * Indicates whether this is a form.
+   * Whether the document is a fillable PDF form. A PDF that the portal has never classified is inspected while the  configuration is built, so the answer is trustworthy even for a freshly uploaded file.
    * @return isForm
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_FORM, required = false)
@@ -405,27 +405,27 @@ public class DocumentConfigDto {
     this.isForm = isForm;
   }
 
-  public DocumentConfigDto options(@javax.annotation.Nullable Options options) {
+  public DocumentConfigDto options(@javax.annotation.Nullable DocumentOptionsDto options) {
     
     this.options = options;
     return this;
   }
 
   /**
-   * Get options
+   * Extra instructions for the editors, currently the watermark to draw over the document. It is empty when the  room sets no watermark.
    * @return options
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Options getOptions() {
+  public DocumentOptionsDto getOptions() {
     return options;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOptions(@javax.annotation.Nullable Options options) {
+  public void setOptions(@javax.annotation.Nullable DocumentOptionsDto options) {
     this.options = options;
   }
 

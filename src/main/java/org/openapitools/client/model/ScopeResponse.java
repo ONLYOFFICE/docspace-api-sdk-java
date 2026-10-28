@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The response containing the scope information.
+ * One scope from the tenant scope catalogue, as it may be requested by a client.
  */
 @JsonPropertyOrder({
   ScopeResponse.JSON_PROPERTY_NAME,
@@ -61,7 +61,7 @@ public class ScopeResponse {
   }
 
   /**
-   * The scope name.
+   * The scope exactly as it is written in an authorization request, for example files:read or openid.
    * @return name
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
@@ -85,7 +85,7 @@ public class ScopeResponse {
   }
 
   /**
-   * The group the scope belongs to.
+   * The area of the portal the scope belongs to, which is what groups the scopes on the consent screen: files, rooms, contacts, profiles or openid.
    * @return group
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_GROUP, required = false)
@@ -109,7 +109,7 @@ public class ScopeResponse {
   }
 
   /**
-   * The scope type.
+   * What the scope allows inside its group: read for read-only access, write for changes, and openid for the identity scope itself.
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)

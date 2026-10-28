@@ -40,7 +40,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Represents a report containing a collection of operations.
+ * One page of the portal wallet's money movements, with the paging figures needed to walk the rest.
  */
 @JsonPropertyOrder({
   ReportDto.JSON_PROPERTY_COLLECTION,
@@ -93,7 +93,7 @@ public class ReportDto {
   }
 
   /**
-   * A collection of operations.
+   * The movements on this page - top-ups, charges, refunds and corrections alike, newest first. It is empty  for a page past the end of the report as well as for a period in which nothing happened.
    * @return collection
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -124,7 +124,7 @@ public class ReportDto {
   }
 
   /**
-   * The report data offset.
+   * How many movements were skipped before this page, echoed from the request so a client need not remember  what it asked for.
    * @return offset
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OFFSET, required = false)
@@ -148,7 +148,7 @@ public class ReportDto {
   }
 
   /**
-   * The report data limit.
+   * How many movements one page may hold, echoed from the request; it is 25 unless another value was asked  for. A full page is not proof that more exist - compare `currentPage` with `totalPage`.
    * @return limit
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIMIT, required = false)
@@ -172,7 +172,7 @@ public class ReportDto {
   }
 
   /**
-   * The total quantity of operations in the report.
+   * How many movements match the filters in total, across every page.
    * @return totalQuantity
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOTAL_QUANTITY, required = false)
@@ -196,7 +196,7 @@ public class ReportDto {
   }
 
   /**
-   * The total number of pages in the report.
+   * How many pages those movements come to at the current `limit`.
    * @return totalPage
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOTAL_PAGE, required = false)
@@ -220,7 +220,7 @@ public class ReportDto {
   }
 
   /**
-   * The current page number of the report.
+   * Which of those pages this one is, as the billing service numbers them. Page through by advancing `offset`  rather than this value, which nothing accepts as an argument.
    * @return currentPage
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CURRENT_PAGE, required = false)

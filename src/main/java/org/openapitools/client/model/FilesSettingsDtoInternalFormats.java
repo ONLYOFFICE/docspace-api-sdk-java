@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The internal file formats.
+ * The extension the portal creates for each kind of document, keyed by that kind. This is what a new empty  document gets when no extension is asked for.
  */
 @JsonPropertyOrder({
   FilesSettingsDtoInternalFormats.JSON_PROPERTY_UNKNOWN,

@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * WhiteLabelItemArrayWrapper
+ * The successful API response containing the list of WhiteLabelItemDto objects.
  */
 @JsonPropertyOrder({
   WhiteLabelItemArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class WhiteLabelItemArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of WhiteLabelItemDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The forms item information.
+ * One field of a form, offered as a filter over the copies gathered in a form-filling room.
  */
 @JsonPropertyOrder({
   FormsItemDto.JSON_PROPERTY_KEY,
@@ -61,7 +61,7 @@ public class FormsItemDto {
   }
 
   /**
-   * The form item key.              <example>field_name</example>
+   * The name of the field as it is written in the form; send it back as `formsItemKey` to keep only              the completed copies whose field of that name holds a value.              <example>first_name</example>
    * @return key
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -92,7 +92,7 @@ public class FormsItemDto {
   }
 
   /**
-   * The form item type.              <example>text</example>
+   * The kind of value the field holds, a text box or a checkbox for instance; send it back as              `formsItemType` beside the key.              <example>text</example>
    * @return type
    */
   @javax.annotation.Nullable  @JsonIgnore

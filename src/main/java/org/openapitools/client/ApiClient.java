@@ -95,7 +95,7 @@ public class ApiClient extends JavaTimeFormatter {
   protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
       "{baseUrl}",
-      "Server configuration",
+      "The production DocSpace portal, at the customer's own domain.",
       new HashMap<String, ServerVariable>() {{
         put("baseUrl", new ServerVariable(
           "Default URL",
@@ -141,10 +141,12 @@ public class ApiClient extends JavaTimeFormatter {
     dateFormat = ApiClient.buildDefaultDateFormat();
 
     // Set default User-Agent.
-    setUserAgent("OpenAPI-Generator/3.7.0/java");
+    setUserAgent("OpenAPI-Generator/4.0.0/java");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
+    authentications.put("cookieAuth", new ApiKeyAuth("query", "asc_auth_key"));
+    authentications.put("bearerAuth", new HttpBearerAuth("bearer"));
     authentications.put("asc_auth_key", new ApiKeyAuth("query", "asc_auth_key"));
     authentications.put("Basic", new HttpBasicAuth());
     authentications.put("Bearer", new HttpBearerAuth("bearer"));
@@ -314,16 +316,20 @@ public class ApiClient extends JavaTimeFormatter {
   }
 
   /**
-   * Helper method to set access token for the first Bearer authentication.
+   * Helper method to set access token for every Bearer authentication.
    * @param bearerToken Bearer token
    * @return API client
    */
   public ApiClient setBearerToken(String bearerToken) {
+    boolean found = false;
     for (Authentication auth : authentications.values()) {
       if (auth instanceof HttpBearerAuth) {
         ((HttpBearerAuth) auth).setBearerToken(bearerToken);
-        return this;
+        found = true;
       }
+    }
+    if (found) {
+      return this;
     }
     throw new RuntimeException("No Bearer authentication configured!");
   }
@@ -334,11 +340,15 @@ public class ApiClient extends JavaTimeFormatter {
    * @param tokenSupplier the token supplier function
    */
   public void setBearerToken(Supplier<String> tokenSupplier) {
+    boolean found = false;
     for (Authentication auth : authentications.values()) {
       if (auth instanceof HttpBearerAuth) {
         ((HttpBearerAuth) auth).setBearerToken(tokenSupplier);
-        return;
+        found = true;
       }
+    }
+    if (found) {
+      return;
     }
     throw new RuntimeException("No Bearer authentication configured!");
   }

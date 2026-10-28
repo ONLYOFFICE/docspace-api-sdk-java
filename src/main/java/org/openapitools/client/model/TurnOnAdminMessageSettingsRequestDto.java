@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for enabling or disabling administrator messaging system.
+ * Whether the sign-in page offers the form for writing to the portal administrators.
  */
 @JsonPropertyOrder({
   TurnOnAdminMessageSettingsRequestDto.JSON_PROPERTY_TURN_ON
@@ -53,7 +53,7 @@ public class TurnOnAdminMessageSettingsRequestDto {
   }
 
   /**
-   * The global switch for the administrator messaging functionality.
+   * Whether the form is offered. Switching it off hides the form for everybody and makes the operation that  submits it refuse new messages; letters already sent are untouched.
    * @return turnOn
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TURN_ON, required = false)

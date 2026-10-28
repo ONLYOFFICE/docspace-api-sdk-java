@@ -82,7 +82,7 @@ public class UserExistsResponseDto {
   }
 
   /**
-   * Get status
+   * The user status, if the user exists.
    * @return status
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)

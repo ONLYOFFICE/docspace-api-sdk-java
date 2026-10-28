@@ -38,7 +38,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * GetPortalPrices200Response
+ * The successful API response.
  */
 @JsonPropertyOrder({
   GetPortalPrices200Response.JSON_PROPERTY_RESPONSE,
@@ -84,7 +84,7 @@ public class GetPortalPrices200Response {
   }
 
   /**
-   * Get response
+   * The response payload.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

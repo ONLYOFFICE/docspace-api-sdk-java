@@ -28,7 +28,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.FormsItemData;
+import org.openapitools.client.model.FormsItemDataDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -41,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * FormResultsDto
+ * One completed copy of a form, with the values that were entered into it.
  */
 @JsonPropertyOrder({
   FormResultsDto.JSON_PROPERTY_CREATE_ON,
@@ -53,7 +53,7 @@ public class FormResultsDto {
   @javax.annotation.Nullable  private OffsetDateTime createOn;
 
   public static final String JSON_PROPERTY_FORMS_DATA = "formsData";
-  @javax.annotation.Nullable  private JsonNullable<List<FormsItemData>> formsData = JsonNullable.<List<FormsItemData>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<FormsItemDataDto>> formsData = JsonNullable.<List<FormsItemDataDto>>undefined();
 
   public FormResultsDto() {
   }
@@ -66,7 +66,7 @@ public class FormResultsDto {
   }
 
   /**
-   * The date and time when the form was created.
+   * When the portal recorded this copy, in UTC: the moment the filled copy was completed and its data indexed, not  the moment the form itself was made.
    * @return createOn
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_ON, required = false)
@@ -83,15 +83,15 @@ public class FormResultsDto {
     this.createOn = createOn;
   }
 
-  public FormResultsDto formsData(@javax.annotation.Nullable List<FormsItemData> formsData) {
-    this.formsData = JsonNullable.<List<FormsItemData>>of(formsData);
+  public FormResultsDto formsData(@javax.annotation.Nullable List<FormsItemDataDto> formsData) {
+    this.formsData = JsonNullable.<List<FormsItemDataDto>>of(formsData);
     
     return this;
   }
 
-  public FormResultsDto addFormsDataItem(FormsItemData formsDataItem) {
+  public FormResultsDto addFormsDataItem(FormsItemDataDto formsDataItem) {
     if (this.formsData == null || !this.formsData.isPresent()) {
-      this.formsData = JsonNullable.<List<FormsItemData>>of(new ArrayList<>());
+      this.formsData = JsonNullable.<List<FormsItemDataDto>>of(new ArrayList<>());
     }
     try {
       this.formsData.get().add(formsDataItem);
@@ -102,28 +102,28 @@ public class FormResultsDto {
   }
 
   /**
-   * The list of forms data.
+   * The values that were entered into this copy, one entry per field, preceded by an entry keyed `FormNumber` that  carries the number of the copy and is what the submissions are ordered by. Fields holding a picture or a  signature are left out of the record, so a field missing here was not necessarily left blank.
    * @return formsData
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public List<FormsItemData> getFormsData() {
+  public List<FormsItemDataDto> getFormsData() {
         return formsData.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_FORMS_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<List<FormsItemData>> getFormsData_JsonNullable() {
+  public JsonNullable<List<FormsItemDataDto>> getFormsData_JsonNullable() {
     return formsData;
   }
   
   @JsonProperty(JSON_PROPERTY_FORMS_DATA)
-  public void setFormsData_JsonNullable(JsonNullable<List<FormsItemData>> formsData) {
+  public void setFormsData_JsonNullable(JsonNullable<List<FormsItemDataDto>> formsData) {
     this.formsData = formsData;
   }
 
-  public void setFormsData(@javax.annotation.Nullable List<FormsItemData> formsData) {
-    this.formsData = JsonNullable.<List<FormsItemData>>of(formsData);
+  public void setFormsData(@javax.annotation.Nullable List<FormsItemDataDto> formsData) {
+    this.formsData = JsonNullable.<List<FormsItemDataDto>>of(formsData);
   }
 
   @Override

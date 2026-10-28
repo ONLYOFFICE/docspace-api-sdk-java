@@ -48,35 +48,35 @@ public class ScopeManagementApi extends BaseApi {
 
   /**
    * List available OAuth2 scopes
-   * Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
+   * Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first. It is a read-only catalogue that does not depend on which clients exist: a valid portal signature is the only requirement, with no role restriction, and every caller of the portal sees the same list.
    *
    * REST API Reference for getScopes Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/
    *
-   * @return ScopeResponse
+   * @return List&lt;ScopeResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ScopeResponse getScopes() throws ApiException {
+  public List<ScopeResponse> getScopes() throws ApiException {
     return this.getScopes(Collections.emptyMap());
   }
 
 
   /**
    * List available OAuth2 scopes
-   * Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
+   * Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first. It is a read-only catalogue that does not depend on which clients exist: a valid portal signature is the only requirement, with no role restriction, and every caller of the portal sees the same list.
    *
    * REST API Reference for getScopes Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return ScopeResponse
+   * @return List&lt;ScopeResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ScopeResponse getScopes(Map<String, String> additionalHeaders) throws ApiException {
+  public List<ScopeResponse> getScopes(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/api/2.0/scopes";
+    String localVarPath = "/api/2.0/oauth2/scopes";
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -104,7 +104,7 @@ public class ScopeManagementApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "x-signature" };
 
-    TypeReference<ScopeResponse> localVarReturnType = new TypeReference<ScopeResponse>() {};
+    TypeReference<List<ScopeResponse>> localVarReturnType = new TypeReference<List<ScopeResponse>>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",

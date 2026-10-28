@@ -26,10 +26,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.UUID;
 import org.openapitools.client.model.FileShare;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -38,7 +34,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The room invitation parameters.
+ * One membership change in a room: an account or an email address, and the access level it is given.
  */
 @JsonPropertyOrder({
   RoomInvitation.JSON_PROPERTY_EMAIL,
@@ -48,7 +44,7 @@ import java.util.StringJoiner;
 
 public class RoomInvitation {
   public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nullable  private JsonNullable<String> email = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private String email;
 
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable  private UUID id;
@@ -61,34 +57,27 @@ public class RoomInvitation {
 
 
   public RoomInvitation email(@javax.annotation.Nullable String email) {
-    this.email = JsonNullable.<String>of(email);
     
+    this.email = email;
     return this;
   }
 
   /**
-   * The email address.
+   * The address of somebody who has no portal account yet. An invitation is sent to it and an account is created  once it is accepted, so this is the field to use instead of an account identifier when the person is new to  the portal.
    * @return email
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEmail() {
-        return email.orElse(null);
+    return email;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getEmail_JsonNullable() {
-    return email;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_EMAIL)
-  public void setEmail_JsonNullable(JsonNullable<String> email) {
-    this.email = email;
-  }
-
   public void setEmail(@javax.annotation.Nullable String email) {
-    this.email = JsonNullable.<String>of(email);
+    this.email = email;
   }
 
   public RoomInvitation id(@javax.annotation.Nullable UUID id) {
@@ -98,7 +87,7 @@ public class RoomInvitation {
   }
 
   /**
-   * The ID of the user to share a room with.
+   * The account or the group the entry is about, taken from the portal people and group listings. Leave it out and  give an email address instead to invite somebody who has no account yet.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -122,7 +111,7 @@ public class RoomInvitation {
   }
 
   /**
-   * Get access
+   * What the subject may do in the room. The value 0 removes the subject from the room, and the levels on offer  depend on the kind of room.
    * @return access
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
@@ -148,25 +137,14 @@ public class RoomInvitation {
       return false;
     }
     RoomInvitation roomInvitation = (RoomInvitation) o;
-    return equalsNullable(this.email, roomInvitation.email) &&
+    return Objects.equals(this.email, roomInvitation.email) &&
         Objects.equals(this.id, roomInvitation.id) &&
         Objects.equals(this.access, roomInvitation.access);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(email), id, access);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(email, id, access);
   }
 
   @Override

@@ -40,7 +40,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The room link parameters.
+ * The link of a room to create, change or revoke.
  */
 @JsonPropertyOrder({
   RoomLinkRequest.JSON_PROPERTY_LINK_ID,
@@ -97,7 +97,7 @@ public class RoomLinkRequest {
   }
 
   /**
-   * The room link ID.
+   * Which link to change, taken from `GET api/2.0/files/rooms/{id}/links`. Leaving it out creates a link, and an  identifier the room does not know creates a link carrying that identifier.
    * @return linkId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LINK_ID, required = false)
@@ -121,7 +121,7 @@ public class RoomLinkRequest {
   }
 
   /**
-   * Get access
+   * What whoever opens the link may do in the room. The value 0 revokes the link instead of changing it, and the  levels a room accepts depend on its kind.
    * @return access
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
@@ -145,7 +145,7 @@ public class RoomLinkRequest {
   }
 
   /**
-   * Get expirationDate
+   * When the link stops working, written with the offset of the portal time zone. A date already past is dropped  silently for an external link and refused for an invitation link, and a date further ahead than the portal  allows is refused as well; leaving it out means the link does not expire.
    * @return expirationDate
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
@@ -169,7 +169,7 @@ public class RoomLinkRequest {
   }
 
   /**
-   * The link scope, whether it is internal or not.
+   * Whether the external link works only for people already signed in to the portal. With it off the link opens  the room for anyone who has the address, subject to the password.
    * @return internal
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INTERNAL, required = false)
@@ -193,7 +193,7 @@ public class RoomLinkRequest {
   }
 
   /**
-   * The link name.
+   * The name the link is shown under in the room. An empty value is accepted and the portal names the link itself,  so the answer is what tells the caller the name in use.
    * @return title
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -224,7 +224,7 @@ public class RoomLinkRequest {
   }
 
   /**
-   * Get linkType
+   * Which kind of link to create: an invitation link makes whoever opens it a member of the room, while an  external link opens the room without an account. It is fixed when the link is created and is ignored on later  changes.
    * @return linkType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LINK_TYPE, required = false)
@@ -248,7 +248,7 @@ public class RoomLinkRequest {
   }
 
   /**
-   * The link password.
+   * The password an external link asks for before it opens the room. An empty value leaves the link open to anyone  who has the address, and the password is never returned when links are listed.
    * @return password
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -279,7 +279,7 @@ public class RoomLinkRequest {
   }
 
   /**
-   * Specifies if downloading the file from the link is disabled or not.
+   * Whether people arriving through the link are stopped from downloading and printing what they open. They can  still read the documents in the editor.
    * @return denyDownload
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DENY_DOWNLOAD, required = false)
@@ -303,7 +303,7 @@ public class RoomLinkRequest {
   }
 
   /**
-   * The maximum number of times the invitation link can be used.
+   * How many people an invitation link may still let in before it stops working. A value below the number of  people who already used it is refused, and leaving it out puts no ceiling on the link.
    * minimum: 1
    * maximum: 1000
    * @return maxUseCount
@@ -336,7 +336,7 @@ public class RoomLinkRequest {
   }
 
   /**
-   * The current number of times the invitation link has been used.
+   * How many people have already joined through this invitation link. The value is kept by the portal: it is  reported back when links are listed and anything sent here is ignored.
    * @return currentUseCount
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CURRENT_USE_COUNT, required = false)

@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * SecurityArrayWrapper
+ * The successful API response containing the list of SecurityDto objects.
  */
 @JsonPropertyOrder({
   SecurityArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class SecurityArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of SecurityDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

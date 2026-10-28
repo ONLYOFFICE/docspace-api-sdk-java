@@ -2,13 +2,14 @@
 
 # TenantBannerSettingsDto
 
-The request parameters for managing the visibility settings of the promotional banners for the current tenant.
+Whether the portal hides its promotional banners.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**hidden** | **Boolean** | The banners visibility flag. |  [optional] |
+|**lastModified** | **OffsetDateTime** | The timestamp indicating when the settings were last modified. |  [optional] |
 
 
 

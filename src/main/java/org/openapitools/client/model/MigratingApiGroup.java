@@ -39,7 +39,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * MigratingApiGroup
+ * The migrating group parameters.
  */
 @JsonPropertyOrder({
   MigratingApiGroup.JSON_PROPERTY_SHOULD_IMPORT,
@@ -72,7 +72,7 @@ public class MigratingApiGroup {
   }
 
   /**
-   * Get shouldImport
+   * Specifies whether the API entity should be imported.
    * @return shouldImport
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SHOULD_IMPORT, required = false)
@@ -96,7 +96,7 @@ public class MigratingApiGroup {
   }
 
   /**
-   * Get groupName
+   * The group name.
    * @return groupName
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -127,7 +127,7 @@ public class MigratingApiGroup {
   }
 
   /**
-   * Get moduleName
+   * The group module name.
    * @return moduleName
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -170,7 +170,7 @@ public class MigratingApiGroup {
   }
 
   /**
-   * Get userUidList
+   * The list of group user UIDs.
    * @return userUidList
    */
   @javax.annotation.Nullable  @JsonIgnore

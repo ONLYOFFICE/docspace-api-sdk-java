@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * FileEntryBaseWrapper
+ * The successful API response containing the FileEntryBaseDto object.
  */
 @JsonPropertyOrder({
   FileEntryBaseWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class FileEntryBaseWrapper {
   }
 
   /**
-   * Get response
+   * The FileEntryBaseDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

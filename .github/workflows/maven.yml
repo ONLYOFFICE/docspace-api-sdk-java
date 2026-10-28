@@ -6,14 +6,15 @@
 name: Java CI with Maven
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ main, master ]
+    branches: [ master, develop ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ master, develop ]
 
 jobs:
   build:
-    name: Build API
+    name: Build ONLYOFFICE DOCSPACE API
     runs-on: ubuntu-latest
     strategy:
       matrix:

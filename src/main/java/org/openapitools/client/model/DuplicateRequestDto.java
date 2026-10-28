@@ -41,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for duplicating files and fodlers.
+ * The files and folders to duplicate.
  */
 @JsonPropertyOrder({
   DuplicateRequestDto.JSON_PROPERTY_RETURN_SINGLE_OPERATION,
@@ -70,7 +70,7 @@ public class DuplicateRequestDto {
   }
 
   /**
-   * Specifies whether to return only the current operation
+   * Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list.
    * @return returnSingleOperation
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RETURN_SINGLE_OPERATION, required = false)
@@ -106,7 +106,7 @@ public class DuplicateRequestDto {
   }
 
   /**
-   * The list of folder IDs.
+   * The folders to duplicate, by id; the copy of each one is created in the folder that already holds it. A number  addresses a folder stored in the portal itself, a string addresses a folder on a connected third-party  account, and both kinds may be sent in one list.
    * @return folderIds
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -149,7 +149,7 @@ public class DuplicateRequestDto {
   }
 
   /**
-   * The list of file IDs.
+   * The files to duplicate, by id; the copy of each one is created in the folder that already holds it. A number  addresses a file stored in the portal itself, a string addresses a file on a connected third-party account,  and both kinds may be sent in one list.
    * @return fileIds
    */
   @javax.annotation.Nullable  @JsonIgnore

@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.BackupProgress;
+import org.openapitools.client.model.BackupProgressDto;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * BackupProgressWrapper
+ * The successful API response containing the BackupProgressDto object.
  */
 @JsonPropertyOrder({
   BackupProgressWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class BackupProgressWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private BackupProgress response;
+  @javax.annotation.Nullable  private BackupProgressDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class BackupProgressWrapper {
   }
 
 
-  public BackupProgressWrapper response(@javax.annotation.Nullable BackupProgress response) {
+  public BackupProgressWrapper response(@javax.annotation.Nullable BackupProgressDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * Get response
+   * The BackupProgressDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BackupProgress getResponse() {
+  public BackupProgressDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable BackupProgress response) {
+  public void setResponse(@javax.annotation.Nullable BackupProgressDto response) {
     this.response = response;
   }
 

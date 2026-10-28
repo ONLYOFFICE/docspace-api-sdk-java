@@ -28,15 +28,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import org.openapitools.client.model.CultureSpecificExternalResources;
 import org.openapitools.client.model.DeepLinkDto;
+import org.openapitools.client.model.DomainNameRulesDto;
+import org.openapitools.client.model.ExternalResourcesDto;
 import org.openapitools.client.model.FirebaseDto;
 import org.openapitools.client.model.FolderType;
 import org.openapitools.client.model.FormGalleryDto;
-import org.openapitools.client.model.PasswordHasher;
+import org.openapitools.client.model.PasswordHashSettingsDto;
 import org.openapitools.client.model.PluginsDto;
 import org.openapitools.client.model.RecaptchaType;
-import org.openapitools.client.model.TenantDomainValidator;
 import org.openapitools.client.model.TenantStatus;
 import org.openapitools.client.model.TenantTrustedDomainsType;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -51,7 +51,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The settings information.
+ * The general configuration of the current portal, as the client shell needs it before and after sign-in.
  */
 @JsonPropertyOrder({
   SettingsDto.JSON_PROPERTY_TIMEZONE,
@@ -89,6 +89,7 @@ import java.util.StringJoiner;
   SettingsDto.JSON_PROPERTY_LIMITED_ACCESS_DEV_TOOLS_FOR_USERS,
   SettingsDto.JSON_PROPERTY_DISPLAY_BANNERS,
   SettingsDto.JSON_PROPERTY_AI_ENABLED,
+  SettingsDto.JSON_PROPERTY_WALLET_LOW_BALANCE,
   SettingsDto.JSON_PROPERTY_USER_NAME_REGEX,
   SettingsDto.JSON_PROPERTY_INVITATION_LIMIT,
   SettingsDto.JSON_PROPERTY_PLUGINS,
@@ -154,7 +155,7 @@ public class SettingsDto {
   @javax.annotation.Nullable  private JsonNullable<String> wizardToken = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PASSWORD_HASH = "passwordHash";
-  @javax.annotation.Nullable  private PasswordHasher passwordHash;
+  @javax.annotation.Nullable  private PasswordHashSettingsDto passwordHash;
 
   public static final String JSON_PROPERTY_FIREBASE = "firebase";
   @javax.annotation.Nullable  private FirebaseDto firebase;
@@ -184,7 +185,7 @@ public class SettingsDto {
   @javax.annotation.Nullable  private Boolean displayAbout;
 
   public static final String JSON_PROPERTY_DOMAIN_VALIDATOR = "domainValidator";
-  @javax.annotation.Nullable  private TenantDomainValidator domainValidator;
+  @javax.annotation.Nullable  private DomainNameRulesDto domainValidator;
 
   public static final String JSON_PROPERTY_ZENDESK_KEY = "zendeskKey";
   @javax.annotation.Nullable  private JsonNullable<String> zendeskKey = JsonNullable.<String>undefined();
@@ -206,6 +207,9 @@ public class SettingsDto {
 
   public static final String JSON_PROPERTY_AI_ENABLED = "aiEnabled";
   @javax.annotation.Nullable  private Boolean aiEnabled;
+
+  public static final String JSON_PROPERTY_WALLET_LOW_BALANCE = "walletLowBalance";
+  @javax.annotation.Nullable  private JsonNullable<Boolean> walletLowBalance = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_USER_NAME_REGEX = "userNameRegex";
   @javax.annotation.Nullable  private JsonNullable<String> userNameRegex = JsonNullable.<String>undefined();
@@ -229,7 +233,7 @@ public class SettingsDto {
   @javax.annotation.Nullable  private JsonNullable<String> logoText = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EXTERNAL_RESOURCES = "externalResources";
-  @javax.annotation.Nullable  private CultureSpecificExternalResources externalResources;
+  @javax.annotation.Nullable  private ExternalResourcesDto externalResources;
 
   public static final String JSON_PROPERTY_DEFAULT_FOLDER_TYPE = "defaultFolderType";
   @javax.annotation.Nullable  private FolderType defaultFolderType;
@@ -248,7 +252,7 @@ public class SettingsDto {
   }
 
   /**
-   * The time zone.
+   * The portal time zone as an IANA identifier, which is the zone every date this API returns in portal time  is expressed in. Filled in for a signed-in caller only.
    * @return timezone
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -291,7 +295,7 @@ public class SettingsDto {
   }
 
   /**
-   * The list of the trusted domains.
+   * The mail domains a new member may register or be invited from without confirming the address. It is filled  in for a signed-in caller, and for an anonymous one only while `enabledJoin` is `true`; it is empty  whenever `trustedDomainsType` is not `Custom`.
    * @return trustedDomains
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -322,7 +326,7 @@ public class SettingsDto {
   }
 
   /**
-   * Get trustedDomainsType
+   * How the mail domains above are applied: no domain trusted, every domain trusted, or only the listed ones.  Filled in under the same conditions as `trustedDomains`.
    * @return trustedDomainsType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRUSTED_DOMAINS_TYPE, required = false)
@@ -346,7 +350,7 @@ public class SettingsDto {
   }
 
   /**
-   * The language.
+   * The default language of the portal as a culture name, which is what unauthenticated pages are rendered in.  A signed-in member may have a language of their own, and that one is not reported here.
    * @return culture
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CULTURE, required = false)
@@ -370,7 +374,7 @@ public class SettingsDto {
   }
 
   /**
-   * The UTC offset in the TimeSpan format.
+   * The portal's offset from UTC as a time span, positive east of UTC. Filled in for a signed-in caller only,  and taken at the moment of the call, so it already reflects daylight saving time.
    * @return utcOffset
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UTC_OFFSET, required = false)
@@ -394,7 +398,7 @@ public class SettingsDto {
   }
 
   /**
-   * The UTC offset in hours.
+   * The same offset in hours, fractional for a zone that is not on a whole hour. It is there so a client does  not have to parse `utcOffset`.
    * @return utcHoursOffset
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_UTC_HOURS_OFFSET, required = false)
@@ -418,7 +422,7 @@ public class SettingsDto {
   }
 
   /**
-   * The greeting settings.
+   * The portal title shown on the login page and in letters. It falls back to the product name in the portal  language while the portal has been given no title of its own.
    * @return greetingSettings
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -449,7 +453,7 @@ public class SettingsDto {
   }
 
   /**
-   * The owner ID.
+   * The portal owner, the one account that cannot be removed or demoted. Filled in for a signed-in caller  only, and the empty GUID for an anonymous one.
    * @return ownerId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_OWNER_ID, required = false)
@@ -473,7 +477,7 @@ public class SettingsDto {
   }
 
   /**
-   * The team template ID.
+   * The naming scheme the portal uses for its own vocabulary - what a member, a group or a room is called in  the interface. `GET api/2.0/settings/customschemas/{id}` spells that vocabulary out. Filled in for a  signed-in caller only.
    * @return nameSchemaId
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -504,7 +508,7 @@ public class SettingsDto {
   }
 
   /**
-   * Specifies if a user can join the portal or not.
+   * Whether someone who is not invited may still register, which is the case when the portal trusts every mail  domain or a list of them. It is computed for an anonymous caller only and left out entirely for a  signed-in one, so a missing value is not a `false`.
    * @return enabledJoin
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -535,7 +539,7 @@ public class SettingsDto {
   }
 
   /**
-   * Specifies if a user can send a message to the administrator when accessing the DocSpace portal or not.
+   * Whether the login page may offer the form for writing to the portal administrators. It is also `true`  while the portal's payment has lapsed, whatever the setting says, so it can be set on a portal where an  administrator switched the form off.
    * @return enableAdmMess
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -566,7 +570,7 @@ public class SettingsDto {
   }
 
   /**
-   * Specifies if a user can connect third-party providers to the portal or not.
+   * Whether the login page may offer sign-in through an external identity provider. It is computed for an  anonymous caller only; `GET api/2.0/capabilities` reports the same thing with the list of providers.
    * @return thirdpartyEnable
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -597,7 +601,7 @@ public class SettingsDto {
   }
 
   /**
-   * Specifies if this portal is a DocSpace portal or not.
+   * Always `true` in this product. It exists so a client that also talks to older ONLYOFFICE portals can tell  them apart, and is not a feature switch.
    * @return docSpace
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOC_SPACE, required = false)
@@ -621,7 +625,7 @@ public class SettingsDto {
   }
 
   /**
-   * Indicates whether the system is running in standalone mode.
+   * Whether this is a server installation someone administers themselves rather than a portal in the cloud.  Several fields below and a number of operations behave differently in the two, so a client that has to  branch on the deployment reads it here.
    * @return standalone
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STANDALONE, required = false)
@@ -645,7 +649,7 @@ public class SettingsDto {
   }
 
   /**
-   * Specifies if this portal is the AMI instance or not.
+   * Whether the installation runs from an Amazon machine image, which is a server installation that can read  its own instance metadata. It is `false` on every cloud portal.
    * @return isAmi
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_AMI, required = false)
@@ -669,7 +673,7 @@ public class SettingsDto {
   }
 
   /**
-   * The base domain.
+   * The domain new portals of this installation are created under, which is what a portal name is checked  against and appended to. It is empty on an installation that serves a single portal on a fixed address.
    * @return baseDomain
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_BASE_DOMAIN, required = false)
@@ -693,7 +697,7 @@ public class SettingsDto {
   }
 
   /**
-   * The wizard token.
+   * The token that authorizes the first-run setup wizard. It is handed out to anonymous callers only, and only  while the wizard has not been completed; once it has, the field stays empty for good.
    * @return wizardToken
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -717,27 +721,27 @@ public class SettingsDto {
     this.wizardToken = JsonNullable.<String>of(wizardToken);
   }
 
-  public SettingsDto passwordHash(@javax.annotation.Nullable PasswordHasher passwordHash) {
+  public SettingsDto passwordHash(@javax.annotation.Nullable PasswordHashSettingsDto passwordHash) {
     
     this.passwordHash = passwordHash;
     return this;
   }
 
   /**
-   * Get passwordHash
+   * The parameters for hashing a password in the client before it is sent - the salt, the iteration count and  the hash size. It is filled in for an anonymous caller and, for a signed-in one, only when  `withPassword=true` is asked for. Hash with exactly these parameters and send the result as  `passwordHash`, since the portal cannot reproduce the hash from a different set.
    * @return passwordHash
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PASSWORD_HASH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public PasswordHasher getPasswordHash() {
+  public PasswordHashSettingsDto getPasswordHash() {
     return passwordHash;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_PASSWORD_HASH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPasswordHash(@javax.annotation.Nullable PasswordHasher passwordHash) {
+  public void setPasswordHash(@javax.annotation.Nullable PasswordHashSettingsDto passwordHash) {
     this.passwordHash = passwordHash;
   }
 
@@ -748,7 +752,7 @@ public class SettingsDto {
   }
 
   /**
-   * Get firebase
+   * The Firebase project a mobile or web client sends push registrations to. Filled in for a signed-in caller  only, and its own fields are empty strings on an installation that configures no Firebase project.
    * @return firebase
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FIREBASE, required = false)
@@ -772,7 +776,7 @@ public class SettingsDto {
   }
 
   /**
-   * The portal version.
+   * The product version of the portal, empty when the installation does not publish one. It is the version of  the server, not of this API, whose own version is fixed at 2.0.
    * @return version
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -803,7 +807,7 @@ public class SettingsDto {
   }
 
   /**
-   * Get recaptchaType
+   * Which CAPTCHA the login form has to render, decided by the installation's configuration. Computed for an  anonymous caller only.
    * @return recaptchaType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RECAPTCHA_TYPE, required = false)
@@ -827,7 +831,7 @@ public class SettingsDto {
   }
 
   /**
-   * The ReCAPTCHA public key.
+   * The site key for the CAPTCHA named by `recaptchaType`, safe to embed in a page. It is empty when the  installation configures no CAPTCHA, in which case the login form asks for none.
    * @return recaptchaPublicKey
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -858,7 +862,7 @@ public class SettingsDto {
   }
 
   /**
-   * Specifies if the debug information will be sent or not.
+   * Whether the client may collect and send diagnostic information. Filled in for a signed-in caller only, and  `false` unless the installation switched it on.
    * @return debugInfo
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEBUG_INFO, required = false)
@@ -882,7 +886,7 @@ public class SettingsDto {
   }
 
   /**
-   * The socket URL.
+   * The address of the socket service that pushes live updates to a client. It is filled in for a signed-in  caller and for an anonymous one who arrives with an external sharing link, and is empty when the  installation runs no socket service - a client then has to poll.
    * @return socketUrl
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -913,7 +917,7 @@ public class SettingsDto {
   }
 
   /**
-   * Get tenantStatus
+   * The lifecycle state of the portal. Anything other than active means most operations are refused: the  portal is being transferred, restored, encrypted or removed, its owner has deactivated it, or the  retention policy has blocked it after a long period without use.
    * @return tenantStatus
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT_STATUS, required = false)
@@ -937,7 +941,7 @@ public class SettingsDto {
   }
 
   /**
-   * The tenant alias.
+   * The portal's own name within the installation, which together with `baseDomain` forms the address it is  reached at. `PUT api/2.0/portal/portalrename` changes it.
    * @return tenantAlias
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -968,7 +972,7 @@ public class SettingsDto {
   }
 
   /**
-   * Specifies whether to display the About portal section.
+   * Whether the interface may show the About page. A cloud portal always may; a server installation may unless  its plan includes branding and the vendor details hide the page.
    * @return displayAbout
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DISPLAY_ABOUT, required = false)
@@ -985,27 +989,27 @@ public class SettingsDto {
     this.displayAbout = displayAbout;
   }
 
-  public SettingsDto domainValidator(@javax.annotation.Nullable TenantDomainValidator domainValidator) {
+  public SettingsDto domainValidator(@javax.annotation.Nullable DomainNameRulesDto domainValidator) {
     
     this.domainValidator = domainValidator;
     return this;
   }
 
   /**
-   * Get domainValidator
+   * The rules a portal name is checked against - its length limits and the pattern it has to match - so a  client can validate a rename before sending it. Filled in for a signed-in caller only.
    * @return domainValidator
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DOMAIN_VALIDATOR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TenantDomainValidator getDomainValidator() {
+  public DomainNameRulesDto getDomainValidator() {
     return domainValidator;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_DOMAIN_VALIDATOR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDomainValidator(@javax.annotation.Nullable TenantDomainValidator domainValidator) {
+  public void setDomainValidator(@javax.annotation.Nullable DomainNameRulesDto domainValidator) {
     this.domainValidator = domainValidator;
   }
 
@@ -1016,7 +1020,7 @@ public class SettingsDto {
   }
 
   /**
-   * The Zendesk key.
+   * The key that lets the client open the vendor's support chat, empty when the installation configures none.  Filled in for a signed-in caller only.
    * @return zendeskKey
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1047,7 +1051,7 @@ public class SettingsDto {
   }
 
   /**
-   * The tag manager ID.
+   * The Google Tag Manager container the client should load, empty when the installation configures none.  Filled in for a signed-in caller only.
    * @return tagManagerId
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1078,7 +1082,7 @@ public class SettingsDto {
   }
 
   /**
-   * Specifies whether the cookie settings are enabled.
+   * Whether the portal limits how long an authentication session stays valid. The limit itself is read with  `GET api/2.0/settings/cookiesettings`; while this is `false` a session is honoured for a year.
    * @return cookieSettingsEnabled
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_COOKIE_SETTINGS_ENABLED, required = true)
@@ -1102,7 +1106,7 @@ public class SettingsDto {
   }
 
   /**
-   * Specifies whether the access to the space management is limited or not.
+   * Whether the space-management section is restricted to the portal owner. Filled in for a signed-in caller  only.
    * @return limitedAccessSpace
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIMITED_ACCESS_SPACE, required = false)
@@ -1126,7 +1130,7 @@ public class SettingsDto {
   }
 
   /**
-   * Specifies whether the access to the Developer Tools is limited for users or not.
+   * Whether the Developer Tools section is hidden from members who are not administrators. Filled in for a  signed-in caller only.
    * @return limitedAccessDevToolsForUsers
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIMITED_ACCESS_DEV_TOOLS_FOR_USERS, required = false)
@@ -1150,7 +1154,7 @@ public class SettingsDto {
   }
 
   /**
-   * Specifies whether to display the promotional banners.
+   * Whether the interface may show the vendor's promotional banners. A cloud portal always reports `true`; on  a server installation it follows the banner setting. Filled in for a signed-in caller only.
    * @return displayBanners
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DISPLAY_BANNERS, required = false)
@@ -1174,7 +1178,7 @@ public class SettingsDto {
   }
 
   /**
-   * Specifies whether AI functionality (chat, agents, vectorization) is enabled for the current tenant.  When `false`, all AI features are disabled and the AI Agents folder is hidden.
+   * Whether the AI features - chat, agents and vectorisation - may be used on this portal. While it is  `false` the AI Agents folder is hidden and the AI operations are refused. Filled in for a signed-in caller  only.
    * @return aiEnabled
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AI_ENABLED, required = false)
@@ -1191,6 +1195,37 @@ public class SettingsDto {
     this.aiEnabled = aiEnabled;
   }
 
+  public SettingsDto walletLowBalance(@javax.annotation.Nullable Boolean walletLowBalance) {
+    this.walletLowBalance = JsonNullable.<Boolean>of(walletLowBalance);
+    
+    return this;
+  }
+
+  /**
+   * Whether the portal wallet has already dropped below its low-balance threshold, so a client can warn about  AI operations being cut off. It is reported to DocSpace administrators only and left empty for everyone  else, which is not the same as a healthy balance.
+   * @return walletLowBalance
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public Boolean getWalletLowBalance() {
+        return walletLowBalance.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_WALLET_LOW_BALANCE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Boolean> getWalletLowBalance_JsonNullable() {
+    return walletLowBalance;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WALLET_LOW_BALANCE)
+  public void setWalletLowBalance_JsonNullable(JsonNullable<Boolean> walletLowBalance) {
+    this.walletLowBalance = walletLowBalance;
+  }
+
+  public void setWalletLowBalance(@javax.annotation.Nullable Boolean walletLowBalance) {
+    this.walletLowBalance = JsonNullable.<Boolean>of(walletLowBalance);
+  }
+
   public SettingsDto userNameRegex(@javax.annotation.Nullable String userNameRegex) {
     this.userNameRegex = JsonNullable.<String>of(userNameRegex);
     
@@ -1198,7 +1233,7 @@ public class SettingsDto {
   }
 
   /**
-   * The user name validation regex.
+   * The pattern a member's first and last name has to match, so a client can validate a name before sending  it. It is a .NET regular expression and is applied to each name part separately.
    * @return userNameRegex
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1229,7 +1264,7 @@ public class SettingsDto {
   }
 
   /**
-   * The maximum number of invitations to the portal.
+   * How many invitations the portal may still send in the current window. Filled in for a signed-in caller  only, and set to the maximum value of a 32-bit integer on an installation that limits nothing.
    * @return invitationLimit
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1260,7 +1295,7 @@ public class SettingsDto {
   }
 
   /**
-   * Get plugins
+   * What the installation allows to be done with web plugins. Filled in for a signed-in caller only, with all  three flags `false` unless the installation switched plugins on.
    * @return plugins
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PLUGINS, required = false)
@@ -1284,7 +1319,7 @@ public class SettingsDto {
   }
 
   /**
-   * Get deepLink
+   * What a mobile client needs to hand a document link over to the installed application instead of opening it  in the browser. Its fields are empty strings when the installation configures no application.
    * @return deepLink
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_DEEP_LINK, required = true)
@@ -1308,7 +1343,7 @@ public class SettingsDto {
   }
 
   /**
-   * Get formGallery
+   * Where the ready-made form templates are served from and which extension they carry. Filled in for a  signed-in caller only.
    * @return formGallery
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FORM_GALLERY, required = false)
@@ -1332,7 +1367,7 @@ public class SettingsDto {
   }
 
   /**
-   * The maximum image upload size.
+   * The largest image the portal accepts as a logo or an avatar, in bytes. Filled in for a signed-in caller  only, and a larger upload is refused rather than resized.
    * @return maxImageUploadSize
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MAX_IMAGE_UPLOAD_SIZE, required = false)
@@ -1356,7 +1391,7 @@ public class SettingsDto {
   }
 
   /**
-   * The white label logo text.
+   * The wordmark to print next to the portal logo. It falls back to the built-in one while the portal has  stored no text of its own, so it is never empty.
    * @return logoText
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -1380,27 +1415,27 @@ public class SettingsDto {
     this.logoText = JsonNullable.<String>of(logoText);
   }
 
-  public SettingsDto externalResources(@javax.annotation.Nullable CultureSpecificExternalResources externalResources) {
+  public SettingsDto externalResources(@javax.annotation.Nullable ExternalResourcesDto externalResources) {
     
     this.externalResources = externalResources;
     return this;
   }
 
   /**
-   * Get externalResources
+   * The addresses of the vendor's help, support, forum and video resources, already picked for the portal  language. An entry is missing when the installation configures no address for it or the resource is  switched off, which `GET api/2.0/settings/rebranding/additional` reports flag by flag.
    * @return externalResources
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_RESOURCES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public CultureSpecificExternalResources getExternalResources() {
+  public ExternalResourcesDto getExternalResources() {
     return externalResources;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_EXTERNAL_RESOURCES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExternalResources(@javax.annotation.Nullable CultureSpecificExternalResources externalResources) {
+  public void setExternalResources(@javax.annotation.Nullable ExternalResourcesDto externalResources) {
     this.externalResources = externalResources;
   }
 
@@ -1411,7 +1446,7 @@ public class SettingsDto {
   }
 
   /**
-   * Get defaultFolderType
+   * The section the client should open after sign-in, which is the caller's own preference rather than a  portal-wide one. Filled in for a signed-in caller only.
    * @return defaultFolderType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DEFAULT_FOLDER_TYPE, required = false)
@@ -1435,7 +1470,7 @@ public class SettingsDto {
   }
 
   /**
-   * Specifies if an external database is connected for storing form results.
+   * Whether the installation has an external database wired up for form results, without which the operations  that write form results there are refused. Filled in for a signed-in caller only.
    * @return externalDbEnabled
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXTERNAL_DB_ENABLED, required = false)
@@ -1496,6 +1531,7 @@ public class SettingsDto {
         Objects.equals(this.limitedAccessDevToolsForUsers, settingsDto.limitedAccessDevToolsForUsers) &&
         Objects.equals(this.displayBanners, settingsDto.displayBanners) &&
         Objects.equals(this.aiEnabled, settingsDto.aiEnabled) &&
+        equalsNullable(this.walletLowBalance, settingsDto.walletLowBalance) &&
         equalsNullable(this.userNameRegex, settingsDto.userNameRegex) &&
         equalsNullable(this.invitationLimit, settingsDto.invitationLimit) &&
         Objects.equals(this.plugins, settingsDto.plugins) &&
@@ -1514,7 +1550,7 @@ public class SettingsDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(timezone), hashCodeNullable(trustedDomains), trustedDomainsType, culture, utcOffset, utcHoursOffset, hashCodeNullable(greetingSettings), ownerId, hashCodeNullable(nameSchemaId), hashCodeNullable(enabledJoin), hashCodeNullable(enableAdmMess), hashCodeNullable(thirdpartyEnable), docSpace, standalone, isAmi, baseDomain, hashCodeNullable(wizardToken), passwordHash, firebase, hashCodeNullable(version), recaptchaType, hashCodeNullable(recaptchaPublicKey), debugInfo, hashCodeNullable(socketUrl), tenantStatus, hashCodeNullable(tenantAlias), displayAbout, domainValidator, hashCodeNullable(zendeskKey), hashCodeNullable(tagManagerId), cookieSettingsEnabled, limitedAccessSpace, limitedAccessDevToolsForUsers, displayBanners, aiEnabled, hashCodeNullable(userNameRegex), hashCodeNullable(invitationLimit), plugins, deepLink, formGallery, maxImageUploadSize, hashCodeNullable(logoText), externalResources, defaultFolderType, externalDbEnabled);
+    return Objects.hash(hashCodeNullable(timezone), hashCodeNullable(trustedDomains), trustedDomainsType, culture, utcOffset, utcHoursOffset, hashCodeNullable(greetingSettings), ownerId, hashCodeNullable(nameSchemaId), hashCodeNullable(enabledJoin), hashCodeNullable(enableAdmMess), hashCodeNullable(thirdpartyEnable), docSpace, standalone, isAmi, baseDomain, hashCodeNullable(wizardToken), passwordHash, firebase, hashCodeNullable(version), recaptchaType, hashCodeNullable(recaptchaPublicKey), debugInfo, hashCodeNullable(socketUrl), tenantStatus, hashCodeNullable(tenantAlias), displayAbout, domainValidator, hashCodeNullable(zendeskKey), hashCodeNullable(tagManagerId), cookieSettingsEnabled, limitedAccessSpace, limitedAccessDevToolsForUsers, displayBanners, aiEnabled, hashCodeNullable(walletLowBalance), hashCodeNullable(userNameRegex), hashCodeNullable(invitationLimit), plugins, deepLink, formGallery, maxImageUploadSize, hashCodeNullable(logoText), externalResources, defaultFolderType, externalDbEnabled);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1563,6 +1599,7 @@ public class SettingsDto {
     sb.append("    limitedAccessDevToolsForUsers: ").append(toIndentedString(limitedAccessDevToolsForUsers)).append("\n");
     sb.append("    displayBanners: ").append(toIndentedString(displayBanners)).append("\n");
     sb.append("    aiEnabled: ").append(toIndentedString(aiEnabled)).append("\n");
+    sb.append("    walletLowBalance: ").append(toIndentedString(walletLowBalance)).append("\n");
     sb.append("    userNameRegex: ").append(toIndentedString(userNameRegex)).append("\n");
     sb.append("    invitationLimit: ").append(toIndentedString(invitationLimit)).append("\n");
     sb.append("    plugins: ").append(toIndentedString(plugins)).append("\n");
@@ -1953,6 +1990,16 @@ public class SettingsDto {
     if (getAiEnabled() != null) {
       try {
         joiner.add(String.format("%saiEnabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAiEnabled()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `walletLowBalance` to the URL query string
+    if (getWalletLowBalance() != null) {
+      try {
+        joiner.add(String.format("%swalletLowBalance%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getWalletLowBalance()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

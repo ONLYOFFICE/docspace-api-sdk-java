@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * GroupArrayWrapper
+ * The successful API response containing the list of GroupDto objects.
  */
 @JsonPropertyOrder({
   GroupArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class GroupArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of GroupDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

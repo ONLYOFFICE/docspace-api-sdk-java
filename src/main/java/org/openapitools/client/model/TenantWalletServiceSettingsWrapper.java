@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
-import org.openapitools.client.model.TenantWalletServiceSettings;
+import org.openapitools.client.model.TenantWalletServiceSettingsDto;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * TenantWalletServiceSettingsWrapper
+ * The successful API response containing the TenantWalletServiceSettingsDto object.
  */
 @JsonPropertyOrder({
   TenantWalletServiceSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class TenantWalletServiceSettingsWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private TenantWalletServiceSettings response;
+  @javax.annotation.Nullable  private TenantWalletServiceSettingsDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class TenantWalletServiceSettingsWrapper {
   }
 
 
-  public TenantWalletServiceSettingsWrapper response(@javax.annotation.Nullable TenantWalletServiceSettings response) {
+  public TenantWalletServiceSettingsWrapper response(@javax.annotation.Nullable TenantWalletServiceSettingsDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * Get response
+   * The TenantWalletServiceSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TenantWalletServiceSettings getResponse() {
+  public TenantWalletServiceSettingsDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable TenantWalletServiceSettings response) {
+  public void setResponse(@javax.annotation.Nullable TenantWalletServiceSettingsDto response) {
     this.response = response;
   }
 

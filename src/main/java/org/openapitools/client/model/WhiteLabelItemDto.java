@@ -24,8 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.client.model.IMagickGeometry;
 import org.openapitools.client.model.WhiteLabelItemPathDto;
+import org.openapitools.client.model.WhiteLabelItemSizeDto;
 import org.openapitools.client.model.WhiteLabelLogoType;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -39,7 +39,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The white label item parameters.
+ * One branding logo slot of the portal: the size it is drawn at, and where its images are served from.
  */
 @JsonPropertyOrder({
   WhiteLabelItemDto.JSON_PROPERTY_TYPE,
@@ -56,7 +56,7 @@ public class WhiteLabelItemDto {
   @javax.annotation.Nullable  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SIZE = "size";
-  @javax.annotation.Nullable  private IMagickGeometry size;
+  @javax.annotation.Nullable  private WhiteLabelItemSizeDto size;
 
   public static final String JSON_PROPERTY_PATH = "path";
   @javax.annotation.Nullable  private WhiteLabelItemPathDto path;
@@ -72,7 +72,7 @@ public class WhiteLabelItemDto {
   }
 
   /**
-   * Get type
+   * Which branding slot this entry describes. `Notification` is part of the type but never appears here: that  logo is derived from the login-page one and used only in letters.
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
@@ -96,7 +96,7 @@ public class WhiteLabelItemDto {
   }
 
   /**
-   * The white label file name.
+   * The stable name of the same slot, which is what `GET api/2.0/settings/whitelabel/logos/isdefault` keys its  entries by. It is a name to match on, not a file name.
    * @return name
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -120,27 +120,27 @@ public class WhiteLabelItemDto {
     this.name = JsonNullable.<String>of(name);
   }
 
-  public WhiteLabelItemDto size(@javax.annotation.Nullable IMagickGeometry size) {
+  public WhiteLabelItemDto size(@javax.annotation.Nullable WhiteLabelItemSizeDto size) {
     
     this.size = size;
     return this;
   }
 
   /**
-   * Get size
+   * The pixel box the slot is drawn in. Only `width` and `height` carry information here; the resize flags and  offsets alongside them are left at their defaults and say nothing about how an uploaded image is treated.
    * @return size
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public IMagickGeometry getSize() {
+  public WhiteLabelItemSizeDto getSize() {
     return size;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSize(@javax.annotation.Nullable IMagickGeometry size) {
+  public void setSize(@javax.annotation.Nullable WhiteLabelItemSizeDto size) {
     this.size = size;
   }
 
@@ -151,7 +151,7 @@ public class WhiteLabelItemDto {
   }
 
   /**
-   * Get path
+   * The absolute URLs to render the slot from, one per theme.
    * @return path
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PATH, required = false)

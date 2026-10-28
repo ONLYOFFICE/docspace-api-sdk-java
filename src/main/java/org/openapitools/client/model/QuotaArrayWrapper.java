@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * QuotaArrayWrapper
+ * The successful API response containing the list of QuotaDto objects.
  */
 @JsonPropertyOrder({
   QuotaArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class QuotaArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of QuotaDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

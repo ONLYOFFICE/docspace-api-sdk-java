@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -33,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The response containing paginated modification information.
+ * One page of results ordered by modification time, together with the cursor that asks for the next page.
  */
 @JsonPropertyOrder({
   PageableModificationResponse.JSON_PROPERTY_DATA,
@@ -43,7 +47,7 @@ import java.util.StringJoiner;
 
 public class PageableModificationResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  @javax.annotation.Nullable  private Object data;
+  @javax.annotation.Nullable  private JsonNullable<Object> data = JsonNullable.<Object>of(null);
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
   @javax.annotation.Nullable  private Integer limit;
@@ -56,27 +60,34 @@ public class PageableModificationResponse {
 
 
   public PageableModificationResponse data(@javax.annotation.Nullable Object data) {
+    this.data = JsonNullable.<Object>of(data);
     
-    this.data = data;
     return this;
   }
 
   /**
-   * The paginated modification data.
+   * Get data
    * @return data
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATA, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Object getData() {
-    return data;
+        return data.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(@javax.annotation.Nullable Object data) {
+  public JsonNullable<Object> getData_JsonNullable() {
+    return data;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATA)
+  public void setData_JsonNullable(JsonNullable<Object> data) {
     this.data = data;
+  }
+
+  public void setData(@javax.annotation.Nullable Object data) {
+    this.data = JsonNullable.<Object>of(data);
   }
 
   public PageableModificationResponse limit(@javax.annotation.Nullable Integer limit) {
@@ -86,7 +97,7 @@ public class PageableModificationResponse {
   }
 
   /**
-   * The maximum number of results returned per page.
+   * The page size that was applied to this request, between 1 and 50.
    * @return limit
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIMIT, required = false)
@@ -110,7 +121,7 @@ public class PageableModificationResponse {
   }
 
   /**
-   * The date when the user consent was last modified.
+   * The cursor to send back as last_modified_on to ask for the next page. It is null when the page is empty.
    * @return lastModifiedOn
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LAST_MODIFIED_ON, required = false)
@@ -136,14 +147,25 @@ public class PageableModificationResponse {
       return false;
     }
     PageableModificationResponse pageableModificationResponse = (PageableModificationResponse) o;
-    return Objects.equals(this.data, pageableModificationResponse.data) &&
+    return equalsNullable(this.data, pageableModificationResponse.data) &&
         Objects.equals(this.limit, pageableModificationResponse.limit) &&
         Objects.equals(this.lastModifiedOn, pageableModificationResponse.lastModifiedOn);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(data, limit, lastModifiedOn);
+    return Objects.hash(hashCodeNullable(data), limit, lastModifiedOn);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
