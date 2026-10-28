@@ -43,47 +43,40 @@ import java.util.StringJoiner;
   CreateClientRequest.JSON_PROPERTY_DESCRIPTION,
   CreateClientRequest.JSON_PROPERTY_LOGO,
   CreateClientRequest.JSON_PROPERTY_SCOPES,
-  CreateClientRequest.JSON_PROPERTY_PUBLIC,
   CreateClientRequest.JSON_PROPERTY_ALLOW_PKCE,
-  CreateClientRequest.JSON_PROPERTY_IS_PUBLIC,
   CreateClientRequest.JSON_PROPERTY_WEBSITE_URL,
   CreateClientRequest.JSON_PROPERTY_TERMS_URL,
   CreateClientRequest.JSON_PROPERTY_POLICY_URL,
   CreateClientRequest.JSON_PROPERTY_REDIRECT_URIS,
   CreateClientRequest.JSON_PROPERTY_ALLOWED_ORIGINS,
-  CreateClientRequest.JSON_PROPERTY_LOGOUT_REDIRECT_URI
+  CreateClientRequest.JSON_PROPERTY_LOGOUT_REDIRECT_URI,
+  CreateClientRequest.JSON_PROPERTY_IS_PUBLIC
 })
 
 public class CreateClientRequest {
   public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable  private String name;
+  @javax.annotation.Nonnull  private String name;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   @javax.annotation.Nullable  private String description;
 
   public static final String JSON_PROPERTY_LOGO = "logo";
-  @javax.annotation.Nullable  private String logo;
+  @javax.annotation.Nonnull  private String logo;
 
   public static final String JSON_PROPERTY_SCOPES = "scopes";
-  @javax.annotation.Nullable  private Set<String> scopes = new LinkedHashSet<>();
-
-  public static final String JSON_PROPERTY_PUBLIC = "public";
-  @javax.annotation.Nullable  private Boolean _public;
+  @javax.annotation.Nonnull  private Set<String> scopes = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_ALLOW_PKCE = "allow_pkce";
   @javax.annotation.Nullable  private Boolean allowPkce;
 
-  public static final String JSON_PROPERTY_IS_PUBLIC = "is_public";
-  @javax.annotation.Nullable  private Boolean isPublic;
-
   public static final String JSON_PROPERTY_WEBSITE_URL = "website_url";
-  @javax.annotation.Nullable  private String websiteUrl;
+  @javax.annotation.Nonnull  private String websiteUrl;
 
   public static final String JSON_PROPERTY_TERMS_URL = "terms_url";
-  @javax.annotation.Nullable  private String termsUrl;
+  @javax.annotation.Nonnull  private String termsUrl;
 
   public static final String JSON_PROPERTY_POLICY_URL = "policy_url";
-  @javax.annotation.Nullable  private String policyUrl;
+  @javax.annotation.Nonnull  private String policyUrl;
 
   public static final String JSON_PROPERTY_REDIRECT_URIS = "redirect_uris";
   @javax.annotation.Nonnull  private Set<String> redirectUris = new LinkedHashSet<>();
@@ -92,33 +85,36 @@ public class CreateClientRequest {
   @javax.annotation.Nonnull  private Set<String> allowedOrigins = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_LOGOUT_REDIRECT_URI = "logout_redirect_uri";
-  @javax.annotation.Nullable  private String logoutRedirectUri;
+  @javax.annotation.Nonnull  private String logoutRedirectUri;
+
+  public static final String JSON_PROPERTY_IS_PUBLIC = "is_public";
+  @javax.annotation.Nullable  private Boolean isPublic;
 
   public CreateClientRequest() {
   }
 
 
-  public CreateClientRequest name(@javax.annotation.Nullable String name) {
+  public CreateClientRequest name(@javax.annotation.Nonnull String name) {
     
     this.name = name;
     return this;
   }
 
   /**
-   * The client name.
+   * The display name shown to the user on the consent screen. It has to be between 3 and 256 characters long.
    * @return name
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
     return name;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(@javax.annotation.Nullable String name) {
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
@@ -129,7 +125,7 @@ public class CreateClientRequest {
   }
 
   /**
-   * The description of the client
+   * The free-text description shown next to the name on the consent screen, at most 255 characters.
    * @return description
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
@@ -146,31 +142,31 @@ public class CreateClientRequest {
     this.description = description;
   }
 
-  public CreateClientRequest logo(@javax.annotation.Nullable String logo) {
+  public CreateClientRequest logo(@javax.annotation.Nonnull String logo) {
     
     this.logo = logo;
     return this;
   }
 
   /**
-   * The logo of the client in base64 format
+   * The client logo as a data URI carrying base64 image data, shown on the consent screen. Only png, jpeg, jpg and svg+xml are accepted, the whole string may not exceed 2000000 characters and the decoded image may not exceed 256000 bytes.
    * @return logo
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_LOGO, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getLogo() {
     return logo;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLogo(@javax.annotation.Nullable String logo) {
+  @JsonProperty(value = JSON_PROPERTY_LOGO, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setLogo(@javax.annotation.Nonnull String logo) {
     this.logo = logo;
   }
 
-  public CreateClientRequest scopes(@javax.annotation.Nullable Set<String> scopes) {
+  public CreateClientRequest scopes(@javax.annotation.Nonnull Set<String> scopes) {
     
     this.scopes = scopes;
     return this;
@@ -185,11 +181,11 @@ public class CreateClientRequest {
   }
 
   /**
-   * The scopes for the client
+   * The permissions the client may ask for, named as they appear in the tenant scope catalogue - for example files:read, rooms:write or openid. A client cannot request a scope that is not listed here.
    * @return scopes
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SCOPES, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_SCOPES, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Set<String> getScopes() {
     return scopes;
@@ -197,34 +193,10 @@ public class CreateClientRequest {
 
 
   @JsonDeserialize(as = LinkedHashSet.class)
-  @JsonProperty(value = JSON_PROPERTY_SCOPES, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setScopes(@javax.annotation.Nullable Set<String> scopes) {
+  @JsonProperty(value = JSON_PROPERTY_SCOPES, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setScopes(@javax.annotation.Nonnull Set<String> scopes) {
     this.scopes = scopes;
-  }
-
-  public CreateClientRequest _public(@javax.annotation.Nullable Boolean _public) {
-    
-    this._public = _public;
-    return this;
-  }
-
-  /**
-   * Get _public
-   * @return _public
-   */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PUBLIC, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getPublic() {
-    return _public;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_PUBLIC, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPublic(@javax.annotation.Nullable Boolean _public) {
-    this._public = _public;
   }
 
   public CreateClientRequest allowPkce(@javax.annotation.Nullable Boolean allowPkce) {
@@ -234,7 +206,7 @@ public class CreateClientRequest {
   }
 
   /**
-   * Indicates whether PKCE is allowed for the client
+   * Whether the client may use PKCE. Turning it on lets the client authenticate with the none method and prove itself with a code verifier instead of sending a secret, which is what a client that cannot keep a secret needs.
    * @return allowPkce
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ALLOW_PKCE, required = false)
@@ -251,99 +223,75 @@ public class CreateClientRequest {
     this.allowPkce = allowPkce;
   }
 
-  public CreateClientRequest isPublic(@javax.annotation.Nullable Boolean isPublic) {
-    
-    this.isPublic = isPublic;
-    return this;
-  }
-
-  /**
-   * Indicates if the client is public
-   * @return isPublic
-   */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_PUBLIC, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getIsPublic() {
-    return isPublic;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_IS_PUBLIC, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsPublic(@javax.annotation.Nullable Boolean isPublic) {
-    this.isPublic = isPublic;
-  }
-
-  public CreateClientRequest websiteUrl(@javax.annotation.Nullable String websiteUrl) {
+  public CreateClientRequest websiteUrl(@javax.annotation.Nonnull String websiteUrl) {
     
     this.websiteUrl = websiteUrl;
     return this;
   }
 
   /**
-   * The website URL of the client
+   * The URL of the client home page, offered to the user before they consent. The value has to be an http or https URL.
    * @return websiteUrl
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WEBSITE_URL, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_WEBSITE_URL, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getWebsiteUrl() {
     return websiteUrl;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_WEBSITE_URL, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWebsiteUrl(@javax.annotation.Nullable String websiteUrl) {
+  @JsonProperty(value = JSON_PROPERTY_WEBSITE_URL, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setWebsiteUrl(@javax.annotation.Nonnull String websiteUrl) {
     this.websiteUrl = websiteUrl;
   }
 
-  public CreateClientRequest termsUrl(@javax.annotation.Nullable String termsUrl) {
+  public CreateClientRequest termsUrl(@javax.annotation.Nonnull String termsUrl) {
     
     this.termsUrl = termsUrl;
     return this;
   }
 
   /**
-   * The terms URL of the client
+   * The URL of the client terms of service, linked from the consent screen. The value has to be an http or https URL.
    * @return termsUrl
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TERMS_URL, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TERMS_URL, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getTermsUrl() {
     return termsUrl;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_TERMS_URL, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTermsUrl(@javax.annotation.Nullable String termsUrl) {
+  @JsonProperty(value = JSON_PROPERTY_TERMS_URL, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTermsUrl(@javax.annotation.Nonnull String termsUrl) {
     this.termsUrl = termsUrl;
   }
 
-  public CreateClientRequest policyUrl(@javax.annotation.Nullable String policyUrl) {
+  public CreateClientRequest policyUrl(@javax.annotation.Nonnull String policyUrl) {
     
     this.policyUrl = policyUrl;
     return this;
   }
 
   /**
-   * The policy URL of the client
+   * The URL of the client privacy policy, linked from the consent screen. The value has to be an http or https URL.
    * @return policyUrl
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_POLICY_URL, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_POLICY_URL, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getPolicyUrl() {
     return policyUrl;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_POLICY_URL, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPolicyUrl(@javax.annotation.Nullable String policyUrl) {
+  @JsonProperty(value = JSON_PROPERTY_POLICY_URL, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setPolicyUrl(@javax.annotation.Nonnull String policyUrl) {
     this.policyUrl = policyUrl;
   }
 
@@ -362,7 +310,7 @@ public class CreateClientRequest {
   }
 
   /**
-   * The redirect URIs for the client
+   * The URIs an authorization code may be delivered to. An authorization request naming any other URI is refused, and the set holds between 1 and 12 addresses.
    * @return redirectUris
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_REDIRECT_URIS, required = true)
@@ -395,7 +343,7 @@ public class CreateClientRequest {
   }
 
   /**
-   * The allowed origins for the client
+   * The web origins allowed to call the portal on behalf of this client, used for the CORS check. The set holds between 1 and 12 addresses.
    * @return allowedOrigins
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ALLOWED_ORIGINS, required = true)
@@ -413,28 +361,52 @@ public class CreateClientRequest {
     this.allowedOrigins = allowedOrigins;
   }
 
-  public CreateClientRequest logoutRedirectUri(@javax.annotation.Nullable String logoutRedirectUri) {
+  public CreateClientRequest logoutRedirectUri(@javax.annotation.Nonnull String logoutRedirectUri) {
     
     this.logoutRedirectUri = logoutRedirectUri;
     return this;
   }
 
   /**
-   * The logout redirect URI for the client
+   * The single URI the user may be sent back to once they have logged out. The value has to be an http or https URL.
    * @return logoutRedirectUri
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGOUT_REDIRECT_URI, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_LOGOUT_REDIRECT_URI, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getLogoutRedirectUri() {
     return logoutRedirectUri;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_LOGOUT_REDIRECT_URI, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLogoutRedirectUri(@javax.annotation.Nullable String logoutRedirectUri) {
+  @JsonProperty(value = JSON_PROPERTY_LOGOUT_REDIRECT_URI, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setLogoutRedirectUri(@javax.annotation.Nonnull String logoutRedirectUri) {
     this.logoutRedirectUri = logoutRedirectUri;
+  }
+
+  public CreateClientRequest isPublic(@javax.annotation.Nullable Boolean isPublic) {
+    
+    this.isPublic = isPublic;
+    return this;
+  }
+
+  /**
+   * Whether the client is offered to third-party tenants rather than only to the tenant that registers it.
+   * @return isPublic
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IS_PUBLIC, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsPublic() {
+    return isPublic;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_IS_PUBLIC, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsPublic(@javax.annotation.Nullable Boolean isPublic) {
+    this.isPublic = isPublic;
   }
 
   @Override
@@ -450,20 +422,19 @@ public class CreateClientRequest {
         Objects.equals(this.description, createClientRequest.description) &&
         Objects.equals(this.logo, createClientRequest.logo) &&
         Objects.equals(this.scopes, createClientRequest.scopes) &&
-        Objects.equals(this._public, createClientRequest._public) &&
         Objects.equals(this.allowPkce, createClientRequest.allowPkce) &&
-        Objects.equals(this.isPublic, createClientRequest.isPublic) &&
         Objects.equals(this.websiteUrl, createClientRequest.websiteUrl) &&
         Objects.equals(this.termsUrl, createClientRequest.termsUrl) &&
         Objects.equals(this.policyUrl, createClientRequest.policyUrl) &&
         Objects.equals(this.redirectUris, createClientRequest.redirectUris) &&
         Objects.equals(this.allowedOrigins, createClientRequest.allowedOrigins) &&
-        Objects.equals(this.logoutRedirectUri, createClientRequest.logoutRedirectUri);
+        Objects.equals(this.logoutRedirectUri, createClientRequest.logoutRedirectUri) &&
+        Objects.equals(this.isPublic, createClientRequest.isPublic);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, logo, scopes, _public, allowPkce, isPublic, websiteUrl, termsUrl, policyUrl, redirectUris, allowedOrigins, logoutRedirectUri);
+    return Objects.hash(name, description, logo, scopes, allowPkce, websiteUrl, termsUrl, policyUrl, redirectUris, allowedOrigins, logoutRedirectUri, isPublic);
   }
 
   @Override
@@ -474,15 +445,14 @@ public class CreateClientRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    logo: ").append(toIndentedString(logo)).append("\n");
     sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
-    sb.append("    _public: ").append(toIndentedString(_public)).append("\n");
     sb.append("    allowPkce: ").append(toIndentedString(allowPkce)).append("\n");
-    sb.append("    isPublic: ").append(toIndentedString(isPublic)).append("\n");
     sb.append("    websiteUrl: ").append(toIndentedString(websiteUrl)).append("\n");
     sb.append("    termsUrl: ").append(toIndentedString(termsUrl)).append("\n");
     sb.append("    policyUrl: ").append(toIndentedString(policyUrl)).append("\n");
     sb.append("    redirectUris: ").append(toIndentedString(redirectUris)).append("\n");
     sb.append("    allowedOrigins: ").append(toIndentedString(allowedOrigins)).append("\n");
     sb.append("    logoutRedirectUri: ").append(toIndentedString(logoutRedirectUri)).append("\n");
+    sb.append("    isPublic: ").append(toIndentedString(isPublic)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -576,30 +546,10 @@ public class CreateClientRequest {
       i++;
     }
 
-    // add `public` to the URL query string
-    if (getPublic() != null) {
-      try {
-        joiner.add(String.format("%spublic%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPublic()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
     // add `allow_pkce` to the URL query string
     if (getAllowPkce() != null) {
       try {
         joiner.add(String.format("%sallow_pkce%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAllowPkce()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `is_public` to the URL query string
-    if (getIsPublic() != null) {
-      try {
-        joiner.add(String.format("%sis_public%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsPublic()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
@@ -672,6 +622,16 @@ public class CreateClientRequest {
     if (getLogoutRedirectUri() != null) {
       try {
         joiner.add(String.format("%slogout_redirect_uri%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLogoutRedirectUri()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `is_public` to the URL query string
+    if (getIsPublic() != null) {
+      try {
+        joiner.add(String.format("%sis_public%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsPublic()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

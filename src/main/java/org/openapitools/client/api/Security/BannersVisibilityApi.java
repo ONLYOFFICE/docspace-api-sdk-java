@@ -24,7 +24,8 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.TenantBannerSettingsDto;
+import org.openapitools.client.model.ErrorApiResponse;
+import org.openapitools.client.model.TenantBannerSettingsRequestDto;
 import org.openapitools.client.model.TenantBannerSettingsWrapper;
 
 
@@ -48,34 +49,34 @@ public class BannersVisibilityApi extends BaseApi {
 
   /**
    * Set the banners visibility
-   * Sets the visibility settings of the promotional banners in the portal.
+   * Sets whether the portal's promotional banners are hidden for every user. Available only on an Enterprise  license; every other plan is refused regardless of the caller's role. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). The flag only takes effect on a Standalone (self-hosted) installation; on  SaaS, banners are always shown no matter what is saved here. This is a mutating, idempotent, portal-wide call:  it applies to every user on the tenant immediately. It returns the saved setting; read the current value at  any time from `GET api/2.0/settings/banner`.
    *
    * REST API Reference for setTenantBannerSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-banner-settings/
    *
-   * @param tenantBannerSettingsDto  (optional)
+   * @param tenantBannerSettingsRequestDto  (optional)
    * @return TenantBannerSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantBannerSettingsWrapper setTenantBannerSettings(@javax.annotation.Nullable TenantBannerSettingsDto tenantBannerSettingsDto) throws ApiException {
-    return this.setTenantBannerSettings(tenantBannerSettingsDto, Collections.emptyMap());
+  public TenantBannerSettingsWrapper setTenantBannerSettings(@javax.annotation.Nullable TenantBannerSettingsRequestDto tenantBannerSettingsRequestDto) throws ApiException {
+    return this.setTenantBannerSettings(tenantBannerSettingsRequestDto, Collections.emptyMap());
   }
 
 
   /**
    * Set the banners visibility
-   * Sets the visibility settings of the promotional banners in the portal.
+   * Sets whether the portal's promotional banners are hidden for every user. Available only on an Enterprise  license; every other plan is refused regardless of the caller's role. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). The flag only takes effect on a Standalone (self-hosted) installation; on  SaaS, banners are always shown no matter what is saved here. This is a mutating, idempotent, portal-wide call:  it applies to every user on the tenant immediately. It returns the saved setting; read the current value at  any time from `GET api/2.0/settings/banner`.
    *
    * REST API Reference for setTenantBannerSettings Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-banner-settings/
    *
-   * @param tenantBannerSettingsDto  (optional)
+   * @param tenantBannerSettingsRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return TenantBannerSettingsWrapper
    * @throws ApiException if fails to make API call
    */
-  public TenantBannerSettingsWrapper setTenantBannerSettings(@javax.annotation.Nullable TenantBannerSettingsDto tenantBannerSettingsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = tenantBannerSettingsDto;
+  public TenantBannerSettingsWrapper setTenantBannerSettings(@javax.annotation.Nullable TenantBannerSettingsRequestDto tenantBannerSettingsRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = tenantBannerSettingsRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/banner";

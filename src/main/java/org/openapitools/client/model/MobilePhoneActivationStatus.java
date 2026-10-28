@@ -51,7 +51,7 @@ public enum MobilePhoneActivationStatus {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return java.lang.String.valueOf(value);
   }
 
   @JsonCreator
@@ -75,7 +75,7 @@ public enum MobilePhoneActivationStatus {
       prefix = "";
     }
 
-    return String.format(java.util.Locale.ROOT, "%s=%s", prefix, this.toString());
+    return java.lang.String.format(java.util.Locale.ROOT, "%s=%s", prefix, this.toString());
   }
 }
 

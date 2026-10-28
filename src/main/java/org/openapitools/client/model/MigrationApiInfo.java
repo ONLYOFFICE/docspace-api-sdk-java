@@ -41,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * MigrationApiInfo
+ * The migration API information.
  */
 @JsonPropertyOrder({
   MigrationApiInfo.JSON_PROPERTY_MIGRATOR_NAME,
@@ -126,7 +126,7 @@ public class MigrationApiInfo {
   }
 
   /**
-   * Get migratorName
+   * The migrator name.
    * @return migratorName
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -157,7 +157,7 @@ public class MigrationApiInfo {
   }
 
   /**
-   * Get operation
+   * The migration operation.
    * @return operation
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -200,7 +200,7 @@ public class MigrationApiInfo {
   }
 
   /**
-   * Get failedArchives
+   * The list of failed archives.
    * @return failedArchives
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -243,7 +243,7 @@ public class MigrationApiInfo {
   }
 
   /**
-   * Get users
+   * The list of migrating users.
    * @return users
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -286,7 +286,7 @@ public class MigrationApiInfo {
   }
 
   /**
-   * Get withoutEmailUsers
+   * The list of migrating users without email.
    * @return withoutEmailUsers
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -329,7 +329,7 @@ public class MigrationApiInfo {
   }
 
   /**
-   * Get existUsers
+   * The list of existing migrating users.
    * @return existUsers
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -372,7 +372,7 @@ public class MigrationApiInfo {
   }
 
   /**
-   * Get groups
+   * The list of migrating groups.
    * @return groups
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -403,7 +403,7 @@ public class MigrationApiInfo {
   }
 
   /**
-   * Get importPersonalFiles
+   * Specifies whether to import personal files or not.
    * @return importPersonalFiles
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMPORT_PERSONAL_FILES, required = false)
@@ -427,7 +427,7 @@ public class MigrationApiInfo {
   }
 
   /**
-   * Get importSharedFiles
+   * Specifies whether to import shared files or not.
    * @return importSharedFiles
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMPORT_SHARED_FILES, required = false)
@@ -451,7 +451,7 @@ public class MigrationApiInfo {
   }
 
   /**
-   * Get importSharedFolders
+   * Specifies whether to import shared folders or not.
    * @return importSharedFolders
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMPORT_SHARED_FOLDERS, required = false)
@@ -475,7 +475,7 @@ public class MigrationApiInfo {
   }
 
   /**
-   * Get importCommonFiles
+   * Specifies whether to import common files or not.
    * @return importCommonFiles
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMPORT_COMMON_FILES, required = false)
@@ -499,7 +499,7 @@ public class MigrationApiInfo {
   }
 
   /**
-   * Get importProjectFiles
+   * Specifies whether to import project files or not.
    * @return importProjectFiles
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMPORT_PROJECT_FILES, required = false)
@@ -523,7 +523,7 @@ public class MigrationApiInfo {
   }
 
   /**
-   * Get importGroups
+   * Specifies whether to import groups or not.
    * @return importGroups
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IMPORT_GROUPS, required = false)
@@ -547,7 +547,7 @@ public class MigrationApiInfo {
   }
 
   /**
-   * Get successedUsers
+   * The number of successfully migrated users.
    * @return successedUsers
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SUCCESSED_USERS, required = false)
@@ -571,7 +571,7 @@ public class MigrationApiInfo {
   }
 
   /**
-   * Get failedUsers
+   * The number of unsuccessfully migrated users.
    * @return failedUsers
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FAILED_USERS, required = false)
@@ -607,7 +607,7 @@ public class MigrationApiInfo {
   }
 
   /**
-   * Get files
+   * The list of migrated files.
    * @return files
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -650,7 +650,7 @@ public class MigrationApiInfo {
   }
 
   /**
-   * Get errors
+   * The list of migration errors.
    * @return errors
    */
   @javax.annotation.Nullable  @JsonIgnore

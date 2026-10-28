@@ -39,7 +39,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The folder link parameters.
+ * The external link of a folder, as it is to be created or rewritten.
  */
 @JsonPropertyOrder({
   FolderLinkRequest.JSON_PROPERTY_LINK_ID,
@@ -88,7 +88,7 @@ public class FolderLinkRequest {
   }
 
   /**
-   * The folder link ID.
+   * Which link the request addresses: the identifier of an existing link rewrites that link, while an identifier  that is not in use, the empty one included, creates a new link. Take an existing identifier from  `GET api/2.0/files/folder/{id}/links`.
    * @return linkId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LINK_ID, required = false)
@@ -112,7 +112,7 @@ public class FolderLinkRequest {
   }
 
   /**
-   * Get access
+   * The rights a visitor following the link is given. The value that grants nothing revokes the link instead of  setting it, and the answer is then empty.
    * @return access
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
@@ -136,7 +136,7 @@ public class FolderLinkRequest {
   }
 
   /**
-   * Get expirationDate
+   * The moment the link stops working, sent as an ISO-8601 stamp. A moment that lies in the past is ignored,  and leaving the field out gives the link no expiry.
    * @return expirationDate
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
@@ -160,7 +160,7 @@ public class FolderLinkRequest {
   }
 
   /**
-   * The link name.
+   * The name the link is listed under for the people who manage the folder; a visitor following it never sees the  name.
    * @return title
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -191,7 +191,7 @@ public class FolderLinkRequest {
   }
 
   /**
-   * The link password.
+   * The secret a visitor has to enter before the link opens. Leave it out for a link that opens without one; the  secret itself is never given back, only the fact that one is set.
    * @return password
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -222,7 +222,7 @@ public class FolderLinkRequest {
   }
 
   /**
-   * Specifies if downloading the file from the link is disabled or not.
+   * Whether visitors are left with viewing alone: with true downloading and copying through the link are blocked,  with false they are allowed.
    * @return denyDownload
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DENY_DOWNLOAD, required = false)
@@ -246,7 +246,7 @@ public class FolderLinkRequest {
   }
 
   /**
-   * The link scope, whether it is internal or not.
+   * Whether the link admits signed-in portal members only: with true a visitor has to sign in before the link  opens, with false anyone holding the address may follow it.
    * @return internal
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INTERNAL, required = false)
@@ -270,7 +270,7 @@ public class FolderLinkRequest {
   }
 
   /**
-   * Specifies whether the folder link is primary or not.
+   * Whether this link becomes the primary link of the folder, the one the Copy link action of a client hands  out; a folder has one primary link at a time.
    * @return primary
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRIMARY, required = false)

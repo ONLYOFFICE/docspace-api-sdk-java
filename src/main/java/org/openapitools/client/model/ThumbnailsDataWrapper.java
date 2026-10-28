@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ThumbnailsDataWrapper
+ * The successful API response containing the ThumbnailsDataDto object.
  */
 @JsonPropertyOrder({
   ThumbnailsDataWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class ThumbnailsDataWrapper {
   }
 
   /**
-   * Get response
+   * The ThumbnailsDataDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

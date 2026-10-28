@@ -24,11 +24,12 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.AuthServiceRequestsArrayWrapper;
-import org.openapitools.client.model.AuthServiceRequestsDto;
+import org.openapitools.client.model.AuthServiceArrayWrapper;
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.ConnectionTestResultWrapper;
-import org.openapitools.client.model.ExternalDatabaseSettings;
+import org.openapitools.client.model.ErrorApiResponse;
+import org.openapitools.client.model.ExternalDatabaseConnectionRequestDto;
+import org.openapitools.client.model.SaveAuthKeysRequestDto;
 
 
 import java.util.ArrayList;
@@ -51,31 +52,31 @@ public class AuthorizationApi extends BaseApi {
 
   /**
    * Get the authorization services
-   * Returns the authorization services.
+   * Returns the catalogue of third-party storage and authorization providers DocSpace can integrate with (for  example Amazon S3, Dropbox, Google, or Telegram), including whichever keys were last saved for each one that  currently has any configured. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission). This is a  read-only, idempotent call, and the list is not paginated; entries are ordered by the provider's configured  display order. Only providers that expose at least one manageable key are included, so a provider with nothing  to configure is omitted entirely. Save or change a provider's keys with `POST api/2.0/settings/authservice`.
    *
    * REST API Reference for getAuthServices Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/
    *
-   * @return AuthServiceRequestsArrayWrapper
+   * @return AuthServiceArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public AuthServiceRequestsArrayWrapper getAuthServices() throws ApiException {
+  public AuthServiceArrayWrapper getAuthServices() throws ApiException {
     return this.getAuthServices(Collections.emptyMap());
   }
 
 
   /**
    * Get the authorization services
-   * Returns the authorization services.
+   * Returns the catalogue of third-party storage and authorization providers DocSpace can integrate with (for  example Amazon S3, Dropbox, Google, or Telegram), including whichever keys were last saved for each one that  currently has any configured. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission). This is a  read-only, idempotent call, and the list is not paginated; entries are ordered by the provider's configured  display order. Only providers that expose at least one manageable key are included, so a provider with nothing  to configure is omitted entirely. Save or change a provider's keys with `POST api/2.0/settings/authservice`.
    *
    * REST API Reference for getAuthServices Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/
    *
    * @param additionalHeaders additionalHeaders for this call
-   * @return AuthServiceRequestsArrayWrapper
+   * @return AuthServiceArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public AuthServiceRequestsArrayWrapper getAuthServices(Map<String, String> additionalHeaders) throws ApiException {
+  public AuthServiceArrayWrapper getAuthServices(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -107,7 +108,7 @@ public class AuthorizationApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<AuthServiceRequestsArrayWrapper> localVarReturnType = new TypeReference<AuthServiceRequestsArrayWrapper>() {};
+    TypeReference<AuthServiceArrayWrapper> localVarReturnType = new TypeReference<AuthServiceArrayWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -127,34 +128,34 @@ public class AuthorizationApi extends BaseApi {
 
   /**
    * Save the authorization keys
-   * Saves the authorization keys.
+   * Saves the authorization keys for one third-party storage or authorization provider, identified by name, or  clears them when every submitted key is left empty. Requires Owner or DocSpaceAdmin (the EditPortalSettings  permission); a provider that does not allow its keys to be changed from the API rejects the call outright. A  provider that is only available on a paid plan additionally requires the portal's tariff to include  third-party storage, or Standalone licensing, before the call is accepted. Keys that fail the provider's own  validation are cleared and the call is rejected rather than left partially applied. This is a mutating,  idempotent call: resaving identical keys succeeds and reports no change. It returns whether the keys actually  changed, not the keys themselves; connecting Telegram or an external database through this call also triggers  the matching real-time connection update.
    *
    * REST API Reference for saveAuthKeys Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/
    *
-   * @param authServiceRequestsDto  (optional)
+   * @param saveAuthKeysRequestDto  (optional)
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper saveAuthKeys(@javax.annotation.Nullable AuthServiceRequestsDto authServiceRequestsDto) throws ApiException {
-    return this.saveAuthKeys(authServiceRequestsDto, Collections.emptyMap());
+  public BooleanWrapper saveAuthKeys(@javax.annotation.Nullable SaveAuthKeysRequestDto saveAuthKeysRequestDto) throws ApiException {
+    return this.saveAuthKeys(saveAuthKeysRequestDto, Collections.emptyMap());
   }
 
 
   /**
    * Save the authorization keys
-   * Saves the authorization keys.
+   * Saves the authorization keys for one third-party storage or authorization provider, identified by name, or  clears them when every submitted key is left empty. Requires Owner or DocSpaceAdmin (the EditPortalSettings  permission); a provider that does not allow its keys to be changed from the API rejects the call outright. A  provider that is only available on a paid plan additionally requires the portal's tariff to include  third-party storage, or Standalone licensing, before the call is accepted. Keys that fail the provider's own  validation are cleared and the call is rejected rather than left partially applied. This is a mutating,  idempotent call: resaving identical keys succeeds and reports no change. It returns whether the keys actually  changed, not the keys themselves; connecting Telegram or an external database through this call also triggers  the matching real-time connection update.
    *
    * REST API Reference for saveAuthKeys Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/
    *
-   * @param authServiceRequestsDto  (optional)
+   * @param saveAuthKeysRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return BooleanWrapper
    * @throws ApiException if fails to make API call
    */
-  public BooleanWrapper saveAuthKeys(@javax.annotation.Nullable AuthServiceRequestsDto authServiceRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = authServiceRequestsDto;
+  public BooleanWrapper saveAuthKeys(@javax.annotation.Nullable SaveAuthKeysRequestDto saveAuthKeysRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = saveAuthKeysRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/authservice";
@@ -205,34 +206,34 @@ public class AuthorizationApi extends BaseApi {
 
   /**
    * Test external database connection
-   * Tests an external database connection with the provided settings without saving them.
+   * Probes connectivity to an external database using the settings supplied in the request, without saving them or  affecting the portal's own configuration. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission).  SQLite is only accepted as a target on a Standalone (self-hosted) installation; requesting it on SaaS is  reported as a failed connection rather than an error. This is a read-only call, safe to retry. A failed  connection is not an HTTP error: the response always comes back as a normal success with `success=false` and  an `error` message describing what went wrong.
    *
    * REST API Reference for testExternalDatabaseConnection Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/
    *
-   * @param externalDatabaseSettings  (optional)
+   * @param externalDatabaseConnectionRequestDto  (optional)
    * @return ConnectionTestResultWrapper
    * @throws ApiException if fails to make API call
    */
-  public ConnectionTestResultWrapper testExternalDatabaseConnection(@javax.annotation.Nullable ExternalDatabaseSettings externalDatabaseSettings) throws ApiException {
-    return this.testExternalDatabaseConnection(externalDatabaseSettings, Collections.emptyMap());
+  public ConnectionTestResultWrapper testExternalDatabaseConnection(@javax.annotation.Nullable ExternalDatabaseConnectionRequestDto externalDatabaseConnectionRequestDto) throws ApiException {
+    return this.testExternalDatabaseConnection(externalDatabaseConnectionRequestDto, Collections.emptyMap());
   }
 
 
   /**
    * Test external database connection
-   * Tests an external database connection with the provided settings without saving them.
+   * Probes connectivity to an external database using the settings supplied in the request, without saving them or  affecting the portal's own configuration. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission).  SQLite is only accepted as a target on a Standalone (self-hosted) installation; requesting it on SaaS is  reported as a failed connection rather than an error. This is a read-only call, safe to retry. A failed  connection is not an HTTP error: the response always comes back as a normal success with `success=false` and  an `error` message describing what went wrong.
    *
    * REST API Reference for testExternalDatabaseConnection Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/
    *
-   * @param externalDatabaseSettings  (optional)
+   * @param externalDatabaseConnectionRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return ConnectionTestResultWrapper
    * @throws ApiException if fails to make API call
    */
-  public ConnectionTestResultWrapper testExternalDatabaseConnection(@javax.annotation.Nullable ExternalDatabaseSettings externalDatabaseSettings, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = externalDatabaseSettings;
+  public ConnectionTestResultWrapper testExternalDatabaseConnection(@javax.annotation.Nullable ExternalDatabaseConnectionRequestDto externalDatabaseConnectionRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = externalDatabaseConnectionRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/authservice/externaldb/test";

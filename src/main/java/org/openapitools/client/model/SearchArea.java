@@ -30,44 +30,48 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * [0 - Active, 1 - Archive, 2 - Any, 3 - Recent by links, 4 - Template, 5 - Knowledge, 6 - Result storage, 7 - AiAgents]
+ * [Active - Active, Archive - Archive, Any - Any, RecentByLinks - Recent by links, Templates - Template, Knowledge - Knowledge, ResultStorage - Result storage, AiAgents - AiAgents, Forms - Forms, FormTemplates - Form templates]
  */
 public enum SearchArea {
   
-  Active(0),
+  ACTIVE("Active"),
   
-  Archive(1),
+  ARCHIVE("Archive"),
   
-  Any(2),
+  ANY("Any"),
   
-  RecentByLinks(3),
+  RECENT_BY_LINKS("RecentByLinks"),
   
-  Templates(4),
+  TEMPLATES("Templates"),
   
-  Knowledge(5),
+  KNOWLEDGE("Knowledge"),
   
-  ResultStorage(6),
+  RESULT_STORAGE("ResultStorage"),
   
-  AiAgents(7);
+  AI_AGENTS("AiAgents"),
+  
+  FORMS("Forms"),
+  
+  FORM_TEMPLATES("FormTemplates");
 
-  private Integer value;
+  private String value;
 
-  SearchArea(Integer value) {
+  SearchArea(String value) {
     this.value = value;
   }
 
   @JsonValue
-  public Integer getValue() {
+  public String getValue() {
     return value;
   }
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return java.lang.String.valueOf(value);
   }
 
   @JsonCreator
-  public static SearchArea fromValue(Integer value) {
+  public static SearchArea fromValue(String value) {
     for (SearchArea b : SearchArea.values()) {
       if (b.value.equals(value)) {
         return b;
@@ -87,7 +91,7 @@ public enum SearchArea {
       prefix = "";
     }
 
-    return String.format(java.util.Locale.ROOT, "%s=%s", prefix, this.toString());
+    return java.lang.String.format(java.util.Locale.ROOT, "%s=%s", prefix, this.toString());
   }
 }
 

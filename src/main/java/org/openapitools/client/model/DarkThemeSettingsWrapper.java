@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.DarkThemeSettings;
+import org.openapitools.client.model.DarkThemeSettingsDto;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * DarkThemeSettingsWrapper
+ * The successful API response containing the DarkThemeSettingsDto object.
  */
 @JsonPropertyOrder({
   DarkThemeSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class DarkThemeSettingsWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private DarkThemeSettings response;
+  @javax.annotation.Nullable  private DarkThemeSettingsDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class DarkThemeSettingsWrapper {
   }
 
 
-  public DarkThemeSettingsWrapper response(@javax.annotation.Nullable DarkThemeSettings response) {
+  public DarkThemeSettingsWrapper response(@javax.annotation.Nullable DarkThemeSettingsDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * Get response
+   * The DarkThemeSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DarkThemeSettings getResponse() {
+  public DarkThemeSettingsDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable DarkThemeSettings response) {
+  public void setResponse(@javax.annotation.Nullable DarkThemeSettingsDto response) {
     this.response = response;
   }
 

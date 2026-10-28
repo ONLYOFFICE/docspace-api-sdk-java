@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ConfirmWrapper
+ * The successful API response containing the ConfirmDto object.
  */
 @JsonPropertyOrder({
   ConfirmWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class ConfirmWrapper {
   }
 
   /**
-   * Get response
+   * The ConfirmDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

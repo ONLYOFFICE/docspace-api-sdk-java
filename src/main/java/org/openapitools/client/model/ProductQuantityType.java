@@ -55,7 +55,7 @@ public enum ProductQuantityType {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return java.lang.String.valueOf(value);
   }
 
   @JsonCreator
@@ -79,7 +79,7 @@ public enum ProductQuantityType {
       prefix = "";
     }
 
-    return String.format(java.util.Locale.ROOT, "%s=%s", prefix, this.toString());
+    return java.lang.String.format(java.util.Locale.ROOT, "%s=%s", prefix, this.toString());
   }
 }
 

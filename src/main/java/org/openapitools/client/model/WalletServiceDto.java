@@ -28,10 +28,10 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.client.model.EntityQuotaDto;
 import org.openapitools.client.model.PriceDto;
-import org.openapitools.client.model.TenantEntityQuotaSettings;
 import org.openapitools.client.model.TenantQuotaFeatureDto;
-import org.openapitools.client.model.TenantQuotaSettings;
+import org.openapitools.client.model.TenantQuotaSettingsDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -44,7 +44,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The wallet service information.
+ * One service the portal can pay for out of its wallet: a quota sold per unit rather than per period.
  */
 @JsonPropertyOrder({
   WalletServiceDto.JSON_PROPERTY_ID,
@@ -83,22 +83,22 @@ public class WalletServiceDto {
   @javax.annotation.Nonnull  private Boolean trial;
 
   public static final String JSON_PROPERTY_FEATURES = "features";
-  @javax.annotation.Nullable  private List<TenantQuotaFeatureDto> features;
+  @javax.annotation.Nonnull  private List<TenantQuotaFeatureDto> features = new ArrayList<>();
 
   public static final String JSON_PROPERTY_USERS_QUOTA = "usersQuota";
-  @javax.annotation.Nullable  private TenantEntityQuotaSettings usersQuota;
+  @javax.annotation.Nullable  private EntityQuotaDto usersQuota;
 
   public static final String JSON_PROPERTY_ROOMS_QUOTA = "roomsQuota";
-  @javax.annotation.Nullable  private TenantEntityQuotaSettings roomsQuota;
+  @javax.annotation.Nullable  private EntityQuotaDto roomsQuota;
 
   public static final String JSON_PROPERTY_AI_AGENTS_QUOTA = "aiAgentsQuota";
-  @javax.annotation.Nullable  private TenantEntityQuotaSettings aiAgentsQuota;
+  @javax.annotation.Nullable  private EntityQuotaDto aiAgentsQuota;
 
   public static final String JSON_PROPERTY_TENANT_CUSTOM_QUOTA = "tenantCustomQuota";
-  @javax.annotation.Nullable  private TenantQuotaSettings tenantCustomQuota;
+  @javax.annotation.Nullable  private TenantQuotaSettingsDto tenantCustomQuota;
 
   public static final String JSON_PROPERTY_DUE_DATE = "dueDate";
-  @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> dueDate = JsonNullable.<OffsetDateTime>undefined();
+  @javax.annotation.Nullable  private OffsetDateTime dueDate;
 
   public static final String JSON_PROPERTY_INNER_SERVICES = "innerServices";
   @javax.annotation.Nullable  private JsonNullable<List<WalletServiceDto>> innerServices = JsonNullable.<List<WalletServiceDto>>undefined();
@@ -117,7 +117,7 @@ public class WalletServiceDto {
   }
 
   /**
-   * The quota ID.
+   * The identifier of the quota, which is what the tariff reports as a quota `id` and what a purchase names.  A negative value belongs to a built-in quota rather than one on the price list.
    * @return id
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
@@ -141,11 +141,11 @@ public class WalletServiceDto {
   }
 
   /**
-   * The quota title.
+   * The quota name in the portal language, for printing rather than matching. It is empty when this build  ships no wording for the quota, which is normal for a quota that is not on the public price list.
    * @return title
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTitle() {
     return title;
@@ -153,7 +153,7 @@ public class WalletServiceDto {
 
 
   @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(@javax.annotation.Nullable String title) {
     this.title = title;
   }
@@ -165,7 +165,7 @@ public class WalletServiceDto {
   }
 
   /**
-   * Get price
+   * What the quota costs, in the currency resolved for the request. Its `value` is empty for a quota that is  not sold for money, which is what `free`, `trial` and `nonProfit` describe.
    * @return price
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PRICE, required = true)
@@ -189,7 +189,7 @@ public class WalletServiceDto {
   }
 
   /**
-   * Specifies if the quota is nonprofit or not.
+   * Whether this is the non-profit quota, which is granted rather than bought. A portal on it cannot buy any  other plan, so a catalogue asked for plans returns this one alone.
    * @return nonProfit
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_NON_PROFIT, required = true)
@@ -213,7 +213,7 @@ public class WalletServiceDto {
   }
 
   /**
-   * Specifies if the quota is free or not.
+   * Whether this is the free quota a portal falls back to when nothing is paid for. It has no end date and  the tightest limits of any quota.
    * @return free
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_FREE, required = true)
@@ -237,7 +237,7 @@ public class WalletServiceDto {
   }
 
   /**
-   * Specifies if the quota is trial or not.
+   * Whether this is the trial quota, which grants the paid limits for a while and then expires. A trial is not  extended by paying - a plan has to be bought instead.
    * @return trial
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TRIAL, required = true)
@@ -254,7 +254,7 @@ public class WalletServiceDto {
     this.trial = trial;
   }
 
-  public WalletServiceDto features(@javax.annotation.Nullable List<TenantQuotaFeatureDto> features) {
+  public WalletServiceDto features(@javax.annotation.Nonnull List<TenantQuotaFeatureDto> features) {
     
     this.features = features;
     return this;
@@ -269,10 +269,10 @@ public class WalletServiceDto {
   }
 
   /**
-   * The list of tenant quota features.
+   * The features the quota switches on, each with the limit it grants and, on the quota the portal is  actually on, how much of that limit is already used. A feature that is absent is off, so the list is the  whole truth about what the quota includes.
    * @return features
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FEATURES, required = false)
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_FEATURES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<TenantQuotaFeatureDto> getFeatures() {
@@ -280,137 +280,130 @@ public class WalletServiceDto {
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_FEATURES, required = false)
+  @JsonProperty(value = JSON_PROPERTY_FEATURES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFeatures(@javax.annotation.Nullable List<TenantQuotaFeatureDto> features) {
+  public void setFeatures(@javax.annotation.Nonnull List<TenantQuotaFeatureDto> features) {
     this.features = features;
   }
 
-  public WalletServiceDto usersQuota(@javax.annotation.Nullable TenantEntityQuotaSettings usersQuota) {
+  public WalletServiceDto usersQuota(@javax.annotation.Nullable EntityQuotaDto usersQuota) {
     
     this.usersQuota = usersQuota;
     return this;
   }
 
   /**
-   * Get usersQuota
+   * The per-member storage allowance an administrator has set on top of the quota, and whether it is applied  at all. It describes the live portal rather than this quota, so every entry of a catalogue listing repeats  the same values, and it is empty unless the portal is a server installation or its plan includes  statistics.
    * @return usersQuota
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_USERS_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TenantEntityQuotaSettings getUsersQuota() {
+  public EntityQuotaDto getUsersQuota() {
     return usersQuota;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_USERS_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUsersQuota(@javax.annotation.Nullable TenantEntityQuotaSettings usersQuota) {
+  public void setUsersQuota(@javax.annotation.Nullable EntityQuotaDto usersQuota) {
     this.usersQuota = usersQuota;
   }
 
-  public WalletServiceDto roomsQuota(@javax.annotation.Nullable TenantEntityQuotaSettings roomsQuota) {
+  public WalletServiceDto roomsQuota(@javax.annotation.Nullable EntityQuotaDto roomsQuota) {
     
     this.roomsQuota = roomsQuota;
     return this;
   }
 
   /**
-   * Get roomsQuota
+   * The same kind of per-room storage override, filled in and read the same way as `usersQuota`.
    * @return roomsQuota
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOMS_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TenantEntityQuotaSettings getRoomsQuota() {
+  public EntityQuotaDto getRoomsQuota() {
     return roomsQuota;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_ROOMS_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRoomsQuota(@javax.annotation.Nullable TenantEntityQuotaSettings roomsQuota) {
+  public void setRoomsQuota(@javax.annotation.Nullable EntityQuotaDto roomsQuota) {
     this.roomsQuota = roomsQuota;
   }
 
-  public WalletServiceDto aiAgentsQuota(@javax.annotation.Nullable TenantEntityQuotaSettings aiAgentsQuota) {
+  public WalletServiceDto aiAgentsQuota(@javax.annotation.Nullable EntityQuotaDto aiAgentsQuota) {
     
     this.aiAgentsQuota = aiAgentsQuota;
     return this;
   }
 
   /**
-   * Get aiAgentsQuota
+   * The same kind of per-agent storage override for AI agents, filled in and read the same way as  `usersQuota`.
    * @return aiAgentsQuota
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AI_AGENTS_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TenantEntityQuotaSettings getAiAgentsQuota() {
+  public EntityQuotaDto getAiAgentsQuota() {
     return aiAgentsQuota;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_AI_AGENTS_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAiAgentsQuota(@javax.annotation.Nullable TenantEntityQuotaSettings aiAgentsQuota) {
+  public void setAiAgentsQuota(@javax.annotation.Nullable EntityQuotaDto aiAgentsQuota) {
     this.aiAgentsQuota = aiAgentsQuota;
   }
 
-  public WalletServiceDto tenantCustomQuota(@javax.annotation.Nullable TenantQuotaSettings tenantCustomQuota) {
+  public WalletServiceDto tenantCustomQuota(@javax.annotation.Nullable TenantQuotaSettingsDto tenantCustomQuota) {
     
     this.tenantCustomQuota = tenantCustomQuota;
     return this;
   }
 
   /**
-   * Get tenantCustomQuota
+   * The storage allowance an administrator has set for the portal as a whole, which caps it below what the  quota grants. Filled in under the same conditions as `usersQuota`.
    * @return tenantCustomQuota
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TENANT_CUSTOM_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TenantQuotaSettings getTenantCustomQuota() {
+  public TenantQuotaSettingsDto getTenantCustomQuota() {
     return tenantCustomQuota;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_TENANT_CUSTOM_QUOTA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTenantCustomQuota(@javax.annotation.Nullable TenantQuotaSettings tenantCustomQuota) {
+  public void setTenantCustomQuota(@javax.annotation.Nullable TenantQuotaSettingsDto tenantCustomQuota) {
     this.tenantCustomQuota = tenantCustomQuota;
   }
 
   public WalletServiceDto dueDate(@javax.annotation.Nullable OffsetDateTime dueDate) {
-    this.dueDate = JsonNullable.<OffsetDateTime>of(dueDate);
     
+    this.dueDate = dueDate;
     return this;
   }
 
   /**
-   * The due date.
+   * When the quota runs out, in UTC. It is empty on a quota from the catalogue, which has no date until it is  bought, and on a quota that never expires.
    * @return dueDate
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DUE_DATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getDueDate() {
-        return dueDate.orElse(null);
+    return dueDate;
   }
+
 
   @JsonProperty(value = JSON_PROPERTY_DUE_DATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<OffsetDateTime> getDueDate_JsonNullable() {
-    return dueDate;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_DUE_DATE)
-  public void setDueDate_JsonNullable(JsonNullable<OffsetDateTime> dueDate) {
-    this.dueDate = dueDate;
-  }
-
   public void setDueDate(@javax.annotation.Nullable OffsetDateTime dueDate) {
-    this.dueDate = JsonNullable.<OffsetDateTime>of(dueDate);
+    this.dueDate = dueDate;
   }
 
   public WalletServiceDto innerServices(@javax.annotation.Nullable List<WalletServiceDto> innerServices) {
@@ -432,7 +425,7 @@ public class WalletServiceDto {
   }
 
   /**
-   * The list of inner services.
+   * The variants of this service that are folded into it, so a client renders one card per group instead of  one per variant. It is empty when the service has no variants, and always empty in the answer of  `GET api/2.0/portal/payment/walletservice`, which looks one service up on its own.
    * @return innerServices
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -463,7 +456,7 @@ public class WalletServiceDto {
   }
 
   /**
-   * The service name.
+   * The stable key of the service, which is what the wallet operations take as their `service` argument and  what the usage reports key their entries by.
    * @return serviceName
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -507,7 +500,7 @@ public class WalletServiceDto {
         Objects.equals(this.roomsQuota, walletServiceDto.roomsQuota) &&
         Objects.equals(this.aiAgentsQuota, walletServiceDto.aiAgentsQuota) &&
         Objects.equals(this.tenantCustomQuota, walletServiceDto.tenantCustomQuota) &&
-        equalsNullable(this.dueDate, walletServiceDto.dueDate) &&
+        Objects.equals(this.dueDate, walletServiceDto.dueDate) &&
         equalsNullable(this.innerServices, walletServiceDto.innerServices) &&
         equalsNullable(this.serviceName, walletServiceDto.serviceName);
   }
@@ -518,7 +511,7 @@ public class WalletServiceDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, price, nonProfit, free, trial, features, usersQuota, roomsQuota, aiAgentsQuota, tenantCustomQuota, hashCodeNullable(dueDate), hashCodeNullable(innerServices), hashCodeNullable(serviceName));
+    return Objects.hash(id, title, price, nonProfit, free, trial, features, usersQuota, roomsQuota, aiAgentsQuota, tenantCustomQuota, dueDate, hashCodeNullable(innerServices), hashCodeNullable(serviceName));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

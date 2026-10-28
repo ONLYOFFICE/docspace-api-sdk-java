@@ -1,0 +1,409 @@
+/*
+ * (c) Copyright Ascensio System SIA 2026
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+package org.openapitools.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
+import org.openapitools.client.model.TfaType;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
+
+/**
+ * The portal two-factor policy: which method is in force, who must pass it, and from where it is waived.
+ */
+@JsonPropertyOrder({
+  TfaRequestDto.JSON_PROPERTY_TYPE,
+  TfaRequestDto.JSON_PROPERTY_ID,
+  TfaRequestDto.JSON_PROPERTY_TRUSTED_IPS,
+  TfaRequestDto.JSON_PROPERTY_MANDATORY_USERS,
+  TfaRequestDto.JSON_PROPERTY_MANDATORY_GROUPS
+})
+
+public class TfaRequestDto {
+  public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable  private TfaType type;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable  private UUID id;
+
+  public static final String JSON_PROPERTY_TRUSTED_IPS = "trustedIps";
+  @javax.annotation.Nullable  private JsonNullable<List<String>> trustedIps = JsonNullable.<List<String>>undefined();
+
+  public static final String JSON_PROPERTY_MANDATORY_USERS = "mandatoryUsers";
+  @javax.annotation.Nullable  private JsonNullable<List<UUID>> mandatoryUsers = JsonNullable.<List<UUID>>undefined();
+
+  public static final String JSON_PROPERTY_MANDATORY_GROUPS = "mandatoryGroups";
+  @javax.annotation.Nullable  private JsonNullable<List<UUID>> mandatoryGroups = JsonNullable.<List<UUID>>undefined();
+
+  public TfaRequestDto() {
+  }
+
+
+  public TfaRequestDto type(@javax.annotation.Nullable TfaType type) {
+    
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * The second factor the portal demands. The two methods are mutually exclusive, so switching one on switches  the other off, and any value outside the defined set is read as switching TFA off rather than refused.
+   * @return type
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TfaType getType() {
+    return type;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setType(@javax.annotation.Nullable TfaType type) {
+    this.type = type;
+  }
+
+  public TfaRequestDto id(@javax.annotation.Nullable UUID id) {
+    
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The account the request concerns, by portal user ID. Naming the portal owner is refused unless it is the  caller's own account. Where an operation detaches an authenticator application, the empty GUID and the  caller's own ID both mean the caller.
+   * @return id
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public UUID getId() {
+    return id;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setId(@javax.annotation.Nullable UUID id) {
+    this.id = id;
+  }
+
+  public TfaRequestDto trustedIps(@javax.annotation.Nullable List<String> trustedIps) {
+    this.trustedIps = JsonNullable.<List<String>>of(trustedIps);
+    
+    return this;
+  }
+
+  public TfaRequestDto addTrustedIpsItem(String trustedIpsItem) {
+    if (this.trustedIps == null || !this.trustedIps.isPresent()) {
+      this.trustedIps = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.trustedIps.get().add(trustedIpsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * The list of IP addresses that bypass TFA verification. Each entry is a single address, an inclusive  from-to range or a CIDR block. This is the whole list that is to hold afterwards, so send the addresses  already trusted along with a new one; an entry that cannot be parsed fails the call with 400, and accounts  named as mandatory still have to pass the challenge even from a trusted address.
+   * @return trustedIps
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public List<String> getTrustedIps() {
+        return trustedIps.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_TRUSTED_IPS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<String>> getTrustedIps_JsonNullable() {
+    return trustedIps;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TRUSTED_IPS)
+  public void setTrustedIps_JsonNullable(JsonNullable<List<String>> trustedIps) {
+    this.trustedIps = trustedIps;
+  }
+
+  public void setTrustedIps(@javax.annotation.Nullable List<String> trustedIps) {
+    this.trustedIps = JsonNullable.<List<String>>of(trustedIps);
+  }
+
+  public TfaRequestDto mandatoryUsers(@javax.annotation.Nullable List<UUID> mandatoryUsers) {
+    this.mandatoryUsers = JsonNullable.<List<UUID>>of(mandatoryUsers);
+    
+    return this;
+  }
+
+  public TfaRequestDto addMandatoryUsersItem(UUID mandatoryUsersItem) {
+    if (this.mandatoryUsers == null || !this.mandatoryUsers.isPresent()) {
+      this.mandatoryUsers = JsonNullable.<List<UUID>>of(new ArrayList<>());
+    }
+    try {
+      this.mandatoryUsers.get().add(mandatoryUsersItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * The accounts that must pass the challenge whatever their address, by portal user ID. This is the whole list  that is to hold afterwards - leaving it out clears it rather than keeping it - and naming the portal owner is  refused unless the caller is the owner.
+   * @return mandatoryUsers
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public List<UUID> getMandatoryUsers() {
+        return mandatoryUsers.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_MANDATORY_USERS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<UUID>> getMandatoryUsers_JsonNullable() {
+    return mandatoryUsers;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MANDATORY_USERS)
+  public void setMandatoryUsers_JsonNullable(JsonNullable<List<UUID>> mandatoryUsers) {
+    this.mandatoryUsers = mandatoryUsers;
+  }
+
+  public void setMandatoryUsers(@javax.annotation.Nullable List<UUID> mandatoryUsers) {
+    this.mandatoryUsers = JsonNullable.<List<UUID>>of(mandatoryUsers);
+  }
+
+  public TfaRequestDto mandatoryGroups(@javax.annotation.Nullable List<UUID> mandatoryGroups) {
+    this.mandatoryGroups = JsonNullable.<List<UUID>>of(mandatoryGroups);
+    
+    return this;
+  }
+
+  public TfaRequestDto addMandatoryGroupsItem(UUID mandatoryGroupsItem) {
+    if (this.mandatoryGroups == null || !this.mandatoryGroups.isPresent()) {
+      this.mandatoryGroups = JsonNullable.<List<UUID>>of(new ArrayList<>());
+    }
+    try {
+      this.mandatoryGroups.get().add(mandatoryGroupsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * The groups whose members must pass the challenge whatever their address, by group ID. This is the whole list  that is to hold afterwards - leaving it out clears it rather than keeping it.
+   * @return mandatoryGroups
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public List<UUID> getMandatoryGroups() {
+        return mandatoryGroups.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_MANDATORY_GROUPS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<UUID>> getMandatoryGroups_JsonNullable() {
+    return mandatoryGroups;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MANDATORY_GROUPS)
+  public void setMandatoryGroups_JsonNullable(JsonNullable<List<UUID>> mandatoryGroups) {
+    this.mandatoryGroups = mandatoryGroups;
+  }
+
+  public void setMandatoryGroups(@javax.annotation.Nullable List<UUID> mandatoryGroups) {
+    this.mandatoryGroups = JsonNullable.<List<UUID>>of(mandatoryGroups);
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    TfaRequestDto tfaRequestDto = (TfaRequestDto) o;
+    return Objects.equals(this.type, tfaRequestDto.type) &&
+        Objects.equals(this.id, tfaRequestDto.id) &&
+        equalsNullable(this.trustedIps, tfaRequestDto.trustedIps) &&
+        equalsNullable(this.mandatoryUsers, tfaRequestDto.mandatoryUsers) &&
+        equalsNullable(this.mandatoryGroups, tfaRequestDto.mandatoryGroups);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(type, id, hashCodeNullable(trustedIps), hashCodeNullable(mandatoryUsers), hashCodeNullable(mandatoryGroups));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class TfaRequestDto {\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    trustedIps: ").append(toIndentedString(trustedIps)).append("\n");
+    sb.append("    mandatoryUsers: ").append(toIndentedString(mandatoryUsers)).append("\n");
+    sb.append("    mandatoryGroups: ").append(toIndentedString(mandatoryGroups)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `type` to the URL query string
+    if (getType() != null) {
+      try {
+        joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `id` to the URL query string
+    if (getId() != null) {
+      try {
+        joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `trustedIps` to the URL query string
+    if (getTrustedIps() != null) {
+      for (int i = 0; i < getTrustedIps().size(); i++) {
+        try {
+          joiner.add(String.format("%strustedIps%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getTrustedIps().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `mandatoryUsers` to the URL query string
+    if (getMandatoryUsers() != null) {
+      for (int i = 0; i < getMandatoryUsers().size(); i++) {
+        if (getMandatoryUsers().get(i) != null) {
+          try {
+            joiner.add(String.format("%smandatoryUsers%s%s=%s", prefix, suffix,
+                "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+                URLEncoder.encode(String.valueOf(getMandatoryUsers().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+          } catch (UnsupportedEncodingException e) {
+            // Should never happen, UTF-8 is always supported
+            throw new RuntimeException(e);
+          }
+        }
+      }
+    }
+
+    // add `mandatoryGroups` to the URL query string
+    if (getMandatoryGroups() != null) {
+      for (int i = 0; i < getMandatoryGroups().size(); i++) {
+        if (getMandatoryGroups().get(i) != null) {
+          try {
+            joiner.add(String.format("%smandatoryGroups%s%s=%s", prefix, suffix,
+                "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+                URLEncoder.encode(String.valueOf(getMandatoryGroups().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+          } catch (UnsupportedEncodingException e) {
+            // Should never happen, UTF-8 is always supported
+            throw new RuntimeException(e);
+          }
+        }
+      }
+    }
+
+    return joiner.toString();
+  }
+
+}
+

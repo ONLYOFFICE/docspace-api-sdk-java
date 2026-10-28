@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The customer config parameters.
+ * The branding of the organization running the portal, as the editor About panel shows it. It is reported on a  server installation only.
  */
 @JsonPropertyOrder({
   CustomerConfigDto.JSON_PROPERTY_ADDRESS,
@@ -77,7 +77,7 @@ public class CustomerConfigDto {
   }
 
   /**
-   * The address of the customer configuration.
+   * The postal address from the portal branding settings; empty when none was entered.
    * @return address
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -108,7 +108,7 @@ public class CustomerConfigDto {
   }
 
   /**
-   * The logo of the customer configuration.
+   * The About-panel logo of the organization.
    * @return logo
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -139,7 +139,7 @@ public class CustomerConfigDto {
   }
 
   /**
-   * The dark logo of the customer configuration.
+   * The About-panel logo for a dark interface theme.
    * @return logoDark
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -170,7 +170,7 @@ public class CustomerConfigDto {
   }
 
   /**
-   * The mail address of the customer configuration.
+   * The contact address from the portal branding settings.
    * @return mail
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -201,7 +201,7 @@ public class CustomerConfigDto {
   }
 
   /**
-   * The name of the customer configuration.
+   * The organization name shown in the editor.
    * @return name
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -232,7 +232,7 @@ public class CustomerConfigDto {
   }
 
   /**
-   * The site web address of the customer configuration.
+   * The website of the organization.
    * @return www
    */
   @javax.annotation.Nullable  @JsonIgnore

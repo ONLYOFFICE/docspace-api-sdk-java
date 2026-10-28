@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
-import org.openapitools.client.model.TenantAiAccessSettings;
+import org.openapitools.client.model.TenantAiAccessSettingsDto;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * TenantAiAccessSettingsWrapper
+ * The successful API response containing the TenantAiAccessSettingsDto object.
  */
 @JsonPropertyOrder({
   TenantAiAccessSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class TenantAiAccessSettingsWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private TenantAiAccessSettings response;
+  @javax.annotation.Nullable  private TenantAiAccessSettingsDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class TenantAiAccessSettingsWrapper {
   }
 
 
-  public TenantAiAccessSettingsWrapper response(@javax.annotation.Nullable TenantAiAccessSettings response) {
+  public TenantAiAccessSettingsWrapper response(@javax.annotation.Nullable TenantAiAccessSettingsDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * Get response
+   * The TenantAiAccessSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TenantAiAccessSettings getResponse() {
+  public TenantAiAccessSettingsDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable TenantAiAccessSettings response) {
+  public void setResponse(@javax.annotation.Nullable TenantAiAccessSettingsDto response) {
     this.response = response;
   }
 

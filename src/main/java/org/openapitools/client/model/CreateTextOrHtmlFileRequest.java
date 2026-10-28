@@ -1,0 +1,258 @@
+/*
+ * (c) Copyright Ascensio System SIA 2026
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+package org.openapitools.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
+
+/**
+ * The parameters of a text or HTML file created from content sent in the request.
+ */
+@JsonPropertyOrder({
+  CreateTextOrHtmlFileRequest.JSON_PROPERTY_TITLE,
+  CreateTextOrHtmlFileRequest.JSON_PROPERTY_CONTENT,
+  CreateTextOrHtmlFileRequest.JSON_PROPERTY_CREATE_NEW_IF_EXIST
+})
+
+public class CreateTextOrHtmlFileRequest {
+  public static final String JSON_PROPERTY_TITLE = "title";
+  @javax.annotation.Nullable  private String title;
+
+  public static final String JSON_PROPERTY_CONTENT = "content";
+  @javax.annotation.Nullable  private JsonNullable<String> content = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_CREATE_NEW_IF_EXIST = "createNewIfExist";
+  @javax.annotation.Nullable  private Boolean createNewIfExist;
+
+  public CreateTextOrHtmlFileRequest() {
+  }
+
+
+  public CreateTextOrHtmlFileRequest title(@javax.annotation.Nullable String title) {
+    
+    this.title = title;
+    return this;
+  }
+
+  /**
+   * The title of the file. The extension the operation stands for is appended unless the title already ends with  it, so Notes becomes Notes.txt or Notes.html.
+   * @return title
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getTitle() {
+    return title;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTitle(@javax.annotation.Nullable String title) {
+    this.title = title;
+  }
+
+  public CreateTextOrHtmlFileRequest content(@javax.annotation.Nullable String content) {
+    this.content = JsonNullable.<String>of(content);
+    
+    return this;
+  }
+
+  /**
+   * The content of the file, as plain text or as HTML markup. A request carrying none is rejected as an invalid  request, and for a text file content that looks like markup makes the portal store it as HTML instead.
+   * @return content
+   */
+  @javax.annotation.Nullable  @JsonIgnore
+
+  public String getContent() {
+        return content.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_CONTENT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getContent_JsonNullable() {
+    return content;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CONTENT)
+  public void setContent_JsonNullable(JsonNullable<String> content) {
+    this.content = content;
+  }
+
+  public void setContent(@javax.annotation.Nullable String content) {
+    this.content = JsonNullable.<String>of(content);
+  }
+
+  public CreateTextOrHtmlFileRequest createNewIfExist(@javax.annotation.Nullable Boolean createNewIfExist) {
+    
+    this.createNewIfExist = createNewIfExist;
+    return this;
+  }
+
+  /**
+   * What to do when the folder already holds a file of this title, the other way round than the name reads: `true`  updates that file and adds a version to its history, `false` creates another file and makes its title unique,  as in Notes (1).txt.
+   * @return createNewIfExist
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_CREATE_NEW_IF_EXIST, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getCreateNewIfExist() {
+    return createNewIfExist;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CREATE_NEW_IF_EXIST, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCreateNewIfExist(@javax.annotation.Nullable Boolean createNewIfExist) {
+    this.createNewIfExist = createNewIfExist;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    CreateTextOrHtmlFileRequest createTextOrHtmlFileRequest = (CreateTextOrHtmlFileRequest) o;
+    return Objects.equals(this.title, createTextOrHtmlFileRequest.title) &&
+        equalsNullable(this.content, createTextOrHtmlFileRequest.content) &&
+        Objects.equals(this.createNewIfExist, createTextOrHtmlFileRequest.createNewIfExist);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(title, hashCodeNullable(content), createNewIfExist);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CreateTextOrHtmlFileRequest {\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("    createNewIfExist: ").append(toIndentedString(createNewIfExist)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `title` to the URL query string
+    if (getTitle() != null) {
+      try {
+        joiner.add(String.format("%stitle%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTitle()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `content` to the URL query string
+    if (getContent() != null) {
+      try {
+        joiner.add(String.format("%scontent%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getContent()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `createNewIfExist` to the URL query string
+    if (getCreateNewIfExist() != null) {
+      try {
+        joiner.add(String.format("%screateNewIfExist%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreateNewIfExist()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
+  }
+
+}
+

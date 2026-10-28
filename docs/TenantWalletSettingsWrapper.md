@@ -2,13 +2,17 @@
 
 # TenantWalletSettingsWrapper
 
-The wrapper for the tenant wallet settings.
+The successful API response containing the TenantWalletSettingsDto object.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**settings** | [**TenantWalletSettings**](TenantWalletSettings.md) |  |  [optional] |
+|**response** | [**TenantWalletSettingsDto**](TenantWalletSettingsDto.md) | The TenantWalletSettingsDto object returned by the operation. |  [optional] |
+|**count** | **Integer** | The total number of items in the response |  [optional] |
+|**links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response |  [optional] |
+|**status** | **Integer** | HTTP status code of the response |  [optional] |
+|**statusCode** | **Integer** | HTTP status code of the response (duplicate of status) |  [optional] |
 
 
 

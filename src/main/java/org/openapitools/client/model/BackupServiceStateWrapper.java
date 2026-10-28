@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * BackupServiceStateWrapper
+ * The successful API response containing the BackupServiceStateDto object.
  */
 @JsonPropertyOrder({
   BackupServiceStateWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class BackupServiceStateWrapper {
   }
 
   /**
-   * Get response
+   * The BackupServiceStateDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

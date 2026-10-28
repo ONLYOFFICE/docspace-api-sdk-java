@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Backup service state.
+ * Whether the paid backup service is switched on for a portal.
  */
 @JsonPropertyOrder({
   BackupServiceStateDto.JSON_PROPERTY_ENABLED
@@ -53,7 +53,7 @@ public class BackupServiceStateDto {
   }
 
   /**
-   * Specifies if the backup service is enabled or not.
+   * Specifies whether the paid backup service is switched on for this portal, which is a setting of its  wallet rather than the health of the backup service. While it is true, backups beyond the free  monthly allowance are charged to the wallet.
    * @return enabled
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)

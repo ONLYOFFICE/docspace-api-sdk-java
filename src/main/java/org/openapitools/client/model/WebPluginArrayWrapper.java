@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * WebPluginArrayWrapper
+ * The successful API response containing the list of WebPluginDto objects.
  */
 @JsonPropertyOrder({
   WebPluginArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class WebPluginArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of WebPluginDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

@@ -40,7 +40,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The active connections parameters.
+ * The connections the calling user currently has open, and which of them the request itself was made with.
  */
 @JsonPropertyOrder({
   ActiveConnectionsDto.JSON_PROPERTY_LOGIN_EVENT,
@@ -65,7 +65,7 @@ public class ActiveConnectionsDto {
   }
 
   /**
-   * The login event.
+   * The `id` of the item in `items` that the current request is authenticated by. It is `0` when the request  carried a token in the `Authorization` header instead of the portal cookie, and in that case none of the  items is the current connection.
    * @return loginEvent
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_LOGIN_EVENT, required = true)
@@ -101,7 +101,7 @@ public class ActiveConnectionsDto {
   }
 
   /**
-   * The list of active connection items.
+   * One item per sign-in of the caller that is still active, ordered newest sign-in first, with the connection  the request itself uses moved to the front. Sign-ins older than a year are left out, and a caller with no  stored connection gets a single item describing the current request rather than an empty list.
    * @return items
    */
   @javax.annotation.Nullable  @JsonIgnore

@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The thumbnail request.
+ * The crop rectangle to apply to an avatar image.
  */
 @JsonPropertyOrder({
   ThumbnailsRequest.JSON_PROPERTY_TMP_FILE,
@@ -73,7 +73,7 @@ public class ThumbnailsRequest {
   }
 
   /**
-   * The path to the temporary thumbnail file.
+   * The temporary image to crop, as returned in the `data` of an upload made with `autosave` off. Only the file  name part of the value is used. Omit it to re-crop the photo the profile already has.
    * @return tmpFile
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -104,7 +104,7 @@ public class ThumbnailsRequest {
   }
 
   /**
-   * The thumbnail horizontal coordinate.
+   * The distance in pixels from the left edge of the original image to the left edge of the crop rectangle.
    * @return x
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_X, required = false)
@@ -128,7 +128,7 @@ public class ThumbnailsRequest {
   }
 
   /**
-   * The thumbnail vertical coordinate.
+   * The distance in pixels from the top edge of the original image to the top edge of the crop rectangle.
    * @return y
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_Y, required = false)
@@ -152,7 +152,7 @@ public class ThumbnailsRequest {
   }
 
   /**
-   * The thumbnail width.
+   * The width of the crop rectangle in pixels. Passing 0 together with `height` and `tmpFile` keeps the whole  uploaded image instead of cropping it.
    * @return width
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
@@ -176,7 +176,7 @@ public class ThumbnailsRequest {
   }
 
   /**
-   * The thumbnail height.
+   * The height of the crop rectangle in pixels. Passing 0 together with `width` and `tmpFile` keeps the whole  uploaded image instead of cropping it.
    * @return height
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)

@@ -24,8 +24,9 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.FireBaseUserWrapper;
-import org.openapitools.client.model.FirebaseRequestsDto;
+import org.openapitools.client.model.ErrorApiResponse;
+import org.openapitools.client.model.FirebaseDeviceWrapper;
+import org.openapitools.client.model.FirebaseRequestDto;
 
 
 import java.util.ArrayList;
@@ -47,35 +48,35 @@ public class FirebaseApi extends BaseApi {
 
 
   /**
-   * Save the Documents Firebase device token
-   * Saves the Firebase device token specified in the request for the Documents application.
+   * Register a push device
+   * Registers one mobile device of the calling user for the push notifications of the Documents application, by  storing the Firebase token that device was issued together with the initial `isSubscribed` state. The token is  handed out by Firebase to the mobile client, so obtain it there before calling: nothing here checks it, and it  is kept as an opaque string of up to 255 characters. Every signed-in member registers its own devices,  whatever its role - owner, administrator, user or guest - and a registration is bound to the caller and the  current portal, so another member's devices cannot be touched. The call is safe to repeat, but it is not an  update: a token already registered comes back as it stands and `isSubscribed` from the request is ignored, so  switch an existing registration on or off with `PUT api/2.0/settings/push/docsubscribe` instead. What comes  back is the stored registration, with `application` always `doc` and `isSubscribed` as stored. Only a  subscribed device is sent the room activity messages, such as an invitation to a room, a role change, an  archived room or a new document in a room, and only while the installation itself is configured with Firebase  credentials.
    *
    * REST API Reference for docRegisterPusnNotificationDevice Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/
    *
-   * @param firebaseRequestsDto  (optional)
-   * @return FireBaseUserWrapper
+   * @param firebaseRequestDto  (optional)
+   * @return FirebaseDeviceWrapper
    * @throws ApiException if fails to make API call
    */
-  public FireBaseUserWrapper docRegisterPusnNotificationDevice(@javax.annotation.Nullable FirebaseRequestsDto firebaseRequestsDto) throws ApiException {
-    return this.docRegisterPusnNotificationDevice(firebaseRequestsDto, Collections.emptyMap());
+  public FirebaseDeviceWrapper docRegisterPusnNotificationDevice(@javax.annotation.Nullable FirebaseRequestDto firebaseRequestDto) throws ApiException {
+    return this.docRegisterPusnNotificationDevice(firebaseRequestDto, Collections.emptyMap());
   }
 
 
   /**
-   * Save the Documents Firebase device token
-   * Saves the Firebase device token specified in the request for the Documents application.
+   * Register a push device
+   * Registers one mobile device of the calling user for the push notifications of the Documents application, by  storing the Firebase token that device was issued together with the initial `isSubscribed` state. The token is  handed out by Firebase to the mobile client, so obtain it there before calling: nothing here checks it, and it  is kept as an opaque string of up to 255 characters. Every signed-in member registers its own devices,  whatever its role - owner, administrator, user or guest - and a registration is bound to the caller and the  current portal, so another member's devices cannot be touched. The call is safe to repeat, but it is not an  update: a token already registered comes back as it stands and `isSubscribed` from the request is ignored, so  switch an existing registration on or off with `PUT api/2.0/settings/push/docsubscribe` instead. What comes  back is the stored registration, with `application` always `doc` and `isSubscribed` as stored. Only a  subscribed device is sent the room activity messages, such as an invitation to a room, a role change, an  archived room or a new document in a room, and only while the installation itself is configured with Firebase  credentials.
    *
    * REST API Reference for docRegisterPusnNotificationDevice Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/
    *
-   * @param firebaseRequestsDto  (optional)
+   * @param firebaseRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FireBaseUserWrapper
+   * @return FirebaseDeviceWrapper
    * @throws ApiException if fails to make API call
    */
-  public FireBaseUserWrapper docRegisterPusnNotificationDevice(@javax.annotation.Nullable FirebaseRequestsDto firebaseRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = firebaseRequestsDto;
+  public FirebaseDeviceWrapper docRegisterPusnNotificationDevice(@javax.annotation.Nullable FirebaseRequestDto firebaseRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = firebaseRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/push/docregisterdevice";
@@ -106,7 +107,7 @@ public class FirebaseApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<FireBaseUserWrapper> localVarReturnType = new TypeReference<FireBaseUserWrapper>() {};
+    TypeReference<FirebaseDeviceWrapper> localVarReturnType = new TypeReference<FirebaseDeviceWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -125,35 +126,35 @@ public class FirebaseApi extends BaseApi {
   }
 
   /**
-   * Subscribe to Documents push notification
-   * Subscribes to the Documents push notification.
+   * Set push subscription
+   * Switches the push notifications of the Documents application on or off for one already registered device of  the calling user: send that device's Firebase token together with `isSubscribed` true to let the messages  through or false to stop them. The device has to be registered first with  `POST api/2.0/settings/push/docregisterdevice`, and only the subscription state is written - the token is  matched, never changed. Every signed-in member manages its own devices, whatever its role - owner,  administrator, user or guest - and a token that belongs to another member or to another portal is not matched  at all, so nothing of theirs can be switched. Repeating the call with the same pair leaves the registration as  it is. What comes back is the updated registration, while an empty response means no registration of the  caller carries that token and nothing was stored - register the device and call again. A device switched off  keeps its token stored but is left out of the delivery, and the other devices of the same member are  unaffected. Which kinds of notification the account receives at all is a separate setting, read with  `GET api/2.0/settings/notification/{type}`.
    *
    * REST API Reference for subscribeDocumentsPushNotification Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/
    *
-   * @param firebaseRequestsDto  (optional)
-   * @return FireBaseUserWrapper
+   * @param firebaseRequestDto  (optional)
+   * @return FirebaseDeviceWrapper
    * @throws ApiException if fails to make API call
    */
-  public FireBaseUserWrapper subscribeDocumentsPushNotification(@javax.annotation.Nullable FirebaseRequestsDto firebaseRequestsDto) throws ApiException {
-    return this.subscribeDocumentsPushNotification(firebaseRequestsDto, Collections.emptyMap());
+  public FirebaseDeviceWrapper subscribeDocumentsPushNotification(@javax.annotation.Nullable FirebaseRequestDto firebaseRequestDto) throws ApiException {
+    return this.subscribeDocumentsPushNotification(firebaseRequestDto, Collections.emptyMap());
   }
 
 
   /**
-   * Subscribe to Documents push notification
-   * Subscribes to the Documents push notification.
+   * Set push subscription
+   * Switches the push notifications of the Documents application on or off for one already registered device of  the calling user: send that device's Firebase token together with `isSubscribed` true to let the messages  through or false to stop them. The device has to be registered first with  `POST api/2.0/settings/push/docregisterdevice`, and only the subscription state is written - the token is  matched, never changed. Every signed-in member manages its own devices, whatever its role - owner,  administrator, user or guest - and a token that belongs to another member or to another portal is not matched  at all, so nothing of theirs can be switched. Repeating the call with the same pair leaves the registration as  it is. What comes back is the updated registration, while an empty response means no registration of the  caller carries that token and nothing was stored - register the device and call again. A device switched off  keeps its token stored but is left out of the delivery, and the other devices of the same member are  unaffected. Which kinds of notification the account receives at all is a separate setting, read with  `GET api/2.0/settings/notification/{type}`.
    *
    * REST API Reference for subscribeDocumentsPushNotification Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/
    *
-   * @param firebaseRequestsDto  (optional)
+   * @param firebaseRequestDto  (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return FireBaseUserWrapper
+   * @return FirebaseDeviceWrapper
    * @throws ApiException if fails to make API call
    */
-  public FireBaseUserWrapper subscribeDocumentsPushNotification(@javax.annotation.Nullable FirebaseRequestsDto firebaseRequestsDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = firebaseRequestsDto;
+  public FirebaseDeviceWrapper subscribeDocumentsPushNotification(@javax.annotation.Nullable FirebaseRequestDto firebaseRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = firebaseRequestDto;
     
     // create path and map variables
     String localVarPath = "/api/2.0/settings/push/docsubscribe";
@@ -184,7 +185,7 @@ public class FirebaseApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] { "Basic", "OAuth2", "ApiKeyBearer", "asc_auth_key", "Bearer", "OpenId" };
 
-    TypeReference<FireBaseUserWrapper> localVarReturnType = new TypeReference<FireBaseUserWrapper>() {};
+    TypeReference<FirebaseDeviceWrapper> localVarReturnType = new TypeReference<FirebaseDeviceWrapper>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",

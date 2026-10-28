@@ -61,7 +61,7 @@ public class ChangePasswordRequest {
   }
 
   /**
-   * The user password.
+   * The new password in plain text. It is checked against the portal password policy and rejected with 400 when  it is too weak, then hashed by the portal. Send it only over a secure connection, and prefer `passwordHash`  when the client can compute it.
    * @return password
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -92,7 +92,7 @@ public class ChangePasswordRequest {
   }
 
   /**
-   * The user password hash.
+   * The new password already hashed by the client, which is what the portal stores. It is a PBKDF2-HMACSHA256  hash of the plain password, computed with the salt, the iteration count and the key size the portal settings  publish, and written as lowercase hexadecimal. When it is sent, `password` is ignored and the password policy  is not applied.
    * @return passwordHash
    */
   @javax.annotation.Nullable  @JsonIgnore

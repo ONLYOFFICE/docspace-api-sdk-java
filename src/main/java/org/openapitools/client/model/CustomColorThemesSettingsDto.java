@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.CustomColorThemesSettingsItem;
+import org.openapitools.client.model.CustomColorThemeDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -40,7 +40,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The custom color themes settings.
+ * The colour themes the portal offers, which of them is applied, and how many the plan allows.
  */
 @JsonPropertyOrder({
   CustomColorThemesSettingsDto.JSON_PROPERTY_THEMES,
@@ -50,7 +50,7 @@ import java.util.StringJoiner;
 
 public class CustomColorThemesSettingsDto {
   public static final String JSON_PROPERTY_THEMES = "themes";
-  @javax.annotation.Nullable  private JsonNullable<List<CustomColorThemesSettingsItem>> themes = JsonNullable.<List<CustomColorThemesSettingsItem>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<CustomColorThemeDto>> themes = JsonNullable.<List<CustomColorThemeDto>>undefined();
 
   public static final String JSON_PROPERTY_SELECTED = "selected";
   @javax.annotation.Nullable  private Integer selected;
@@ -62,15 +62,15 @@ public class CustomColorThemesSettingsDto {
   }
 
 
-  public CustomColorThemesSettingsDto themes(@javax.annotation.Nullable List<CustomColorThemesSettingsItem> themes) {
-    this.themes = JsonNullable.<List<CustomColorThemesSettingsItem>>of(themes);
+  public CustomColorThemesSettingsDto themes(@javax.annotation.Nullable List<CustomColorThemeDto> themes) {
+    this.themes = JsonNullable.<List<CustomColorThemeDto>>of(themes);
     
     return this;
   }
 
-  public CustomColorThemesSettingsDto addThemesItem(CustomColorThemesSettingsItem themesItem) {
+  public CustomColorThemesSettingsDto addThemesItem(CustomColorThemeDto themesItem) {
     if (this.themes == null || !this.themes.isPresent()) {
-      this.themes = JsonNullable.<List<CustomColorThemesSettingsItem>>of(new ArrayList<>());
+      this.themes = JsonNullable.<List<CustomColorThemeDto>>of(new ArrayList<>());
     }
     try {
       this.themes.get().add(themesItem);
@@ -81,28 +81,28 @@ public class CustomColorThemesSettingsDto {
   }
 
   /**
-   * The list of the custom color themes.
+   * Every theme the portal can apply, ordered by ID, with the built-in ones first because they were created  first. It is never empty - the built-in themes cannot be deleted - and a custom theme is one whose ID is  higher than the built-in ones.
    * @return themes
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public List<CustomColorThemesSettingsItem> getThemes() {
+  public List<CustomColorThemeDto> getThemes() {
         return themes.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_THEMES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<List<CustomColorThemesSettingsItem>> getThemes_JsonNullable() {
+  public JsonNullable<List<CustomColorThemeDto>> getThemes_JsonNullable() {
     return themes;
   }
   
   @JsonProperty(JSON_PROPERTY_THEMES)
-  public void setThemes_JsonNullable(JsonNullable<List<CustomColorThemesSettingsItem>> themes) {
+  public void setThemes_JsonNullable(JsonNullable<List<CustomColorThemeDto>> themes) {
     this.themes = themes;
   }
 
-  public void setThemes(@javax.annotation.Nullable List<CustomColorThemesSettingsItem> themes) {
-    this.themes = JsonNullable.<List<CustomColorThemesSettingsItem>>of(themes);
+  public void setThemes(@javax.annotation.Nullable List<CustomColorThemeDto> themes) {
+    this.themes = JsonNullable.<List<CustomColorThemeDto>>of(themes);
   }
 
   public CustomColorThemesSettingsDto selected(@javax.annotation.Nullable Integer selected) {
@@ -112,7 +112,7 @@ public class CustomColorThemesSettingsDto {
   }
 
   /**
-   * Specifies whether the custom color theme is selected.
+   * The ID of the theme in `themes` that is currently applied to the whole portal. Deleting the applied theme  moves it to the lowest remaining ID, so it can change without anyone having chosen a new one.
    * @return selected
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SELECTED, required = false)
@@ -136,7 +136,7 @@ public class CustomColorThemesSettingsDto {
   }
 
   /**
-   * The maximum number of the custom color themes.
+   * How many entries `themes` may hold in total, built-in ones included; `0` means the plan caps nothing. Once  the cap is reached `PUT api/2.0/settings/colortheme` drops a new theme silently instead of failing, so  compare this with the length of `themes` to tell whether a save took effect.
    * @return limit
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LIMIT, required = false)

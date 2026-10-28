@@ -2,17 +2,17 @@
 
 # ThumbnailsRequest
 
-The thumbnail request.
+The crop rectangle to apply to an avatar image.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**tmpFile** | **String** | The path to the temporary thumbnail file. |  [optional] |
-|**x** | **Integer** | The thumbnail horizontal coordinate. |  [optional] |
-|**y** | **Integer** | The thumbnail vertical coordinate. |  [optional] |
-|**width** | **Integer** | The thumbnail width. |  [optional] |
-|**height** | **Integer** | The thumbnail height. |  [optional] |
+|**tmpFile** | **String** | The temporary image to crop, as returned in the `data` of an upload made with `autosave` off. Only the file  name part of the value is used. Omit it to re-crop the photo the profile already has. |  [optional] |
+|**x** | **Integer** | The distance in pixels from the left edge of the original image to the left edge of the crop rectangle. |  [optional] |
+|**y** | **Integer** | The distance in pixels from the top edge of the original image to the top edge of the crop rectangle. |  [optional] |
+|**width** | **Integer** | The width of the crop rectangle in pixels. Passing 0 together with `height` and `tmpFile` keeps the whole  uploaded image instead of cropping it. |  [optional] |
+|**height** | **Integer** | The height of the crop rectangle in pixels. Passing 0 together with `width` and `tmpFile` keeps the whole  uploaded image instead of cropping it. |  [optional] |
 
 
 

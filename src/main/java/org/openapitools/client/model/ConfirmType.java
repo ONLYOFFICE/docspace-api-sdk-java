@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * [EmpInvite - Emp invite, LinkInvite - Link invite, PortalSuspend - Portal suspend, PortalContinue - Portal continue, PortalRemove - Portal remove, DnsChange - Dns change, PortalOwnerChange - Portal owner change, Activation - Activation, EmailChange - Email change, EmailActivation - Email activation, PasswordChange - Password change, ProfileRemove - Profile remove, PhoneActivation - Phone activation, PhoneAuth - Phone auth, Auth - Auth, TfaActivation - Tfa activation, TfaAuth - Tfa auth, Wizard - Wizard, GuestShareLink - Guest share link]
+ * [EmpInvite - Emp invite, LinkInvite - Link invite, PortalSuspend - Portal suspend, PortalContinue - Portal continue, PortalRemove - Portal remove, DnsChange - Dns change, PortalOwnerChange - Portal owner change, Activation - Activation, EmailChange - Email change, EmailActivation - Email activation, PasswordChange - Password change, ProfileRemove - Profile remove, PhoneActivation - Phone activation, PhoneAuth - Phone auth, Auth - Auth, TfaActivation - Tfa activation, TfaAuth - Tfa auth, Wizard - Wizard, GuestShareLink - Guest share link, PortalUnblock - Portal unblock]
  */
 public enum ConfirmType {
   
@@ -70,7 +70,9 @@ public enum ConfirmType {
   
   WIZARD("Wizard"),
   
-  GUEST_SHARE_LINK("GuestShareLink");
+  GUEST_SHARE_LINK("GuestShareLink"),
+  
+  PORTAL_UNBLOCK("PortalUnblock");
 
   private String value;
 
@@ -85,7 +87,7 @@ public enum ConfirmType {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return java.lang.String.valueOf(value);
   }
 
   @JsonCreator
@@ -109,7 +111,7 @@ public enum ConfirmType {
       prefix = "";
     }
 
-    return String.format(java.util.Locale.ROOT, "%s=%s", prefix, this.toString());
+    return java.lang.String.format(java.util.Locale.ROOT, "%s=%s", prefix, this.toString());
   }
 }
 

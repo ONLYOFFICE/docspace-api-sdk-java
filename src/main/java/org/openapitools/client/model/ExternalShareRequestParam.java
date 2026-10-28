@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The external data parameters.
+ * The password that unlocks a protected external share link.
  */
 @JsonPropertyOrder({
   ExternalShareRequestParam.JSON_PROPERTY_PASSWORD
@@ -57,7 +57,7 @@ public class ExternalShareRequestParam {
   }
 
   /**
-   * The password to share external data.
+   * The password chosen by the member who shared the entry, spelled exactly as they typed it. It is compared  against the stored value and never returned back; a mismatch is reported through the answer's status instead  of an error.
    * @return password
    */
   @javax.annotation.Nullable  @JsonIgnore

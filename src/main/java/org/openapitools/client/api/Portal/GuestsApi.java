@@ -24,6 +24,7 @@ import org.openapitools.client.BaseApi;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
+import org.openapitools.client.model.ErrorApiResponse;
 import org.openapitools.client.model.StringWrapper;
 import java.util.UUID;
 
@@ -48,43 +49,43 @@ public class GuestsApi extends BaseApi {
 
   /**
    * Get a guest sharing link
-   * Returns a link to share a guest with another user.
+   * Builds a link that lets another member of the portal take over the caller's guest, so that the guest becomes  visible to them as well.  The account in the route has to exist and be a guest - any other type is rejected with 400 - and the caller  has to be able to see it and must not be a guest itself.  The call is read-only: it only mints the link and changes nothing, and it can be repeated as often as needed.  The answer is a shortened confirmation URL as plain text; hand it to the person who should get the guest, and  their client completes the hand-over with `POST api/2.0/people/guests/share/approve`.  The link carries a confirmation token and therefore expires, so mint it when it is about to be used rather  than storing it.
    *
    * REST API Reference for getGuestSharingLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-guest-sharing-link/
    *
-   * @param userid The user ID. (required)
+   * @param userId The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see. (required)
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper getGuestSharingLink(@javax.annotation.Nonnull UUID userid) throws ApiException {
-    return this.getGuestSharingLink(userid, Collections.emptyMap());
+  public StringWrapper getGuestSharingLink(@javax.annotation.Nonnull UUID userId) throws ApiException {
+    return this.getGuestSharingLink(userId, Collections.emptyMap());
   }
 
 
   /**
    * Get a guest sharing link
-   * Returns a link to share a guest with another user.
+   * Builds a link that lets another member of the portal take over the caller's guest, so that the guest becomes  visible to them as well.  The account in the route has to exist and be a guest - any other type is rejected with 400 - and the caller  has to be able to see it and must not be a guest itself.  The call is read-only: it only mints the link and changes nothing, and it can be repeated as often as needed.  The answer is a shortened confirmation URL as plain text; hand it to the person who should get the guest, and  their client completes the hand-over with `POST api/2.0/people/guests/share/approve`.  The link carries a confirmation token and therefore expires, so mint it when it is about to be used rather  than storing it.
    *
    * REST API Reference for getGuestSharingLink Operation
    * @see https://api.onlyoffice.com/docspace/api-backend/usage-api/get-guest-sharing-link/
    *
-   * @param userid The user ID. (required)
+   * @param userId The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see. (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public StringWrapper getGuestSharingLink(@javax.annotation.Nonnull UUID userid, Map<String, String> additionalHeaders) throws ApiException {
+  public StringWrapper getGuestSharingLink(@javax.annotation.Nonnull UUID userId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'userid' is set
-    if (userid == null) {
-      throw new ApiException(400, "Missing the required parameter 'userid' when calling getGuestSharingLink");
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling getGuestSharingLink");
     }
     
     // create path and map variables
-    String localVarPath = "/api/2.0/people/guests/{userid}/share"
-      .replaceAll("\\{" + "userid" + "\\}", apiClient.escapeString(apiClient.parameterToString(userid)));
+    String localVarPath = "/api/2.0/people/guests/{userId}/share"
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;

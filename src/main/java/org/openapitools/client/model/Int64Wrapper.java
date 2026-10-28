@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Int64Wrapper
+ * The successful API response containing the int64 value.
  */
 @JsonPropertyOrder({
   Int64Wrapper.JSON_PROPERTY_RESPONSE,
@@ -73,7 +73,7 @@ public class Int64Wrapper {
   }
 
   /**
-   * Get response
+   * The int64 value returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

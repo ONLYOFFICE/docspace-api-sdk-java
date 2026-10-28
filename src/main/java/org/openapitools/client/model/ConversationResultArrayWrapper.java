@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ConversationResultArrayWrapper
+ * The successful API response containing the list of ConversationResultDto objects.
  */
 @JsonPropertyOrder({
   ConversationResultArrayWrapper.JSON_PROPERTY_RESPONSE,
@@ -82,7 +82,7 @@ public class ConversationResultArrayWrapper {
   }
 
   /**
-   * Get response
+   * The list of ConversationResultDto objects returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

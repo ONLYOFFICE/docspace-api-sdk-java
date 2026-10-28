@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * NotificationChannelStatusWrapper
+ * The successful API response containing the NotificationChannelStatusDto object.
  */
 @JsonPropertyOrder({
   NotificationChannelStatusWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class NotificationChannelStatusWrapper {
   }
 
   /**
-   * Get response
+   * The NotificationChannelStatusDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

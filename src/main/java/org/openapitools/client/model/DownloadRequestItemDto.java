@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The download request item with conversion parameters and security settings.
+ * One file of a bulk download, together with the format it is converted to.
  */
 @JsonPropertyOrder({
   DownloadRequestItemDto.JSON_PROPERTY_KEY,
@@ -90,7 +90,7 @@ public class DownloadRequestItemDto {
   }
 
   /**
-   * The target format or conversion type for the file download.
+   * The format the file is converted to before it is packed, as a file extension without a leading dot.
    * @return value
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
@@ -114,7 +114,7 @@ public class DownloadRequestItemDto {
   }
 
   /**
-   * The optional password for accessing protected files.
+   * The password that opens the source file, for a file protected with one; a protected file cannot be converted  without it.
    * @return password
    */
   @javax.annotation.Nullable  @JsonIgnore

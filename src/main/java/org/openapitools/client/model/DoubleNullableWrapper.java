@@ -41,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * DoubleNullableWrapper
+ * The successful API response containing the double value.
  */
 @JsonPropertyOrder({
   DoubleNullableWrapper.JSON_PROPERTY_RESPONSE,
@@ -78,7 +78,7 @@ public class DoubleNullableWrapper {
   }
 
   /**
-   * Get response
+   * The double value returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonIgnore

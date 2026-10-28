@@ -78,7 +78,7 @@ public class UpdateMembersQuotaRequestDto {
   }
 
   /**
-   * The list of user IDs.
+   * The accounts the operation applies to. System accounts are dropped from the list without an error.
    * @return userIds
    */
   @javax.annotation.Nullable  @JsonIgnore

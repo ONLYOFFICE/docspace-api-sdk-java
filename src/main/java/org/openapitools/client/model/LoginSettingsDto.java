@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The login settings parameters.
+ * The brute-force protection of the sign-in form: how many failures, over how long, cost how long a block.
  */
 @JsonPropertyOrder({
   LoginSettingsDto.JSON_PROPERTY_ATTEMPT_COUNT,
@@ -65,7 +65,7 @@ public class LoginSettingsDto {
   }
 
   /**
-   * The maximum number of consecutive failed login attempts allowed before triggering account suspension.
+   * How many failed attempts inside one window are tolerated before the offender is blocked. Attempts are  counted per user name and client address together, so one member being blocked leaves the rest of the  portal signing in normally.
    * @return attemptCount
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ATTEMPT_COUNT, required = true)
@@ -89,7 +89,7 @@ public class LoginSettingsDto {
   }
 
   /**
-   * The duration (in minutes) for which an account remains suspended after exceeding maximum login attempts.
+   * How long, in seconds, a blocked user name and address pair stays refused. While the block lasts the  sign-in is refused even once the password is correct.
    * @return blockTime
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_BLOCK_TIME, required = true)
@@ -113,7 +113,7 @@ public class LoginSettingsDto {
   }
 
   /**
-   * The maximum time (in seconds) allowed for server to process and respond to login requests.
+   * The length, in seconds, of the rolling window the failures are counted over. It is not a request timeout: a  wider window makes the same `attemptCount` stricter, because failures further apart still add up.
    * @return checkPeriod
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CHECK_PERIOD, required = true)
@@ -137,7 +137,7 @@ public class LoginSettingsDto {
   }
 
   /**
-   * Specifies whether the login settings are default or not.
+   * Whether the three numbers above still match the ones the installation ships with. It turns `false` as soon  as any of them is saved differently, and `true` again after  `DELETE api/2.0/settings/security/loginsettings`.
    * @return isDefault
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_DEFAULT, required = true)

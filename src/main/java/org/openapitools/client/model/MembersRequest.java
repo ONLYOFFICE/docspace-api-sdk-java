@@ -40,7 +40,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The member request.
+ * The accounts a member operation applies to.
  */
 @JsonPropertyOrder({
   MembersRequest.JSON_PROPERTY_MEMBERS
@@ -73,7 +73,7 @@ public class MembersRequest {
   }
 
   /**
-   * The list of group member IDs.
+   * The accounts the operation applies to. When adding or replacing members, an account that is a guest, is  disabled or does not exist is skipped without an error; when removing them, an ID that is not a member is  skipped as well.
    * @return members
    */
   @javax.annotation.Nullable  @JsonIgnore

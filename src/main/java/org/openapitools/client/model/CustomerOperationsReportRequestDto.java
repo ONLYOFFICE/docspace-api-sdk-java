@@ -25,6 +25,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.openapitools.client.model.OperationOrderType;
 import org.openapitools.client.model.OperationStatus;
 import org.openapitools.client.model.OperationType;
@@ -40,7 +43,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The request parameters for generating a report on client operations.
+ * The filters that select which wallet movements are reported: the services, the period, the participant, the  direction and the outcome of the movement, and the ordering.
  */
 @JsonPropertyOrder({
   CustomerOperationsReportRequestDto.JSON_PROPERTY_SERVICE_NAME,
@@ -57,7 +60,7 @@ import java.util.StringJoiner;
 
 public class CustomerOperationsReportRequestDto {
   public static final String JSON_PROPERTY_SERVICE_NAME = "serviceName";
-  @javax.annotation.Nullable  private JsonNullable<String> serviceName = JsonNullable.<String>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<String>> serviceName = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_START_DATE = "startDate";
   @javax.annotation.Nullable  private JsonNullable<OffsetDateTime> startDate = JsonNullable.<OffsetDateTime>undefined();
@@ -90,35 +93,47 @@ public class CustomerOperationsReportRequestDto {
   }
 
 
-  public CustomerOperationsReportRequestDto serviceName(@javax.annotation.Nullable String serviceName) {
-    this.serviceName = JsonNullable.<String>of(serviceName);
+  public CustomerOperationsReportRequestDto serviceName(@javax.annotation.Nullable List<String> serviceName) {
+    this.serviceName = JsonNullable.<List<String>>of(serviceName);
     
     return this;
   }
 
+  public CustomerOperationsReportRequestDto addServiceNameItem(String serviceNameItem) {
+    if (this.serviceName == null || !this.serviceName.isPresent()) {
+      this.serviceName = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.serviceName.get().add(serviceNameItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
   /**
-   * The service name.
+   * The wallet services whose movements are kept, named the way the billing catalogue names them - `backup`,  `ai-tools`, `ai-search`, `disk-storage`, `docscloud`. Take the values from the `serviceName` field of  `GET api/2.0/portal/payment/walletservices`; the match ignores case, a name this installation does not sell  fails the call with 404, and an omitted list keeps every service. A bare string is accepted in place of an  array for backward compatibility.
    * @return serviceName
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public String getServiceName() {
+  public List<String> getServiceName() {
         return serviceName.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_SERVICE_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getServiceName_JsonNullable() {
+  public JsonNullable<List<String>> getServiceName_JsonNullable() {
     return serviceName;
   }
   
   @JsonProperty(JSON_PROPERTY_SERVICE_NAME)
-  public void setServiceName_JsonNullable(JsonNullable<String> serviceName) {
+  public void setServiceName_JsonNullable(JsonNullable<List<String>> serviceName) {
     this.serviceName = serviceName;
   }
 
-  public void setServiceName(@javax.annotation.Nullable String serviceName) {
-    this.serviceName = JsonNullable.<String>of(serviceName);
+  public void setServiceName(@javax.annotation.Nullable List<String> serviceName) {
+    this.serviceName = JsonNullable.<List<String>>of(serviceName);
   }
 
   public CustomerOperationsReportRequestDto startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
@@ -128,7 +143,7 @@ public class CustomerOperationsReportRequestDto {
   }
 
   /**
-   * The report start date.
+   * The beginning of the reported period, inclusive. Read in the portal time zone rather than in UTC, so a  movement at the edge of the period falls where the portal sees it; defaults to the portal creation date.
    * @return startDate
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -159,7 +174,7 @@ public class CustomerOperationsReportRequestDto {
   }
 
   /**
-   * The report end date.
+   * The end of the reported period, inclusive. Read in the portal time zone rather than in UTC, and defaults to  the moment the call is made.
    * @return endDate
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -190,7 +205,7 @@ public class CustomerOperationsReportRequestDto {
   }
 
   /**
-   * The participant name.
+   * The participant whose movements are kept - the account the accounting service records as the cause of a  movement. A movement caused by a portal user carries that user ID here, and one caused by the portal itself  carries the customer name; surrounding whitespace is trimmed, and an omitted value keeps every participant.
    * @return participantName
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -221,7 +236,7 @@ public class CustomerOperationsReportRequestDto {
   }
 
   /**
-   * Specifies whether to include credit operations in the report.
+   * Whether movements that add money to the wallet - top-ups, refunds and corrections in the portal's favour -  are kept. Both directions are reported when neither this nor `debit` is given.
    * @return credit
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -252,7 +267,7 @@ public class CustomerOperationsReportRequestDto {
   }
 
   /**
-   * Specifies whether to include debit operations in the report.
+   * Whether movements that take money out of the wallet - the charges of the wallet services - are kept. Both  directions are reported when neither this nor `credit` is given.
    * @return debit
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -283,7 +298,7 @@ public class CustomerOperationsReportRequestDto {
   }
 
   /**
-   * Get type
+   * The kind of movement to keep, which says what caused the money to move rather than how it ended. Every kind  is reported when it is omitted.
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
@@ -307,7 +322,7 @@ public class CustomerOperationsReportRequestDto {
   }
 
   /**
-   * Get status
+   * The outcome to keep. A movement that is still being settled is reported as pending and may change later,  while the other outcomes are final; every outcome is reported when this is omitted.
    * @return status
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
@@ -331,7 +346,7 @@ public class CustomerOperationsReportRequestDto {
   }
 
   /**
-   * The field to order by.
+   * The name of the field the movements are sorted by, spelled as the accounting service names it, such as  `StartDate` or `ServiceName`. Surrounding whitespace is trimmed, and the accounting service applies its own  ordering when this is omitted.
    * @return orderBy
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -362,7 +377,7 @@ public class CustomerOperationsReportRequestDto {
   }
 
   /**
-   * Get orderType
+   * The direction the field named in `orderBy` is sorted in. Newest or largest first is what the accounting  service does by default, so leaving this out sorts the same way as asking for descending explicitly.
    * @return orderType
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ORDER_TYPE, required = false)
@@ -479,11 +494,15 @@ public class CustomerOperationsReportRequestDto {
 
     // add `serviceName` to the URL query string
     if (getServiceName() != null) {
-      try {
-        joiner.add(String.format("%sserviceName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getServiceName()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
+      for (int i = 0; i < getServiceName().size(); i++) {
+        try {
+          joiner.add(String.format("%sserviceName%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getServiceName().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
       }
     }
 

@@ -33,7 +33,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The product administrator parameters.
+ * Whether one user administers one portal module, echoing back the pair that was asked about.
  */
 @JsonPropertyOrder({
   ProductAdministratorDto.JSON_PROPERTY_PRODUCT_ID,
@@ -62,7 +62,7 @@ public class ProductAdministratorDto {
   }
 
   /**
-   * The product ID.
+   * The module the verdict is about, echoed from the request. The all-zero GUID stands for the portal as a  whole rather than for any single module.
    * @return productId
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_PRODUCT_ID, required = true)
@@ -86,7 +86,7 @@ public class ProductAdministratorDto {
   }
 
   /**
-   * The user unique identifier.
+   * The user the verdict is about, echoed from the request unchanged - it is not checked for existing.
    * @return userId
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_USER_ID, required = true)
@@ -110,7 +110,7 @@ public class ProductAdministratorDto {
   }
 
   /**
-   * Indicates whether the user has administrator privileges for the product.
+   * Whether that user administers that module. It is `true` for a DocSpace administrator whatever the module,  since the portal-wide role covers every one of them. A `false` can also mean the identifiers name no user  or no module at all, so it is not proof that the user exists, and it says nothing about whether the module  is enabled for the portal - `GET api/2.0/settings/security/{id}` reports that.
    * @return administrator
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ADMINISTRATOR, required = true)

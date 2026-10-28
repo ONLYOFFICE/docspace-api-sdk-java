@@ -25,8 +25,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import org.openapitools.client.model.FieldError;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -35,7 +39,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ProblemDetail
+ * RFC 7807 problem details returned by the registration API for failed requests.
  */
 @JsonPropertyOrder({
   ProblemDetail.JSON_PROPERTY_TYPE,
@@ -43,7 +47,8 @@ import java.util.StringJoiner;
   ProblemDetail.JSON_PROPERTY_STATUS,
   ProblemDetail.JSON_PROPERTY_DETAIL,
   ProblemDetail.JSON_PROPERTY_INSTANCE,
-  ProblemDetail.JSON_PROPERTY_PROPERTIES
+  ProblemDetail.JSON_PROPERTY_PROPERTIES,
+  ProblemDetail.JSON_PROPERTY_ERRORS
 })
 
 public class ProblemDetail {
@@ -65,6 +70,9 @@ public class ProblemDetail {
   public static final String JSON_PROPERTY_PROPERTIES = "properties";
   @javax.annotation.Nullable  private Map<String, Object> properties = new HashMap<>();
 
+  public static final String JSON_PROPERTY_ERRORS = "errors";
+  @javax.annotation.Nullable  private List<FieldError> errors = new ArrayList<>();
+
   public ProblemDetail() {
   }
 
@@ -76,7 +84,7 @@ public class ProblemDetail {
   }
 
   /**
-   * Get type
+   * A URI reference that identifies the problem type. This service sets it to the DocSpace API getting-started page.
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
@@ -100,7 +108,7 @@ public class ProblemDetail {
   }
 
   /**
-   * Get title
+   * A short, human-readable summary of the problem type, typically the HTTP status reason phrase.
    * @return title
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
@@ -124,7 +132,7 @@ public class ProblemDetail {
   }
 
   /**
-   * Get status
+   * The HTTP status code for this occurrence of the problem.
    * @return status
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
@@ -148,7 +156,7 @@ public class ProblemDetail {
   }
 
   /**
-   * Get detail
+   * A human-readable explanation specific to this occurrence of the problem.
    * @return detail
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DETAIL, required = false)
@@ -172,7 +180,7 @@ public class ProblemDetail {
   }
 
   /**
-   * Get instance
+   * A URI reference that identifies the specific occurrence, set to the request path.
    * @return instance
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INSTANCE, required = false)
@@ -204,11 +212,11 @@ public class ProblemDetail {
   }
 
   /**
-   * Get properties
+   * Extension members carried on the problem. Usually empty; validation failures also surface as the top-level errors array.
    * @return properties
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PROPERTIES, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, Object> getProperties() {
     return properties;
@@ -216,9 +224,41 @@ public class ProblemDetail {
 
 
   @JsonProperty(value = JSON_PROPERTY_PROPERTIES, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
   public void setProperties(@javax.annotation.Nullable Map<String, Object> properties) {
     this.properties = properties;
+  }
+
+  public ProblemDetail errors(@javax.annotation.Nullable List<FieldError> errors) {
+    
+    this.errors = errors;
+    return this;
+  }
+
+  public ProblemDetail addErrorsItem(FieldError errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<>();
+    }
+    this.errors.add(errorsItem);
+    return this;
+  }
+
+  /**
+   * Field-specific validation errors. Present when the request body or parameters failed validation, or when a named scope is not in the tenant catalogue.
+   * @return errors
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ERRORS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<FieldError> getErrors() {
+    return errors;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ERRORS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setErrors(@javax.annotation.Nullable List<FieldError> errors) {
+    this.errors = errors;
   }
 
   @Override
@@ -235,12 +275,13 @@ public class ProblemDetail {
         Objects.equals(this.status, problemDetail.status) &&
         Objects.equals(this.detail, problemDetail.detail) &&
         Objects.equals(this.instance, problemDetail.instance) &&
-        Objects.equals(this.properties, problemDetail.properties);
+        Objects.equals(this.properties, problemDetail.properties) &&
+        Objects.equals(this.errors, problemDetail.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, title, status, detail, instance, properties);
+    return Objects.hash(type, title, status, detail, instance, properties, errors);
   }
 
   @Override
@@ -253,6 +294,7 @@ public class ProblemDetail {
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
     sb.append("    instance: ").append(toIndentedString(instance)).append("\n");
     sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -360,6 +402,16 @@ public class ProblemDetail {
         } catch (UnsupportedEncodingException e) {
           // Should never happen, UTF-8 is always supported
           throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `errors` to the URL query string
+    if (getErrors() != null) {
+      for (int i = 0; i < getErrors().size(); i++) {
+        if (getErrors().get(i) != null) {
+          joiner.add(getErrors().get(i).toUrlQueryString(String.format("%serrors%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }

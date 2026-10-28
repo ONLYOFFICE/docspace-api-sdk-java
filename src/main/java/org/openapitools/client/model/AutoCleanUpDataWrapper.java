@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.AutoCleanUpData;
+import org.openapitools.client.model.AutoCleanUpDataDto;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AutoCleanUpDataWrapper
+ * The successful API response containing the AutoCleanUpDataDto object.
  */
 @JsonPropertyOrder({
   AutoCleanUpDataWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class AutoCleanUpDataWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private AutoCleanUpData response;
+  @javax.annotation.Nullable  private AutoCleanUpDataDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class AutoCleanUpDataWrapper {
   }
 
 
-  public AutoCleanUpDataWrapper response(@javax.annotation.Nullable AutoCleanUpData response) {
+  public AutoCleanUpDataWrapper response(@javax.annotation.Nullable AutoCleanUpDataDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * Get response
+   * The AutoCleanUpDataDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public AutoCleanUpData getResponse() {
+  public AutoCleanUpDataDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable AutoCleanUpData response) {
+  public void setResponse(@javax.annotation.Nullable AutoCleanUpDataDto response) {
     this.response = response;
   }
 

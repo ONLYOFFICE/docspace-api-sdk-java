@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * MigratingApiFiles
+ * The parameters of the migrating files.
  */
 @JsonPropertyOrder({
   MigratingApiFiles.JSON_PROPERTY_FOLDERS_COUNT,
@@ -61,7 +61,7 @@ public class MigratingApiFiles {
   }
 
   /**
-   * Get foldersCount
+   * The number of folders.
    * @return foldersCount
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FOLDERS_COUNT, required = false)
@@ -85,7 +85,7 @@ public class MigratingApiFiles {
   }
 
   /**
-   * Get filesCount
+   * The number of files.
    * @return filesCount
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FILES_COUNT, required = false)
@@ -109,7 +109,7 @@ public class MigratingApiFiles {
   }
 
   /**
-   * Get bytesTotal
+   * The total number of bytes.
    * @return bytesTotal
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_BYTES_TOTAL, required = false)

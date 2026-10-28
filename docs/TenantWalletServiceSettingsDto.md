@@ -1,0 +1,29 @@
+
+
+# TenantWalletServiceSettingsDto
+
+The wallet services an administrator switched on for the portal by hand.
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**enabledServices** | [**List&lt;EnabledServicesEnum&gt;**](#List&lt;EnabledServicesEnum&gt;) | The list of the enabled wallet services. |  [optional] |
+|**lastModified** | **OffsetDateTime** | The date and time when the wallet services settings were last modified. |  [optional] |
+
+
+
+## Enum: List&lt;EnabledServicesEnum&gt;
+
+| Name | Value |
+|---- | -----|
+| AISearch | -18 |
+| DocsCloudDevPack | -16 |
+| DocsCloud | -15 |
+| Admin | -14 |
+| AITools | -13 |
+| Backup | -12 |
+| Storage | -11 |
+
+
+

@@ -2,12 +2,13 @@
 
 # NewItemsRoomNewItemsArrayWrapper
 
+The successful API response containing the list of NewItemsDtoRoomNewItemsDto objects.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**response** | [**List&lt;NewItemsDtoRoomNewItemsDto&gt;**](NewItemsDtoRoomNewItemsDto.md) |  |  [optional] |
+|**response** | [**List&lt;NewItemsDtoRoomNewItemsDto&gt;**](NewItemsDtoRoomNewItemsDto.md) | The list of NewItemsDtoRoomNewItemsDto objects returned by the operation. |  [optional] |
 |**count** | **Integer** | The total number of items in the response |  [optional] |
 |**links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response |  [optional] |
 |**status** | **Integer** | HTTP status code of the response |  [optional] |

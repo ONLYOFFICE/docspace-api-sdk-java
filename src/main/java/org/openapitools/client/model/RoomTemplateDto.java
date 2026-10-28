@@ -41,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The room template parameters.
+ * The parameters of a room template built from an existing room.
  */
 @JsonPropertyOrder({
   RoomTemplateDto.JSON_PROPERTY_ROOM_ID,
@@ -62,7 +62,7 @@ public class RoomTemplateDto {
   @javax.annotation.Nonnull  private Integer roomId;
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  @javax.annotation.Nullable  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  @javax.annotation.Nonnull  private String title;
 
   public static final String JSON_PROPERTY_LOGO = "logo";
   @javax.annotation.Nullable  private LogoRequest logo;
@@ -102,7 +102,7 @@ public class RoomTemplateDto {
   }
 
   /**
-   * The room template ID.
+   * The identifier of the room the template is built from. Take it from the room listing of  `GET api/2.0/files/rooms`; a folder identifier is not accepted.
    * @return roomId
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_ROOM_ID, required = true)
@@ -119,35 +119,28 @@ public class RoomTemplateDto {
     this.roomId = roomId;
   }
 
-  public RoomTemplateDto title(@javax.annotation.Nullable String title) {
-    this.title = JsonNullable.<String>of(title);
+  public RoomTemplateDto title(@javax.annotation.Nonnull String title) {
     
+    this.title = title;
     return this;
   }
 
   /**
-   * The room template title.
+   * The title the template is saved under in the Templates section. Characters that a folder name cannot contain  are replaced with an underscore on save, and two templates may share a title.
    * @return title
    */
-  @javax.annotation.Nullable  @JsonIgnore
+  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_TITLE, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getTitle() {
-        return title.orElse(null);
-  }
-
-  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  public void setTitle_JsonNullable(JsonNullable<String> title) {
-    this.title = title;
-  }
 
-  public void setTitle(@javax.annotation.Nullable String title) {
-    this.title = JsonNullable.<String>of(title);
+
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTitle(@javax.annotation.Nonnull String title) {
+    this.title = title;
   }
 
   public RoomTemplateDto logo(@javax.annotation.Nullable LogoRequest logo) {
@@ -157,7 +150,7 @@ public class RoomTemplateDto {
   }
 
   /**
-   * Get logo
+   * A picture of the caller's own for the template, cropped out of an image already placed in the temporary  storage.
    * @return logo
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LOGO, required = false)
@@ -181,7 +174,7 @@ public class RoomTemplateDto {
   }
 
   /**
-   * Specifies whether to copy room logo or not.
+   * Whether the template takes over the picture already set on the source room. When false the template gets no  picture from that room.
    * @return copyLogo
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COPY_LOGO, required = false)
@@ -217,7 +210,7 @@ public class RoomTemplateDto {
   }
 
   /**
-   * The collection of email addresses of users with whom to share a room.
+   * The email addresses of the portal members who are granted read access to the finished template.
    * @return share
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -260,7 +253,7 @@ public class RoomTemplateDto {
   }
 
   /**
-   * The collection of groups with whom to share a room.
+   * The identifiers of the portal groups whose members are granted read access to the finished template.
    * @return groups
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -291,7 +284,7 @@ public class RoomTemplateDto {
   }
 
   /**
-   * Specifies whether the room template is public or not.
+   * Whether the finished template is shared with everyone allowed to create rooms. When false it stays reachable  only for the recipients named for it.
    * @return _public
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PUBLIC, required = false)
@@ -327,7 +320,7 @@ public class RoomTemplateDto {
   }
 
   /**
-   * The collection of tags.
+   * The labels attached to the template and shown next to it in listings.
    * @return tags
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -358,7 +351,7 @@ public class RoomTemplateDto {
   }
 
   /**
-   * The color of the room template.
+   * The accent colour of the generated cover, written as six hexadecimal digits with no leading hash sign. When it  is left empty a colour is picked at random.
    * @return color
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -389,7 +382,7 @@ public class RoomTemplateDto {
   }
 
   /**
-   * The cover of the room template.
+   * The identifier of a built-in cover picture, as listed by `GET api/2.0/files/rooms/covers`. When it is left  empty the template gets no cover.
    * @return cover
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -420,7 +413,7 @@ public class RoomTemplateDto {
   }
 
   /**
-   * Room quota
+   * The storage limit assigned to the template, in bytes. When it is not set the template keeps the limit of the  source room.
    * @return quota
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -454,7 +447,7 @@ public class RoomTemplateDto {
     }
     RoomTemplateDto roomTemplateDto = (RoomTemplateDto) o;
     return Objects.equals(this.roomId, roomTemplateDto.roomId) &&
-        equalsNullable(this.title, roomTemplateDto.title) &&
+        Objects.equals(this.title, roomTemplateDto.title) &&
         Objects.equals(this.logo, roomTemplateDto.logo) &&
         Objects.equals(this.copyLogo, roomTemplateDto.copyLogo) &&
         equalsNullable(this.share, roomTemplateDto.share) &&
@@ -472,7 +465,7 @@ public class RoomTemplateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(roomId, hashCodeNullable(title), logo, copyLogo, hashCodeNullable(share), hashCodeNullable(groups), _public, hashCodeNullable(tags), hashCodeNullable(color), hashCodeNullable(cover), hashCodeNullable(quota));
+    return Objects.hash(roomId, title, logo, copyLogo, hashCodeNullable(share), hashCodeNullable(groups), _public, hashCodeNullable(tags), hashCodeNullable(color), hashCodeNullable(cover), hashCodeNullable(quota));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.IpRestrictionBase;
+import org.openapitools.client.model.IpRestrictionEntryDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -40,7 +40,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The parameters for configuring new IP restriction settings.
+ * The addresses allowed to reach the portal, and whether the restriction is enforced.
  */
 @JsonPropertyOrder({
   IpRestrictionsDto.JSON_PROPERTY_IP_RESTRICTIONS,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class IpRestrictionsDto {
   public static final String JSON_PROPERTY_IP_RESTRICTIONS = "ipRestrictions";
-  @javax.annotation.Nullable  private List<IpRestrictionBase> ipRestrictions;
+  @javax.annotation.Nullable  private List<IpRestrictionEntryDto> ipRestrictions;
 
   public static final String JSON_PROPERTY_ENABLE = "enable";
   @javax.annotation.Nullable  private JsonNullable<Boolean> enable = JsonNullable.<Boolean>undefined();
@@ -58,13 +58,13 @@ public class IpRestrictionsDto {
   }
 
 
-  public IpRestrictionsDto ipRestrictions(@javax.annotation.Nullable List<IpRestrictionBase> ipRestrictions) {
+  public IpRestrictionsDto ipRestrictions(@javax.annotation.Nullable List<IpRestrictionEntryDto> ipRestrictions) {
     
     this.ipRestrictions = ipRestrictions;
     return this;
   }
 
-  public IpRestrictionsDto addIpRestrictionsItem(IpRestrictionBase ipRestrictionsItem) {
+  public IpRestrictionsDto addIpRestrictionsItem(IpRestrictionEntryDto ipRestrictionsItem) {
     if (this.ipRestrictions == null) {
       this.ipRestrictions = new ArrayList<>();
     }
@@ -73,20 +73,20 @@ public class IpRestrictionsDto {
   }
 
   /**
-   * The list of IP restriction addresses.
+   * The allowed addresses, each entry pairing a single IPv4 or IPv6 address with the flag that limits it to  administrators. This is the whole list that is to hold afterwards: entries not repeated here are deleted.  Ranges written as `from-to` and CIDR blocks are refused with 400, even though the portal matches such forms  when they are already stored. Enforcement spares only the portal owner and the installation own networks, so  a list without the caller address locks the remaining administrators out.
    * @return ipRestrictions
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_IP_RESTRICTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<IpRestrictionBase> getIpRestrictions() {
+  public List<IpRestrictionEntryDto> getIpRestrictions() {
     return ipRestrictions;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_IP_RESTRICTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIpRestrictions(@javax.annotation.Nullable List<IpRestrictionBase> ipRestrictions) {
+  public void setIpRestrictions(@javax.annotation.Nullable List<IpRestrictionEntryDto> ipRestrictions) {
     this.ipRestrictions = ipRestrictions;
   }
 
@@ -97,7 +97,7 @@ public class IpRestrictionsDto {
   }
 
   /**
-   * Specifies whether to enable IP restrictions or not.
+   * Whether the list is enforced. Leaving it out follows the list - on when addresses are sent, off when the list  is empty - and sending `true` with an empty list is refused with 400, since that would admit nobody.
    * @return enable
    */
   @javax.annotation.Nullable  @JsonIgnore

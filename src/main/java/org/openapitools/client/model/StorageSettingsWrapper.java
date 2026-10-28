@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
-import org.openapitools.client.model.StorageSettings;
+import org.openapitools.client.model.StorageSettingsDto;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * StorageSettingsWrapper
+ * The successful API response containing the StorageSettingsDto object.
  */
 @JsonPropertyOrder({
   StorageSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class StorageSettingsWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private StorageSettings response;
+  @javax.annotation.Nullable  private StorageSettingsDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class StorageSettingsWrapper {
   }
 
 
-  public StorageSettingsWrapper response(@javax.annotation.Nullable StorageSettings response) {
+  public StorageSettingsWrapper response(@javax.annotation.Nullable StorageSettingsDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * Get response
+   * The StorageSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public StorageSettings getResponse() {
+  public StorageSettingsDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable StorageSettings response) {
+  public void setResponse(@javax.annotation.Nullable StorageSettingsDto response) {
     this.response = response;
   }
 

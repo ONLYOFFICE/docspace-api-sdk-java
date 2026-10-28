@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * EmployeeWrapper
+ * The successful API response containing the EmployeeDto object.
  */
 @JsonPropertyOrder({
   EmployeeWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class EmployeeWrapper {
   }
 
   /**
-   * Get response
+   * The EmployeeDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

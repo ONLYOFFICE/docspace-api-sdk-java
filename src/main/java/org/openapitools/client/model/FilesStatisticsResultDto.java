@@ -33,14 +33,15 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The file statistics result parameters.
+ * The space that stored documents take in each section of the portal, in bytes. The figures cover every account of  the portal rather than the caller alone, and a section the portal does not have comes back as null instead of a  zero figure.
  */
 @JsonPropertyOrder({
   FilesStatisticsResultDto.JSON_PROPERTY_MY_DOCUMENTS_USED_SPACE,
   FilesStatisticsResultDto.JSON_PROPERTY_TRASH_USED_SPACE,
   FilesStatisticsResultDto.JSON_PROPERTY_ARCHIVE_USED_SPACE,
   FilesStatisticsResultDto.JSON_PROPERTY_ROOMS_USED_SPACE,
-  FilesStatisticsResultDto.JSON_PROPERTY_AI_AGENTS_USED_SPACE
+  FilesStatisticsResultDto.JSON_PROPERTY_AI_AGENTS_USED_SPACE,
+  FilesStatisticsResultDto.JSON_PROPERTY_FORMS_USED_SPACE
 })
 
 public class FilesStatisticsResultDto {
@@ -59,6 +60,9 @@ public class FilesStatisticsResultDto {
   public static final String JSON_PROPERTY_AI_AGENTS_USED_SPACE = "aiAgentsUsedSpace";
   @javax.annotation.Nullable  private FilesStatisticsFolder aiAgentsUsedSpace;
 
+  public static final String JSON_PROPERTY_FORMS_USED_SPACE = "formsUsedSpace";
+  @javax.annotation.Nullable  private FilesStatisticsFolder formsUsedSpace;
+
   public FilesStatisticsResultDto() {
   }
 
@@ -70,7 +74,7 @@ public class FilesStatisticsResultDto {
   }
 
   /**
-   * Get myDocumentsUsedSpace
+   * The space taken by the personal Files sections of all accounts of the portal added together. An item deleted  to the trash keeps taking space and is counted in `trashUsedSpace` until the trash is emptied.
    * @return myDocumentsUsedSpace
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MY_DOCUMENTS_USED_SPACE, required = false)
@@ -94,7 +98,7 @@ public class FilesStatisticsResultDto {
   }
 
   /**
-   * Get trashUsedSpace
+   * The space held by the items deleted to the trash from any section, which is given back only when the trash is  emptied or the items are erased for good.
    * @return trashUsedSpace
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRASH_USED_SPACE, required = false)
@@ -118,7 +122,7 @@ public class FilesStatisticsResultDto {
   }
 
   /**
-   * Get archiveUsedSpace
+   * The space taken by the content of the archived rooms, the archived form filling rooms included. Restoring a  room moves its space back to `roomsUsedSpace` or `formsUsedSpace`.
    * @return archiveUsedSpace
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ARCHIVE_USED_SPACE, required = false)
@@ -142,7 +146,7 @@ public class FilesStatisticsResultDto {
   }
 
   /**
-   * Get roomsUsedSpace
+   * The space taken by the content of the active rooms, except the form filling rooms, whose content is reported  in `formsUsedSpace`. Archiving a room moves its space to `archiveUsedSpace`.
    * @return roomsUsedSpace
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ROOMS_USED_SPACE, required = false)
@@ -166,7 +170,7 @@ public class FilesStatisticsResultDto {
   }
 
   /**
-   * Get aiAgentsUsedSpace
+   * The space taken by the content of the AI agents section, which exists only in a portal where the AI agents  feature is active; creating an AI room is not enough to bring the section into being.
    * @return aiAgentsUsedSpace
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AI_AGENTS_USED_SPACE, required = false)
@@ -183,6 +187,30 @@ public class FilesStatisticsResultDto {
     this.aiAgentsUsedSpace = aiAgentsUsedSpace;
   }
 
+  public FilesStatisticsResultDto formsUsedSpace(@javax.annotation.Nullable FilesStatisticsFolder formsUsedSpace) {
+    
+    this.formsUsedSpace = formsUsedSpace;
+    return this;
+  }
+
+  /**
+   * The space taken by the content of the active form filling rooms, which is kept apart from `roomsUsedSpace`  even though those rooms are listed among the rooms.
+   * @return formsUsedSpace
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_FORMS_USED_SPACE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public FilesStatisticsFolder getFormsUsedSpace() {
+    return formsUsedSpace;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_FORMS_USED_SPACE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFormsUsedSpace(@javax.annotation.Nullable FilesStatisticsFolder formsUsedSpace) {
+    this.formsUsedSpace = formsUsedSpace;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -196,12 +224,13 @@ public class FilesStatisticsResultDto {
         Objects.equals(this.trashUsedSpace, filesStatisticsResultDto.trashUsedSpace) &&
         Objects.equals(this.archiveUsedSpace, filesStatisticsResultDto.archiveUsedSpace) &&
         Objects.equals(this.roomsUsedSpace, filesStatisticsResultDto.roomsUsedSpace) &&
-        Objects.equals(this.aiAgentsUsedSpace, filesStatisticsResultDto.aiAgentsUsedSpace);
+        Objects.equals(this.aiAgentsUsedSpace, filesStatisticsResultDto.aiAgentsUsedSpace) &&
+        Objects.equals(this.formsUsedSpace, filesStatisticsResultDto.formsUsedSpace);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(myDocumentsUsedSpace, trashUsedSpace, archiveUsedSpace, roomsUsedSpace, aiAgentsUsedSpace);
+    return Objects.hash(myDocumentsUsedSpace, trashUsedSpace, archiveUsedSpace, roomsUsedSpace, aiAgentsUsedSpace, formsUsedSpace);
   }
 
   @Override
@@ -213,6 +242,7 @@ public class FilesStatisticsResultDto {
     sb.append("    archiveUsedSpace: ").append(toIndentedString(archiveUsedSpace)).append("\n");
     sb.append("    roomsUsedSpace: ").append(toIndentedString(roomsUsedSpace)).append("\n");
     sb.append("    aiAgentsUsedSpace: ").append(toIndentedString(aiAgentsUsedSpace)).append("\n");
+    sb.append("    formsUsedSpace: ").append(toIndentedString(formsUsedSpace)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -283,6 +313,11 @@ public class FilesStatisticsResultDto {
     // add `aiAgentsUsedSpace` to the URL query string
     if (getAiAgentsUsedSpace() != null) {
       joiner.add(getAiAgentsUsedSpace().toUrlQueryString(prefix + "aiAgentsUsedSpace" + suffix));
+    }
+
+    // add `formsUsedSpace` to the URL query string
+    if (getFormsUsedSpace() != null) {
+      joiner.add(getFormsUsedSpace().toUrlQueryString(prefix + "formsUsedSpace" + suffix));
     }
 
     return joiner.toString();

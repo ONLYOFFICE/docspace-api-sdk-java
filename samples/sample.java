@@ -41,7 +41,7 @@ public class sample {
         // --- AUTH ---
         AuthenticationApi authApi = new AuthenticationApi(apiClient);
 
-        AuthRequestsDto authDto = new AuthRequestsDto();
+        AuthRequestDto authDto = new AuthRequestDto();
         authDto.setUserName("example@onlyoffice.com");
         authDto.setPassword("11111111");
 
@@ -53,24 +53,24 @@ public class sample {
         // --- FOLDERS ---
         FoldersApi foldersApi = new FoldersApi(apiClient);
 
-        FolderContentIntegerWrapper myFolder = foldersApi.getMyFolder(null, null, null, 100, 0, null, null, null);
+        FolderContentWrapper myFolder = foldersApi.getMyFolder(null, null, null, 100, 0, null, null, null, null, null, null);
         Integer myFolderId = myFolder.getResponse().getCurrent().getId();
         System.out.println("My folder id: " + myFolderId);
 
-        CreateFolder createDto = new CreateFolder();
+        CreateFolderRequest createDto = new CreateFolderRequest();
         createDto.setTitle("TestTitle");
 
-        FolderIntegerWrapper created = foldersApi.createFolder(myFolderId, createDto);
+        FolderWrapper created = foldersApi.createFolder(myFolderId, createDto);
         Integer newFolderId = created.getResponse().getId();
         System.out.println("Created folder: " + newFolderId);
 
-        CreateFolder renameDto = new CreateFolder();
+        CreateFolderRequest renameDto = new CreateFolderRequest();
         renameDto.setTitle("Updated title");
 
-        FolderIntegerWrapper renamed = foldersApi.renameFolder(newFolderId, renameDto);
+        FolderWrapper renamed = foldersApi.renameFolder(newFolderId, renameDto);
         System.out.println("My folder title: " + renamed.getResponse().getTitle());
 
-        DeleteFolder deleteDto = new DeleteFolder();
+        DeleteFolderRequest deleteDto = new DeleteFolderRequest();
         deleteDto.setImmediately(true);
         deleteDto.setDeleteAfter(false);
 
@@ -80,13 +80,13 @@ public class sample {
         // --- ROOMS ---
         RoomsApi roomsApi = new RoomsApi(apiClient);
 
-        FolderContentIntegerWrapper rooms = roomsApi
+        FolderContentWrapper rooms = roomsApi
             .withFields("current.security,folders.id")
             .getRoomsFolder(
-                Collections.emptyList(), null, null, SearchArea.Active, null,
+                Collections.emptyList(), null, null, SearchArea.ACTIVE, null,
                 null, null, null, null, null,
-                null, 100, 0, "DateAndTime", SortOrder.Descending,
-                null, null
+                null, null, 100, 0, "DateAndTime",
+                SortOrder.Descending, null, null, null, null, null
             );
 
         System.out.println("Rooms status: " + rooms.getStatusCode());
@@ -94,7 +94,7 @@ public class sample {
         // --- BACKUP ---
         BackupApi backupApi = new BackupApi(apiClient);
 
-        BackupDto backupDto = new BackupDto();
+        StartBackupRequestDto backupDto = new StartBackupRequestDto();
         backupDto.setDump(false);
         backupDto.setStorageType(BackupStorageType.DataStore);
 

@@ -77,7 +77,7 @@ public class UpdateMembersRequestDto {
   }
 
   /**
-   * The list of user IDs.
+   * The accounts the operation applies to. System accounts are dropped from the list without an error, and the  remaining ones are processed in the order they are given.
    * @return userIds
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -108,7 +108,7 @@ public class UpdateMembersRequestDto {
   }
 
   /**
-   * Specifies whether to resend invitation letters to all the users or not.
+   * Reaches every pending account of the portal instead of the ones in `userIds`. It is read only by  `PUT api/2.0/people/invite` and is ignored by every other operation that binds this body.
    * @return resendAll
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESEND_ALL, required = false)

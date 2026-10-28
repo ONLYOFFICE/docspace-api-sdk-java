@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * EditHistoryDataWrapper
+ * The successful API response containing the EditHistoryDataDto object.
  */
 @JsonPropertyOrder({
   EditHistoryDataWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class EditHistoryDataWrapper {
   }
 
   /**
-   * Get response
+   * The EditHistoryDataDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

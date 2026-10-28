@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The notification channel information.
+ * One delivery channel of the installation, with the state it is in for this portal.
  */
 @JsonPropertyOrder({
   NotificationChannelDto.JSON_PROPERTY_NAME,
@@ -57,7 +57,7 @@ public class NotificationChannelDto {
   }
 
   /**
-   * The notification channel name.
+   * The internal name of the channel as the notification service knows it - `email.sender` for letters,  `telegram.sender` for Telegram messages. It is a key to match on, not a label to print.
    * @return name
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
@@ -81,7 +81,7 @@ public class NotificationChannelDto {
   }
 
   /**
-   * Specifies whether the notification channel is enabled.
+   * Whether the channel can deliver for this portal. Letters are enabled whenever the channel is listed at  all, while Telegram is enabled only while the portal has a bot name and token stored. It says nothing  about the caller, who also has to connect their own Telegram account through  `GET api/2.0/settings/telegram/link`.
    * @return isEnabled
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_ENABLED, required = true)

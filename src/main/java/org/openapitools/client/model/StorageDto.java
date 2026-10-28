@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.AuthKey;
+import org.openapitools.client.model.AuthKeyDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -40,7 +40,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The storage information.
+ * One third-party storage provider the portal data can be kept in, with the keys it expects.
  */
 @JsonPropertyOrder({
   StorageDto.JSON_PROPERTY_ID,
@@ -58,7 +58,7 @@ public class StorageDto {
   @javax.annotation.Nullable  private String title;
 
   public static final String JSON_PROPERTY_PROPERTIES = "properties";
-  @javax.annotation.Nullable  private JsonNullable<List<AuthKey>> properties = JsonNullable.<List<AuthKey>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<AuthKeyDto>> properties = JsonNullable.<List<AuthKeyDto>>undefined();
 
   public static final String JSON_PROPERTY_CURRENT = "current";
   @javax.annotation.Nonnull  private Boolean current;
@@ -77,7 +77,7 @@ public class StorageDto {
   }
 
   /**
-   * The storage ID.
+   * The provider's key, which is what `PUT api/2.0/settings/storage` and its CDN and backup counterparts take  as the storage to switch to. The built-in local storage has no entry of its own: a listing in which  nothing is `current` means the data sits locally.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -101,7 +101,7 @@ public class StorageDto {
   }
 
   /**
-   * The storage title.
+   * The provider name in the portal language, falling back to `id` when this build ships no wording for it.
    * @return title
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
@@ -118,15 +118,15 @@ public class StorageDto {
     this.title = title;
   }
 
-  public StorageDto properties(@javax.annotation.Nullable List<AuthKey> properties) {
-    this.properties = JsonNullable.<List<AuthKey>>of(properties);
+  public StorageDto properties(@javax.annotation.Nullable List<AuthKeyDto> properties) {
+    this.properties = JsonNullable.<List<AuthKeyDto>>of(properties);
     
     return this;
   }
 
-  public StorageDto addPropertiesItem(AuthKey propertiesItem) {
+  public StorageDto addPropertiesItem(AuthKeyDto propertiesItem) {
     if (this.properties == null || !this.properties.isPresent()) {
-      this.properties = JsonNullable.<List<AuthKey>>of(new ArrayList<>());
+      this.properties = JsonNullable.<List<AuthKeyDto>>of(new ArrayList<>());
     }
     try {
       this.properties.get().add(propertiesItem);
@@ -137,28 +137,28 @@ public class StorageDto {
   }
 
   /**
-   * The list of storage authentication keys.
+   * The settings the provider expects, each with its key, its localised label and the value the server  currently holds. For the entry marked `current` the values come from the portal's saved storage settings  and for the others from the installation configuration, so a setting nobody has configured comes back with  an empty value rather than being left out.
    * @return properties
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public List<AuthKey> getProperties() {
+  public List<AuthKeyDto> getProperties() {
         return properties.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_PROPERTIES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<List<AuthKey>> getProperties_JsonNullable() {
+  public JsonNullable<List<AuthKeyDto>> getProperties_JsonNullable() {
     return properties;
   }
   
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
-  public void setProperties_JsonNullable(JsonNullable<List<AuthKey>> properties) {
+  public void setProperties_JsonNullable(JsonNullable<List<AuthKeyDto>> properties) {
     this.properties = properties;
   }
 
-  public void setProperties(@javax.annotation.Nullable List<AuthKey> properties) {
-    this.properties = JsonNullable.<List<AuthKey>>of(properties);
+  public void setProperties(@javax.annotation.Nullable List<AuthKeyDto> properties) {
+    this.properties = JsonNullable.<List<AuthKeyDto>>of(properties);
   }
 
   public StorageDto current(@javax.annotation.Nonnull Boolean current) {
@@ -168,7 +168,7 @@ public class StorageDto {
   }
 
   /**
-   * Specifies if this is the current portal storage or not.
+   * Whether the portal is using this provider right now. At most one entry of a listing has it set.
    * @return current
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_CURRENT, required = true)
@@ -192,7 +192,7 @@ public class StorageDto {
   }
 
   /**
-   * Specifies if this storage can be set or not.
+   * Whether the provider's keys are already filled in on the server, so it could be switched to without  sending credentials. It says nothing about whether the credentials still work.
    * @return isSet
    */
   @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_IS_SET, required = true)

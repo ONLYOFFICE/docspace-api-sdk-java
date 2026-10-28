@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.GetPortalPrices200ResponseLinksInner;
-import org.openapitools.client.model.StudioDefaultPageSettings;
+import org.openapitools.client.model.StudioDefaultPageSettingsDto;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * StudioDefaultPageSettingsWrapper
+ * The successful API response containing the StudioDefaultPageSettingsDto object.
  */
 @JsonPropertyOrder({
   StudioDefaultPageSettingsWrapper.JSON_PROPERTY_RESPONSE,
@@ -49,7 +49,7 @@ import java.util.StringJoiner;
 
 public class StudioDefaultPageSettingsWrapper {
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  @javax.annotation.Nullable  private StudioDefaultPageSettings response;
+  @javax.annotation.Nullable  private StudioDefaultPageSettingsDto response;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
@@ -67,27 +67,27 @@ public class StudioDefaultPageSettingsWrapper {
   }
 
 
-  public StudioDefaultPageSettingsWrapper response(@javax.annotation.Nullable StudioDefaultPageSettings response) {
+  public StudioDefaultPageSettingsWrapper response(@javax.annotation.Nullable StudioDefaultPageSettingsDto response) {
     
     this.response = response;
     return this;
   }
 
   /**
-   * Get response
+   * The StudioDefaultPageSettingsDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public StudioDefaultPageSettings getResponse() {
+  public StudioDefaultPageSettingsDto getResponse() {
     return response;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponse(@javax.annotation.Nullable StudioDefaultPageSettings response) {
+  public void setResponse(@javax.annotation.Nullable StudioDefaultPageSettingsDto response) {
     this.response = response;
   }
 

@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The result of the cover request containing the cover image data.
+ * One drawing of the built-in gallery of room covers.
  */
 @JsonPropertyOrder({
   CoversResultDto.JSON_PROPERTY_ID,
@@ -57,7 +57,7 @@ public class CoversResultDto {
   }
 
   /**
-   * The cover unique identifier.
+   * The name of the cover, and the value to send as `cover` when a room is created or changed. The names are the  same on every portal and do not change with the language of the request.
    * @return id
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
@@ -81,7 +81,7 @@ public class CoversResultDto {
   }
 
   /**
-   * The cover image data.
+   * The drawing itself, as inline vector markup ready to be rendered as it is. It is the default size of the  cover, and it may change between product versions while the name stays.
    * @return data
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DATA, required = false)

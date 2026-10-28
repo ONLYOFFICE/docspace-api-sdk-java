@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The parameters for deleting a room.
+ * The body of a room deletion request.
  */
 @JsonPropertyOrder({
   DeleteRoomRequest.JSON_PROPERTY_DELETE_AFTER
@@ -53,7 +53,7 @@ public class DeleteRoomRequest {
   }
 
   /**
-   * Specifies whether to delete a room after the editing session is finished or not.
+   * Carried by the contract but not acted upon: the deletion behaves the same either way, and the record of the  finished job is kept until it is read once.
    * @return deleteAfter
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DELETE_AFTER, required = false)

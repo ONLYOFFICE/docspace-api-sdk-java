@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ReportWrapper
+ * The successful API response containing the ReportDto object.
  */
 @JsonPropertyOrder({
   ReportWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class ReportWrapper {
   }
 
   /**
-   * Get response
+   * The ReportDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

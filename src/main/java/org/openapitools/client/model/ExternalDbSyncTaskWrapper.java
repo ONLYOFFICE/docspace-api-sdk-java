@@ -37,7 +37,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ExternalDbSyncTaskWrapper
+ * The successful API response containing the ExternalDbSyncTaskDto object.
  */
 @JsonPropertyOrder({
   ExternalDbSyncTaskWrapper.JSON_PROPERTY_RESPONSE,
@@ -74,7 +74,7 @@ public class ExternalDbSyncTaskWrapper {
   }
 
   /**
-   * Get response
+   * The ExternalDbSyncTaskDto object returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

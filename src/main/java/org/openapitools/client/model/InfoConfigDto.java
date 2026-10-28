@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.client.model.AceShortWrapper;
+import org.openapitools.client.model.AceShortDto;
 import org.openapitools.client.model.EditorType;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -41,7 +41,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The information config parameters.
+ * The facts the editor information panel shows about the open document.
  */
 @JsonPropertyOrder({
   InfoConfigDto.JSON_PROPERTY_FAVORITE,
@@ -63,7 +63,7 @@ public class InfoConfigDto {
   @javax.annotation.Nullable  private JsonNullable<String> owner = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SHARING_SETTINGS = "sharingSettings";
-  @javax.annotation.Nullable  private JsonNullable<List<AceShortWrapper>> sharingSettings = JsonNullable.<List<AceShortWrapper>>undefined();
+  @javax.annotation.Nullable  private JsonNullable<List<AceShortDto>> sharingSettings = JsonNullable.<List<AceShortDto>>undefined();
 
   public static final String JSON_PROPERTY_TYPE = "type";
   @javax.annotation.Nullable  private EditorType type;
@@ -82,7 +82,7 @@ public class InfoConfigDto {
   }
 
   /**
-   * Specifies if the file is favorite or not.
+   * Whether the caller has this document among their favorites. It is empty when favorites do not apply - for an  anonymous caller, for a guest, and for an encrypted document.
    * @return favorite
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -113,7 +113,7 @@ public class InfoConfigDto {
   }
 
   /**
-   * The folder of the file.
+   * The place of the document as a readable path, its folders joined from the root downwards. It is empty in the  embedded layout, which shows no such panel.
    * @return folder
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -144,7 +144,7 @@ public class InfoConfigDto {
   }
 
   /**
-   * The file owner.
+   * The display name of the owner of the document. It is empty for an anonymous session.
    * @return owner
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -168,15 +168,15 @@ public class InfoConfigDto {
     this.owner = JsonNullable.<String>of(owner);
   }
 
-  public InfoConfigDto sharingSettings(@javax.annotation.Nullable List<AceShortWrapper> sharingSettings) {
-    this.sharingSettings = JsonNullable.<List<AceShortWrapper>>of(sharingSettings);
+  public InfoConfigDto sharingSettings(@javax.annotation.Nullable List<AceShortDto> sharingSettings) {
+    this.sharingSettings = JsonNullable.<List<AceShortDto>>of(sharingSettings);
     
     return this;
   }
 
-  public InfoConfigDto addSharingSettingsItem(AceShortWrapper sharingSettingsItem) {
+  public InfoConfigDto addSharingSettingsItem(AceShortDto sharingSettingsItem) {
     if (this.sharingSettings == null || !this.sharingSettings.isPresent()) {
-      this.sharingSettings = JsonNullable.<List<AceShortWrapper>>of(new ArrayList<>());
+      this.sharingSettings = JsonNullable.<List<AceShortDto>>of(new ArrayList<>());
     }
     try {
       this.sharingSettings.get().add(sharingSettingsItem);
@@ -187,28 +187,28 @@ public class InfoConfigDto {
   }
 
   /**
-   * The sharing settings of the file.
+   * Who the document is shared with, as the information panel lists it. An empty list means it is shared with  nobody beyond its owner.
    * @return sharingSettings
    */
   @javax.annotation.Nullable  @JsonIgnore
 
-  public List<AceShortWrapper> getSharingSettings() {
+  public List<AceShortDto> getSharingSettings() {
         return sharingSettings.orElse(null);
   }
 
   @JsonProperty(value = JSON_PROPERTY_SHARING_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<List<AceShortWrapper>> getSharingSettings_JsonNullable() {
+  public JsonNullable<List<AceShortDto>> getSharingSettings_JsonNullable() {
     return sharingSettings;
   }
   
   @JsonProperty(JSON_PROPERTY_SHARING_SETTINGS)
-  public void setSharingSettings_JsonNullable(JsonNullable<List<AceShortWrapper>> sharingSettings) {
+  public void setSharingSettings_JsonNullable(JsonNullable<List<AceShortDto>> sharingSettings) {
     this.sharingSettings = sharingSettings;
   }
 
-  public void setSharingSettings(@javax.annotation.Nullable List<AceShortWrapper> sharingSettings) {
-    this.sharingSettings = JsonNullable.<List<AceShortWrapper>>of(sharingSettings);
+  public void setSharingSettings(@javax.annotation.Nullable List<AceShortDto> sharingSettings) {
+    this.sharingSettings = JsonNullable.<List<AceShortDto>>of(sharingSettings);
   }
 
   public InfoConfigDto type(@javax.annotation.Nullable EditorType type) {
@@ -218,7 +218,7 @@ public class InfoConfigDto {
   }
 
   /**
-   * Get type
+   * The layout the information panel is rendered for.
    * @return type
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
@@ -242,7 +242,7 @@ public class InfoConfigDto {
   }
 
   /**
-   * The uploaded file.
+   * When the document was created on the portal, already formatted for reading in the culture of the caller rather  than as a machine timestamp.
    * @return uploaded
    */
   @javax.annotation.Nullable  @JsonIgnore

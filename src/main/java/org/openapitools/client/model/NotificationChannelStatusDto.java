@@ -40,7 +40,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The notification channel settings.
+ * The ways this installation can deliver a notification, and whether each of them is usable.
  */
 @JsonPropertyOrder({
   NotificationChannelStatusDto.JSON_PROPERTY_CHANNELS
@@ -73,7 +73,7 @@ public class NotificationChannelStatusDto {
   }
 
   /**
-   * The list of notification channels.
+   * The channels the running installation is configured with. A channel appears only when the notification  service names a sender for it, so the list can be shorter than the channels this build implements, and an  empty list means the configuration names none of them.
    * @return channels
    */
   @javax.annotation.Nullable  @JsonIgnore

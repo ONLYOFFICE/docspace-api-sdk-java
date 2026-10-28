@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * BooleanWrapper
+ * The successful API response containing the boolean value.
  */
 @JsonPropertyOrder({
   BooleanWrapper.JSON_PROPERTY_RESPONSE,
@@ -73,7 +73,7 @@ public class BooleanWrapper {
   }
 
   /**
-   * Get response
+   * The boolean value returned by the operation.
    * @return response
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_RESPONSE, required = false)

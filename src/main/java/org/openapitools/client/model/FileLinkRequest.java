@@ -39,7 +39,7 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * The external link request parameters.
+ * The settings of an external link to a file.
  */
 @JsonPropertyOrder({
   FileLinkRequest.JSON_PROPERTY_LINK_ID,
@@ -88,7 +88,7 @@ public class FileLinkRequest {
   }
 
   /**
-   * The external link ID.
+   * The link to rewrite, as reported by `GET api/2.0/files/file/{id}/links`. An identifier that is not yet in use,  the empty one included, creates a link instead.
    * @return linkId
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_LINK_ID, required = false)
@@ -112,7 +112,7 @@ public class FileLinkRequest {
   }
 
   /**
-   * Get access
+   * The rights the link grants to whoever follows it. The value that denies everything revokes the link.
    * @return access
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ACCESS, required = false)
@@ -136,7 +136,7 @@ public class FileLinkRequest {
   }
 
   /**
-   * Get expirationDate
+   * The moment the link stops working, read in the time zone of the portal. A date more than a few years ahead is  rejected as an invalid request; left out, the link does not expire on its own.
    * @return expirationDate
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_EXPIRATION_DATE, required = false)
@@ -160,7 +160,7 @@ public class FileLinkRequest {
   }
 
   /**
-   * The link name.
+   * The name the link carries in the sharing list of the file, for the people who manage it; it is not shown to  whoever follows the link.
    * @return title
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -191,7 +191,7 @@ public class FileLinkRequest {
   }
 
   /**
-   * The link scope, whether it is internal or not.
+   * Who may follow the link: `true` admits only accounts that are signed in to the portal, `false` admits anybody  who has the address.
    * @return internal
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_INTERNAL, required = false)
@@ -215,7 +215,7 @@ public class FileLinkRequest {
   }
 
   /**
-   * Specifies whether the file link is primary or not.
+   * Whether this link becomes the primary link of the file - the one the Copy link action of a client hands out.  A file has one primary link at a time.
    * @return primary
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_PRIMARY, required = false)
@@ -239,7 +239,7 @@ public class FileLinkRequest {
   }
 
   /**
-   * Specifies whether to deny downloading the file or not.
+   * What a visitor may do with the content: `true` leaves them with viewing in the browser, `false` lets them  download and print it as their rights allow.
    * @return denyDownload
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_DENY_DOWNLOAD, required = false)
@@ -263,7 +263,7 @@ public class FileLinkRequest {
   }
 
   /**
-   * Password for access via link.
+   * The secret a visitor has to type before the file opens; left out, the link opens without one.
    * @return password
    */
   @javax.annotation.Nullable  @JsonIgnore
