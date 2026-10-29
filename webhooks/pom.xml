@@ -45,7 +45,7 @@
     <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
-      <version>2.11.0</version>
+      <version>2.15.0</version>
     </dependency>
     <!-- The models annotate nullable getters with the fully-qualified
          @javax.annotation.Nullable, so it never shows up in an import scan. -->
@@ -76,7 +76,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
-        <version>3.6.0</version>
+        <version>3.6.2</version>
         <executions>
           <execution>
             <phase>generate-sources</phase>
@@ -105,7 +105,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
-        <version>3.5.0</version>
+        <version>3.6.4</version>
         <configuration>
           <mainClass>com.onlyoffice.docspace.webhooks.samples.LogWebhook</mainClass>
         </configuration>
