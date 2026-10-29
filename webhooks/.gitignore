@@ -1,0 +1,3 @@
+# Per-run logs the generate-webhook-sdk skill writes into generated/.
+.generate.log
+.verify.log

@@ -6,11 +6,10 @@
 name: Java CI with Maven
 
 on:
-  workflow_dispatch:
   push:
-    branches: [ master, develop ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ master, develop ]
+    branches: [ main, master ]
 
 jobs:
   build:

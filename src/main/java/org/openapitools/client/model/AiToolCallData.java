@@ -58,7 +58,7 @@ public class AiToolCallData {
   @javax.annotation.Nonnull  private BigDecimal idx;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
-  @javax.annotation.Nonnull  private AiThreadMessageLike message;
+  @javax.annotation.Nullable  private AiThreadMessageLike message;
 
   public static final String JSON_PROPERTY_ACTION_ARGS = "actionArgs";
   @javax.annotation.Nullable  private AiActionArgs actionArgs;
@@ -145,27 +145,27 @@ public class AiToolCallData {
     this.idx = idx;
   }
 
-  public AiToolCallData message(@javax.annotation.Nonnull AiThreadMessageLike message) {
+  public AiToolCallData message(@javax.annotation.Nullable AiThreadMessageLike message) {
     
     this.message = message;
     return this;
   }
 
   /**
-   * Snapshot of the assistant message at the time the tool call surfaced.
+   * Snapshot of the assistant message at the time the tool call surfaced. Optional and ignored: the engine resumes from the stored message, and the copy inflated the body past the parser limit (Bug 84608).
    * @return message
    */
-  @javax.annotation.Nonnull  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AiThreadMessageLike getMessage() {
     return message;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setMessage(@javax.annotation.Nonnull AiThreadMessageLike message) {
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMessage(@javax.annotation.Nullable AiThreadMessageLike message) {
     this.message = message;
   }
 

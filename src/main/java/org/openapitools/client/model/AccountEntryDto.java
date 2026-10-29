@@ -37,6 +37,7 @@ import org.openapitools.client.model.EmployeeFullDto;
 import org.openapitools.client.model.EmployeeStatus;
 import org.openapitools.client.model.GroupSummaryDto;
 import org.openapitools.client.model.MobilePhoneActivationStatus;
+import org.openapitools.client.model.UserServiceLimitDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -90,6 +91,7 @@ import java.util.StringJoiner;
   AccountEntryDto.JSON_PROPERTY_USED_SPACE,
   AccountEntryDto.JSON_PROPERTY_SHARED,
   AccountEntryDto.JSON_PROPERTY_IS_CUSTOM_QUOTA,
+  AccountEntryDto.JSON_PROPERTY_AI_SERVICES_LIMIT,
   AccountEntryDto.JSON_PROPERTY_LOGIN_EVENT_ID,
   AccountEntryDto.JSON_PROPERTY_AUTH_COOKIE_LIFETIME,
   AccountEntryDto.JSON_PROPERTY_CREATED_BY,
@@ -219,6 +221,9 @@ public class AccountEntryDto {
 
   public static final String JSON_PROPERTY_IS_CUSTOM_QUOTA = "isCustomQuota";
   @javax.annotation.Nullable  private JsonNullable<Boolean> isCustomQuota = JsonNullable.<Boolean>undefined();
+
+  public static final String JSON_PROPERTY_AI_SERVICES_LIMIT = "aiServicesLimit";
+  @javax.annotation.Nullable  private UserServiceLimitDto aiServicesLimit;
 
   public static final String JSON_PROPERTY_LOGIN_EVENT_ID = "loginEventId";
   @javax.annotation.Nullable  private JsonNullable<Integer> loginEventId = JsonNullable.<Integer>undefined();
@@ -1372,6 +1377,30 @@ public class AccountEntryDto {
     this.isCustomQuota = JsonNullable.<Boolean>of(isCustomQuota);
   }
 
+  public AccountEntryDto aiServicesLimit(@javax.annotation.Nullable UserServiceLimitDto aiServicesLimit) {
+    
+    this.aiServicesLimit = aiServicesLimit;
+    return this;
+  }
+
+  /**
+   * The spending limit on the AI services in force for this user - the personal one, or else the limit for every  user - with what the user spent against it. Null when no such limit applies to the user, when the portal has no  billing service, or when the caller is neither a DocSpace administrator nor the user; the limit of the portal as  a whole is not reflected here. The value, and the spending in particular, can lag by a few minutes.
+   * @return aiServicesLimit
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_AI_SERVICES_LIMIT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public UserServiceLimitDto getAiServicesLimit() {
+    return aiServicesLimit;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_AI_SERVICES_LIMIT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAiServicesLimit(@javax.annotation.Nullable UserServiceLimitDto aiServicesLimit) {
+    this.aiServicesLimit = aiServicesLimit;
+  }
+
   public AccountEntryDto loginEventId(@javax.annotation.Nullable Integer loginEventId) {
     this.loginEventId = JsonNullable.<Integer>of(loginEventId);
     
@@ -1792,6 +1821,7 @@ public class AccountEntryDto {
         equalsNullable(this.usedSpace, accountEntryDto.usedSpace) &&
         equalsNullable(this.shared, accountEntryDto.shared) &&
         equalsNullable(this.isCustomQuota, accountEntryDto.isCustomQuota) &&
+        Objects.equals(this.aiServicesLimit, accountEntryDto.aiServicesLimit) &&
         equalsNullable(this.loginEventId, accountEntryDto.loginEventId) &&
         equalsNullable(this.authCookieLifetime, accountEntryDto.authCookieLifetime) &&
         Objects.equals(this.createdBy, accountEntryDto.createdBy) &&
@@ -1813,7 +1843,7 @@ public class AccountEntryDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(displayName), hashCodeNullable(avatar), hashCodeNullable(avatarOriginal), hashCodeNullable(avatarMax), hashCodeNullable(avatarMedium), hashCodeNullable(avatarSmall), hashCodeNullable(profileUrl), hasAvatar, isAnonim, hashCodeNullable(firstName), hashCodeNullable(lastName), hashCodeNullable(userName), hashCodeNullable(email), hashCodeNullable(contacts), status, activationStatus, terminated, hashCodeNullable(department), hashCodeNullable(groups), hashCodeNullable(location), hashCodeNullable(notes), isAdmin, isRoomAdmin, isLDAP, hashCodeNullable(listAdminModules), isOwner, isVisitor, isCollaborator, hashCodeNullable(cultureName), hashCodeNullable(mobilePhone), mobilePhoneActivationStatus, isSSO, theme, hashCodeNullable(quotaLimit), hashCodeNullable(usedSpace), hashCodeNullable(shared), hashCodeNullable(isCustomQuota), hashCodeNullable(loginEventId), hashCodeNullable(authCookieLifetime), createdBy, registrationDate, hashCodeNullable(hasPersonalFolder), hashCodeNullable(tfaAppEnabled), name, hashCodeNullable(parent), category, hashCodeNullable(isSystem), manager, hashCodeNullable(members), membersCount);
+    return Objects.hash(id, hashCodeNullable(displayName), hashCodeNullable(avatar), hashCodeNullable(avatarOriginal), hashCodeNullable(avatarMax), hashCodeNullable(avatarMedium), hashCodeNullable(avatarSmall), hashCodeNullable(profileUrl), hasAvatar, isAnonim, hashCodeNullable(firstName), hashCodeNullable(lastName), hashCodeNullable(userName), hashCodeNullable(email), hashCodeNullable(contacts), status, activationStatus, terminated, hashCodeNullable(department), hashCodeNullable(groups), hashCodeNullable(location), hashCodeNullable(notes), isAdmin, isRoomAdmin, isLDAP, hashCodeNullable(listAdminModules), isOwner, isVisitor, isCollaborator, hashCodeNullable(cultureName), hashCodeNullable(mobilePhone), mobilePhoneActivationStatus, isSSO, theme, hashCodeNullable(quotaLimit), hashCodeNullable(usedSpace), hashCodeNullable(shared), hashCodeNullable(isCustomQuota), aiServicesLimit, hashCodeNullable(loginEventId), hashCodeNullable(authCookieLifetime), createdBy, registrationDate, hashCodeNullable(hasPersonalFolder), hashCodeNullable(tfaAppEnabled), name, hashCodeNullable(parent), category, hashCodeNullable(isSystem), manager, hashCodeNullable(members), membersCount);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1865,6 +1895,7 @@ public class AccountEntryDto {
     sb.append("    usedSpace: ").append(toIndentedString(usedSpace)).append("\n");
     sb.append("    shared: ").append(toIndentedString(shared)).append("\n");
     sb.append("    isCustomQuota: ").append(toIndentedString(isCustomQuota)).append("\n");
+    sb.append("    aiServicesLimit: ").append(toIndentedString(aiServicesLimit)).append("\n");
     sb.append("    loginEventId: ").append(toIndentedString(loginEventId)).append("\n");
     sb.append("    authCookieLifetime: ").append(toIndentedString(authCookieLifetime)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
@@ -2302,6 +2333,11 @@ public class AccountEntryDto {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
+    }
+
+    // add `aiServicesLimit` to the URL query string
+    if (getAiServicesLimit() != null) {
+      joiner.add(getAiServicesLimit().toUrlQueryString(prefix + "aiServicesLimit" + suffix));
     }
 
     // add `loginEventId` to the URL query string

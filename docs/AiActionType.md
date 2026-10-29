@@ -25,5 +25,7 @@
 
 * `FORM_ANALYSIS` (value: `"FormAnalysis"`)
 
+* `GENERATE_META` (value: `"GenerateMeta"`)
+
 
 

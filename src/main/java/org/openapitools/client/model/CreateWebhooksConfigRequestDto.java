@@ -63,7 +63,7 @@ public class CreateWebhooksConfigRequestDto {
   @javax.annotation.Nullable  private Boolean enabled;
 
   public static final String JSON_PROPERTY_SSL = "ssl";
-  @javax.annotation.Nullable  private Boolean ssl;
+  @javax.annotation.Nullable  private JsonNullable<Boolean> ssl = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_TRIGGERS = "triggers";
   @javax.annotation.Nullable  private WebhookTrigger triggers;
@@ -179,27 +179,34 @@ public class CreateWebhooksConfigRequestDto {
   }
 
   public CreateWebhooksConfigRequestDto ssl(@javax.annotation.Nullable Boolean ssl) {
+    this.ssl = JsonNullable.<Boolean>of(ssl);
     
-    this.ssl = ssl;
     return this;
   }
 
   /**
-   * Whether the target certificate is verified. Setting it demands an `https` target with a valid certificate;  leaving it off delivers without checking the certificate at all.
+   * Whether the target certificate is verified. `true` demands an `https` address with a valid certificate; `false`  delivers without checking the certificate, and is what a plain `http` target needs.
    * @return ssl
    */
-  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_SSL, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable  @JsonIgnore
 
   public Boolean getSsl() {
-    return ssl;
+        return ssl.orElse(null);
   }
-
 
   @JsonProperty(value = JSON_PROPERTY_SSL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSsl(@javax.annotation.Nullable Boolean ssl) {
+  public JsonNullable<Boolean> getSsl_JsonNullable() {
+    return ssl;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SSL)
+  public void setSsl_JsonNullable(JsonNullable<Boolean> ssl) {
     this.ssl = ssl;
+  }
+
+  public void setSsl(@javax.annotation.Nullable Boolean ssl) {
+    this.ssl = JsonNullable.<Boolean>of(ssl);
   }
 
   public CreateWebhooksConfigRequestDto triggers(@javax.annotation.Nullable WebhookTrigger triggers) {
@@ -209,7 +216,7 @@ public class CreateWebhooksConfigRequestDto {
   }
 
   /**
-   * The events the subscription listens for, as a bitmask combining the flags; 0 subscribes to all of them. Take  the flags the caller role is allowed to use from `GET api/2.0/settings/webhook/triggers`, since a flag beyond  that set is refused with 400. A subscription still only fires for events its creator may see.
+   * The events the subscription listens for, as a bitmask adding together the `id` values of the entries of `GET  api/2.0/settings/webhook/triggers`. 0 is the catch-all, not none: it stands for every event the  subscription creator's role may receive, not for every event of the portal.
    * @return triggers
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TRIGGERS, required = false)
@@ -233,7 +240,7 @@ public class CreateWebhooksConfigRequestDto {
   }
 
   /**
-   * The single entity the subscription is narrowed to, by its identifier - a room or a file, for instance.  Leaving it out delivers events about every entity the subscribed triggers cover.
+   * The single entity the subscription is narrowed to, by its identifier in the API that owns it. For user events  it is the GUID of a user (`id` of `GET api/2.0/people`), for group events the GUID of a group (`id` of `GET  api/2.0/group`), and either must be one the subscription's creator may see; for file, folder, room and form  events it is the entry ID from the Files API (`id` of `GET api/2.0/files/rooms` or of a folder listing), a  number for the portal's own storage and a string for third-party storage. Leaving it out delivers events  about every entity the subscribed triggers cover.
    * @return targetId
    */
   @javax.annotation.Nullable  @JsonIgnore
@@ -270,7 +277,7 @@ public class CreateWebhooksConfigRequestDto {
         Objects.equals(this.uri, createWebhooksConfigRequestDto.uri) &&
         equalsNullable(this.secretKey, createWebhooksConfigRequestDto.secretKey) &&
         Objects.equals(this.enabled, createWebhooksConfigRequestDto.enabled) &&
-        Objects.equals(this.ssl, createWebhooksConfigRequestDto.ssl) &&
+        equalsNullable(this.ssl, createWebhooksConfigRequestDto.ssl) &&
         Objects.equals(this.triggers, createWebhooksConfigRequestDto.triggers) &&
         equalsNullable(this.targetId, createWebhooksConfigRequestDto.targetId);
   }
@@ -281,7 +288,7 @@ public class CreateWebhooksConfigRequestDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, uri, hashCodeNullable(secretKey), enabled, ssl, triggers, hashCodeNullable(targetId));
+    return Objects.hash(name, uri, hashCodeNullable(secretKey), enabled, hashCodeNullable(ssl), triggers, hashCodeNullable(targetId));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

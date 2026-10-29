@@ -222,7 +222,7 @@ public class ProviderDto {
   }
 
   /**
-   * Whether an account of this service cannot be connected without `url`, which is the case for the WebDAV servers  whose address is not known in advance. The presets with a fixed address and the OAuth services do not need it.
+   * Whether an account of this service cannot be connected without `url`, which is the case for the WebDAV servers  whose address is not known in advance and for kDrive, whose address names the drive. The OAuth services do not  need it.
    * @return requiredConnectionUrl
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_REQUIRED_CONNECTION_URL, required = false)

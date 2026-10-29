@@ -133,7 +133,7 @@ public class MetadataValueRequest {
   }
 
   /**
-   * The number value.
+   * The number value: a whole number of at most 2^53-1 (9007199254740991) in magnitude, the largest integer a JSON  client reads exactly. A larger one is refused rather than stored and returned rounded.
    * @return numberValue
    */
   @javax.annotation.Nullable  @JsonIgnore

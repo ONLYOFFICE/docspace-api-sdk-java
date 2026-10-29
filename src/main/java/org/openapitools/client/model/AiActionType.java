@@ -52,7 +52,9 @@ public enum AiActionType {
   
   VISION("Vision"),
   
-  FORM_ANALYSIS("FormAnalysis");
+  FORM_ANALYSIS("FormAnalysis"),
+  
+  GENERATE_META("GenerateMeta");
 
   private String value;
 
