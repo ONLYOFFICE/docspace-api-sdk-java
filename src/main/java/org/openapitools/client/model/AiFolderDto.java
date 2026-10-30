@@ -79,6 +79,7 @@ import java.util.StringJoiner;
   AiFolderDto.JSON_PROPERTY_ORDER,
   AiFolderDto.JSON_PROPERTY_IS_FAVORITE,
   AiFolderDto.JSON_PROPERTY_FILE_ENTRY_TYPE,
+  AiFolderDto.JSON_PROPERTY_ENTRY_KIND,
   AiFolderDto.JSON_PROPERTY_ID,
   AiFolderDto.JSON_PROPERTY_ROOT_FOLDER_ID,
   AiFolderDto.JSON_PROPERTY_ORIGIN_ID,
@@ -190,6 +191,9 @@ public class AiFolderDto {
 
   public static final String JSON_PROPERTY_FILE_ENTRY_TYPE = "fileEntryType";
   @javax.annotation.Nullable  private AiFileEntryType fileEntryType;
+
+  public static final String JSON_PROPERTY_ENTRY_KIND = "entryKind";
+  @javax.annotation.Nullable  private String entryKind;
 
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable  private Integer id;
@@ -850,6 +854,30 @@ public class AiFolderDto {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileEntryType(@javax.annotation.Nullable AiFileEntryType fileEntryType) {
     this.fileEntryType = fileEntryType;
+  }
+
+  public AiFolderDto entryKind(@javax.annotation.Nullable String entryKind) {
+    
+    this.entryKind = entryKind;
+    return this;
+  }
+
+  /**
+   * Which concrete type the object is: `file`, `thirdPartyFile`, `folder`, `thirdPartyFolder`. It is what tells the types apart in a list that mixes several of them; a response limited by `fields` may leave it out.
+   * @return entryKind
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENTRY_KIND, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getEntryKind() {
+    return entryKind;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ENTRY_KIND, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEntryKind(@javax.annotation.Nullable String entryKind) {
+    this.entryKind = entryKind;
   }
 
   public AiFolderDto id(@javax.annotation.Nullable Integer id) {
@@ -2043,6 +2071,7 @@ public class AiFolderDto {
         Objects.equals(this.order, aiFolderDto.order) &&
         Objects.equals(this.isFavorite, aiFolderDto.isFavorite) &&
         Objects.equals(this.fileEntryType, aiFolderDto.fileEntryType) &&
+        Objects.equals(this.entryKind, aiFolderDto.entryKind) &&
         Objects.equals(this.id, aiFolderDto.id) &&
         Objects.equals(this.rootFolderId, aiFolderDto.rootFolderId) &&
         Objects.equals(this.originId, aiFolderDto.originId) &&
@@ -2094,7 +2123,7 @@ public class AiFolderDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, shortWebUrl, created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, providerItem, providerKey, providerId, order, isFavorite, fileEntryType, id, rootFolderId, originId, originRoomId, originTitle, originRoomTitle, canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), requestToken, external, expirationDate, isLinkExpired, assignedMetadataTemplates, metadataMatches, parentId, filesCount, foldersCount, hashCodeNullable(isShareable), _new, mute, hashCodeNullable(tags), logo, pinned, roomType, _private, indexing, denyDownload, lifetime, watermark, type, hashCodeNullable(inRoom), hashCodeNullable(quotaLimit), hashCodeNullable(isCustomQuota), hashCodeNullable(usedSpace), hashCodeNullable(passwordProtected), hashCodeNullable(expired), chatSettings, rootRoomType, hashCodeNullable(saveFormAsXLSX), hashCodeNullable(sendFormToExternalDB), hashCodeNullable(originalFormId));
+    return Objects.hash(title, access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, shortWebUrl, created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, providerItem, providerKey, providerId, order, isFavorite, fileEntryType, entryKind, id, rootFolderId, originId, originRoomId, originTitle, originRoomTitle, canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), requestToken, external, expirationDate, isLinkExpired, assignedMetadataTemplates, metadataMatches, parentId, filesCount, foldersCount, hashCodeNullable(isShareable), _new, mute, hashCodeNullable(tags), logo, pinned, roomType, _private, indexing, denyDownload, lifetime, watermark, type, hashCodeNullable(inRoom), hashCodeNullable(quotaLimit), hashCodeNullable(isCustomQuota), hashCodeNullable(usedSpace), hashCodeNullable(passwordProtected), hashCodeNullable(expired), chatSettings, rootRoomType, hashCodeNullable(saveFormAsXLSX), hashCodeNullable(sendFormToExternalDB), hashCodeNullable(originalFormId));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -2130,6 +2159,7 @@ public class AiFolderDto {
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    isFavorite: ").append(toIndentedString(isFavorite)).append("\n");
     sb.append("    fileEntryType: ").append(toIndentedString(fileEntryType)).append("\n");
+    sb.append("    entryKind: ").append(toIndentedString(entryKind)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    rootFolderId: ").append(toIndentedString(rootFolderId)).append("\n");
     sb.append("    originId: ").append(toIndentedString(originId)).append("\n");
@@ -2399,6 +2429,16 @@ public class AiFolderDto {
     if (getFileEntryType() != null) {
       try {
         joiner.add(String.format("%sfileEntryType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFileEntryType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `entryKind` to the URL query string
+    if (getEntryKind() != null) {
+      try {
+        joiner.add(String.format("%sentryKind%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEntryKind()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

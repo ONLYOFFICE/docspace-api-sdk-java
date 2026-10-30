@@ -73198,6 +73198,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
           id: 10
           rootFolderId: 1
           originId: 12
@@ -73275,6 +73276,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
           id: 10
           rootFolderId: 1
           originId: 12
@@ -73596,6 +73598,7 @@ components:
         order: 1.3.2
         isFavorite: true
         fileEntryType: ""
+        entryKind: file
         id: 10
         rootFolderId: 1
         originId: 12
@@ -74115,6 +74118,7 @@ components:
         order: 1.3.2
         isFavorite: true
         fileEntryType: ""
+        entryKind: file
       properties:
         title:
           description: "The name shown for the entry. For a file it carries the extension,\
@@ -74261,6 +74265,13 @@ components:
           - $ref: "#/components/schemas/AiFileEntryType"
           description: "Tells a folder from a file, and so which of the two shapes\
             \ the rest of the object has. A room is reported as a\r\nfolder here."
+        entryKind:
+          description: "Which concrete type the object is: `file`, `thirdPartyFile`,\
+            \ `folder`, `thirdPartyFolder`. It is what tells the types apart in a\
+            \ list that mixes several of them; a response limited by `fields` may\
+            \ leave it out."
+          example: file
+          type: string
       x-derived: true
       x-derived-types:
       - FileDto
@@ -74567,6 +74578,7 @@ components:
               order: 1.3.2
               isFavorite: true
               fileEntryType: ""
+              entryKind: file
             - title: Some title.txt
               access: ""
               sharedBy: ""
@@ -74589,6 +74601,7 @@ components:
               order: 1.3.2
               isFavorite: true
               fileEntryType: ""
+              entryKind: file
           - agent: ""
             items:
             - title: Some title.txt
@@ -74613,6 +74626,7 @@ components:
               order: 1.3.2
               isFavorite: true
               fileEntryType: ""
+              entryKind: file
             - title: Some title.txt
               access: ""
               sharedBy: ""
@@ -74635,6 +74649,7 @@ components:
               order: 1.3.2
               isFavorite: true
               fileEntryType: ""
+              entryKind: file
         - date: ""
           items:
           - agent: ""
@@ -74661,6 +74676,7 @@ components:
               order: 1.3.2
               isFavorite: true
               fileEntryType: ""
+              entryKind: file
             - title: Some title.txt
               access: ""
               sharedBy: ""
@@ -74683,6 +74699,7 @@ components:
               order: 1.3.2
               isFavorite: true
               fileEntryType: ""
+              entryKind: file
           - agent: ""
             items:
             - title: Some title.txt
@@ -74707,6 +74724,7 @@ components:
               order: 1.3.2
               isFavorite: true
               fileEntryType: ""
+              entryKind: file
             - title: Some title.txt
               access: ""
               sharedBy: ""
@@ -74729,6 +74747,7 @@ components:
               order: 1.3.2
               isFavorite: true
               fileEntryType: ""
+              entryKind: file
         count: 0
         links:
         - href: href
@@ -74793,6 +74812,7 @@ components:
             order: 1.3.2
             isFavorite: true
             fileEntryType: ""
+            entryKind: file
           - title: Some title.txt
             access: ""
             sharedBy: ""
@@ -74815,6 +74835,7 @@ components:
             order: 1.3.2
             isFavorite: true
             fileEntryType: ""
+            entryKind: file
         - agent: ""
           items:
           - title: Some title.txt
@@ -74839,6 +74860,7 @@ components:
             order: 1.3.2
             isFavorite: true
             fileEntryType: ""
+            entryKind: file
           - title: Some title.txt
             access: ""
             sharedBy: ""
@@ -74861,6 +74883,7 @@ components:
             order: 1.3.2
             isFavorite: true
             fileEntryType: ""
+            entryKind: file
       properties:
         date:
           allOf:
@@ -74907,6 +74930,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
         - title: Some title.txt
           access: ""
           sharedBy: ""
@@ -74929,6 +74953,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
       properties:
         agent:
           allOf:
@@ -81424,6 +81449,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
           id: 10
           rootFolderId: 1
           originId: 12
@@ -81508,6 +81534,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
           id: 10
           rootFolderId: 1
           originId: 12
@@ -81897,6 +81924,7 @@ components:
         order: 1.3.2
         isFavorite: true
         fileEntryType: ""
+        entryKind: file
         id: 10
         rootFolderId: 1
         originId: 12
@@ -82063,6 +82091,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
           id: 10
           rootFolderId: 1
           originId: 12
@@ -82111,6 +82140,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
           id: 10
           rootFolderId: 1
           originId: 12
@@ -82197,6 +82227,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
         - title: Some title.txt
           access: ""
           sharedBy: ""
@@ -82219,6 +82250,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
         count: 0
         links:
         - href: href
@@ -82255,6 +82287,13 @@ components:
     FileEntryBaseDto:
       description: "What every file and folder in an answer has in common; the concrete\
         \ shape is a file or a folder, told apart by the\r\nentry type."
+      discriminator:
+        mapping:
+          file: "#/components/schemas/FileDto"
+          thirdPartyFile: "#/components/schemas/ThirdPartyFileDto"
+          folder: "#/components/schemas/FolderDto"
+          thirdPartyFolder: "#/components/schemas/ThirdPartyFolderDto"
+        propertyName: entryKind
       example:
         title: Some title.txt
         access: ""
@@ -82278,6 +82317,7 @@ components:
         order: 1.3.2
         isFavorite: true
         fileEntryType: ""
+        entryKind: file
       properties:
         title:
           description: "The name shown for the entry. For a file it carries the extension,\
@@ -82424,6 +82464,13 @@ components:
           - $ref: "#/components/schemas/FileEntryType"
           description: "Tells a folder from a file, and so which of the two shapes\
             \ the rest of the object has. A room is reported as a\r\nfolder here."
+        entryKind:
+          description: "Which concrete type the object is: `file`, `thirdPartyFile`,\
+            \ `folder`, `thirdPartyFolder`. It is what tells the types apart in a\
+            \ list that mixes several of them; a response limited by `fields` may\
+            \ leave it out."
+          example: file
+          type: string
       x-derived: true
       x-derived-types:
       - FileDto
@@ -82596,6 +82643,7 @@ components:
         order: 1.3.2
         isFavorite: true
         fileEntryType: ""
+        entryKind: file
         id: 10
         rootFolderId: 1
         originId: 12
@@ -84465,6 +84513,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
           id: 10
           rootFolderId: 1
           originId: 12
@@ -84542,6 +84591,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
           id: 10
           rootFolderId: 1
           originId: 12
@@ -85040,6 +85090,7 @@ components:
         order: 1.3.2
         isFavorite: true
         fileEntryType: ""
+        entryKind: file
         id: 10
         rootFolderId: 1
         originId: 12
@@ -88313,6 +88364,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
         - title: Some title.txt
           access: ""
           sharedBy: ""
@@ -88335,6 +88387,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
       properties:
         date:
           allOf:
@@ -88384,6 +88437,7 @@ components:
             order: 1.3.2
             isFavorite: true
             fileEntryType: ""
+            entryKind: file
           - title: Some title.txt
             access: ""
             sharedBy: ""
@@ -88406,6 +88460,7 @@ components:
             order: 1.3.2
             isFavorite: true
             fileEntryType: ""
+            entryKind: file
         - room: ""
           items:
           - title: Some title.txt
@@ -88430,6 +88485,7 @@ components:
             order: 1.3.2
             isFavorite: true
             fileEntryType: ""
+            entryKind: file
           - title: Some title.txt
             access: ""
             sharedBy: ""
@@ -88452,6 +88508,7 @@ components:
             order: 1.3.2
             isFavorite: true
             fileEntryType: ""
+            entryKind: file
       properties:
         date:
           allOf:
@@ -88500,6 +88557,7 @@ components:
             order: 1.3.2
             isFavorite: true
             fileEntryType: ""
+            entryKind: file
           - title: Some title.txt
             access: ""
             sharedBy: ""
@@ -88522,6 +88580,7 @@ components:
             order: 1.3.2
             isFavorite: true
             fileEntryType: ""
+            entryKind: file
         - date: ""
           items:
           - title: Some title.txt
@@ -88546,6 +88605,7 @@ components:
             order: 1.3.2
             isFavorite: true
             fileEntryType: ""
+            entryKind: file
           - title: Some title.txt
             access: ""
             sharedBy: ""
@@ -88568,6 +88628,7 @@ components:
             order: 1.3.2
             isFavorite: true
             fileEntryType: ""
+            entryKind: file
         count: 0
         links:
         - href: href
@@ -88633,6 +88694,7 @@ components:
               order: 1.3.2
               isFavorite: true
               fileEntryType: ""
+              entryKind: file
             - title: Some title.txt
               access: ""
               sharedBy: ""
@@ -88655,6 +88717,7 @@ components:
               order: 1.3.2
               isFavorite: true
               fileEntryType: ""
+              entryKind: file
           - room: ""
             items:
             - title: Some title.txt
@@ -88679,6 +88742,7 @@ components:
               order: 1.3.2
               isFavorite: true
               fileEntryType: ""
+              entryKind: file
             - title: Some title.txt
               access: ""
               sharedBy: ""
@@ -88701,6 +88765,7 @@ components:
               order: 1.3.2
               isFavorite: true
               fileEntryType: ""
+              entryKind: file
         - date: ""
           items:
           - room: ""
@@ -88727,6 +88792,7 @@ components:
               order: 1.3.2
               isFavorite: true
               fileEntryType: ""
+              entryKind: file
             - title: Some title.txt
               access: ""
               sharedBy: ""
@@ -88749,6 +88815,7 @@ components:
               order: 1.3.2
               isFavorite: true
               fileEntryType: ""
+              entryKind: file
           - room: ""
             items:
             - title: Some title.txt
@@ -88773,6 +88840,7 @@ components:
               order: 1.3.2
               isFavorite: true
               fileEntryType: ""
+              entryKind: file
             - title: Some title.txt
               access: ""
               sharedBy: ""
@@ -88795,6 +88863,7 @@ components:
               order: 1.3.2
               isFavorite: true
               fileEntryType: ""
+              entryKind: file
         count: 0
         links:
         - href: href
@@ -89903,6 +89972,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
         - title: Some title.txt
           access: ""
           sharedBy: ""
@@ -89925,6 +89995,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
       properties:
         room:
           allOf:
@@ -91568,6 +91639,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
           id: sbox-42
           rootFolderId: sbox-42
           originId: sbox-42
@@ -91652,6 +91724,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
           id: sbox-42
           rootFolderId: sbox-42
           originId: sbox-42
@@ -92033,6 +92106,7 @@ components:
         order: 1.3.2
         isFavorite: true
         fileEntryType: ""
+        entryKind: file
         id: sbox-42
         rootFolderId: sbox-42
         originId: sbox-42
@@ -92265,6 +92339,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
           id: sbox-42
           rootFolderId: sbox-42
           originId: sbox-42
@@ -92342,6 +92417,7 @@ components:
           order: 1.3.2
           isFavorite: true
           fileEntryType: ""
+          entryKind: file
           id: sbox-42
           rootFolderId: sbox-42
           originId: sbox-42
@@ -92766,6 +92842,7 @@ components:
         order: 1.3.2
         isFavorite: true
         fileEntryType: ""
+        entryKind: file
         id: sbox-42
         rootFolderId: sbox-42
         originId: sbox-42

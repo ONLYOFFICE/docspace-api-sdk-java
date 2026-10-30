@@ -66,7 +66,8 @@ import java.util.StringJoiner;
   AiFileEntryBaseDto.JSON_PROPERTY_PROVIDER_ID,
   AiFileEntryBaseDto.JSON_PROPERTY_ORDER,
   AiFileEntryBaseDto.JSON_PROPERTY_IS_FAVORITE,
-  AiFileEntryBaseDto.JSON_PROPERTY_FILE_ENTRY_TYPE
+  AiFileEntryBaseDto.JSON_PROPERTY_FILE_ENTRY_TYPE,
+  AiFileEntryBaseDto.JSON_PROPERTY_ENTRY_KIND
 })
 
 public class AiFileEntryBaseDto {
@@ -135,6 +136,9 @@ public class AiFileEntryBaseDto {
 
   public static final String JSON_PROPERTY_FILE_ENTRY_TYPE = "fileEntryType";
   @javax.annotation.Nullable  private AiFileEntryType fileEntryType;
+
+  public static final String JSON_PROPERTY_ENTRY_KIND = "entryKind";
+  @javax.annotation.Nullable  private String entryKind;
 
   public AiFileEntryBaseDto() {
   }
@@ -717,6 +721,30 @@ public class AiFileEntryBaseDto {
     this.fileEntryType = fileEntryType;
   }
 
+  public AiFileEntryBaseDto entryKind(@javax.annotation.Nullable String entryKind) {
+    
+    this.entryKind = entryKind;
+    return this;
+  }
+
+  /**
+   * Which concrete type the object is: `file`, `thirdPartyFile`, `folder`, `thirdPartyFolder`. It is what tells the types apart in a list that mixes several of them; a response limited by `fields` may leave it out.
+   * @return entryKind
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENTRY_KIND, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getEntryKind() {
+    return entryKind;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ENTRY_KIND, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEntryKind(@javax.annotation.Nullable String entryKind) {
+    this.entryKind = entryKind;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -747,7 +775,8 @@ public class AiFileEntryBaseDto {
         equalsNullable(this.providerId, aiFileEntryBaseDto.providerId) &&
         equalsNullable(this.order, aiFileEntryBaseDto.order) &&
         equalsNullable(this.isFavorite, aiFileEntryBaseDto.isFavorite) &&
-        Objects.equals(this.fileEntryType, aiFileEntryBaseDto.fileEntryType);
+        Objects.equals(this.fileEntryType, aiFileEntryBaseDto.fileEntryType) &&
+        Objects.equals(this.entryKind, aiFileEntryBaseDto.entryKind);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -756,7 +785,7 @@ public class AiFileEntryBaseDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(title), access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, hashCodeNullable(shortWebUrl), created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), fileEntryType);
+    return Objects.hash(hashCodeNullable(title), access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, hashCodeNullable(shortWebUrl), created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, hashCodeNullable(providerItem), hashCodeNullable(providerKey), hashCodeNullable(providerId), hashCodeNullable(order), hashCodeNullable(isFavorite), fileEntryType, entryKind);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -792,6 +821,7 @@ public class AiFileEntryBaseDto {
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    isFavorite: ").append(toIndentedString(isFavorite)).append("\n");
     sb.append("    fileEntryType: ").append(toIndentedString(fileEntryType)).append("\n");
+    sb.append("    entryKind: ").append(toIndentedString(entryKind)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1018,6 +1048,16 @@ public class AiFileEntryBaseDto {
     if (getFileEntryType() != null) {
       try {
         joiner.add(String.format("%sfileEntryType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFileEntryType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `entryKind` to the URL query string
+    if (getEntryKind() != null) {
+      try {
+        joiner.add(String.format("%sentryKind%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEntryKind()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

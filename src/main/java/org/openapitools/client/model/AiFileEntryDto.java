@@ -74,6 +74,7 @@ import java.util.StringJoiner;
   AiFileEntryDto.JSON_PROPERTY_ORDER,
   AiFileEntryDto.JSON_PROPERTY_IS_FAVORITE,
   AiFileEntryDto.JSON_PROPERTY_FILE_ENTRY_TYPE,
+  AiFileEntryDto.JSON_PROPERTY_ENTRY_KIND,
   AiFileEntryDto.JSON_PROPERTY_ID,
   AiFileEntryDto.JSON_PROPERTY_ROOT_FOLDER_ID,
   AiFileEntryDto.JSON_PROPERTY_ORIGIN_ID,
@@ -158,6 +159,9 @@ public class AiFileEntryDto {
 
   public static final String JSON_PROPERTY_FILE_ENTRY_TYPE = "fileEntryType";
   @javax.annotation.Nullable  private AiFileEntryType fileEntryType;
+
+  public static final String JSON_PROPERTY_ENTRY_KIND = "entryKind";
+  @javax.annotation.Nullable  private String entryKind;
 
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable  private Integer id;
@@ -739,6 +743,30 @@ public class AiFileEntryDto {
     this.fileEntryType = fileEntryType;
   }
 
+  public AiFileEntryDto entryKind(@javax.annotation.Nullable String entryKind) {
+    
+    this.entryKind = entryKind;
+    return this;
+  }
+
+  /**
+   * Which concrete type the object is: `file`, `thirdPartyFile`, `folder`, `thirdPartyFolder`. It is what tells the types apart in a list that mixes several of them; a response limited by `fields` may leave it out.
+   * @return entryKind
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_ENTRY_KIND, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getEntryKind() {
+    return entryKind;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ENTRY_KIND, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEntryKind(@javax.annotation.Nullable String entryKind) {
+    this.entryKind = entryKind;
+  }
+
   public AiFileEntryDto id(@javax.annotation.Nullable Integer id) {
     
     this.id = id;
@@ -1248,6 +1276,7 @@ public class AiFileEntryDto {
         Objects.equals(this.order, aiFileEntryDto.order) &&
         Objects.equals(this.isFavorite, aiFileEntryDto.isFavorite) &&
         Objects.equals(this.fileEntryType, aiFileEntryDto.fileEntryType) &&
+        Objects.equals(this.entryKind, aiFileEntryDto.entryKind) &&
         Objects.equals(this.id, aiFileEntryDto.id) &&
         Objects.equals(this.rootFolderId, aiFileEntryDto.rootFolderId) &&
         Objects.equals(this.originId, aiFileEntryDto.originId) &&
@@ -1272,7 +1301,7 @@ public class AiFileEntryDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, shortWebUrl, created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, providerItem, providerKey, providerId, order, isFavorite, fileEntryType, id, rootFolderId, originId, originRoomId, hashCodeNullable(originTitle), hashCodeNullable(originRoomTitle), canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), hashCodeNullable(requestToken), hashCodeNullable(external), expirationDate, hashCodeNullable(isLinkExpired), hashCodeNullable(assignedMetadataTemplates), hashCodeNullable(metadataMatches));
+    return Objects.hash(title, access, sharedBy, ownedBy, shared, sharedForUser, sharedExternal, parentShared, shortWebUrl, created, createdBy, updated, autoDelete, rootFolderType, parentRoomType, updatedBy, providerItem, providerKey, providerId, order, isFavorite, fileEntryType, entryKind, id, rootFolderId, originId, originRoomId, hashCodeNullable(originTitle), hashCodeNullable(originRoomTitle), canShare, hashCodeNullable(shareSettings), hashCodeNullable(security), hashCodeNullable(availableShareRights), hashCodeNullable(requestToken), hashCodeNullable(external), expirationDate, hashCodeNullable(isLinkExpired), hashCodeNullable(assignedMetadataTemplates), hashCodeNullable(metadataMatches));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1308,6 +1337,7 @@ public class AiFileEntryDto {
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    isFavorite: ").append(toIndentedString(isFavorite)).append("\n");
     sb.append("    fileEntryType: ").append(toIndentedString(fileEntryType)).append("\n");
+    sb.append("    entryKind: ").append(toIndentedString(entryKind)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    rootFolderId: ").append(toIndentedString(rootFolderId)).append("\n");
     sb.append("    originId: ").append(toIndentedString(originId)).append("\n");
@@ -1550,6 +1580,16 @@ public class AiFileEntryDto {
     if (getFileEntryType() != null) {
       try {
         joiner.add(String.format("%sfileEntryType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFileEntryType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `entryKind` to the URL query string
+    if (getEntryKind() != null) {
+      try {
+        joiner.add(String.format("%sentryKind%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEntryKind()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

@@ -3,6 +3,8 @@
 # AiVectorizationStartTask200Response
 
 
+Inherits from [HashMap<String, Object>](HashMap<String, Object>.md).
+
 ## Properties
 
 | Name | Type | Description | Notes |
