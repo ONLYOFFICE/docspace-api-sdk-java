@@ -29,8 +29,6 @@ import org.openapitools.client.model.BatchRequestDto;
 import org.openapitools.client.model.BooleanWrapper;
 import org.openapitools.client.model.CheckConversionRequestDto;
 import org.openapitools.client.model.CheckDestFolderWrapper;
-import org.openapitools.client.model.CheckMoveOrCopyBatchItemsDestFolderIdParameter;
-import org.openapitools.client.model.CheckMoveOrCopyBatchItemsFolderIdsParameterInner;
 import org.openapitools.client.model.ChunkedUploadSessionResultWrapper;
 import org.openapitools.client.model.ChunkedUploadSessionWrapper;
 import org.openapitools.client.model.ConversationResultArrayWrapper;
@@ -598,7 +596,7 @@ public class OperationsApi extends BaseApi {
    * @return FileEntryBaseArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileEntryBaseArrayWrapper checkMoveOrCopyBatchItems(@javax.annotation.Nullable Boolean returnSingleOperation, @javax.annotation.Nullable List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner> folderIds, @javax.annotation.Nullable List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner> fileIds, @javax.annotation.Nullable CheckMoveOrCopyBatchItemsDestFolderIdParameter destFolderId, @javax.annotation.Nullable FileConflictResolveType conflictResolveType, @javax.annotation.Nullable Boolean deleteAfter, @javax.annotation.Nullable Boolean content, @javax.annotation.Nullable Boolean toFillOut) throws ApiException {
+  public FileEntryBaseArrayWrapper checkMoveOrCopyBatchItems(@javax.annotation.Nullable Boolean returnSingleOperation, @javax.annotation.Nullable List<String> folderIds, @javax.annotation.Nullable List<String> fileIds, @javax.annotation.Nullable String destFolderId, @javax.annotation.Nullable FileConflictResolveType conflictResolveType, @javax.annotation.Nullable Boolean deleteAfter, @javax.annotation.Nullable Boolean content, @javax.annotation.Nullable Boolean toFillOut) throws ApiException {
     return this.checkMoveOrCopyBatchItems(returnSingleOperation, folderIds, fileIds, destFolderId, conflictResolveType, deleteAfter, content, toFillOut, Collections.emptyMap());
   }
 
@@ -622,7 +620,7 @@ public class OperationsApi extends BaseApi {
    * @return FileEntryBaseArrayWrapper
    * @throws ApiException if fails to make API call
    */
-  public FileEntryBaseArrayWrapper checkMoveOrCopyBatchItems(@javax.annotation.Nullable Boolean returnSingleOperation, @javax.annotation.Nullable List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner> folderIds, @javax.annotation.Nullable List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner> fileIds, @javax.annotation.Nullable CheckMoveOrCopyBatchItemsDestFolderIdParameter destFolderId, @javax.annotation.Nullable FileConflictResolveType conflictResolveType, @javax.annotation.Nullable Boolean deleteAfter, @javax.annotation.Nullable Boolean content, @javax.annotation.Nullable Boolean toFillOut, Map<String, String> additionalHeaders) throws ApiException {
+  public FileEntryBaseArrayWrapper checkMoveOrCopyBatchItems(@javax.annotation.Nullable Boolean returnSingleOperation, @javax.annotation.Nullable List<String> folderIds, @javax.annotation.Nullable List<String> fileIds, @javax.annotation.Nullable String destFolderId, @javax.annotation.Nullable FileConflictResolveType conflictResolveType, @javax.annotation.Nullable Boolean deleteAfter, @javax.annotation.Nullable Boolean content, @javax.annotation.Nullable Boolean toFillOut, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -639,7 +637,7 @@ public class OperationsApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("returnSingleOperation", returnSingleOperation));
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "folderIds", folderIds));
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "fileIds", fileIds));
-    localVarQueryStringJoiner.add(destFolderId.toUrlQueryString());
+    localVarQueryParams.addAll(apiClient.parameterToPair("destFolderId", destFolderId));
     localVarQueryParams.addAll(apiClient.parameterToPair("conflictResolveType", conflictResolveType));
     localVarQueryParams.addAll(apiClient.parameterToPair("deleteAfter", deleteAfter));
     localVarQueryParams.addAll(apiClient.parameterToPair("content", content));
@@ -698,7 +696,7 @@ public class OperationsApi extends BaseApi {
    * @return CheckDestFolderWrapper
    * @throws ApiException if fails to make API call
    */
-  public CheckDestFolderWrapper checkMoveOrCopyDestFolder(@javax.annotation.Nullable Boolean returnSingleOperation, @javax.annotation.Nullable List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner> folderIds, @javax.annotation.Nullable List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner> fileIds, @javax.annotation.Nullable CheckMoveOrCopyBatchItemsDestFolderIdParameter destFolderId, @javax.annotation.Nullable FileConflictResolveType conflictResolveType, @javax.annotation.Nullable Boolean deleteAfter, @javax.annotation.Nullable Boolean content, @javax.annotation.Nullable Boolean toFillOut) throws ApiException {
+  public CheckDestFolderWrapper checkMoveOrCopyDestFolder(@javax.annotation.Nullable Boolean returnSingleOperation, @javax.annotation.Nullable List<String> folderIds, @javax.annotation.Nullable List<String> fileIds, @javax.annotation.Nullable String destFolderId, @javax.annotation.Nullable FileConflictResolveType conflictResolveType, @javax.annotation.Nullable Boolean deleteAfter, @javax.annotation.Nullable Boolean content, @javax.annotation.Nullable Boolean toFillOut) throws ApiException {
     return this.checkMoveOrCopyDestFolder(returnSingleOperation, folderIds, fileIds, destFolderId, conflictResolveType, deleteAfter, content, toFillOut, Collections.emptyMap());
   }
 
@@ -722,7 +720,7 @@ public class OperationsApi extends BaseApi {
    * @return CheckDestFolderWrapper
    * @throws ApiException if fails to make API call
    */
-  public CheckDestFolderWrapper checkMoveOrCopyDestFolder(@javax.annotation.Nullable Boolean returnSingleOperation, @javax.annotation.Nullable List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner> folderIds, @javax.annotation.Nullable List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner> fileIds, @javax.annotation.Nullable CheckMoveOrCopyBatchItemsDestFolderIdParameter destFolderId, @javax.annotation.Nullable FileConflictResolveType conflictResolveType, @javax.annotation.Nullable Boolean deleteAfter, @javax.annotation.Nullable Boolean content, @javax.annotation.Nullable Boolean toFillOut, Map<String, String> additionalHeaders) throws ApiException {
+  public CheckDestFolderWrapper checkMoveOrCopyDestFolder(@javax.annotation.Nullable Boolean returnSingleOperation, @javax.annotation.Nullable List<String> folderIds, @javax.annotation.Nullable List<String> fileIds, @javax.annotation.Nullable String destFolderId, @javax.annotation.Nullable FileConflictResolveType conflictResolveType, @javax.annotation.Nullable Boolean deleteAfter, @javax.annotation.Nullable Boolean content, @javax.annotation.Nullable Boolean toFillOut, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -739,7 +737,7 @@ public class OperationsApi extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("returnSingleOperation", returnSingleOperation));
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "folderIds", folderIds));
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "fileIds", fileIds));
-    localVarQueryStringJoiner.add(destFolderId.toUrlQueryString());
+    localVarQueryParams.addAll(apiClient.parameterToPair("destFolderId", destFolderId));
     localVarQueryParams.addAll(apiClient.parameterToPair("conflictResolveType", conflictResolveType));
     localVarQueryParams.addAll(apiClient.parameterToPair("deleteAfter", deleteAfter));
     localVarQueryParams.addAll(apiClient.parameterToPair("content", content));

@@ -4635,8 +4635,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [org.openapitools.client.model.CheckDestFolderWrapper](docs/CheckDestFolderWrapper.md)
  - [org.openapitools.client.model.CheckDocServiceUrlRequestDto](docs/CheckDocServiceUrlRequestDto.md)
  - [org.openapitools.client.model.CheckFillFormDraftRequest](docs/CheckFillFormDraftRequest.md)
- - [org.openapitools.client.model.CheckMoveOrCopyBatchItemsDestFolderIdParameter](docs/CheckMoveOrCopyBatchItemsDestFolderIdParameter.md)
- - [org.openapitools.client.model.CheckMoveOrCopyBatchItemsFolderIdsParameterInner](docs/CheckMoveOrCopyBatchItemsFolderIdsParameterInner.md)
  - [org.openapitools.client.model.CheckUploadRequest](docs/CheckUploadRequest.md)
  - [org.openapitools.client.model.ChunkedUploadSessionDto](docs/ChunkedUploadSessionDto.md)
  - [org.openapitools.client.model.ChunkedUploadSessionResultDto](docs/ChunkedUploadSessionResultDto.md)
