@@ -42,6 +42,7 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   DocServiceUrlWrapper.JSON_PROPERTY_RESPONSE,
   DocServiceUrlWrapper.JSON_PROPERTY_COUNT,
+  DocServiceUrlWrapper.JSON_PROPERTY_TOTAL,
   DocServiceUrlWrapper.JSON_PROPERTY_LINKS,
   DocServiceUrlWrapper.JSON_PROPERTY_STATUS,
   DocServiceUrlWrapper.JSON_PROPERTY_STATUS_CODE
@@ -53,6 +54,9 @@ public class DocServiceUrlWrapper {
 
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable  private Integer count;
+
+  public static final String JSON_PROPERTY_TOTAL = "total";
+  @javax.annotation.Nullable  private Long total;
 
   public static final String JSON_PROPERTY_LINKS = "links";
   @javax.annotation.Nullable  private List<GetPortalPrices200ResponseLinksInner> links = new ArrayList<>();
@@ -98,7 +102,7 @@ public class DocServiceUrlWrapper {
   }
 
   /**
-   * The total number of items in the response
+   * How many items this response carries: the length of the page for a list, 1 for a single object
    * @return count
    */
   @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_COUNT, required = false)
@@ -113,6 +117,30 @@ public class DocServiceUrlWrapper {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCount(@javax.annotation.Nullable Integer count) {
     this.count = count;
+  }
+
+  public DocServiceUrlWrapper total(@javax.annotation.Nullable Long total) {
+    
+    this.total = total;
+    return this;
+  }
+
+  /**
+   * How many items the whole list holds across all pages, for working out how many pages to request. Sent only by the operations that page their results, and left out of every other response
+   * @return total
+   */
+  @javax.annotation.Nullable  @JsonProperty(value = JSON_PROPERTY_TOTAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getTotal() {
+    return total;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_TOTAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTotal(@javax.annotation.Nullable Long total) {
+    this.total = total;
   }
 
   public DocServiceUrlWrapper links(@javax.annotation.Nullable List<GetPortalPrices200ResponseLinksInner> links) {
@@ -206,6 +234,7 @@ public class DocServiceUrlWrapper {
     DocServiceUrlWrapper docServiceUrlWrapper = (DocServiceUrlWrapper) o;
     return Objects.equals(this.response, docServiceUrlWrapper.response) &&
         Objects.equals(this.count, docServiceUrlWrapper.count) &&
+        Objects.equals(this.total, docServiceUrlWrapper.total) &&
         Objects.equals(this.links, docServiceUrlWrapper.links) &&
         Objects.equals(this.status, docServiceUrlWrapper.status) &&
         Objects.equals(this.statusCode, docServiceUrlWrapper.statusCode);
@@ -213,7 +242,7 @@ public class DocServiceUrlWrapper {
 
   @Override
   public int hashCode() {
-    return Objects.hash(response, count, links, status, statusCode);
+    return Objects.hash(response, count, total, links, status, statusCode);
   }
 
   @Override
@@ -222,6 +251,7 @@ public class DocServiceUrlWrapper {
     sb.append("class DocServiceUrlWrapper {\n");
     sb.append("    response: ").append(toIndentedString(response)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
@@ -281,6 +311,16 @@ public class DocServiceUrlWrapper {
     if (getCount() != null) {
       try {
         joiner.add(String.format("%scount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `total` to the URL query string
+    if (getTotal() != null) {
+      try {
+        joiner.add(String.format("%stotal%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTotal()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
